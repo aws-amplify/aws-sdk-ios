@@ -5672,308 +5672,308 @@
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 206,
+      "line": 213,
       "symbol": "AWSUICKeyChainStore(ErrorHandling)",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.category",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 208,
+      "line": 215,
       "symbol": "AWSUICKeyChainStore.+stringForKey:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 209,
+      "line": 216,
       "symbol": "AWSUICKeyChainStore.+stringForKey:service:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 210,
+      "line": 217,
       "symbol": "AWSUICKeyChainStore.+stringForKey:service:accessGroup:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 212,
+      "line": 219,
       "symbol": "AWSUICKeyChainStore.+setString:forKey:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 213,
+      "line": 220,
       "symbol": "AWSUICKeyChainStore.+setString:forKey:service:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 214,
+      "line": 221,
       "symbol": "AWSUICKeyChainStore.+setString:forKey:service:accessGroup:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 216,
+      "line": 223,
       "symbol": "AWSUICKeyChainStore.+dataForKey:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 217,
+      "line": 224,
       "symbol": "AWSUICKeyChainStore.+dataForKey:service:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 218,
+      "line": 225,
       "symbol": "AWSUICKeyChainStore.+dataForKey:service:accessGroup:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 220,
+      "line": 227,
       "symbol": "AWSUICKeyChainStore.+setData:forKey:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 221,
+      "line": 228,
       "symbol": "AWSUICKeyChainStore.+setData:forKey:service:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 222,
+      "line": 229,
       "symbol": "AWSUICKeyChainStore.+setData:forKey:service:accessGroup:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 224,
+      "line": 231,
       "symbol": "AWSUICKeyChainStore.-setString:forKey:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 225,
+      "line": 232,
       "symbol": "AWSUICKeyChainStore.-setString:forKey:label:comment:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 227,
+      "line": 234,
       "symbol": "AWSUICKeyChainStore.-setData:forKey:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 228,
+      "line": 235,
       "symbol": "AWSUICKeyChainStore.-setData:forKey:label:comment:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 230,
+      "line": 237,
       "symbol": "AWSUICKeyChainStore.-stringForKey:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 231,
+      "line": 238,
       "symbol": "AWSUICKeyChainStore.-dataForKey:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 233,
+      "line": 240,
       "symbol": "AWSUICKeyChainStore.+removeItemForKey:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 234,
+      "line": 241,
       "symbol": "AWSUICKeyChainStore.+removeItemForKey:service:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 235,
+      "line": 242,
       "symbol": "AWSUICKeyChainStore.+removeItemForKey:service:accessGroup:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 237,
+      "line": 244,
       "symbol": "AWSUICKeyChainStore.+removeAllItemsWithError:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 238,
+      "line": 245,
       "symbol": "AWSUICKeyChainStore.+removeAllItemsForService:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 239,
+      "line": 246,
       "symbol": "AWSUICKeyChainStore.+removeAllItemsForService:accessGroup:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 241,
+      "line": 248,
       "symbol": "AWSUICKeyChainStore.-removeItemForKey:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 242,
+      "line": 249,
       "symbol": "AWSUICKeyChainStore.-removeAllItemsWithError:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 246,
+      "line": 253,
       "symbol": "AWSUICKeyChainStore(ForwardCompatibility)",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.category",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 248,
+      "line": 255,
       "symbol": "AWSUICKeyChainStore.+setString:forKey:genericAttribute:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 249,
+      "line": 256,
       "symbol": "AWSUICKeyChainStore.+setString:forKey:genericAttribute:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 251,
+      "line": 258,
       "symbol": "AWSUICKeyChainStore.+setString:forKey:service:genericAttribute:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 252,
+      "line": 259,
       "symbol": "AWSUICKeyChainStore.+setString:forKey:service:genericAttribute:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 254,
+      "line": 261,
       "symbol": "AWSUICKeyChainStore.+setString:forKey:service:accessGroup:genericAttribute:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 255,
+      "line": 262,
       "symbol": "AWSUICKeyChainStore.+setString:forKey:service:accessGroup:genericAttribute:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 257,
+      "line": 264,
       "symbol": "AWSUICKeyChainStore.+setData:forKey:genericAttribute:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 258,
+      "line": 265,
       "symbol": "AWSUICKeyChainStore.+setData:forKey:genericAttribute:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 260,
+      "line": 267,
       "symbol": "AWSUICKeyChainStore.+setData:forKey:service:genericAttribute:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 261,
+      "line": 268,
       "symbol": "AWSUICKeyChainStore.+setData:forKey:service:genericAttribute:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 263,
+      "line": 270,
       "symbol": "AWSUICKeyChainStore.+setData:forKey:service:accessGroup:genericAttribute:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 264,
+      "line": 271,
       "symbol": "AWSUICKeyChainStore.+setData:forKey:service:accessGroup:genericAttribute:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 266,
+      "line": 273,
       "symbol": "AWSUICKeyChainStore.-setString:forKey:genericAttribute:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 267,
+      "line": 274,
       "symbol": "AWSUICKeyChainStore.-setString:forKey:genericAttribute:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 269,
+      "line": 276,
       "symbol": "AWSUICKeyChainStore.-setData:forKey:genericAttribute:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
-      "line": 270,
+      "line": 277,
       "symbol": "AWSUICKeyChainStore.-setData:forKey:genericAttribute:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
