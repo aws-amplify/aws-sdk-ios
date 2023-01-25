@@ -200,6 +200,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         _useSFAuthenticationSession = authConfiguration.isSFAuthenticationSessionEnabled;
         _sfAuthenticationSessionAvailable = NO;
         _keychain = [AWSCognitoAuthUICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@", [NSBundle mainBundle].bundleIdentifier, @"AWSCognitoIdentityUserPool"]];  //Consistent with AWSCognitoIdentityUserPool
+        [_keychain migrateToCurrentAccessibility];
     }
     return self;
 }
