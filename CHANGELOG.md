@@ -1,6 +1,52 @@
-# AWS Mobile SDK for iOS CHANGELOG
 
+# AWS Mobile SDK for iOS CHANGELOG
 ## Unreleased
+
+-Features for next release
+
+## 2.30.1
+
+### Misc. Updates
+
+- **Auth**
+  - Added migration of keychain to the current accessibility level set for different Auth SDK. This will enabled keychain items that are stored in different accessibility level to get fixed to the current accessibility. (See [PR #4516](https://github.com/aws-amplify/aws-sdk-ios/pull/4516))
+
+
+## 2.30.0
+
+### New features
+- **AWSCore**
+  - Support for `ap-southeast-4` - Asia Pacific (Melbourne) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
+
+
+### Misc. Updates
+- Model updates for the following services
+  -AWSCloudWatchLogs
+  -AWSConnect
+  -AWSConnectParticipant
+  -AWSComprehend
+  -AWSEC2
+  -AWSLambda
+  -AWSLocation
+
+## 2.29.1
+
+### Bug Fixes
+
+- **AWSMobileclient**
+    - Fix an issue where keychain values are in an invalid state when migrating to a new device with iCloud backup. (See [PR #4480](https://github.com/aws-amplify/aws-sdk-ios/pull/4480))
+
+## 2.29.0
+
+### Misc. Updates
+- **AWSAPIGateway**
+  - Update cache control to disable caching by default. This can be overridden by setting the `Cache-Control` request header. (See [PR #4478](https://github.com/aws-amplify/aws-sdk-ios/pull/4478))
+
+- Model updates for the following services
+  - AWSConnect
+  - Breaking change to AWSConnectParticipant
+
+## 2.28.6
 
 ### New features
 - **AWSTranscribeStreaming**
@@ -37,6 +83,7 @@
   - AWSComprehend
   - AWSRekognition
   - AWSSNS
+  - AWSAutoScaling
 
 ## 2.28.5
 

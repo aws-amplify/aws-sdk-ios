@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -32,6 +32,8 @@
 - (void) test_AWSConnectParticipantGetTranscriptRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantGetTranscriptResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantItem API_AVAILABLE(ios(11));
+- (void) test_AWSConnectParticipantMessageMetadata API_AVAILABLE(ios(11));
+- (void) test_AWSConnectParticipantReceipt API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantSendEventRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantSendEventResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantSendMessageRequest API_AVAILABLE(ios(11));
@@ -96,6 +98,14 @@
 
 - (void) test_AWSConnectParticipantItem {
     [self validateSecureCodingForClass:[AWSConnectParticipantItem class]];
+}
+
+- (void) test_AWSConnectParticipantMessageMetadata {
+    [self validateSecureCodingForClass:[AWSConnectParticipantMessageMetadata class]];
+}
+
+- (void) test_AWSConnectParticipantReceipt {
+    [self validateSecureCodingForClass:[AWSConnectParticipantReceipt class]];
 }
 
 - (void) test_AWSConnectParticipantSendEventRequest {

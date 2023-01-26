@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -288,18 +288,25 @@ NSString *const AWSConnectParticipantErrorDomain = @"com.amazonaws.AWSConnectPar
 	return @{
              @"absoluteTime" : @"AbsoluteTime",
              @"attachments" : @"Attachments",
+             @"contactId" : @"ContactId",
              @"content" : @"Content",
              @"contentType" : @"ContentType",
              @"displayName" : @"DisplayName",
              @"identifier" : @"Id",
+             @"messageMetadata" : @"MessageMetadata",
              @"participantId" : @"ParticipantId",
              @"participantRole" : @"ParticipantRole",
+             @"relatedContactId" : @"RelatedContactId",
              @"types" : @"Type",
              };
 }
 
 + (NSValueTransformer *)attachmentsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectParticipantAttachmentItem class]];
+}
+
++ (NSValueTransformer *)messageMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectParticipantMessageMetadata class]];
 }
 
 + (NSValueTransformer *)participantRoleJSONTransformer {
@@ -360,17 +367,11 @@ NSString *const AWSConnectParticipantErrorDomain = @"com.amazonaws.AWSConnectPar
         if ([value caseInsensitiveCompare:@"CONNECTION_ACK"] == NSOrderedSame) {
             return @(AWSConnectParticipantChatItemTypeConnectionAck);
         }
-        if ([value caseInsensitiveCompare:@"PARTICIPANT_ACTIVE"] == NSOrderedSame) {
-            return @(AWSConnectParticipantChatItemTypeParticipantActive);
+        if ([value caseInsensitiveCompare:@"MESSAGE_DELIVERED"] == NSOrderedSame) {
+            return @(AWSConnectParticipantChatItemTypeMessageDelivered);
         }
-        if ([value caseInsensitiveCompare:@"PARTICIPANT_INACTIVE"] == NSOrderedSame) {
-            return @(AWSConnectParticipantChatItemTypeParticipantInactive);
-        }
-        if ([value caseInsensitiveCompare:@"PARTICIPANT_ENGAGED"] == NSOrderedSame) {
-            return @(AWSConnectParticipantChatItemTypeParticipantEngaged);
-        }
-        if ([value caseInsensitiveCompare:@"PARTICIPANT_DISENGAGED"] == NSOrderedSame) {
-            return @(AWSConnectParticipantChatItemTypeParticipantDisengaged);
+        if ([value caseInsensitiveCompare:@"MESSAGE_READ"] == NSOrderedSame) {
+            return @(AWSConnectParticipantChatItemTypeMessageRead);
         }
         return @(AWSConnectParticipantChatItemTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
@@ -395,18 +396,49 @@ NSString *const AWSConnectParticipantErrorDomain = @"com.amazonaws.AWSConnectPar
                 return @"ATTACHMENT";
             case AWSConnectParticipantChatItemTypeConnectionAck:
                 return @"CONNECTION_ACK";
-            case AWSConnectParticipantChatItemTypeParticipantActive:
-                return @"PARTICIPANT_ACTIVE";
-            case AWSConnectParticipantChatItemTypeParticipantInactive:
-                return @"PARTICIPANT_INACTIVE";
-            case AWSConnectParticipantChatItemTypeParticipantEngaged:
-                return @"PARTICIPANT_ENGAGED";
-            case AWSConnectParticipantChatItemTypeParticipantDisengaged:
-                return @"PARTICIPANT_DISENGAGED";
+            case AWSConnectParticipantChatItemTypeMessageDelivered:
+                return @"MESSAGE_DELIVERED";
+            case AWSConnectParticipantChatItemTypeMessageRead:
+                return @"MESSAGE_READ";
             default:
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSConnectParticipantMessageMetadata
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"messageId" : @"MessageId",
+             @"receipts" : @"Receipts",
+             };
+}
+
++ (NSValueTransformer *)receiptsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectParticipantReceipt class]];
+}
+
+@end
+
+@implementation AWSConnectParticipantReceipt
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deliveredTimestamp" : @"DeliveredTimestamp",
+             @"readTimestamp" : @"ReadTimestamp",
+             @"recipientParticipantId" : @"RecipientParticipantId",
+             };
 }
 
 @end

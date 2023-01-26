@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -118,6 +118,8 @@ typedef NS_ENUM(NSInteger, AWSConnectContactInitiationMethod) {
     AWSConnectContactInitiationMethodQueueTransfer,
     AWSConnectContactInitiationMethodCallback,
     AWSConnectContactInitiationMethodApi,
+    AWSConnectContactInitiationMethodDisconnect,
+    AWSConnectContactInitiationMethodMonitor,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectContactState) {
@@ -176,6 +178,7 @@ typedef NS_ENUM(NSInteger, AWSConnectGrouping) {
     AWSConnectGroupingUnknown,
     AWSConnectGroupingQueue,
     AWSConnectGroupingChannel,
+    AWSConnectGroupingRoutingProfile,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectHierarchyGroupMatchType) {
@@ -286,6 +289,17 @@ typedef NS_ENUM(NSInteger, AWSConnectNotificationContentType) {
 typedef NS_ENUM(NSInteger, AWSConnectNotificationDeliveryType) {
     AWSConnectNotificationDeliveryTypeUnknown,
     AWSConnectNotificationDeliveryTypeEmail,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectParticipantTimerAction) {
+    AWSConnectParticipantTimerActionUnknown,
+    AWSConnectParticipantTimerActionUnset,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectParticipantTimerType) {
+    AWSConnectParticipantTimerTypeUnknown,
+    AWSConnectParticipantTimerTypeIdle,
+    AWSConnectParticipantTimerTypeDisconnectNoncustomer,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectPhoneNumberCountryCode) {
@@ -593,6 +607,12 @@ typedef NS_ENUM(NSInteger, AWSConnectReferenceType) {
     AWSConnectReferenceTypeEmail,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectRehydrationType) {
+    AWSConnectRehydrationTypeUnknown,
+    AWSConnectRehydrationTypeEntirePastSession,
+    AWSConnectRehydrationTypeFromSegment,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectResourceType) {
     AWSConnectResourceTypeUnknown,
     AWSConnectResourceTypeContact,
@@ -613,6 +633,12 @@ typedef NS_ENUM(NSInteger, AWSConnectRulePublishStatus) {
 typedef NS_ENUM(NSInteger, AWSConnectSearchableQueueType) {
     AWSConnectSearchableQueueTypeUnknown,
     AWSConnectSearchableQueueTypeStandard,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectSortOrder) {
+    AWSConnectSortOrderUnknown,
+    AWSConnectSortOrderAscending,
+    AWSConnectSortOrderDescending,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectSourceType) {
@@ -663,6 +689,12 @@ typedef NS_ENUM(NSInteger, AWSConnectTaskTemplateStatus) {
     AWSConnectTaskTemplateStatusUnknown,
     AWSConnectTaskTemplateStatusActive,
     AWSConnectTaskTemplateStatusInactive,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectTimerEligibleParticipantRoles) {
+    AWSConnectTimerEligibleParticipantRolesUnknown,
+    AWSConnectTimerEligibleParticipantRolesCustomer,
+    AWSConnectTimerEligibleParticipantRolesAgent,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectTrafficDistributionGroupStatus) {
@@ -761,6 +793,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectAttribute;
 @class AWSConnectAvailableNumberSummary;
 @class AWSConnectChatMessage;
+@class AWSConnectChatParticipantRoleConfig;
 @class AWSConnectChatStreamingConfiguration;
 @class AWSConnectClaimPhoneNumberRequest;
 @class AWSConnectClaimPhoneNumberResponse;
@@ -810,11 +843,13 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectCurrentMetric;
 @class AWSConnectCurrentMetricData;
 @class AWSConnectCurrentMetricResult;
+@class AWSConnectCurrentMetricSortCriteria;
 @class AWSConnectDateReference;
 @class AWSConnectDefaultVocabulary;
 @class AWSConnectDeleteContactFlowModuleRequest;
 @class AWSConnectDeleteContactFlowModuleResponse;
 @class AWSConnectDeleteContactFlowRequest;
+@class AWSConnectDeleteContactFlowResponse;
 @class AWSConnectDeleteHoursOfOperationRequest;
 @class AWSConnectDeleteInstanceRequest;
 @class AWSConnectDeleteIntegrationAssociationRequest;
@@ -1000,6 +1035,9 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectNumberReference;
 @class AWSConnectOutboundCallerConfig;
 @class AWSConnectParticipantDetails;
+@class AWSConnectParticipantTimerConfiguration;
+@class AWSConnectParticipantTimerValue;
+@class AWSConnectPersistentChat;
 @class AWSConnectPhoneNumberQuickConnectConfig;
 @class AWSConnectPhoneNumberStatus;
 @class AWSConnectPhoneNumberSummary;
@@ -1099,12 +1137,15 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUpdateContactAttributesRequest;
 @class AWSConnectUpdateContactAttributesResponse;
 @class AWSConnectUpdateContactFlowContentRequest;
+@class AWSConnectUpdateContactFlowContentResponse;
 @class AWSConnectUpdateContactFlowMetadataRequest;
+@class AWSConnectUpdateContactFlowMetadataResponse;
 @class AWSConnectUpdateContactFlowModuleContentRequest;
 @class AWSConnectUpdateContactFlowModuleContentResponse;
 @class AWSConnectUpdateContactFlowModuleMetadataRequest;
 @class AWSConnectUpdateContactFlowModuleMetadataResponse;
 @class AWSConnectUpdateContactFlowNameRequest;
+@class AWSConnectUpdateContactFlowNameResponse;
 @class AWSConnectUpdateContactRequest;
 @class AWSConnectUpdateContactResponse;
 @class AWSConnectUpdateContactScheduleRequest;
@@ -1112,6 +1153,9 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUpdateHoursOfOperationRequest;
 @class AWSConnectUpdateInstanceAttributeRequest;
 @class AWSConnectUpdateInstanceStorageConfigRequest;
+@class AWSConnectUpdateParticipantRoleConfigChannelInfo;
+@class AWSConnectUpdateParticipantRoleConfigRequest;
+@class AWSConnectUpdateParticipantRoleConfigResponse;
 @class AWSConnectUpdatePhoneNumberRequest;
 @class AWSConnectUpdatePhoneNumberResponse;
 @class AWSConnectUpdateQueueHoursOfOperationRequest;
@@ -1289,6 +1333,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The Amazon Resource Name (ARN) of the agent's status.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusArn;
+
+/**
+ <p>The name of the agent status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable statusName;
 
 /**
  <p>The start timestamp of the agent's status.</p>
@@ -1667,14 +1716,28 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The content of the chat message.</p>
+ <p>The content of the chat message. </p><ul><li><p>For <code>text/plain</code> and <code>text/markdown</code>, the Length Constraints are Minimum of 1, Maximum of 1024. </p></li><li><p>For <code>application/json</code>, the Length Constraints are Minimum of 1, Maximum of 12000. </p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable content;
 
 /**
- <p>The type of the content. Supported types are <code>text/plain</code>.</p>
+ <p>The type of the content. Supported types are <code>text/plain</code>, <code>text/markdown</code>, and <code>application/json</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
+
+@end
+
+/**
+ <p>Configuration information for the chat participant role.</p>
+ Required parameters: [ParticipantTimerConfigList]
+ */
+@interface AWSConnectChatParticipantRoleConfig : AWSModel
+
+
+/**
+ <p>A list of participant timers. You can specify any unique combination of role and timer type. Duplicate entries error out the request with a 400.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectParticipantTimerConfiguration *> * _Nullable participantTimerConfigList;
 
 @end
 
@@ -1866,6 +1929,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>If this contact was queued, this contains information about the queue. </p>
  */
 @property (nonatomic, strong) AWSConnectQueueInfo * _Nullable queueInfo;
+
+/**
+ <p>The contactId that is <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html#relatedcontactid">related</a> to this contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable relatedContactId;
 
 /**
  <p>The timestamp, in Unix epoch time format, at which to start running the inbound flow. </p>
@@ -3142,6 +3210,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>The way to sort the resulting response based on metrics. By default resources are sorted based on <code>AGENTS_ONLINE</code>, <code>DESCENDING</code>. The metric collection is sorted based on the input metrics.</p>
+ */
+@interface AWSConnectCurrentMetricSortCriteria : AWSModel
+
+
+/**
+ <p>The current metric names.</p>
+ */
+@property (nonatomic, assign) AWSConnectCurrentMetricName sortByMetric;
+
+/**
+ <p>The way to sort.</p>
+ */
+@property (nonatomic, assign) AWSConnectSortOrder sortOrder;
+
+@end
+
+/**
  <p>Information about a reference when the <code>referenceType</code> is <code>DATE</code>. Otherwise, null.</p>
  */
 @interface AWSConnectDateReference : AWSModel
@@ -3229,6 +3315,14 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDeleteContactFlowResponse : AWSModel
+
 
 @end
 
@@ -4072,6 +4166,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  */
 @property (nonatomic, strong) AWSConnectQueueReference * _Nullable queue;
 
+/**
+ <p>Information about the routing profile assigned to the user.</p>
+ */
+@property (nonatomic, strong) AWSConnectRoutingProfileReference * _Nullable routingProfile;
+
 @end
 
 /**
@@ -4378,6 +4477,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable queues;
 
+/**
+ <p>A list of up to 100 routing profile IDs or ARNs.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable routingProfiles;
+
 @end
 
 /**
@@ -4423,12 +4527,12 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<AWSConnectCurrentMetric *> * _Nullable currentMetrics;
 
 /**
- <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK channels are supported.</p>
+ <p>The filters to apply to returned metrics. You can filter up to the following limits:</p><ul><li><p>Queues: 100</p></li><li><p>Routing profiles: 100</p></li><li><p>Channels: 3 (VOICE, CHAT, and TASK channels are supported.)</p></li></ul><p>Metric data is retrieved only for the resources associated with the queues or routing profiles, and by any channels included in the filter. (You cannot filter by both queue AND routing profile.) You can include both resource IDs and resource ARNs in the same request. </p><p>Currently tagging is only supported on the resources that are passed in the filter.</p>
  */
 @property (nonatomic, strong) AWSConnectFilters * _Nullable filters;
 
 /**
- <p>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. </p><ul><li><p>If you group by <code>CHANNEL</code>, you should include a Channels filter. VOICE, CHAT, and TASK channels are supported.</p></li><li><p>If you group by <code>ROUTING_PROFILE</code>, you must include either a queue or routing profile filter.</p></li><li><p>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</p></li></ul>
+ <p>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. </p><ul><li><p>If you group by <code>CHANNEL</code>, you should include a Channels filter. VOICE, CHAT, and TASK channels are supported.</p></li><li><p>If you group by <code>ROUTING_PROFILE</code>, you must include either a queue or routing profile filter. In addition, a routing profile filter is required for metrics <code>CONTACTS_SCHEDULED</code>, <code>CONTACTS_IN_QUEUE</code>, and <code> OLDEST_CONTACT_AGE</code>.</p></li><li><p>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groupings;
 
@@ -4447,6 +4551,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
+/**
+ <p>The way to sort the resulting response based on metrics. You can enter one sort criteria. By default resources are sorted based on <code>AGENTS_ONLINE</code>, <code>DESCENDING</code>. The metric collection is sorted based on the input metrics.</p><p>Note the following:</p><ul><li><p>Sorting on <code>SLOTS_ACTIVE</code> and <code>SLOTS_AVAILABLE</code> is not supported.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectCurrentMetricSortCriteria *> * _Nullable sortCriteria;
+
 @end
 
 /**
@@ -4454,6 +4563,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  */
 @interface AWSConnectGetCurrentMetricDataResponse : AWSModel
 
+
+/**
+ <p>The total count of the result, regardless of the current page size. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable approximateTotalCount;
 
 /**
  <p>The time at which the metrics were retrieved and cached for pagination.</p>
@@ -4479,7 +4593,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>Filters up to 100 <code>Queues</code>, or up to 9 <code>ContactStates</code>. The user data is retrieved only for those users who are associated with the queues and have contacts that are in the specified <code>ContactState</code>. </p>
+ <p>The filters to apply to returned user data. You can filter up to the following limits:</p><ul><li><p>Queues: 100</p></li><li><p>Routing profiles: 100</p></li><li><p>Agents: 100</p></li><li><p>Contact states: 9</p></li><li><p>User hierarchy groups: 1</p></li></ul><p> The user data is retrieved for only the specified values/resources in the filter. A maximum of one filter can be passed from queues, routing profiles, agents, and user hierarchy groups. </p><p>Currently tagging is only supported on the resources that are passed in the filter.</p>
  */
 @property (nonatomic, strong) AWSConnectUserDataFilters * _Nullable filters;
 
@@ -4505,6 +4619,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  */
 @interface AWSConnectGetCurrentUserDataResponse : AWSModel
 
+
+/**
+ <p>The total count of the result, regardless of the current page size.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable approximateTotalCount;
 
 /**
  <p>If there are additional results, this is the token for the next set of results.</p>
@@ -7111,6 +7230,66 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Configuration information for the timer. After the timer configuration is set, it persists for the duration of the chat. It persists across new contacts in the chain, for example, transfer contacts.</p><p>For more information about how chat timeouts work, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
+ Required parameters: [ParticipantRole, TimerType, TimerValue]
+ */
+@interface AWSConnectParticipantTimerConfiguration : AWSModel
+
+
+/**
+ <p>The role of the participant in the chat conversation.</p>
+ */
+@property (nonatomic, assign) AWSConnectTimerEligibleParticipantRoles participantRole;
+
+/**
+ <p>The type of timer. <code>IDLE</code> indicates the timer applies for considering a human chat participant as idle. <code>DISCONNECT_NONCUSTOMER</code> indicates the timer applies to automatically disconnecting a chat participant due to idleness.</p>
+ */
+@property (nonatomic, assign) AWSConnectParticipantTimerType timerType;
+
+/**
+ <p>The value of the timer. Either the timer action (Unset to delete the timer), or the duration of the timer in minutes. Only one value can be set.</p>
+ */
+@property (nonatomic, strong) AWSConnectParticipantTimerValue * _Nullable timerValue;
+
+@end
+
+/**
+ <p>The value of the timer. Either the timer action (<code>Unset</code> to delete the timer), or the duration of the timer in minutes. Only one value can be set.</p><p>For more information about how chat timeouts work, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
+ */
+@interface AWSConnectParticipantTimerValue : AWSModel
+
+
+/**
+ <p>The timer action. Currently only one value is allowed: <code>Unset</code>. It deletes a timer.</p>
+ */
+@property (nonatomic, assign) AWSConnectParticipantTimerAction participantTimerAction;
+
+/**
+ <p>The duration of a timer, in minutes. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable participantTimerDurationInMinutes;
+
+@end
+
+/**
+ <p>Enable persistent chats. For more information about enabling persistent chat, and for example use cases and how to configure for them, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.</p>
+ */
+@interface AWSConnectPersistentChat : AWSModel
+
+
+/**
+ <p>The contactId that is used for rehydration depends on the rehydration type. RehydrationType is required for persistent chat. </p><ul><li><p><code>ENTIRE_PAST_SESSION</code>: Rehydrates a chat from the most recently terminated past chat contact of the specified past ended chat session. To use this type, provide the <code>initialContactId</code> of the past ended chat session in the <code>sourceContactId</code> field. In this type, Amazon Connect determines the most recent chat contact on the specified chat session that has ended, and uses it to start a persistent chat. </p></li><li><p><code>FROM_SEGMENT</code>: Rehydrates a chat from the past chat contact that is specified in the <code>sourceContactId</code> field. </p></li></ul><p>The actual contactId used for rehydration is provided in the response of this API. </p>
+ */
+@property (nonatomic, assign) AWSConnectRehydrationType rehydrationType;
+
+/**
+ <p>The contactId from which a persistent chat session must be started.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceContactId;
+
+@end
+
+/**
  <p>Contains information about a phone number for a quick connect.</p>
  Required parameters: [PhoneNumber]
  */
@@ -8703,7 +8882,12 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) AWSConnectParticipantDetails * _Nullable participantDetails;
 
 /**
- <p>The supported chat message content types. Content types can be text/plain or both text/plain and text/markdown.</p>
+ <p>Enable persistent chats. For more information about enabling persistent chat, and for example use cases and how to configure for them, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.</p>
+ */
+@property (nonatomic, strong) AWSConnectPersistentChat * _Nullable persistentChat;
+
+/**
+ <p>The supported chat message content types. Content types must always contain <code>text/plain</code>. You can then put any other supported type in the list. For example, all the following lists are valid because they contain <code>text/plain</code>: <code>[text/plain, text/markdown, application/json]</code>, <code>[text/markdown, text/plain]</code>, <code>[text/plain, application/json]</code>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedMessagingContentTypes;
 
@@ -8719,6 +8903,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of this contact within the Amazon Connect instance. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The contactId from which a persistent chat session is started. This field is populated only for persistent chats.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable continuedFromContactId;
 
 /**
  <p>The identifier for a chat participant. The participantId for a chat participant is the same throughout the chat lifecycle.</p>
@@ -9602,6 +9791,14 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectUpdateContactFlowContentResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectUpdateContactFlowMetadataRequest : AWSRequest
 
 
@@ -9629,6 +9826,14 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The name of the flow.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateContactFlowMetadataResponse : AWSModel
+
 
 @end
 
@@ -9729,6 +9934,14 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The name of the flow.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateContactFlowNameResponse : AWSModel
+
 
 @end
 
@@ -9890,6 +10103,50 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The storage configuration for the instance.</p>
  */
 @property (nonatomic, strong) AWSConnectInstanceStorageConfig * _Nullable storageConfig;
+
+@end
+
+/**
+ <p>Configuration information for the chat participant role.</p>
+ */
+@interface AWSConnectUpdateParticipantRoleConfigChannelInfo : AWSModel
+
+
+/**
+ <p>Configuration information for the chat participant role.</p>
+ */
+@property (nonatomic, strong) AWSConnectChatParticipantRoleConfig * _Nullable chat;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateParticipantRoleConfigRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Connect channel you want to configure.</p>
+ */
+@property (nonatomic, strong) AWSConnectUpdateParticipantRoleConfigChannelInfo * _Nullable channelConfiguration;
+
+/**
+ <p>The identifier of the contact in this instance of Amazon Connect. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateParticipantRoleConfigResponse : AWSModel
+
 
 @end
 
@@ -10712,6 +10969,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSNumber *> * _Nullable maxSlotsByChannel;
 
 /**
+ <p>The Next status of the agent.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextStatus;
+
+/**
  <p>Information about the routing profile that is assigned to the user.</p>
  */
 @property (nonatomic, strong) AWSConnectRoutingProfileReference * _Nullable routingProfile;
@@ -10735,14 +10997,29 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
+ <p>A list of up to 100 agent IDs or ARNs.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable agents;
+
+/**
  <p>A filter for the user data based on the contact information that is associated to the user. It contains a list of contact states. </p>
  */
 @property (nonatomic, strong) AWSConnectContactFilter * _Nullable contactFilter;
 
 /**
- <p>Contains information about a queue resource for which metrics are returned.</p>
+ <p>A list of up to 100 queues or ARNs.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable queues;
+
+/**
+ <p>A list of up to 100 routing profile IDs or ARNs.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable routingProfiles;
+
+/**
+ <p>A UserHierarchyGroup ID or ARN.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable userHierarchyGroups;
 
 @end
 

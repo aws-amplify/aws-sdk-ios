@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
 #import "AWSLambdaRequestRetryHandler.h"
 
 static NSString *const AWSInfoLambda = @"Lambda";
-NSString *const AWSLambdaSDKVersion = @"2.28.5";
+NSString *const AWSLambdaSDKVersion = @"2.30.1";
 
 
 @interface AWSLambdaResponseSerializer : AWSJSONResponseSerializer
@@ -1069,6 +1069,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLambdaGetRuntimeManagementConfigResponse *> *)getRuntimeManagementConfig:(AWSLambdaGetRuntimeManagementConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/2021-07-20/functions/{FunctionName}/runtime-management-config"
+                  targetPrefix:@""
+                 operationName:@"GetRuntimeManagementConfig"
+                   outputClass:[AWSLambdaGetRuntimeManagementConfigResponse class]];
+}
+
+- (void)getRuntimeManagementConfig:(AWSLambdaGetRuntimeManagementConfigRequest *)request
+     completionHandler:(void (^)(AWSLambdaGetRuntimeManagementConfigResponse *response, NSError *error))completionHandler {
+    [[self getRuntimeManagementConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaGetRuntimeManagementConfigResponse *> * _Nonnull task) {
+        AWSLambdaGetRuntimeManagementConfigResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLambdaInvocationResponse *> *)invoke:(AWSLambdaInvocationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1519,6 +1542,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLambdaPutProvisionedConcurrencyConfigResponse *response, NSError *error))completionHandler {
     [[self putProvisionedConcurrencyConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaPutProvisionedConcurrencyConfigResponse *> * _Nonnull task) {
         AWSLambdaPutProvisionedConcurrencyConfigResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaPutRuntimeManagementConfigResponse *> *)putRuntimeManagementConfig:(AWSLambdaPutRuntimeManagementConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/2021-07-20/functions/{FunctionName}/runtime-management-config"
+                  targetPrefix:@""
+                 operationName:@"PutRuntimeManagementConfig"
+                   outputClass:[AWSLambdaPutRuntimeManagementConfigResponse class]];
+}
+
+- (void)putRuntimeManagementConfig:(AWSLambdaPutRuntimeManagementConfigRequest *)request
+     completionHandler:(void (^)(AWSLambdaPutRuntimeManagementConfigResponse *response, NSError *error))completionHandler {
+    [[self putRuntimeManagementConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaPutRuntimeManagementConfigResponse *> * _Nonnull task) {
+        AWSLambdaPutRuntimeManagementConfigResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

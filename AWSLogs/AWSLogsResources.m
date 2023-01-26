@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -338,7 +338,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"ServiceUnavailableException\"}\
       ],\
-      \"documentation\":\"<p>Lists the log streams for the specified log group. You can list all the log streams or filter the results by prefix. You can also control how the results are ordered.</p> <p>This operation has a limit of five transactions per second, after which transactions are throttled.</p> <p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and view data from the linked source accounts. For more information, see <a href=\\\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html\\\">CloudWatch cross-account observability</a>.</p>\"\
+      \"documentation\":\"<p>Lists the log streams for the specified log group. You can list all the log streams or filter the results by prefix. You can also control how the results are ordered.</p> <p>You can specify the log group to search by using either <code>logGroupIdentifier</code> or <code>logGroupName</code>. You must include one of these two parameters, but you can't include both. </p> <p>This operation has a limit of five transactions per second, after which transactions are throttled.</p> <p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and view data from the linked source accounts. For more information, see <a href=\\\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html\\\">CloudWatch cross-account observability</a>.</p>\"\
     },\
     \"DescribeMetricFilters\":{\
       \"name\":\"DescribeMetricFilters\",\
@@ -441,7 +441,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"ServiceUnavailableException\"}\
       ],\
-      \"documentation\":\"<p>Lists log events from the specified log group. You can list all the log events or filter the results using a filter pattern, a time range, and the name of the log stream.</p> <p>You must have the <code>logs;FilterLogEvents</code> permission to perform this operation.</p> <p>By default, this operation returns as many log events as can fit in 1 MB (up to 10,000 log events) or all the events found within the specified time range. If the results include a token, that means there are more log events available. You can get additional results by specifying the token in a subsequent call. This operation can return empty results while there are more log events available through the token.</p> <p>The returned log events are sorted by event timestamp, the timestamp when the event was ingested by CloudWatch Logs, and the ID of the <code>PutLogEvents</code> request.</p> <p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and view data from the linked source accounts. For more information, see <a href=\\\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html\\\">CloudWatch cross-account observability</a>.</p>\"\
+      \"documentation\":\"<p>Lists log events from the specified log group. You can list all the log events or filter the results using a filter pattern, a time range, and the name of the log stream.</p> <p>You must have the <code>logs;FilterLogEvents</code> permission to perform this operation.</p> <p>You can specify the log group to search by using either <code>logGroupIdentifier</code> or <code>logGroupName</code>. You must include one of these two parameters, but you can't include both. </p> <p>By default, this operation returns as many log events as can fit in 1 MB (up to 10,000 log events) or all the events found within the specified time range. If the results include a token, that means there are more log events available. You can get additional results by specifying the token in a subsequent call. This operation can return empty results while there are more log events available through the token.</p> <p>The returned log events are sorted by event timestamp, the timestamp when the event was ingested by CloudWatch Logs, and the ID of the <code>PutLogEvents</code> request.</p> <p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and view data from the linked source accounts. For more information, see <a href=\\\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html\\\">CloudWatch cross-account observability</a>.</p>\"\
     },\
     \"GetDataProtectionPolicy\":{\
       \"name\":\"GetDataProtectionPolicy\",\
@@ -472,7 +472,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"ServiceUnavailableException\"}\
       ],\
-      \"documentation\":\"<p>Lists log events from the specified log stream. You can list all of the log events or filter using a time range.</p> <p>By default, this operation returns as many log events as can fit in a response size of 1MB (up to 10,000 log events). You can get additional log events by specifying one of the tokens in a subsequent call. This operation can return empty results while there are more log events available through the token.</p> <p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and view data from the linked source accounts. For more information, see <a href=\\\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html\\\">CloudWatch cross-account observability</a>.</p>\"\
+      \"documentation\":\"<p>Lists log events from the specified log stream. You can list all of the log events or filter using a time range.</p> <p>By default, this operation returns as many log events as can fit in a response size of 1MB (up to 10,000 log events). You can get additional log events by specifying one of the tokens in a subsequent call. This operation can return empty results while there are more log events available through the token.</p> <p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and view data from the linked source accounts. For more information, see <a href=\\\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html\\\">CloudWatch cross-account observability</a>.</p> <p>You can specify the log group to search by using either <code>logGroupIdentifier</code> or <code>logGroupName</code>. You must include one of these two parameters, but you can't include both. </p>\"\
     },\
     \"GetLogGroupFields\":{\
       \"name\":\"GetLogGroupFields\",\
@@ -488,7 +488,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"ServiceUnavailableException\"}\
       ],\
-      \"documentation\":\"<p>Returns a list of the fields that are included in log events in the specified log group. Includes the percentage of log events that contain each field. The search is limited to a time period that you specify.</p> <p>In the results, fields that start with <code>@</code> are fields generated by CloudWatch Logs. For example, <code>@timestamp</code> is the timestamp of each log event. For more information about the fields that are generated by CloudWatch logs, see <a href=\\\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData-discoverable-fields.html\\\">Supported Logs and Discovered Fields</a>.</p> <p>The response results are sorted by the frequency percentage, starting with the highest percentage.</p> <p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and view data from the linked source accounts. For more information, see <a href=\\\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html\\\">CloudWatch cross-account observability</a>.</p>\"\
+      \"documentation\":\"<p>Returns a list of the fields that are included in log events in the specified log group. Includes the percentage of log events that contain each field. The search is limited to a time period that you specify.</p> <p>You can specify the log group to search by using either <code>logGroupIdentifier</code> or <code>logGroupName</code>. You must specify one of these parameters, but you can't specify both. </p> <p>In the results, fields that start with <code>@</code> are fields generated by CloudWatch Logs. For example, <code>@timestamp</code> is the timestamp of each log event. For more information about the fields that are generated by CloudWatch logs, see <a href=\\\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData-discoverable-fields.html\\\">Supported Logs and Discovered Fields</a>.</p> <p>The response results are sorted by the frequency percentage, starting with the highest percentage.</p> <p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and view data from the linked source accounts. For more information, see <a href=\\\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html\\\">CloudWatch cross-account observability</a>.</p>\"\
     },\
     \"GetLogRecord\":{\
       \"name\":\"GetLogRecord\",\
@@ -596,7 +596,7 @@
         {\"shape\":\"OperationAbortedException\"},\
         {\"shape\":\"ServiceUnavailableException\"}\
       ],\
-      \"documentation\":\"<p>Creates or updates an access policy associated with an existing destination. An access policy is an <a href=\\\"https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html\\\">IAM policy document</a> that is used to authorize claims to register a subscription filter against a given destination.</p> <p>If multiple Amazon Web Services accounts are sending logs to this destination, each sender account must be listed separately in the policy. The policy does not support specifying <code>*</code> as the Principal or the use of the <code>aws:PrincipalOrgId</code> global key.</p>\"\
+      \"documentation\":\"<p>Creates or updates an access policy associated with an existing destination. An access policy is an <a href=\\\"https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html\\\">IAM policy document</a> that is used to authorize claims to register a subscription filter against a given destination.</p>\"\
     },\
     \"PutLogEvents\":{\
       \"name\":\"PutLogEvents\",\
@@ -614,7 +614,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"UnrecognizedClientException\"}\
       ],\
-      \"documentation\":\"<p>Uploads a batch of log events to the specified log stream.</p> <p>You must include the sequence token obtained from the response of the previous call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token in the <code>expectedSequenceToken</code> field from <code>InvalidSequenceTokenException</code>. If you call <code>PutLogEvents</code> twice within a narrow time period using the same value for <code>sequenceToken</code>, both calls might be successful or one might be rejected.</p> <p>The batch of events must satisfy the following constraints:</p> <ul> <li> <p>The maximum batch size is 1,048,576 bytes. This size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p> </li> <li> <p>None of the log events in the batch can be more than 2 hours in the future.</p> </li> <li> <p>None of the log events in the batch can be more than 14 days in the past. Also, none of the log events can be from earlier than the retention period of the log group.</p> </li> <li> <p>The log events in the batch must be in chronological order by their timestamp. The timestamp is the time that the event occurred, expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>. (In Amazon Web Services Tools for PowerShell and the Amazon Web Services SDK for .NET, the timestamp is specified in .NET format: <code>yyyy-mm-ddThh:mm:ss</code>. For example, <code>2017-09-15T13:45:30</code>.) </p> </li> <li> <p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p> </li> <li> <p>The maximum number of log events in a batch is 10,000.</p> </li> <li> <p>There is a quota of five requests per second per log stream. Additional requests are throttled. This quota can't be changed.</p> </li> </ul> <p>If a call to <code>PutLogEvents</code> returns \\\"UnrecognizedClientException\\\" the most likely cause is a non-valid Amazon Web Services access key ID or secret key. </p>\"\
+      \"documentation\":\"<p>Uploads a batch of log events to the specified log stream.</p> <important> <p>The sequence token is now ignored in <code>PutLogEvents</code> actions. <code>PutLogEvents</code> actions are always accepted and never return <code>InvalidSequenceTokenException</code> or <code>DataAlreadyAcceptedException</code> even if the sequence token is not valid. You can use parallel <code>PutLogEvents</code> actions on the same log stream. </p> </important> <p>The batch of events must satisfy the following constraints:</p> <ul> <li> <p>The maximum batch size is 1,048,576 bytes. This size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p> </li> <li> <p>None of the log events in the batch can be more than 2 hours in the future.</p> </li> <li> <p>None of the log events in the batch can be more than 14 days in the past. Also, none of the log events can be from earlier than the retention period of the log group.</p> </li> <li> <p>The log events in the batch must be in chronological order by their timestamp. The timestamp is the time that the event occurred, expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>. (In Amazon Web Services Tools for PowerShell and the Amazon Web Services SDK for .NET, the timestamp is specified in .NET format: <code>yyyy-mm-ddThh:mm:ss</code>. For example, <code>2017-09-15T13:45:30</code>.) </p> </li> <li> <p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p> </li> <li> <p>The maximum number of log events in a batch is 10,000.</p> </li> <li> <important> <p>The quota of five requests per second per log stream has been removed. Instead, <code>PutLogEvents</code> actions are throttled based on a per-second per-account quota. You can request an increase to the per-second throttling quota by using the Service Quotas service.</p> </important> </li> </ul> <p>If a call to <code>PutLogEvents</code> returns \\\"UnrecognizedClientException\\\" the most likely cause is a non-valid Amazon Web Services access key ID or secret key. </p>\"\
     },\
     \"PutMetricFilter\":{\
       \"name\":\"PutMetricFilter\",\
@@ -938,7 +938,7 @@
       \"members\":{\
         \"expectedSequenceToken\":{\"shape\":\"SequenceToken\"}\
       },\
-      \"documentation\":\"<p>The event was already logged.</p>\",\
+      \"documentation\":\"<p>The event was already logged.</p> <important> <p> <code>PutLogEvents</code> actions are now always accepted and never return <code>DataAlreadyAcceptedException</code> regardless of whether a given batch of log events has already been accepted. </p> </important>\",\
       \"exception\":true\
     },\
     \"DataProtectionPolicyDocument\":{\"type\":\"string\"},\
@@ -1180,15 +1180,14 @@
     },\
     \"DescribeLogStreamsRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\"logGroupName\"],\
       \"members\":{\
         \"logGroupName\":{\
           \"shape\":\"LogGroupName\",\
-          \"documentation\":\"<p>The name of the log group.</p> <note> <p> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error. </p> </note>\"\
+          \"documentation\":\"<p>The name of the log group.</p> <note> <p> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both. </p> </note>\"\
         },\
         \"logGroupIdentifier\":{\
           \"shape\":\"LogGroupIdentifier\",\
-          \"documentation\":\"<p>Specify either the name or ARN of the log group to view. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p> <p>If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error.</p>\"\
+          \"documentation\":\"<p>Specify either the name or ARN of the log group to view. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p> <note> <p> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both. </p> </note>\"\
         },\
         \"logStreamNamePrefix\":{\
           \"shape\":\"LogStreamName\",\
@@ -1567,15 +1566,14 @@
     \"FilterCount\":{\"type\":\"integer\"},\
     \"FilterLogEventsRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\"logGroupName\"],\
       \"members\":{\
         \"logGroupName\":{\
           \"shape\":\"LogGroupName\",\
-          \"documentation\":\"<p>The name of the log group to search.</p> <note> <p> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error. </p> </note>\"\
+          \"documentation\":\"<p>The name of the log group to search.</p> <note> <p> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both. </p> </note>\"\
         },\
         \"logGroupIdentifier\":{\
           \"shape\":\"LogGroupIdentifier\",\
-          \"documentation\":\"<p>Specify either the name or ARN of the log group to view log events from. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p> <p>If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error.</p>\"\
+          \"documentation\":\"<p>Specify either the name or ARN of the log group to view log events from. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p> <note> <p> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both. </p> </note>\"\
         },\
         \"logStreamNames\":{\
           \"shape\":\"InputLogStreamNames\",\
@@ -1706,18 +1704,15 @@
     },\
     \"GetLogEventsRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"logGroupName\",\
-        \"logStreamName\"\
-      ],\
+      \"required\":[\"logStreamName\"],\
       \"members\":{\
         \"logGroupName\":{\
           \"shape\":\"LogGroupName\",\
-          \"documentation\":\"<p>The name of the log group.</p> <note> <p> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error. </p> </note>\"\
+          \"documentation\":\"<p>The name of the log group.</p> <note> <p> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both. </p> </note>\"\
         },\
         \"logGroupIdentifier\":{\
           \"shape\":\"LogGroupIdentifier\",\
-          \"documentation\":\"<p>Specify either the name or ARN of the log group to view events from. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p> <p> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error.</p>\"\
+          \"documentation\":\"<p>Specify either the name or ARN of the log group to view events from. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p> <note> <p> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both. </p> </note>\"\
         },\
         \"logStreamName\":{\
           \"shape\":\"LogStreamName\",\
@@ -1768,11 +1763,10 @@
     },\
     \"GetLogGroupFieldsRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\"logGroupName\"],\
       \"members\":{\
         \"logGroupName\":{\
           \"shape\":\"LogGroupName\",\
-          \"documentation\":\"<p>The name of the log group to search.</p> <p>If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error.</p>\"\
+          \"documentation\":\"<p>The name of the log group to search.</p> <note> <p> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both. </p> </note>\"\
         },\
         \"time\":{\
           \"shape\":\"Timestamp\",\
@@ -1780,7 +1774,7 @@
         },\
         \"logGroupIdentifier\":{\
           \"shape\":\"LogGroupIdentifier\",\
-          \"documentation\":\"<p>Specify either the name or ARN of the log group to view. If the log group is in a source account and you are using a monitoring account, you must specify the ARN.</p> <p>If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error.</p>\"\
+          \"documentation\":\"<p>Specify either the name or ARN of the log group to view. If the log group is in a source account and you are using a monitoring account, you must specify the ARN.</p> <note> <p> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both. </p> </note>\"\
         }\
       }\
     },\
@@ -1894,7 +1888,7 @@
       \"members\":{\
         \"expectedSequenceToken\":{\"shape\":\"SequenceToken\"}\
       },\
-      \"documentation\":\"<p>The sequence token is not valid. You can get the correct sequence token in the <code>expectedSequenceToken</code> field in the <code>InvalidSequenceTokenException</code> message. </p>\",\
+      \"documentation\":\"<p>The sequence token is not valid. You can get the correct sequence token in the <code>expectedSequenceToken</code> field in the <code>InvalidSequenceTokenException</code> message. </p> <important> <p> <code>PutLogEvents</code> actions are now always accepted and never return <code>InvalidSequenceTokenException</code> regardless of receiving an invalid sequence token. </p> </important>\",\
       \"exception\":true\
     },\
     \"KmsKeyId\":{\
@@ -2061,11 +2055,11 @@
         },\
         \"lastIngestionTime\":{\
           \"shape\":\"Timestamp\",\
-          \"documentation\":\"<p>The ingestion time, expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>.</p>\"\
+          \"documentation\":\"<p>The ingestion time, expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code> The <code>lastIngestionTime</code> value updates on an eventual consistency basis. It typically updates in less than an hour after ingestion, but in rare situations might take longer.</p>\"\
         },\
         \"uploadSequenceToken\":{\
           \"shape\":\"SequenceToken\",\
-          \"documentation\":\"<p>The sequence token.</p>\"\
+          \"documentation\":\"<p>The sequence token.</p> <important> <p>The sequence token is now ignored in <code>PutLogEvents</code> actions. <code>PutLogEvents</code> actions are always accepted regardless of receiving an invalid sequence token. You don't need to obtain <code>uploadSequenceToken</code> to use a <code>PutLogEvents</code> action.</p> </important>\"\
         },\
         \"arn\":{\
           \"shape\":\"Arn\",\
@@ -2370,7 +2364,7 @@
         },\
         \"sequenceToken\":{\
           \"shape\":\"SequenceToken\",\
-          \"documentation\":\"<p>The sequence token obtained from the response of the previous <code>PutLogEvents</code> call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <a href=\\\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html\\\">DescribeLogStreams</a>. If you call <code>PutLogEvents</code> twice within a narrow time period using the same value for <code>sequenceToken</code>, both calls might be successful or one might be rejected.</p>\"\
+          \"documentation\":\"<p>The sequence token obtained from the response of the previous <code>PutLogEvents</code> call.</p> <important> <p>The <code>sequenceToken</code> parameter is now ignored in <code>PutLogEvents</code> actions. <code>PutLogEvents</code> actions are now accepted and never return <code>InvalidSequenceTokenException</code> or <code>DataAlreadyAcceptedException</code> even if the sequence token is not valid.</p> </important>\"\
         }\
       }\
     },\
@@ -2379,7 +2373,7 @@
       \"members\":{\
         \"nextSequenceToken\":{\
           \"shape\":\"SequenceToken\",\
-          \"documentation\":\"<p>The next sequence token.</p>\"\
+          \"documentation\":\"<p>The next sequence token.</p> <important> <p>This field has been deprecated.</p> <p>The sequence token is now ignored in <code>PutLogEvents</code> actions. <code>PutLogEvents</code> actions are always accepted even if the sequence token is not valid. You can use parallel <code>PutLogEvents</code> actions on the same log stream and you do not need to wait for the response of a previous <code>PutLogEvents</code> action to obtain the <code>nextSequenceToken</code> value.</p> </important>\"\
         },\
         \"rejectedLogEventsInfo\":{\
           \"shape\":\"RejectedLogEventsInfo\",\
@@ -2581,8 +2575,7 @@
     \"QueryDefinitionName\":{\
       \"type\":\"string\",\
       \"max\":255,\
-      \"min\":1,\
-      \"pattern\":\"^([^:*\\\\/]+\\\\/?)*[^:*\\\\/]+$\"\
+      \"min\":1\
     },\
     \"QueryDefinitionString\":{\
       \"type\":\"string\",\

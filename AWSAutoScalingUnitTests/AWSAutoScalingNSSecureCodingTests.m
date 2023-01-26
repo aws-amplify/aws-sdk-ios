@@ -31,6 +31,8 @@
 - (void) test_AWSAutoScalingAttachLoadBalancerTargetGroupsType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingAttachLoadBalancersResultType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingAttachLoadBalancersType API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingAttachTrafficSourcesResultType API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingAttachTrafficSourcesType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingAutoScalingGroup API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingAutoScalingGroupNamesType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingAutoScalingGroupsType API_AVAILABLE(ios(11));
@@ -81,6 +83,8 @@
 - (void) test_AWSAutoScalingDescribeScheduledActionsType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDescribeTagsType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDescribeTerminationPolicyTypesAnswer API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingDescribeTrafficSourcesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingDescribeTrafficSourcesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDescribeWarmPoolAnswer API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDescribeWarmPoolType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDesiredConfiguration API_AVAILABLE(ios(11));
@@ -90,6 +94,8 @@
 - (void) test_AWSAutoScalingDetachLoadBalancerTargetGroupsType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDetachLoadBalancersResultType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDetachLoadBalancersType API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingDetachTrafficSourcesResultType API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingDetachTrafficSourcesType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDisableMetricsCollectionQuery API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingEbs API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingEnableMetricsCollectionQuery API_AVAILABLE(ios(11));
@@ -177,8 +183,12 @@
 - (void) test_AWSAutoScalingTagDescription API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingTagsType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingTargetTrackingConfiguration API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingTargetTrackingMetricDataQuery API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingTargetTrackingMetricStat API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingTerminateInstanceInAutoScalingGroupType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingTotalLocalStorageGBRequest API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingTrafficSourceIdentifier API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingTrafficSourceState API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingUpdateAutoScalingGroupType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingVCpuCountRequest API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingWarmPoolConfiguration API_AVAILABLE(ios(11));
@@ -233,6 +243,14 @@
 
 - (void) test_AWSAutoScalingAttachLoadBalancersType {
     [self validateSecureCodingForClass:[AWSAutoScalingAttachLoadBalancersType class]];
+}
+
+- (void) test_AWSAutoScalingAttachTrafficSourcesResultType {
+    [self validateSecureCodingForClass:[AWSAutoScalingAttachTrafficSourcesResultType class]];
+}
+
+- (void) test_AWSAutoScalingAttachTrafficSourcesType {
+    [self validateSecureCodingForClass:[AWSAutoScalingAttachTrafficSourcesType class]];
 }
 
 - (void) test_AWSAutoScalingAutoScalingGroup {
@@ -435,6 +453,14 @@
     [self validateSecureCodingForClass:[AWSAutoScalingDescribeTerminationPolicyTypesAnswer class]];
 }
 
+- (void) test_AWSAutoScalingDescribeTrafficSourcesRequest {
+    [self validateSecureCodingForClass:[AWSAutoScalingDescribeTrafficSourcesRequest class]];
+}
+
+- (void) test_AWSAutoScalingDescribeTrafficSourcesResponse {
+    [self validateSecureCodingForClass:[AWSAutoScalingDescribeTrafficSourcesResponse class]];
+}
+
 - (void) test_AWSAutoScalingDescribeWarmPoolAnswer {
     [self validateSecureCodingForClass:[AWSAutoScalingDescribeWarmPoolAnswer class]];
 }
@@ -469,6 +495,14 @@
 
 - (void) test_AWSAutoScalingDetachLoadBalancersType {
     [self validateSecureCodingForClass:[AWSAutoScalingDetachLoadBalancersType class]];
+}
+
+- (void) test_AWSAutoScalingDetachTrafficSourcesResultType {
+    [self validateSecureCodingForClass:[AWSAutoScalingDetachTrafficSourcesResultType class]];
+}
+
+- (void) test_AWSAutoScalingDetachTrafficSourcesType {
+    [self validateSecureCodingForClass:[AWSAutoScalingDetachTrafficSourcesType class]];
 }
 
 - (void) test_AWSAutoScalingDisableMetricsCollectionQuery {
@@ -819,12 +853,28 @@
     [self validateSecureCodingForClass:[AWSAutoScalingTargetTrackingConfiguration class]];
 }
 
+- (void) test_AWSAutoScalingTargetTrackingMetricDataQuery {
+    [self validateSecureCodingForClass:[AWSAutoScalingTargetTrackingMetricDataQuery class]];
+}
+
+- (void) test_AWSAutoScalingTargetTrackingMetricStat {
+    [self validateSecureCodingForClass:[AWSAutoScalingTargetTrackingMetricStat class]];
+}
+
 - (void) test_AWSAutoScalingTerminateInstanceInAutoScalingGroupType {
     [self validateSecureCodingForClass:[AWSAutoScalingTerminateInstanceInAutoScalingGroupType class]];
 }
 
 - (void) test_AWSAutoScalingTotalLocalStorageGBRequest {
     [self validateSecureCodingForClass:[AWSAutoScalingTotalLocalStorageGBRequest class]];
+}
+
+- (void) test_AWSAutoScalingTrafficSourceIdentifier {
+    [self validateSecureCodingForClass:[AWSAutoScalingTrafficSourceIdentifier class]];
+}
+
+- (void) test_AWSAutoScalingTrafficSourceState {
+    [self validateSecureCodingForClass:[AWSAutoScalingTrafficSourceState class]];
 }
 
 - (void) test_AWSAutoScalingUpdateAutoScalingGroupType {

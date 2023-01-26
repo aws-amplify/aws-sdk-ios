@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 
 /**
- <p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage a customer contact center and provide reliable customer engagement at any scale.</p><p>Amazon Connect enables customer contacts through voice or chat.</p><p>The APIs described here are used by chat participants, such as agents and customers.</p>
+ <p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage a customer contact center. Amazon Connect enables customer contacts through voice or chat. Use the Amazon Connect Participant Service to manage chat participants, such as agents and customers.</p>
  */
 @interface AWSConnectParticipant : AWSService
 
@@ -175,7 +175,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 + (void)removeConnectParticipantForKey:(NSString *)key;
 
 /**
- <p>Allows you to confirm that the attachment has been uploaded using the pre-signed URL provided in StartAttachmentUpload API. </p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
+ <p>Allows you to confirm that the attachment has been uploaded using the pre-signed URL provided in StartAttachmentUpload API. </p><note><p><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p></note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the CompleteAttachmentUpload service method.
 
@@ -187,7 +187,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (AWSTask<AWSConnectParticipantCompleteAttachmentUploadResponse *> *)completeAttachmentUpload:(AWSConnectParticipantCompleteAttachmentUploadRequest *)request;
 
 /**
- <p>Allows you to confirm that the attachment has been uploaded using the pre-signed URL provided in StartAttachmentUpload API. </p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
+ <p>Allows you to confirm that the attachment has been uploaded using the pre-signed URL provided in StartAttachmentUpload API. </p><note><p><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p></note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the CompleteAttachmentUpload service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -200,7 +200,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (void)completeAttachmentUpload:(AWSConnectParticipantCompleteAttachmentUploadRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectParticipantCompleteAttachmentUploadResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates the participant's connection. Note that ParticipantToken is used for invoking this API instead of ConnectionToken.</p><p>The participant token is valid for the lifetime of the participant – until they are part of a contact.</p><p>The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s. Clients must manually connect to the returned websocket URL and subscribe to the desired topic. </p><p>For chat, you need to publish the following on the established websocket connection:</p><p><code>{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}</code></p><p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter, clients need to call this API again to obtain a new websocket URL and perform the same steps as before.</p><p><b>Message streaming support</b>: This API can also be used together with the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html">StartContactStreaming</a> API to create a participant connection for chat contacts that are not using a websocket. For more information about message streaming, <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable real-time chat message streaming</a> in the <i>Amazon Connect Administrator Guide</i>.</p><p><b>Feature specifications</b>: For information about feature specifications, such as the allowed number of open websocket connections per participant, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>. </p><note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p></note>
+ <p>Creates the participant's connection. </p><note><p><code>ParticipantToken</code> is used for invoking this API instead of <code>ConnectionToken</code>.</p></note><p>The participant token is valid for the lifetime of the participant – until they are part of a contact.</p><p>The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s. Clients must manually connect to the returned websocket URL and subscribe to the desired topic. </p><p>For chat, you need to publish the following on the established websocket connection:</p><p><code>{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}</code></p><p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter, clients need to call this API again to obtain a new websocket URL and perform the same steps as before.</p><p><b>Message streaming support</b>: This API can also be used together with the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html">StartContactStreaming</a> API to create a participant connection for chat contacts that are not using a websocket. For more information about message streaming, <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable real-time chat message streaming</a> in the <i>Amazon Connect Administrator Guide</i>.</p><p><b>Feature specifications</b>: For information about feature specifications, such as the allowed number of open websocket connections per participant, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>. </p><note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateParticipantConnection service method.
 
@@ -212,7 +212,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (AWSTask<AWSConnectParticipantCreateParticipantConnectionResponse *> *)createParticipantConnection:(AWSConnectParticipantCreateParticipantConnectionRequest *)request;
 
 /**
- <p>Creates the participant's connection. Note that ParticipantToken is used for invoking this API instead of ConnectionToken.</p><p>The participant token is valid for the lifetime of the participant – until they are part of a contact.</p><p>The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s. Clients must manually connect to the returned websocket URL and subscribe to the desired topic. </p><p>For chat, you need to publish the following on the established websocket connection:</p><p><code>{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}</code></p><p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter, clients need to call this API again to obtain a new websocket URL and perform the same steps as before.</p><p><b>Message streaming support</b>: This API can also be used together with the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html">StartContactStreaming</a> API to create a participant connection for chat contacts that are not using a websocket. For more information about message streaming, <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable real-time chat message streaming</a> in the <i>Amazon Connect Administrator Guide</i>.</p><p><b>Feature specifications</b>: For information about feature specifications, such as the allowed number of open websocket connections per participant, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>. </p><note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p></note>
+ <p>Creates the participant's connection. </p><note><p><code>ParticipantToken</code> is used for invoking this API instead of <code>ConnectionToken</code>.</p></note><p>The participant token is valid for the lifetime of the participant – until they are part of a contact.</p><p>The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s. Clients must manually connect to the returned websocket URL and subscribe to the desired topic. </p><p>For chat, you need to publish the following on the established websocket connection:</p><p><code>{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}</code></p><p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter, clients need to call this API again to obtain a new websocket URL and perform the same steps as before.</p><p><b>Message streaming support</b>: This API can also be used together with the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html">StartContactStreaming</a> API to create a participant connection for chat contacts that are not using a websocket. For more information about message streaming, <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable real-time chat message streaming</a> in the <i>Amazon Connect Administrator Guide</i>.</p><p><b>Feature specifications</b>: For information about feature specifications, such as the allowed number of open websocket connections per participant, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>. </p><note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateParticipantConnection service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -225,7 +225,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (void)createParticipantConnection:(AWSConnectParticipantCreateParticipantConnectionRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectParticipantCreateParticipantConnectionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Disconnects a participant. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
+ <p>Disconnects a participant. </p><note><p><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p></note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the DisconnectParticipant service method.
 
@@ -237,7 +237,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (AWSTask<AWSConnectParticipantDisconnectParticipantResponse *> *)disconnectParticipant:(AWSConnectParticipantDisconnectParticipantRequest *)request;
 
 /**
- <p>Disconnects a participant. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
+ <p>Disconnects a participant. </p><note><p><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p></note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the DisconnectParticipant service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -250,7 +250,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (void)disconnectParticipant:(AWSConnectParticipantDisconnectParticipantRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectParticipantDisconnectParticipantResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Provides a pre-signed URL for download of a completed attachment. This is an asynchronous API for use with active contacts.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
+ <p>Provides a pre-signed URL for download of a completed attachment. This is an asynchronous API for use with active contacts.</p><note><p><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p></note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the GetAttachment service method.
 
@@ -262,7 +262,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (AWSTask<AWSConnectParticipantGetAttachmentResponse *> *)getAttachment:(AWSConnectParticipantGetAttachmentRequest *)request;
 
 /**
- <p>Provides a pre-signed URL for download of a completed attachment. This is an asynchronous API for use with active contacts.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
+ <p>Provides a pre-signed URL for download of a completed attachment. This is an asynchronous API for use with active contacts.</p><note><p><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p></note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the GetAttachment service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -275,7 +275,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (void)getAttachment:(AWSConnectParticipantGetAttachmentRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectParticipantGetAttachmentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Retrieves a transcript of the session, including details about any attachments. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
+ <p>Retrieves a transcript of the session, including details about any attachments. For information about accessing past chat contact transcripts for a persistent chat, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>. </p><note><p><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p></note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the GetTranscript service method.
 
@@ -287,7 +287,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (AWSTask<AWSConnectParticipantGetTranscriptResponse *> *)getTranscript:(AWSConnectParticipantGetTranscriptRequest *)request;
 
 /**
- <p>Retrieves a transcript of the session, including details about any attachments. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
+ <p>Retrieves a transcript of the session, including details about any attachments. For information about accessing past chat contact transcripts for a persistent chat, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>. </p><note><p><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p></note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the GetTranscript service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -300,7 +300,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (void)getTranscript:(AWSConnectParticipantGetTranscriptRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectParticipantGetTranscriptResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sends an event. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
+ <p>Sends an event. </p><note><p><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p></note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the SendEvent service method.
 
@@ -312,7 +312,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (AWSTask<AWSConnectParticipantSendEventResponse *> *)sendEvent:(AWSConnectParticipantSendEventRequest *)request;
 
 /**
- <p>Sends an event. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
+ <p>Sends an event. </p><note><p><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p></note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the SendEvent service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -325,7 +325,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (void)sendEvent:(AWSConnectParticipantSendEventRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectParticipantSendEventResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sends a message. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
+ <p>Sends a message.</p><note><p><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p></note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the SendMessage service method.
 
@@ -337,7 +337,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (AWSTask<AWSConnectParticipantSendMessageResponse *> *)sendMessage:(AWSConnectParticipantSendMessageRequest *)request;
 
 /**
- <p>Sends a message. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
+ <p>Sends a message.</p><note><p><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p></note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the SendMessage service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -350,7 +350,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (void)sendMessage:(AWSConnectParticipantSendMessageRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectParticipantSendMessageResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Provides a pre-signed Amazon S3 URL in response for uploading the file directly to S3.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
+ <p>Provides a pre-signed Amazon S3 URL in response for uploading the file directly to S3.</p><note><p><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p></note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the StartAttachmentUpload service method.
 
@@ -362,7 +362,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (AWSTask<AWSConnectParticipantStartAttachmentUploadResponse *> *)startAttachmentUpload:(AWSConnectParticipantStartAttachmentUploadRequest *)request;
 
 /**
- <p>Provides a pre-signed Amazon S3 URL in response for uploading the file directly to S3.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
+ <p>Provides a pre-signed Amazon S3 URL in response for uploading the file directly to S3.</p><note><p><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p></note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the StartAttachmentUpload service method.
  @param completionHandler The completion handler to call when the load request is complete.

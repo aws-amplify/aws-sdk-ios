@@ -287,6 +287,33 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSAutoScalingAttachTrafficSourcesResultType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSAutoScalingAttachTrafficSourcesType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoScalingGroupName" : @"AutoScalingGroupName",
+             @"trafficSources" : @"TrafficSources",
+             };
+}
+
++ (NSValueTransformer *)trafficSourcesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingTrafficSourceIdentifier class]];
+}
+
+@end
+
 @implementation AWSAutoScalingAutoScalingGroup
 
 + (BOOL)supportsSecureCoding {
@@ -325,6 +352,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"tags" : @"Tags",
              @"targetGroupARNs" : @"TargetGroupARNs",
              @"terminationPolicies" : @"TerminationPolicies",
+             @"trafficSources" : @"TrafficSources",
              @"VPCZoneIdentifier" : @"VPCZoneIdentifier",
              @"warmPoolConfiguration" : @"WarmPoolConfiguration",
              @"warmPoolSize" : @"WarmPoolSize",
@@ -361,6 +389,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)tagsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingTagDescription class]];
+}
+
++ (NSValueTransformer *)trafficSourcesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingTrafficSourceIdentifier class]];
 }
 
 + (NSValueTransformer *)warmPoolConfigurationJSONTransformer {
@@ -663,6 +695,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"tags" : @"Tags",
              @"targetGroupARNs" : @"TargetGroupARNs",
              @"terminationPolicies" : @"TerminationPolicies",
+             @"trafficSources" : @"TrafficSources",
              @"VPCZoneIdentifier" : @"VPCZoneIdentifier",
              };
 }
@@ -681,6 +714,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)tagsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingTag class]];
+}
+
++ (NSValueTransformer *)trafficSourcesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingTrafficSourceIdentifier class]];
 }
 
 @end
@@ -757,6 +794,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"dimensions" : @"Dimensions",
              @"metricName" : @"MetricName",
+             @"metrics" : @"Metrics",
              @"namespace" : @"Namespace",
              @"statistic" : @"Statistic",
              @"unit" : @"Unit",
@@ -765,6 +803,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)dimensionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingMetricDimension class]];
+}
+
++ (NSValueTransformer *)metricsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingTargetTrackingMetricDataQuery class]];
 }
 
 + (NSValueTransformer *)statisticJSONTransformer {
@@ -1310,6 +1352,42 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSAutoScalingDescribeTrafficSourcesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoScalingGroupName" : @"AutoScalingGroupName",
+             @"maxRecords" : @"MaxRecords",
+             @"nextToken" : @"NextToken",
+             @"trafficSourceType" : @"TrafficSourceType",
+             };
+}
+
+@end
+
+@implementation AWSAutoScalingDescribeTrafficSourcesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"trafficSources" : @"TrafficSources",
+             };
+}
+
++ (NSValueTransformer *)trafficSourcesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingTrafficSourceState class]];
+}
+
+@end
+
 @implementation AWSAutoScalingDescribeWarmPoolAnswer
 
 + (BOOL)supportsSecureCoding {
@@ -1449,6 +1527,33 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"autoScalingGroupName" : @"AutoScalingGroupName",
              @"loadBalancerNames" : @"LoadBalancerNames",
              };
+}
+
+@end
+
+@implementation AWSAutoScalingDetachTrafficSourcesResultType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSAutoScalingDetachTrafficSourcesType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoScalingGroupName" : @"AutoScalingGroupName",
+             @"trafficSources" : @"TrafficSources",
+             };
+}
+
++ (NSValueTransformer *)trafficSourcesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingTrafficSourceIdentifier class]];
 }
 
 @end
@@ -3747,6 +3852,48 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSAutoScalingTargetTrackingMetricDataQuery
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"expression" : @"Expression",
+             @"identifier" : @"Id",
+             @"label" : @"Label",
+             @"metricStat" : @"MetricStat",
+             @"returnData" : @"ReturnData",
+             };
+}
+
++ (NSValueTransformer *)metricStatJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingTargetTrackingMetricStat class]];
+}
+
+@end
+
+@implementation AWSAutoScalingTargetTrackingMetricStat
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"metric" : @"Metric",
+             @"stat" : @"Stat",
+             @"unit" : @"Unit",
+             };
+}
+
++ (NSValueTransformer *)metricJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingMetric class]];
+}
+
+@end
+
 @implementation AWSAutoScalingTerminateInstanceInAutoScalingGroupType
 
 + (BOOL)supportsSecureCoding {
@@ -3772,6 +3919,35 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"max" : @"Max",
              @"min" : @"Min",
+             };
+}
+
+@end
+
+@implementation AWSAutoScalingTrafficSourceIdentifier
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identifier" : @"Identifier",
+             };
+}
+
+@end
+
+@implementation AWSAutoScalingTrafficSourceState
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"state" : @"State",
+             @"trafficSource" : @"TrafficSource",
              };
 }
 

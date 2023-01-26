@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -592,6 +592,7 @@
         \"requestUri\":\"/contact-flows/{InstanceId}/{ContactFlowId}\"\
       },\
       \"input\":{\"shape\":\"DeleteContactFlowRequest\"},\
+      \"output\":{\"shape\":\"DeleteContactFlowResponse\"},\
       \"errors\":[\
         {\"shape\":\"AccessDeniedException\"},\
         {\"shape\":\"InvalidRequestException\"},\
@@ -2403,6 +2404,7 @@
         \"requestUri\":\"/contact-flows/{InstanceId}/{ContactFlowId}/content\"\
       },\
       \"input\":{\"shape\":\"UpdateContactFlowContentRequest\"},\
+      \"output\":{\"shape\":\"UpdateContactFlowContentResponse\"},\
       \"errors\":[\
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"InvalidContactFlowException\"},\
@@ -2420,6 +2422,7 @@
         \"requestUri\":\"/contact-flows/{InstanceId}/{ContactFlowId}/metadata\"\
       },\
       \"input\":{\"shape\":\"UpdateContactFlowMetadataRequest\"},\
+      \"output\":{\"shape\":\"UpdateContactFlowMetadataResponse\"},\
       \"errors\":[\
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"InvalidParameterException\"},\
@@ -2474,6 +2477,7 @@
         \"requestUri\":\"/contact-flows/{InstanceId}/{ContactFlowId}/name\"\
       },\
       \"input\":{\"shape\":\"UpdateContactFlowNameRequest\"},\
+      \"output\":{\"shape\":\"UpdateContactFlowNameResponse\"},\
       \"errors\":[\
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"InvalidParameterException\"},\
@@ -2550,6 +2554,24 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Updates an existing configuration for a resource type. This API is idempotent.</p>\"\
+    },\
+    \"UpdateParticipantRoleConfig\":{\
+      \"name\":\"UpdateParticipantRoleConfig\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/contact/participant-role-config/{InstanceId}/{ContactId}\"\
+      },\
+      \"input\":{\"shape\":\"UpdateParticipantRoleConfigRequest\"},\
+      \"output\":{\"shape\":\"UpdateParticipantRoleConfigResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Updates timeouts for when human chat participants are to be considered idle, and when agents are automatically disconnected from a chat due to idleness. You can set four timers:</p> <ul> <li> <p>Customer idle timeout</p> </li> <li> <p>Customer auto-disconnect timeout</p> </li> <li> <p>Agent idle timeout</p> </li> <li> <p>Agent auto-disconnect timeout</p> </li> </ul> <p>For more information about how chat timeouts work, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html\\\">Set up chat timeouts for human participants</a>. </p>\"\
     },\
     \"UpdatePhoneNumber\":{\
       \"name\":\"UpdatePhoneNumber\",\
@@ -3099,6 +3121,10 @@
         \"StatusArn\":{\
           \"shape\":\"ARN\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the agent's status.</p>\"\
+        },\
+        \"StatusName\":{\
+          \"shape\":\"AgentStatusName\",\
+          \"documentation\":\"<p>The name of the agent status.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about the agent's status.</p>\"\
@@ -3151,6 +3177,12 @@
     },\
     \"AgentUsername\":{\
       \"type\":\"string\",\
+      \"max\":100,\
+      \"min\":1\
+    },\
+    \"AgentsMinOneMaxHundred\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"UserId\"},\
       \"max\":100,\
       \"min\":1\
     },\
@@ -3552,7 +3584,7 @@
     },\
     \"ChatContent\":{\
       \"type\":\"string\",\
-      \"max\":1024,\
+      \"max\":16384,\
       \"min\":1\
     },\
     \"ChatContentType\":{\
@@ -3574,14 +3606,25 @@
       \"members\":{\
         \"ContentType\":{\
           \"shape\":\"ChatContentType\",\
-          \"documentation\":\"<p>The type of the content. Supported types are <code>text/plain</code>.</p>\"\
+          \"documentation\":\"<p>The type of the content. Supported types are <code>text/plain</code>, <code>text/markdown</code>, and <code>application/json</code>.</p>\"\
         },\
         \"Content\":{\
           \"shape\":\"ChatContent\",\
-          \"documentation\":\"<p>The content of the chat message.</p>\"\
+          \"documentation\":\"<p>The content of the chat message. </p> <ul> <li> <p>For <code>text/plain</code> and <code>text/markdown</code>, the Length Constraints are Minimum of 1, Maximum of 1024. </p> </li> <li> <p>For <code>application/json</code>, the Length Constraints are Minimum of 1, Maximum of 12000. </p> </li> </ul>\"\
         }\
       },\
       \"documentation\":\"<p>A chat message.</p>\"\
+    },\
+    \"ChatParticipantRoleConfig\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"ParticipantTimerConfigList\"],\
+      \"members\":{\
+        \"ParticipantTimerConfigList\":{\
+          \"shape\":\"ParticipantTimerConfigList\",\
+          \"documentation\":\"<p>A list of participant timers. You can specify any unique combination of role and timer type. Duplicate entries error out the request with a 400.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Configuration information for the chat participant role.</p>\"\
     },\
     \"ChatStreamingConfiguration\":{\
       \"type\":\"structure\",\
@@ -3760,6 +3803,10 @@
         \"ScheduledTimestamp\":{\
           \"shape\":\"timestamp\",\
           \"documentation\":\"<p>The timestamp, in Unix epoch time format, at which to start running the inbound flow. </p>\"\
+        },\
+        \"RelatedContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The contactId that is <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html#relatedcontactid\\\">related</a> to this contact.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a contact.</p>\"\
@@ -4000,7 +4047,9 @@
         \"TRANSFER\",\
         \"QUEUE_TRANSFER\",\
         \"CALLBACK\",\
-        \"API\"\
+        \"API\",\
+        \"DISCONNECT\",\
+        \"MONITOR\"\
       ]\
     },\
     \"ContactNotFoundException\":{\
@@ -5050,6 +5099,23 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"CurrentMetricResult\"}\
     },\
+    \"CurrentMetricSortCriteria\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"SortByMetric\":{\"shape\":\"CurrentMetricName\"},\
+        \"SortOrder\":{\
+          \"shape\":\"SortOrder\",\
+          \"documentation\":\"<p>The way to sort.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The way to sort the resulting response based on metrics. By default resources are sorted based on <code>AGENTS_ONLINE</code>, <code>DESCENDING</code>. The metric collection is sorted based on the input metrics.</p>\"\
+    },\
+    \"CurrentMetricSortCriteriaMaxOne\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"CurrentMetricSortCriteria\"},\
+      \"max\":1,\
+      \"min\":0\
+    },\
     \"CurrentMetrics\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"CurrentMetric\"}\
@@ -5150,6 +5216,11 @@
           \"location\":\"uri\",\
           \"locationName\":\"ContactFlowId\"\
         }\
+      }\
+    },\
+    \"DeleteContactFlowResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
       }\
     },\
     \"DeleteHoursOfOperationRequest\":{\
@@ -6001,7 +6072,8 @@
         \"Channel\":{\
           \"shape\":\"Channel\",\
           \"documentation\":\"<p>The channel used for grouping and filters.</p>\"\
-        }\
+        },\
+        \"RoutingProfile\":{\"shape\":\"RoutingProfileReference\"}\
       },\
       \"documentation\":\"<p>Contains information about the dimensions for a set of metrics.</p>\"\
     },\
@@ -6377,6 +6449,10 @@
         \"Channels\":{\
           \"shape\":\"Channels\",\
           \"documentation\":\"<p>The channel to use to filter the metrics.</p>\"\
+        },\
+        \"RoutingProfiles\":{\
+          \"shape\":\"RoutingProfiles\",\
+          \"documentation\":\"<p>A list of up to 100 routing profile IDs or ARNs.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains the filter to apply when retrieving metrics.</p>\"\
@@ -6436,11 +6512,11 @@
         },\
         \"Filters\":{\
           \"shape\":\"Filters\",\
-          \"documentation\":\"<p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK channels are supported.</p>\"\
+          \"documentation\":\"<p>The filters to apply to returned metrics. You can filter up to the following limits:</p> <ul> <li> <p>Queues: 100</p> </li> <li> <p>Routing profiles: 100</p> </li> <li> <p>Channels: 3 (VOICE, CHAT, and TASK channels are supported.)</p> </li> </ul> <p>Metric data is retrieved only for the resources associated with the queues or routing profiles, and by any channels included in the filter. (You cannot filter by both queue AND routing profile.) You can include both resource IDs and resource ARNs in the same request. </p> <p>Currently tagging is only supported on the resources that are passed in the filter.</p>\"\
         },\
         \"Groupings\":{\
           \"shape\":\"Groupings\",\
-          \"documentation\":\"<p>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. </p> <ul> <li> <p>If you group by <code>CHANNEL</code>, you should include a Channels filter. VOICE, CHAT, and TASK channels are supported.</p> </li> <li> <p>If you group by <code>ROUTING_PROFILE</code>, you must include either a queue or routing profile filter.</p> </li> <li> <p>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</p> </li> </ul>\"\
+          \"documentation\":\"<p>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. </p> <ul> <li> <p>If you group by <code>CHANNEL</code>, you should include a Channels filter. VOICE, CHAT, and TASK channels are supported.</p> </li> <li> <p>If you group by <code>ROUTING_PROFILE</code>, you must include either a queue or routing profile filter. In addition, a routing profile filter is required for metrics <code>CONTACTS_SCHEDULED</code>, <code>CONTACTS_IN_QUEUE</code>, and <code> OLDEST_CONTACT_AGE</code>.</p> </li> <li> <p>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</p> </li> </ul>\"\
         },\
         \"CurrentMetrics\":{\
           \"shape\":\"CurrentMetrics\",\
@@ -6454,6 +6530,10 @@
           \"shape\":\"MaxResult100\",\
           \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
           \"box\":true\
+        },\
+        \"SortCriteria\":{\
+          \"shape\":\"CurrentMetricSortCriteriaMaxOne\",\
+          \"documentation\":\"<p>The way to sort the resulting response based on metrics. You can enter one sort criteria. By default resources are sorted based on <code>AGENTS_ONLINE</code>, <code>DESCENDING</code>. The metric collection is sorted based on the input metrics.</p> <p>Note the following:</p> <ul> <li> <p>Sorting on <code>SLOTS_ACTIVE</code> and <code>SLOTS_AVAILABLE</code> is not supported.</p> </li> </ul>\"\
         }\
       }\
     },\
@@ -6471,6 +6551,10 @@
         \"DataSnapshotTime\":{\
           \"shape\":\"timestamp\",\
           \"documentation\":\"<p>The time at which the metrics were retrieved and cached for pagination.</p>\"\
+        },\
+        \"ApproximateTotalCount\":{\
+          \"shape\":\"ApproximateTotalCount\",\
+          \"documentation\":\"<p>The total count of the result, regardless of the current page size. </p>\"\
         }\
       }\
     },\
@@ -6489,7 +6573,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"UserDataFilters\",\
-          \"documentation\":\"<p>Filters up to 100 <code>Queues</code>, or up to 9 <code>ContactStates</code>. The user data is retrieved only for those users who are associated with the queues and have contacts that are in the specified <code>ContactState</code>. </p>\"\
+          \"documentation\":\"<p>The filters to apply to returned user data. You can filter up to the following limits:</p> <ul> <li> <p>Queues: 100</p> </li> <li> <p>Routing profiles: 100</p> </li> <li> <p>Agents: 100</p> </li> <li> <p>Contact states: 9</p> </li> <li> <p>User hierarchy groups: 1</p> </li> </ul> <p> The user data is retrieved for only the specified values/resources in the filter. A maximum of one filter can be passed from queues, routing profiles, agents, and user hierarchy groups. </p> <p>Currently tagging is only supported on the resources that are passed in the filter.</p>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
@@ -6512,6 +6596,10 @@
         \"UserDataList\":{\
           \"shape\":\"UserDataList\",\
           \"documentation\":\"<p>A list of the user data that is returned.</p>\"\
+        },\
+        \"ApproximateTotalCount\":{\
+          \"shape\":\"ApproximateTotalCount\",\
+          \"documentation\":\"<p>The total count of the result, regardless of the current page size.</p>\"\
         }\
       }\
     },\
@@ -6730,7 +6818,8 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"QUEUE\",\
-        \"CHANNEL\"\
+        \"CHANNEL\",\
+        \"ROUTING_PROFILE\"\
       ]\
     },\
     \"Groupings\":{\
@@ -9242,6 +9331,66 @@
       \"max\":256,\
       \"min\":1\
     },\
+    \"ParticipantTimerAction\":{\
+      \"type\":\"string\",\
+      \"enum\":[\"Unset\"]\
+    },\
+    \"ParticipantTimerConfigList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ParticipantTimerConfiguration\"},\
+      \"max\":6,\
+      \"min\":1\
+    },\
+    \"ParticipantTimerConfiguration\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ParticipantRole\",\
+        \"TimerType\",\
+        \"TimerValue\"\
+      ],\
+      \"members\":{\
+        \"ParticipantRole\":{\
+          \"shape\":\"TimerEligibleParticipantRoles\",\
+          \"documentation\":\"<p>The role of the participant in the chat conversation.</p>\"\
+        },\
+        \"TimerType\":{\
+          \"shape\":\"ParticipantTimerType\",\
+          \"documentation\":\"<p>The type of timer. <code>IDLE</code> indicates the timer applies for considering a human chat participant as idle. <code>DISCONNECT_NONCUSTOMER</code> indicates the timer applies to automatically disconnecting a chat participant due to idleness.</p>\"\
+        },\
+        \"TimerValue\":{\
+          \"shape\":\"ParticipantTimerValue\",\
+          \"documentation\":\"<p>The value of the timer. Either the timer action (Unset to delete the timer), or the duration of the timer in minutes. Only one value can be set.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Configuration information for the timer. After the timer configuration is set, it persists for the duration of the chat. It persists across new contacts in the chain, for example, transfer contacts.</p> <p>For more information about how chat timeouts work, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html\\\">Set up chat timeouts for human participants</a>. </p>\"\
+    },\
+    \"ParticipantTimerDurationInMinutes\":{\
+      \"type\":\"integer\",\
+      \"max\":480,\
+      \"min\":2\
+    },\
+    \"ParticipantTimerType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"IDLE\",\
+        \"DISCONNECT_NONCUSTOMER\"\
+      ]\
+    },\
+    \"ParticipantTimerValue\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ParticipantTimerAction\":{\
+          \"shape\":\"ParticipantTimerAction\",\
+          \"documentation\":\"<p>The timer action. Currently only one value is allowed: <code>Unset</code>. It deletes a timer.</p>\"\
+        },\
+        \"ParticipantTimerDurationInMinutes\":{\
+          \"shape\":\"ParticipantTimerDurationInMinutes\",\
+          \"documentation\":\"<p>The duration of a timer, in minutes. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The value of the timer. Either the timer action (<code>Unset</code> to delete the timer), or the duration of the timer in minutes. Only one value can be set.</p> <p>For more information about how chat timeouts work, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html\\\">Set up chat timeouts for human participants</a>. </p>\",\
+      \"union\":true\
+    },\
     \"ParticipantToken\":{\
       \"type\":\"string\",\
       \"max\":1000,\
@@ -9260,6 +9409,20 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"SecurityProfilePermission\"},\
       \"max\":500\
+    },\
+    \"PersistentChat\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"RehydrationType\":{\
+          \"shape\":\"RehydrationType\",\
+          \"documentation\":\"<p>The contactId that is used for rehydration depends on the rehydration type. RehydrationType is required for persistent chat. </p> <ul> <li> <p> <code>ENTIRE_PAST_SESSION</code>: Rehydrates a chat from the most recently terminated past chat contact of the specified past ended chat session. To use this type, provide the <code>initialContactId</code> of the past ended chat session in the <code>sourceContactId</code> field. In this type, Amazon Connect determines the most recent chat contact on the specified chat session that has ended, and uses it to start a persistent chat. </p> </li> <li> <p> <code>FROM_SEGMENT</code>: Rehydrates a chat from the past chat contact that is specified in the <code>sourceContactId</code> field. </p> </li> </ul> <p>The actual contactId used for rehydration is provided in the response of this API. </p>\"\
+        },\
+        \"SourceContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The contactId from which a persistent chat session must be started.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Enable persistent chats. For more information about enabling persistent chat, and for example use cases and how to configure for them, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html\\\">Enable persistent chat</a>.</p>\"\
     },\
     \"PhoneNumber\":{\
       \"type\":\"string\",\
@@ -10152,6 +10315,13 @@
       \"max\":4096,\
       \"min\":0\
     },\
+    \"RehydrationType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ENTIRE_PAST_SESSION\",\
+        \"FROM_SEGMENT\"\
+      ]\
+    },\
     \"ReleasePhoneNumberRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"PhoneNumberId\"],\
@@ -10530,6 +10700,12 @@
     \"RoutingProfileSummaryList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"RoutingProfileSummary\"}\
+    },\
+    \"RoutingProfiles\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"RoutingProfileId\"},\
+      \"max\":100,\
+      \"min\":1\
     },\
     \"Rule\":{\
       \"type\":\"structure\",\
@@ -11219,6 +11395,13 @@
       \"member\":{\"shape\":\"TaskTemplateSingleSelectOption\"}\
     },\
     \"SnapshotVersion\":{\"type\":\"string\"},\
+    \"SortOrder\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ASCENDING\",\
+        \"DESCENDING\"\
+      ]\
+    },\
     \"SourceApplicationName\":{\
       \"type\":\"string\",\
       \"max\":100,\
@@ -11271,7 +11454,11 @@
         },\
         \"SupportedMessagingContentTypes\":{\
           \"shape\":\"SupportedMessagingContentTypes\",\
-          \"documentation\":\"<p>The supported chat message content types. Content types can be text/plain or both text/plain and text/markdown.</p>\"\
+          \"documentation\":\"<p>The supported chat message content types. Content types must always contain <code>text/plain</code>. You can then put any other supported type in the list. For example, all the following lists are valid because they contain <code>text/plain</code>: <code>[text/plain, text/markdown, application/json]</code>, <code>[text/markdown, text/plain]</code>, <code>[text/plain, application/json]</code>.</p>\"\
+        },\
+        \"PersistentChat\":{\
+          \"shape\":\"PersistentChat\",\
+          \"documentation\":\"<p>Enable persistent chats. For more information about enabling persistent chat, and for example use cases and how to configure for them, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html\\\">Enable persistent chat</a>.</p>\"\
         }\
       }\
     },\
@@ -11289,6 +11476,10 @@
         \"ParticipantToken\":{\
           \"shape\":\"ParticipantToken\",\
           \"documentation\":\"<p>The token used by the chat participant to call <a href=\\\"https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html\\\">CreateParticipantConnection</a>. The participant token is valid for the lifetime of a chat participant.</p>\"\
+        },\
+        \"ContinuedFromContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The contactId from which a persistent chat session is started. This field is populated only for persistent chats.</p>\"\
         }\
       }\
     },\
@@ -11997,6 +12188,13 @@
       \"exception\":true\
     },\
     \"TimeZone\":{\"type\":\"string\"},\
+    \"TimerEligibleParticipantRoles\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"CUSTOMER\",\
+        \"AGENT\"\
+      ]\
+    },\
     \"Timestamp\":{\"type\":\"timestamp\"},\
     \"TrafficDistributionGroup\":{\
       \"type\":\"structure\",\
@@ -12276,6 +12474,11 @@
         }\
       }\
     },\
+    \"UpdateContactFlowContentResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
     \"UpdateContactFlowMetadataRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -12307,6 +12510,11 @@
           \"shape\":\"ContactFlowState\",\
           \"documentation\":\"<p>The state of flow.</p>\"\
         }\
+      }\
+    },\
+    \"UpdateContactFlowMetadataResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
       }\
     },\
     \"UpdateContactFlowModuleContentRequest\":{\
@@ -12405,6 +12613,11 @@
           \"shape\":\"ContactFlowDescription\",\
           \"documentation\":\"<p>The description of the flow.</p>\"\
         }\
+      }\
+    },\
+    \"UpdateContactFlowNameResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
       }\
     },\
     \"UpdateContactRequest\":{\
@@ -12568,6 +12781,48 @@
           \"locationName\":\"resourceType\"\
         },\
         \"StorageConfig\":{\"shape\":\"InstanceStorageConfig\"}\
+      }\
+    },\
+    \"UpdateParticipantRoleConfigChannelInfo\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Chat\":{\
+          \"shape\":\"ChatParticipantRoleConfig\",\
+          \"documentation\":\"<p>Configuration information for the chat participant role.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Configuration information for the chat participant role.</p>\",\
+      \"union\":true\
+    },\
+    \"UpdateParticipantRoleConfigRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"ContactId\",\
+        \"ChannelConfiguration\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact in this instance of Amazon Connect. </p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"ContactId\"\
+        },\
+        \"ChannelConfiguration\":{\
+          \"shape\":\"UpdateParticipantRoleConfigChannelInfo\",\
+          \"documentation\":\"<p>The Amazon Connect channel you want to configure.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateParticipantRoleConfigResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
       }\
     },\
     \"UpdatePhoneNumberRequest\":{\
@@ -13411,6 +13666,10 @@
         \"Contacts\":{\
           \"shape\":\"AgentContactReferenceList\",\
           \"documentation\":\"<p>A list of contact reference information.</p>\"\
+        },\
+        \"NextStatus\":{\
+          \"shape\":\"AgentStatusName\",\
+          \"documentation\":\"<p>The Next status of the agent.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Data for a user.</p>\"\
@@ -13420,14 +13679,32 @@
       \"members\":{\
         \"Queues\":{\
           \"shape\":\"Queues\",\
-          \"documentation\":\"<p>Contains information about a queue resource for which metrics are returned.</p>\"\
+          \"documentation\":\"<p>A list of up to 100 queues or ARNs.</p>\"\
         },\
         \"ContactFilter\":{\
           \"shape\":\"ContactFilter\",\
           \"documentation\":\"<p>A filter for the user data based on the contact information that is associated to the user. It contains a list of contact states. </p>\"\
+        },\
+        \"RoutingProfiles\":{\
+          \"shape\":\"RoutingProfiles\",\
+          \"documentation\":\"<p>A list of up to 100 routing profile IDs or ARNs.</p>\"\
+        },\
+        \"Agents\":{\
+          \"shape\":\"AgentsMinOneMaxHundred\",\
+          \"documentation\":\"<p>A list of up to 100 agent IDs or ARNs.</p>\"\
+        },\
+        \"UserHierarchyGroups\":{\
+          \"shape\":\"UserDataHierarchyGroups\",\
+          \"documentation\":\"<p>A UserHierarchyGroup ID or ARN.</p>\"\
         }\
       },\
       \"documentation\":\"<p>A filter for the user data.</p>\"\
+    },\
+    \"UserDataHierarchyGroups\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"HierarchyGroupId\"},\
+      \"max\":1,\
+      \"min\":1\
     },\
     \"UserDataList\":{\
       \"type\":\"list\",\
