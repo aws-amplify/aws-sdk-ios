@@ -87,7 +87,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderHelperErrorType) {
 /**
  The identity id as determined by the Amazon Cognito service
  */
-@property (nonatomic, strong, nullable) NSString *identityId;
+@property (atomic, strong, nullable) NSString *identityId;
 
 /**
  */
@@ -123,7 +123,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderHelperErrorType) {
 /**
  The identity id as determined by the Amazon Cognito service
  */
-@property (nonatomic, strong, nullable) NSString *identityId;
+@property (atomic, strong, nullable) NSString *identityId;
 
 /**
  The identity provider manager that asynchronously returns `logins`.

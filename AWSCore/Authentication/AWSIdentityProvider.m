@@ -41,7 +41,7 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
 
 @property (nonatomic, strong) id<AWSIdentityProviderManager> identityProviderManager;
 @property (nonatomic, strong) NSString *identityPoolId;
-@property (nonatomic, strong) NSDictionary *cachedLogins;
+@property (atomic, strong) NSDictionary *cachedLogins;
 
 @end
 
@@ -52,6 +52,8 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
 @end
 
 @implementation AWSAbstractCognitoCredentialsProviderHelper
+
+@synthesize identityId = _identityId;
 
 #pragma mark - AWSIdentityProvider
 
@@ -88,11 +90,19 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
     return [self.cachedLogins count] > 0;
 }
 
-- (void)setIdentityId:(NSString *)identityId {
-    if (identityId && ![identityId isEqualToString:_identityId]) {
-        [self postIdentityIdChangedNotification:identityId];
+- (NSString *)identityId {
+    @synchronized (self) {
+        return _identityId;
     }
-    _identityId = identityId;
+}
+
+- (void)setIdentityId:(NSString *)identityId {
+    @synchronized (self) {
+        if (identityId && ![identityId isEqualToString:_identityId]) {
+            [self postIdentityIdChangedNotification:identityId];
+        }
+        _identityId = identityId;
+    }
 }
 
 - (void)postIdentityIdChangedNotification:(NSString *)newId {
@@ -272,10 +282,10 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
     if (self.identityProviderManager && self.useEnhancedFlow) {
         self.cachedLogins = nil;
         return [[self getIdentityId] continueWithSuccessBlock:^id _Nullable(AWSTask<NSString *> * _Nonnull task) {
-            if(self.cachedLogins){
-                return [AWSTask taskWithResult:self.cachedLogins];
-            }
-            else {
+            NSDictionary *cachedLogins = self.cachedLogins;
+            if (cachedLogins) {
+                return [AWSTask taskWithResult:cachedLogins];
+            } else {
                 return [self.identityProviderManager logins];
             }
         }];

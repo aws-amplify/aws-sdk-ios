@@ -4,6 +4,11 @@
 
 -Features for next release
 
+### Bug Fixes
+
+- **AWSCore**
+    - Add sync control to avoid crash during concurrent credential requests
+
 ## 2.30.1
 
 ### Misc. Updates
