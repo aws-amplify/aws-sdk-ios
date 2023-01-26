@@ -139,8 +139,8 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_WIDTH = 200;
     AWSDDLogDebug(@"Sign-In Loading...");
     
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+    //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
     
     // set up the navigation controller
     [self setUpNavigationController];
@@ -161,15 +161,18 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_WIDTH = 200;
     if (self.config.font) {
         [self setUpFont];
     }
-
-    BOOL hasSignedIn = [[NSUserDefaults standardUserDefaults] boolForKey:@"hasSignedIn"];
-    if (!hasSignedIn) {
-        [self doUserPoolSignUp];
-    }
     
+    // if they've never signed in, force "sign in" screen
+    BOOL forceSignUp = [[NSUserDefaults standardUserDefaults] boolForKey:@"forceSignUp"];
+    
+    if (forceSignUp) {
+        [self doUserPoolSignUp];
+        return;
+    }
 }
     
 - (void)viewWillAppear:(BOOL)animated {
+    
     [super viewWillAppear:animated];
     if ([AWSSignInManager sharedInstance].pendingSignIn) {
         
@@ -525,6 +528,7 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_WIDTH = 200;
 }
 
 - (void)handleUserPoolSignIn {
+    
     Class awsUserPoolsUIOperations = NSClassFromString(USERPOOLS_UI_OPERATIONS);
     AWSUserPoolsUIOperations *userPoolsOperations = [[awsUserPoolsUIOperations alloc] initWithAuthUIConfiguration:self.config];
     [userPoolsOperations loginWithUserName:[self.tableDelegate getValueForCell:self.userNameRow forTableView:self.tableView]

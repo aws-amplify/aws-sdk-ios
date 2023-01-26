@@ -531,12 +531,12 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="7p7-RM-y9Z"/>
                                 </constraints>
-                                <string key="text">A confirmation code was just sent to your email address. If the confirmation email doesn't arrive within a minute or two, check your span folder.</string>
+                                <string key="text">A confirmation code was just sent to your email address. If the confirmation email doesn't arrive within a minute or two, check your spam folder.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please enter the code below to confirm your account." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpx-Bw-GDl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please enter the code from the email in the box below to confirm your account." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpx-Bw-GDl">
                                 <rect key="frame" x="0.0" y="100" width="300" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="Us1-ru-VBt"/>
