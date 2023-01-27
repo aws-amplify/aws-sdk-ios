@@ -708,6 +708,24 @@ jobs:
             content="${CIRCLE_BRANCH}"
             python3 ./CircleciScripts/create_pullrequest.py "${GITHUB_USER}" "${GITHUB_TOKEN}" "$title" "$content" "$target_branch" "${CIRCLE_PROJECT_USERNAME}:${CIRCLE_BRANCH}" ${CIRCLE_PROJECT_USERNAME} ${CIRCLE_PROJECT_REPONAME}
 
+  build_xcframeworks_checksum:
+    macos:
+      xcode: "13.2.1"
+    steps:
+      - skip_job_unless_required
+      - checkout_with_cache
+      - pre_start_simulator
+      - update_brew
+      - run:
+          name: Build XCFrameworks
+          command: |
+            python3 ./CircleciScripts/create_xcframeworks_checksum.py
+          no_output_timeout: 100m
+      - save_cache:
+          key: build_xcframeworks-result-{{ .Revision }}
+          paths:
+            - xcframeworks
+
 all_integ_test_requires: &all_integ_test_requires
   requires:
     - build
@@ -1497,3 +1515,22 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
+
+  checksum_sdk_artifacts:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - 2.28.6_checksum
+                - 2.90.0_checksum
+                - 2.90.1_checksum
+      - build_xcframeworks_checksum:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - 2.28.6_checksum
+                - 2.90.0_checksum
+                - 2.90.1_checksum
