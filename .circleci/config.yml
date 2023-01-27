@@ -724,6 +724,7 @@ jobs:
       - run:
           name: Calculate Checksum
           command: |
+            brew install coreutils
             echo "Calculating checksum for AWSCore.xcframework:"
             find ./xcframeworks/output/XCF/AWSCore.xcframework -type f -exec sha256sum {} \; |  awk '{print $1}' | sort -d | sha256sum | cut -d ' ' -f 1
       - save_cache:
