@@ -106,7 +106,7 @@ def create_xc_framework(framework):
         (exit_code, out, err) = run_command(cmd, keepalive_interval=300, timeout=7200)
         if exit_code == 0:
             log(f"Created XCFramework for {framework}")
-            checksum = calc_checksum(framework, "xcframework")
+            checksum = calc_checksum(xcframework)
             log(f"*** Checksum for {framework} : {checksum} ")
         else:
             log(f"Could not create XCFramework: {framework} output: {out}; error: {err}")
@@ -121,7 +121,7 @@ def process_frameworks(process, base_frameworks, remaining_frameworks, pool):
 
 def calc_checksum(file_name, extension):
     hash_sha256 = hashlib.sha256()
-    with open(file_name, extension) as f:
+    with open(file_name, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
             hash_sha256.update(chunk)
     return hash_sha256.hexdigest()
