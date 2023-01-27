@@ -719,8 +719,13 @@ jobs:
       - run:
           name: Build XCFrameworks
           command: |
-            python3 ./CircleciScripts/create_xcframeworks_checksum.py
+            python3 ./CircleciScripts/create_xcframeworks.py
           no_output_timeout: 100m
+      - run:
+          name: Calculate Checksum
+          command: |
+            echo "Calculating checksum for AWSCore.xcframework:"
+            find ./xcframeworks/output/XCF/AWSCore.xcframework -type f -exec sha256sum {} \; |  awk '{print $1}' | sort -d | sha256sum | cut -d ' ' -f 1
       - save_cache:
           key: build_xcframeworks-result-{{ .Revision }}
           paths:
@@ -765,7 +770,7 @@ workflows:
             branches:
               only:
                 - bump_sdk_version
-                
+
   release_sdk:
     jobs:
       - build:
