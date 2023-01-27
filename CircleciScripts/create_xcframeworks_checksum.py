@@ -119,7 +119,7 @@ def process_frameworks(process, base_frameworks, remaining_frameworks, pool):
     with pool:
         pool.map(process, remaining_frameworks)
 
-def calc_checksum(file_name, extension):
+def calc_checksum(file_name):
     hash_sha256 = hashlib.sha256()
     with open(file_name, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
