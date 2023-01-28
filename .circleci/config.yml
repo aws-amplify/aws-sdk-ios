@@ -616,7 +616,7 @@ jobs:
           command: |
             aws s3api put-object --bucket "$release_bucket" --key "aws-sdk-ios/$sdkNameWithVersion.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --profile sdk_xcf_release
             aws s3api put-object --bucket "$release_bucket" --key "aws-sdk-ios/latest/$sdkName.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --profile sdk_xcf_release
-            
+
   bump_sdk_version:
     macos:
       xcode: "13.2.1"
@@ -744,7 +744,7 @@ workflows:
               only:
                 - bump_sdk_version
   
-  release_sdk:
+  release_sdk_checksum:
     jobs:
       - build:
           filters:
