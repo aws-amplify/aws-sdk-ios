@@ -45,7 +45,7 @@ commands:
             sdkName=aws-ios-sdk
             echo "export sdkName=$sdkName" >> $BASH_ENV
 
-            release_bucket=${XCF_RELEASE_BUCKET_CHECKSUM}
+            release_bucket=${XCF_RELEASE_BUCKET}
             echo "export release_bucket=$release_bucket" >> $BASH_ENV
 
             release_tag=${CIRCLE_TAG}
