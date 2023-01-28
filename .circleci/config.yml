@@ -51,7 +51,7 @@ commands:
             release_tag=${CIRCLE_TAG}
             echo "export release_tag=$release_tag" >> $BASH_ENV
 
-            release_version=${CIRCLE_TAG}
+            release_version=1.28.7
             echo "export release_version=$release_version" >> $BASH_ENV
 
             sdkNameWithVersion="$sdkName-$release_version"
