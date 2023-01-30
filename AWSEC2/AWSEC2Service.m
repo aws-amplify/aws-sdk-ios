@@ -730,6 +730,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2AssociateIpamResourceDiscoveryResult *> *)associateIpamResourceDiscovery:(AWSEC2AssociateIpamResourceDiscoveryRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"AssociateIpamResourceDiscovery"
+                   outputClass:[AWSEC2AssociateIpamResourceDiscoveryResult class]];
+}
+
+- (void)associateIpamResourceDiscovery:(AWSEC2AssociateIpamResourceDiscoveryRequest *)request
+     completionHandler:(void (^)(AWSEC2AssociateIpamResourceDiscoveryResult *response, NSError *error))completionHandler {
+    [[self associateIpamResourceDiscovery:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2AssociateIpamResourceDiscoveryResult *> * _Nonnull task) {
+        AWSEC2AssociateIpamResourceDiscoveryResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2AssociateRouteTableResult *> *)associateRouteTable:(AWSEC2AssociateRouteTableRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1913,6 +1936,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2CreateIpamPoolResult *response, NSError *error))completionHandler {
     [[self createIpamPool:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateIpamPoolResult *> * _Nonnull task) {
         AWSEC2CreateIpamPoolResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2CreateIpamResourceDiscoveryResult *> *)createIpamResourceDiscovery:(AWSEC2CreateIpamResourceDiscoveryRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateIpamResourceDiscovery"
+                   outputClass:[AWSEC2CreateIpamResourceDiscoveryResult class]];
+}
+
+- (void)createIpamResourceDiscovery:(AWSEC2CreateIpamResourceDiscoveryRequest *)request
+     completionHandler:(void (^)(AWSEC2CreateIpamResourceDiscoveryResult *response, NSError *error))completionHandler {
+    [[self createIpamResourceDiscovery:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateIpamResourceDiscoveryResult *> * _Nonnull task) {
+        AWSEC2CreateIpamResourceDiscoveryResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -3609,6 +3655,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2DeleteIpamPoolResult *response, NSError *error))completionHandler {
     [[self deleteIpamPool:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteIpamPoolResult *> * _Nonnull task) {
         AWSEC2DeleteIpamPoolResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DeleteIpamResourceDiscoveryResult *> *)deleteIpamResourceDiscovery:(AWSEC2DeleteIpamResourceDiscoveryRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteIpamResourceDiscovery"
+                   outputClass:[AWSEC2DeleteIpamResourceDiscoveryResult class]];
+}
+
+- (void)deleteIpamResourceDiscovery:(AWSEC2DeleteIpamResourceDiscoveryRequest *)request
+     completionHandler:(void (^)(AWSEC2DeleteIpamResourceDiscoveryResult *response, NSError *error))completionHandler {
+    [[self deleteIpamResourceDiscovery:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteIpamResourceDiscoveryResult *> * _Nonnull task) {
+        AWSEC2DeleteIpamResourceDiscoveryResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -6315,6 +6384,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DescribeIpamResourceDiscoveriesResult *> *)describeIpamResourceDiscoveries:(AWSEC2DescribeIpamResourceDiscoveriesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeIpamResourceDiscoveries"
+                   outputClass:[AWSEC2DescribeIpamResourceDiscoveriesResult class]];
+}
+
+- (void)describeIpamResourceDiscoveries:(AWSEC2DescribeIpamResourceDiscoveriesRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeIpamResourceDiscoveriesResult *response, NSError *error))completionHandler {
+    [[self describeIpamResourceDiscoveries:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeIpamResourceDiscoveriesResult *> * _Nonnull task) {
+        AWSEC2DescribeIpamResourceDiscoveriesResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DescribeIpamResourceDiscoveryAssociationsResult *> *)describeIpamResourceDiscoveryAssociations:(AWSEC2DescribeIpamResourceDiscoveryAssociationsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeIpamResourceDiscoveryAssociations"
+                   outputClass:[AWSEC2DescribeIpamResourceDiscoveryAssociationsResult class]];
+}
+
+- (void)describeIpamResourceDiscoveryAssociations:(AWSEC2DescribeIpamResourceDiscoveryAssociationsRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeIpamResourceDiscoveryAssociationsResult *response, NSError *error))completionHandler {
+    [[self describeIpamResourceDiscoveryAssociations:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeIpamResourceDiscoveryAssociationsResult *> * _Nonnull task) {
+        AWSEC2DescribeIpamResourceDiscoveryAssociationsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DescribeIpamScopesResult *> *)describeIpamScopes:(AWSEC2DescribeIpamScopesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -8863,6 +8978,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DisassociateIpamResourceDiscoveryResult *> *)disassociateIpamResourceDiscovery:(AWSEC2DisassociateIpamResourceDiscoveryRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DisassociateIpamResourceDiscovery"
+                   outputClass:[AWSEC2DisassociateIpamResourceDiscoveryResult class]];
+}
+
+- (void)disassociateIpamResourceDiscovery:(AWSEC2DisassociateIpamResourceDiscoveryRequest *)request
+     completionHandler:(void (^)(AWSEC2DisassociateIpamResourceDiscoveryResult *response, NSError *error))completionHandler {
+    [[self disassociateIpamResourceDiscovery:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DisassociateIpamResourceDiscoveryResult *> * _Nonnull task) {
+        AWSEC2DisassociateIpamResourceDiscoveryResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)disassociateRouteTable:(AWSEC2DisassociateRouteTableRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -9793,6 +9931,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2GetIpamAddressHistoryResult *response, NSError *error))completionHandler {
     [[self getIpamAddressHistory:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetIpamAddressHistoryResult *> * _Nonnull task) {
         AWSEC2GetIpamAddressHistoryResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2GetIpamDiscoveredAccountsResult *> *)getIpamDiscoveredAccounts:(AWSEC2GetIpamDiscoveredAccountsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetIpamDiscoveredAccounts"
+                   outputClass:[AWSEC2GetIpamDiscoveredAccountsResult class]];
+}
+
+- (void)getIpamDiscoveredAccounts:(AWSEC2GetIpamDiscoveredAccountsRequest *)request
+     completionHandler:(void (^)(AWSEC2GetIpamDiscoveredAccountsResult *response, NSError *error))completionHandler {
+    [[self getIpamDiscoveredAccounts:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetIpamDiscoveredAccountsResult *> * _Nonnull task) {
+        AWSEC2GetIpamDiscoveredAccountsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2GetIpamDiscoveredResourceCidrsResult *> *)getIpamDiscoveredResourceCidrs:(AWSEC2GetIpamDiscoveredResourceCidrsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetIpamDiscoveredResourceCidrs"
+                   outputClass:[AWSEC2GetIpamDiscoveredResourceCidrsResult class]];
+}
+
+- (void)getIpamDiscoveredResourceCidrs:(AWSEC2GetIpamDiscoveredResourceCidrsRequest *)request
+     completionHandler:(void (^)(AWSEC2GetIpamDiscoveredResourceCidrsResult *response, NSError *error))completionHandler {
+    [[self getIpamDiscoveredResourceCidrs:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetIpamDiscoveredResourceCidrsResult *> * _Nonnull task) {
+        AWSEC2GetIpamDiscoveredResourceCidrsResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -11077,6 +11261,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2ModifyIpamResourceCidrResult *response, NSError *error))completionHandler {
     [[self modifyIpamResourceCidr:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyIpamResourceCidrResult *> * _Nonnull task) {
         AWSEC2ModifyIpamResourceCidrResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2ModifyIpamResourceDiscoveryResult *> *)modifyIpamResourceDiscovery:(AWSEC2ModifyIpamResourceDiscoveryRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifyIpamResourceDiscovery"
+                   outputClass:[AWSEC2ModifyIpamResourceDiscoveryResult class]];
+}
+
+- (void)modifyIpamResourceDiscovery:(AWSEC2ModifyIpamResourceDiscoveryRequest *)request
+     completionHandler:(void (^)(AWSEC2ModifyIpamResourceDiscoveryResult *response, NSError *error))completionHandler {
+    [[self modifyIpamResourceDiscovery:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyIpamResourceDiscoveryResult *> * _Nonnull task) {
+        AWSEC2ModifyIpamResourceDiscoveryResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

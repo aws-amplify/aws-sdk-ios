@@ -178,7 +178,7 @@
       },\
       \"input\":{\"shape\":\"AllocateIpamPoolCidrRequest\"},\
       \"output\":{\"shape\":\"AllocateIpamPoolCidrResult\"},\
-      \"documentation\":\"<p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html\\\">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+      \"documentation\":\"<p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html\\\">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
     },\
     \"ApplySecurityGroupsToClientVpnTargetNetwork\":{\
       \"name\":\"ApplySecurityGroupsToClientVpnTargetNetwork\",\
@@ -268,6 +268,16 @@
       \"input\":{\"shape\":\"AssociateInstanceEventWindowRequest\"},\
       \"output\":{\"shape\":\"AssociateInstanceEventWindowResult\"},\
       \"documentation\":\"<p>Associates one or more targets with an event window. Only one type of target (instance IDs, Dedicated Host IDs, or tags) can be specified with an event window.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html\\\">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
+    },\
+    \"AssociateIpamResourceDiscovery\":{\
+      \"name\":\"AssociateIpamResourceDiscovery\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"AssociateIpamResourceDiscoveryRequest\"},\
+      \"output\":{\"shape\":\"AssociateIpamResourceDiscoveryResult\"},\
+      \"documentation\":\"<p>Associates an IPAM resource discovery with an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>\"\
     },\
     \"AssociateRouteTable\":{\
       \"name\":\"AssociateRouteTable\",\
@@ -785,6 +795,16 @@
       \"input\":{\"shape\":\"CreateIpamPoolRequest\"},\
       \"output\":{\"shape\":\"CreateIpamPoolResult\"},\
       \"documentation\":\"<p>Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html\\\">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+    },\
+    \"CreateIpamResourceDiscovery\":{\
+      \"name\":\"CreateIpamResourceDiscovery\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"CreateIpamResourceDiscoveryRequest\"},\
+      \"output\":{\"shape\":\"CreateIpamResourceDiscoveryResult\"},\
+      \"documentation\":\"<p>Creates an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>\"\
     },\
     \"CreateIpamScope\":{\
       \"name\":\"CreateIpamScope\",\
@@ -1519,6 +1539,16 @@
       \"input\":{\"shape\":\"DeleteIpamPoolRequest\"},\
       \"output\":{\"shape\":\"DeleteIpamPoolResult\"},\
       \"documentation\":\"<p>Delete an IPAM pool.</p> <note> <p>You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release allocations, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html\\\">ReleaseIpamPoolAllocation</a>. To deprovision pool CIDRs, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html\\\">DeprovisionIpamPoolCidr</a>.</p> </note> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/delete-pool-ipam.html\\\">Delete a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+    },\
+    \"DeleteIpamResourceDiscovery\":{\
+      \"name\":\"DeleteIpamResourceDiscovery\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteIpamResourceDiscoveryRequest\"},\
+      \"output\":{\"shape\":\"DeleteIpamResourceDiscoveryResult\"},\
+      \"documentation\":\"<p>Deletes an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>\"\
     },\
     \"DeleteIpamScope\":{\
       \"name\":\"DeleteIpamScope\",\
@@ -2682,6 +2712,26 @@
       \"output\":{\"shape\":\"DescribeIpamPoolsResult\"},\
       \"documentation\":\"<p>Get information about your IPAM pools.</p>\"\
     },\
+    \"DescribeIpamResourceDiscoveries\":{\
+      \"name\":\"DescribeIpamResourceDiscoveries\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DescribeIpamResourceDiscoveriesRequest\"},\
+      \"output\":{\"shape\":\"DescribeIpamResourceDiscoveriesResult\"},\
+      \"documentation\":\"<p>Describes IPAM resource discoveries. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>\"\
+    },\
+    \"DescribeIpamResourceDiscoveryAssociations\":{\
+      \"name\":\"DescribeIpamResourceDiscoveryAssociations\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DescribeIpamResourceDiscoveryAssociationsRequest\"},\
+      \"output\":{\"shape\":\"DescribeIpamResourceDiscoveryAssociationsResult\"},\
+      \"documentation\":\"<p>Describes resource discovery association with an Amazon VPC IPAM. An associated resource discovery is a resource discovery that has been associated with an IPAM..</p>\"\
+    },\
     \"DescribeIpamScopes\":{\
       \"name\":\"DescribeIpamScopes\",\
       \"http\":{\
@@ -3787,6 +3837,16 @@
       \"output\":{\"shape\":\"DisassociateInstanceEventWindowResult\"},\
       \"documentation\":\"<p>Disassociates one or more targets from an event window.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html\\\">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
     },\
+    \"DisassociateIpamResourceDiscovery\":{\
+      \"name\":\"DisassociateIpamResourceDiscovery\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DisassociateIpamResourceDiscoveryRequest\"},\
+      \"output\":{\"shape\":\"DisassociateIpamResourceDiscoveryResult\"},\
+      \"documentation\":\"<p>Disassociates a resource discovery from an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>\"\
+    },\
     \"DisassociateRouteTable\":{\
       \"name\":\"DisassociateRouteTable\",\
       \"http\":{\
@@ -4194,6 +4254,26 @@
       \"output\":{\"shape\":\"GetIpamAddressHistoryResult\"},\
       \"documentation\":\"<p>Retrieve historical information about a CIDR within an IPAM scope. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html\\\">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
     },\
+    \"GetIpamDiscoveredAccounts\":{\
+      \"name\":\"GetIpamDiscoveredAccounts\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"GetIpamDiscoveredAccountsRequest\"},\
+      \"output\":{\"shape\":\"GetIpamDiscoveredAccountsResult\"},\
+      \"documentation\":\"<p>Gets IPAM discovered accounts. A discovered account is an Amazon Web Services account that is monitored under a resource discovery. If you have integrated IPAM with Amazon Web Services Organizations, all accounts in the organization are discovered accounts. Only the IPAM account can get all discovered accounts in the organization.</p>\"\
+    },\
+    \"GetIpamDiscoveredResourceCidrs\":{\
+      \"name\":\"GetIpamDiscoveredResourceCidrs\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"GetIpamDiscoveredResourceCidrsRequest\"},\
+      \"output\":{\"shape\":\"GetIpamDiscoveredResourceCidrsResult\"},\
+      \"documentation\":\"<p>Returns the resource CIDRs that are monitored as part of a resource discovery. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses. </p>\"\
+    },\
     \"GetIpamPoolAllocations\":{\
       \"name\":\"GetIpamPoolAllocations\",\
       \"http\":{\
@@ -4222,7 +4302,7 @@
       },\
       \"input\":{\"shape\":\"GetIpamResourceCidrsRequest\"},\
       \"output\":{\"shape\":\"GetIpamResourceCidrsResult\"},\
-      \"documentation\":\"<p>Get information about the resources in a scope.</p>\"\
+      \"documentation\":\"<p>Returns resource CIDRs managed by IPAM in a given scope. If an IPAM is associated with more than one resource discovery, the resource CIDRs across all of the resource discoveries is returned. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>\"\
     },\
     \"GetLaunchTemplateData\":{\
       \"name\":\"GetLaunchTemplateData\",\
@@ -4750,6 +4830,16 @@
       \"output\":{\"shape\":\"ModifyIpamResourceCidrResult\"},\
       \"documentation\":\"<p>Modify a resource CIDR. You can use this action to transfer resource CIDRs between scopes and ignore resource CIDRs that you do not want to manage. If set to false, the resource will not be tracked for overlap, it cannot be auto-imported into a pool, and it will be removed from any pool it has an allocation in.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/move-resource-ipam.html\\\">Move resource CIDRs between scopes</a> and <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/change-monitoring-state-ipam.html\\\">Change the monitoring state of resource CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
     },\
+    \"ModifyIpamResourceDiscovery\":{\
+      \"name\":\"ModifyIpamResourceDiscovery\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ModifyIpamResourceDiscoveryRequest\"},\
+      \"output\":{\"shape\":\"ModifyIpamResourceDiscoveryResult\"},\
+      \"documentation\":\"<p>Modifies a resource discovery. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>\"\
+    },\
     \"ModifyIpamScope\":{\
       \"name\":\"ModifyIpamScope\",\
       \"http\":{\
@@ -5163,7 +5253,7 @@
       },\
       \"input\":{\"shape\":\"MoveByoipCidrToIpamRequest\"},\
       \"output\":{\"shape\":\"MoveByoipCidrToIpamResult\"},\
-      \"documentation\":\"<p>Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.</p> <p>If you already have an IPv4 BYOIP CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html\\\">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>\"\
+      \"documentation\":\"<p>Move a BYOIPv4 CIDR to IPAM from a public IPv4 pool.</p> <p>If you already have a BYOIPv4 CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html\\\">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>\"\
     },\
     \"ProvisionByoipCidr\":{\
       \"name\":\"ProvisionByoipCidr\",\
@@ -7458,11 +7548,11 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"CertificateArn\":{\
-          \"shape\":\"ResourceArn\",\
+          \"shape\":\"CertificateId\",\
           \"documentation\":\"<p>The ARN of the ACM certificate with which to associate the IAM role.</p>\"\
         },\
         \"RoleArn\":{\
-          \"shape\":\"ResourceArn\",\
+          \"shape\":\"RoleId\",\
           \"documentation\":\"<p>The ARN of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.</p>\"\
         },\
         \"DryRun\":{\
@@ -7546,6 +7636,47 @@
           \"shape\":\"InstanceEventWindow\",\
           \"documentation\":\"<p>Information about the event window.</p>\",\
           \"locationName\":\"instanceEventWindow\"\
+        }\
+      }\
+    },\
+    \"AssociateIpamResourceDiscoveryRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"IpamId\",\
+        \"IpamResourceDiscoveryId\"\
+      ],\
+      \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"IpamId\":{\
+          \"shape\":\"IpamId\",\
+          \"documentation\":\"<p>An IPAM ID.</p>\"\
+        },\
+        \"IpamResourceDiscoveryId\":{\
+          \"shape\":\"IpamResourceDiscoveryId\",\
+          \"documentation\":\"<p>A resource discovery ID.</p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>Tag specifications.</p>\",\
+          \"locationName\":\"TagSpecification\"\
+        },\
+        \"ClientToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>A client token.</p>\",\
+          \"idempotencyToken\":true\
+        }\
+      }\
+    },\
+    \"AssociateIpamResourceDiscoveryResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"IpamResourceDiscoveryAssociation\":{\
+          \"shape\":\"IpamResourceDiscoveryAssociation\",\
+          \"documentation\":\"<p>A resource discovery association. An associated resource discovery is a resource discovery that has been associated with an IPAM.</p>\",\
+          \"locationName\":\"ipamResourceDiscoveryAssociation\"\
         }\
       }\
     },\
@@ -9846,6 +9977,7 @@
       },\
       \"documentation\":\"<p>Information about the client certificate to be used for authentication.</p>\"\
     },\
+    \"CertificateId\":{\"type\":\"string\"},\
     \"CidrAuthorizationContext\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -12270,6 +12402,10 @@
         \"AwsService\":{\
           \"shape\":\"IpamPoolAwsService\",\
           \"documentation\":\"<p>Limits which service in Amazon Web Services that the pool can be used in. \\\"ec2\\\", for example, allows users to use space for Elastic IP addresses and VPCs.</p>\"\
+        },\
+        \"PublicIpSource\":{\
+          \"shape\":\"IpamPoolPublicIpSource\",\
+          \"documentation\":\"<p>The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is <code>byoip</code>. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html\\\">Create IPv6 pools</a> in the <i>Amazon VPC IPAM User Guide</i>. By default, you can add only one Amazon-provided IPv6 CIDR block to a top-level IPv6 pool if PublicIpSource is <code>amazon</code>. For information on increasing the default limit, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html\\\"> Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
         }\
       }\
     },\
@@ -12296,7 +12432,7 @@
         },\
         \"OperatingRegions\":{\
           \"shape\":\"AddIpamOperatingRegionSet\",\
-          \"documentation\":\"<p>The operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p> <p>For more information about operating Regions, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html\\\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\",\
+          \"documentation\":\"<p>The operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions. </p> <p>For more information about operating Regions, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html\\\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\",\
           \"locationName\":\"OperatingRegion\"\
         },\
         \"TagSpecifications\":{\
@@ -12308,6 +12444,44 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">Ensuring Idempotency</a>.</p>\",\
           \"idempotencyToken\":true\
+        }\
+      }\
+    },\
+    \"CreateIpamResourceDiscoveryRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>A description for the IPAM resource discovery.</p>\"\
+        },\
+        \"OperatingRegions\":{\
+          \"shape\":\"AddIpamOperatingRegionSet\",\
+          \"documentation\":\"<p>Operating Regions for the IPAM resource discovery. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>\",\
+          \"locationName\":\"OperatingRegion\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>Tag specifications for the IPAM resource discovery.</p>\",\
+          \"locationName\":\"TagSpecification\"\
+        },\
+        \"ClientToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>A client token for the IPAM resource discovery.</p>\",\
+          \"idempotencyToken\":true\
+        }\
+      }\
+    },\
+    \"CreateIpamResourceDiscoveryResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"IpamResourceDiscovery\":{\
+          \"shape\":\"IpamResourceDiscovery\",\
+          \"documentation\":\"<p>An IPAM resource discovery.</p>\",\
+          \"locationName\":\"ipamResourceDiscovery\"\
         }\
       }\
     },\
@@ -12491,10 +12665,7 @@
     },\
     \"CreateLocalGatewayRouteRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"DestinationCidrBlock\",\
-        \"LocalGatewayRouteTableId\"\
-      ],\
+      \"required\":[\"LocalGatewayRouteTableId\"],\
       \"members\":{\
         \"DestinationCidrBlock\":{\
           \"shape\":\"String\",\
@@ -12515,6 +12686,10 @@
         \"NetworkInterfaceId\":{\
           \"shape\":\"NetworkInterfaceId\",\
           \"documentation\":\"<p>The ID of the network interface.</p>\"\
+        },\
+        \"DestinationPrefixListId\":{\
+          \"shape\":\"PrefixListResourceId\",\
+          \"documentation\":\"<p> The ID of the prefix list. Use a prefix list in place of <code>DestinationCidrBlock</code>. You cannot use <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request. </p>\"\
         }\
       }\
     },\
@@ -15875,6 +16050,30 @@
         }\
       }\
     },\
+    \"DeleteIpamResourceDiscoveryRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"IpamResourceDiscoveryId\"],\
+      \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"IpamResourceDiscoveryId\":{\
+          \"shape\":\"IpamResourceDiscoveryId\",\
+          \"documentation\":\"<p>The IPAM resource discovery ID.</p>\"\
+        }\
+      }\
+    },\
+    \"DeleteIpamResourceDiscoveryResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"IpamResourceDiscovery\":{\
+          \"shape\":\"IpamResourceDiscovery\",\
+          \"documentation\":\"<p>The IPAM resource discovery.</p>\",\
+          \"locationName\":\"ipamResourceDiscovery\"\
+        }\
+      }\
+    },\
     \"DeleteIpamResult\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -16055,10 +16254,7 @@
     },\
     \"DeleteLocalGatewayRouteRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"DestinationCidrBlock\",\
-        \"LocalGatewayRouteTableId\"\
-      ],\
+      \"required\":[\"LocalGatewayRouteTableId\"],\
       \"members\":{\
         \"DestinationCidrBlock\":{\
           \"shape\":\"String\",\
@@ -16071,6 +16267,10 @@
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"DestinationPrefixListId\":{\
+          \"shape\":\"PrefixListResourceId\",\
+          \"documentation\":\"<p> Use a prefix list in place of <code>DestinationCidrBlock</code>. You cannot use <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request. </p>\"\
         }\
       }\
     },\
@@ -16675,7 +16875,7 @@
       \"required\":[\"TrafficMirrorFilterRuleId\"],\
       \"members\":{\
         \"TrafficMirrorFilterRuleId\":{\
-          \"shape\":\"TrafficMirrorFilterRuleId\",\
+          \"shape\":\"TrafficMirrorFilterRuleIdWithResolver\",\
           \"documentation\":\"<p>The ID of the Traffic Mirror rule.</p>\"\
         },\
         \"DryRun\":{\
@@ -19922,6 +20122,90 @@
           \"shape\":\"IpamPoolSet\",\
           \"documentation\":\"<p>Information about the IPAM pools.</p>\",\
           \"locationName\":\"ipamPoolSet\"\
+        }\
+      }\
+    },\
+    \"DescribeIpamResourceDiscoveriesRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"IpamResourceDiscoveryIds\":{\
+          \"shape\":\"ValueStringList\",\
+          \"documentation\":\"<p>The IPAM resource discovery IDs.</p>\",\
+          \"locationName\":\"IpamResourceDiscoveryId\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>Specify the pagination token from a previous request to retrieve the next page of results.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"IpamMaxResults\",\
+          \"documentation\":\"<p>The maximum number of resource discoveries to return in one page of results.</p>\"\
+        },\
+        \"Filters\":{\
+          \"shape\":\"FilterList\",\
+          \"documentation\":\"<p>The resource discovery filters.</p>\",\
+          \"locationName\":\"Filter\"\
+        }\
+      }\
+    },\
+    \"DescribeIpamResourceDiscoveriesResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"IpamResourceDiscoveries\":{\
+          \"shape\":\"IpamResourceDiscoverySet\",\
+          \"documentation\":\"<p>The resource discoveries.</p>\",\
+          \"locationName\":\"ipamResourceDiscoverySet\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>Specify the pagination token from a previous request to retrieve the next page of results.</p>\",\
+          \"locationName\":\"nextToken\"\
+        }\
+      }\
+    },\
+    \"DescribeIpamResourceDiscoveryAssociationsRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"IpamResourceDiscoveryAssociationIds\":{\
+          \"shape\":\"ValueStringList\",\
+          \"documentation\":\"<p>The resource discovery association IDs.</p>\",\
+          \"locationName\":\"IpamResourceDiscoveryAssociationId\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>Specify the pagination token from a previous request to retrieve the next page of results.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"IpamMaxResults\",\
+          \"documentation\":\"<p>The maximum number of resource discovery associations to return in one page of results.</p>\"\
+        },\
+        \"Filters\":{\
+          \"shape\":\"FilterList\",\
+          \"documentation\":\"<p>The resource discovery association filters.</p>\",\
+          \"locationName\":\"Filter\"\
+        }\
+      }\
+    },\
+    \"DescribeIpamResourceDiscoveryAssociationsResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"IpamResourceDiscoveryAssociations\":{\
+          \"shape\":\"IpamResourceDiscoveryAssociationSet\",\
+          \"documentation\":\"<p>The resource discovery associations.</p>\",\
+          \"locationName\":\"ipamResourceDiscoveryAssociationSet\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>Specify the pagination token from a previous request to retrieve the next page of results.</p>\",\
+          \"locationName\":\"nextToken\"\
         }\
       }\
     },\
@@ -24730,11 +25014,11 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"CertificateArn\":{\
-          \"shape\":\"ResourceArn\",\
+          \"shape\":\"CertificateId\",\
           \"documentation\":\"<p>The ARN of the ACM certificate from which to disassociate the IAM role.</p>\"\
         },\
         \"RoleArn\":{\
-          \"shape\":\"ResourceArn\",\
+          \"shape\":\"RoleId\",\
           \"documentation\":\"<p>The ARN of the IAM role to disassociate.</p>\"\
         },\
         \"DryRun\":{\
@@ -24801,6 +25085,30 @@
           \"shape\":\"InstanceEventWindow\",\
           \"documentation\":\"<p>Information about the event window.</p>\",\
           \"locationName\":\"instanceEventWindow\"\
+        }\
+      }\
+    },\
+    \"DisassociateIpamResourceDiscoveryRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"IpamResourceDiscoveryAssociationId\"],\
+      \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"IpamResourceDiscoveryAssociationId\":{\
+          \"shape\":\"IpamResourceDiscoveryAssociationId\",\
+          \"documentation\":\"<p>A resource discovery association ID.</p>\"\
+        }\
+      }\
+    },\
+    \"DisassociateIpamResourceDiscoveryResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"IpamResourceDiscoveryAssociation\":{\
+          \"shape\":\"IpamResourceDiscoveryAssociation\",\
+          \"documentation\":\"<p>A resource discovery association.</p>\",\
+          \"locationName\":\"ipamResourceDiscoveryAssociation\"\
         }\
       }\
     },\
@@ -28124,7 +28432,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"CertificateArn\":{\
-          \"shape\":\"ResourceArn\",\
+          \"shape\":\"CertificateId\",\
           \"documentation\":\"<p>The ARN of the ACM certificate for which to view the associated IAM roles, encryption keys, and Amazon S3 object information.</p>\"\
         },\
         \"DryRun\":{\
@@ -28726,6 +29034,104 @@
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
           \"documentation\":\"<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>\",\
+          \"locationName\":\"nextToken\"\
+        }\
+      }\
+    },\
+    \"GetIpamDiscoveredAccountsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"IpamResourceDiscoveryId\",\
+        \"DiscoveryRegion\"\
+      ],\
+      \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"IpamResourceDiscoveryId\":{\
+          \"shape\":\"IpamResourceDiscoveryId\",\
+          \"documentation\":\"<p>A resource discovery ID.</p>\"\
+        },\
+        \"DiscoveryRegion\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The Amazon Web Services Region that the account information is returned from.</p>\"\
+        },\
+        \"Filters\":{\
+          \"shape\":\"FilterList\",\
+          \"documentation\":\"<p>Discovered account filters.</p>\",\
+          \"locationName\":\"Filter\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>Specify the pagination token from a previous request to retrieve the next page of results.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"IpamMaxResults\",\
+          \"documentation\":\"<p>The maximum number of discovered accounts to return in one page of results.</p>\"\
+        }\
+      }\
+    },\
+    \"GetIpamDiscoveredAccountsResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"IpamDiscoveredAccounts\":{\
+          \"shape\":\"IpamDiscoveredAccountSet\",\
+          \"documentation\":\"<p>Discovered accounts.</p>\",\
+          \"locationName\":\"ipamDiscoveredAccountSet\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>Specify the pagination token from a previous request to retrieve the next page of results.</p>\",\
+          \"locationName\":\"nextToken\"\
+        }\
+      }\
+    },\
+    \"GetIpamDiscoveredResourceCidrsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"IpamResourceDiscoveryId\",\
+        \"ResourceRegion\"\
+      ],\
+      \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"IpamResourceDiscoveryId\":{\
+          \"shape\":\"IpamResourceDiscoveryId\",\
+          \"documentation\":\"<p>A resource discovery ID.</p>\"\
+        },\
+        \"ResourceRegion\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>A resource Region.</p>\"\
+        },\
+        \"Filters\":{\
+          \"shape\":\"FilterList\",\
+          \"documentation\":\"<p>Filters.</p>\",\
+          \"locationName\":\"Filter\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>Specify the pagination token from a previous request to retrieve the next page of results.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"IpamMaxResults\",\
+          \"documentation\":\"<p>The maximum number of discovered resource CIDRs to return in one page of results.</p>\"\
+        }\
+      }\
+    },\
+    \"GetIpamDiscoveredResourceCidrsResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"IpamDiscoveredResourceCidrs\":{\
+          \"shape\":\"IpamDiscoveredResourceCidrSet\",\
+          \"documentation\":\"<p>Discovered resource CIDRs.</p>\",\
+          \"locationName\":\"ipamDiscoveredResourceCidrSet\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>Specify the pagination token from a previous request to retrieve the next page of results.</p>\",\
           \"locationName\":\"nextToken\"\
         }\
       }\
@@ -32398,6 +32804,7 @@
         \"locationName\":\"InstanceId\"\
       }\
     },\
+    \"InstanceIdWithVolumeResolver\":{\"type\":\"string\"},\
     \"InstanceIdsSet\":{\
       \"type\":\"list\",\
       \"member\":{\
@@ -33221,9 +33628,10 @@
     },\
     \"InstanceSpecification\":{\
       \"type\":\"structure\",\
+      \"required\":[\"InstanceId\"],\
       \"members\":{\
         \"InstanceId\":{\
-          \"shape\":\"InstanceId\",\
+          \"shape\":\"InstanceIdWithVolumeResolver\",\
           \"documentation\":\"<p>The instance to specify which volumes should be snapshotted.</p>\"\
         },\
         \"ExcludeBootVolume\":{\
@@ -34550,7 +34958,7 @@
         },\
         \"IpamArn\":{\
           \"shape\":\"ResourceArn\",\
-          \"documentation\":\"<p>The ARN of the IPAM.</p>\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the IPAM.</p>\",\
           \"locationName\":\"ipamArn\"\
         },\
         \"IpamRegion\":{\
@@ -34592,6 +35000,21 @@
           \"shape\":\"TagList\",\
           \"documentation\":\"<p>The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>\",\
           \"locationName\":\"tagSet\"\
+        },\
+        \"DefaultResourceDiscoveryId\":{\
+          \"shape\":\"IpamResourceDiscoveryId\",\
+          \"documentation\":\"<p>The IPAM's default resource discovery ID.</p>\",\
+          \"locationName\":\"defaultResourceDiscoveryId\"\
+        },\
+        \"DefaultResourceDiscoveryAssociationId\":{\
+          \"shape\":\"IpamResourceDiscoveryAssociationId\",\
+          \"documentation\":\"<p>The IPAM's default resource discovery association ID.</p>\",\
+          \"locationName\":\"defaultResourceDiscoveryAssociationId\"\
+        },\
+        \"ResourceDiscoveryAssociationCount\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The IPAM's resource discovery association count.</p>\",\
+          \"locationName\":\"resourceDiscoveryAssociationCount\"\
         }\
       },\
       \"documentation\":\"<p>IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
@@ -34679,6 +35102,13 @@
         \"instance\"\
       ]\
     },\
+    \"IpamAssociatedResourceDiscoveryStatus\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"active\",\
+        \"not-found\"\
+      ]\
+    },\
     \"IpamCidrAuthorizationContext\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -34701,6 +35131,131 @@
         \"unmanaged\",\
         \"ignored\"\
       ]\
+    },\
+    \"IpamDiscoveredAccount\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"AccountId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The account ID.</p>\",\
+          \"locationName\":\"accountId\"\
+        },\
+        \"DiscoveryRegion\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The Amazon Web Services Region that the account information is returned from. An account can be discovered in multiple regions and will have a separate discovered account for each Region.</p>\",\
+          \"locationName\":\"discoveryRegion\"\
+        },\
+        \"FailureReason\":{\
+          \"shape\":\"IpamDiscoveryFailureReason\",\
+          \"documentation\":\"<p>The resource discovery failure reason.</p>\",\
+          \"locationName\":\"failureReason\"\
+        },\
+        \"LastAttemptedDiscoveryTime\":{\
+          \"shape\":\"MillisecondDateTime\",\
+          \"documentation\":\"<p>The last attempted resource discovery time.</p>\",\
+          \"locationName\":\"lastAttemptedDiscoveryTime\"\
+        },\
+        \"LastSuccessfulDiscoveryTime\":{\
+          \"shape\":\"MillisecondDateTime\",\
+          \"documentation\":\"<p>The last successful resource discovery time.</p>\",\
+          \"locationName\":\"lastSuccessfulDiscoveryTime\"\
+        }\
+      },\
+      \"documentation\":\"<p>An IPAM discovered account. A discovered account is an Amazon Web Services account that is monitored under a resource discovery. If you have integrated IPAM with Amazon Web Services Organizations, all accounts in the organization are discovered accounts.</p>\"\
+    },\
+    \"IpamDiscoveredAccountSet\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"IpamDiscoveredAccount\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"IpamDiscoveredResourceCidr\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"IpamResourceDiscoveryId\":{\
+          \"shape\":\"IpamResourceDiscoveryId\",\
+          \"documentation\":\"<p>The resource discovery ID.</p>\",\
+          \"locationName\":\"ipamResourceDiscoveryId\"\
+        },\
+        \"ResourceRegion\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The resource Region.</p>\",\
+          \"locationName\":\"resourceRegion\"\
+        },\
+        \"ResourceId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The resource ID.</p>\",\
+          \"locationName\":\"resourceId\"\
+        },\
+        \"ResourceOwnerId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The resource owner ID.</p>\",\
+          \"locationName\":\"resourceOwnerId\"\
+        },\
+        \"ResourceCidr\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The resource CIDR.</p>\",\
+          \"locationName\":\"resourceCidr\"\
+        },\
+        \"ResourceType\":{\
+          \"shape\":\"IpamResourceType\",\
+          \"documentation\":\"<p>The resource type.</p>\",\
+          \"locationName\":\"resourceType\"\
+        },\
+        \"ResourceTags\":{\
+          \"shape\":\"IpamResourceTagList\",\
+          \"documentation\":\"<p>The resource tags.</p>\",\
+          \"locationName\":\"resourceTagSet\"\
+        },\
+        \"IpUsage\":{\
+          \"shape\":\"BoxedDouble\",\
+          \"documentation\":\"<p>The percentage of IP address space in use. To convert the decimal to a percentage, multiply the decimal by 100. Note the following:</p> <ul> <li> <p>For resources that are VPCs, this is the percentage of IP address space in the VPC that's taken up by subnet CIDRs. </p> </li> <li> <p>For resources that are subnets, if the subnet has an IPv4 CIDR provisioned to it, this is the percentage of IPv4 address space in the subnet that's in use. If the subnet has an IPv6 CIDR provisioned to it, the percentage of IPv6 address space in use is not represented. The percentage of IPv6 address space in use cannot currently be calculated. </p> </li> <li> <p>For resources that are public IPv4 pools, this is the percentage of IP address space in the pool that's been allocated to Elastic IP addresses (EIPs). </p> </li> </ul>\",\
+          \"locationName\":\"ipUsage\"\
+        },\
+        \"VpcId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The VPC ID.</p>\",\
+          \"locationName\":\"vpcId\"\
+        },\
+        \"SampleTime\":{\
+          \"shape\":\"MillisecondDateTime\",\
+          \"documentation\":\"<p>The last successful resource discovery time.</p>\",\
+          \"locationName\":\"sampleTime\"\
+        }\
+      },\
+      \"documentation\":\"<p>An IPAM discovered resource CIDR. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses. The discovered resource CIDR is the IP address range in CIDR notation that is associated with the resource.</p>\"\
+    },\
+    \"IpamDiscoveredResourceCidrSet\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"IpamDiscoveredResourceCidr\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"IpamDiscoveryFailureCode\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"assume-role-failure\",\
+        \"throttling-failure\",\
+        \"unauthorized-failure\"\
+      ]\
+    },\
+    \"IpamDiscoveryFailureReason\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Code\":{\
+          \"shape\":\"IpamDiscoveryFailureCode\",\
+          \"documentation\":\"<p>The discovery failure code.</p> <ul> <li> <p> <code>assume-role-failure</code> - IPAM could not assume the Amazon Web Services IAM service-linked role. This could be because of any of the following:</p> <ul> <li> <p>SLR has not been created yet and IPAM is still creating it.</p> </li> <li> <p>You have opted-out of the IPAM home Region.</p> </li> <li> <p>Account you are using as your IPAM account has been suspended.</p> </li> </ul> </li> <li> <p> <code>throttling-failure</code> - IPAM account is already using the allotted transactions per second and IPAM is receiving a throttling error when assuming the Amazon Web Services IAM SLR.</p> </li> <li> <p> <code>unauthorized-failure</code> - Amazon Web Services account making the request is not authorized. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html\\\">AuthFailure</a> in the <i>Amazon Elastic Compute Cloud API Reference</i>.</p> </li> </ul>\",\
+          \"locationName\":\"code\"\
+        },\
+        \"Message\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The discovery failure message.</p>\",\
+          \"locationName\":\"message\"\
+        }\
+      },\
+      \"documentation\":\"<p>The discovery failure reason.</p>\"\
     },\
     \"IpamId\":{\"type\":\"string\"},\
     \"IpamManagementState\":{\
@@ -34767,7 +35322,7 @@
         },\
         \"IpamPoolArn\":{\
           \"shape\":\"ResourceArn\",\
-          \"documentation\":\"<p>The ARN of the IPAM pool.</p>\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the IPAM pool.</p>\",\
           \"locationName\":\"ipamPoolArn\"\
         },\
         \"IpamScopeArn\":{\
@@ -34859,6 +35414,11 @@
           \"shape\":\"IpamPoolAwsService\",\
           \"documentation\":\"<p>Limits which service in Amazon Web Services that the pool can be used in. \\\"ec2\\\", for example, allows users to use space for Elastic IP addresses and VPCs.</p>\",\
           \"locationName\":\"awsService\"\
+        },\
+        \"PublicIpSource\":{\
+          \"shape\":\"IpamPoolPublicIpSource\",\
+          \"documentation\":\"<p>The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is <code>BYOIP</code>. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html\\\">Create IPv6 pools</a> in the <i>Amazon VPC IPAM User Guide</i>. By default, you can add only one Amazon-provided IPv6 CIDR block to a top-level IPv6 pool. For information on increasing the default limit, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html\\\"> Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\",\
+          \"locationName\":\"publicIpSource\"\
         }\
       },\
       \"documentation\":\"<p>In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p>\"\
@@ -34902,7 +35462,7 @@
           \"locationName\":\"resourceOwner\"\
         }\
       },\
-      \"documentation\":\"<p>In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool.</p>\"\
+      \"documentation\":\"<p>In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource.</p>\"\
     },\
     \"IpamPoolAllocationDisallowedCidrs\":{\
       \"type\":\"list\",\
@@ -34949,13 +35509,26 @@
           \"shape\":\"IpamPoolCidrFailureReason\",\
           \"documentation\":\"<p>Details related to why an IPAM pool CIDR failed to be provisioned.</p>\",\
           \"locationName\":\"failureReason\"\
+        },\
+        \"IpamPoolCidrId\":{\
+          \"shape\":\"IpamPoolCidrId\",\
+          \"documentation\":\"<p>The IPAM pool CIDR ID.</p>\",\
+          \"locationName\":\"ipamPoolCidrId\"\
+        },\
+        \"NetmaskLength\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The netmask length of the CIDR you'd like to provision to a pool. Can be used for provisioning Amazon-provided IPv6 CIDRs to top-level pools and for provisioning CIDRs to pools with source pools. Cannot be used to provision BYOIP CIDRs to top-level pools. \\\"NetmaskLength\\\" or \\\"Cidr\\\" is required.</p>\",\
+          \"locationName\":\"netmaskLength\"\
         }\
       },\
       \"documentation\":\"<p>A CIDR provisioned to an IPAM pool.</p>\"\
     },\
     \"IpamPoolCidrFailureCode\":{\
       \"type\":\"string\",\
-      \"enum\":[\"cidr-not-available\"]\
+      \"enum\":[\
+        \"cidr-not-available\",\
+        \"limit-exceeded\"\
+      ]\
     },\
     \"IpamPoolCidrFailureReason\":{\
       \"type\":\"structure\",\
@@ -34973,6 +35546,7 @@
       },\
       \"documentation\":\"<p>Details related to why an IPAM pool CIDR failed to be provisioned.</p>\"\
     },\
+    \"IpamPoolCidrId\":{\"type\":\"string\"},\
     \"IpamPoolCidrSet\":{\
       \"type\":\"list\",\
       \"member\":{\
@@ -34994,6 +35568,13 @@
       ]\
     },\
     \"IpamPoolId\":{\"type\":\"string\"},\
+    \"IpamPoolPublicIpSource\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"amazon\",\
+        \"byoip\"\
+      ]\
+    },\
     \"IpamPoolSet\":{\
       \"type\":\"list\",\
       \"member\":{\
@@ -35073,7 +35654,7 @@
         },\
         \"IpUsage\":{\
           \"shape\":\"BoxedDouble\",\
-          \"documentation\":\"<p>The percentage of IP address space in use. To convert the decimal to a percentage, multiply the decimal by 100. Note the following:</p> <ul> <li> <p>For a resources that are VPCs, this is the percentage of IP address space in the VPC that's taken up by subnet CIDRs. </p> </li> <li> <p>For resources that are subnets, if the subnet has an IPv4 CIDR provisioned to it, this is the percentage of IPv4 address space in the subnet that's in use. If the subnet has an IPv6 CIDR provisioned to it, the percentage of IPv6 address space in use is not represented. The percentage of IPv6 address space in use cannot currently be calculated. </p> </li> <li> <p>For resources that are public IPv4 pools, this is the percentage of IP address space in the pool that's been allocated to Elastic IP addresses (EIPs). </p> </li> </ul>\",\
+          \"documentation\":\"<p>The percentage of IP address space in use. To convert the decimal to a percentage, multiply the decimal by 100. Note the following:</p> <ul> <li> <p>For resources that are VPCs, this is the percentage of IP address space in the VPC that's taken up by subnet CIDRs. </p> </li> <li> <p>For resources that are subnets, if the subnet has an IPv4 CIDR provisioned to it, this is the percentage of IPv4 address space in the subnet that's in use. If the subnet has an IPv6 CIDR provisioned to it, the percentage of IPv6 address space in use is not represented. The percentage of IPv6 address space in use cannot currently be calculated. </p> </li> <li> <p>For resources that are public IPv4 pools, this is the percentage of IP address space in the pool that's been allocated to Elastic IP addresses (EIPs). </p> </li> </ul>\",\
           \"locationName\":\"ipUsage\"\
         },\
         \"ComplianceStatus\":{\
@@ -35105,6 +35686,165 @@
         \"shape\":\"IpamResourceCidr\",\
         \"locationName\":\"item\"\
       }\
+    },\
+    \"IpamResourceDiscovery\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"OwnerId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the owner.</p>\",\
+          \"locationName\":\"ownerId\"\
+        },\
+        \"IpamResourceDiscoveryId\":{\
+          \"shape\":\"IpamResourceDiscoveryId\",\
+          \"documentation\":\"<p>The resource discovery ID.</p>\",\
+          \"locationName\":\"ipamResourceDiscoveryId\"\
+        },\
+        \"IpamResourceDiscoveryArn\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The resource discovery Amazon Resource Name (ARN).</p>\",\
+          \"locationName\":\"ipamResourceDiscoveryArn\"\
+        },\
+        \"IpamResourceDiscoveryRegion\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The resource discovery Region.</p>\",\
+          \"locationName\":\"ipamResourceDiscoveryRegion\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The resource discovery description.</p>\",\
+          \"locationName\":\"description\"\
+        },\
+        \"OperatingRegions\":{\
+          \"shape\":\"IpamOperatingRegionSet\",\
+          \"documentation\":\"<p>The operating Regions for the resource discovery. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>\",\
+          \"locationName\":\"operatingRegionSet\"\
+        },\
+        \"IsDefault\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Defines if the resource discovery is the default. The default resource discovery is the resource discovery automatically created when you create an IPAM.</p>\",\
+          \"locationName\":\"isDefault\"\
+        },\
+        \"State\":{\
+          \"shape\":\"IpamResourceDiscoveryState\",\
+          \"documentation\":\"<p>The lifecycle state of the resource discovery.</p> <ul> <li> <p> <code>create-in-progress</code> - Resource discovery is being created.</p> </li> <li> <p> <code>create-complete</code> - Resource discovery creation is complete.</p> </li> <li> <p> <code>create-failed</code> - Resource discovery creation has failed.</p> </li> <li> <p> <code>modify-in-progress</code> - Resource discovery is being modified.</p> </li> <li> <p> <code>modify-complete</code> - Resource discovery modification is complete.</p> </li> <li> <p> <code>modify-failed</code> - Resource discovery modification has failed.</p> </li> <li> <p> <code>delete-in-progress</code> - Resource discovery is being deleted.</p> </li> <li> <p> <code>delete-complete</code> - Resource discovery deletion is complete.</p> </li> <li> <p> <code>delete-failed</code> - Resource discovery deletion has failed.</p> </li> <li> <p> <code>isolate-in-progress</code> - Amazon Web Services account that created the resource discovery has been removed and the resource discovery is being isolated.</p> </li> <li> <p> <code>isolate-complete</code> - Resource discovery isolation is complete.</p> </li> <li> <p> <code>restore-in-progress</code> - Amazon Web Services account that created the resource discovery and was isolated has been restored.</p> </li> </ul>\",\
+          \"locationName\":\"state\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>\",\
+          \"locationName\":\"tagSet\"\
+        }\
+      },\
+      \"documentation\":\"<p>A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>\"\
+    },\
+    \"IpamResourceDiscoveryAssociation\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"OwnerId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The Amazon Web Services account ID of the resource discovery owner.</p>\",\
+          \"locationName\":\"ownerId\"\
+        },\
+        \"IpamResourceDiscoveryAssociationId\":{\
+          \"shape\":\"IpamResourceDiscoveryAssociationId\",\
+          \"documentation\":\"<p>The resource discovery association ID.</p>\",\
+          \"locationName\":\"ipamResourceDiscoveryAssociationId\"\
+        },\
+        \"IpamResourceDiscoveryAssociationArn\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The resource discovery association Amazon Resource Name (ARN).</p>\",\
+          \"locationName\":\"ipamResourceDiscoveryAssociationArn\"\
+        },\
+        \"IpamResourceDiscoveryId\":{\
+          \"shape\":\"IpamResourceDiscoveryId\",\
+          \"documentation\":\"<p>The resource discovery ID.</p>\",\
+          \"locationName\":\"ipamResourceDiscoveryId\"\
+        },\
+        \"IpamId\":{\
+          \"shape\":\"IpamId\",\
+          \"documentation\":\"<p>The IPAM ID.</p>\",\
+          \"locationName\":\"ipamId\"\
+        },\
+        \"IpamArn\":{\
+          \"shape\":\"ResourceArn\",\
+          \"documentation\":\"<p>The IPAM ARN.</p>\",\
+          \"locationName\":\"ipamArn\"\
+        },\
+        \"IpamRegion\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The IPAM home Region.</p>\",\
+          \"locationName\":\"ipamRegion\"\
+        },\
+        \"IsDefault\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Defines if the resource discovery is the default. When you create an IPAM, a default resource discovery is created for your IPAM and it's associated with your IPAM.</p>\",\
+          \"locationName\":\"isDefault\"\
+        },\
+        \"ResourceDiscoveryStatus\":{\
+          \"shape\":\"IpamAssociatedResourceDiscoveryStatus\",\
+          \"documentation\":\"<p>The resource discovery status.</p> <ul> <li> <p> <code>active</code> - Connection or permissions required to read the results of the resource discovery are intact.</p> </li> <li> <p> <code>not-found</code> - Connection or permissions required to read the results of the resource discovery are broken. This may happen if the owner of the resource discovery stopped sharing it or deleted the resource discovery. Verify the resource discovery still exists and the Amazon Web Services RAM resource share is still intact.</p> </li> </ul>\",\
+          \"locationName\":\"resourceDiscoveryStatus\"\
+        },\
+        \"State\":{\
+          \"shape\":\"IpamResourceDiscoveryAssociationState\",\
+          \"documentation\":\"<p>The lifecycle state of the association when you associate or disassociate a resource discovery.</p> <ul> <li> <p> <code>associate-in-progress</code> - Resource discovery is being associated.</p> </li> <li> <p> <code>associate-complete</code> - Resource discovery association is complete.</p> </li> <li> <p> <code>associate-failed</code> - Resource discovery association has failed.</p> </li> <li> <p> <code>disassociate-in-progress</code> - Resource discovery is being disassociated.</p> </li> <li> <p> <code>disassociate-complete</code> - Resource discovery disassociation is complete.</p> </li> <li> <p> <code>disassociate-failed </code> - Resource discovery disassociation has failed.</p> </li> <li> <p> <code>isolate-in-progress</code> - Amazon Web Services account that created the resource discovery association has been removed and the resource discovery associatation is being isolated.</p> </li> <li> <p> <code>isolate-complete</code> - Resource discovery isolation is complete..</p> </li> <li> <p> <code>restore-in-progress</code> - Resource discovery is being restored.</p> </li> </ul>\",\
+          \"locationName\":\"state\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>\",\
+          \"locationName\":\"tagSet\"\
+        }\
+      },\
+      \"documentation\":\"<p>An IPAM resource discovery association. An associated resource discovery is a resource discovery that has been associated with an IPAM. IPAM aggregates the resource CIDRs discovered by the associated resource discovery.</p>\"\
+    },\
+    \"IpamResourceDiscoveryAssociationId\":{\"type\":\"string\"},\
+    \"IpamResourceDiscoveryAssociationSet\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"IpamResourceDiscoveryAssociation\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"IpamResourceDiscoveryAssociationState\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"associate-in-progress\",\
+        \"associate-complete\",\
+        \"associate-failed\",\
+        \"disassociate-in-progress\",\
+        \"disassociate-complete\",\
+        \"disassociate-failed\",\
+        \"isolate-in-progress\",\
+        \"isolate-complete\",\
+        \"restore-in-progress\"\
+      ]\
+    },\
+    \"IpamResourceDiscoveryId\":{\"type\":\"string\"},\
+    \"IpamResourceDiscoverySet\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"IpamResourceDiscovery\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"IpamResourceDiscoveryState\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"create-in-progress\",\
+        \"create-complete\",\
+        \"create-failed\",\
+        \"modify-in-progress\",\
+        \"modify-complete\",\
+        \"modify-failed\",\
+        \"delete-in-progress\",\
+        \"delete-complete\",\
+        \"delete-failed\",\
+        \"isolate-in-progress\",\
+        \"isolate-complete\",\
+        \"restore-in-progress\"\
+      ]\
     },\
     \"IpamResourceTag\":{\
       \"type\":\"structure\",\
@@ -35154,7 +35894,7 @@
         },\
         \"IpamScopeArn\":{\
           \"shape\":\"ResourceArn\",\
-          \"documentation\":\"<p>The ARN of the scope.</p>\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the scope.</p>\",\
           \"locationName\":\"ipamScopeArn\"\
         },\
         \"IpamArn\":{\
@@ -37269,6 +38009,11 @@
           \"shape\":\"NetworkInterfaceId\",\
           \"documentation\":\"<p>The ID of the network interface.</p>\",\
           \"locationName\":\"networkInterfaceId\"\
+        },\
+        \"DestinationPrefixListId\":{\
+          \"shape\":\"PrefixListResourceId\",\
+          \"documentation\":\"<p> The ID of the prefix list. </p>\",\
+          \"locationName\":\"destinationPrefixListId\"\
         }\
       },\
       \"documentation\":\"<p>Describes a route for a local gateway route table.</p>\"\
@@ -38866,6 +39611,44 @@
         }\
       }\
     },\
+    \"ModifyIpamResourceDiscoveryRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"IpamResourceDiscoveryId\"],\
+      \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"IpamResourceDiscoveryId\":{\
+          \"shape\":\"IpamResourceDiscoveryId\",\
+          \"documentation\":\"<p>A resource discovery ID.</p>\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>A resource discovery description.</p>\"\
+        },\
+        \"AddOperatingRegions\":{\
+          \"shape\":\"AddIpamOperatingRegionSet\",\
+          \"documentation\":\"<p>Add operating Regions to the resource discovery. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>\",\
+          \"locationName\":\"AddOperatingRegion\"\
+        },\
+        \"RemoveOperatingRegions\":{\
+          \"shape\":\"RemoveIpamOperatingRegionSet\",\
+          \"documentation\":\"<p>Remove operating Regions.</p>\",\
+          \"locationName\":\"RemoveOperatingRegion\"\
+        }\
+      }\
+    },\
+    \"ModifyIpamResourceDiscoveryResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"IpamResourceDiscovery\":{\
+          \"shape\":\"IpamResourceDiscovery\",\
+          \"documentation\":\"<p>A resource discovery.</p>\",\
+          \"locationName\":\"ipamResourceDiscovery\"\
+        }\
+      }\
+    },\
     \"ModifyIpamResult\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -38942,10 +39725,7 @@
     },\
     \"ModifyLocalGatewayRouteRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"DestinationCidrBlock\",\
-        \"LocalGatewayRouteTableId\"\
-      ],\
+      \"required\":[\"LocalGatewayRouteTableId\"],\
       \"members\":{\
         \"DestinationCidrBlock\":{\
           \"shape\":\"String\",\
@@ -38966,6 +39746,10 @@
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"DestinationPrefixListId\":{\
+          \"shape\":\"PrefixListResourceId\",\
+          \"documentation\":\"<p> The ID of the prefix list. Use a prefix list in place of <code>DestinationCidrBlock</code>. You cannot use <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request. </p>\"\
         }\
       }\
     },\
@@ -39375,7 +40159,7 @@
       \"required\":[\"TrafficMirrorFilterRuleId\"],\
       \"members\":{\
         \"TrafficMirrorFilterRuleId\":{\
-          \"shape\":\"TrafficMirrorFilterRuleId\",\
+          \"shape\":\"TrafficMirrorFilterRuleIdWithResolver\",\
           \"documentation\":\"<p>The ID of the Traffic Mirror rule.</p>\"\
         },\
         \"TrafficDirection\":{\
@@ -43486,11 +44270,20 @@
         },\
         \"Cidr\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The CIDR you want to assign to the IPAM pool.</p>\"\
+          \"documentation\":\"<p>The CIDR you want to assign to the IPAM pool. Either \\\"NetmaskLength\\\" or \\\"Cidr\\\" is required. This value will be null if you specify \\\"NetmaskLength\\\" and will be filled in during the provisioning process.</p>\"\
         },\
         \"CidrAuthorizationContext\":{\
           \"shape\":\"IpamCidrAuthorizationContext\",\
           \"documentation\":\"<p>A signed document that proves that you are authorized to bring a specified IP address range to Amazon using BYOIP. This option applies to public pools only.</p>\"\
+        },\
+        \"NetmaskLength\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The netmask length of the CIDR you'd like to provision to a pool. Can be used for provisioning Amazon-provided IPv6 CIDRs to top-level pools and for provisioning CIDRs to pools with source pools. Cannot be used to provision BYOIP CIDRs to top-level pools. Either \\\"NetmaskLength\\\" or \\\"Cidr\\\" is required.</p>\"\
+        },\
+        \"ClientToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">Ensuring Idempotency</a>.</p>\",\
+          \"idempotencyToken\":true\
         }\
       }\
     },\
@@ -46212,7 +47005,9 @@
         \"verified-access-policy\",\
         \"verified-access-trust-provider\",\
         \"vpn-connection-device-type\",\
-        \"vpc-block-public-access-exclusion\"\
+        \"vpc-block-public-access-exclusion\",\
+        \"ipam-resource-discovery\",\
+        \"ipam-resource-discovery-association\"\
       ]\
     },\
     \"ResponseError\":{\
@@ -46799,6 +47594,7 @@
         }\
       }\
     },\
+    \"RoleId\":{\"type\":\"string\"},\
     \"RootDeviceType\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -47857,7 +48653,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>route-search.exact-match</code> - The exact match of the specified filter.</p> </li> <li> <p> <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p> </li> <li> <p> <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p> </li> <li> <p> <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify <code>supernet-of-match</code> as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p> </li> <li> <p> <code>state</code> - The state of the route.</p> </li> <li> <p> <code>type</code> - The route type.</p> </li> </ul>\",\
+          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>prefix-list-id</code> - The ID of the prefix list.</p> </li> <li> <p> <code>route-search.exact-match</code> - The exact match of the specified filter.</p> </li> <li> <p> <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p> </li> <li> <p> <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p> </li> <li> <p> <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify <code>supernet-of-match</code> as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p> </li> <li> <p> <code>state</code> - The state of the route.</p> </li> <li> <p> <code>type</code> - The route type.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -51153,7 +51949,7 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"TrafficMirrorFilterRuleField\"}\
     },\
-    \"TrafficMirrorFilterRuleId\":{\"type\":\"string\"},\
+    \"TrafficMirrorFilterRuleIdWithResolver\":{\"type\":\"string\"},\
     \"TrafficMirrorFilterRuleList\":{\
       \"type\":\"list\",\
       \"member\":{\
