@@ -1,3 +1,14 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSPolly
+---AWSConnectParticipant
+---AWSEC2
+---AWSIoT
 
 # AWS Mobile SDK for iOS CHANGELOG
 ## Unreleased
