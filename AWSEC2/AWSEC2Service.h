@@ -425,7 +425,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)allocateHosts:(AWSEC2AllocateHostsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AllocateHostsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the AllocateIpamPoolCidr service method.
 
@@ -437,7 +437,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2AllocateIpamPoolCidrResult *> *)allocateIpamPoolCidr:(AWSEC2AllocateIpamPoolCidrRequest *)request;
 
 /**
- <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the AllocateIpamPoolCidr service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -523,6 +523,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2AssignPrivateIpAddressesResult
  */
 - (void)assignPrivateIpAddresses:(AWSEC2AssignPrivateIpAddressesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AssignPrivateIpAddressesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Assigns one or more private IPv4 addresses to a private NAT gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the AssignPrivateNatGatewayAddress service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2AssignPrivateNatGatewayAddressResult`.
+ 
+ @see AWSEC2AssignPrivateNatGatewayAddressRequest
+ @see AWSEC2AssignPrivateNatGatewayAddressResult
+ */
+- (AWSTask<AWSEC2AssignPrivateNatGatewayAddressResult *> *)assignPrivateNatGatewayAddress:(AWSEC2AssignPrivateNatGatewayAddressRequest *)request;
+
+/**
+ <p>Assigns one or more private IPv4 addresses to a private NAT gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the AssignPrivateNatGatewayAddress service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2AssignPrivateNatGatewayAddressRequest
+ @see AWSEC2AssignPrivateNatGatewayAddressResult
+ */
+- (void)assignPrivateNatGatewayAddress:(AWSEC2AssignPrivateNatGatewayAddressRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AssignPrivateNatGatewayAddressResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Associates an Elastic IP address, or carrier IP address (for instances that are in subnets in Wavelength Zones) with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account.</p><p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>[EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is already associated with a different instance, it is disassociated from that instance and associated with the specified instance. If you associate an Elastic IP address with an instance that has an existing Elastic IP address, the existing address is disassociated from the instance, but remains allocated to your account.</p><p>[VPC in an EC2-Classic account] If you don't specify a private IP address, the Elastic IP address is associated with the primary IP address. If the Elastic IP address is already associated with a different instance or a network interface, you get an error unless you allow reassociation. You cannot associate an Elastic IP address with an instance or network interface that has an existing Elastic IP address.</p><p>[Subnets in Wavelength Zones] You can associate an IP address from the telecommunication carrier to the instance or network interface. </p><p>You cannot associate an Elastic IP address with an interface in a different network border group.</p><important><p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error, and you may be charged for each time the Elastic IP address is remapped to the same instance. For more information, see the <i>Elastic IP Addresses</i> section of <a href="http://aws.amazon.com/ec2/pricing/">Amazon EC2 Pricing</a>.</p></important><note><p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note>
@@ -670,6 +695,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2AssociateInstanceEventWindowResult
  */
 - (void)associateInstanceEventWindow:(AWSEC2AssociateInstanceEventWindowRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AssociateInstanceEventWindowResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Associates an IPAM resource discovery with an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+ 
+ @param request A container for the necessary parameters to execute the AssociateIpamResourceDiscovery service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2AssociateIpamResourceDiscoveryResult`.
+ 
+ @see AWSEC2AssociateIpamResourceDiscoveryRequest
+ @see AWSEC2AssociateIpamResourceDiscoveryResult
+ */
+- (AWSTask<AWSEC2AssociateIpamResourceDiscoveryResult *> *)associateIpamResourceDiscovery:(AWSEC2AssociateIpamResourceDiscoveryRequest *)request;
+
+/**
+ <p>Associates an IPAM resource discovery with an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+ 
+ @param request A container for the necessary parameters to execute the AssociateIpamResourceDiscovery service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2AssociateIpamResourceDiscoveryRequest
+ @see AWSEC2AssociateIpamResourceDiscoveryResult
+ */
+- (void)associateIpamResourceDiscovery:(AWSEC2AssociateIpamResourceDiscoveryRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AssociateIpamResourceDiscoveryResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Associates Elastic IP addresses (EIPs) and private IPv4 addresses with a public NAT gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>By default, you can associate up to 2 Elastic IP addresses per public NAT gateway. You can increase the limit by requesting a quota adjustment. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-eips">Elastic IP address quotas</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the AssociateNatGatewayAddress service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2AssociateNatGatewayAddressResult`.
+ 
+ @see AWSEC2AssociateNatGatewayAddressRequest
+ @see AWSEC2AssociateNatGatewayAddressResult
+ */
+- (AWSTask<AWSEC2AssociateNatGatewayAddressResult *> *)associateNatGatewayAddress:(AWSEC2AssociateNatGatewayAddressRequest *)request;
+
+/**
+ <p>Associates Elastic IP addresses (EIPs) and private IPv4 addresses with a public NAT gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>By default, you can associate up to 2 Elastic IP addresses per public NAT gateway. You can increase the limit by requesting a quota adjustment. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-eips">Elastic IP address quotas</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the AssociateNatGatewayAddress service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2AssociateNatGatewayAddressRequest
+ @see AWSEC2AssociateNatGatewayAddressResult
+ */
+- (void)associateNatGatewayAddress:(AWSEC2AssociateNatGatewayAddressRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AssociateNatGatewayAddressResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Associates a subnet in your VPC or an internet gateway or virtual private gateway attached to your VPC with a route table in your VPC. This association causes traffic from the subnet or gateway to be routed according to the routes in the route table. The action returns an association ID, which you need in order to disassociate the route table later. A route table can be associated with multiple subnets.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
@@ -1961,6 +2036,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2CreateIpamPoolResult
  */
 - (void)createIpamPool:(AWSEC2CreateIpamPoolRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateIpamPoolResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateIpamResourceDiscovery service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateIpamResourceDiscoveryResult`.
+ 
+ @see AWSEC2CreateIpamResourceDiscoveryRequest
+ @see AWSEC2CreateIpamResourceDiscoveryResult
+ */
+- (AWSTask<AWSEC2CreateIpamResourceDiscoveryResult *> *)createIpamResourceDiscovery:(AWSEC2CreateIpamResourceDiscoveryRequest *)request;
+
+/**
+ <p>Creates an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateIpamResourceDiscovery service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateIpamResourceDiscoveryRequest
+ @see AWSEC2CreateIpamResourceDiscoveryResult
+ */
+- (void)createIpamResourceDiscovery:(AWSEC2CreateIpamResourceDiscoveryRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateIpamResourceDiscoveryResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/add-scope-ipam.html">Add a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
@@ -3793,6 +3893,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DeleteIpamPoolResult
  */
 - (void)deleteIpamPool:(AWSEC2DeleteIpamPoolRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteIpamPoolResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteIpamResourceDiscovery service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteIpamResourceDiscoveryResult`.
+ 
+ @see AWSEC2DeleteIpamResourceDiscoveryRequest
+ @see AWSEC2DeleteIpamResourceDiscoveryResult
+ */
+- (AWSTask<AWSEC2DeleteIpamResourceDiscoveryResult *> *)deleteIpamResourceDiscovery:(AWSEC2DeleteIpamResourceDiscoveryRequest *)request;
+
+/**
+ <p>Deletes an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteIpamResourceDiscovery service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteIpamResourceDiscoveryRequest
+ @see AWSEC2DeleteIpamResourceDiscoveryResult
+ */
+- (void)deleteIpamResourceDiscovery:(AWSEC2DeleteIpamResourceDiscoveryRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteIpamResourceDiscoveryResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Delete the scope for an IPAM. You cannot delete the default scopes.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-scope-ipam.html">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
@@ -6691,6 +6816,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeIpamPools:(AWSEC2DescribeIpamPoolsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeIpamPoolsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Describes IPAM resource discoveries. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeIpamResourceDiscoveries service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeIpamResourceDiscoveriesResult`.
+ 
+ @see AWSEC2DescribeIpamResourceDiscoveriesRequest
+ @see AWSEC2DescribeIpamResourceDiscoveriesResult
+ */
+- (AWSTask<AWSEC2DescribeIpamResourceDiscoveriesResult *> *)describeIpamResourceDiscoveries:(AWSEC2DescribeIpamResourceDiscoveriesRequest *)request;
+
+/**
+ <p>Describes IPAM resource discoveries. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeIpamResourceDiscoveries service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeIpamResourceDiscoveriesRequest
+ @see AWSEC2DescribeIpamResourceDiscoveriesResult
+ */
+- (void)describeIpamResourceDiscoveries:(AWSEC2DescribeIpamResourceDiscoveriesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeIpamResourceDiscoveriesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes resource discovery association with an Amazon VPC IPAM. An associated resource discovery is a resource discovery that has been associated with an IPAM..</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeIpamResourceDiscoveryAssociations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeIpamResourceDiscoveryAssociationsResult`.
+ 
+ @see AWSEC2DescribeIpamResourceDiscoveryAssociationsRequest
+ @see AWSEC2DescribeIpamResourceDiscoveryAssociationsResult
+ */
+- (AWSTask<AWSEC2DescribeIpamResourceDiscoveryAssociationsResult *> *)describeIpamResourceDiscoveryAssociations:(AWSEC2DescribeIpamResourceDiscoveryAssociationsRequest *)request;
+
+/**
+ <p>Describes resource discovery association with an Amazon VPC IPAM. An associated resource discovery is a resource discovery that has been associated with an IPAM..</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeIpamResourceDiscoveryAssociations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeIpamResourceDiscoveryAssociationsRequest
+ @see AWSEC2DescribeIpamResourceDiscoveryAssociationsResult
+ */
+- (void)describeIpamResourceDiscoveryAssociations:(AWSEC2DescribeIpamResourceDiscoveryAssociationsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeIpamResourceDiscoveryAssociationsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Get information about your IPAM scopes.</p>
  
  @param request A container for the necessary parameters to execute the DescribeIpamScopes service method.
@@ -9451,6 +9626,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)disassociateInstanceEventWindow:(AWSEC2DisassociateInstanceEventWindowRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisassociateInstanceEventWindowResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Disassociates a resource discovery from an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisassociateIpamResourceDiscovery service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DisassociateIpamResourceDiscoveryResult`.
+ 
+ @see AWSEC2DisassociateIpamResourceDiscoveryRequest
+ @see AWSEC2DisassociateIpamResourceDiscoveryResult
+ */
+- (AWSTask<AWSEC2DisassociateIpamResourceDiscoveryResult *> *)disassociateIpamResourceDiscovery:(AWSEC2DisassociateIpamResourceDiscoveryRequest *)request;
+
+/**
+ <p>Disassociates a resource discovery from an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisassociateIpamResourceDiscovery service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DisassociateIpamResourceDiscoveryRequest
+ @see AWSEC2DisassociateIpamResourceDiscoveryResult
+ */
+- (void)disassociateIpamResourceDiscovery:(AWSEC2DisassociateIpamResourceDiscoveryRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisassociateIpamResourceDiscoveryResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway. You cannot disassociate your primary EIP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>While disassociating is in progress, you cannot associate/disassociate additional EIPs while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p><p>An EIP will only be released at the end of MaxDrainDurationSeconds. The EIPs stay associated and support the existing connections but do not support any new connections (new connections are distributed across the remaining associated EIPs). As the existing connections drain out, the EIPs (and the corresponding private IPs mapped to them) get released.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisassociateNatGatewayAddress service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DisassociateNatGatewayAddressResult`.
+ 
+ @see AWSEC2DisassociateNatGatewayAddressRequest
+ @see AWSEC2DisassociateNatGatewayAddressResult
+ */
+- (AWSTask<AWSEC2DisassociateNatGatewayAddressResult *> *)disassociateNatGatewayAddress:(AWSEC2DisassociateNatGatewayAddressRequest *)request;
+
+/**
+ <p>Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway. You cannot disassociate your primary EIP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>While disassociating is in progress, you cannot associate/disassociate additional EIPs while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p><p>An EIP will only be released at the end of MaxDrainDurationSeconds. The EIPs stay associated and support the existing connections but do not support any new connections (new connections are distributed across the remaining associated EIPs). As the existing connections drain out, the EIPs (and the corresponding private IPs mapped to them) get released.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisassociateNatGatewayAddress service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DisassociateNatGatewayAddressRequest
+ @see AWSEC2DisassociateNatGatewayAddressResult
+ */
+- (void)disassociateNatGatewayAddress:(AWSEC2DisassociateNatGatewayAddressRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisassociateNatGatewayAddressResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Disassociates a subnet or gateway from a route table.</p><p>After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DisassociateRouteTable service method.
@@ -10467,6 +10692,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)getIpamAddressHistory:(AWSEC2GetIpamAddressHistoryRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetIpamAddressHistoryResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Gets IPAM discovered accounts. A discovered account is an Amazon Web Services account that is monitored under a resource discovery. If you have integrated IPAM with Amazon Web Services Organizations, all accounts in the organization are discovered accounts. Only the IPAM account can get all discovered accounts in the organization.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetIpamDiscoveredAccounts service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetIpamDiscoveredAccountsResult`.
+ 
+ @see AWSEC2GetIpamDiscoveredAccountsRequest
+ @see AWSEC2GetIpamDiscoveredAccountsResult
+ */
+- (AWSTask<AWSEC2GetIpamDiscoveredAccountsResult *> *)getIpamDiscoveredAccounts:(AWSEC2GetIpamDiscoveredAccountsRequest *)request;
+
+/**
+ <p>Gets IPAM discovered accounts. A discovered account is an Amazon Web Services account that is monitored under a resource discovery. If you have integrated IPAM with Amazon Web Services Organizations, all accounts in the organization are discovered accounts. Only the IPAM account can get all discovered accounts in the organization.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetIpamDiscoveredAccounts service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetIpamDiscoveredAccountsRequest
+ @see AWSEC2GetIpamDiscoveredAccountsResult
+ */
+- (void)getIpamDiscoveredAccounts:(AWSEC2GetIpamDiscoveredAccountsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetIpamDiscoveredAccountsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Returns the resource CIDRs that are monitored as part of a resource discovery. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses. </p>
+ 
+ @param request A container for the necessary parameters to execute the GetIpamDiscoveredResourceCidrs service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetIpamDiscoveredResourceCidrsResult`.
+ 
+ @see AWSEC2GetIpamDiscoveredResourceCidrsRequest
+ @see AWSEC2GetIpamDiscoveredResourceCidrsResult
+ */
+- (AWSTask<AWSEC2GetIpamDiscoveredResourceCidrsResult *> *)getIpamDiscoveredResourceCidrs:(AWSEC2GetIpamDiscoveredResourceCidrsRequest *)request;
+
+/**
+ <p>Returns the resource CIDRs that are monitored as part of a resource discovery. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses. </p>
+ 
+ @param request A container for the necessary parameters to execute the GetIpamDiscoveredResourceCidrs service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetIpamDiscoveredResourceCidrsRequest
+ @see AWSEC2GetIpamDiscoveredResourceCidrsResult
+ */
+- (void)getIpamDiscoveredResourceCidrs:(AWSEC2GetIpamDiscoveredResourceCidrsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetIpamDiscoveredResourceCidrsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Get a list of all the CIDR allocations in an IPAM pool.</p>
  
  @param request A container for the necessary parameters to execute the GetIpamPoolAllocations service method.
@@ -10517,7 +10792,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)getIpamPoolCidrs:(AWSEC2GetIpamPoolCidrsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetIpamPoolCidrsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Get information about the resources in a scope.</p>
+ <p>Returns resource CIDRs managed by IPAM in a given scope. If an IPAM is associated with more than one resource discovery, the resource CIDRs across all of the resource discoveries is returned. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
  
  @param request A container for the necessary parameters to execute the GetIpamResourceCidrs service method.
 
@@ -10529,7 +10804,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2GetIpamResourceCidrsResult *> *)getIpamResourceCidrs:(AWSEC2GetIpamResourceCidrsRequest *)request;
 
 /**
- <p>Get information about the resources in a scope.</p>
+ <p>Returns resource CIDRs managed by IPAM in a given scope. If an IPAM is associated with more than one resource discovery, the resource CIDRs across all of the resource discoveries is returned. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
  
  @param request A container for the necessary parameters to execute the GetIpamResourceCidrs service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -11855,6 +12130,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifyIpamResourceCidr:(AWSEC2ModifyIpamResourceCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyIpamResourceCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Modifies a resource discovery. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyIpamResourceDiscovery service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyIpamResourceDiscoveryResult`.
+ 
+ @see AWSEC2ModifyIpamResourceDiscoveryRequest
+ @see AWSEC2ModifyIpamResourceDiscoveryResult
+ */
+- (AWSTask<AWSEC2ModifyIpamResourceDiscoveryResult *> *)modifyIpamResourceDiscovery:(AWSEC2ModifyIpamResourceDiscoveryRequest *)request;
+
+/**
+ <p>Modifies a resource discovery. A resource discovery is an IPAM component that enables IPAM Service to manage and monitor resources that belong to the owning account.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyIpamResourceDiscovery service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyIpamResourceDiscoveryRequest
+ @see AWSEC2ModifyIpamResourceDiscoveryResult
+ */
+- (void)modifyIpamResourceDiscovery:(AWSEC2ModifyIpamResourceDiscoveryRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyIpamResourceDiscoveryResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Modify an IPAM scope.</p>
  
  @param request A container for the necessary parameters to execute the ModifyIpamScope service method.
@@ -12865,7 +13165,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)moveAddressToVpc:(AWSEC2MoveAddressToVpcRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2MoveAddressToVpcResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.</p><p>If you already have an IPv4 BYOIP CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
+ <p>Move a BYOIPv4 CIDR to IPAM from a public IPv4 pool.</p><p>If you already have a BYOIPv4 CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
  
  @param request A container for the necessary parameters to execute the MoveByoipCidrToIpam service method.
 
@@ -12877,7 +13177,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2MoveByoipCidrToIpamResult *> *)moveByoipCidrToIpam:(AWSEC2MoveByoipCidrToIpamRequest *)request;
 
 /**
- <p>Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.</p><p>If you already have an IPv4 BYOIP CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
+ <p>Move a BYOIPv4 CIDR to IPAM from a public IPv4 pool.</p><p>If you already have a BYOIPv4 CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
  
  @param request A container for the necessary parameters to execute the MoveByoipCidrToIpam service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -14305,6 +14605,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2UnassignPrivateIpAddressesRequest
  */
 - (void)unassignPrivateIpAddresses:(AWSEC2UnassignPrivateIpAddressesRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Unassigns secondary private NAT gateway IPv4 addresses from a private NAT gateway. You cannot unassign your primary private IP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>While unassigning is in progress, you cannot assign/unassign additional IP addresses while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p><p>A private IP address will only be released at the end of MaxDrainDurationSeconds. The private IP addresses stay associated and support the existing connections but do not support any new connections (new connections are distributed across the remaining assigned private IP address). After the existing connections drain out, the private IP addresses get released. </p><p/><p/>
+ 
+ @param request A container for the necessary parameters to execute the UnassignPrivateNatGatewayAddress service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2UnassignPrivateNatGatewayAddressResult`.
+ 
+ @see AWSEC2UnassignPrivateNatGatewayAddressRequest
+ @see AWSEC2UnassignPrivateNatGatewayAddressResult
+ */
+- (AWSTask<AWSEC2UnassignPrivateNatGatewayAddressResult *> *)unassignPrivateNatGatewayAddress:(AWSEC2UnassignPrivateNatGatewayAddressRequest *)request;
+
+/**
+ <p>Unassigns secondary private NAT gateway IPv4 addresses from a private NAT gateway. You cannot unassign your primary private IP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>While unassigning is in progress, you cannot assign/unassign additional IP addresses while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p><p>A private IP address will only be released at the end of MaxDrainDurationSeconds. The private IP addresses stay associated and support the existing connections but do not support any new connections (new connections are distributed across the remaining assigned private IP address). After the existing connections drain out, the private IP addresses get released. </p><p/><p/>
+ 
+ @param request A container for the necessary parameters to execute the UnassignPrivateNatGatewayAddress service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2UnassignPrivateNatGatewayAddressRequest
+ @see AWSEC2UnassignPrivateNatGatewayAddressResult
+ */
+- (void)unassignPrivateNatGatewayAddress:(AWSEC2UnassignPrivateNatGatewayAddressRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2UnassignPrivateNatGatewayAddressResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Disables detailed monitoring for a running instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring your instances and volumes</a> in the <i>Amazon EC2 User Guide</i>.</p>
