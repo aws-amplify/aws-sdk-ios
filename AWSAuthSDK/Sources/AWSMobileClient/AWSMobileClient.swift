@@ -177,60 +177,58 @@ final public class AWSMobileClient: _AWSMobileClient {
     public func initialize(_ completionHandler: @escaping (UserState?, Error?) -> Void) {
         // Read awsconfiguration.json and set the credentials provider here
         initializationQueue.sync {
-
+            self.keychain.migrateToCurrentAccessibility()
             if (isInitialized) {
                 completionHandler(self.currentUserState, nil)
                 return
             }
-            do {
-                self.keychain.migrateToCurrentAccessibility()
-                cleanupPreviousInstall()
-                self.loadLoginsMapFromKeychain()
-                // Updated logic to determine federation provider from keychain.
-                self.loadFederationProviderMetadataFromKeychain()
-
-                DeviceOperations.sharedInstance.mobileClient = self
-
-                // legacy fallback logic to determine federation provider for AWSMobileClient
-                if self.federationProvider == .none && self.cachedLoginsMap.count > 0 {
-                    if self.userPoolClient?.currentUser()?.isSignedIn == true {
-                        self.federationProvider = .userPools
-                    } else {
-                        self.federationProvider = .oidcFederation
-                    }
-                }
-
-                try registerIfPresentHostedUI()
-
-                let infoDictionaryMobileClient = self.awsInfo.rootInfoDictionary["Auth"] as? [String: [String: Any]]
-                if let authFlowType = infoDictionaryMobileClient?["Default"]?["authenticationFlowType"] as? String,
-                   authFlowType == "CUSTOM_AUTH" {
-                    self.userPoolClient?.isCustomAuth = true
-                }
-
-                let infoObject = AWSInfo.default().defaultServiceInfo("IdentityManager")
-                if let credentialsProvider = infoObject?.cognitoCredentialsProvider {
-
-                    self.internalCredentialsProvider = credentialsProvider
-                    self.update(self)
-                    self.internalCredentialsProvider?.setIdentityProviderManagerOnce(self)
-                    self.registerConfigSignInProviders()
-
-                }
-                let userState = determineIntialUserState()
-                if userState == .signedIn
-                    && (federationProvider == .userPools || federationProvider == .hostedUI)
-                    && self.username == nil {
-                    self.signOut()
-                    currentUserState = .signedOut
+            
+            cleanupPreviousInstall()
+            self.loadLoginsMapFromKeychain()
+            // Updated logic to determine federation provider from keychain.
+            self.loadFederationProviderMetadataFromKeychain()
+            
+            DeviceOperations.sharedInstance.mobileClient = self
+            
+            // legacy fallback logic to determine federation provider for AWSMobileClient
+            if self.federationProvider == .none && self.cachedLoginsMap.count > 0 {
+                if self.userPoolClient?.currentUser()?.isSignedIn == true {
+                    self.federationProvider = .userPools
                 } else {
-                    currentUserState = userState
+                    self.federationProvider = .oidcFederation
                 }
-                completionHandler(currentUserState, nil)
+            }
+            do {
+                try registerIfPresentHostedUI()
             } catch {
                 completionHandler(nil, error)
             }
 
+            let infoDictionaryMobileClient = self.awsInfo.rootInfoDictionary["Auth"] as? [String: [String: Any]]
+            if let authFlowType = infoDictionaryMobileClient?["Default"]?["authenticationFlowType"] as? String,
+               authFlowType == "CUSTOM_AUTH" {
+                self.userPoolClient?.isCustomAuth = true
+            }
+            
+            let infoObject = AWSInfo.default().defaultServiceInfo("IdentityManager")
+            if let credentialsProvider = infoObject?.cognitoCredentialsProvider {
+
+                self.internalCredentialsProvider = credentialsProvider
+                self.update(self)
+                self.internalCredentialsProvider?.setIdentityProviderManagerOnce(self)
+                self.registerConfigSignInProviders()
+
+            }
+            let userState = determineIntialUserState()
+            if userState == .signedIn
+                && (federationProvider == .userPools || federationProvider == .hostedUI)
+                && self.username == nil {
+                self.signOut()
+                currentUserState = .signedOut
+            } else {
+                currentUserState = userState
+            }
+            completionHandler(currentUserState, nil)
             isInitialized = true
         }
     }
