@@ -182,6 +182,7 @@ final public class AWSMobileClient: _AWSMobileClient {
                 completionHandler(self.currentUserState, nil)
                 return
             }
+            
             cleanupPreviousInstall()
             self.loadLoginsMapFromKeychain()
             // Updated logic to determine federation provider from keychain.
@@ -197,70 +198,12 @@ final public class AWSMobileClient: _AWSMobileClient {
                     self.federationProvider = .oidcFederation
                 }
             }
-            
-            if self.federationProvider == .hostedUI {
-                loadHostedUIScopesFromKeychain()
-                loadOAuthURIQueryParametersFromKeychain()
-                
-                let infoDictionaryMobileClient = self.awsInfo.rootInfoDictionary["Auth"] as? [String: [String: Any]]
-                let infoDictionary: [String: Any]? = infoDictionaryMobileClient?["Default"]?["OAuth"] as? [String: Any]
-                
-                let clientId = infoDictionary?["AppClientId"] as? String
-                let secret = infoDictionary?["AppClientSecret"] as? String
-                let webDomain = infoDictionary?["WebDomain"] as? String
-                let hostURL = "https://\(webDomain!)"
-                
-                if self.scopes == nil {
-                    self.scopes = infoDictionary?["Scopes"] as? [String]
-                }
-                
-                let signInRedirectURI = infoDictionary?["SignInRedirectURI"] as? String
-                let signInURI = infoDictionary?["SignInURI"] as? String
-                if self.signInURIQueryParameters == nil {
-                    self.signInURIQueryParameters = infoDictionary?["SignInURIQueryParameters"] as? [String: String]
-                }
-                
-                let signOutRedirectURI = infoDictionary?["SignOutRedirectURI"] as? String
-                let signOutURI = infoDictionary?["SignOutURI"] as? String
-                if self.signOutURIQueryParameters == nil {
-                    self.signOutURIQueryParameters = infoDictionary?["SignOutURIQueryParameters"] as? [String: String]
-                }
-                
-                let tokensURI = infoDictionary?["TokenURI"] as? String
-                if self.tokenURIQueryParameters == nil {
-                    self.tokenURIQueryParameters = infoDictionary?["TokenURIQueryParameters"] as? [String: String]
-                }
-                
-                if (clientId == nil || scopes == nil || signInRedirectURI == nil || signOutRedirectURI == nil) {
-                    completionHandler(nil, AWSMobileClientError.invalidConfiguration(message: "Please provide all configuration parameters to use the hosted UI feature."))
-                }
-                
-                let cognitoAuthConfig = AWSCognitoAuthConfiguration.init(appClientId: clientId!,
-                                                                         appClientSecret: secret,
-                                                                         scopes: Set<String>(self.scopes!.map { $0 }),
-                                                                         signInRedirectUri: signInRedirectURI!,
-                                                                         signOutRedirectUri: signOutRedirectURI!,
-                                                                         webDomain: hostURL,
-                                                                         identityProvider: nil,
-                                                                         idpIdentifier: nil,
-                                                                         signInUri: signInURI,
-                                                                         signOutUri: signOutURI,
-                                                                         tokensUri: tokensURI,
-                                                                         signInUriQueryParameters: self.signInURIQueryParameters,
-                                                                         signOutUriQueryParameters: self.signOutURIQueryParameters,
-                                                                         tokenUriQueryParameters: self.tokenURIQueryParameters,
-                                                                         userPoolServiceConfiguration: AWSMobileClient.serviceConfiguration?.userPoolServiceConfiguration,
-                                                                         signInPrivateSession: false)
-                
-                if (isCognitoAuthRegistered) {
-                    AWSCognitoAuth.remove(forKey: AWSMobileClientConstants.CognitoAuthRegistrationKey)
-                }
-                AWSCognitoAuth.registerCognitoAuth(with: cognitoAuthConfig, forKey: AWSMobileClientConstants.CognitoAuthRegistrationKey)
-                isCognitoAuthRegistered = true
-                let cognitoAuth = AWSCognitoAuth.init(forKey: AWSMobileClientConstants.CognitoAuthRegistrationKey)
-                cognitoAuth.delegate = self
+            do {
+                try registerIfPresentHostedUI()
+            } catch {
+                completionHandler(nil, error)
             }
-            
+
             let infoDictionaryMobileClient = self.awsInfo.rootInfoDictionary["Auth"] as? [String: [String: Any]]
             if let authFlowType = infoDictionaryMobileClient?["Default"]?["authenticationFlowType"] as? String,
                authFlowType == "CUSTOM_AUTH" {
@@ -327,6 +270,75 @@ final public class AWSMobileClient: _AWSMobileClient {
         for listener in listeners {
             listener.1(userState, additionalInfo)
         }
+    }
+
+    private func registerIfPresentHostedUI() throws {
+        guard self.federationProvider == .hostedUI else { return }
+
+        loadHostedUIScopesFromKeychain()
+        loadOAuthURIQueryParametersFromKeychain()
+
+        let infoDictionaryMobileClient = self.awsInfo.rootInfoDictionary["Auth"] as? [String: [String: Any]]
+        let infoDictionary: [String: Any]? = infoDictionaryMobileClient?["Default"]?["OAuth"] as? [String: Any]
+
+        let clientId = infoDictionary?["AppClientId"] as? String
+        let secret = infoDictionary?["AppClientSecret"] as? String
+        guard let webDomain = infoDictionary?["WebDomain"] as? String else {
+            throw AWSMobileClientError.invalidConfiguration(
+                message: "WebDomain is missing in the configuration for hosted UI")
+        }
+        let hostURL = "https://\(webDomain)"
+        if self.scopes == nil {
+            self.scopes = infoDictionary?["Scopes"] as? [String]
+        }
+
+        let signInRedirectURI = infoDictionary?["SignInRedirectURI"] as? String
+        let signInURI = infoDictionary?["SignInURI"] as? String
+        if self.signInURIQueryParameters == nil {
+            self.signInURIQueryParameters = infoDictionary?["SignInURIQueryParameters"] as? [String: String]
+        }
+
+        let signOutRedirectURI = infoDictionary?["SignOutRedirectURI"] as? String
+        let signOutURI = infoDictionary?["SignOutURI"] as? String
+        if self.signOutURIQueryParameters == nil {
+            self.signOutURIQueryParameters = infoDictionary?["SignOutURIQueryParameters"] as? [String: String]
+        }
+
+        let tokensURI = infoDictionary?["TokenURI"] as? String
+        if self.tokenURIQueryParameters == nil {
+            self.tokenURIQueryParameters = infoDictionary?["TokenURIQueryParameters"] as? [String: String]
+        }
+
+        if (clientId == nil || scopes == nil || signInRedirectURI == nil || signOutRedirectURI == nil) {
+            throw AWSMobileClientError.invalidConfiguration(
+                message: "Please provide all configuration parameters to use the hosted UI feature.")
+        }
+
+        let cognitoAuthConfig = AWSCognitoAuthConfiguration(
+            appClientId: clientId!,
+            appClientSecret: secret,
+            scopes: Set<String>(self.scopes!.map { $0 }),
+            signInRedirectUri: signInRedirectURI!,
+            signOutRedirectUri: signOutRedirectURI!,
+            webDomain: hostURL,
+            identityProvider: nil,
+            idpIdentifier: nil,
+            signInUri: signInURI,
+            signOutUri: signOutURI,
+            tokensUri: tokensURI,
+            signInUriQueryParameters: self.signInURIQueryParameters,
+            signOutUriQueryParameters: self.signOutURIQueryParameters,
+            tokenUriQueryParameters: self.tokenURIQueryParameters,
+            userPoolServiceConfiguration: AWSMobileClient.serviceConfiguration?.userPoolServiceConfiguration,
+            signInPrivateSession: false)
+
+        if (isCognitoAuthRegistered) {
+            AWSCognitoAuth.remove(forKey: AWSMobileClientConstants.CognitoAuthRegistrationKey)
+        }
+        AWSCognitoAuth.registerCognitoAuth(with: cognitoAuthConfig, forKey: AWSMobileClientConstants.CognitoAuthRegistrationKey)
+        isCognitoAuthRegistered = true
+        let cognitoAuth = AWSCognitoAuth.init(forKey: AWSMobileClientConstants.CognitoAuthRegistrationKey)
+        cognitoAuth.delegate = self
     }
 }
 
