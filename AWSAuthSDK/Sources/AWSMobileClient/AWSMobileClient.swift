@@ -331,7 +331,7 @@ final public class AWSMobileClient: _AWSMobileClient {
         else {
             throw AWSMobileClientError.invalidConfiguration(
                 message: "Please provide all configuration parameters to use the hosted UI feature.")
-            }
+        }
 
         let cognitoAuthConfig = AWSCognitoAuthConfiguration(
             appClientId: clientId,
