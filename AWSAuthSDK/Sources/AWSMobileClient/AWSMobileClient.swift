@@ -177,48 +177,27 @@ final public class AWSMobileClient: _AWSMobileClient {
     public func initialize(_ completionHandler: @escaping (UserState?, Error?) -> Void) {
         // Read awsconfiguration.json and set the credentials provider here
         initializationQueue.sync {
-            self.keychain.migrateToCurrentAccessibility()
             if (isInitialized) {
                 completionHandler(self.currentUserState, nil)
                 return
             }
-            
+
+            keychain.migrateToCurrentAccessibility()
             cleanupPreviousInstall()
-            self.loadLoginsMapFromKeychain()
-            // Updated logic to determine federation provider from keychain.
-            self.loadFederationProviderMetadataFromKeychain()
-            
+            initializeKeychainItems()
+            fallbackLegacyFederationProvider()
+
             DeviceOperations.sharedInstance.mobileClient = self
-            
-            // legacy fallback logic to determine federation provider for AWSMobileClient
-            if self.federationProvider == .none && self.cachedLoginsMap.count > 0 {
-                if self.userPoolClient?.currentUser()?.isSignedIn == true {
-                    self.federationProvider = .userPools
-                } else {
-                    self.federationProvider = .oidcFederation
-                }
-            }
+
             do {
                 try registerIfPresentHostedUI()
             } catch {
                 completionHandler(nil, error)
             }
 
-            let infoDictionaryMobileClient = self.awsInfo.rootInfoDictionary["Auth"] as? [String: [String: Any]]
-            if let authFlowType = infoDictionaryMobileClient?["Default"]?["authenticationFlowType"] as? String,
-               authFlowType == "CUSTOM_AUTH" {
-                self.userPoolClient?.isCustomAuth = true
-            }
-            
-            let infoObject = AWSInfo.default().defaultServiceInfo("IdentityManager")
-            if let credentialsProvider = infoObject?.cognitoCredentialsProvider {
+            setIfPresentCustomAuth()
+            setIfPresentCredentialsProvider()
 
-                self.internalCredentialsProvider = credentialsProvider
-                self.update(self)
-                self.internalCredentialsProvider?.setIdentityProviderManagerOnce(self)
-                self.registerConfigSignInProviders()
-
-            }
             let userState = determineIntialUserState()
             if userState == .signedIn
                 && (federationProvider == .userPools || federationProvider == .hostedUI)
@@ -272,6 +251,41 @@ final public class AWSMobileClient: _AWSMobileClient {
         }
     }
 
+    private func initializeKeychainItems() {
+        loadLoginsMapFromKeychain()
+        loadFederationProviderMetadataFromKeychain()
+    }
+
+    private func fallbackLegacyFederationProvider() {
+        // legacy fallback logic to determine federation provider for AWSMobileClient
+        if self.federationProvider == .none && self.cachedLoginsMap.count > 0 {
+            if self.userPoolClient?.currentUser()?.isSignedIn == true {
+                self.federationProvider = .userPools
+            } else {
+                self.federationProvider = .oidcFederation
+            }
+        }
+    }
+
+    private func setIfPresentCustomAuth() {
+        let infoDict = self.awsInfo.rootInfoDictionary["Auth"] as? [String: [String: Any]]
+        if let authFlowType = infoDict?["Default"]?["authenticationFlowType"] as? String,
+           authFlowType == "CUSTOM_AUTH" {
+            self.userPoolClient?.isCustomAuth = true
+        }
+    }
+
+    private func setIfPresentCredentialsProvider() {
+        let infoObject = AWSInfo.default().defaultServiceInfo("IdentityManager")
+        if let credentialsProvider = infoObject?.cognitoCredentialsProvider {
+
+            self.internalCredentialsProvider = credentialsProvider
+            self.update(self)
+            self.internalCredentialsProvider?.setIdentityProviderManagerOnce(self)
+            self.registerConfigSignInProviders()
+        }
+    }
+
     private func registerIfPresentHostedUI() throws {
         guard self.federationProvider == .hostedUI else { return }
 
@@ -309,17 +323,22 @@ final public class AWSMobileClient: _AWSMobileClient {
             self.tokenURIQueryParameters = infoDictionary?["TokenURIQueryParameters"] as? [String: String]
         }
 
-        if (clientId == nil || scopes == nil || signInRedirectURI == nil || signOutRedirectURI == nil) {
+        guard
+            let clientId = clientId,
+            let scopes = scopes,
+            let signInRedirectURI = signInRedirectURI,
+            let signOutRedirectURI = signOutRedirectURI
+        else {
             throw AWSMobileClientError.invalidConfiguration(
                 message: "Please provide all configuration parameters to use the hosted UI feature.")
-        }
+            }
 
         let cognitoAuthConfig = AWSCognitoAuthConfiguration(
-            appClientId: clientId!,
+            appClientId: clientId,
             appClientSecret: secret,
-            scopes: Set<String>(self.scopes!.map { $0 }),
-            signInRedirectUri: signInRedirectURI!,
-            signOutRedirectUri: signOutRedirectURI!,
+            scopes: Set<String>(scopes.map { $0 }),
+            signInRedirectUri: signInRedirectURI,
+            signOutRedirectUri: signOutRedirectURI,
             webDomain: hostURL,
             identityProvider: nil,
             idpIdentifier: nil,
