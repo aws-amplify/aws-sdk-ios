@@ -181,33 +181,33 @@ final public class AWSMobileClient: _AWSMobileClient {
                 completionHandler(self.currentUserState, nil)
                 return
             }
-
-            keychain.migrateToCurrentAccessibility()
-            cleanupPreviousInstall()
-            initializeKeychainItems()
-            fallbackLegacyFederationProvider()
-
-            DeviceOperations.sharedInstance.mobileClient = self
-
             do {
+                keychain.migrateToCurrentAccessibility()
+                cleanupPreviousInstall()
+                initializeKeychainItems()
+                fallbackLegacyFederationProvider()
+
+                DeviceOperations.sharedInstance.mobileClient = self
+
                 try registerIfPresentHostedUI()
+
+                setIfPresentCustomAuth()
+                setIfPresentCredentialsProvider()
+
+                let userState = determineIntialUserState()
+                if userState == .signedIn
+                    && (federationProvider == .userPools || federationProvider == .hostedUI)
+                    && self.username == nil {
+                    self.signOut()
+                    currentUserState = .signedOut
+                } else {
+                    currentUserState = userState
+                }
+                completionHandler(currentUserState, nil)
             } catch {
                 completionHandler(nil, error)
             }
 
-            setIfPresentCustomAuth()
-            setIfPresentCredentialsProvider()
-
-            let userState = determineIntialUserState()
-            if userState == .signedIn
-                && (federationProvider == .userPools || federationProvider == .hostedUI)
-                && self.username == nil {
-                self.signOut()
-                currentUserState = .signedOut
-            } else {
-                currentUserState = userState
-            }
-            completionHandler(currentUserState, nil)
             isInitialized = true
         }
     }
