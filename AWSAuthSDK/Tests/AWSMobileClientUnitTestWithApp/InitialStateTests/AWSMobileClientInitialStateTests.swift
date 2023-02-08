@@ -20,6 +20,15 @@ class AWSMobileClientInitialStateTests: XCTestCase {
         keychainHelper.removeAllItems()
     }
 
+
+    /// Test if saved guest keychain initialise AWSMobileClient to a guest state
+    ///
+    /// - Given: AWSMobileClient with already saved keychain items for guest
+    /// - When:
+    ///    - I invoke AWSMobileClient.initialize
+    /// - Then:
+    ///    - I should get currentstate as guest
+    ///
     func testSavedKeychainForGuest() {
         let initializeExpectation = expectation(description: "AWSMobileClient initialization")
         keychainHelper.mobileClientKeychain.setString("none", forKey: "federationProvider")
@@ -34,6 +43,14 @@ class AWSMobileClientInitialStateTests: XCTestCase {
         XCTAssertEqual(mobileClient.currentUserState, .guest)
     }
 
+    /// Test if saved federation keychain initialise AWSMobileClient to a signedIn state
+    ///
+    /// - Given: AWSMobileClient with already saved keychain items for federation to Identity Pool
+    /// - When:
+    ///    - I invoke AWSMobileClient.initialize
+    /// - Then:
+    ///    - I should get currentstate as signedIn
+    ///
     func testSavedKeychainForFederation() {
         let initializeExpectation = expectation(description: "AWSMobileClient initialization")
         keychainHelper.mobileClientKeychain.setString("oidcFederation", forKey: "federationProvider")
@@ -48,6 +65,14 @@ class AWSMobileClientInitialStateTests: XCTestCase {
         XCTAssertEqual(mobileClient.currentUserState, .signedIn)
     }
 
+    /// Test if saved invalid federation keychain initialise AWSMobileClient
+    ///
+    /// - Given: AWSMobileClient with already saved invalid keychain items for federation to Identity Pool
+    /// - When:
+    ///    - I invoke AWSMobileClient.initialize
+    /// - Then:
+    ///    - I should get currentstate as signedOut
+    ///
     func testSavedKeychainForFailedFederation() {
         let initializeExpectation = expectation(description: "AWSMobileClient initialization")
         keychainHelper.mobileClientKeychain.setString("oidcFederation", forKey: "federationProvider")
@@ -60,6 +85,14 @@ class AWSMobileClientInitialStateTests: XCTestCase {
         XCTAssertEqual(mobileClient.currentUserState, .signedOut)
     }
 
+    /// Test if saved userpool keychain initialise AWSMobileClient to a signedIn state
+    ///
+    /// - Given: AWSMobileClient with already saved keychain items for signed in to User Pool
+    /// - When:
+    ///    - I invoke AWSMobileClient.initialize
+    /// - Then:
+    ///    - I should get currentstate as signedIn
+    ///
     func testSavedKeychainForUserPool() throws {
         let initializeExpectation = expectation(description: "AWSMobileClient initialization")
         try keychainHelper.mockUserPoolSignedInUser(appClientID: "someAppClientID")
