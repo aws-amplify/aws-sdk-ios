@@ -36,7 +36,8 @@ final public class AWSMobileClient: _AWSMobileClient {
     internal var tokenURIQueryParameters: [String: String]? = nil
     internal var signOutURIQueryParameters: [String: String]? = nil
     internal var scopes: [String]? = nil
-    
+    internal var userpoolOpsHelper: UserPoolOperationsHandler!
+
     // MARK: Execution Helpers (DispatchQueue, OperationQueue, DispatchGroup)
     
     // Internal DispatchQueue which will be used synchronously to initialize the AWSMobileClient.
@@ -181,48 +182,68 @@ final public class AWSMobileClient: _AWSMobileClient {
                 completionHandler(self.currentUserState, nil)
                 return
             }
-            do {
-                keychain.migrateToCurrentAccessibility()
-                cleanupPreviousInstall()
-                initializeKeychainItems()
-                fallbackLegacyFederationProvider()
-
-                DeviceOperations.sharedInstance.mobileClient = self
-
-                try registerIfPresentHostedUI()
-
-                setIfPresentCustomAuth()
-                setIfPresentCredentialsProvider()
-
-                let userState = determineIntialUserState()
-                if userState == .signedIn
-                    && (federationProvider == .userPools || federationProvider == .hostedUI)
-                    && self.username == nil {
-                    self.signOut()
-                    currentUserState = .signedOut
-                } else {
-                    currentUserState = userState
-                }
-                completionHandler(currentUserState, nil)
-            } catch {
-                completionHandler(nil, error)
-            }
-
+            _internalInitialize(completionHandler)
             isInitialized = true
         }
     }
 
+    internal func _internalInitialize(
+        userPoolHandler: UserPoolOperationsHandler = .sharedInstance,
+        _ completionHandler: @escaping (UserState?, Error?) -> Void) {
+        do {
+            keychain.migrateToCurrentAccessibility()
+            userpoolOpsHelper = userPoolHandler
+            cleanupPreviousInstall()
+            initializeKeychainItems()
+            fallbackLegacyFederationProvider()
+
+            DeviceOperations.sharedInstance.mobileClient = self
+
+            try registerIfPresentHostedUI()
+
+            setIfPresentCustomAuth()
+            setIfPresentCredentialsProvider()
+
+            currentUserState = determineIntialUserState()
+            completionHandler(currentUserState, nil)
+        } catch {
+            completionHandler(nil, error)
+        }
+    }
+
+    /// Using the cached keychain items determine the user state.
     private func determineIntialUserState() -> UserState {
+        var userState: UserState = .signedOut
         if (self.cachedLoginsMap.count > 0) {
-            return .signedIn
+            userState = .signedIn
+
+        } else if let credentialProvider = self.internalCredentialsProvider,
+                  credentialProvider.identityId != nil {
+            userState = (federationProvider == .none) ? .guest : .signedIn
         }
 
-        if let credentialProvider = self.internalCredentialsProvider,
-           credentialProvider.identityId != nil {
-            return (federationProvider == .none) ? .guest : .signedIn
+        // SignOut if we get an invalid signedIn state
+        if userState == .signedIn
+            && !isValidSignedIn (
+                userState: userState,
+                federationProvider: federationProvider
+            ) {
+            AWSMobileClientLogging.verbose("Invalid signedIn state found, signing out")
+            signOut()
+            userState = .signedOut
         }
-        return .signedOut
+        return userState
     }
+
+    private func isValidSignedIn(
+        userState: UserState,
+        federationProvider: FederationProvider) -> Bool {
+            if federationProvider == .userPools || federationProvider == .hostedUI {
+                return self.username != nil
+            }
+            return federationProvider == .oidcFederation &&
+            self.internalCredentialsProvider?.identityId != nil
+        }
     
     /// Adds a listener who receives notifications on user state change.
     ///

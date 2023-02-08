@@ -21,10 +21,11 @@ class NameSpaceWithPreviousSignInTests: NameSpaceBaseTests {
         let userPoolID = "userPoolID"
         let appClientID = "appClientID"
         let identityPoolID = "identityPoolID"
-        try mockUserPoolSignedInUser()
-        let configuration = createConfiguration(userPoolID: userPoolID,
-                                                appClientID: appClientID,
-                                                identityPoolID: identityPoolID)
+        try keychainHelper.mockUserPoolSignedInUser(appClientID: appClientID)
+        let configuration = AWSMobileClientHelper.createConfiguration(
+            userPoolID: userPoolID,
+            appClientID: appClientID,
+            identityPoolID: identityPoolID)
         initializedAndUserstateUserPoolSignIn(configuration)
     }
 }

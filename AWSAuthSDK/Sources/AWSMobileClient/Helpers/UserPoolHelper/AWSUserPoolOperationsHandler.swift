@@ -66,7 +66,6 @@ AWSCognitoUserPoolInternalDelegate {
 
     static var serviceConfiguration: CognitoServiceConfiguration? = nil
 
-    
     public override init() {
         super.init()
         if (AWSInfo.default().defaultServiceInfo("CognitoUserPool") != nil) {
@@ -90,6 +89,7 @@ AWSCognitoUserPoolInternalDelegate {
         // If the AWSCognitoIdentityUserPool is not registered, register it and then return the same object.
         let serviceInfo = AWSInfo.default().defaultServiceInfo("CognitoUserPool")
         let userPoolConfig = AWSCognitoIdentityUserPool.buildConfiguration(serviceInfo)
+        print(userPoolConfig.poolId)
         AWSCognitoIdentityUserPool.register(with: serviceConfig,
                                             userPoolConfiguration: userPoolConfig,
                                             forKey: clientKey)

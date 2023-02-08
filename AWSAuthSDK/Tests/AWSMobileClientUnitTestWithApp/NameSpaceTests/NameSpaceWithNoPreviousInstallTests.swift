@@ -16,7 +16,7 @@ class NameSpaceWithNoPreviousInstallTests: NameSpaceBaseTests {
     /// - Then:
     ///    - I should get back the user state as signedOut
     func testFreshInstall() {
-        let configuration = createConfiguration()
+        let configuration = AWSMobileClientHelper.createConfiguration()
         initializedAndUserstateSignedOut(configuration)
     }
 }
