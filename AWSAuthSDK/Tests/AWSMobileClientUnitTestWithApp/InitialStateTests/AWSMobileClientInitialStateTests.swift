@@ -59,4 +59,17 @@ class AWSMobileClientInitialStateTests: XCTestCase {
         wait(for: [initializeExpectation], timeout: 5)
         XCTAssertEqual(mobileClient.currentUserState, .signedOut)
     }
+
+    func testSavedKeychainForUserPool() throws {
+        let initializeExpectation = expectation(description: "AWSMobileClient initialization")
+        try keychainHelper.mockUserPoolSignedInUser(appClientID: "someAppClientID")
+        let mobileClient = AWSMobileClientHelper.createAWSMobileClient(configuration)
+        mobileClient._internalInitialize(userPoolHandler: UserPoolOperationsHandler()) {
+            state, error in
+            XCTAssertNil(error)
+            initializeExpectation.fulfill()
+        }
+        wait(for: [initializeExpectation], timeout: 5)
+        XCTAssertEqual(mobileClient.currentUserState, .signedIn)
+    }
 }

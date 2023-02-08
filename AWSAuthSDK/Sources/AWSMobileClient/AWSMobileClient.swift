@@ -36,6 +36,10 @@ final public class AWSMobileClient: _AWSMobileClient {
     internal var tokenURIQueryParameters: [String: String]? = nil
     internal var signOutURIQueryParameters: [String: String]? = nil
     internal var scopes: [String]? = nil
+
+    // UserPoolOperationHandler should be initialized after AWSMobileClient init and AWSInfo init is
+    // completed, because it require the AWSInfo to be in a valid state to initialize. To acheive this
+    // currently userpoolOpsHelper is initialized inside `_internalInitialize`.
     internal var userpoolOpsHelper: UserPoolOperationsHandler!
 
     // MARK: Execution Helpers (DispatchQueue, OperationQueue, DispatchGroup)
@@ -187,6 +191,7 @@ final public class AWSMobileClient: _AWSMobileClient {
         }
     }
 
+    // Internal initialize method, pass userpoolHandler for testing purposes only.
     internal func _internalInitialize(
         userPoolHandler: UserPoolOperationsHandler = .sharedInstance,
         _ completionHandler: @escaping (UserState?, Error?) -> Void) {
