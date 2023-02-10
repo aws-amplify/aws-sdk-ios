@@ -1,3 +1,15 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSAutoScaling
+---AWSPolly
+---AWSConnect
+---AWSEC2
+---AWSSNS
 
 # AWS Mobile SDK for iOS CHANGELOG
 ## Unreleased
