@@ -97,9 +97,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  An AWSPinpointEndpointProfile object with the specified context
+ @warning Calling this initializer from a non-main thread might result in a deadlock.
  @returns AWSPinpointEndpointProfile
  */
 - (instancetype)initWithContext:(AWSPinpointContext *) context;
+
+/**
+ An AWSPinpointEndpointProfile object with the specified context
+ @returns AWSPinpointEndpointProfile
+ */
+- (instancetype)initWithContext:(AWSPinpointContext *) context isRegisteredForRemoteNotifications:(BOOL) isRegisteredForRemoteNotifications;
 
 /**
  Adds an attribute to this AWSPinpointEndpointProfile with the specified key. Only 40 attributes/metrics
