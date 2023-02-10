@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -2045,6 +2045,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"percentageComplete" : @"PercentageComplete",
              @"preferences" : @"Preferences",
              @"progressDetails" : @"ProgressDetails",
+             @"rollbackDetails" : @"RollbackDetails",
              @"startTime" : @"StartTime",
              @"status" : @"Status",
              @"statusReason" : @"StatusReason",
@@ -2069,6 +2070,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)progressDetailsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingInstanceRefreshProgressDetails class]];
+}
+
++ (NSValueTransformer *)rollbackDetailsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingRollbackDetails class]];
 }
 
 + (NSValueTransformer *)startTimeJSONTransformer {
@@ -2099,6 +2104,15 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"Cancelled"] == NSOrderedSame) {
             return @(AWSAutoScalingInstanceRefreshStatusCancelled);
         }
+        if ([value caseInsensitiveCompare:@"RollbackInProgress"] == NSOrderedSame) {
+            return @(AWSAutoScalingInstanceRefreshStatusRollbackInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"RollbackFailed"] == NSOrderedSame) {
+            return @(AWSAutoScalingInstanceRefreshStatusRollbackFailed);
+        }
+        if ([value caseInsensitiveCompare:@"RollbackSuccessful"] == NSOrderedSame) {
+            return @(AWSAutoScalingInstanceRefreshStatusRollbackSuccessful);
+        }
         return @(AWSAutoScalingInstanceRefreshStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2114,6 +2128,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"Cancelling";
             case AWSAutoScalingInstanceRefreshStatusCancelled:
                 return @"Cancelled";
+            case AWSAutoScalingInstanceRefreshStatusRollbackInProgress:
+                return @"RollbackInProgress";
+            case AWSAutoScalingInstanceRefreshStatusRollbackFailed:
+                return @"RollbackFailed";
+            case AWSAutoScalingInstanceRefreshStatusRollbackSuccessful:
+                return @"RollbackSuccessful";
             default:
                 return nil;
         }
@@ -3456,11 +3476,124 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"autoRollback" : @"AutoRollback",
              @"checkpointDelay" : @"CheckpointDelay",
              @"checkpointPercentages" : @"CheckpointPercentages",
              @"instanceWarmup" : @"InstanceWarmup",
              @"minHealthyPercentage" : @"MinHealthyPercentage",
+             @"scaleInProtectedInstances" : @"ScaleInProtectedInstances",
              @"skipMatching" : @"SkipMatching",
+             @"standbyInstances" : @"StandbyInstances",
+             };
+}
+
++ (NSValueTransformer *)scaleInProtectedInstancesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Refresh"] == NSOrderedSame) {
+            return @(AWSAutoScalingScaleInProtectedInstancesRefresh);
+        }
+        if ([value caseInsensitiveCompare:@"Ignore"] == NSOrderedSame) {
+            return @(AWSAutoScalingScaleInProtectedInstancesIgnore);
+        }
+        if ([value caseInsensitiveCompare:@"Wait"] == NSOrderedSame) {
+            return @(AWSAutoScalingScaleInProtectedInstancesWait);
+        }
+        return @(AWSAutoScalingScaleInProtectedInstancesUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSAutoScalingScaleInProtectedInstancesRefresh:
+                return @"Refresh";
+            case AWSAutoScalingScaleInProtectedInstancesIgnore:
+                return @"Ignore";
+            case AWSAutoScalingScaleInProtectedInstancesWait:
+                return @"Wait";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)standbyInstancesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Terminate"] == NSOrderedSame) {
+            return @(AWSAutoScalingStandbyInstancesTerminate);
+        }
+        if ([value caseInsensitiveCompare:@"Ignore"] == NSOrderedSame) {
+            return @(AWSAutoScalingStandbyInstancesIgnore);
+        }
+        if ([value caseInsensitiveCompare:@"Wait"] == NSOrderedSame) {
+            return @(AWSAutoScalingStandbyInstancesWait);
+        }
+        return @(AWSAutoScalingStandbyInstancesUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSAutoScalingStandbyInstancesTerminate:
+                return @"Terminate";
+            case AWSAutoScalingStandbyInstancesIgnore:
+                return @"Ignore";
+            case AWSAutoScalingStandbyInstancesWait:
+                return @"Wait";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSAutoScalingRollbackDetails
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instancesToUpdateOnRollback" : @"InstancesToUpdateOnRollback",
+             @"percentageCompleteOnRollback" : @"PercentageCompleteOnRollback",
+             @"progressDetailsOnRollback" : @"ProgressDetailsOnRollback",
+             @"rollbackReason" : @"RollbackReason",
+             @"rollbackStartTime" : @"RollbackStartTime",
+             };
+}
+
++ (NSValueTransformer *)progressDetailsOnRollbackJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingInstanceRefreshProgressDetails class]];
+}
+
++ (NSValueTransformer *)rollbackStartTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
+}
+
+@end
+
+@implementation AWSAutoScalingRollbackInstanceRefreshAnswer
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceRefreshId" : @"InstanceRefreshId",
+             };
+}
+
+@end
+
+@implementation AWSAutoScalingRollbackInstanceRefreshType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoScalingGroupName" : @"AutoScalingGroupName",
              };
 }
 
