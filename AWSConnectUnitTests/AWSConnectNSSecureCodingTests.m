@@ -450,6 +450,7 @@
 - (void) test_AWSConnectVocabulary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectVocabularySummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectVoiceRecordingConfiguration API_AVAILABLE(ios(11));
+- (void) test_AWSConnectWisdomInfo API_AVAILABLE(ios(11));
 
 @end
 
@@ -2177,6 +2178,10 @@
 
 - (void) test_AWSConnectVoiceRecordingConfiguration {
     [self validateSecureCodingForClass:[AWSConnectVoiceRecordingConfiguration class]];
+}
+
+- (void) test_AWSConnectWisdomInfo {
+    [self validateSecureCodingForClass:[AWSConnectWisdomInfo class]];
 }
 
 @end

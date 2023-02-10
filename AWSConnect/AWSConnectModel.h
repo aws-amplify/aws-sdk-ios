@@ -1199,6 +1199,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectVocabulary;
 @class AWSConnectVocabularySummary;
 @class AWSConnectVoiceRecordingConfiguration;
+@class AWSConnectWisdomInfo;
 
 /**
  <p>Information about an action.</p>
@@ -1940,6 +1941,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  */
 @property (nonatomic, strong) NSDate * _Nullable scheduledTimestamp;
 
+/**
+ <p>Information about Amazon Connect Wisdom.</p>
+ */
+@property (nonatomic, strong) AWSConnectWisdomInfo * _Nullable wisdomInfo;
+
 @end
 
 /**
@@ -2625,7 +2631,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>The inbound queues associated with the routing profile. If no queue is added, the agent can make only outbound calls.</p>
+ <p>The inbound queues associated with the routing profile. If no queue is added, the agent can make only outbound calls.</p><p>The limit of 10 array members applies to the maximum number of <code>RoutingProfileQueueConfig</code> objects that can be passed during a CreateRoutingProfile API request. It is different from the quota of 50 queues per routing profile per instance that is listed in <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect service quotas</a>. </p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectRoutingProfileQueueConfig *> * _Nullable queueConfigs;
 
@@ -11370,6 +11376,19 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>Identifies which track is being recorded.</p>
  */
 @property (nonatomic, assign) AWSConnectVoiceRecordingTrack voiceRecordingTrack;
+
+@end
+
+/**
+ <p>Information about Amazon Connect Wisdom.</p>
+ */
+@interface AWSConnectWisdomInfo : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Wisdom session.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sessionArn;
 
 @end
 
