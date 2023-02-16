@@ -47,11 +47,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointPushEvent) {
 };
 
 #pragma mark - Notification Helpers
-/**
- Returns a Boolean indicating whether the app is currently registered for remote notifications.
- @return BOOL YES if the app is registered for remote notifications and received its device token or NO if registration
- has not occurred, has failed, or has been denied by the user.
- */
+
+///
+/// Returns a Boolean indicating whether the app is currently registered for remote notifications.
+/// - Warning: Calling this method from a non-main thread might result in a deadlock if the main queue is blocked.
+/// - Returns: YES if the app is registered for remote notifications and received its device token or NO if registration has not occurred, has failed, or has been denied by the user.
 + (BOOL)isNotificationEnabled;
 
 #pragma mark - Interceptors

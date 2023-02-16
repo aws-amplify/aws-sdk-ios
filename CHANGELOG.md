@@ -2,7 +2,18 @@
 # AWS Mobile SDK for iOS CHANGELOG
 ## Unreleased
 
--Features for next release
+### Bug Fixes
+
+- **AWSPinpoint**
+  - Fixed a deadlock that happened when `AWSPinpointAnalyticsClient.submitEvents` was called from different threads at the same time. (See [PR #4558](https://github.com/aws-amplify/aws-sdk-ios/pull/4558))
+
+## 2.30.1
+
+### Misc. Updates
+
+- **Auth**
+  - Added migration of keychain to the current accessibility level set for different Auth SDK. This will enabled keychain items that are stored in different accessibility level to get fixed to the current accessibility. (See [PR #4516](https://github.com/aws-amplify/aws-sdk-ios/pull/4516))
+
 
 ## 2.30.0
 
@@ -12,11 +23,6 @@
 
 
 ### Misc. Updates
-
-- **Auth**
-  - Added migration of keychain to the current accessibility level set for different Auth SDK. This will enabled keychain items that are stored in different accessibility level to get fixed to the current accessibility. (See [PR #4516](https://github.com/aws-amplify/aws-sdk-ios/pull/4516))
-
-
 - Model updates for the following services
   -AWSCloudWatchLogs
   -AWSConnect
