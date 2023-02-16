@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -166,6 +166,9 @@
 - (void) test_AWSAutoScalingRecordLifecycleActionHeartbeatAnswer API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingRecordLifecycleActionHeartbeatType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingRefreshPreferences API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingRollbackDetails API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingRollbackInstanceRefreshAnswer API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingRollbackInstanceRefreshType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingScalingPolicy API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingScalingProcessQuery API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingScheduledActionsType API_AVAILABLE(ios(11));
@@ -783,6 +786,18 @@
 
 - (void) test_AWSAutoScalingRefreshPreferences {
     [self validateSecureCodingForClass:[AWSAutoScalingRefreshPreferences class]];
+}
+
+- (void) test_AWSAutoScalingRollbackDetails {
+    [self validateSecureCodingForClass:[AWSAutoScalingRollbackDetails class]];
+}
+
+- (void) test_AWSAutoScalingRollbackInstanceRefreshAnswer {
+    [self validateSecureCodingForClass:[AWSAutoScalingRollbackInstanceRefreshAnswer class]];
+}
+
+- (void) test_AWSAutoScalingRollbackInstanceRefreshType {
+    [self validateSecureCodingForClass:[AWSAutoScalingRollbackInstanceRefreshType class]];
 }
 
 - (void) test_AWSAutoScalingScalingPolicy {
