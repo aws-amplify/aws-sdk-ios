@@ -55,7 +55,6 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
 @property (nonatomic, weak) AWSPinpointContext *context;
 @property (nonatomic, strong) AWSFMDatabaseQueue *databaseQueue;
 @property (nonatomic, strong) NSString *databasePath;
-@property (nonatomic, strong) AWSPinpointEndpointProfile *profile;
 @property (nonatomic, strong) NSObject *lock;
 
 @end
@@ -92,7 +91,6 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
 - (instancetype)initWithContext:(AWSPinpointContext *) context {
     if (self = [super init]) {
         _context = context;
-        _profile = [_context.targetingClient currentEndpointProfile];
         _lock = [NSObject new];
         _submissionInProgress = NO;
         NSString *databaseDirectoryPath = [NSTemporaryDirectory() stringByAppendingPathComponent:AWSPinpointClientRecorderDatabasePathPrefix];
@@ -598,19 +596,23 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
 
 - (AWSTask<NSArray<AWSPinpointEvent *> *> *)submitAllEvents {
     @synchronized(self.lock) {
+        if (self.submissionInProgress) {
+            return [AWSTask taskWithError:[NSError errorWithDomain:AWSPinpointAnalyticsErrorDomain
+                                                              code:AWSPinpointTargetingErrorTooManyRequests
+                                                          userInfo:@{NSLocalizedDescriptionKey: @"Event submission is in progress."}]];
+        }
+
         __block NSMutableArray *result = [NSMutableArray new];
-        __block AWSTask *returnTask;
         
-        if (!self.submissionInProgress) {
-            self.submissionInProgress = YES;
-            dispatch_group_t serviceGroup = dispatch_group_create();
-            dispatch_group_enter(serviceGroup);
-            
-            self.profile = [self.context.targetingClient currentEndpointProfile];
+        self.submissionInProgress = YES;
+        dispatch_group_t serviceGroup = dispatch_group_create();
+        dispatch_group_enter(serviceGroup);
+        return [[self currentEndpointProfile] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSPinpointEndpointProfile *> * _Nonnull task) {
+            __block AWSTask *returnTask;
             [self getBatchRecords:^(NSDictionary *eventsWithEventId, NSError *error) {
                 __block NSError *_error = [error copy];
                 __block NSDictionary *_eventsWithEventId = [eventsWithEventId copy];
-                returnTask = [[self submitEvents:&result eventsWithEventId:_eventsWithEventId error:_error]
+                returnTask = [[self submitEvents:&result eventsWithEventId:_eventsWithEventId endpointProfile:task.result error:_error]
                               continueWithBlock:^id _Nullable(AWSTask<NSArray<AWSPinpointEvent *> *> * _Nonnull t) {
                                   dispatch_group_leave(serviceGroup);
                                   return t;
@@ -620,17 +622,23 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
             dispatch_group_notify(serviceGroup,dispatch_get_main_queue(),^{
                 self.submissionInProgress = NO;
             });
-        } else {
-            returnTask = [AWSTask taskWithError:[NSError errorWithDomain:AWSPinpointAnalyticsErrorDomain
-                                                                    code:AWSPinpointTargetingErrorTooManyRequests
-                                                                userInfo:@{NSLocalizedDescriptionKey: @"Event submission is in progress."}]];
-        }
-        return returnTask;
+
+            return returnTask;
+        }];
     }
 }
 
+- (AWSTask<AWSPinpointEndpointProfile *> *) currentEndpointProfile {
+    AWSTaskCompletionSource *tcs = [AWSTaskCompletionSource taskCompletionSource];
+    [self.context.targetingClient currentEndpointProfileWithCompletion:^(AWSPinpointEndpointProfile * _Nonnull profile) {
+        [tcs setResult: profile];
+    }];
+    return tcs.task;
+ }
+
 - (AWSTask<NSArray<AWSPinpointEvent *> *> *)submitEvents:(NSMutableArray**) resultEvents
                                        eventsWithEventId:(NSDictionary *)eventsWithEventId
+                                         endpointProfile:(AWSPinpointEndpointProfile *) endpointProfile
                                                    error:(NSError *)error {
     __block AWSTask *returnTask;
     __block NSMutableArray *result = *resultEvents;
@@ -648,7 +656,8 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
                                  userInfo:@{NSLocalizedDescriptionKey: @"No events to submit."}];
         returnTask = [AWSTask taskWithError:_error];
     } else {
-        returnTask = [[self submitBatchEvents:_eventsWithEventId] continueWithBlock:^id _Nullable(AWSTask<NSDictionary <NSString *, NSDictionary *> *> * _Nonnull t) {
+        returnTask = [[self submitBatchEvents:_eventsWithEventId
+                              endpointProfile:endpointProfile] continueWithBlock:^id _Nullable(AWSTask<NSDictionary <NSString *, NSDictionary *> *> * _Nonnull t) {
             __block AWSTask *nextTask;
             
             if (t.error) {
@@ -667,7 +676,7 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
                     if (__error) {
                         nextTask = [AWSTask taskWithError:t.error];
                     } else if ([eventsWithEventId count] > 0) {
-                        nextTask = [self submitEvents:&result eventsWithEventId:__eventsWithEventId error:__error];
+                        nextTask = [self submitEvents:&result eventsWithEventId:__eventsWithEventId endpointProfile:endpointProfile error:__error];
                     } else {
                         nextTask = [AWSTask taskWithResult:result];
                     }
@@ -733,7 +742,8 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
     }];
 }
 
-- (AWSTask<NSDictionary <NSString *, NSDictionary *> *> *)submitBatchEvents:(NSDictionary*) eventsWithEventId{
+- (AWSTask<NSDictionary <NSString *, NSDictionary *> *> *)submitBatchEvents:(NSDictionary*) eventsWithEventId
+                                                            endpointProfile:(AWSPinpointEndpointProfile *) endpointProfile {
     AWSFMDatabaseQueue *databaseQueue = self.databaseQueue;
     NSDictionary *temporaryEvents = [eventsWithEventId copy];
 
@@ -742,7 +752,8 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
         __block NSError *error = nil;
         __block NSMutableDictionary *events = [NSMutableDictionary new];
         AWSTask *submitTask = [[self putEvents:temporaryEvents
-                                         error:&error]
+                                         error:&error
+                               endpointProfile:endpointProfile]
                                continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {                                   
                                    if (task.error) {
                                        error = task.error;
@@ -958,11 +969,6 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
     return (NSDictionary *)processedEvents;
 }
 
-- (AWSTask *) putEvents:(NSDictionary *) temporaryEvents
-                 error:(NSError* __autoreleasing *) error {
-    return [self putEvents:temporaryEvents error:error endpointProfile:self.profile];
-}
-
 - (NSError *) processError:(NSError *) PinpointError {
     if (PinpointError.domain == AWSPinpointTargetingErrorDomain) {
         if (PinpointError.code == AWSPinpointTargetingErrorBadRequest) {
@@ -1088,11 +1094,11 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
         if (task.result) {
             AWSDDLogVerbose(@"PutEventsResponse received: [%@]", task.result);
             
-            [self processEndpointResponse:self.profile.endpointId
+            [self processEndpointResponse:profile.endpointId
                            resultResponse:task.result];
             
             NSDictionary *_processedEvents = [self processEventsResponse:_temporaryEvents
-                                                              endpointId:self.profile.endpointId
+                                                              endpointId:profile.endpointId
                                                           resultResponse:task.result
                                                           returnedEvents:events];
 
