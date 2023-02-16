@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -6181,6 +6181,10 @@
         \"logGroupName\":{\
           \"shape\":\"LogGroupName\",\
           \"documentation\":\"<p>The CloudWatch log group to which the action sends data.</p>\"\
+        },\
+        \"batchMode\":{\
+          \"shape\":\"BatchMode\",\
+          \"documentation\":\"<p>Indicates whether batches of log records will be extracted and uploaded into CloudWatch. Values include <code>true</code> or <code>false</code> <i>(default)</i>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes an action that sends data to CloudWatch Logs.</p>\"\
