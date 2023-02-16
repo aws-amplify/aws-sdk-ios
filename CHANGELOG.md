@@ -1,4 +1,3 @@
-
 # AWS Mobile SDK for iOS CHANGELOG
 ## Unreleased
 
@@ -6,6 +5,18 @@
 
 - **AWSPinpoint**
   - Fixed a deadlock that happened when `AWSPinpointAnalyticsClient.submitEvents` was called from different threads at the same time. (See [PR #4558](https://github.com/aws-amplify/aws-sdk-ios/pull/4558))
+
+### Misc. Updates
+- Model updates for the following services
+  - AWSSTS
+  - AWSSageMakerRuntime
+  - AWSIoT
+  - AWSElasticLoadBalancingv2
+  - AWSConnect
+  - AWSAutoScaling
+  - AWSSNS
+  - AWSPolly
+  - AWSEC2
 
 ## 2.30.1
 
