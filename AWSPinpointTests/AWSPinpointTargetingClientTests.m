@@ -197,6 +197,38 @@ static NSString *userId;
     XCTAssertEqualObjects(endpointProfile.address, newTokenString);
 }
 
+- (void)testCurrentProfileWithCompletion {
+    [self initializePinpointWithConfiguration:[self getAWSPinpointConfigurationWithOptOut:NO] forceCreate:YES];
+    [self.pinpoint.targetingClient currentEndpointProfileWithCompletion:^(AWSPinpointEndpointProfile * _Nonnull profile) {
+        XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
+    }];
+}
+
+- (void)testCurrentProfileWithCompletionOnMultipleThreads {
+    [self initializePinpointWithConfiguration:[self getAWSPinpointConfigurationWithOptOut:NO] forceCreate:YES];
+    void (^validationBlock)(void) = ^(void) {
+        [self.pinpoint.targetingClient currentEndpointProfileWithCompletion:^(AWSPinpointEndpointProfile * _Nonnull profile) {
+            XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
+        }];
+    };
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        validationBlock();
+    });
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        validationBlock();
+    });
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        validationBlock();
+    });
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        validationBlock();
+    });
+}
+
 - (void)testCurrentProfileReturnsOptOutAll {
     [self initializePinpointWithConfiguration:[self getAWSPinpointConfigurationWithOptOut:NO] forceCreate:YES];
     AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
