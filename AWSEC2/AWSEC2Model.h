@@ -777,6 +777,12 @@ typedef NS_ENUM(NSInteger, AWSEC2GatewayType) {
     AWSEC2GatewayTypeIpsec1,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2HostMaintenance) {
+    AWSEC2HostMaintenanceUnknown,
+    AWSEC2HostMaintenanceOn,
+    AWSEC2HostMaintenanceOff,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2HostRecovery) {
     AWSEC2HostRecoveryUnknown,
     AWSEC2HostRecoveryOn,
@@ -1628,12 +1634,25 @@ typedef NS_ENUM(NSInteger, AWSEC2IpamAddressHistoryResourceType) {
     AWSEC2IpamAddressHistoryResourceTypeInstance,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2IpamAssociatedResourceDiscoveryStatus) {
+    AWSEC2IpamAssociatedResourceDiscoveryStatusUnknown,
+    AWSEC2IpamAssociatedResourceDiscoveryStatusActive,
+    AWSEC2IpamAssociatedResourceDiscoveryStatusNotFound,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2IpamComplianceStatus) {
     AWSEC2IpamComplianceStatusUnknown,
     AWSEC2IpamComplianceStatusCompliant,
     AWSEC2IpamComplianceStatusNoncompliant,
     AWSEC2IpamComplianceStatusUnmanaged,
     AWSEC2IpamComplianceStatusIgnored,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2IpamDiscoveryFailureCode) {
+    AWSEC2IpamDiscoveryFailureCodeUnknown,
+    AWSEC2IpamDiscoveryFailureCodeAssumeRoleFailure,
+    AWSEC2IpamDiscoveryFailureCodeThrottlingFailure,
+    AWSEC2IpamDiscoveryFailureCodeUnauthorizedFailure,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2IpamManagementState) {
@@ -1666,6 +1685,7 @@ typedef NS_ENUM(NSInteger, AWSEC2IpamPoolAwsService) {
 typedef NS_ENUM(NSInteger, AWSEC2IpamPoolCidrFailureCode) {
     AWSEC2IpamPoolCidrFailureCodeUnknown,
     AWSEC2IpamPoolCidrFailureCodeCidrNotAvailable,
+    AWSEC2IpamPoolCidrFailureCodeLimitExceeded,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2IpamPoolCidrState) {
@@ -1678,6 +1698,12 @@ typedef NS_ENUM(NSInteger, AWSEC2IpamPoolCidrState) {
     AWSEC2IpamPoolCidrStateFailedDeprovision,
     AWSEC2IpamPoolCidrStatePendingImport,
     AWSEC2IpamPoolCidrStateFailedImport,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2IpamPoolPublicIpSource) {
+    AWSEC2IpamPoolPublicIpSourceUnknown,
+    AWSEC2IpamPoolPublicIpSourceAmazon,
+    AWSEC2IpamPoolPublicIpSourceByoip,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2IpamPoolState) {
@@ -1694,6 +1720,35 @@ typedef NS_ENUM(NSInteger, AWSEC2IpamPoolState) {
     AWSEC2IpamPoolStateIsolateInProgress,
     AWSEC2IpamPoolStateIsolateComplete,
     AWSEC2IpamPoolStateRestoreInProgress,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2IpamResourceDiscoveryAssociationState) {
+    AWSEC2IpamResourceDiscoveryAssociationStateUnknown,
+    AWSEC2IpamResourceDiscoveryAssociationStateAssociateInProgress,
+    AWSEC2IpamResourceDiscoveryAssociationStateAssociateComplete,
+    AWSEC2IpamResourceDiscoveryAssociationStateAssociateFailed,
+    AWSEC2IpamResourceDiscoveryAssociationStateDisassociateInProgress,
+    AWSEC2IpamResourceDiscoveryAssociationStateDisassociateComplete,
+    AWSEC2IpamResourceDiscoveryAssociationStateDisassociateFailed,
+    AWSEC2IpamResourceDiscoveryAssociationStateIsolateInProgress,
+    AWSEC2IpamResourceDiscoveryAssociationStateIsolateComplete,
+    AWSEC2IpamResourceDiscoveryAssociationStateRestoreInProgress,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2IpamResourceDiscoveryState) {
+    AWSEC2IpamResourceDiscoveryStateUnknown,
+    AWSEC2IpamResourceDiscoveryStateCreateInProgress,
+    AWSEC2IpamResourceDiscoveryStateCreateComplete,
+    AWSEC2IpamResourceDiscoveryStateCreateFailed,
+    AWSEC2IpamResourceDiscoveryStateModifyInProgress,
+    AWSEC2IpamResourceDiscoveryStateModifyComplete,
+    AWSEC2IpamResourceDiscoveryStateModifyFailed,
+    AWSEC2IpamResourceDiscoveryStateDeleteInProgress,
+    AWSEC2IpamResourceDiscoveryStateDeleteComplete,
+    AWSEC2IpamResourceDiscoveryStateDeleteFailed,
+    AWSEC2IpamResourceDiscoveryStateIsolateInProgress,
+    AWSEC2IpamResourceDiscoveryStateIsolateComplete,
+    AWSEC2IpamResourceDiscoveryStateRestoreInProgress,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2IpamResourceType) {
@@ -1911,6 +1966,16 @@ typedef NS_ENUM(NSInteger, AWSEC2MulticastSupportValue) {
     AWSEC2MulticastSupportValueUnknown,
     AWSEC2MulticastSupportValueEnable,
     AWSEC2MulticastSupportValueDisable,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2NatGatewayAddressStatus) {
+    AWSEC2NatGatewayAddressStatusUnknown,
+    AWSEC2NatGatewayAddressStatusAssigning,
+    AWSEC2NatGatewayAddressStatusUnassigning,
+    AWSEC2NatGatewayAddressStatusAssociating,
+    AWSEC2NatGatewayAddressStatusDisassociating,
+    AWSEC2NatGatewayAddressStatusSucceeded,
+    AWSEC2NatGatewayAddressStatusFailed,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2NatGatewayState) {
@@ -2269,6 +2334,8 @@ typedef NS_ENUM(NSInteger, AWSEC2ResourceType) {
     AWSEC2ResourceTypeVerifiedAccessTrustProvider,
     AWSEC2ResourceTypeVpnConnectionDeviceType,
     AWSEC2ResourceTypeVpcBlockPublicAccessExclusion,
+    AWSEC2ResourceTypeIpamResourceDiscovery,
+    AWSEC2ResourceTypeIpamResourceDiscoveryAssociation,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2RootDeviceType) {
@@ -2978,6 +3045,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2AssignIpv6AddressesResult;
 @class AWSEC2AssignPrivateIpAddressesRequest;
 @class AWSEC2AssignPrivateIpAddressesResult;
+@class AWSEC2AssignPrivateNatGatewayAddressRequest;
+@class AWSEC2AssignPrivateNatGatewayAddressResult;
 @class AWSEC2AssignedPrivateIpAddress;
 @class AWSEC2AssociateAddressRequest;
 @class AWSEC2AssociateAddressResult;
@@ -2990,6 +3059,10 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2AssociateIamInstanceProfileResult;
 @class AWSEC2AssociateInstanceEventWindowRequest;
 @class AWSEC2AssociateInstanceEventWindowResult;
+@class AWSEC2AssociateIpamResourceDiscoveryRequest;
+@class AWSEC2AssociateIpamResourceDiscoveryResult;
+@class AWSEC2AssociateNatGatewayAddressRequest;
+@class AWSEC2AssociateNatGatewayAddressResult;
 @class AWSEC2AssociateRouteTableRequest;
 @class AWSEC2AssociateRouteTableResult;
 @class AWSEC2AssociateSubnetCidrBlockRequest;
@@ -3162,6 +3235,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2CreateIpamPoolRequest;
 @class AWSEC2CreateIpamPoolResult;
 @class AWSEC2CreateIpamRequest;
+@class AWSEC2CreateIpamResourceDiscoveryRequest;
+@class AWSEC2CreateIpamResourceDiscoveryResult;
 @class AWSEC2CreateIpamResult;
 @class AWSEC2CreateIpamScopeRequest;
 @class AWSEC2CreateIpamScopeResult;
@@ -3319,6 +3394,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DeleteIpamPoolRequest;
 @class AWSEC2DeleteIpamPoolResult;
 @class AWSEC2DeleteIpamRequest;
+@class AWSEC2DeleteIpamResourceDiscoveryRequest;
+@class AWSEC2DeleteIpamResourceDiscoveryResult;
 @class AWSEC2DeleteIpamResult;
 @class AWSEC2DeleteIpamScopeRequest;
 @class AWSEC2DeleteIpamScopeResult;
@@ -3544,6 +3621,10 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DescribeInternetGatewaysResult;
 @class AWSEC2DescribeIpamPoolsRequest;
 @class AWSEC2DescribeIpamPoolsResult;
+@class AWSEC2DescribeIpamResourceDiscoveriesRequest;
+@class AWSEC2DescribeIpamResourceDiscoveriesResult;
+@class AWSEC2DescribeIpamResourceDiscoveryAssociationsRequest;
+@class AWSEC2DescribeIpamResourceDiscoveryAssociationsResult;
 @class AWSEC2DescribeIpamScopesRequest;
 @class AWSEC2DescribeIpamScopesResult;
 @class AWSEC2DescribeIpamsRequest;
@@ -3771,6 +3852,10 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DisassociateIamInstanceProfileResult;
 @class AWSEC2DisassociateInstanceEventWindowRequest;
 @class AWSEC2DisassociateInstanceEventWindowResult;
+@class AWSEC2DisassociateIpamResourceDiscoveryRequest;
+@class AWSEC2DisassociateIpamResourceDiscoveryResult;
+@class AWSEC2DisassociateNatGatewayAddressRequest;
+@class AWSEC2DisassociateNatGatewayAddressResult;
 @class AWSEC2DisassociateRouteTableRequest;
 @class AWSEC2DisassociateSubnetCidrBlockRequest;
 @class AWSEC2DisassociateSubnetCidrBlockResult;
@@ -3917,6 +4002,10 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2GetInstanceUefiDataResult;
 @class AWSEC2GetIpamAddressHistoryRequest;
 @class AWSEC2GetIpamAddressHistoryResult;
+@class AWSEC2GetIpamDiscoveredAccountsRequest;
+@class AWSEC2GetIpamDiscoveredAccountsResult;
+@class AWSEC2GetIpamDiscoveredResourceCidrsRequest;
+@class AWSEC2GetIpamDiscoveredResourceCidrsResult;
 @class AWSEC2GetIpamPoolAllocationsRequest;
 @class AWSEC2GetIpamPoolAllocationsResult;
 @class AWSEC2GetIpamPoolCidrsRequest;
@@ -4067,12 +4156,17 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2Ipam;
 @class AWSEC2IpamAddressHistoryRecord;
 @class AWSEC2IpamCidrAuthorizationContext;
+@class AWSEC2IpamDiscoveredAccount;
+@class AWSEC2IpamDiscoveredResourceCidr;
+@class AWSEC2IpamDiscoveryFailureReason;
 @class AWSEC2IpamOperatingRegion;
 @class AWSEC2IpamPool;
 @class AWSEC2IpamPoolAllocation;
 @class AWSEC2IpamPoolCidr;
 @class AWSEC2IpamPoolCidrFailureReason;
 @class AWSEC2IpamResourceCidr;
+@class AWSEC2IpamResourceDiscovery;
+@class AWSEC2IpamResourceDiscoveryAssociation;
 @class AWSEC2IpamResourceTag;
 @class AWSEC2IpamScope;
 @class AWSEC2Ipv4PrefixSpecification;
@@ -4200,6 +4294,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ModifyIpamRequest;
 @class AWSEC2ModifyIpamResourceCidrRequest;
 @class AWSEC2ModifyIpamResourceCidrResult;
+@class AWSEC2ModifyIpamResourceDiscoveryRequest;
+@class AWSEC2ModifyIpamResourceDiscoveryResult;
 @class AWSEC2ModifyIpamResult;
 @class AWSEC2ModifyIpamScopeRequest;
 @class AWSEC2ModifyIpamScopeResult;
@@ -4632,6 +4728,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2UnassignIpv6AddressesRequest;
 @class AWSEC2UnassignIpv6AddressesResult;
 @class AWSEC2UnassignPrivateIpAddressesRequest;
+@class AWSEC2UnassignPrivateNatGatewayAddressRequest;
+@class AWSEC2UnassignPrivateNatGatewayAddressResult;
 @class AWSEC2UnmonitorInstancesRequest;
 @class AWSEC2UnmonitorInstancesResult;
 @class AWSEC2UnsuccessfulInstanceCreditSpecificationItem;
@@ -5518,6 +5616,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
 /**
+ <p>Indicates whether to enable or disable host maintenance for the Dedicated Host. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html"> Host maintenance</a> in the <i>Amazon EC2 User Guide</i>.</p><p>Default: <code>on</code></p>
+ */
+@property (nonatomic, assign) AWSEC2HostMaintenance hostMaintenance;
+
+/**
  <p>Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html"> Host recovery</a> in the <i>Amazon EC2 User Guide</i>.</p><p>Default: <code>off</code></p>
  */
 @property (nonatomic, assign) AWSEC2HostRecovery hostRecovery;
@@ -6075,6 +6178,52 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ 
+ */
+@interface AWSEC2AssignPrivateNatGatewayAddressRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The NAT gateway ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable natGatewayId;
+
+/**
+ <p>The number of private IP addresses to assign to the NAT gateway. You can't specify this parameter when also specifying private IP addresses.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable privateIpAddressCount;
+
+/**
+ <p>The private IPv4 addresses you want to assign to the private NAT gateway.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable privateIpAddresses;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2AssignPrivateNatGatewayAddressResult : AWSModel
+
+
+/**
+ <p>NAT gateway IP addresses.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2NatGatewayAddress *> * _Nullable natGatewayAddresses;
+
+/**
+ <p>The NAT gateway ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable natGatewayId;
+
+@end
+
+/**
  <p>Describes the private IP addresses assigned to a network interface.</p>
  */
 @interface AWSEC2AssignedPrivateIpAddress : AWSModel
@@ -6322,6 +6471,98 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the event window.</p>
  */
 @property (nonatomic, strong) AWSEC2InstanceEventWindow * _Nullable instanceEventWindow;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2AssociateIpamResourceDiscoveryRequest : AWSRequest
+
+
+/**
+ <p>A client token.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>An IPAM ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipamId;
+
+/**
+ <p>A resource discovery ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipamResourceDiscoveryId;
+
+/**
+ <p>Tag specifications.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2AssociateIpamResourceDiscoveryResult : AWSModel
+
+
+/**
+ <p>A resource discovery association. An associated resource discovery is a resource discovery that has been associated with an IPAM.</p>
+ */
+@property (nonatomic, strong) AWSEC2IpamResourceDiscoveryAssociation * _Nullable ipamResourceDiscoveryAssociation;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2AssociateNatGatewayAddressRequest : AWSRequest
+
+
+/**
+ <p>The allocation IDs of EIPs that you want to associate with your NAT gateway.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable allocationIds;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The NAT gateway ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable natGatewayId;
+
+/**
+ <p>The private IPv4 addresses that you want to assign to the NAT gateway.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable privateIpAddresses;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2AssociateNatGatewayAddressResult : AWSModel
+
+
+/**
+ <p>The IP addresses.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2NatGatewayAddress *> * _Nullable natGatewayAddresses;
+
+/**
+ <p>The NAT gateway ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable natGatewayId;
 
 @end
 
@@ -10353,7 +10594,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
+ <p>Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p><p>Supported only for fleets of type <code>maintain</code>.</p>
  */
 @property (nonatomic, assign) AWSEC2FleetExcessCapacityTerminationPolicy excessCapacityTerminationPolicy;
 
@@ -10840,6 +11081,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable locale;
 
 /**
+ <p>The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is <code>byoip</code>. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html">Create IPv6 pools</a> in the <i>Amazon VPC IPAM User Guide</i>. By default, you can add only one Amazon-provided IPv6 CIDR block to a top-level IPv6 pool if PublicIpSource is <code>amazon</code>. For information on increasing the default limit, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html"> Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ */
+@property (nonatomic, assign) AWSEC2IpamPoolPublicIpSource publicIpSource;
+
+/**
  <p>Determines if the pool is publicly advertisable. This option is not available for pools with AddressFamily set to <code>ipv4</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable publiclyAdvertisable;
@@ -10891,7 +11137,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p><p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>The operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions. </p><p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2AddIpamOperatingRegion *> * _Nullable operatingRegions;
 
@@ -10899,6 +11145,52 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateIpamResourceDiscoveryRequest : AWSRequest
+
+
+/**
+ <p>A client token for the IPAM resource discovery.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>A description for the IPAM resource discovery.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>Operating Regions for the IPAM resource discovery. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2AddIpamOperatingRegion *> * _Nullable operatingRegions;
+
+/**
+ <p>Tag specifications for the IPAM resource discovery.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateIpamResourceDiscoveryResult : AWSModel
+
+
+/**
+ <p>An IPAM resource discovery.</p>
+ */
+@property (nonatomic, strong) AWSEC2IpamResourceDiscovery * _Nullable ipamResourceDiscovery;
 
 @end
 
@@ -11126,6 +11418,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The CIDR range used for destination matches. Routing decisions are based on the most specific match.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationCidrBlock;
+
+/**
+ <p> The ID of the prefix list. Use a prefix list in place of <code>DestinationCidrBlock</code>. You cannot use <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationPrefixListId;
 
 /**
  <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -11373,7 +11670,22 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable privateIpAddress;
 
 /**
- <p>The subnet in which to create the NAT gateway.</p>
+ <p>Secondary EIP allocation IDs. For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable secondaryAllocationIds;
+
+/**
+ <p>[Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable secondaryPrivateIpAddressCount;
+
+/**
+ <p>Secondary private IPv4 addresses. For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable secondaryPrivateIpAddresses;
+
+/**
+ <p>The ID of the subnet in which to create the NAT gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable subnetId;
 
@@ -13779,7 +14091,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable throughput;
 
 /**
- <p>The volume type. This parameter can be one of the following values:</p><ul><li><p>General Purpose SSD: <code>gp2</code> | <code>gp3</code></p></li><li><p>Provisioned IOPS SSD: <code>io1</code> | <code>io2</code></p></li><li><p>Throughput Optimized HDD: <code>st1</code></p></li><li><p>Cold HDD: <code>sc1</code></p></li><li><p>Magnetic: <code>standard</code></p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Default: <code>gp2</code></p>
+ <p>The volume type. This parameter can be one of the following values:</p><ul><li><p>General Purpose SSD: <code>gp2</code> | <code>gp3</code></p></li><li><p>Provisioned IOPS SSD: <code>io1</code> | <code>io2</code></p></li><li><p>Throughput Optimized HDD: <code>st1</code></p></li><li><p>Cold HDD: <code>sc1</code></p></li><li><p>Magnetic: <code>standard</code></p></li></ul><important><p>Throughput Optimized HDD (<code>st1</code>) and Cold HDD (<code>sc1</code>) volumes can't be used as boot volumes.</p></important><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Default: <code>gp2</code></p>
  */
 @property (nonatomic, assign) AWSEC2VolumeType volumeType;
 
@@ -14920,6 +15232,37 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DeleteIpamResourceDiscoveryRequest : AWSRequest
+
+
+/**
+ <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The IPAM resource discovery ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipamResourceDiscoveryId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteIpamResourceDiscoveryResult : AWSModel
+
+
+/**
+ <p>The IPAM resource discovery.</p>
+ */
+@property (nonatomic, strong) AWSEC2IpamResourceDiscovery * _Nullable ipamResourceDiscovery;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DeleteIpamResult : AWSModel
 
 
@@ -15127,6 +15470,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The CIDR range for the route. This must match the CIDR for the route exactly.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationCidrBlock;
+
+/**
+ <p> Use a prefix list in place of <code>DestinationCidrBlock</code>. You cannot use <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationPrefixListId;
 
 /**
  <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -17125,7 +17473,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The filters.</p><ul><li><p><code>group-name</code> - For Availability Zones, use the Region name. For Local Zones, use the name of the group associated with the Local Zone (for example, <code>us-west-2-lax-1</code>) For Wavelength Zones, use the name of the group associated with the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p></li><li><p><code>message</code> - The Zone message.</p></li><li><p><code>opt-in-status</code> - The opt-in status (<code>opted-in</code>, and <code>not-opted-in</code> | <code>opt-in-not-required</code>).</p></li><li><p><code>parent-zoneID</code> - The ID of the zone that handles some of the Local Zone and Wavelength Zone control plane operations, such as API calls.</p></li><li><p><code>parent-zoneName</code> - The ID of the zone that handles some of the Local Zone and Wavelength Zone control plane operations, such as API calls.</p></li><li><p><code>region-name</code> - The name of the Region for the Zone (for example, <code>us-east-1</code>).</p></li><li><p><code>state</code> - The state of the Availability Zone, the Local Zone, or the Wavelength Zone (<code>available</code>).</p></li><li><p><code>zone-id</code> - The ID of the Availability Zone (for example, <code>use1-az1</code>), the Local Zone (for example, <code>usw2-lax1-az1</code>), or the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p></li><li><p><code>zone-type</code> - The type of zone, for example, <code>local-zone</code>.</p></li><li><p><code>zone-name</code> - The name of the Availability Zone (for example, <code>us-east-1a</code>), the Local Zone (for example, <code>us-west-2-lax-1a</code>), or the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p></li><li><p><code>zone-type</code> - The type of zone, for example, <code>local-zone</code>.</p></li></ul>
+ <p>The filters.</p><ul><li><p><code>group-name</code> - For Availability Zones, use the Region name. For Local Zones, use the name of the group associated with the Local Zone (for example, <code>us-west-2-lax-1</code>) For Wavelength Zones, use the name of the group associated with the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p></li><li><p><code>message</code> - The Zone message.</p></li><li><p><code>opt-in-status</code> - The opt-in status (<code>opted-in</code> | <code>not-opted-in</code> | <code>opt-in-not-required</code>).</p></li><li><p><code>parent-zoneID</code> - The ID of the zone that handles some of the Local Zone and Wavelength Zone control plane operations, such as API calls.</p></li><li><p><code>parent-zoneName</code> - The ID of the zone that handles some of the Local Zone and Wavelength Zone control plane operations, such as API calls.</p></li><li><p><code>region-name</code> - The name of the Region for the Zone (for example, <code>us-east-1</code>).</p></li><li><p><code>state</code> - The state of the Availability Zone, the Local Zone, or the Wavelength Zone (<code>available</code>).</p></li><li><p><code>zone-id</code> - The ID of the Availability Zone (for example, <code>use1-az1</code>), the Local Zone (for example, <code>usw2-lax1-az1</code>), or the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p></li><li><p><code>zone-name</code> - The name of the Availability Zone (for example, <code>us-east-1a</code>), the Local Zone (for example, <code>us-west-2-lax-1a</code>), or the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p></li><li><p><code>zone-type</code> - The type of zone (<code>availability-zone</code> | <code>local-zone</code> | <code>wavelength-zone</code>).</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -17452,12 +17800,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable instanceIds;
 
 /**
- <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p><p>Constraint: If the value is greater than 1000, we return only 1000 items.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p><p>Constraint: If the value is greater than 1000, we return only 1000 items.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token for the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -17475,7 +17823,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2ClassicLinkInstance *> * _Nullable instances;
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -17881,12 +18229,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token for the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -17904,7 +18252,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2DhcpOptions *> * _Nullable dhcpOptions;
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -17932,12 +18280,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token for the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -17955,7 +18303,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2EgressOnlyInternetGateway *> * _Nullable egressOnlyInternetGateways;
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -18283,12 +18631,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token for the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -18306,7 +18654,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2DescribeFastSnapshotRestoreSuccessItem *> * _Nullable fastSnapshotRestores;
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -18573,12 +18921,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable flowLogIds;
 
 /**
- <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token for the next page of results.</p>
+ <p>The token to request the next page of items. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -18596,7 +18944,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2FlowLog *> * _Nullable flowLogs;
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to request the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -18859,12 +19207,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token to request the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -18882,7 +19230,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2IamInstanceProfileAssociation *> * _Nullable iamInstanceProfileAssociations;
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -19182,12 +19530,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable instanceIds;
 
 /**
- <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. This value can be between 5 and 1000. You cannot specify this parameter and the instance IDs parameter in the same call.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. This value can be between 5 and 1000. You cannot specify this parameter and the instance IDs parameter in the same call. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token to retrieve the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -19205,7 +19553,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2InstanceCreditSpecification *> * _Nullable instanceCreditSpecifications;
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -19315,12 +19663,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable instanceIds;
 
 /**
- <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. This value can be between 5 and 1000. You cannot specify this parameter and the instance IDs parameter in the same call.</p>
+ <p>The maximum number of items to return for this request. To retrieve the next page of items, make another request with the token returned in the output. This value can be between 5 and 1000. You cannot specify this parameter and the instance IDs parameter in the same call. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token to retrieve the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -19338,7 +19686,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2InstanceStatus *> * _Nullable instanceStatuses;
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -19366,12 +19714,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2LocationType locationType;
 
 /**
- <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the next token value.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token to retrieve the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -19389,7 +19737,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2InstanceTypeOffering *> * _Nullable instanceTypeOfferings;
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -19417,12 +19765,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable instanceTypes;
 
 /**
- <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the next token value.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token to retrieve the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -19440,7 +19788,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2InstanceTypeInfo *> * _Nullable instanceTypes;
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -19468,12 +19816,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable instanceIds;
 
 /**
- <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. This value can be between 5 and 1000. You cannot specify this parameter and the instance IDs parameter in the same call.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. This value can be between 5 and 1000. You cannot specify this parameter and the instance IDs parameter in the same request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token to request the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -19486,7 +19834,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -19519,12 +19867,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable internetGatewayIds;
 
 /**
- <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token for the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -19542,7 +19890,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2InternetGateway *> * _Nullable internetGateways;
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -19594,6 +19942,108 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 /**
  <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeIpamResourceDiscoveriesRequest : AWSRequest
+
+
+/**
+ <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The resource discovery filters.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The IPAM resource discovery IDs.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable ipamResourceDiscoveryIds;
+
+/**
+ <p>The maximum number of resource discoveries to return in one page of results.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeIpamResourceDiscoveriesResult : AWSModel
+
+
+/**
+ <p>The resource discoveries.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2IpamResourceDiscovery *> * _Nullable ipamResourceDiscoveries;
+
+/**
+ <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeIpamResourceDiscoveryAssociationsRequest : AWSRequest
+
+
+/**
+ <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The resource discovery association filters.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The resource discovery association IDs.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable ipamResourceDiscoveryAssociationIds;
+
+/**
+ <p>The maximum number of resource discovery associations to return in one page of results.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeIpamResourceDiscoveryAssociationsResult : AWSModel
+
+
+/**
+ <p>The resource discovery associations.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2IpamResourceDiscoveryAssociation *> * _Nullable ipamResourceDiscoveryAssociations;
+
+/**
+ <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -20355,7 +20805,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filter;
 
 /**
- <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -20365,7 +20815,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable natGatewayIds;
 
 /**
- <p>The token for the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -20383,7 +20833,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2NatGateway *> * _Nullable natGateways;
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -20406,7 +20856,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -20416,7 +20866,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable networkAclIds;
 
 /**
- <p>The token for the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -20434,7 +20884,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2NetworkAcl *> * _Nullable networkAcls;
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -20743,7 +21193,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. If this parameter is not specified, up to 50 results are returned by default.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. If this parameter is not specified, up to 50 results are returned by default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -20753,7 +21203,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable networkInterfacePermissionIds;
 
 /**
- <p>The token to request the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -20771,7 +21221,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2NetworkInterfacePermission *> * _Nullable networkInterfacePermissions;
 
 /**
- <p>The token to use to retrieve the next page of results.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -20794,7 +21244,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results. You cannot specify this parameter and the network interface IDs parameter in the same request.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. You cannot specify this parameter and the network interface IDs parameter in the same request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -20804,14 +21254,14 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable networkInterfaceIds;
 
 /**
- <p>The token to retrieve the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
 /**
- <p>Contains the output of DescribeNetworkInterfaces.</p>
+ 
  */
 @interface AWSEC2DescribeNetworkInterfacesResult : AWSModel
 
@@ -20822,7 +21272,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2NetworkInterface *> * _Nullable networkInterfaces;
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -21070,12 +21520,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token for the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -21093,7 +21543,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -21345,12 +21795,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token for the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -21368,7 +21818,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -21550,12 +22000,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another request with the returned <code>NextToken</code> value. This value can be between 5 and 1000. If this parameter is not specified, then all results are returned.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. This value can be between 5 and 1000. If this parameter is not specified, then all items are returned. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token for the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -21573,7 +22023,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. </p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -21611,12 +22061,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groupNames;
 
 /**
- <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another request with the returned <code>NextToken</code> value. This value can be between 5 and 1000. If this parameter is not specified, then all results are returned.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. This value can be between 5 and 1000. If this parameter is not specified, then all items are returned. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token to request the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -21629,7 +22079,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -21703,12 +22153,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token for the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -21721,7 +22171,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -21749,12 +22199,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of snapshot results returned by <code>DescribeSnapshots</code> in paginated output. When this parameter is used, <code>DescribeSnapshots</code> only returns <code>MaxResults</code> results in a single page along with a <code>NextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeSnapshots</code> request with the returned <code>NextToken</code> value. This value can be between 5 and 1,000; if <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are returned. If this parameter is not used, then <code>DescribeSnapshots</code> returns all results. You cannot specify this parameter and the snapshot IDs parameter in the same request.</p>
+ <p>The maximum number of snapshots to return for this request. This value can be between 5 and 1,000; if this value is larger than 1,000, only 1,000 results are returned. If this parameter is not used, then the request returns all snapshots. You cannot specify this parameter and the snapshot IDs parameter in the same request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The <code>NextToken</code> value returned from a previous paginated <code>DescribeSnapshots</code> request where <code>MaxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>NextToken</code> value. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -21782,7 +22232,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The <code>NextToken</code> value to include in a future <code>DescribeSnapshots</code> request. When the results of a <code>DescribeSnapshots</code> request exceed <code>MaxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to return the next page of snapshots. This value is <code>null</code> when there are no more snapshots to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -22123,12 +22573,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token for the next set of items to return. (You received this token from a prior call.)</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -22146,7 +22596,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
+ <p>The token to include in another request to get the next page of items. If there are no additional items to return, the string is empty.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -22225,12 +22675,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token for the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -22248,7 +22698,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -22276,12 +22726,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of results to return in a single call. This value can be between 5 and 1000. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>
+ <p>The maximum number of items to return for this request. This value can be between 5 and 1000. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token to retrieve the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -22294,7 +22744,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -23352,12 +23802,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of volume results returned by <code>DescribeVolumeStatus</code> in paginated output. When this parameter is used, the request only returns <code>MaxResults</code> results in a single page along with a <code>NextToken</code> response element. The remaining results of the initial request can be seen by sending another request with the returned <code>NextToken</code> value. This value can be between 5 and 1,000; if <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are returned. If this parameter is not used, then <code>DescribeVolumeStatus</code> returns all results. You cannot specify this parameter and the volume IDs parameter in the same request.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. This value can be between 5 and 1,000; if the value is larger than 1,000, only 1,000 results are returned. If this parameter is not used, then all items are returned. You cannot specify this parameter and the volume IDs parameter in the same request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The <code>NextToken</code> value to include in a future <code>DescribeVolumeStatus</code> request. When the results of the request exceed <code>MaxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -23375,7 +23825,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -23403,12 +23853,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of results (up to a limit of 500) to be returned in a paginated request.</p>
+ <p>The maximum number of results (up to a limit of 500) to be returned in a paginated request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The <code>nextToken</code> value returned by a previous paginated request.</p>
+ <p>The token returned by a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -23426,7 +23876,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Token for pagination, null if there are no more results </p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> if there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -23454,12 +23904,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of volume results returned by <code>DescribeVolumes</code> in paginated output. When this parameter is used, <code>DescribeVolumes</code> only returns <code>MaxResults</code> results in a single page along with a <code>NextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeVolumes</code> request with the returned <code>NextToken</code> value. This value can be between 5 and 500; if <code>MaxResults</code> is given a value larger than 500, only 500 results are returned. If this parameter is not used, then <code>DescribeVolumes</code> returns all results. You cannot specify this parameter and the volume IDs parameter in the same request.</p>
+ <p>The maximum number of volumes to return for this request. This value can be between 5 and 500; if you specify a value larger than 500, only 500 items are returned. If this parameter is not used, then all items are returned. You cannot specify this parameter and the volume IDs parameter in the same request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The <code>NextToken</code> value returned from a previous paginated <code>DescribeVolumes</code> request where <code>MaxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>NextToken</code> value. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned from the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -23477,7 +23927,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The <code>NextToken</code> value to include in a future <code>DescribeVolumes</code> request. When the results of a <code>DescribeVolumes</code> request exceed <code>MaxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -23546,12 +23996,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token for the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -23569,7 +24019,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -23939,12 +24389,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token for the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -23962,7 +24412,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -23990,12 +24440,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token for the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -24013,7 +24463,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -25125,6 +25575,83 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DisassociateIpamResourceDiscoveryRequest : AWSRequest
+
+
+/**
+ <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>A resource discovery association ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipamResourceDiscoveryAssociationId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DisassociateIpamResourceDiscoveryResult : AWSModel
+
+
+/**
+ <p>A resource discovery association.</p>
+ */
+@property (nonatomic, strong) AWSEC2IpamResourceDiscoveryAssociation * _Nullable ipamResourceDiscoveryAssociation;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DisassociateNatGatewayAddressRequest : AWSRequest
+
+
+/**
+ <p>The association IDs of EIPs that have been associated with the NAT gateway.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable associationIds;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxDrainDurationSeconds;
+
+/**
+ <p>The NAT gateway ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable natGatewayId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DisassociateNatGatewayAddressResult : AWSModel
+
+
+/**
+ <p>Information about the NAT gateway IP addresses.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2NatGatewayAddress *> * _Nullable natGatewayAddresses;
+
+/**
+ <p>The NAT gateway ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable natGatewayId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DisassociateRouteTableRequest : AWSRequest
 
 
@@ -25551,7 +26078,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable deleteOnTermination;
 
 /**
- <p>Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to <code>true</code> depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters">Amazon EBS encryption</a> in the <i>Amazon EC2 User Guide</i>.</p><p>In no case can you remove encryption from an encrypted volume.</p><p>Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported instance types</a>.</p><p>This parameter is not returned by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html">DescribeImageAttribute</a>.</p>
+ <p>Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to <code>true</code> depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters">Amazon EBS encryption</a> in the <i>Amazon EC2 User Guide</i>.</p><p>In no case can you remove encryption from an encrypted volume.</p><p>Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported instance types</a>.</p><p>This parameter is not returned by <a>DescribeImageAttribute</a>.</p><p>For <a>CreateImage</a> and <a>RegisterImage</a>, whether you can include this parameter, and the allowed values differ depending on the type of block device mapping you are creating.</p><ul><li><p>If you are creating a block device mapping for a <b>new (empty) volume</b>, you can include this parameter, and specify either <code>true</code> for an encrypted volume, or <code>false</code> for an unencrypted volume. If you omit this parameter, it defaults to <code>false</code> (unencrypted).</p></li><li><p>If you are creating a block device mapping from an <b>existing encrypted or unencrypted snapshot</b>, you must omit this parameter. If you include this parameter, the request will fail, regardless of the value that you specify.</p></li><li><p>If you are creating a block device mapping from an <b>existing unencrypted volume</b>, you can include this parameter, but you must specify <code>false</code>. If you specify <code>true</code>, the request will fail. In this case, we recommend that you omit the parameter.</p></li><li><p>If you are creating a block device mapping from an <b>existing encrypted volume</b>, you can include this parameter, and specify either <code>true</code> or <code>false</code>. However, if you specify <code>false</code>, the parameter is ignored and the block device mapping is always encrypted. In this case, we recommend that you omit the parameter.</p></li></ul>
  */
 @property (nonatomic, strong) NSNumber * _Nullable encrypted;
 
@@ -27513,7 +28040,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2DescribeFleetError *> * _Nullable errors;
 
 /**
- <p>Indicates whether running instances should be terminated if the target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
+ <p>Indicates whether running instances should be terminated if the target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p><p>Supported only for fleets of type <code>maintain</code>.</p>
  */
 @property (nonatomic, assign) AWSEC2FleetExcessCapacityTerminationPolicy excessCapacityTerminationPolicy;
 
@@ -28846,6 +29373,118 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 /**
  <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetIpamDiscoveredAccountsRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Web Services Region that the account information is returned from.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable discoveryRegion;
+
+/**
+ <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>Discovered account filters.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>A resource discovery ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipamResourceDiscoveryId;
+
+/**
+ <p>The maximum number of discovered accounts to return in one page of results.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetIpamDiscoveredAccountsResult : AWSModel
+
+
+/**
+ <p>Discovered accounts.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2IpamDiscoveredAccount *> * _Nullable ipamDiscoveredAccounts;
+
+/**
+ <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetIpamDiscoveredResourceCidrsRequest : AWSRequest
+
+
+/**
+ <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>Filters.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>A resource discovery ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipamResourceDiscoveryId;
+
+/**
+ <p>The maximum number of discovered resource CIDRs to return in one page of results.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>A resource Region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceRegion;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetIpamDiscoveredResourceCidrsResult : AWSModel
+
+
+/**
+ <p>Discovered resource CIDRs.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2IpamDiscoveredResourceCidr *> * _Nullable ipamDiscoveredResourceCidrs;
+
+/**
+ <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -30220,6 +30859,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the Dedicated Host.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable hostId;
+
+/**
+ <p>Indicates whether host maintenance is enabled or disabled for the Dedicated Host.</p>
+ */
+@property (nonatomic, assign) AWSEC2HostMaintenance hostMaintenance;
 
 /**
  <p>The hardware specifications of the Dedicated Host.</p>
@@ -32167,6 +32811,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 /**
  <p>Describes the credit option for CPU usage of a burstable performance instance.</p>
+ Required parameters: [InstanceId]
  */
 @interface AWSEC2InstanceCreditSpecificationRequest : AWSModel
 
@@ -33162,6 +33807,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 /**
  <p>The instance details to specify which volumes should be snapshotted.</p>
+ Required parameters: [InstanceId]
  */
 @interface AWSEC2InstanceSpecification : AWSModel
 
@@ -33701,12 +34347,22 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
+ <p>The IPAM's default resource discovery association ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable defaultResourceDiscoveryAssociationId;
+
+/**
+ <p>The IPAM's default resource discovery ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable defaultResourceDiscoveryId;
+
+/**
  <p>The description for the IPAM.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The ARN of the IPAM.</p>
+ <p>The Amazon Resource Name (ARN) of the IPAM.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipamArn;
 
@@ -33739,6 +34395,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the IPAM's default public scope.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable publicDefaultScopeId;
+
+/**
+ <p>The IPAM's resource discovery association count.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable resourceDiscoveryAssociationCount;
 
 /**
  <p>The number of scopes in the IPAM. The scope quota is 5. For more information on quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas in IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
@@ -33839,6 +34500,115 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>An IPAM discovered account. A discovered account is an Amazon Web Services account that is monitored under a resource discovery. If you have integrated IPAM with Amazon Web Services Organizations, all accounts in the organization are discovered accounts.</p>
+ */
+@interface AWSEC2IpamDiscoveredAccount : AWSModel
+
+
+/**
+ <p>The account ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable accountId;
+
+/**
+ <p>The Amazon Web Services Region that the account information is returned from. An account can be discovered in multiple regions and will have a separate discovered account for each Region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable discoveryRegion;
+
+/**
+ <p>The resource discovery failure reason.</p>
+ */
+@property (nonatomic, strong) AWSEC2IpamDiscoveryFailureReason * _Nullable failureReason;
+
+/**
+ <p>The last attempted resource discovery time.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastAttemptedDiscoveryTime;
+
+/**
+ <p>The last successful resource discovery time.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastSuccessfulDiscoveryTime;
+
+@end
+
+/**
+ <p>An IPAM discovered resource CIDR. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses. The discovered resource CIDR is the IP address range in CIDR notation that is associated with the resource.</p>
+ */
+@interface AWSEC2IpamDiscoveredResourceCidr : AWSModel
+
+
+/**
+ <p>The percentage of IP address space in use. To convert the decimal to a percentage, multiply the decimal by 100. Note the following:</p><ul><li><p>For resources that are VPCs, this is the percentage of IP address space in the VPC that's taken up by subnet CIDRs. </p></li><li><p>For resources that are subnets, if the subnet has an IPv4 CIDR provisioned to it, this is the percentage of IPv4 address space in the subnet that's in use. If the subnet has an IPv6 CIDR provisioned to it, the percentage of IPv6 address space in use is not represented. The percentage of IPv6 address space in use cannot currently be calculated. </p></li><li><p>For resources that are public IPv4 pools, this is the percentage of IP address space in the pool that's been allocated to Elastic IP addresses (EIPs). </p></li></ul>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable ipUsage;
+
+/**
+ <p>The resource discovery ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipamResourceDiscoveryId;
+
+/**
+ <p>The resource CIDR.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceCidr;
+
+/**
+ <p>The resource ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceId;
+
+/**
+ <p>The resource owner ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceOwnerId;
+
+/**
+ <p>The resource Region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceRegion;
+
+/**
+ <p>The resource tags.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2IpamResourceTag *> * _Nullable resourceTags;
+
+/**
+ <p>The resource type.</p>
+ */
+@property (nonatomic, assign) AWSEC2IpamResourceType resourceType;
+
+/**
+ <p>The last successful resource discovery time.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable sampleTime;
+
+/**
+ <p>The VPC ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vpcId;
+
+@end
+
+/**
+ <p>The discovery failure reason.</p>
+ */
+@interface AWSEC2IpamDiscoveryFailureReason : AWSModel
+
+
+/**
+ <p>The discovery failure code.</p><ul><li><p><code>assume-role-failure</code> - IPAM could not assume the Amazon Web Services IAM service-linked role. This could be because of any of the following:</p><ul><li><p>SLR has not been created yet and IPAM is still creating it.</p></li><li><p>You have opted-out of the IPAM home Region.</p></li><li><p>Account you are using as your IPAM account has been suspended.</p></li></ul></li><li><p><code>throttling-failure</code> - IPAM account is already using the allotted transactions per second and IPAM is receiving a throttling error when assuming the Amazon Web Services IAM SLR.</p></li><li><p><code>unauthorized-failure</code> - Amazon Web Services account making the request is not authorized. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">AuthFailure</a> in the <i>Amazon Elastic Compute Cloud API Reference</i>.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSEC2IpamDiscoveryFailureCode code;
+
+/**
+ <p>The discovery failure message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+@end
+
+/**
  <p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p><p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 @interface AWSEC2IpamOperatingRegion : AWSModel
@@ -33903,7 +34673,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable ipamArn;
 
 /**
- <p>The ARN of the IPAM pool.</p>
+ <p>The Amazon Resource Name (ARN) of the IPAM pool.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipamPoolArn;
 
@@ -33943,6 +34713,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable poolDepth;
 
 /**
+ <p>The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is <code>BYOIP</code>. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html">Create IPv6 pools</a> in the <i>Amazon VPC IPAM User Guide</i>. By default, you can add only one Amazon-provided IPv6 CIDR block to a top-level IPv6 pool. For information on increasing the default limit, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html"> Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ */
+@property (nonatomic, assign) AWSEC2IpamPoolPublicIpSource publicIpSource;
+
+/**
  <p>Determines if a pool is publicly advertisable. This option is not available for pools with AddressFamily set to <code>ipv4</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable publiclyAdvertisable;
@@ -33970,7 +34745,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool.</p>
+ <p>In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource.</p>
  */
 @interface AWSEC2IpamPoolAllocation : AWSModel
 
@@ -34029,6 +34804,16 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2IpamPoolCidrFailureReason * _Nullable failureReason;
 
 /**
+ <p>The IPAM pool CIDR ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipamPoolCidrId;
+
+/**
+ <p>The netmask length of the CIDR you'd like to provision to a pool. Can be used for provisioning Amazon-provided IPv6 CIDRs to top-level pools and for provisioning CIDRs to pools with source pools. Cannot be used to provision BYOIP CIDRs to top-level pools. "NetmaskLength" or "Cidr" is required.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable netmaskLength;
+
+/**
  <p>The state of the CIDR.</p>
  */
 @property (nonatomic, assign) AWSEC2IpamPoolCidrState state;
@@ -34065,7 +34850,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2IpamComplianceStatus complianceStatus;
 
 /**
- <p>The percentage of IP address space in use. To convert the decimal to a percentage, multiply the decimal by 100. Note the following:</p><ul><li><p>For a resources that are VPCs, this is the percentage of IP address space in the VPC that's taken up by subnet CIDRs. </p></li><li><p>For resources that are subnets, if the subnet has an IPv4 CIDR provisioned to it, this is the percentage of IPv4 address space in the subnet that's in use. If the subnet has an IPv6 CIDR provisioned to it, the percentage of IPv6 address space in use is not represented. The percentage of IPv6 address space in use cannot currently be calculated. </p></li><li><p>For resources that are public IPv4 pools, this is the percentage of IP address space in the pool that's been allocated to Elastic IP addresses (EIPs). </p></li></ul>
+ <p>The percentage of IP address space in use. To convert the decimal to a percentage, multiply the decimal by 100. Note the following:</p><ul><li><p>For resources that are VPCs, this is the percentage of IP address space in the VPC that's taken up by subnet CIDRs. </p></li><li><p>For resources that are subnets, if the subnet has an IPv4 CIDR provisioned to it, this is the percentage of IPv4 address space in the subnet that's in use. If the subnet has an IPv6 CIDR provisioned to it, the percentage of IPv6 address space in use is not represented. The percentage of IPv6 address space in use cannot currently be calculated. </p></li><li><p>For resources that are public IPv4 pools, this is the percentage of IP address space in the pool that's been allocated to Elastic IP addresses (EIPs). </p></li></ul>
  */
 @property (nonatomic, strong) NSNumber * _Nullable ipUsage;
 
@@ -34137,6 +34922,122 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
+ */
+@interface AWSEC2IpamResourceDiscovery : AWSModel
+
+
+/**
+ <p>The resource discovery description.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The resource discovery Amazon Resource Name (ARN).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipamResourceDiscoveryArn;
+
+/**
+ <p>The resource discovery ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipamResourceDiscoveryId;
+
+/**
+ <p>The resource discovery Region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipamResourceDiscoveryRegion;
+
+/**
+ <p>Defines if the resource discovery is the default. The default resource discovery is the resource discovery automatically created when you create an IPAM.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable isDefault;
+
+/**
+ <p>The operating Regions for the resource discovery. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2IpamOperatingRegion *> * _Nullable operatingRegions;
+
+/**
+ <p>The ID of the owner.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ownerId;
+
+/**
+ <p>The lifecycle state of the resource discovery.</p><ul><li><p><code>create-in-progress</code> - Resource discovery is being created.</p></li><li><p><code>create-complete</code> - Resource discovery creation is complete.</p></li><li><p><code>create-failed</code> - Resource discovery creation has failed.</p></li><li><p><code>modify-in-progress</code> - Resource discovery is being modified.</p></li><li><p><code>modify-complete</code> - Resource discovery modification is complete.</p></li><li><p><code>modify-failed</code> - Resource discovery modification has failed.</p></li><li><p><code>delete-in-progress</code> - Resource discovery is being deleted.</p></li><li><p><code>delete-complete</code> - Resource discovery deletion is complete.</p></li><li><p><code>delete-failed</code> - Resource discovery deletion has failed.</p></li><li><p><code>isolate-in-progress</code> - Amazon Web Services account that created the resource discovery has been removed and the resource discovery is being isolated.</p></li><li><p><code>isolate-complete</code> - Resource discovery isolation is complete.</p></li><li><p><code>restore-in-progress</code> - Amazon Web Services account that created the resource discovery and was isolated has been restored.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSEC2IpamResourceDiscoveryState state;
+
+/**
+ <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+@end
+
+/**
+ <p>An IPAM resource discovery association. An associated resource discovery is a resource discovery that has been associated with an IPAM. IPAM aggregates the resource CIDRs discovered by the associated resource discovery.</p>
+ */
+@interface AWSEC2IpamResourceDiscoveryAssociation : AWSModel
+
+
+/**
+ <p>The IPAM ARN.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipamArn;
+
+/**
+ <p>The IPAM ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipamId;
+
+/**
+ <p>The IPAM home Region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipamRegion;
+
+/**
+ <p>The resource discovery association Amazon Resource Name (ARN).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipamResourceDiscoveryAssociationArn;
+
+/**
+ <p>The resource discovery association ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipamResourceDiscoveryAssociationId;
+
+/**
+ <p>The resource discovery ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipamResourceDiscoveryId;
+
+/**
+ <p>Defines if the resource discovery is the default. When you create an IPAM, a default resource discovery is created for your IPAM and it's associated with your IPAM.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable isDefault;
+
+/**
+ <p>The Amazon Web Services account ID of the resource discovery owner.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ownerId;
+
+/**
+ <p>The resource discovery status.</p><ul><li><p><code>active</code> - Connection or permissions required to read the results of the resource discovery are intact.</p></li><li><p><code>not-found</code> - Connection or permissions required to read the results of the resource discovery are broken. This may happen if the owner of the resource discovery stopped sharing it or deleted the resource discovery. Verify the resource discovery still exists and the Amazon Web Services RAM resource share is still intact.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSEC2IpamAssociatedResourceDiscoveryStatus resourceDiscoveryStatus;
+
+/**
+ <p>The lifecycle state of the association when you associate or disassociate a resource discovery.</p><ul><li><p><code>associate-in-progress</code> - Resource discovery is being associated.</p></li><li><p><code>associate-complete</code> - Resource discovery association is complete.</p></li><li><p><code>associate-failed</code> - Resource discovery association has failed.</p></li><li><p><code>disassociate-in-progress</code> - Resource discovery is being disassociated.</p></li><li><p><code>disassociate-complete</code> - Resource discovery disassociation is complete.</p></li><li><p><code>disassociate-failed </code> - Resource discovery disassociation has failed.</p></li><li><p><code>isolate-in-progress</code> - Amazon Web Services account that created the resource discovery association has been removed and the resource discovery associatation is being isolated.</p></li><li><p><code>isolate-complete</code> - Resource discovery isolation is complete..</p></li><li><p><code>restore-in-progress</code> - Resource discovery is being restored.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSEC2IpamResourceDiscoveryAssociationState state;
+
+/**
+ <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+@end
+
+/**
  <p>The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
  */
 @interface AWSEC2IpamResourceTag : AWSModel
@@ -34176,7 +35077,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable ipamRegion;
 
 /**
- <p>The ARN of the scope.</p>
+ <p>The Amazon Resource Name (ARN) of the scope.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipamScopeArn;
 
@@ -35866,12 +36767,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token for the next page of results.</p>
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -35889,7 +36790,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -36020,6 +36921,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The CIDR block used for destination matches.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationCidrBlock;
+
+/**
+ <p> The ID of the prefix list. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationPrefixListId;
 
 /**
  <p>The Amazon Resource Name (ARN) of the local gateway route table.</p>
@@ -36819,7 +37725,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
+ <p>Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p><p>Supported only for fleets of type <code>maintain</code>.</p>
  */
 @property (nonatomic, assign) AWSEC2FleetExcessCapacityTerminationPolicy excessCapacityTerminationPolicy;
 
@@ -36939,6 +37845,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The IDs of the Dedicated Hosts to modify.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable hostIds;
+
+/**
+ <p>Indicates whether to enable or disable host maintenance for the Dedicated Host. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html"> Host maintenance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ */
+@property (nonatomic, assign) AWSEC2HostMaintenance hostMaintenance;
 
 /**
  <p>Indicates whether to enable or disable host recovery for the Dedicated Host. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html"> Host recovery</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -37668,6 +38579,52 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2ModifyIpamResourceDiscoveryRequest : AWSRequest
+
+
+/**
+ <p>Add operating Regions to the resource discovery. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2AddIpamOperatingRegion *> * _Nullable addOperatingRegions;
+
+/**
+ <p>A resource discovery description.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>A resource discovery ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipamResourceDiscoveryId;
+
+/**
+ <p>Remove operating Regions.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2RemoveIpamOperatingRegion *> * _Nullable removeOperatingRegions;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyIpamResourceDiscoveryResult : AWSModel
+
+
+/**
+ <p>A resource discovery.</p>
+ */
+@property (nonatomic, strong) AWSEC2IpamResourceDiscovery * _Nullable ipamResourceDiscovery;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2ModifyIpamResult : AWSModel
 
 
@@ -37770,6 +38727,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The CIDR block used for destination matches. The value that you provide must match the CIDR of an existing route in the table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationCidrBlock;
+
+/**
+ <p> The ID of the prefix list. Use a prefix list in place of <code>DestinationCidrBlock</code>. You cannot use <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationPrefixListId;
 
 /**
  <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -38122,7 +39084,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable context;
 
 /**
- <p>Indicates whether running Spot Instances should be terminated if the target capacity of the Spot Fleet request is decreased below the current size of the Spot Fleet.</p>
+ <p>Indicates whether running instances should be terminated if the target capacity of the Spot Fleet request is decreased below the current size of the Spot Fleet.</p><p>Supported only for fleets of type <code>maintain</code>.</p>
  */
 @property (nonatomic, assign) AWSEC2ExcessCapacityTerminationPolicy excessCapacityTerminationPolicy;
 
@@ -39982,6 +40944,21 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable allocationId;
 
 /**
+ <p>[Public NAT gateway only] The association ID of the Elastic IP address that's associated with the NAT gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable associationId;
+
+/**
+ <p>The address failure message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable failureMessage;
+
+/**
+ <p>Defines if the IP address is the primary address.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable isPrimary;
+
+/**
  <p>The ID of the network interface associated with the NAT gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
@@ -39995,6 +40972,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>[Public NAT gateway only] The Elastic IP address associated with the NAT gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable publicIp;
+
+/**
+ <p>The address status.</p>
+ */
+@property (nonatomic, assign) AWSEC2NatGatewayAddressStatus status;
 
 @end
 
@@ -42094,7 +43076,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The CIDR you want to assign to the IPAM pool.</p>
+ <p>The CIDR you want to assign to the IPAM pool. Either "NetmaskLength" or "Cidr" is required. This value will be null if you specify "NetmaskLength" and will be filled in during the provisioning process.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable cidr;
 
@@ -42102,6 +43084,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>A signed document that proves that you are authorized to bring a specified IP address range to Amazon using BYOIP. This option applies to public pools only.</p>
  */
 @property (nonatomic, strong) AWSEC2IpamCidrAuthorizationContext * _Nullable cidrAuthorizationContext;
+
+/**
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
 
 /**
  <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -42112,6 +43099,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the IPAM pool to which you want to assign a CIDR.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipamPoolId;
+
+/**
+ <p>The netmask length of the CIDR you'd like to provision to a pool. Can be used for provisioning Amazon-provided IPv6 CIDRs to top-level pools and for provisioning CIDRs to pools with source pools. Cannot be used to provision BYOIP CIDRs to top-level pools. Either "NetmaskLength" or "Cidr" is required.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable netmaskLength;
 
 @end
 
@@ -43636,7 +44628,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2LaunchTemplateIamInstanceProfileSpecificationRequest * _Nullable iamInstanceProfile;
 
 /**
- <p>The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.</p><p>Valid formats:</p><ul><li><p><code>ami-17characters00000</code></p></li><li><p><code>resolve:ssm:parameter-name</code></p></li><li><p><code>resolve:ssm:parameter-name:version-number</code></p></li><li><p><code>resolve:ssm:parameter-name:label</code></p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.</p><p>Valid formats:</p><ul><li><p><code>ami-17characters00000</code></p></li><li><p><code>resolve:ssm:parameter-name</code></p></li><li><p><code>resolve:ssm:parameter-name:version-number</code></p></li><li><p><code>resolve:ssm:parameter-name:label</code></p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI">Use a Systems Manager parameter to find an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable imageId;
 
@@ -45762,7 +46754,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidance in <a href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">Best practices for managing Amazon Web Services access keys</a>.</p>
+ <p>The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidance in <a href="https://docs.aws.amazon.com/accounts/latest/reference/best-practices.html">Best Practices for Amazon Web Services accounts</a> in the <i>Account ManagementReference Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable AWSAccessKeyId;
 
@@ -46315,7 +47307,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>route-search.exact-match</code> - The exact match of the specified filter.</p></li><li><p><code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p></li><li><p><code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p></li><li><p><code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify <code>supernet-of-match</code> as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p></li><li><p><code>state</code> - The state of the route.</p></li><li><p><code>type</code> - The route type.</p></li></ul>
+ <p>One or more filters.</p><ul><li><p><code>prefix-list-id</code> - The ID of the prefix list.</p></li><li><p><code>route-search.exact-match</code> - The exact match of the specified filter.</p></li><li><p><code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p></li><li><p><code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p></li><li><p><code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify <code>supernet-of-match</code> as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p></li><li><p><code>state</code> - The state of the route.</p></li><li><p><code>type</code> - The route type.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -46681,6 +47673,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 /**
  <p>Describes an update to a security group rule.</p>
+ Required parameters: [SecurityGroupRuleId]
  */
 @interface AWSEC2SecurityGroupRuleUpdate : AWSModel
 
@@ -47565,7 +48558,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable context;
 
 /**
- <p>Indicates whether running Spot Instances should be terminated if you decrease the target capacity of the Spot Fleet request below the current size of the Spot Fleet.</p>
+ <p>Indicates whether running instances should be terminated if you decrease the target capacity of the Spot Fleet request below the current size of the Spot Fleet.</p><p>Supported only for fleets of type <code>maintain</code>.</p>
  */
 @property (nonatomic, assign) AWSEC2ExcessCapacityTerminationPolicy excessCapacityTerminationPolicy;
 
@@ -48753,7 +49746,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>The tags to apply to a resource when the resource is being created.</p><note><p>The <code>Valid Values</code> lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error.</p></note>
+ <p>The tags to apply to a resource when the resource is being created. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.</p><note><p>The <code>Valid Values</code> lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error.</p></note>
  */
 @interface AWSEC2TagSpecification : AWSModel
 
@@ -50992,6 +51985,52 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The secondary private IP addresses to unassign from the network interface. You can specify this option multiple times to unassign more than one IP address.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable privateIpAddresses;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2UnassignPrivateNatGatewayAddressRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxDrainDurationSeconds;
+
+/**
+ <p>The NAT gateway ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable natGatewayId;
+
+/**
+ <p>The private IPv4 addresses you want to unassign.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable privateIpAddresses;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2UnassignPrivateNatGatewayAddressResult : AWSModel
+
+
+/**
+ <p>Information about the NAT gateway IP addresses.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2NatGatewayAddress *> * _Nullable natGatewayAddresses;
+
+/**
+ <p>The NAT gateway ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable natGatewayId;
 
 @end
 
