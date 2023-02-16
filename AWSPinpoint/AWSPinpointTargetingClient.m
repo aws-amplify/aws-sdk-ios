@@ -49,7 +49,7 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 - (void) removeAllMetrics;
 - (BOOL) isApplicationLevelOptOut:(AWSPinpointContext *) context;
 - (void) updateEndpointProfileWithContext:(AWSPinpointContext *) context;
-- (void) setEndpointOptOut:(BOOL) applicationLevelOptOut;
+- (void) setEndpointOptOut:(BOOL) applicationLevelOptOut isRegisteredForRemoteNotifications:(BOOL) isRegisteredForRemoteNotifications;
 @end
 
 @implementation AWSPinpointTargetingClient
@@ -118,6 +118,25 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 }
 
 - (AWSPinpointEndpointProfile *) currentEndpointProfile {
+    BOOL isRegisteredForRemoteNotifications = [AWSPinpointNotificationManager isNotificationEnabled];
+    return [self localEndpointProfileWithIsRegisteredForRemoteNotifications:isRegisteredForRemoteNotifications];
+}
+
+- (void) currentEndpointProfileWithCompletion:(void (^_Nonnull)(AWSPinpointEndpointProfile *profile))completion {
+    // If already on the main queue, immediately execute the callback with currentEndpointProfile
+    if ([NSThread isMainThread]) {
+        completion([self currentEndpointProfile]);
+        return;
+    }
+
+    __weak typeof (self) weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        typeof (self) strongSelf = weakSelf;
+        completion([strongSelf currentEndpointProfile]);
+    });
+}
+
+- (AWSPinpointEndpointProfile *) localEndpointProfileWithIsRegisteredForRemoteNotifications:(BOOL) isRegisteredForRemoteNotifications {
     AWSPinpointEndpointProfile *localEndpointProfile;
     if (!self.endpointProfile) {
         NSData *endpointProfileData = [_keychain dataForKey:AWSPinpointEndpointProfileKey];
@@ -144,10 +163,12 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
                     [_context.configuration.userDefaults removeObjectForKey:AWSPinpointEndpointProfileKey];
                     [_context.configuration.userDefaults synchronize];
                 }
-                localEndpointProfile = [[AWSPinpointEndpointProfile alloc] initWithContext: self.context];
+                localEndpointProfile = [[AWSPinpointEndpointProfile alloc] initWithContext: self.context
+                                                        isRegisteredForRemoteNotifications:isRegisteredForRemoteNotifications];
             }
         } else {
-            localEndpointProfile = [[AWSPinpointEndpointProfile alloc] initWithContext: self.context];
+            localEndpointProfile = [[AWSPinpointEndpointProfile alloc] initWithContext: self.context
+                                                    isRegisteredForRemoteNotifications:isRegisteredForRemoteNotifications];
         }
     } else {
         localEndpointProfile = self.endpointProfile;
@@ -155,11 +176,12 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
         [localEndpointProfile removeAllAttributes];
     }
     
-    //This updates endpoint id, demograhpic information, address, debug mode and app id
+    //This updates endpoint id, demographic information, address, debug mode and app id
     [localEndpointProfile updateEndpointProfileWithContext:self.context];
     //update opt outs
     BOOL applicationLevelOptOut = [localEndpointProfile isApplicationLevelOptOut:self.context];
-    [localEndpointProfile setEndpointOptOut:applicationLevelOptOut];
+    [localEndpointProfile setEndpointOptOut:applicationLevelOptOut
+         isRegisteredForRemoteNotifications:isRegisteredForRemoteNotifications];
 
     [self addMetricsAndAttributesToEndpointProfile:localEndpointProfile];
 
@@ -240,7 +262,16 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 }
 
 - (AWSTask *)updateEndpointProfile {
-    return [self executeUpdate:[self currentEndpointProfile]];
+    AWSTaskCompletionSource *tcs = [AWSTaskCompletionSource taskCompletionSource];
+    AWSTask *returnTask = [tcs.task continueWithSuccessBlock:^id _Nullable(AWSTask * _Nonnull t) {
+        return [self executeUpdate:t.result];
+    }];
+
+    [self currentEndpointProfileWithCompletion:^(AWSPinpointEndpointProfile * _Nonnull profile) {
+        [tcs setResult:profile];
+    }];
+
+    return returnTask;
 }
 
 - (AWSTask *)executeUpdate:(AWSPinpointEndpointProfile *) endpointProfile {
