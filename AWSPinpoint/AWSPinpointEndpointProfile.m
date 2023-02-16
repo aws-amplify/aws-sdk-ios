@@ -60,10 +60,12 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
 - (instancetype) initWithApplicationId:(NSString*) applicationId
                             endpointId:(NSString*) endpointId
                 applicationLevelOptOut:(BOOL) applicationLevelOptOut
+    isRegisteredForRemoteNotifications:(BOOL) isRegisteredForRemoteNotifications
                                  debug:(BOOL) debug {
     return [self initWithApplicationId:applicationId
                             endpointId:endpointId
                 applicationLevelOptOut:applicationLevelOptOut
+    isRegisteredForRemoteNotifications:isRegisteredForRemoteNotifications
                                  debug:debug
                           userDefaults:[NSUserDefaults standardUserDefaults]
                               keychain:[AWSUICKeyChainStore keyChainStoreWithService:AWSPinpointContextKeychainService]];
@@ -72,6 +74,7 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
 - (instancetype) initWithApplicationId:(NSString*) applicationId
                             endpointId:(NSString*) endpointId
                 applicationLevelOptOut:(BOOL) applicationLevelOptOut
+    isRegisteredForRemoteNotifications:(BOOL) isRegisteredForRemoteNotifications
                                  debug:(BOOL) debug
                           userDefaults:(NSUserDefaults*) userDefaults
                               keychain: (AWSUICKeyChainStore*) keychain {
@@ -98,7 +101,7 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
         _location = [AWSPinpointEndpointProfileLocation new];
         _demographic = [AWSPinpointEndpointProfileDemographic defaultAWSPinpointEndpointProfileDemographic];
         _effectiveDate = [AWSPinpointDateUtils utcTimeMillisNow];
-        [self setEndpointOptOut:applicationLevelOptOut];
+        [self setEndpointOptOut:applicationLevelOptOut isRegisteredForRemoteNotifications:isRegisteredForRemoteNotifications];
         _attributes = [NSMutableDictionary dictionary];
         _metrics = [NSMutableDictionary dictionary];
         _user = [AWSPinpointEndpointProfileUser new];
@@ -109,15 +112,19 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
 
 - (instancetype)initWithApplicationId:(NSString*) applicationId
                            endpointId:(NSString*) endpointId {
-    return [self initWithApplicationId: applicationId endpointId:endpointId applicationLevelOptOut:NO debug:NO];
+    return [self initWithApplicationId: applicationId endpointId:endpointId applicationLevelOptOut:NO isRegisteredForRemoteNotifications:NO debug:NO];
 }
 
 - (instancetype)initWithContext:(AWSPinpointContext *) context {
+    return [self initWithContext:context isRegisteredForRemoteNotifications:[AWSPinpointNotificationManager isNotificationEnabled]];
+}
+
+- (instancetype)initWithContext:(AWSPinpointContext *) context isRegisteredForRemoteNotifications:(BOOL) isRegisteredForRemoteNotifications {
     BOOL applicationLevelOptOut = [self isApplicationLevelOptOut:context];
     if(context.configuration.userDefaults != nil) {
-        return [self initWithApplicationId:context.configuration.appId endpointId:context.uniqueId applicationLevelOptOut:applicationLevelOptOut debug:context.configuration.debug userDefaults:context.configuration.userDefaults keychain: context.keychain];
+        return [self initWithApplicationId:context.configuration.appId endpointId:context.uniqueId applicationLevelOptOut:applicationLevelOptOut isRegisteredForRemoteNotifications:isRegisteredForRemoteNotifications debug:context.configuration.debug userDefaults:context.configuration.userDefaults keychain: context.keychain];
     }
-    return [self initWithApplicationId: context.configuration.appId endpointId:context.uniqueId applicationLevelOptOut:applicationLevelOptOut debug:context.configuration.debug];
+    return [self initWithApplicationId: context.configuration.appId endpointId:context.uniqueId applicationLevelOptOut:applicationLevelOptOut isRegisteredForRemoteNotifications:isRegisteredForRemoteNotifications debug:context.configuration.debug];
 }
 
 - (void) updateEndpointProfileWithContext:(AWSPinpointContext *) context {
@@ -157,10 +164,10 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
     return _optOutBackingVariable;
 }
 
-- (void) setEndpointOptOut:(BOOL) applicationLevelOptOut {
+- (void) setEndpointOptOut:(BOOL) applicationLevelOptOut isRegisteredForRemoteNotifications:(BOOL) isRegisteredForRemoteNotifications {
     NSString *overrideDefaultOptOut = [self.userDefaults stringForKey:AWSPinpointOverrideDefaultOptOutKey];
     NSString *overrideOrNoneAsDefault = [overrideDefaultOptOut length] ? overrideDefaultOptOut : @"NONE";
-    BOOL isUsingPinpointForNotifications = [AWSPinpointNotificationManager isNotificationEnabled] && [self.address length];
+    BOOL isUsingPinpointForNotifications = isRegisteredForRemoteNotifications && [self.address length];
     BOOL isOptedOutForNotifications = !isUsingPinpointForNotifications;
 
     @synchronized (self) {
