@@ -34,7 +34,7 @@ extension AWSMobileClient {
             AWSMobileClientLogging.verbose("Adding FetchUserPoolTokensOperation operation")
             let operation = FetchUserPoolTokensOperation(completion: completionHandler)
             operation.delegate = self
-            tokenFetchOperationQueue.addOperation {
+            tokenOperationsQueue.sync(flags: .barrier) {
                 self.tokenOperations.add(operation)
             }
             tokenFetchOperationQueue.addOperation(operation)
@@ -44,7 +44,7 @@ extension AWSMobileClient {
                 userPool: AWSCognitoAuth(forKey: AWSMobileClientConstants.CognitoAuthRegistrationKey),
                 completion: completionHandler)
             operation.delegate = self
-            tokenFetchOperationQueue.addOperation {
+            tokenOperationsQueue.sync(flags: .barrier) {
                 self.tokenOperations.add(operation)
             }
             tokenFetchOperationQueue.addOperation(operation)

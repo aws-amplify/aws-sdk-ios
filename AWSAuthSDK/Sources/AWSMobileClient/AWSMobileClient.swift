@@ -88,6 +88,8 @@ final public class AWSMobileClient: _AWSMobileClient {
     var userPassword: String? = nil
 
     var tokenOperations:NSHashTable<FetchUserPoolTokensOperation> = NSHashTable.weakObjects()
+    let tokenOperationsQueue: DispatchQueue = DispatchQueue(label:"AWSMobileClient.tokenOperationsQueue",
+                                                            attributes: .concurrent)
 
     // MARK: Public API variables
     
@@ -243,7 +245,8 @@ final public class AWSMobileClient: _AWSMobileClient {
     
     internal func mobileClientStatusChanged(userState: UserState, additionalInfo: [String: String]) {
         self.currentUserState = userState
-        for operation in tokenOperations.allObjects {
+        let allTokenOperations = tokenOperationsQueue.sync { tokenOperations.allObjects }
+        for operation in allTokenOperations {
             operation.authStateChanged(currentUserState)
         }
         for listener in listeners {
