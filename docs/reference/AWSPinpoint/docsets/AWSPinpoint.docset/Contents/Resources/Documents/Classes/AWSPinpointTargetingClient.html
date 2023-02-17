@@ -17,7 +17,7 @@
     <a title="AWSPinpointTargetingClient Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSPinpoint 2.30.1 Docs</a> (90% documented)</p>
+        <p><a href="../index.html">AWSPinpoint 2.30.2 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSPinpoint.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -1589,11 +1589,16 @@
                   <p class="aside-title">Objective-C</p>
                   <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSPinpointTargetingClient</span> <span class="p">:</span> <span class="nc">NSObject</span>
 
-<span class="cm">/**
- * Returns the current endpoint.
- * @return (id&lt;AWSPinpointEndpoint&gt;)
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Classes/AWSPinpointEndpointProfile.html">AWSPinpointEndpointProfile</a></span><span class="o">*</span><span class="p">)</span> <span class="n">currentEndpointProfile</span><span class="p">;</span>
+<span class="c1">///
+/// Returns the current endpoint.
+/// - Warning: Calling this method from a non-main thread might result in a deadlock if the main queue is blocked
+/// - Returns: An AWSPinpointEndpoint
+</span><span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Classes/AWSPinpointEndpointProfile.html">AWSPinpointEndpointProfile</a></span><span class="o">*</span><span class="p">)</span> <span class="n">currentEndpointProfile</span><span class="p">;</span>
+
+<span class="c1">///
+/// Requests the current endpoint.
+/// - Parameter completion: a block that is called with the current endpoint
+</span><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">currentEndpointProfileWithCompletion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nonnull</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSPinpointEndpointProfile.html">AWSPinpointEndpointProfile</a></span> <span class="o">*</span><span class="n">profile</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
 
 <span class="cm">/**
  * Sends an update of the current endpoint
@@ -1662,6 +1667,11 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the current endpoint.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    Calling this method from a non-main thread might result in a deadlock if the main queue is blocked
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -1679,7 +1689,40 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>(id<AWSPinpointEndpoint>)</p>
+                        <p>An AWSPinpointEndpoint</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPinpointTargetingClient(im)currentEndpointProfileWithCompletion:"></a>
+                    <a name="//apple_ref/objc/Method/-currentEndpointProfileWithCompletion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointTargetingClient(im)currentEndpointProfileWithCompletion:">-currentEndpointProfileWithCompletion:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Requests the current endpoint.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">currentEndpointProfileWithCompletion</span><span class="p">:</span>
+    <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nonnull</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSPinpointEndpointProfile.html">AWSPinpointEndpointProfile</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">currentEndpointProfile</span><span class="p">()</span> <span class="n">async</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSPinpointEndpointProfile.html">AWSPinpointEndpointProfile</a></span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1984,7 +2027,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-01-25)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-02-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
