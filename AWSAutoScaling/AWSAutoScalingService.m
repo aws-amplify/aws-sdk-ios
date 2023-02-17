@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
 #import "AWSAutoScalingResources.h"
 
 static NSString *const AWSInfoAutoScaling = @"AutoScaling";
-NSString *const AWSAutoScalingSDKVersion = @"2.30.1";
+NSString *const AWSAutoScalingSDKVersion = @"2.30.2";
 
 
 @interface AWSAutoScalingResponseSerializer : AWSXMLResponseSerializer
@@ -43,6 +43,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"AlreadyExists" : @(AWSAutoScalingErrorAlreadyExists),
                             @"InstanceRefreshInProgress" : @(AWSAutoScalingErrorInstanceRefreshInProgress),
                             @"InvalidNextToken" : @(AWSAutoScalingErrorInvalidNextToken),
+                            @"IrreversibleInstanceRefresh" : @(AWSAutoScalingErrorIrreversibleInstanceRefresh),
                             @"LimitExceeded" : @(AWSAutoScalingErrorLimitExceeded),
                             @"ResourceContention" : @(AWSAutoScalingErrorResourceContention),
                             @"ResourceInUse" : @(AWSAutoScalingErrorResourceInUse),
@@ -1569,6 +1570,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSAutoScalingRollbackInstanceRefreshAnswer *> *)rollbackInstanceRefresh:(AWSAutoScalingRollbackInstanceRefreshType *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"RollbackInstanceRefresh"
+                   outputClass:[AWSAutoScalingRollbackInstanceRefreshAnswer class]];
+}
+
+- (void)rollbackInstanceRefresh:(AWSAutoScalingRollbackInstanceRefreshType *)request
+     completionHandler:(void (^)(AWSAutoScalingRollbackInstanceRefreshAnswer *response, NSError *error))completionHandler {
+    [[self rollbackInstanceRefresh:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingRollbackInstanceRefreshAnswer *> * _Nonnull task) {
+        AWSAutoScalingRollbackInstanceRefreshAnswer *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
