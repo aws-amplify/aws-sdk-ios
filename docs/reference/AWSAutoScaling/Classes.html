@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSAutoScaling 2.30.1 Docs</a> (82% documented)</p>
+        <p><a href="index.html">AWSAutoScaling 2.30.2 Docs</a> (81% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSAutoScaling.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -488,6 +488,15 @@
                 <a href="Classes/AWSAutoScalingResources.html">AWSAutoScalingResources</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSAutoScalingRollbackDetails.html">AWSAutoScalingRollbackDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSAutoScalingRollbackInstanceRefreshAnswer.html">AWSAutoScalingRollbackInstanceRefreshAnswer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSAutoScalingRollbackInstanceRefreshType.html">AWSAutoScalingRollbackInstanceRefreshType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSAutoScalingScalingPolicy.html">AWSAutoScalingScalingPolicy</a>
               </li>
               <li class="nav-group-task">
@@ -654,7 +663,13 @@
                 <a href="Enums/AWSAutoScalingRefreshStrategy.html">AWSAutoScalingRefreshStrategy</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSAutoScalingScaleInProtectedInstances.html">AWSAutoScalingScaleInProtectedInstances</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSAutoScalingScalingActivityStatusCode.html">AWSAutoScalingScalingActivityStatusCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSAutoScalingStandbyInstances.html">AWSAutoScalingStandbyInstances</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSAutoScalingWarmPoolState.html">AWSAutoScalingWarmPoolState</a>
@@ -3722,7 +3737,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Reports the progress of an instance refresh on instances that are in the Auto Scaling group.</p>
+                        <p>Reports progress on replacing instances that are in the Auto Scaling group.</p>
 
                         <a href="Classes/AWSAutoScalingInstanceRefreshLivePoolProgress.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3755,7 +3770,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Reports the progress of an instance refresh on an Auto Scaling group that has a warm pool. This includes separate details for instances in the warm pool and instances in the Auto Scaling group (the live pool).</p>
+                        <p>Reports progress on replacing instances in an Auto Scaling group that has a warm pool. This includes separate details for instances in the warm pool and instances in the Auto Scaling group (the live pool).</p>
 
                         <a href="Classes/AWSAutoScalingInstanceRefreshProgressDetails.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3788,7 +3803,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Reports the progress of an instance refresh on instances that are in the warm pool.</p>
+                        <p>Reports progress on replacing instances that are in the warm pool.</p>
 
                         <a href="Classes/AWSAutoScalingInstanceRefreshWarmPoolProgress.html" class="slightly-smaller">See more</a>
                       </div>
@@ -5482,6 +5497,103 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSAutoScalingRollbackDetails"></a>
+                    <a name="//apple_ref/objc/Class/AWSAutoScalingRollbackDetails" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSAutoScalingRollbackDetails">AWSAutoScalingRollbackDetails</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Details about an instance refresh rollback.</p>
+
+                        <a href="Classes/AWSAutoScalingRollbackDetails.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSAutoScalingRollbackDetails</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSAutoScalingRollbackDetails</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSAutoScalingRollbackInstanceRefreshAnswer"></a>
+                    <a name="//apple_ref/objc/Class/AWSAutoScalingRollbackInstanceRefreshAnswer" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSAutoScalingRollbackInstanceRefreshAnswer">AWSAutoScalingRollbackInstanceRefreshAnswer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSAutoScalingRollbackInstanceRefreshAnswer.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSAutoScalingRollbackInstanceRefreshAnswer</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSAutoScalingRollbackInstanceRefreshAnswer</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSAutoScalingRollbackInstanceRefreshType"></a>
+                    <a name="//apple_ref/objc/Class/AWSAutoScalingRollbackInstanceRefreshType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSAutoScalingRollbackInstanceRefreshType">AWSAutoScalingRollbackInstanceRefreshType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSAutoScalingRollbackInstanceRefreshType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSAutoScalingRollbackInstanceRefreshType</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSAutoScalingRollbackInstanceRefreshType</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSAutoScalingScalingPolicy"></a>
                     <a name="//apple_ref/objc/Class/AWSAutoScalingScalingPolicy" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSAutoScalingScalingPolicy">AWSAutoScalingScalingPolicy</a>
@@ -6416,7 +6528,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-01-25)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-02-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

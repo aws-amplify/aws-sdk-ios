@@ -17,7 +17,7 @@
     <a title="AWSAutoScalingRefreshPreferences Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSAutoScaling 2.30.1 Docs</a> (82% documented)</p>
+        <p><a href="../index.html">AWSAutoScaling 2.30.2 Docs</a> (81% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSAutoScaling.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -488,6 +488,15 @@
                 <a href="../Classes/AWSAutoScalingResources.html">AWSAutoScalingResources</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingRollbackDetails.html">AWSAutoScalingRollbackDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingRollbackInstanceRefreshAnswer.html">AWSAutoScalingRollbackInstanceRefreshAnswer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingRollbackInstanceRefreshType.html">AWSAutoScalingRollbackInstanceRefreshType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingScalingPolicy.html">AWSAutoScalingScalingPolicy</a>
               </li>
               <li class="nav-group-task">
@@ -654,7 +663,13 @@
                 <a href="../Enums/AWSAutoScalingRefreshStrategy.html">AWSAutoScalingRefreshStrategy</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSAutoScalingScaleInProtectedInstances.html">AWSAutoScalingScaleInProtectedInstances</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSAutoScalingScalingActivityStatusCode.html">AWSAutoScalingScalingActivityStatusCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSAutoScalingStandbyInstances.html">AWSAutoScalingStandbyInstances</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSAutoScalingWarmPoolState.html">AWSAutoScalingWarmPoolState</a>
@@ -691,6 +706,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSAutoScalingRefreshPreferences(py)autoRollback"></a>
+                    <a name="//apple_ref/objc/Property/autoRollback" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSAutoScalingRefreshPreferences(py)autoRollback">autoRollback</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>(Optional) Indicates whether to roll back the Auto Scaling group to its previous configuration if the instance refresh fails. The default is <code>false</code>.</p><p>A rollback is not supported in the following situations: </p><ul><li><p>There is no desired configuration specified for the instance refresh.</p></li><li><p>The Auto Scaling group has a launch template that uses an Amazon Web Services Systems Manager parameter instead of an AMI ID for the <code>ImageId</code> property.</p></li><li><p>The Auto Scaling group uses the launch template&rsquo;s <code>$Latest</code> or <code>$Default</code> version.</p></li></ul></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">autoRollback</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">autoRollback</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSAutoScalingRefreshPreferences(py)checkpointDelay"></a>
                     <a name="//apple_ref/objc/Property/checkpointDelay" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSAutoScalingRefreshPreferences(py)checkpointDelay">checkpointDelay</a>
@@ -701,7 +748,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The amount of time, in seconds, to wait after a checkpoint before continuing. This property is optional, but if you specify a value for it, you must also specify a value for <code>CheckpointPercentages</code>. If you specify a value for <code>CheckpointPercentages</code> and not for <code>CheckpointDelay</code>, the <code>CheckpointDelay</code> defaults to <code>3600</code> (1 hour). </p>
+                        <p>(Optional) The amount of time, in seconds, to wait after a checkpoint before continuing. This property is optional, but if you specify a value for it, you must also specify a value for <code>CheckpointPercentages</code>. If you specify a value for <code>CheckpointPercentages</code> and not for <code>CheckpointDelay</code>, the <code>CheckpointDelay</code> defaults to <code>3600</code> (1 hour). </p>
 
                       </div>
                       <div class="declaration">
@@ -733,7 +780,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Threshold values for each checkpoint in ascending order. Each number must be unique. To replace all instances in the Auto Scaling group, the last number in the array must be <code>100</code>.</p><p>For usage examples, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-adding-checkpoints-instance-refresh.html">Adding checkpoints to an instance refresh</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+                        <p>(Optional) Threshold values for each checkpoint in ascending order. Each number must be unique. To replace all instances in the Auto Scaling group, the last number in the array must be <code>100</code>.</p><p>For usage examples, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-adding-checkpoints-instance-refresh.html">Adding checkpoints to an instance refresh</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
                       </div>
                       <div class="declaration">
@@ -765,7 +812,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p><i>Not needed if the default instance warmup is defined for the group.</i></p><p>The duration of the instance warmup, in seconds.</p><note><p>The default is to use the value for the default instance warmup defined for the group. If default instance warmup is null, then <code>InstanceWarmup</code> falls back to the value of the health check grace period.</p></note></p>
+                        <p>A time period, in seconds, during which an instance refresh waits before moving on to replacing the next instance after a new instance enters the <code>InService</code> state.</p><p>This property is not required for normal usage. Instead, use the <code>DefaultInstanceWarmup</code> property of the Auto Scaling group. The <code>InstanceWarmup</code> and <code>DefaultInstanceWarmup</code> properties work the same way. Only specify this property if you must override the <code>DefaultInstanceWarmup</code> property. </p><p> If you do not specify this property, the instance warmup by default is the value of the <code>DefaultInstanceWarmup</code> property, if defined (which is recommended in all cases), or the <code>HealthCheckGracePeriod</code> property otherwise.</p>
 
                       </div>
                       <div class="declaration">
@@ -819,6 +866,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSAutoScalingRefreshPreferences(py)scaleInProtectedInstances"></a>
+                    <a name="//apple_ref/objc/Property/scaleInProtectedInstances" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSAutoScalingRefreshPreferences(py)scaleInProtectedInstances">scaleInProtectedInstances</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>Choose the behavior that you want Amazon EC2 Auto Scaling to use if instances protected from scale in are found. </p><p>The following lists the valid values:</p><dl><dt>Refresh</dt><dd><p>Amazon EC2 Auto Scaling replaces instances that are protected from scale in.</p></dd><dt>Ignore</dt><dd><p>Amazon EC2 Auto Scaling ignores instances that are protected from scale in and continues to replace instances that are not protected.</p></dd><dt>Wait (default)</dt><dd><p>Amazon EC2 Auto Scaling waits one hour for you to remove scale-in protection. Otherwise, the instance refresh will fail.</p></dd></dl></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSAutoScalingScaleInProtectedInstances.html">AWSAutoScalingScaleInProtectedInstances</a></span> <span class="n">scaleInProtectedInstances</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">scaleInProtectedInstances</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSAutoScalingScaleInProtectedInstances.html">AWSAutoScalingScaleInProtectedInstances</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSAutoScalingRefreshPreferences(py)skipMatching"></a>
                     <a name="//apple_ref/objc/Property/skipMatching" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSAutoScalingRefreshPreferences(py)skipMatching">skipMatching</a>
@@ -829,7 +908,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A boolean value that indicates whether skip matching is enabled. If true, then Amazon EC2 Auto Scaling skips replacing instances that match the desired configuration. If no desired configuration is specified, then it skips replacing instances that have the same configuration that is already set on the group. The default is <code>false</code>.</p>
+                        <p>(Optional) Indicates whether skip matching is enabled. If enabled (<code>true</code>), then Amazon EC2 Auto Scaling skips replacing instances that match the desired configuration. If no desired configuration is specified, then it skips replacing instances that have the same launch template and instance types that the Auto Scaling group was using before the start of the instance refresh. The default is <code>false</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh-skip-matching.html">Use an instance refresh with skip matching</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
                       </div>
                       <div class="declaration">
@@ -848,12 +927,44 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSAutoScalingRefreshPreferences(py)standbyInstances"></a>
+                    <a name="//apple_ref/objc/Property/standbyInstances" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSAutoScalingRefreshPreferences(py)standbyInstances">standbyInstances</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>Choose the behavior that you want Amazon EC2 Auto Scaling to use if instances in <code>Standby</code> state are found.</p><p>The following lists the valid values:</p><dl><dt>Terminate</dt><dd><p>Amazon EC2 Auto Scaling terminates instances that are in <code>Standby</code>.</p></dd><dt>Ignore</dt><dd><p>Amazon EC2 Auto Scaling ignores instances that are in <code>Standby</code> and continues to replace instances that are in the <code>InService</code> state.</p></dd><dt>Wait (default)</dt><dd><p>Amazon EC2 Auto Scaling waits one hour for you to return the instances to service. Otherwise, the instance refresh will fail.</p></dd></dl></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSAutoScalingStandbyInstances.html">AWSAutoScalingStandbyInstances</a></span> <span class="n">standbyInstances</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">standbyInstances</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSAutoScalingStandbyInstances.html">AWSAutoScalingStandbyInstances</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-01-25)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-02-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

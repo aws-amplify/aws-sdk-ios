@@ -17,7 +17,7 @@
     <a title="AWSAutoScalingInstanceRefresh Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSAutoScaling 2.30.1 Docs</a> (82% documented)</p>
+        <p><a href="../index.html">AWSAutoScaling 2.30.2 Docs</a> (81% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSAutoScaling.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -488,6 +488,15 @@
                 <a href="../Classes/AWSAutoScalingResources.html">AWSAutoScalingResources</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingRollbackDetails.html">AWSAutoScalingRollbackDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingRollbackInstanceRefreshAnswer.html">AWSAutoScalingRollbackInstanceRefreshAnswer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingRollbackInstanceRefreshType.html">AWSAutoScalingRollbackInstanceRefreshType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingScalingPolicy.html">AWSAutoScalingScalingPolicy</a>
               </li>
               <li class="nav-group-task">
@@ -654,7 +663,13 @@
                 <a href="../Enums/AWSAutoScalingRefreshStrategy.html">AWSAutoScalingRefreshStrategy</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSAutoScalingScaleInProtectedInstances.html">AWSAutoScalingScaleInProtectedInstances</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSAutoScalingScalingActivityStatusCode.html">AWSAutoScalingScalingActivityStatusCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSAutoScalingStandbyInstances.html">AWSAutoScalingStandbyInstances</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSAutoScalingWarmPoolState.html">AWSAutoScalingWarmPoolState</a>
@@ -733,7 +748,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes the specific update you want to deploy.</p>
+                        <p>Describes the desired configuration for the instance refresh.</p>
 
                       </div>
                       <div class="declaration">
@@ -829,7 +844,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The number of instances remaining to update before the instance refresh is complete.</p>
+                        <p><p>The number of instances remaining to update before the instance refresh is complete.</p><note><p>If you roll back the instance refresh, <code>InstancesToUpdate</code> shows you the number of instances that were not yet updated by the instance refresh. Therefore, these instances don&rsquo;t need to be replaced as part of the rollback.</p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -861,7 +876,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The percentage of the instance refresh that is complete. For each instance replacement, Amazon EC2 Auto Scaling tracks the instance&rsquo;s health status and warm-up time. When the instance&rsquo;s health status changes to healthy and the specified warm-up time passes, the instance is considered updated and is added to the percentage complete.</p>
+                        <p><p>The percentage of the instance refresh that is complete. For each instance replacement, Amazon EC2 Auto Scaling tracks the instance&rsquo;s health status and warm-up time. When the instance&rsquo;s health status changes to healthy and the specified warm-up time passes, the instance is considered updated and is added to the percentage complete.</p><note><p><code>PercentageComplete</code> does not include instances that are replaced during a rollback. This value gradually goes back down to zero during a rollback.</p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -947,6 +962,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSAutoScalingInstanceRefresh(py)rollbackDetails"></a>
+                    <a name="//apple_ref/objc/Property/rollbackDetails" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSAutoScalingInstanceRefresh(py)rollbackDetails">rollbackDetails</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The rollback details.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSAutoScalingRollbackDetails.html">AWSAutoScalingRollbackDetails</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">rollbackDetails</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">rollbackDetails</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingRollbackDetails.html">AWSAutoScalingRollbackDetails</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSAutoScalingInstanceRefresh(py)startTime"></a>
                     <a name="//apple_ref/objc/Property/startTime" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSAutoScalingInstanceRefresh(py)startTime">startTime</a>
@@ -989,7 +1036,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The current status for the instance refresh operation:</p><ul><li><p><code>Pending</code> - The request was created, but the operation has not started.</p></li><li><p><code>InProgress</code> - The operation is in progress.</p></li><li><p><code>Successful</code> - The operation completed successfully.</p></li><li><p><code>Failed</code> - The operation failed to complete. You can troubleshoot using the status reason and the scaling activities. </p></li><li><p><code>Cancelling</code> - An ongoing operation is being cancelled. Cancellation does not roll back any replacements that have already been completed, but it prevents new replacements from being started. </p></li><li><p><code>Cancelled</code> - The operation is cancelled. </p></li></ul></p>
+                        <p><p>The current status for the instance refresh operation:</p><ul><li><p><code>Pending</code> - The request was created, but the instance refresh has not started.</p></li><li><p><code>InProgress</code> - An instance refresh is in progress.</p></li><li><p><code>Successful</code> - An instance refresh completed successfully.</p></li><li><p><code>Failed</code> - An instance refresh failed to complete. You can troubleshoot using the status reason and the scaling activities. </p></li><li><p><code>Cancelling</code> - An ongoing instance refresh is being cancelled.</p></li><li><p><code>Cancelled</code> - The instance refresh is cancelled. </p></li><li><p><code>RollbackInProgress</code> - An instance refresh is being rolled back.</p></li><li><p><code>RollbackFailed</code> - The rollback failed to complete. You can troubleshoot using the status reason and the scaling activities.</p></li><li><p><code>RollbackSuccessful</code> - The rollback completed successfully.</p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -1021,7 +1068,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Provides more details about the current status of the instance refresh. </p>
+                        <p>The explanation for the specific status assigned to this operation.</p>
 
                       </div>
                       <div class="declaration">
@@ -1045,7 +1092,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-01-25)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-02-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
