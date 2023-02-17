@@ -1289,6 +1289,69 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/distiller/project/AWSPolly/AWSPollyModel.h",
+      "line": 212,
+      "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdAndres",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPolly/AWSPollyModel.h",
+      "line": 213,
+      "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdSergio",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPolly/AWSPollyModel.h",
+      "line": 214,
+      "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdRemi",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPolly/AWSPollyModel.h",
+      "line": 215,
+      "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdAdriano",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPolly/AWSPollyModel.h",
+      "line": 216,
+      "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdThiago",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPolly/AWSPollyModel.h",
+      "line": 217,
+      "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdRuth",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPolly/AWSPollyModel.h",
+      "line": 218,
+      "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdStephen",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPolly/AWSPollyModel.h",
+      "line": 219,
+      "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdKazuha",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPolly/AWSPollyModel.h",
+      "line": 220,
+      "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdTomoko",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/distiller/project/AWSPolly/AWSPollyResources.h",
       "line": 18,
       "symbol": "AWSPollyResources",
