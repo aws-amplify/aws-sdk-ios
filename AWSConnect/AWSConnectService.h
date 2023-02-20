@@ -291,7 +291,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)associateLambdaFunction:(AWSConnectAssociateLambdaFunctionRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Allows the specified Amazon Connect instance to access the specified Amazon Lex bot.</p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Allows the specified Amazon Connect instance to access the specified Amazon Lex V1 bot. This API only supports the association of Amazon Lex V1 bots.</p>
  
  @param request A container for the necessary parameters to execute the AssociateLexBot service method.
 
@@ -302,7 +302,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)associateLexBot:(AWSConnectAssociateLexBotRequest *)request;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Allows the specified Amazon Connect instance to access the specified Amazon Lex bot.</p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Allows the specified Amazon Connect instance to access the specified Amazon Lex V1 bot. This API only supports the association of Amazon Lex V1 bots.</p>
  
  @param request A container for the necessary parameters to execute the AssociateLexBot service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1552,7 +1552,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)describeTrafficDistributionGroup:(AWSConnectDescribeTrafficDistributionGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribeTrafficDistributionGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the specified user account. You can find the instance ID in the console (it’s the final part of the ARN). The console does not display the user IDs. Instead, list the users and note the IDs provided in the output.</p>
+ <p>Describes the specified user account. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID in the Amazon Connect console</a> (it’s the final part of the ARN). The console does not display the user IDs. Instead, list the users and note the IDs provided in the output.</p>
  
  @param request A container for the necessary parameters to execute the DescribeUser service method.
 
@@ -1564,7 +1564,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectDescribeUserResponse *> *)describeUser:(AWSConnectDescribeUserRequest *)request;
 
 /**
- <p>Describes the specified user account. You can find the instance ID in the console (it’s the final part of the ARN). The console does not display the user IDs. Instead, list the users and note the IDs provided in the output.</p>
+ <p>Describes the specified user account. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID in the Amazon Connect console</a> (it’s the final part of the ARN). The console does not display the user IDs. Instead, list the users and note the IDs provided in the output.</p>
  
  @param request A container for the necessary parameters to execute the DescribeUser service method.
  @param completionHandler The completion handler to call when the load request is complete.
