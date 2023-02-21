@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -773,7 +773,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSNumber * _Nullable healthCheckTimeoutSeconds;
 
 /**
- <p>The number of consecutive health check successes required before considering a target healthy. The range is 2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 5. For target groups with a protocol of GENEVE, the default is 3. If the target type is <code>lambda</code>, the default is 5.</p>
+ <p>The number of consecutive health check successes required before considering a target healthy. The range is 2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 5. For target groups with a protocol of GENEVE, the default is 5. If the target type is <code>lambda</code>, the default is 5.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable healthyThresholdCount;
 
@@ -818,7 +818,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, assign) AWSElasticLoadBalancingTargetTypeEnum targetType;
 
 /**
- <p>The number of consecutive health check failures required before considering a target unhealthy. The range is 2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 2. For target groups with a protocol of GENEVE, the default is 3. If the target type is <code>lambda</code>, the default is 5.</p>
+ <p>The number of consecutive health check failures required before considering a target unhealthy. The range is 2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 2. For target groups with a protocol of GENEVE, the default is 2. If the target type is <code>lambda</code>, the default is 5.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable unhealthyThresholdCount;
 
