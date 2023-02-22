@@ -26,7 +26,7 @@
 # VALID_ARCHS
 # EXPANDED_CODE_SIGN_IDENTITY
 
-
+echo "!"
 # Signs a framework with the provided identity
 code_sign() {
   # Use the current code_sign_identitiy
