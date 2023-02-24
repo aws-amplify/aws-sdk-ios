@@ -87,9 +87,7 @@ final public class AWSMobileClient: _AWSMobileClient {
     /// come as the second step in custom auth.
     var userPassword: String? = nil
 
-    var tokenOperations:NSHashTable<FetchUserPoolTokensOperation> = NSHashTable.weakObjects()
-    let tokenOperationsQueue: DispatchQueue = DispatchQueue(label:"AWSMobileClient.tokenOperationsQueue",
-                                                            attributes: .concurrent)
+    var tokenOperations: WeakHashTable<FetchUserPoolTokensOperation> = WeakHashTable()
 
     // MARK: Public API variables
     
@@ -245,8 +243,7 @@ final public class AWSMobileClient: _AWSMobileClient {
     
     internal func mobileClientStatusChanged(userState: UserState, additionalInfo: [String: String]) {
         self.currentUserState = userState
-        let allTokenOperations = tokenOperationsQueue.sync { tokenOperations.allObjects }
-        for operation in allTokenOperations {
+        for operation in tokenOperations.allObjects {
             operation.authStateChanged(currentUserState)
         }
         for listener in listeners {
