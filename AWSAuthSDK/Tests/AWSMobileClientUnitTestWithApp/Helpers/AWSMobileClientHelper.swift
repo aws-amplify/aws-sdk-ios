@@ -75,15 +75,15 @@ enum AWSMobileClientHelper {
 
 extension AWSInfo {
 
-    func resetConfiguration(_ configruation: [String: Any]) {
-        self.setValue(configruation, forKey: "_rootInfoDictionary")
+    func resetConfiguration(_ configuration: [String: Any]) {
+        self.setValue(configuration, forKey: "_rootInfoDictionary")
     }
 
-    func resetCredentialProvider(_ configruation: [String: Any]) {
+    func resetCredentialProvider(_ configuration: [String: Any]) {
 
         // We should use the same identityPoolId for keychain to work
         let keyPath = "CredentialsProvider.CognitoIdentity.Default.PoolId"
-        let poolId = (configruation as NSDictionary).value(forKeyPath: keyPath) as? String
+        let poolId = (configuration as NSDictionary).value(forKeyPath: keyPath) as? String
         let provider = AWSCognitoCredentialsProvider(
             regionType: .USEast1,
             identityPoolId: poolId ?? "someid")

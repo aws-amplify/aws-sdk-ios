@@ -38,7 +38,7 @@ final public class AWSMobileClient: _AWSMobileClient {
     internal var scopes: [String]? = nil
 
     // UserPoolOperationHandler should be initialized after AWSMobileClient init and AWSInfo init is
-    // completed, because it require the AWSInfo to be in a valid state to initialize. To acheive this
+    // completed, because it require the AWSInfo to be in a valid state to initialize. To achieve this
     // currently userpoolOpsHelper is initialized inside `_internalInitialize`.
     internal var userpoolOpsHelper: UserPoolOperationsHandler!
 
@@ -209,7 +209,7 @@ final public class AWSMobileClient: _AWSMobileClient {
             setIfPresentCustomAuth()
             setIfPresentCredentialsProvider()
 
-            currentUserState = determineIntialUserState()
+            currentUserState = determineInitialUserState()
             completionHandler(currentUserState, nil)
         } catch {
             completionHandler(nil, error)
@@ -217,7 +217,7 @@ final public class AWSMobileClient: _AWSMobileClient {
     }
 
     /// Using the cached keychain items determine the user state.
-    private func determineIntialUserState() -> UserState {
+    private func determineInitialUserState() -> UserState {
         var userState: UserState = .signedOut
         if (self.cachedLoginsMap.count > 0) {
             userState = .signedIn
@@ -229,7 +229,7 @@ final public class AWSMobileClient: _AWSMobileClient {
 
         // SignOut if we get an invalid signedIn state
         if userState == .signedIn
-            && !isValidSignedIn (
+            && !isValidSignedInState (
                 userState: userState,
                 federationProvider: federationProvider
             ) {
@@ -240,7 +240,7 @@ final public class AWSMobileClient: _AWSMobileClient {
         return userState
     }
 
-    private func isValidSignedIn(
+    private func isValidSignedInState(
         userState: UserState,
         federationProvider: FederationProvider) -> Bool {
             if federationProvider == .userPools || federationProvider == .hostedUI {
