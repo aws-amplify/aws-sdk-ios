@@ -24,11 +24,13 @@ class NameSpaceWithPreviousSignInAndCleanUpTests: NameSpaceBaseTests {
     override func setUp() {
         super.setUp()
         do {
-            try mockUserPoolSignedInUser()
+            try keychainHelper.mockUserPoolSignedInUser(appClientID: appClientID)
         } catch {
             XCTFail("Error in mocking user pool signIn")
         }
-        mockPreviousInstall(identityPoolID: identityPoolID)
+        keychainHelper.mockPreviousInstall(userPoolID: userPoolID,
+                                           appClientID: appClientID,
+                                           identityPoolID: identityPoolID)
     }
     
     /// Test user state remains the same on relaunching AWSMobilClient
@@ -39,9 +41,10 @@ class NameSpaceWithPreviousSignInAndCleanUpTests: NameSpaceBaseTests {
     /// - Then:
     ///    - I should get back the user state as signedIn
     func testRelaunchWithSameConfig() throws {
-       let configuration = createConfiguration(userPoolID: userPoolID,
-                                                appClientID: appClientID,
-                                                identityPoolID: identityPoolID)
+        let configuration = AWSMobileClientHelper.createConfiguration(
+            userPoolID: userPoolID,
+            appClientID: appClientID,
+            identityPoolID: identityPoolID)
         initializedAndUserstateUserPoolSignIn(configuration)
     }
     
@@ -53,9 +56,10 @@ class NameSpaceWithPreviousSignInAndCleanUpTests: NameSpaceBaseTests {
     /// - Then:
     ///    - I should get back the user state as signedOut
     func testRelaunchWithDifferentUserPoolID() throws {
-        let configuration = createConfiguration(userPoolID: "userPoolID2",
-                                                appClientID: appClientID,
-                                                identityPoolID: identityPoolID)
+        let configuration = AWSMobileClientHelper.createConfiguration(
+            userPoolID: "userPoolID2",
+            appClientID: appClientID,
+            identityPoolID: identityPoolID)
         initializedAndUserstateSignedOut(configuration)
     }
     
@@ -68,9 +72,10 @@ class NameSpaceWithPreviousSignInAndCleanUpTests: NameSpaceBaseTests {
     ///    - I should get back the user state as signedOut
     func testRelaunchWithDifferentAppClientID() throws {
 
-        let configuration = createConfiguration(userPoolID: userPoolID,
-                                                appClientID: "appClientID2",
-                                                identityPoolID: identityPoolID)
+        let configuration = AWSMobileClientHelper.createConfiguration(
+            userPoolID: userPoolID,
+            appClientID: "appClientID2",
+            identityPoolID: identityPoolID)
         initializedAndUserstateSignedOut(configuration)
     }
     
@@ -83,9 +88,10 @@ class NameSpaceWithPreviousSignInAndCleanUpTests: NameSpaceBaseTests {
     ///    - I should get back the user state as signedOut
     func testRelaunchWithDifferentIdentityPoolID() throws {
 
-        let configuration = createConfiguration(userPoolID: userPoolID,
-                                                appClientID: appClientID,
-                                                identityPoolID: "identityPoolID2")
+        let configuration = AWSMobileClientHelper.createConfiguration(
+            userPoolID: userPoolID,
+            appClientID: appClientID,
+            identityPoolID: "identityPoolID2")
         initializedAndUserstateSignedOut(configuration)
     }
     
@@ -98,8 +104,9 @@ class NameSpaceWithPreviousSignInAndCleanUpTests: NameSpaceBaseTests {
     ///    - I should get back the user state as signedOut
     func testRelaunchWithOnlyUserPool() throws {
 
-        let configuration = createConfiguration(userPoolID: userPoolID,
-                                                appClientID: appClientID)
+        let configuration = AWSMobileClientHelper.createConfiguration(
+            userPoolID: userPoolID,
+            appClientID: appClientID)
         initializedAndUserstateSignedOut(configuration)
     }
     
@@ -112,7 +119,8 @@ class NameSpaceWithPreviousSignInAndCleanUpTests: NameSpaceBaseTests {
     ///    - I should get back the user state as signedOut
     func testRelaunchWithOnlyIdentityPool() throws {
 
-        let configuration = createConfiguration(identityPoolID: identityPoolID)
+        let configuration = AWSMobileClientHelper.createConfiguration(
+            identityPoolID: identityPoolID)
         initializedAndUserstateSignedOut(configuration)
     }
     
@@ -125,7 +133,7 @@ class NameSpaceWithPreviousSignInAndCleanUpTests: NameSpaceBaseTests {
     ///    - I should get back the user state as signedOut
     func testRelaunchWithNoCognitoService() throws {
 
-        let configuration = createConfiguration()
+        let configuration = AWSMobileClientHelper.createConfiguration()
         initializedAndUserstateSignedOut(configuration)
     }
 }

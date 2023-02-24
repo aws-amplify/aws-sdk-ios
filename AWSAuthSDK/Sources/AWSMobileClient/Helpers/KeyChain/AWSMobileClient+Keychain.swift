@@ -88,6 +88,7 @@ extension AWSMobileClient {
     }
 
     internal func loadFederationProviderMetadataFromKeychain() {
+
         if let federationProviderString = self.keychain.string(forKey: AWSMobileClientConstants.FederationProviderKey),
             let federationProvider = FederationProvider(rawValue: federationProviderString) {
             self.federationProvider = federationProvider
