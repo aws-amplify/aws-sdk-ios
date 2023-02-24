@@ -19,7 +19,7 @@
 #import "AWSCore.h"
 #import "AWSTestUtility.h"
 
-NSString * AWSCognitoCredentialsProviderTestsIdentityPoolId = nil;
+NSString *TestsIdentityPoolId = nil;
 
 @interface AWSUnAuthenticatedIdentityProvider : NSObject<AWSIdentityProvider, AWSIdentityProviderManager>
 
@@ -62,7 +62,7 @@ NSString * AWSCognitoCredentialsProviderTestsIdentityPoolId = nil;
                                                           forKey:@"Session"];
 
     NSDictionary *testConfig = [AWSTestUtility getIntegrationTestConfigurationForPackageId: @"core"];
-    AWSCognitoCredentialsProviderTestsIdentityPoolId = testConfig[@"identityPoolId"];
+    TestsIdentityPoolId = testConfig[@"identityPoolId"];
 
 }
 
@@ -75,7 +75,7 @@ NSString * AWSCognitoCredentialsProviderTestsIdentityPoolId = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc]
                                                initWithRegionType:self.region
-                                               identityPoolId:AWSCognitoCredentialsProviderTestsIdentityPoolId];
+                                               identityPoolId:TestsIdentityPoolId];
     [provider clearKeychain];
     [super tearDown];
 }
@@ -83,7 +83,7 @@ NSString * AWSCognitoCredentialsProviderTestsIdentityPoolId = nil;
 - (void)testMultiThreadedWithEnhancedFlow {
     AWSCognitoCredentialsProviderHelper *identityProvider = [[AWSCognitoCredentialsProviderHelper alloc]
                                                              initWithRegionType: self.region
-                                                             identityPoolId:AWSCognitoCredentialsProviderTestsIdentityPoolId
+                                                             identityPoolId:TestsIdentityPoolId
                                                              useEnhancedFlow:YES
                                                              identityProviderManager:[AWSUnAuthenticatedIdentityProvider new]];
 
