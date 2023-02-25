@@ -36,7 +36,12 @@ final public class AWSMobileClient: _AWSMobileClient {
     internal var tokenURIQueryParameters: [String: String]? = nil
     internal var signOutURIQueryParameters: [String: String]? = nil
     internal var scopes: [String]? = nil
-    
+
+    // UserPoolOperationHandler should be initialized after AWSMobileClient init and AWSInfo init is
+    // completed, because it require the AWSInfo to be in a valid state to initialize. To achieve this
+    // currently userpoolOpsHelper is initialized inside `_internalInitialize`.
+    internal var userpoolOpsHelper: UserPoolOperationsHandler!
+
     // MARK: Execution Helpers (DispatchQueue, OperationQueue, DispatchGroup)
     
     // Internal DispatchQueue which will be used synchronously to initialize the AWSMobileClient.
@@ -181,48 +186,69 @@ final public class AWSMobileClient: _AWSMobileClient {
                 completionHandler(self.currentUserState, nil)
                 return
             }
+            _internalInitialize(completionHandler)
+            isInitialized = true
+        }
+    }
 
+    // Internal initialize method, pass userpoolHandler for testing purposes only.
+    internal func _internalInitialize(
+        userPoolHandler: UserPoolOperationsHandler = .sharedInstance,
+        _ completionHandler: @escaping (UserState?, Error?) -> Void) {
+        do {
             keychain.migrateToCurrentAccessibility()
+            userpoolOpsHelper = userPoolHandler
             cleanupPreviousInstall()
             initializeKeychainItems()
             fallbackLegacyFederationProvider()
 
             DeviceOperations.sharedInstance.mobileClient = self
 
-            do {
-                try registerIfPresentHostedUI()
-            } catch {
-                completionHandler(nil, error)
-            }
+            try registerIfPresentHostedUI()
 
             setIfPresentCustomAuth()
             setIfPresentCredentialsProvider()
 
-            let userState = determineIntialUserState()
-            if userState == .signedIn
-                && (federationProvider == .userPools || federationProvider == .hostedUI)
-                && self.username == nil {
-                self.signOut()
-                currentUserState = .signedOut
-            } else {
-                currentUserState = userState
-            }
+            currentUserState = determineInitialUserState()
             completionHandler(currentUserState, nil)
-            isInitialized = true
+        } catch {
+            completionHandler(nil, error)
         }
     }
 
-    private func determineIntialUserState() -> UserState {
+    /// Using the cached keychain items determine the user state.
+    private func determineInitialUserState() -> UserState {
+        var userState: UserState = .signedOut
         if (self.cachedLoginsMap.count > 0) {
-            return .signedIn
+            userState = .signedIn
+
+        } else if let credentialProvider = self.internalCredentialsProvider,
+                  credentialProvider.identityId != nil {
+            userState = (federationProvider == .none) ? .guest : .signedIn
         }
 
-        if let credentialProvider = self.internalCredentialsProvider,
-           credentialProvider.identityId != nil {
-            return (federationProvider == .none) ? .guest : .signedIn
+        // SignOut if we get an invalid signedIn state
+        if userState == .signedIn
+            && !isValidSignedInState (
+                userState: userState,
+                federationProvider: federationProvider
+            ) {
+            AWSMobileClientLogging.verbose("Invalid signedIn state found, signing out")
+            signOut()
+            userState = .signedOut
         }
-        return .signedOut
+        return userState
     }
+
+    private func isValidSignedInState(
+        userState: UserState,
+        federationProvider: FederationProvider) -> Bool {
+            if federationProvider == .userPools || federationProvider == .hostedUI {
+                return self.username != nil
+            }
+            return federationProvider == .oidcFederation &&
+            self.internalCredentialsProvider?.identityId != nil
+        }
     
     /// Adds a listener who receives notifications on user state change.
     ///
@@ -331,7 +357,7 @@ final public class AWSMobileClient: _AWSMobileClient {
         else {
             throw AWSMobileClientError.invalidConfiguration(
                 message: "Please provide all configuration parameters to use the hosted UI feature.")
-            }
+        }
 
         let cognitoAuthConfig = AWSCognitoAuthConfiguration(
             appClientId: clientId,

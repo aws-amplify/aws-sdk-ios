@@ -1,7 +1,8 @@
 # AWS Mobile SDK for iOS CHANGELOG
 ## Unreleased
 
--Features for next release
+- **AWSIoT**
+    - Fixed a potential point of priority inversion, resolving new Xcode 14 threat performance warning.
 
 ### Bug Fixes
 
