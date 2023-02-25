@@ -1844,6 +1844,7 @@ static NSRunLoop *networkRunLoop = nil;
     dispatch_once(&onceToken, ^{
         networkThread = [[_SRRunLoopThread alloc] init];
         networkThread.name = @"com.squareup.SocketRocket.NetworkThread";
+        networkThread.qualityOfService = NSQualityOfServiceUserInitiated;
         [networkThread start];
         networkRunLoop = networkThread.runLoop;
     });
