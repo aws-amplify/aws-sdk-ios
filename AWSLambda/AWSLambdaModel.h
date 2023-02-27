@@ -86,6 +86,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaEventSourcePosition) {
     AWSLambdaEventSourcePositionAtTimestamp,
 };
 
+typedef NS_ENUM(NSInteger, AWSLambdaFullDocument) {
+    AWSLambdaFullDocumentUnknown,
+    AWSLambdaFullDocumentUpdateLookup,
+    AWSLambdaFullDocumentDefault,
+};
+
 typedef NS_ENUM(NSInteger, AWSLambdaFunctionResponseType) {
     AWSLambdaFunctionResponseTypeUnknown,
     AWSLambdaFunctionResponseTypeReportBatchItemFailures,
@@ -309,6 +315,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @class AWSLambdaDeleteLayerVersionRequest;
 @class AWSLambdaDeleteProvisionedConcurrencyConfigRequest;
 @class AWSLambdaDestinationConfig;
+@class AWSLambdaDocumentDBEventSourceConfig;
 @class AWSLambdaEnvironment;
 @class AWSLambdaEnvironmentError;
 @class AWSLambdaEnvironmentResponse;
@@ -477,7 +484,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaAddLayerVersionPermissionRequest : AWSRequest
 
@@ -520,7 +527,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaAddLayerVersionPermissionResponse : AWSModel
 
@@ -538,7 +545,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaAddPermissionRequest : AWSRequest
 
@@ -559,7 +566,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
- <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
+ <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
  */
 @property (nonatomic, assign) AWSLambdaFunctionUrlAuthType functionUrlAuthType;
 
@@ -601,7 +608,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaAddPermissionResponse : AWSModel
 
@@ -744,7 +751,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaConcurrency : AWSModel
 
@@ -795,7 +802,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaCreateAliasRequest : AWSRequest
 
@@ -828,7 +835,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaCreateCodeSigningConfigRequest : AWSRequest
 
@@ -851,7 +858,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaCreateCodeSigningConfigResponse : AWSModel
 
@@ -864,7 +871,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaCreateEventSourceMappingRequest : AWSRequest
 
@@ -888,6 +895,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
  <p>(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
  */
 @property (nonatomic, strong) AWSLambdaDestinationConfig * _Nullable destinationConfig;
+
+/**
+ <p>Specific configuration settings for a DocumentDB event source.</p>
+ */
+@property (nonatomic, strong) AWSLambdaDocumentDBEventSourceConfig * _Nullable documentDBEventSourceConfig;
 
 /**
  <p>When true, the event source mapping is active. When false, Lambda pauses polling and invocation.</p><p>Default: True</p>
@@ -982,7 +994,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaCreateFunctionRequest : AWSRequest
 
@@ -1043,7 +1055,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @property (nonatomic, strong) AWSLambdaImageConfig * _Nullable imageConfig;
 
 /**
- <p>The ARN of the Key Management Service (KMS) key that's used to encrypt your function's environment variables. If it's not provided, Lambda uses a default service key.</p>
+ <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment variables</a>. When <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda SnapStart</a> is activated, this key is also used to encrypt your function's snapshot. If you don't provide a customer managed key, Lambda uses a default service key.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSKeyArn;
 
@@ -1073,7 +1085,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @property (nonatomic, strong) NSString * _Nullable role;
 
 /**
- <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive. </p>
+ <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.</p><p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
  */
 @property (nonatomic, assign) AWSLambdaRuntime runtime;
 
@@ -1105,13 +1117,13 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaCreateFunctionUrlConfigRequest : AWSRequest
 
 
 /**
- <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
+ <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
  */
 @property (nonatomic, assign) AWSLambdaFunctionUrlAuthType authType;
 
@@ -1133,13 +1145,13 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaCreateFunctionUrlConfigResponse : AWSModel
 
 
 /**
- <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
+ <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
  */
 @property (nonatomic, assign) AWSLambdaFunctionUrlAuthType authType;
 
@@ -1179,7 +1191,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaDeleteAliasRequest : AWSRequest
 
@@ -1197,7 +1209,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaDeleteCodeSigningConfigRequest : AWSRequest
 
@@ -1210,7 +1222,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaDeleteCodeSigningConfigResponse : AWSModel
 
@@ -1218,7 +1230,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaDeleteEventSourceMappingRequest : AWSRequest
 
@@ -1231,7 +1243,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaDeleteFunctionCodeSigningConfigRequest : AWSRequest
 
@@ -1244,7 +1256,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaDeleteFunctionConcurrencyRequest : AWSRequest
 
@@ -1257,7 +1269,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaDeleteFunctionEventInvokeConfigRequest : AWSRequest
 
@@ -1275,7 +1287,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaDeleteFunctionRequest : AWSRequest
 
@@ -1293,7 +1305,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaDeleteFunctionUrlConfigRequest : AWSRequest
 
@@ -1311,7 +1323,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaDeleteLayerVersionRequest : AWSRequest
 
@@ -1329,7 +1341,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaDeleteProvisionedConcurrencyConfigRequest : AWSRequest
 
@@ -1361,6 +1373,29 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
  <p>The destination configuration for successful invocations.</p>
  */
 @property (nonatomic, strong) AWSLambdaOnSuccess * _Nullable onSuccess;
+
+@end
+
+/**
+ <p> Specific configuration settings for a DocumentDB event source. </p>
+ */
+@interface AWSLambdaDocumentDBEventSourceConfig : AWSModel
+
+
+/**
+ <p> The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable collectionName;
+
+/**
+ <p> The name of the database to consume within the DocumentDB cluster. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable databaseName;
+
+/**
+ <p> Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. </p>
+ */
+@property (nonatomic, assign) AWSLambdaFullDocument fullDocument;
 
 @end
 
@@ -1452,6 +1487,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
  <p>(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
  */
 @property (nonatomic, strong) AWSLambdaDestinationConfig * _Nullable destinationConfig;
+
+/**
+ <p>Specific configuration settings for a DocumentDB event source.</p>
+ */
+@property (nonatomic, strong) AWSLambdaDocumentDBEventSourceConfig * _Nullable documentDBEventSourceConfig;
 
 /**
  <p>The Amazon Resource Name (ARN) of the event source.</p>
@@ -1738,7 +1778,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @property (nonatomic, strong) AWSLambdaImageConfigResponse * _Nullable imageConfigResponse;
 
 /**
- <p>The KMS key that's used to encrypt the function's environment variables. This key is returned only if you've configured a customer managed key.</p>
+ <p>The KMS key that's used to encrypt the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment variables</a>. When <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda SnapStart</a> is activated, this key is also used to encrypt the function's snapshot. This key is returned only if you've configured a customer managed key.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSKeyArn;
 
@@ -1855,7 +1895,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaFunctionEventInvokeConfig : AWSModel
 
@@ -1895,7 +1935,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 
 
 /**
- <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
+ <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
  */
 @property (nonatomic, assign) AWSLambdaFunctionUrlAuthType authType;
 
@@ -1927,7 +1967,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetAccountSettingsRequest : AWSRequest
 
@@ -1935,7 +1975,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetAccountSettingsResponse : AWSModel
 
@@ -1953,7 +1993,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetAliasRequest : AWSRequest
 
@@ -1971,7 +2011,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetCodeSigningConfigRequest : AWSRequest
 
@@ -1984,7 +2024,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetCodeSigningConfigResponse : AWSModel
 
@@ -1997,7 +2037,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetEventSourceMappingRequest : AWSRequest
 
@@ -2010,7 +2050,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetFunctionCodeSigningConfigRequest : AWSRequest
 
@@ -2023,7 +2063,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetFunctionCodeSigningConfigResponse : AWSModel
 
@@ -2041,7 +2081,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetFunctionConcurrencyRequest : AWSRequest
 
@@ -2054,7 +2094,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetFunctionConcurrencyResponse : AWSModel
 
@@ -2067,7 +2107,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetFunctionConfigurationRequest : AWSRequest
 
@@ -2085,7 +2125,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetFunctionEventInvokeConfigRequest : AWSRequest
 
@@ -2103,7 +2143,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetFunctionRequest : AWSRequest
 
@@ -2121,7 +2161,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetFunctionResponse : AWSModel
 
@@ -2149,7 +2189,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetFunctionUrlConfigRequest : AWSRequest
 
@@ -2167,13 +2207,13 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetFunctionUrlConfigResponse : AWSModel
 
 
 /**
- <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
+ <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
  */
 @property (nonatomic, assign) AWSLambdaFunctionUrlAuthType authType;
 
@@ -2205,7 +2245,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetLayerVersionByArnRequest : AWSRequest
 
@@ -2218,7 +2258,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetLayerVersionPolicyRequest : AWSRequest
 
@@ -2236,7 +2276,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetLayerVersionPolicyResponse : AWSModel
 
@@ -2254,7 +2294,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetLayerVersionRequest : AWSRequest
 
@@ -2272,7 +2312,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetLayerVersionResponse : AWSModel
 
@@ -2325,7 +2365,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetPolicyRequest : AWSRequest
 
@@ -2343,7 +2383,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetPolicyResponse : AWSModel
 
@@ -2361,7 +2401,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetProvisionedConcurrencyConfigRequest : AWSRequest
 
@@ -2379,7 +2419,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetProvisionedConcurrencyConfigResponse : AWSModel
 
@@ -2417,7 +2457,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetRuntimeManagementConfigRequest : AWSRequest
 
@@ -2435,10 +2475,15 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaGetRuntimeManagementConfigResponse : AWSModel
 
+
+/**
+ <p>The Amazon Resource Name (ARN) of your function.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionArn;
 
 /**
  <p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>Manual</b>, the ARN is returned, otherwise <code>null</code> is returned.</p>
@@ -2512,7 +2557,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaInvocationRequest : AWSRequest
 
@@ -2550,7 +2595,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaInvocationResponse : AWSModel
 
@@ -2583,7 +2628,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaInvokeAsyncRequest : AWSRequest
 
@@ -2769,7 +2814,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListAliasesRequest : AWSRequest
 
@@ -2797,7 +2842,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListAliasesResponse : AWSModel
 
@@ -2815,7 +2860,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListCodeSigningConfigsRequest : AWSRequest
 
@@ -2833,7 +2878,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListCodeSigningConfigsResponse : AWSModel
 
@@ -2851,7 +2896,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListEventSourceMappingsRequest : AWSRequest
 
@@ -2879,7 +2924,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListEventSourceMappingsResponse : AWSModel
 
@@ -2897,7 +2942,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListFunctionEventInvokeConfigsRequest : AWSRequest
 
@@ -2920,7 +2965,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListFunctionEventInvokeConfigsResponse : AWSModel
 
@@ -2938,7 +2983,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListFunctionUrlConfigsRequest : AWSRequest
 
@@ -2961,7 +3006,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListFunctionUrlConfigsResponse : AWSModel
 
@@ -2979,7 +3024,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListFunctionsByCodeSigningConfigRequest : AWSRequest
 
@@ -3002,7 +3047,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListFunctionsByCodeSigningConfigResponse : AWSModel
 
@@ -3020,7 +3065,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListFunctionsRequest : AWSRequest
 
@@ -3066,7 +3111,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListLayerVersionsRequest : AWSRequest
 
@@ -3099,7 +3144,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListLayerVersionsResponse : AWSModel
 
@@ -3117,7 +3162,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListLayersRequest : AWSRequest
 
@@ -3145,7 +3190,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListLayersResponse : AWSModel
 
@@ -3163,7 +3208,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListProvisionedConcurrencyConfigsRequest : AWSRequest
 
@@ -3186,7 +3231,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListProvisionedConcurrencyConfigsResponse : AWSModel
 
@@ -3204,7 +3249,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListTagsRequest : AWSRequest
 
@@ -3217,7 +3262,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListTagsResponse : AWSModel
 
@@ -3230,7 +3275,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListVersionsByFunctionRequest : AWSRequest
 
@@ -3253,7 +3298,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaListVersionsByFunctionResponse : AWSModel
 
@@ -3340,7 +3385,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaPublishLayerVersionRequest : AWSRequest
 
@@ -3378,7 +3423,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaPublishLayerVersionResponse : AWSModel
 
@@ -3431,7 +3476,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaPublishVersionRequest : AWSRequest
 
@@ -3459,7 +3504,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaPutFunctionCodeSigningConfigRequest : AWSRequest
 
@@ -3477,7 +3522,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaPutFunctionCodeSigningConfigResponse : AWSModel
 
@@ -3495,7 +3540,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaPutFunctionConcurrencyRequest : AWSRequest
 
@@ -3513,7 +3558,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaPutFunctionEventInvokeConfigRequest : AWSRequest
 
@@ -3546,7 +3591,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaPutProvisionedConcurrencyConfigRequest : AWSRequest
 
@@ -3569,7 +3614,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaPutProvisionedConcurrencyConfigResponse : AWSModel
 
@@ -3607,7 +3652,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaPutRuntimeManagementConfigRequest : AWSRequest
 
@@ -3635,7 +3680,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaPutRuntimeManagementConfigResponse : AWSModel
 
@@ -3658,7 +3703,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaRemoveLayerVersionPermissionRequest : AWSRequest
 
@@ -3686,7 +3731,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaRemovePermissionRequest : AWSRequest
 
@@ -3838,7 +3883,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaTagResourceRequest : AWSRequest
 
@@ -3882,7 +3927,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaUntagResourceRequest : AWSRequest
 
@@ -3900,7 +3945,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaUpdateAliasRequest : AWSRequest
 
@@ -3938,7 +3983,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaUpdateCodeSigningConfigRequest : AWSRequest
 
@@ -3966,7 +4011,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaUpdateCodeSigningConfigResponse : AWSModel
 
@@ -3979,7 +4024,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaUpdateEventSourceMappingRequest : AWSRequest
 
@@ -3998,6 +4043,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
  <p>(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
  */
 @property (nonatomic, strong) AWSLambdaDestinationConfig * _Nullable destinationConfig;
+
+/**
+ <p>Specific configuration settings for a DocumentDB event source.</p>
+ */
+@property (nonatomic, strong) AWSLambdaDocumentDBEventSourceConfig * _Nullable documentDBEventSourceConfig;
 
 /**
  <p>When true, the event source mapping is active. When false, Lambda pauses polling and invocation.</p><p>Default: True</p>
@@ -4062,7 +4112,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaUpdateFunctionCodeRequest : AWSRequest
 
@@ -4120,7 +4170,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaUpdateFunctionConfigurationRequest : AWSRequest
 
@@ -4166,7 +4216,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @property (nonatomic, strong) AWSLambdaImageConfig * _Nullable imageConfig;
 
 /**
- <p>The ARN of the Key Management Service (KMS) key that's used to encrypt your function's environment variables. If it's not provided, Lambda uses a default service key.</p>
+ <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment variables</a>. When <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda SnapStart</a> is activated, this key is also used to encrypt your function's snapshot. If you don't provide a customer managed key, Lambda uses a default service key.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSKeyArn;
 
@@ -4191,7 +4241,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @property (nonatomic, strong) NSString * _Nullable role;
 
 /**
- <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive. </p>
+ <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.</p><p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
  */
 @property (nonatomic, assign) AWSLambdaRuntime runtime;
 
@@ -4218,7 +4268,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaUpdateFunctionEventInvokeConfigRequest : AWSRequest
 
@@ -4251,13 +4301,13 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaUpdateFunctionUrlConfigRequest : AWSRequest
 
 
 /**
- <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
+ <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
  */
 @property (nonatomic, assign) AWSLambdaFunctionUrlAuthType authType;
 
@@ -4279,13 +4329,13 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLambdaUpdateFunctionUrlConfigResponse : AWSModel
 
 
 /**
- <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
+ <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
  */
 @property (nonatomic, assign) AWSLambdaFunctionUrlAuthType authType;
 
