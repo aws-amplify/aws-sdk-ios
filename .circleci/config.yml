@@ -1165,7 +1165,7 @@ workflows:
           filters:
             branches:
               only:
-                - royjit.credtest
+                - main
 
       - integ_test:
           scheme: AWSAutoScaling
@@ -1205,7 +1205,7 @@ workflows:
           filters:
             branches:
               only:
-                - royjit.credtest
+                - main
 
       - integ_test:
           scheme: AWSDynamoDB
