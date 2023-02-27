@@ -105,7 +105,6 @@ NSString *TestsIdentityPoolId = nil;
                 XCTAssertNotNil(credentials.secretKey);
                 XCTAssertNotNil(credentials.sessionKey);
                 XCTAssertNotNil(credentials.expiration);
-                NSLog(@"Iter = %d sec %@", i, credentials.sessionKey);
                 [expectation fulfill];
                 return nil;
             }] ;
