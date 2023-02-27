@@ -19,6 +19,8 @@
 
 @interface AWSLocationNSSecureCodingTests : AWSNSSecureCodingTest
 
+- (void) test_AWSLocationApiKeyFilter API_AVAILABLE(ios(11));
+- (void) test_AWSLocationApiKeyRestrictions API_AVAILABLE(ios(11));
 - (void) test_AWSLocationAssociateTrackerConsumerRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationAssociateTrackerConsumerResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationBatchDeleteDevicePositionHistoryError API_AVAILABLE(ios(11));
@@ -53,6 +55,8 @@
 - (void) test_AWSLocationCircle API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCreateGeofenceCollectionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCreateGeofenceCollectionResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationCreateKeyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLocationCreateKeyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCreateMapRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCreateMapResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCreatePlaceIndexRequest API_AVAILABLE(ios(11));
@@ -64,6 +68,8 @@
 - (void) test_AWSLocationDataSourceConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDeleteGeofenceCollectionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDeleteGeofenceCollectionResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationDeleteKeyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLocationDeleteKeyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDeleteMapRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDeleteMapResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDeletePlaceIndexRequest API_AVAILABLE(ios(11));
@@ -74,6 +80,8 @@
 - (void) test_AWSLocationDeleteTrackerResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDescribeGeofenceCollectionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDescribeGeofenceCollectionResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationDescribeKeyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLocationDescribeKeyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDescribeMapRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDescribeMapResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDescribePlaceIndexRequest API_AVAILABLE(ios(11));
@@ -114,6 +122,9 @@
 - (void) test_AWSLocationListGeofenceResponseEntry API_AVAILABLE(ios(11));
 - (void) test_AWSLocationListGeofencesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationListGeofencesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationListKeysRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLocationListKeysResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationListKeysResponseEntry API_AVAILABLE(ios(11));
 - (void) test_AWSLocationListMapsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationListMapsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationListMapsResponseEntry API_AVAILABLE(ios(11));
@@ -160,6 +171,8 @@
 - (void) test_AWSLocationUntagResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationUpdateGeofenceCollectionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationUpdateGeofenceCollectionResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationUpdateKeyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLocationUpdateKeyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationUpdateMapRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationUpdateMapResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationUpdatePlaceIndexRequest API_AVAILABLE(ios(11));
@@ -173,6 +186,14 @@
 @end
 
 @implementation AWSLocationNSSecureCodingTests
+
+- (void) test_AWSLocationApiKeyFilter {
+    [self validateSecureCodingForClass:[AWSLocationApiKeyFilter class]];
+}
+
+- (void) test_AWSLocationApiKeyRestrictions {
+    [self validateSecureCodingForClass:[AWSLocationApiKeyRestrictions class]];
+}
 
 - (void) test_AWSLocationAssociateTrackerConsumerRequest {
     [self validateSecureCodingForClass:[AWSLocationAssociateTrackerConsumerRequest class]];
@@ -310,6 +331,14 @@
     [self validateSecureCodingForClass:[AWSLocationCreateGeofenceCollectionResponse class]];
 }
 
+- (void) test_AWSLocationCreateKeyRequest {
+    [self validateSecureCodingForClass:[AWSLocationCreateKeyRequest class]];
+}
+
+- (void) test_AWSLocationCreateKeyResponse {
+    [self validateSecureCodingForClass:[AWSLocationCreateKeyResponse class]];
+}
+
 - (void) test_AWSLocationCreateMapRequest {
     [self validateSecureCodingForClass:[AWSLocationCreateMapRequest class]];
 }
@@ -354,6 +383,14 @@
     [self validateSecureCodingForClass:[AWSLocationDeleteGeofenceCollectionResponse class]];
 }
 
+- (void) test_AWSLocationDeleteKeyRequest {
+    [self validateSecureCodingForClass:[AWSLocationDeleteKeyRequest class]];
+}
+
+- (void) test_AWSLocationDeleteKeyResponse {
+    [self validateSecureCodingForClass:[AWSLocationDeleteKeyResponse class]];
+}
+
 - (void) test_AWSLocationDeleteMapRequest {
     [self validateSecureCodingForClass:[AWSLocationDeleteMapRequest class]];
 }
@@ -392,6 +429,14 @@
 
 - (void) test_AWSLocationDescribeGeofenceCollectionResponse {
     [self validateSecureCodingForClass:[AWSLocationDescribeGeofenceCollectionResponse class]];
+}
+
+- (void) test_AWSLocationDescribeKeyRequest {
+    [self validateSecureCodingForClass:[AWSLocationDescribeKeyRequest class]];
+}
+
+- (void) test_AWSLocationDescribeKeyResponse {
+    [self validateSecureCodingForClass:[AWSLocationDescribeKeyResponse class]];
 }
 
 - (void) test_AWSLocationDescribeMapRequest {
@@ -552,6 +597,18 @@
 
 - (void) test_AWSLocationListGeofencesResponse {
     [self validateSecureCodingForClass:[AWSLocationListGeofencesResponse class]];
+}
+
+- (void) test_AWSLocationListKeysRequest {
+    [self validateSecureCodingForClass:[AWSLocationListKeysRequest class]];
+}
+
+- (void) test_AWSLocationListKeysResponse {
+    [self validateSecureCodingForClass:[AWSLocationListKeysResponse class]];
+}
+
+- (void) test_AWSLocationListKeysResponseEntry {
+    [self validateSecureCodingForClass:[AWSLocationListKeysResponseEntry class]];
 }
 
 - (void) test_AWSLocationListMapsRequest {
@@ -736,6 +793,14 @@
 
 - (void) test_AWSLocationUpdateGeofenceCollectionResponse {
     [self validateSecureCodingForClass:[AWSLocationUpdateGeofenceCollectionResponse class]];
+}
+
+- (void) test_AWSLocationUpdateKeyRequest {
+    [self validateSecureCodingForClass:[AWSLocationUpdateKeyRequest class]];
+}
+
+- (void) test_AWSLocationUpdateKeyResponse {
+    [self validateSecureCodingForClass:[AWSLocationUpdateKeyResponse class]];
 }
 
 - (void) test_AWSLocationUpdateMapRequest {
