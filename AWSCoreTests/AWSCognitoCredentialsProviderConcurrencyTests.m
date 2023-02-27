@@ -37,7 +37,6 @@ NSString *TestsIdentityPoolId = nil;
 
 - (AWSTask<NSDictionary<NSString *, NSString *> *> *)logins {
     return [[self token] continueWithSuccessBlock:^id _Nullable(AWSTask<NSString *> * _Nonnull task) {
-        NSString *token = task.result;
         return [AWSTask taskWithResult:[NSDictionary new]];
     }];
 }
@@ -91,25 +90,31 @@ NSString *TestsIdentityPoolId = nil;
                                                                                        identityProvider:identityProvider];
 
     dispatch_queue_t processingQueue = dispatch_queue_create("com.amazon.testqueue", DISPATCH_QUEUE_CONCURRENT);
-    dispatch_group_t group = dispatch_group_create();
 
-    for (int i = 0; i < 1000; i++) {
-        dispatch_group_async(group, processingQueue, ^{
-            [[[provider credentials] continueWithBlock:^id(AWSTask *task) {
+    XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription: @"Credential succeeded"];
+    [expectation setExpectedFulfillmentCount:100];
+    for (int i = 0; i < 100; i++) {
+
+        dispatch_async (processingQueue, ^{
+            [provider clearCredentials];
+            [identityProvider setIdentityId:nil];
+            [[provider credentials] continueWithBlock:^id(AWSTask *task) {
                 XCTAssertNotNil(provider.identityId, @"Unable to get identityId");
 
                 AWSCredentials *credentials = task.result;
                 XCTAssertNotNil(credentials.secretKey);
                 XCTAssertNotNil(credentials.sessionKey);
                 XCTAssertNotNil(credentials.expiration);
-
+                NSLog(@"Iter = %d sec %@", i, credentials.sessionKey);
+                [expectation fulfill];
                 return nil;
-            }] waitUntilFinished];
+            }] ;
 
         });
     }
+    [self waitForExpectations:[NSArray arrayWithObject:expectation] timeout:10];
 
-    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+
 }
 
 @end
