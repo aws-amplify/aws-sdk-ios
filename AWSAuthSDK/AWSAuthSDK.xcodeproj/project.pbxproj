@@ -254,6 +254,9 @@
 		B4497ABC27D19890009FA751 /* CognitoUserPoolBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4497AB827D19869009FA751 /* CognitoUserPoolBehavior.swift */; };
 		B4497ABD27D19890009FA751 /* CognitoUserPoolBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4497AB827D19869009FA751 /* CognitoUserPoolBehavior.swift */; };
 		B4497ABF27D19A53009FA751 /* MockUserPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4497ABE27D19A53009FA751 /* MockUserPool.swift */; };
+		B4517AAD29940F3F00B0EFB1 /* AWSMobileClientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4517AAC29940F3F00B0EFB1 /* AWSMobileClientHelper.swift */; };
+		B4517AB22994194900B0EFB1 /* AWSMobileClientKeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4517AB12994194900B0EFB1 /* AWSMobileClientKeychainHelper.swift */; };
+		B4517AB529941B8500B0EFB1 /* AWSMobileClientInitialStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4517AB429941B8500B0EFB1 /* AWSMobileClientInitialStateTests.swift */; };
 		B459353827DBBA1C003E5E41 /* FetchUserPoolTokensOperation+States.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45934C227DBBA1C003E5E41 /* FetchUserPoolTokensOperation+States.swift */; };
 		B459353927DBBA1C003E5E41 /* FetchUserPoolTokensOperation+States.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45934C227DBBA1C003E5E41 /* FetchUserPoolTokensOperation+States.swift */; };
 		B459353D27DBD341003E5E41 /* AWSMobileClientTokensTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B459353A27DBD312003E5E41 /* AWSMobileClientTokensTests.swift */; };
@@ -1563,6 +1566,9 @@
 		B4497AB627D19853009FA751 /* CognitoIdentityUserBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CognitoIdentityUserBehavior.swift; sourceTree = "<group>"; };
 		B4497AB827D19869009FA751 /* CognitoUserPoolBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CognitoUserPoolBehavior.swift; sourceTree = "<group>"; };
 		B4497ABE27D19A53009FA751 /* MockUserPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserPool.swift; sourceTree = "<group>"; };
+		B4517AAC29940F3F00B0EFB1 /* AWSMobileClientHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientHelper.swift; sourceTree = "<group>"; };
+		B4517AB12994194900B0EFB1 /* AWSMobileClientKeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientKeychainHelper.swift; sourceTree = "<group>"; };
+		B4517AB429941B8500B0EFB1 /* AWSMobileClientInitialStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientInitialStateTests.swift; sourceTree = "<group>"; };
 		B45934C227DBBA1C003E5E41 /* FetchUserPoolTokensOperation+States.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FetchUserPoolTokensOperation+States.swift"; sourceTree = "<group>"; };
 		B459353A27DBD312003E5E41 /* AWSMobileClientTokensTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientTokensTests.swift; sourceTree = "<group>"; };
 		B46820F6233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSUserPoolNewPasswordRequiredViewController.m; sourceTree = "<group>"; };
@@ -2214,6 +2220,34 @@
 			path = FetchTokensOperation;
 			sourceTree = "<group>";
 		};
+		B4517AAF2994191B00B0EFB1 /* InitialStateTests */ = {
+			isa = PBXGroup;
+			children = (
+				B4517AB429941B8500B0EFB1 /* AWSMobileClientInitialStateTests.swift */,
+			);
+			path = InitialStateTests;
+			sourceTree = "<group>";
+		};
+		B4517AB02994193500B0EFB1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B4517AAC29940F3F00B0EFB1 /* AWSMobileClientHelper.swift */,
+				B4517AB12994194900B0EFB1 /* AWSMobileClientKeychainHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B4517AB329941B4C00B0EFB1 /* NameSpaceTests */ = {
+			isa = PBXGroup;
+			children = (
+				B4DC80892764635E00345097 /* NameSpaceBaseTests.swift */,
+				B4CD528F2764177B00B2F6B9 /* NameSpaceWithNoPreviousInstallTests.swift */,
+				B4DC808B2764647500345097 /* NameSpaceWithPreviousSignInAndCleanUpTests.swift */,
+				B4DC80872764632B00345097 /* NameSpaceWithPreviousSignInTests.swift */,
+			);
+			path = NameSpaceTests;
+			sourceTree = "<group>";
+		};
 		B47478DC27CECFEC004C427C /* AWSAsyncOperations */ = {
 			isa = PBXGroup;
 			children = (
@@ -2268,10 +2302,9 @@
 		B4CD532127643ED200B2F6B9 /* AWSMobileClientUnitTestWithApp */ = {
 			isa = PBXGroup;
 			children = (
-				B4DC80892764635E00345097 /* NameSpaceBaseTests.swift */,
-				B4CD528F2764177B00B2F6B9 /* NameSpaceWithNoPreviousInstallTests.swift */,
-				B4DC80872764632B00345097 /* NameSpaceWithPreviousSignInTests.swift */,
-				B4DC808B2764647500345097 /* NameSpaceWithPreviousSignInAndCleanUpTests.swift */,
+				B4517AB02994193500B0EFB1 /* Helpers */,
+				B4517AAF2994191B00B0EFB1 /* InitialStateTests */,
+				B4517AB329941B4C00B0EFB1 /* NameSpaceTests */,
 				B4E3389D276845EF009824D1 /* README.md */,
 			);
 			path = AWSMobileClientUnitTestWithApp;
@@ -3046,7 +3079,7 @@
 						ProvisioningStyle = Automatic;
 					};
 					B49C887324B38746009739FC = {
-						LastSwiftMigration = 1320;
+						LastSwiftMigration = 1420;
 					};
 					B4CD531627643EA100B2F6B9 = {
 						CreatedOnToolsVersion = 13.1;
@@ -4260,6 +4293,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4517AB529941B8500B0EFB1 /* AWSMobileClientInitialStateTests.swift in Sources */,
+				B4517AB22994194900B0EFB1 /* AWSMobileClientKeychainHelper.swift in Sources */,
+				B4517AAD29940F3F00B0EFB1 /* AWSMobileClientHelper.swift in Sources */,
 				B4DC80882764632B00345097 /* NameSpaceWithPreviousSignInTests.swift in Sources */,
 				B4DC808C2764647500345097 /* NameSpaceWithPreviousSignInAndCleanUpTests.swift in Sources */,
 				B4DC808A2764635E00345097 /* NameSpaceBaseTests.swift in Sources */,
