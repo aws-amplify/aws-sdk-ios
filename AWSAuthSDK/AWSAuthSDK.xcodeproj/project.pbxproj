@@ -126,6 +126,8 @@
 		17DED2A61F32A4E400397F88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1786CA4D1F2BEDB8003421FF /* Images.xcassets */; };
 		17F4F75121F6B0750068B553 /* AWSCognitoAuth+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */; };
 		5C3324972773F43400F2C47B /* AWSMobileClientDeleteUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3324962773F43400F2C47B /* AWSMobileClientDeleteUserTests.swift */; };
+		68B1317829A95E6400E3B3BC /* WeakHashTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B1317729A95E6400E3B3BC /* WeakHashTable.swift */; };
+		68B1317929A95E6400E3B3BC /* WeakHashTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B1317729A95E6400E3B3BC /* WeakHashTable.swift */; };
 		B402CD1F2580672F0020B83B /* _AWSMobileClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B5FC69031FAFA1AA004790CB /* _AWSMobileClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B402CD202580672F0020B83B /* AWSCognitoAuth_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 177B8AD921E52C730051068F /* AWSCognitoAuth_Internal.h */; };
 		B402CD212580672F0020B83B /* AWSCognitoAuthUICKeyChainStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 177B8ADB21E52C730051068F /* AWSCognitoAuthUICKeyChainStore.h */; };
@@ -1501,6 +1503,7 @@
 		17F4F74E21F6B0750068B553 /* AWSCognitoAuth+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSCognitoAuth+Extensions.h"; sourceTree = "<group>"; };
 		17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AWSCognitoAuth+Extensions.m"; sourceTree = "<group>"; };
 		5C3324962773F43400F2C47B /* AWSMobileClientDeleteUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientDeleteUserTests.swift; sourceTree = "<group>"; };
+		68B1317729A95E6400E3B3BC /* WeakHashTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakHashTable.swift; sourceTree = "<group>"; };
 		6BB7BF2E23E5E8FB0026E789 /* AWSMobileClient-Mixed-Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSMobileClient-Mixed-Swift.h"; sourceTree = "<group>"; };
 		B402CD3F2580672F0020B83B /* AWSMobileClientXCF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSMobileClientXCF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B402D00725815C550020B83B /* AWSMobileClientXCF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSMobileClientXCF.h; sourceTree = "<group>"; };
@@ -2152,6 +2155,7 @@
 			isa = PBXGroup;
 			children = (
 				B43CB20927C7079E00968F10 /* AWSMobileClientConstants.swift */,
+				68B1317729A95E6400E3B3BC /* WeakHashTable.swift */,
 				B43CB23527C717F500968F10 /* IdentityPoolHelper */,
 				B43CB22E27C716B400968F10 /* KeyChain */,
 				B4E0DF4527D16744008ADCEC /* Logging */,
@@ -4247,6 +4251,7 @@
 				B43CB2C227C7230F00968F10 /* UpdateDeviceStatusResult.swift in Sources */,
 				B43CB21627C7105800968F10 /* AWSMobileClient+SignUp.swift in Sources */,
 				B43CB21927C7120400968F10 /* AWSMobileClient+SignOut.swift in Sources */,
+				68B1317929A95E6400E3B3BC /* WeakHashTable.swift in Sources */,
 				B402CD342580672F0020B83B /* AWSUserPoolCustomAuthHandler.swift in Sources */,
 				B43CB24727C722B300968F10 /* Device.swift in Sources */,
 				B43CB19027C6FA7D00968F10 /* UserCodeDeliveryDetails.swift in Sources */,
@@ -4378,6 +4383,7 @@
 				B43CB2C127C7230F00968F10 /* UpdateDeviceStatusResult.swift in Sources */,
 				B43CB21527C7105800968F10 /* AWSMobileClient+SignUp.swift in Sources */,
 				B43CB21827C7120400968F10 /* AWSMobileClient+SignOut.swift in Sources */,
+				68B1317829A95E6400E3B3BC /* WeakHashTable.swift in Sources */,
 				B4B74C062332E3EB0024326F /* AWSUserPoolCustomAuthHandler.swift in Sources */,
 				B43CB24627C722B300968F10 /* Device.swift in Sources */,
 				B43CB18F27C6FA7D00968F10 /* UserCodeDeliveryDetails.swift in Sources */,
