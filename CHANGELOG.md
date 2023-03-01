@@ -1,15 +1,6 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSComprehend
----AWSEC2
----AWSKMS
 # AWS Mobile SDK for iOS CHANGELOG
-## Unreleased
+
+## 2.30.3
 
 ### Bug Fixes
 
@@ -17,7 +8,20 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - Fixed a thread safety issue in `AWSMobileClient.getTokens(_:)` that could result in a crash. (See [PR #4563](https://github.com/aws-amplify/aws-sdk-ios/pull/4563))
 
 - **AWSIoT**
-    - Fixed a potential point of priority inversion, resolving new Xcode 14 threat performance warning.
+    - Fixed a potential point of priority inversion, resolving new Xcode 14 threat performance warning. (See [PR #4575](https://github.com/aws-amplify/aws-sdk-ios/pull/4575))
+
+### Misc. Updates
+
+- **AWSMobileClient**
+    - Add validation for the initial state of AWSMobileClient (See [PR #4547](https://github.com/aws-amplify/aws-sdk-ios/pull/4547))
+    
+- Model updates for the following services
+  - AWSEC2
+  - AWSKMS
+  - AWSLambda
+  - AWSConnect
+  - AWSLocation
+
 ## 2.30.2
 
 ### Bug Fixes
