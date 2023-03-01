@@ -11,9 +11,13 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 # AWS Mobile SDK for iOS CHANGELOG
 ## Unreleased
 
+### Bug Fixes
+
+- **AWSMobileClient**
+  - Fixed a thread safety issue in `AWSMobileClient.getTokens(_:)` that could result in a crash. (See [PR #4563](https://github.com/aws-amplify/aws-sdk-ios/pull/4563))
+
 - **AWSIoT**
     - Fixed a potential point of priority inversion, resolving new Xcode 14 threat performance warning.
-
 ## 2.30.2
 
 ### Bug Fixes

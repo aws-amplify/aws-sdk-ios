@@ -34,9 +34,7 @@ extension AWSMobileClient {
             AWSMobileClientLogging.verbose("Adding FetchUserPoolTokensOperation operation")
             let operation = FetchUserPoolTokensOperation(completion: completionHandler)
             operation.delegate = self
-            tokenFetchOperationQueue.addOperation {
-                self.tokenOperations.add(operation)
-            }
+            tokenOperations.add(operation)
             tokenFetchOperationQueue.addOperation(operation)
         case .hostedUI:
             AWSMobileClientLogging.verbose("Invoking hostedUI getTokens")
@@ -44,9 +42,7 @@ extension AWSMobileClient {
                 userPool: AWSCognitoAuth(forKey: AWSMobileClientConstants.CognitoAuthRegistrationKey),
                 completion: completionHandler)
             operation.delegate = self
-            tokenFetchOperationQueue.addOperation {
-                self.tokenOperations.add(operation)
-            }
+            tokenOperations.add(operation)
             tokenFetchOperationQueue.addOperation(operation)
         default:
             let message = AWSMobileClientConstants.notSignedInMessage

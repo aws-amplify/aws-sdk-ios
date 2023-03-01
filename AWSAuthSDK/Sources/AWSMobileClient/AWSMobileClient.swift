@@ -92,7 +92,7 @@ final public class AWSMobileClient: _AWSMobileClient {
     /// come as the second step in custom auth.
     var userPassword: String? = nil
 
-    var tokenOperations:NSHashTable<FetchUserPoolTokensOperation> = NSHashTable.weakObjects()
+    var tokenOperations: WeakHashTable<FetchUserPoolTokensOperation> = WeakHashTable()
 
     // MARK: Public API variables
     
