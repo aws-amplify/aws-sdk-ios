@@ -53,6 +53,7 @@
 - (void) test_AWSLambdaDeleteLayerVersionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaDeleteProvisionedConcurrencyConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaDestinationConfig API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaDocumentDBEventSourceConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaEnvironment API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaEnvironmentError API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaEnvironmentResponse API_AVAILABLE(ios(11));
@@ -307,6 +308,10 @@
 
 - (void) test_AWSLambdaDestinationConfig {
     [self validateSecureCodingForClass:[AWSLambdaDestinationConfig class]];
+}
+
+- (void) test_AWSLambdaDocumentDBEventSourceConfig {
+    [self validateSecureCodingForClass:[AWSLambdaDocumentDBEventSourceConfig class]];
 }
 
 - (void) test_AWSLambdaEnvironment {

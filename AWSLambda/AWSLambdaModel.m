@@ -381,6 +381,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"batchSize" : @"BatchSize",
              @"bisectBatchOnFunctionError" : @"BisectBatchOnFunctionError",
              @"destinationConfig" : @"DestinationConfig",
+             @"documentDBEventSourceConfig" : @"DocumentDBEventSourceConfig",
              @"enabled" : @"Enabled",
              @"eventSourceArn" : @"EventSourceArn",
              @"filterCriteria" : @"FilterCriteria",
@@ -408,6 +409,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)destinationConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaDestinationConfig class]];
+}
+
++ (NSValueTransformer *)documentDBEventSourceConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaDocumentDBEventSourceConfig class]];
 }
 
 + (NSValueTransformer *)filterCriteriaJSONTransformer {
@@ -986,6 +991,43 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 @end
 
+@implementation AWSLambdaDocumentDBEventSourceConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"collectionName" : @"CollectionName",
+             @"databaseName" : @"DatabaseName",
+             @"fullDocument" : @"FullDocument",
+             };
+}
+
++ (NSValueTransformer *)fullDocumentJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"UpdateLookup"] == NSOrderedSame) {
+            return @(AWSLambdaFullDocumentUpdateLookup);
+        }
+        if ([value caseInsensitiveCompare:@"Default"] == NSOrderedSame) {
+            return @(AWSLambdaFullDocumentDefault);
+        }
+        return @(AWSLambdaFullDocumentUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaFullDocumentUpdateLookup:
+                return @"UpdateLookup";
+            case AWSLambdaFullDocumentDefault:
+                return @"Default";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSLambdaEnvironment
 
 + (BOOL)supportsSecureCoding {
@@ -1060,6 +1102,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"batchSize" : @"BatchSize",
              @"bisectBatchOnFunctionError" : @"BisectBatchOnFunctionError",
              @"destinationConfig" : @"DestinationConfig",
+             @"documentDBEventSourceConfig" : @"DocumentDBEventSourceConfig",
              @"eventSourceArn" : @"EventSourceArn",
              @"filterCriteria" : @"FilterCriteria",
              @"functionArn" : @"FunctionArn",
@@ -1091,6 +1134,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)destinationConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaDestinationConfig class]];
+}
+
++ (NSValueTransformer *)documentDBEventSourceConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaDocumentDBEventSourceConfig class]];
 }
 
 + (NSValueTransformer *)filterCriteriaJSONTransformer {
@@ -2357,6 +2404,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"functionArn" : @"FunctionArn",
              @"runtimeVersionArn" : @"RuntimeVersionArn",
              @"updateRuntimeOn" : @"UpdateRuntimeOn",
              };
@@ -4221,6 +4269,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"batchSize" : @"BatchSize",
              @"bisectBatchOnFunctionError" : @"BisectBatchOnFunctionError",
              @"destinationConfig" : @"DestinationConfig",
+             @"documentDBEventSourceConfig" : @"DocumentDBEventSourceConfig",
              @"enabled" : @"Enabled",
              @"filterCriteria" : @"FilterCriteria",
              @"functionName" : @"FunctionName",
@@ -4238,6 +4287,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)destinationConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaDestinationConfig class]];
+}
+
++ (NSValueTransformer *)documentDBEventSourceConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaDocumentDBEventSourceConfig class]];
 }
 
 + (NSValueTransformer *)filterCriteriaJSONTransformer {

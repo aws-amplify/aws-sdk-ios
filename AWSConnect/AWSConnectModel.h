@@ -257,6 +257,8 @@ typedef NS_ENUM(NSInteger, AWSConnectInstanceStorageResourceType) {
     AWSConnectInstanceStorageResourceTypeContactTraceRecords,
     AWSConnectInstanceStorageResourceTypeAgentEvents,
     AWSConnectInstanceStorageResourceTypeRealTimeContactAnalysisSegments,
+    AWSConnectInstanceStorageResourceTypeAttachments,
+    AWSConnectInstanceStorageResourceTypeContactEvaluations,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectIntegrationType) {
@@ -1199,6 +1201,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectVocabulary;
 @class AWSConnectVocabularySummary;
 @class AWSConnectVoiceRecordingConfiguration;
+@class AWSConnectWisdomInfo;
 
 /**
  <p>Information about an action.</p>
@@ -1407,7 +1410,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -1425,7 +1428,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -1448,7 +1451,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -1479,7 +1482,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -1520,7 +1523,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable functionArn;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -1533,7 +1536,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -1556,7 +1559,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable contactFlowId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -1574,7 +1577,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -1597,7 +1600,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -1620,7 +1623,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -1940,6 +1943,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  */
 @property (nonatomic, strong) NSDate * _Nullable scheduledTimestamp;
 
+/**
+ <p>Information about Amazon Connect Wisdom.</p>
+ */
+@property (nonatomic, strong) AWSConnectWisdomInfo * _Nullable wisdomInfo;
+
 @end
 
 /**
@@ -2152,7 +2160,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSNumber * _Nullable displayOrder;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -2213,7 +2221,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -2320,7 +2328,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -2422,7 +2430,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -2493,7 +2501,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable hoursOfOperationId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -2554,7 +2562,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -2610,7 +2618,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -2625,7 +2633,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>The inbound queues associated with the routing profile. If no queue is added, the agent can make only outbound calls.</p>
+ <p>The inbound queues associated with the routing profile. If no queue is added, the agent can make only outbound calls.</p><p>The limit of 10 array members applies to the maximum number of <code>RoutingProfileQueueConfig</code> objects that can be passed during a CreateRoutingProfile API request. It is different from the quota of 50 queues per routing profile per instance that is listed in <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect service quotas</a>. </p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectRoutingProfileQueueConfig *> * _Nullable queueConfigs;
 
@@ -2676,7 +2684,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable function;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -2732,7 +2740,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -2813,7 +2821,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<AWSConnectTaskTemplateField *> * _Nullable fields;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -2905,7 +2913,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -2951,7 +2959,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3012,7 +3020,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) AWSConnectUserIdentityInfo * _Nullable identityInfo;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3083,7 +3091,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable content;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3253,7 +3261,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3286,7 +3294,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable contactFlowModuleId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3312,7 +3320,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable contactFlowId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3338,7 +3346,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable hoursOfOperationId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3351,7 +3359,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3364,7 +3372,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3382,7 +3390,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3400,7 +3408,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3418,7 +3426,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3436,7 +3444,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3483,7 +3491,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3511,7 +3519,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable hierarchyGroupId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3524,7 +3532,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3542,7 +3550,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3588,7 +3596,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable agentStatusId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3619,7 +3627,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable contactFlowModuleId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3681,7 +3689,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable contactId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3712,7 +3720,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable hoursOfOperationId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3743,7 +3751,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectInstanceAttributeType attributeType;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3769,7 +3777,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3800,7 +3808,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable associationId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3857,7 +3865,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3888,7 +3896,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3919,7 +3927,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3950,7 +3958,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -3981,7 +3989,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -4043,7 +4051,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable hierarchyGroupId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -4069,7 +4077,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -4095,7 +4103,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -4126,7 +4134,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -4180,7 +4188,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -4198,7 +4206,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -4226,7 +4234,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable associationId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -4249,7 +4257,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable functionArn;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance..</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance..</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -4267,7 +4275,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable botName;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -4285,7 +4293,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -4303,7 +4311,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -4326,7 +4334,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -4354,7 +4362,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable associationId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -4441,7 +4449,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectEncryptionType encryptionType;
 
 /**
- <p>The full ARN of the encryption key. </p><note><p>Be sure to provide the full ARN of the encryption key, not just the ID.</p></note>
+ <p>The full ARN of the encryption key. </p><note><p>Be sure to provide the full ARN of the encryption key, not just the ID.</p><p>Amazon Connect supports only KMS keys with the default key spec of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default"><code>SYMMETRIC_DEFAULT</code></a>. </p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable keyId;
 
@@ -4537,7 +4545,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groupings;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -4598,7 +4606,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) AWSConnectUserDataFilters * _Nullable filters;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -4644,7 +4652,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -4705,7 +4713,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<AWSConnectHistoricalMetric *> * _Nullable historicalMetrics;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -4751,7 +4759,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -4814,7 +4822,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -5332,7 +5340,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSDate * _Nullable createdTime;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
@@ -5485,7 +5493,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -5593,6 +5601,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 /**
  <p>Configuration information of an Amazon Lex bot.</p>
+ Required parameters: [Name, LexRegion]
  */
 @interface AWSConnectLexBot : AWSModel
 
@@ -5652,7 +5661,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable agentStatusTypes;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -5693,7 +5702,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -5734,7 +5743,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -5785,7 +5794,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectContactFlowModuleState contactFlowModuleState;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -5831,7 +5840,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable contactFlowTypes;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -5877,7 +5886,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable contactId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -5918,7 +5927,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -5964,7 +5973,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -6005,7 +6014,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -6046,7 +6055,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -6128,7 +6137,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -6174,7 +6183,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -6215,7 +6224,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -6256,7 +6265,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -6442,7 +6451,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -6488,7 +6497,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -6534,7 +6543,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -6580,7 +6589,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -6626,7 +6635,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -6672,7 +6681,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectEventSourceName eventSourceName;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -6718,7 +6727,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -6759,7 +6768,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -6805,7 +6814,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -6846,7 +6855,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the resource.</p>
+ <p>The Amazon Resource Name (ARN) of the resource. All Amazon Connect resources (instances, queues, flows, routing profiles, etc) have an ARN. To locate the ARN for an instance, for example, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">Find your Amazon Connect instance ID/ARN</a>. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceArn;
 
@@ -6872,7 +6881,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -6923,7 +6932,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -6965,7 +6974,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -7011,7 +7020,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -7052,7 +7061,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -7426,7 +7435,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable agentStatusId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -7817,7 +7826,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance. You can provide the <code>InstanceId</code>, or the entire ARN.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance. You can provide the <code>InstanceId</code>, or the entire ARN.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -7881,7 +7890,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable initialContactId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -7912,7 +7921,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -8365,7 +8374,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -8421,7 +8430,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -8477,7 +8486,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -8533,7 +8542,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -8589,7 +8598,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -8872,7 +8881,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) AWSConnectChatMessage * _Nullable initialMessage;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -8938,7 +8947,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable initialContactId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -8979,7 +8988,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable contactId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -9035,7 +9044,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable destinationPhoneNumber;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -9096,7 +9105,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -9119,6 +9128,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP).</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSConnectReference *> * _Nullable references;
+
+/**
+ <p>The contactId that is <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html#linked-tasks">related</a> to this contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable relatedContactId;
 
 /**
  <p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>
@@ -9162,7 +9176,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable initialContactId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -9188,7 +9202,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable contactId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -9214,7 +9228,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable contactId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -9291,7 +9305,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable initialContactId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -9639,7 +9653,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable contactId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -9713,7 +9727,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSNumber * _Nullable displayOrder;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -9751,7 +9765,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable initialContactId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -9818,7 +9832,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -9854,7 +9868,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable content;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -9885,7 +9899,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -9962,7 +9976,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -9998,7 +10012,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable contactId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10039,7 +10053,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable hoursOfOperationId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10067,7 +10081,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectInstanceAttributeType attributeType;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10090,7 +10104,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable associationId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10136,7 +10150,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable contactId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10203,7 +10217,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable hoursOfOperationId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10221,7 +10235,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10249,7 +10263,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10272,7 +10286,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10295,7 +10309,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10318,7 +10332,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10346,7 +10360,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10369,7 +10383,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10397,7 +10411,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable defaultOutboundQueueId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10420,7 +10434,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10443,7 +10457,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10476,7 +10490,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable function;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10514,7 +10528,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10567,7 +10581,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<AWSConnectTaskTemplateField *> * _Nullable fields;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10635,7 +10649,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10694,7 +10708,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable hierarchyGroupId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10717,7 +10731,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable hierarchyGroupId;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10740,7 +10754,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) AWSConnectHierarchyStructureUpdate * _Nullable hierarchyStructure;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10758,7 +10772,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) AWSConnectUserIdentityInfo * _Nullable identityInfo;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10776,7 +10790,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10799,7 +10813,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10822,7 +10836,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -11370,6 +11384,19 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>Identifies which track is being recorded.</p>
  */
 @property (nonatomic, assign) AWSConnectVoiceRecordingTrack voiceRecordingTrack;
+
+@end
+
+/**
+ <p>Information about Amazon Connect Wisdom.</p>
+ */
+@interface AWSConnectWisdomInfo : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Wisdom session.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sessionArn;
 
 @end
 
