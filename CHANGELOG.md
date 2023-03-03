@@ -16,7 +16,7 @@
     - Add validation for the initial state of AWSMobileClient (See [PR #4547](https://github.com/aws-amplify/aws-sdk-ios/pull/4547))
 
 - **AWSS3**
-    - Fixing the integration tests by using correct encryption value (See [PR #4592](https://github.com/aws-amplify/aws-sdk-ios/pull/4592))
+    - Fixing the integration tests by using correct value for AWSS3ServerSideEncryption (See [PR #4592](https://github.com/aws-amplify/aws-sdk-ios/pull/4592))
     
 - Model updates for the following services
   - AWSEC2
