@@ -17,7 +17,7 @@
     <a title="AWSEC2ModifyImageAttributeRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSEC2 2.30.2 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSEC2 2.30.3 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -6454,7 +6454,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The name of the attribute to modify.</p><p>Valid values: <code>description</code> | <code><a href="../Classes/AWSEC2ModifyImageAttributeRequest.html#/c:objc(cs)AWSEC2ModifyImageAttributeRequest(py)launchPermission">launchPermission</a></code></p>
+                        <p>The name of the attribute to modify.</p><p>Valid values: <code>description</code> | <code><a href="../Classes/AWSEC2ModifyImageAttributeRequest.html#/c:objc(cs)AWSEC2ModifyImageAttributeRequest(py)imdsSupport">imdsSupport</a></code> | <code><a href="../Classes/AWSEC2ModifyImageAttributeRequest.html#/c:objc(cs)AWSEC2ModifyImageAttributeRequest(py)launchPermission">launchPermission</a></code></p>
 
                       </div>
                       <div class="declaration">
@@ -6563,6 +6563,38 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">imageId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSEC2ModifyImageAttributeRequest(py)imdsSupport"></a>
+                    <a name="//apple_ref/objc/Property/imdsSupport" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2ModifyImageAttributeRequest(py)imdsSupport">imdsSupport</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>Set to <code>v2.0</code> to indicate that IMDSv2 is specified in the AMI. Instances launched from this AMI will have <code>HttpTokens</code> automatically set to <code>required</code> so that, by default, the instance requires that IMDSv2 is used when requesting instance metadata. In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p><important><p>Do not use this parameter unless your AMI software supports IMDSv2. After you set the value to <code>v2.0</code>, you can&rsquo;t undo it. The only way to “reset” your AMI is to create a new AMI from the underlying snapshot.</p></important></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSEC2AttributeValue.html">AWSEC2AttributeValue</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">imdsSupport</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">imdsSupport</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSEC2AttributeValue.html">AWSEC2AttributeValue</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -6806,7 +6838,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The value of the attribute being modified. This parameter can be used only when the <code>Attribute</code> parameter is <code>description</code>.</p>
+                        <p>The value of the attribute being modified. This parameter can be used only when the <code>Attribute</code> parameter is <code>description</code> or <code><a href="../Classes/AWSEC2ModifyImageAttributeRequest.html#/c:objc(cs)AWSEC2ModifyImageAttributeRequest(py)imdsSupport">imdsSupport</a></code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6830,7 +6862,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-02-17)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-03-03)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
