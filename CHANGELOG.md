@@ -1,5 +1,12 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.30.4
+
+### Bug Fixes
+
+- **AWSCore**
+    - Add sync control to avoid crash during concurrent credential requests
+
 ## 2.30.3
 
 ### Bug Fixes

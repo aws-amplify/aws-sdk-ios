@@ -176,7 +176,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
 /**
  The identity id associated with this provider. This value will be fetched from the keychain at startup. If you do not want to reuse the existing identity id, you must call the clearKeychain method.
  */
-@property (nonatomic, strong, readonly, nullable) NSString *identityId;
+@property (atomic, strong, readonly, nullable) NSString *identityId;
 
 /**
  The identity pool id associated with this provider. Also used to create a namedspaced keychain area to store identity id and credentials.
