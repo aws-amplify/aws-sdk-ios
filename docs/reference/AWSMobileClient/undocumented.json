@@ -2,21 +2,21 @@
   "warnings": [
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
-      "line": 97,
+      "line": 102,
       "symbol": "AWSMobileClient.deviceOperations",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientExtensions.swift",
-      "line": 46,
+      "line": 42,
       "symbol": "AWSMobileClient.userSub",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientExtensions.swift",
-      "line": 73,
+      "line": 69,
       "symbol": "AWSMobileClient.handleAuthResponse(_:open:sourceApplication:annotation:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -44,42 +44,42 @@
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/Helpers/UserPoolHelper/AWSUserPoolOperationsHandler.swift",
-      "line": 131,
+      "line": 130,
       "symbol": "UserPoolOperationsHandler.getDetails(_:passwordAuthenticationCompletionSource:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/Helpers/UserPoolHelper/AWSUserPoolOperationsHandler.swift",
-      "line": 135,
+      "line": 134,
       "symbol": "UserPoolOperationsHandler.didCompleteStepWithError(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/Helpers/UserPoolHelper/AWSUserPoolOperationsHandler.swift",
-      "line": 142,
+      "line": 141,
       "symbol": "UserPoolOperationsHandler.getNewPasswordDetails(_:newPasswordRequiredCompletionSource:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/Helpers/UserPoolHelper/AWSUserPoolOperationsHandler.swift",
-      "line": 147,
+      "line": 146,
       "symbol": "UserPoolOperationsHandler.didCompleteNewPasswordStepWithError(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/Helpers/UserPoolHelper/AWSUserPoolOperationsHandler.swift",
-      "line": 154,
+      "line": 153,
       "symbol": "UserPoolOperationsHandler.getCode_v2(_:mfaCodeCompletionSource:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/Helpers/UserPoolHelper/AWSUserPoolOperationsHandler.swift",
-      "line": 160,
+      "line": 159,
       "symbol": "UserPoolOperationsHandler.didCompleteMultifactorAuthenticationStepWithError(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
