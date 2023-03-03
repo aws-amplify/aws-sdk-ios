@@ -17,7 +17,7 @@
     <a title="AWSLocation Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLocation 2.30.2 Docs</a> (89% documented)</p>
+        <p><a href="../index.html">AWSLocation 2.30.3 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -42,6 +42,12 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Classes/AWSLocation.html">AWSLocation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationApiKeyFilter.html">AWSLocationApiKeyFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationApiKeyRestrictions.html">AWSLocationApiKeyRestrictions</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLocationAssociateTrackerConsumerRequest.html">AWSLocationAssociateTrackerConsumerRequest</a>
@@ -146,6 +152,12 @@
                 <a href="../Classes/AWSLocationCreateGeofenceCollectionResponse.html">AWSLocationCreateGeofenceCollectionResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCreateKeyRequest.html">AWSLocationCreateKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCreateKeyResponse.html">AWSLocationCreateKeyResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLocationCreateMapRequest.html">AWSLocationCreateMapRequest</a>
               </li>
               <li class="nav-group-task">
@@ -179,6 +191,12 @@
                 <a href="../Classes.html#/c:objc(cs)AWSLocationDeleteGeofenceCollectionResponse">AWSLocationDeleteGeofenceCollectionResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDeleteKeyRequest.html">AWSLocationDeleteKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSLocationDeleteKeyResponse">AWSLocationDeleteKeyResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLocationDeleteMapRequest.html">AWSLocationDeleteMapRequest</a>
               </li>
               <li class="nav-group-task">
@@ -207,6 +225,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLocationDescribeGeofenceCollectionResponse.html">AWSLocationDescribeGeofenceCollectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDescribeKeyRequest.html">AWSLocationDescribeKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDescribeKeyResponse.html">AWSLocationDescribeKeyResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLocationDescribeMapRequest.html">AWSLocationDescribeMapRequest</a>
@@ -327,6 +351,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLocationListGeofencesResponse.html">AWSLocationListGeofencesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListKeysRequest.html">AWSLocationListKeysRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListKeysResponse.html">AWSLocationListKeysResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListKeysResponseEntry.html">AWSLocationListKeysResponseEntry</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLocationListMapsRequest.html">AWSLocationListMapsRequest</a>
@@ -470,6 +503,12 @@
                 <a href="../Classes/AWSLocationUpdateGeofenceCollectionResponse.html">AWSLocationUpdateGeofenceCollectionResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateKeyRequest.html">AWSLocationUpdateKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateKeyResponse.html">AWSLocationUpdateKeyResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLocationUpdateMapRequest.html">AWSLocationUpdateMapRequest</a>
               </li>
               <li class="nav-group-task">
@@ -541,6 +580,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSLocationRouteMatrixErrorCode.html">AWSLocationRouteMatrixErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLocationStatus.html">AWSLocationStatus</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSLocationTravelMode.html">AWSLocationTravelMode</a>
@@ -2370,6 +2412,147 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSLocation(im)createKey:"></a>
+                    <a name="//apple_ref/objc/Method/-createKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)createKey:">-createKey:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>Creates an API key resource in your Amazon Web Services account, which lets you grant <code>geo:GetMap*</code> actions for Amazon Location Map resources to the API key bearer.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important></p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationCreateKeyRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationCreateKeyResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">createKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationCreateKeyRequest.html">AWSLocationCreateKeyRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createKey</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationCreateKeyRequest.html">AWSLocationCreateKeyRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the CreateKey service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSLocationCreateKeyResponse.html">AWSLocationCreateKeyResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorServiceQuotaExceeded</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocation(im)createKey:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-createKey:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)createKey:completionHandler:">-createKey:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>Creates an API key resource in your Amazon Web Services account, which lets you grant <code>geo:GetMap*</code> actions for Amazon Location Map resources to the API key bearer.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important></p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationCreateKeyRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationCreateKeyResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">createKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationCreateKeyRequest.html">AWSLocationCreateKeyRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:</span>
+        <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSLocationCreateKeyResponse.html">AWSLocationCreateKeyResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                           <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createKey</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationCreateKeyRequest.html">AWSLocationCreateKeyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationCreateKeyResponse.html">AWSLocationCreateKeyResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the CreateKey service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorServiceQuotaExceeded</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSLocation(im)createMap:"></a>
                     <a name="//apple_ref/objc/Method/-createMap:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSLocation(im)createMap:">-createMap:<wbr></a>
@@ -2380,7 +2563,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
+                        <p><p>Creates a map resource in your Amazon Web Services account, which provides map tiles of different styles sourced from global location data providers.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services service terms</a> for more details.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreateMapRequest</p>
@@ -2444,7 +2627,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
+                        <p><p>Creates a map resource in your Amazon Web Services account, which provides map tiles of different styles sourced from global location data providers.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services service terms</a> for more details.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreateMapRequest</p>
@@ -2521,7 +2704,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
+                        <p><p>Creates a place index resource in your Amazon Web Services account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services service terms</a> for more details.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreatePlaceIndexRequest</p>
@@ -2585,7 +2768,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
+                        <p><p>Creates a place index resource in your Amazon Web Services account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services service terms</a> for more details.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreatePlaceIndexRequest</p>
@@ -2662,7 +2845,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a route calculator resource in your AWS account.</p><p>You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
+                        <p><p>Creates a route calculator resource in your Amazon Web Services account.</p><p>You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services service terms</a> for more details.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreateRouteCalculatorRequest</p>
@@ -2727,7 +2910,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a route calculator resource in your AWS account.</p><p>You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
+                        <p><p>Creates a route calculator resource in your Amazon Web Services account.</p><p>You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services service terms</a> for more details.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreateRouteCalculatorRequest</p>
@@ -2806,7 +2989,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a tracker resource in your AWS account, which lets you retrieve current and historical location of devices.</p>
+                        <p>Creates a tracker resource in your Amazon Web Services account, which lets you retrieve current and historical location of devices.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreateTrackerRequest</p>
@@ -2870,7 +3053,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a tracker resource in your AWS account, which lets you retrieve current and historical location of devices.</p>
+                        <p>Creates a tracker resource in your Amazon Web Services account, which lets you retrieve current and historical location of devices.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreateTrackerRequest</p>
@@ -2947,7 +3130,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Deletes a geofence collection from your AWS account.</p><note><p>This operation deletes the resource permanently. If the geofence collection is the target of a tracker resource, the devices will no longer be monitored.</p></note></p>
+                        <p><p>Deletes a geofence collection from your Amazon Web Services account.</p><note><p>This operation deletes the resource permanently. If the geofence collection is the target of a tracker resource, the devices will no longer be monitored.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationDeleteGeofenceCollectionRequest</p>
@@ -3012,7 +3195,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Deletes a geofence collection from your AWS account.</p><note><p>This operation deletes the resource permanently. If the geofence collection is the target of a tracker resource, the devices will no longer be monitored.</p></note></p>
+                        <p><p>Deletes a geofence collection from your Amazon Web Services account.</p><note><p>This operation deletes the resource permanently. If the geofence collection is the target of a tracker resource, the devices will no longer be monitored.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationDeleteGeofenceCollectionRequest</p>
@@ -3081,6 +3264,147 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSLocation(im)deleteKey:"></a>
+                    <a name="//apple_ref/objc/Method/-deleteKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)deleteKey:">-deleteKey:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Deletes the specified API key. The API key must have been deactivated more than 90 days previously.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationDeleteKeyRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationDeleteKeyResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">deleteKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationDeleteKeyRequest.html">AWSLocationDeleteKeyRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteKey</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDeleteKeyRequest.html">AWSLocationDeleteKeyRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DeleteKey service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSLocationDeleteKeyResponse">AWSLocationDeleteKeyResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocation(im)deleteKey:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-deleteKey:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)deleteKey:completionHandler:">-deleteKey:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Deletes the specified API key. The API key must have been deactivated more than 90 days previously.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationDeleteKeyRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationDeleteKeyResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">deleteKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationDeleteKeyRequest.html">AWSLocationDeleteKeyRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:</span>
+        <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSLocationDeleteKeyResponse">AWSLocationDeleteKeyResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                           <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteKey</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDeleteKeyRequest.html">AWSLocationDeleteKeyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLocationDeleteKeyResponse">AWSLocationDeleteKeyResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DeleteKey service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSLocation(im)deleteMap:"></a>
                     <a name="//apple_ref/objc/Method/-deleteMap:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSLocation(im)deleteMap:">-deleteMap:<wbr></a>
@@ -3091,7 +3415,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Deletes a map resource from your AWS account.</p><note><p>This operation deletes the resource permanently. If the map is being used in an application, the map may not render.</p></note></p>
+                        <p><p>Deletes a map resource from your Amazon Web Services account.</p><note><p>This operation deletes the resource permanently. If the map is being used in an application, the map may not render.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationDeleteMapRequest</p>
@@ -3155,7 +3479,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Deletes a map resource from your AWS account.</p><note><p>This operation deletes the resource permanently. If the map is being used in an application, the map may not render.</p></note></p>
+                        <p><p>Deletes a map resource from your Amazon Web Services account.</p><note><p>This operation deletes the resource permanently. If the map is being used in an application, the map may not render.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationDeleteMapRequest</p>
@@ -3232,7 +3556,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Deletes a place index resource from your AWS account.</p><note><p>This operation deletes the resource permanently.</p></note></p>
+                        <p><p>Deletes a place index resource from your Amazon Web Services account.</p><note><p>This operation deletes the resource permanently.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationDeletePlaceIndexRequest</p>
@@ -3296,7 +3620,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Deletes a place index resource from your AWS account.</p><note><p>This operation deletes the resource permanently.</p></note></p>
+                        <p><p>Deletes a place index resource from your Amazon Web Services account.</p><note><p>This operation deletes the resource permanently.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationDeletePlaceIndexRequest</p>
@@ -3373,7 +3697,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Deletes a route calculator resource from your AWS account.</p><note><p>This operation deletes the resource permanently.</p></note></p>
+                        <p><p>Deletes a route calculator resource from your Amazon Web Services account.</p><note><p>This operation deletes the resource permanently.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationDeleteRouteCalculatorRequest</p>
@@ -3438,7 +3762,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Deletes a route calculator resource from your AWS account.</p><note><p>This operation deletes the resource permanently.</p></note></p>
+                        <p><p>Deletes a route calculator resource from your Amazon Web Services account.</p><note><p>This operation deletes the resource permanently.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationDeleteRouteCalculatorRequest</p>
@@ -3517,7 +3841,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Deletes a tracker resource from your AWS account.</p><note><p>This operation deletes the resource permanently. If the tracker resource is in use, you may encounter an error. Make sure that the target resource isn&rsquo;t a dependency for your applications.</p></note></p>
+                        <p><p>Deletes a tracker resource from your Amazon Web Services account.</p><note><p>This operation deletes the resource permanently. If the tracker resource is in use, you may encounter an error. Make sure that the target resource isn&rsquo;t a dependency for your applications.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationDeleteTrackerRequest</p>
@@ -3581,7 +3905,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Deletes a tracker resource from your AWS account.</p><note><p>This operation deletes the resource permanently. If the tracker resource is in use, you may encounter an error. Make sure that the target resource isn&rsquo;t a dependency for your applications.</p></note></p>
+                        <p><p>Deletes a tracker resource from your Amazon Web Services account.</p><note><p>This operation deletes the resource permanently. If the tracker resource is in use, you may encounter an error. Make sure that the target resource isn&rsquo;t a dependency for your applications.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationDeleteTrackerRequest</p>
@@ -3767,6 +4091,147 @@
                               <td>
                                 <div>
                                   <p>A container for the necessary parameters to execute the DescribeGeofenceCollection service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocation(im)describeKey:"></a>
+                    <a name="//apple_ref/objc/Method/-describeKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)describeKey:">-describeKey:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>Retrieves the API key resource details.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important></p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationDescribeKeyRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationDescribeKeyResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">describeKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationDescribeKeyRequest.html">AWSLocationDescribeKeyRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeKey</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDescribeKeyRequest.html">AWSLocationDescribeKeyRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DescribeKey service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSLocationDescribeKeyResponse.html">AWSLocationDescribeKeyResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocation(im)describeKey:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-describeKey:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)describeKey:completionHandler:">-describeKey:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>Retrieves the API key resource details.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important></p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationDescribeKeyRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationDescribeKeyResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">describeKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationDescribeKeyRequest.html">AWSLocationDescribeKeyRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:</span>
+        <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSLocationDescribeKeyResponse.html">AWSLocationDescribeKeyResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                           <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeKey</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDescribeKeyRequest.html">AWSLocationDescribeKeyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationDescribeKeyResponse.html">AWSLocationDescribeKeyResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DescribeKey service method.</p>
                                 </div>
                               </td>
                             </tr>
@@ -5510,7 +5975,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Finds a place by its unique ID. A <code>PlaceId</code> is returned by other search operations.</p><note><p>A PlaceId is valid only if all of the following are the same in the original search request and the call to <code>GetPlace</code>.</p><ul><li><p>Customer AWS account</p></li><li><p>AWS Region</p></li><li><p>Data provider specified in the place index resource</p></li></ul></note></p>
+                        <p><p>Finds a place by its unique ID. A <code>PlaceId</code> is returned by other search operations.</p><note><p>A PlaceId is valid only if all of the following are the same in the original search request and the call to <code>GetPlace</code>.</p><ul><li><p>Customer Amazon Web Services account</p></li><li><p>Amazon Web Services Region</p></li><li><p>Data provider specified in the place index resource</p></li></ul></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationGetPlaceRequest</p>
@@ -5574,7 +6039,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Finds a place by its unique ID. A <code>PlaceId</code> is returned by other search operations.</p><note><p>A PlaceId is valid only if all of the following are the same in the original search request and the call to <code>GetPlace</code>.</p><ul><li><p>Customer AWS account</p></li><li><p>AWS Region</p></li><li><p>Data provider specified in the place index resource</p></li></ul></note></p>
+                        <p><p>Finds a place by its unique ID. A <code>PlaceId</code> is returned by other search operations.</p><note><p>A PlaceId is valid only if all of the following are the same in the original search request and the call to <code>GetPlace</code>.</p><ul><li><p>Customer Amazon Web Services account</p></li><li><p>Amazon Web Services Region</p></li><li><p>Data provider specified in the place index resource</p></li></ul></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationGetPlaceRequest</p>
@@ -5793,7 +6258,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists geofence collections in your AWS account.</p>
+                        <p>Lists geofence collections in your Amazon Web Services account.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationListGeofenceCollectionsRequest</p>
@@ -5858,7 +6323,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists geofence collections in your AWS account.</p>
+                        <p>Lists geofence collections in your Amazon Web Services account.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationListGeofenceCollectionsRequest</p>
@@ -6068,6 +6533,146 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSLocation(im)listKeys:"></a>
+                    <a name="//apple_ref/objc/Method/-listKeys:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)listKeys:">-listKeys:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>Lists API key resources in your Amazon Web Services account.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important></p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationListKeysRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationListKeysResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">listKeys</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationListKeysRequest.html">AWSLocationListKeysRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listKeys</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationListKeysRequest.html">AWSLocationListKeysRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListKeys service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSLocationListKeysResponse.html">AWSLocationListKeysResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocation(im)listKeys:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-listKeys:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)listKeys:completionHandler:">-listKeys:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>Lists API key resources in your Amazon Web Services account.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important></p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationListKeysRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationListKeysResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">listKeys</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationListKeysRequest.html">AWSLocationListKeysRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSLocationListKeysResponse.html">AWSLocationListKeysResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                                         <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listKeys</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationListKeysRequest.html">AWSLocationListKeysRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationListKeysResponse.html">AWSLocationListKeysResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListKeys service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSLocation(im)listMaps:"></a>
                     <a name="//apple_ref/objc/Method/-listMaps:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSLocation(im)listMaps:">-listMaps:<wbr></a>
@@ -6078,7 +6683,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists map resources in your AWS account.</p>
+                        <p>Lists map resources in your Amazon Web Services account.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationListMapsRequest</p>
@@ -6142,7 +6747,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists map resources in your AWS account.</p>
+                        <p>Lists map resources in your Amazon Web Services account.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationListMapsRequest</p>
@@ -6218,7 +6823,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists place index resources in your AWS account.</p>
+                        <p>Lists place index resources in your Amazon Web Services account.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationListPlaceIndexesRequest</p>
@@ -6282,7 +6887,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists place index resources in your AWS account.</p>
+                        <p>Lists place index resources in your Amazon Web Services account.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationListPlaceIndexesRequest</p>
@@ -6359,7 +6964,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists route calculator resources in your AWS account.</p>
+                        <p>Lists route calculator resources in your Amazon Web Services account.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationListRouteCalculatorsRequest</p>
@@ -6424,7 +7029,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists route calculator resources in your AWS account.</p>
+                        <p>Lists route calculator resources in your Amazon Web Services account.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationListRouteCalculatorsRequest</p>
@@ -6790,7 +7395,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists tracker resources in your AWS account.</p>
+                        <p>Lists tracker resources in your Amazon Web Services account.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationListTrackersRequest</p>
@@ -6854,7 +7459,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists tracker resources in your AWS account.</p>
+                        <p>Lists tracker resources in your Amazon Web Services account.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationListTrackersRequest</p>
@@ -7922,6 +8527,147 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSLocation(im)updateKey:"></a>
+                    <a name="//apple_ref/objc/Method/-updateKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)updateKey:">-updateKey:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>Updates the specified properties of a given API key resource.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important></p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdateKeyRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdateKeyResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">updateKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationUpdateKeyRequest.html">AWSLocationUpdateKeyRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateKey</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdateKeyRequest.html">AWSLocationUpdateKeyRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the UpdateKey service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSLocationUpdateKeyResponse.html">AWSLocationUpdateKeyResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocation(im)updateKey:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-updateKey:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)updateKey:completionHandler:">-updateKey:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>Updates the specified properties of a given API key resource.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important></p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdateKeyRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdateKeyResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">updateKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationUpdateKeyRequest.html">AWSLocationUpdateKeyRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:</span>
+        <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSLocationUpdateKeyResponse.html">AWSLocationUpdateKeyResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                           <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateKey</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdateKeyRequest.html">AWSLocationUpdateKeyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationUpdateKeyResponse.html">AWSLocationUpdateKeyResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the UpdateKey service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSLocation(im)updateMap:"></a>
                     <a name="//apple_ref/objc/Method/-updateMap:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSLocation(im)updateMap:">-updateMap:<wbr></a>
@@ -8491,7 +9237,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-02-17)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-03-03)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
