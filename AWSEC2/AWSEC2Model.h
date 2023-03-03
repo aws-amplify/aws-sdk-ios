@@ -241,6 +241,7 @@ typedef NS_ENUM(NSInteger, AWSEC2BootModeValues) {
     AWSEC2BootModeValuesUnknown,
     AWSEC2BootModeValuesLegacyBios,
     AWSEC2BootModeValuesUefi,
+    AWSEC2BootModeValuesUefiPreferred,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2BundleTaskState) {
@@ -890,6 +891,12 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceAutoRecoveryState) {
     AWSEC2InstanceAutoRecoveryStateUnknown,
     AWSEC2InstanceAutoRecoveryStateDisabled,
     AWSEC2InstanceAutoRecoveryStateDefault,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2InstanceBootModeValues) {
+    AWSEC2InstanceBootModeValuesUnknown,
+    AWSEC2InstanceBootModeValuesLegacyBios,
+    AWSEC2InstanceBootModeValuesUefi,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceEventWindowState) {
@@ -10307,7 +10314,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 /**
  <p>Contains the parameters for CreateCustomerGateway.</p>
- Required parameters: [BgpAsn, Type]
+ Required parameters: [Type]
  */
 @interface AWSEC2CreateCustomerGatewayRequest : AWSRequest
 
@@ -32345,7 +32352,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2InstanceBlockDeviceMapping *> * _Nullable blockDeviceMappings;
 
 /**
- <p>The boot mode of the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>The boot mode that was specified by the AMI. If the value is <code>uefi-preferred</code>, the AMI supports both UEFI and Legacy BIOS. The <code>currentInstanceBootMode</code> parameter is the boot mode that is used to boot the instance at launch or start.</p><note><p>The operating system contained in the AMI must be configured to support the specified boot mode.</p></note><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 @property (nonatomic, assign) AWSEC2BootModeValues bootMode;
 
@@ -32368,6 +32375,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The CPU options for the instance.</p>
  */
 @property (nonatomic, strong) AWSEC2CpuOptions * _Nullable cpuOptions;
+
+/**
+ <p>The boot mode that is used to boot the instance at launch or start. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ */
+@property (nonatomic, assign) AWSEC2InstanceBootModeValues currentInstanceBootMode;
 
 /**
  <p>Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.</p>
@@ -43635,7 +43647,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2BlockDeviceMapping *> * _Nullable blockDeviceMappings;
 
 /**
- <p>The boot mode of the AMI. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>The boot mode of the AMI. A value of <code>uefi-preferred</code> indicates that the AMI supports both UEFI and Legacy BIOS.</p><note><p>The operating system contained in the AMI must be configured to support the specified boot mode.</p></note><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 @property (nonatomic, assign) AWSEC2BootModeValues bootMode;
 
