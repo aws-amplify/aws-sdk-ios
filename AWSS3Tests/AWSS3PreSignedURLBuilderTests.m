@@ -1280,7 +1280,7 @@ static long unsigned testObjectSize = 10000;
             XCTAssertTrue([task.result isKindOfClass:[AWSS3PutObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3PutObjectOutput class]),[task.result description]);
             AWSS3PutObjectOutput *putObjectOutput = task.result;
             XCTAssertNotNil(putObjectOutput.ETag);
-            XCTAssertEqual(putObjectOutput.serverSideEncryption, AWSS3ServerSideEncryptionUnknown);
+            XCTAssertEqual(putObjectOutput.serverSideEncryption, AWSS3ServerSideEncryptionAES256);
             return nil;
 
         }] waitUntilFinished];
