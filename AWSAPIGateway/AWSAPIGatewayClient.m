@@ -23,7 +23,7 @@ NSString *const AWSAPIGatewayErrorHTTPHeaderFieldsKey = @"HTTPHeaderFields";
 
 static NSString *const AWSAPIGatewayAPIKeyHeader = @"x-api-key";
 
-NSString *const AWSAPIGatewaySDKVersion = @"2.26.7";
+NSString *const AWSAPIGatewaySDKVersion = @"2.30.4";
 
 static int defaultChunkSize = 1024;
 
@@ -97,11 +97,8 @@ static int defaultChunkSize = 1024;
     NSURL *URL = [self requestURL:[apiRequest.URLString aws_stringWithURLEncodingPath] query:apiRequest.queryParameters URLPathComponentsDictionary:nil];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
     request.HTTPMethod = apiRequest.HTTPMethod;
-    request.allHTTPHeaderFields = apiRequest.headerParameters;
-    if (self.APIKey) {
-        [request addValue:self.APIKey forHTTPHeaderField:AWSAPIGatewayAPIKeyHeader];
-    }
-    
+    request.allHTTPHeaderFields = [self finalizeRequestHeaders:apiRequest.headerParameters];
+
     AWSTask *task = [AWSTask taskWithResult:nil];
     
     task = [task continueWithSuccessBlock:^id(AWSTask *task) {
@@ -221,10 +218,7 @@ static int defaultChunkSize = 1024;
     NSURL *URL = [self requestURL:URLString  query:queryParameters URLPathComponentsDictionary:pathParameters];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
     request.HTTPMethod = HTTPMethod;
-    request.allHTTPHeaderFields = headerParameters;
-    if (self.APIKey) {
-        [request addValue:self.APIKey forHTTPHeaderField:AWSAPIGatewayAPIKeyHeader];
-    }
+    request.allHTTPHeaderFields = [self finalizeRequestHeaders:headerParameters];
 
     NSError *error = nil;
     if (body != nil) {
@@ -351,6 +345,18 @@ static int defaultChunkSize = 1024;
 
         return completionSource.task;
     }];
+}
+
+- (NSDictionary *)finalizeRequestHeaders:(NSDictionary *)requestHeaders {
+    NSMutableDictionary *finalizedDictionary = [NSMutableDictionary dictionaryWithDictionary:requestHeaders];
+    if ([requestHeaders valueForKey:@"Cache-Control"] == nil) {
+        [finalizedDictionary setValue:@"no-store" forKey:@"Cache-Control"];
+    }
+    if (self.APIKey) {
+        [finalizedDictionary setValue:self.APIKey forKey:AWSAPIGatewayAPIKeyHeader];
+    }
+    return finalizedDictionary;
+
 }
 
 - (NSURL *)requestURL:(NSString *)URLString query:(NSDictionary *)query URLPathComponentsDictionary:(NSDictionary * _Nullable)URLPathComponentsDictionary {

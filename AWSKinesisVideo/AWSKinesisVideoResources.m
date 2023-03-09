@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -119,7 +119,8 @@
         {\"shape\":\"ClientLimitExceededException\"},\
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"AccessDeniedException\"},\
-        {\"shape\":\"VersionMismatchException\"}\
+        {\"shape\":\"VersionMismatchException\"},\
+        {\"shape\":\"ResourceInUseException\"}\
       ],\
       \"documentation\":\"<p>Deletes a specified signaling channel. <code>DeleteSignalingChannel</code> is an asynchronous operation. If you don't specify the channel's current version, the most recent version is deleted.</p>\"\
     },\
@@ -136,9 +137,91 @@
         {\"shape\":\"InvalidArgumentException\"},\
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"NotAuthorizedException\"},\
-        {\"shape\":\"VersionMismatchException\"}\
+        {\"shape\":\"VersionMismatchException\"},\
+        {\"shape\":\"ResourceInUseException\"}\
       ],\
       \"documentation\":\"<p>Deletes a Kinesis video stream and the data contained in the stream. </p> <p>This method marks the stream for deletion, and makes the data in the stream inaccessible immediately.</p> <p> </p> <p> To ensure that you have the latest version of the stream before deleting it, you can specify the stream version. Kinesis Video Streams assigns a version to each stream. When you update a stream, Kinesis Video Streams assigns a new version number. To get the latest stream version, use the <code>DescribeStream</code> API. </p> <p>This operation requires permission for the <code>KinesisVideo:DeleteStream</code> action.</p>\"\
+    },\
+    \"DescribeEdgeConfiguration\":{\
+      \"name\":\"DescribeEdgeConfiguration\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/describeEdgeConfiguration\"\
+      },\
+      \"input\":{\"shape\":\"DescribeEdgeConfigurationInput\"},\
+      \"output\":{\"shape\":\"DescribeEdgeConfigurationOutput\"},\
+      \"errors\":[\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ClientLimitExceededException\"},\
+        {\"shape\":\"InvalidArgumentException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"StreamEdgeConfigurationNotFoundException\"}\
+      ],\
+      \"documentation\":\"<p>Describes a streamâs edge configuration that was set using the <code>StartEdgeConfigurationUpdate</code> API. Use this API to get the status of the configuration if the configuration is in sync with the Edge Agent.</p>\"\
+    },\
+    \"DescribeImageGenerationConfiguration\":{\
+      \"name\":\"DescribeImageGenerationConfiguration\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/describeImageGenerationConfiguration\"\
+      },\
+      \"input\":{\"shape\":\"DescribeImageGenerationConfigurationInput\"},\
+      \"output\":{\"shape\":\"DescribeImageGenerationConfigurationOutput\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidArgumentException\"},\
+        {\"shape\":\"ClientLimitExceededException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"AccessDeniedException\"}\
+      ],\
+      \"documentation\":\"<p>Gets the <code>ImageGenerationConfiguration</code> for a given Kinesis video stream.</p>\"\
+    },\
+    \"DescribeMappedResourceConfiguration\":{\
+      \"name\":\"DescribeMappedResourceConfiguration\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/describeMappedResourceConfiguration\"\
+      },\
+      \"input\":{\"shape\":\"DescribeMappedResourceConfigurationInput\"},\
+      \"output\":{\"shape\":\"DescribeMappedResourceConfigurationOutput\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidArgumentException\"},\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ClientLimitExceededException\"}\
+      ],\
+      \"documentation\":\"<p>Returns the most current information about the stream. Either streamName or streamARN should be provided in the input.</p> <p>Returns the most current information about the stream. The <code>streamName</code> or <code>streamARN</code> should be provided in the input.</p>\"\
+    },\
+    \"DescribeMediaStorageConfiguration\":{\
+      \"name\":\"DescribeMediaStorageConfiguration\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/describeMediaStorageConfiguration\"\
+      },\
+      \"input\":{\"shape\":\"DescribeMediaStorageConfigurationInput\"},\
+      \"output\":{\"shape\":\"DescribeMediaStorageConfigurationOutput\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidArgumentException\"},\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ClientLimitExceededException\"}\
+      ],\
+      \"documentation\":\"<p>Returns the most current information about the channel. Specify the <code>ChannelName</code> or <code>ChannelARN</code> in the input.</p>\"\
+    },\
+    \"DescribeNotificationConfiguration\":{\
+      \"name\":\"DescribeNotificationConfiguration\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/describeNotificationConfiguration\"\
+      },\
+      \"input\":{\"shape\":\"DescribeNotificationConfigurationInput\"},\
+      \"output\":{\"shape\":\"DescribeNotificationConfigurationOutput\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidArgumentException\"},\
+        {\"shape\":\"ClientLimitExceededException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"AccessDeniedException\"}\
+      ],\
+      \"documentation\":\"<p>Gets the <code>NotificationConfiguration</code> for a given Kinesis video stream.</p>\"\
     },\
     \"DescribeSignalingChannel\":{\
       \"name\":\"DescribeSignalingChannel\",\
@@ -154,7 +237,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"AccessDeniedException\"}\
       ],\
-      \"documentation\":\"<p>Returns the most current information about the signaling channel. You must specify either the name or the ARN of the channel that you want to describe.</p>\"\
+      \"documentation\":\"<p>Returns the most current information about the signaling channel. You must specify either the name or the Amazon Resource Name (ARN) of the channel that you want to describe.</p>\"\
     },\
     \"DescribeStream\":{\
       \"name\":\"DescribeStream\",\
@@ -203,7 +286,7 @@
         {\"shape\":\"ResourceInUseException\"},\
         {\"shape\":\"AccessDeniedException\"}\
       ],\
-      \"documentation\":\"<p>Provides an endpoint for the specified signaling channel to send and receive messages. This API uses the <code>SingleMasterChannelEndpointConfiguration</code> input parameter, which consists of the <code>Protocols</code> and <code>Role</code> properties.</p> <p> <code>Protocols</code> is used to determine the communication mechanism. For example, specifying <code>WSS</code> as the protocol, results in this API producing a secure websocket endpoint, and specifying <code>HTTPS</code> as the protocol, results in this API generating an HTTPS endpoint. </p> <p> <code>Role</code> determines the messaging permissions. A <code>MASTER</code> role results in this API generating an endpoint that a client can use to communicate with any of the viewers on the channel. A <code>VIEWER</code> role results in this API generating an endpoint that a client can use to communicate only with a <code>MASTER</code>. </p>\"\
+      \"documentation\":\"<p>Provides an endpoint for the specified signaling channel to send and receive messages. This API uses the <code>SingleMasterChannelEndpointConfiguration</code> input parameter, which consists of the <code>Protocols</code> and <code>Role</code> properties.</p> <p> <code>Protocols</code> is used to determine the communication mechanism. For example, if you specify <code>WSS</code> as the protocol, this API produces a secure websocket endpoint. If you specify <code>HTTPS</code> as the protocol, this API generates an HTTPS endpoint. </p> <p> <code>Role</code> determines the messaging permissions. A <code>MASTER</code> role results in this API generating an endpoint that a client can use to communicate with any of the viewers on the channel. A <code>VIEWER</code> role results in this API generating an endpoint that a client can use to communicate only with a <code>MASTER</code>. </p>\"\
     },\
     \"ListSignalingChannels\":{\
       \"name\":\"ListSignalingChannels\",\
@@ -267,6 +350,24 @@
       ],\
       \"documentation\":\"<p>Returns a list of tags associated with the specified stream.</p> <p>In the request, you must specify either the <code>StreamName</code> or the <code>StreamARN</code>. </p>\"\
     },\
+    \"StartEdgeConfigurationUpdate\":{\
+      \"name\":\"StartEdgeConfigurationUpdate\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/startEdgeConfigurationUpdate\"\
+      },\
+      \"input\":{\"shape\":\"StartEdgeConfigurationUpdateInput\"},\
+      \"output\":{\"shape\":\"StartEdgeConfigurationUpdateOutput\"},\
+      \"errors\":[\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ClientLimitExceededException\"},\
+        {\"shape\":\"InvalidArgumentException\"},\
+        {\"shape\":\"NoDataRetentionException\"},\
+        {\"shape\":\"ResourceInUseException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
+      ],\
+      \"documentation\":\"<p>An asynchronous API that updates a streamâs existing edge configuration. The Kinesis Video Stream will sync the streamâs edge configuration with the Edge Agent IoT Greengrass component that runs on an IoT Hub Device, setup at your premise. The time to sync can vary and depends on the connectivity of the Hub Device. The <code>SyncStatus</code> will be updated as the edge configuration is acknowledged, and synced with the Edge Agent. </p> <p>If this API is invoked for the first time, a new edge configuration will be created for the stream, and the sync status will be set to <code>SYNCING</code>. You will have to wait for the sync status to reach a terminal state such as: <code>IN_SYNC</code>, or <code>SYNC_FAILED</code>, before using this API again. If you invoke this API during the syncing process, a <code>ResourceInUseException</code> will be thrown. The connectivity of the streamâs edge configuration and the Edge Agent will be retried for 15 minutes. After 15 minutes, the status will transition into the <code>SYNC_FAILED</code> state.</p>\"\
+    },\
     \"TagResource\":{\
       \"name\":\"TagResource\",\
       \"http\":{\
@@ -282,7 +383,7 @@
         {\"shape\":\"AccessDeniedException\"},\
         {\"shape\":\"TagsPerResourceExceededLimitException\"}\
       ],\
-      \"documentation\":\"<p>Adds one or more tags to a signaling channel. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\\\">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Adds one or more tags to a signaling channel. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to Amazon Web Services resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\\\">Using Cost Allocation Tags</a> in the <i>Billing and Cost Management and Cost Management User Guide</i>.</p>\"\
     },\
     \"TagStream\":{\
       \"name\":\"TagStream\",\
@@ -300,7 +401,7 @@
         {\"shape\":\"InvalidResourceFormatException\"},\
         {\"shape\":\"TagsPerResourceExceededLimitException\"}\
       ],\
-      \"documentation\":\"<p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\\\">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p> <p>You must provide either the <code>StreamName</code> or the <code>StreamARN</code>.</p> <p>This operation requires permission for the <code>KinesisVideo:TagStream</code> action.</p> <p>Kinesis video streams support up to 50 tags.</p>\"\
+      \"documentation\":\"<p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to Amazon Web Services resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\\\">Using Cost Allocation Tags</a> in the <i>Billing and Cost Management and Cost Management User Guide</i>. </p> <p>You must provide either the <code>StreamName</code> or the <code>StreamARN</code>.</p> <p>This operation requires permission for the <code>KinesisVideo:TagStream</code> action.</p> <p>A Kinesis video stream can support up to 50 tags.</p>\"\
     },\
     \"UntagResource\":{\
       \"name\":\"UntagResource\",\
@@ -353,6 +454,60 @@
       ],\
       \"documentation\":\"<p> Increases or decreases the stream's data retention period by the value that you specify. To indicate whether you want to increase or decrease the data retention period, specify the <code>Operation</code> parameter in the request body. In the request, you must specify either the <code>StreamName</code> or the <code>StreamARN</code>. </p> <note> <p>The retention period that you specify replaces the current value.</p> </note> <p>This operation requires permission for the <code>KinesisVideo:UpdateDataRetention</code> action.</p> <p>Changing the data retention period affects the data in the stream as follows:</p> <ul> <li> <p>If the data retention period is increased, existing data is retained for the new retention period. For example, if the data retention period is increased from one hour to seven hours, all existing data is retained for seven hours.</p> </li> <li> <p>If the data retention period is decreased, existing data is retained for the new retention period. For example, if the data retention period is decreased from seven hours to one hour, all existing data is retained for one hour, and any data older than one hour is deleted immediately.</p> </li> </ul>\"\
     },\
+    \"UpdateImageGenerationConfiguration\":{\
+      \"name\":\"UpdateImageGenerationConfiguration\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/updateImageGenerationConfiguration\"\
+      },\
+      \"input\":{\"shape\":\"UpdateImageGenerationConfigurationInput\"},\
+      \"output\":{\"shape\":\"UpdateImageGenerationConfigurationOutput\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidArgumentException\"},\
+        {\"shape\":\"ClientLimitExceededException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ResourceInUseException\"},\
+        {\"shape\":\"NoDataRetentionException\"}\
+      ],\
+      \"documentation\":\"<p>Updates the <code>StreamInfo</code> and <code>ImageProcessingConfiguration</code> fields.</p>\"\
+    },\
+    \"UpdateMediaStorageConfiguration\":{\
+      \"name\":\"UpdateMediaStorageConfiguration\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/updateMediaStorageConfiguration\"\
+      },\
+      \"input\":{\"shape\":\"UpdateMediaStorageConfigurationInput\"},\
+      \"output\":{\"shape\":\"UpdateMediaStorageConfigurationOutput\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceInUseException\"},\
+        {\"shape\":\"InvalidArgumentException\"},\
+        {\"shape\":\"ClientLimitExceededException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"NoDataRetentionException\"}\
+      ],\
+      \"documentation\":\"<p>Associates a <code>SignalingChannel</code> to a stream to store the media. There are two signaling modes that can specified :</p> <ul> <li> <p>If the <code>StorageStatus</code> is disabled, no data will be stored, and the <code>StreamARN</code> parameter will not be needed. </p> </li> <li> <p>If the <code>StorageStatus</code> is enabled, the data will be stored in the <code>StreamARN</code> provided. </p> </li> </ul>\"\
+    },\
+    \"UpdateNotificationConfiguration\":{\
+      \"name\":\"UpdateNotificationConfiguration\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/updateNotificationConfiguration\"\
+      },\
+      \"input\":{\"shape\":\"UpdateNotificationConfigurationInput\"},\
+      \"output\":{\"shape\":\"UpdateNotificationConfigurationOutput\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidArgumentException\"},\
+        {\"shape\":\"ClientLimitExceededException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ResourceInUseException\"},\
+        {\"shape\":\"NoDataRetentionException\"}\
+      ],\
+      \"documentation\":\"<p>Updates the notification information for a stream.</p>\"\
+    },\
     \"UpdateSignalingChannel\":{\
       \"name\":\"UpdateSignalingChannel\",\
       \"http\":{\
@@ -369,7 +524,7 @@
         {\"shape\":\"AccessDeniedException\"},\
         {\"shape\":\"VersionMismatchException\"}\
       ],\
-      \"documentation\":\"<p>Updates the existing signaling channel. This is an asynchronous operation and takes time to complete. </p> <p>If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced), then it only applies to new messages sent via this channel after it's been updated. Existing messages are still expire as per the previous <code>MessageTtlSeconds</code> value.</p>\"\
+      \"documentation\":\"<p>Updates the existing signaling channel. This is an asynchronous operation and takes time to complete. </p> <p>If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced), it only applies to new messages sent via this channel after it's been updated. Existing messages are still expired as per the previous <code>MessageTtlSeconds</code> value.</p>\"\
     },\
     \"UpdateStream\":{\
       \"name\":\"UpdateStream\",\
@@ -399,7 +554,9 @@
         \"LIST_FRAGMENTS\",\
         \"GET_MEDIA_FOR_FRAGMENT_LIST\",\
         \"GET_HLS_STREAMING_SESSION_URL\",\
-        \"GET_DASH_STREAMING_SESSION_URL\"\
+        \"GET_DASH_STREAMING_SESSION_URL\",\
+        \"GET_CLIP\",\
+        \"GET_IMAGES\"\
       ]\
     },\
     \"AccessDeniedException\":{\
@@ -416,7 +573,7 @@
       \"members\":{\
         \"Message\":{\"shape\":\"ErrorMessage\"}\
       },\
-      \"documentation\":\"<p>You have reached the maximum limit of active signaling channels for this AWS account in this region.</p>\",\
+      \"documentation\":\"<p>You have reached the maximum limit of active signaling channels for this Amazon Web Services account in this region.</p>\",\
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
@@ -438,7 +595,7 @@
         },\
         \"ChannelARN\":{\
           \"shape\":\"ResourceARN\",\
-          \"documentation\":\"<p>The ARN of the signaling channel.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the signaling channel.</p>\"\
         },\
         \"ChannelType\":{\
           \"shape\":\"ChannelType\",\
@@ -491,7 +648,8 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"WSS\",\
-        \"HTTPS\"\
+        \"HTTPS\",\
+        \"WEBRTC\"\
       ]\
     },\
     \"ChannelRole\":{\
@@ -503,7 +661,10 @@
     },\
     \"ChannelType\":{\
       \"type\":\"string\",\
-      \"enum\":[\"SINGLE_MASTER\"]\
+      \"enum\":[\
+        \"SINGLE_MASTER\",\
+        \"FULL_MESH\"\
+      ]\
     },\
     \"ClientLimitExceededException\":{\
       \"type\":\"structure\",\
@@ -518,13 +679,20 @@
       \"type\":\"string\",\
       \"enum\":[\"BEGINS_WITH\"]\
     },\
+    \"ConfigurationStatus\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ENABLED\",\
+        \"DISABLED\"\
+      ]\
+    },\
     \"CreateSignalingChannelInput\":{\
       \"type\":\"structure\",\
       \"required\":[\"ChannelName\"],\
       \"members\":{\
         \"ChannelName\":{\
           \"shape\":\"ChannelName\",\
-          \"documentation\":\"<p>A name for the signaling channel that you are creating. It must be unique for each account and region.</p>\"\
+          \"documentation\":\"<p>A name for the signaling channel that you are creating. It must be unique for each Amazon Web Services account and Amazon Web Services Region.</p>\"\
         },\
         \"ChannelType\":{\
           \"shape\":\"ChannelType\",\
@@ -536,7 +704,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagOnCreateList\",\
-          \"documentation\":\"<p>A set of tags (key/value pairs) that you want to associate with this channel.</p>\"\
+          \"documentation\":\"<p>A set of tags (key-value pairs) that you want to associate with this channel.</p>\"\
         }\
       }\
     },\
@@ -545,7 +713,7 @@
       \"members\":{\
         \"ChannelARN\":{\
           \"shape\":\"ResourceARN\",\
-          \"documentation\":\"<p>The ARN of the created channel.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the created channel.</p>\"\
         }\
       }\
     },\
@@ -567,7 +735,7 @@
         },\
         \"KmsKeyId\":{\
           \"shape\":\"KmsKeyId\",\
-          \"documentation\":\"<p>The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data.</p> <p>If no key ID is specified, the default, Kinesis Video-managed key (<code>aws/kinesisvideo</code>) is used.</p> <p> For more information, see <a href=\\\"https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters\\\">DescribeKey</a>. </p>\"\
+          \"documentation\":\"<p>The ID of the Key Management Service (KMS) key that you want Kinesis Video Streams to use to encrypt stream data.</p> <p>If no key ID is specified, the default, Kinesis Video-managed key (<code>aws/kinesisvideo</code>) is used.</p> <p> For more information, see <a href=\\\"https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters\\\">DescribeKey</a>. </p>\"\
         },\
         \"DataRetentionInHours\":{\
           \"shape\":\"DataRetentionInHours\",\
@@ -597,17 +765,18 @@
       \"type\":\"integer\",\
       \"min\":0\
     },\
+    \"DeleteAfterUpload\":{\"type\":\"boolean\"},\
     \"DeleteSignalingChannelInput\":{\
       \"type\":\"structure\",\
       \"required\":[\"ChannelARN\"],\
       \"members\":{\
         \"ChannelARN\":{\
           \"shape\":\"ResourceARN\",\
-          \"documentation\":\"<p>The ARN of the signaling channel that you want to delete.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the signaling channel that you want to delete.</p>\"\
         },\
         \"CurrentVersion\":{\
           \"shape\":\"Version\",\
-          \"documentation\":\"<p>The current version of the signaling channel that you want to delete. You can obtain the current version by invoking the <code>DescribeSignalingChannel</code> or <code>ListSignalingChannels</code> APIs.</p>\"\
+          \"documentation\":\"<p>The current version of the signaling channel that you want to delete. You can obtain the current version by invoking the <code>DescribeSignalingChannel</code> or <code>ListSignalingChannels</code> API operations.</p>\"\
         }\
       }\
     },\
@@ -633,6 +802,170 @@
     \"DeleteStreamOutput\":{\
       \"type\":\"structure\",\
       \"members\":{\
+      }\
+    },\
+    \"DeletionConfig\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"EdgeRetentionInHours\":{\
+          \"shape\":\"EdgeRetentionInHours\",\
+          \"documentation\":\"<p>The number of hours that you want to retain the data in the stream on the Edge Agent. The default value of the retention time is 720 hours, which translates to 30 days.</p>\"\
+        },\
+        \"LocalSizeConfig\":{\
+          \"shape\":\"LocalSizeConfig\",\
+          \"documentation\":\"<p>The value of the local size required in order to delete the edge configuration.</p>\"\
+        },\
+        \"DeleteAfterUpload\":{\
+          \"shape\":\"DeleteAfterUpload\",\
+          \"documentation\":\"<p>The <code>boolean</code> value used to indicate whether or not you want to mark the media for deletion, once it has been uploaded to the Kinesis Video Stream cloud. The media files can be deleted if any of the deletion configuration values are set to <code>true</code>, such as when the limit for the <code>EdgeRetentionInHours</code>, or the <code>MaxLocalMediaSizeInMB</code>, has been reached. </p> <p>Since the default value is set to <code>true</code>, configure the uploader schedule such that the media files are not being deleted before they are initially uploaded to AWS cloud.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The configuration details required to delete the connection of the stream from the Edge Agent.</p>\"\
+    },\
+    \"DescribeEdgeConfigurationInput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"StreamName\":{\
+          \"shape\":\"StreamName\",\
+          \"documentation\":\"<p>The name of the stream whose edge configuration you want to update. Specify either the <code>StreamName</code> or the <code>StreamARN</code>. </p>\"\
+        },\
+        \"StreamARN\":{\
+          \"shape\":\"ResourceARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the stream. Specify either the <code>StreamName</code>or the <code>StreamARN</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeEdgeConfigurationOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"StreamName\":{\
+          \"shape\":\"StreamName\",\
+          \"documentation\":\"<p>The name of the stream from which the edge configuration was updated.</p>\"\
+        },\
+        \"StreamARN\":{\
+          \"shape\":\"ResourceARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the stream.</p>\"\
+        },\
+        \"CreationTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The timestamp at which a streamâs edge configuration was first created.</p>\"\
+        },\
+        \"LastUpdatedTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The timestamp at which a streamâs edge configuration was last updated.</p>\"\
+        },\
+        \"SyncStatus\":{\
+          \"shape\":\"SyncStatus\",\
+          \"documentation\":\"<p>The latest status of the edge configuration update.</p>\"\
+        },\
+        \"FailedStatusDetails\":{\
+          \"shape\":\"FailedStatusDetails\",\
+          \"documentation\":\"<p>A description of the generated failure status.</p>\"\
+        },\
+        \"EdgeConfig\":{\
+          \"shape\":\"EdgeConfig\",\
+          \"documentation\":\"<p>A description of the stream's edge configuration that will be used to sync with the Edge Agent IoT Greengrass component. The Edge Agent component will run on an IoT Hub Device setup at your premise.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeImageGenerationConfigurationInput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"StreamName\":{\
+          \"shape\":\"StreamName\",\
+          \"documentation\":\"<p>The name of the stream from which to retrieve the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>. </p>\"\
+        },\
+        \"StreamARN\":{\
+          \"shape\":\"ResourceARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the Kinesis video stream from which to retrieve the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeImageGenerationConfigurationOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ImageGenerationConfiguration\":{\
+          \"shape\":\"ImageGenerationConfiguration\",\
+          \"documentation\":\"<p>The structure that contains the information required for the Kinesis video stream (KVS) images delivery. If this structure is null, the configuration will be deleted from the stream.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeMappedResourceConfigurationInput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"StreamName\":{\
+          \"shape\":\"StreamName\",\
+          \"documentation\":\"<p>The name of the stream.</p>\"\
+        },\
+        \"StreamARN\":{\
+          \"shape\":\"ResourceARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the stream.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MappedResourceConfigurationListLimit\",\
+          \"documentation\":\"<p>The maximum number of results to return in the response.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token to provide in your next request, to get another batch of results.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeMappedResourceConfigurationOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"MappedResourceConfigurationList\":{\
+          \"shape\":\"MappedResourceConfigurationList\",\
+          \"documentation\":\"<p>A structure that encapsulates, or contains, the media storage configuration properties.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token that was used in the <code>NextToken</code>request to fetch the next set of results. </p>\"\
+        }\
+      }\
+    },\
+    \"DescribeMediaStorageConfigurationInput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ChannelName\":{\
+          \"shape\":\"ChannelName\",\
+          \"documentation\":\"<p>The name of the channel.</p>\"\
+        },\
+        \"ChannelARN\":{\
+          \"shape\":\"ResourceARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the channel.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeMediaStorageConfigurationOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"MediaStorageConfiguration\":{\
+          \"shape\":\"MediaStorageConfiguration\",\
+          \"documentation\":\"<p>A structure that encapsulates, or contains, the media storage configuration properties.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeNotificationConfigurationInput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"StreamName\":{\
+          \"shape\":\"StreamName\",\
+          \"documentation\":\"<p>The name of the stream from which to retrieve the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>\"\
+        },\
+        \"StreamARN\":{\
+          \"shape\":\"ResourceARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to retrieve the notification configuration. You must specify either the <code>StreamName</code> or the StreamARN.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeNotificationConfigurationOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"NotificationConfiguration\":{\
+          \"shape\":\"NotificationConfiguration\",\
+          \"documentation\":\"<p>The structure that contains the information required for notifications. If the structure is null, the configuration will be deleted from the stream.</p>\"\
+        }\
       }\
     },\
     \"DescribeSignalingChannelInput\":{\
@@ -679,6 +1012,18 @@
         }\
       }\
     },\
+    \"DestinationRegion\":{\
+      \"type\":\"string\",\
+      \"max\":14,\
+      \"min\":9,\
+      \"pattern\":\"^[a-z]+(-[a-z]+)?-[a-z]+-[0-9]$\"\
+    },\
+    \"DestinationUri\":{\
+      \"type\":\"string\",\
+      \"max\":255,\
+      \"min\":1,\
+      \"pattern\":\"^[a-zA-Z_0-9]+:(//)?([^/]+)/?([^*]*)$\"\
+    },\
     \"DeviceName\":{\
       \"type\":\"string\",\
       \"max\":128,\
@@ -694,7 +1039,68 @@
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
+    \"DurationInSeconds\":{\
+      \"type\":\"integer\",\
+      \"max\":3600,\
+      \"min\":60\
+    },\
+    \"EdgeConfig\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"HubDeviceArn\",\
+        \"RecorderConfig\"\
+      ],\
+      \"members\":{\
+        \"HubDeviceArn\":{\
+          \"shape\":\"HubDeviceArn\",\
+          \"documentation\":\"<p>The \\\"<b>Internet of Things (IoT) Thing</b>\\\" Arn of the stream.</p>\"\
+        },\
+        \"RecorderConfig\":{\
+          \"shape\":\"RecorderConfig\",\
+          \"documentation\":\"<p>The recorder configuration consists of the local <code>MediaSourceConfig</code> details, that are used as credentials to access the local media files streamed on the camera. </p>\"\
+        },\
+        \"UploaderConfig\":{\
+          \"shape\":\"UploaderConfig\",\
+          \"documentation\":\"<p>The uploader configuration contains the <code>ScheduleExpression</code> details that are used to schedule upload jobs for the recorded media files from the Edge Agent to a Kinesis Video Stream.</p>\"\
+        },\
+        \"DeletionConfig\":{\
+          \"shape\":\"DeletionConfig\",\
+          \"documentation\":\"<p>The deletion configuration is made up of the retention time (<code>EdgeRetentionInHours</code>) and local size configuration (<code>LocalSizeConfig</code>) details that are used to make the deletion.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A description of the stream's edge configuration that will be used to sync with the Edge Agent IoT Greengrass component. The Edge Agent component will run on an IoT Hub Device setup at your premise.</p>\"\
+    },\
+    \"EdgeRetentionInHours\":{\
+      \"type\":\"integer\",\
+      \"max\":720,\
+      \"min\":1\
+    },\
     \"ErrorMessage\":{\"type\":\"string\"},\
+    \"FailedStatusDetails\":{\"type\":\"string\"},\
+    \"Format\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"JPEG\",\
+        \"PNG\"\
+      ]\
+    },\
+    \"FormatConfig\":{\
+      \"type\":\"map\",\
+      \"key\":{\"shape\":\"FormatConfigKey\"},\
+      \"value\":{\"shape\":\"FormatConfigValue\"},\
+      \"max\":1,\
+      \"min\":1\
+    },\
+    \"FormatConfigKey\":{\
+      \"type\":\"string\",\
+      \"enum\":[\"JPEGQuality\"]\
+    },\
+    \"FormatConfigValue\":{\
+      \"type\":\"string\",\
+      \"max\":256,\
+      \"min\":0,\
+      \"pattern\":\"^[a-zA-Z_0-9]+\"\
+    },\
     \"GetDataEndpointInput\":{\
       \"type\":\"structure\",\
       \"required\":[\"APIName\"],\
@@ -728,7 +1134,7 @@
       \"members\":{\
         \"ChannelARN\":{\
           \"shape\":\"ResourceARN\",\
-          \"documentation\":\"<p>The ARN of the signalling channel for which you want to get an endpoint.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the signalling channel for which you want to get an endpoint.</p>\"\
         },\
         \"SingleMasterChannelEndpointConfiguration\":{\
           \"shape\":\"SingleMasterChannelEndpointConfiguration\",\
@@ -744,6 +1150,87 @@
           \"documentation\":\"<p>A list of endpoints for the specified signaling channel.</p>\"\
         }\
       }\
+    },\
+    \"HeightPixels\":{\
+      \"type\":\"integer\",\
+      \"max\":2160,\
+      \"min\":1\
+    },\
+    \"HubDeviceArn\":{\
+      \"type\":\"string\",\
+      \"max\":1024,\
+      \"min\":1,\
+      \"pattern\":\"arn:[a-z\\\\d-]+:iot:[a-z0-9-]+:[0-9]+:thing/[a-zA-Z0-9_.-]+\"\
+    },\
+    \"ImageGenerationConfiguration\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Status\",\
+        \"ImageSelectorType\",\
+        \"DestinationConfig\",\
+        \"SamplingInterval\",\
+        \"Format\"\
+      ],\
+      \"members\":{\
+        \"Status\":{\
+          \"shape\":\"ConfigurationStatus\",\
+          \"documentation\":\"<p>Indicates whether the <code>ContinuousImageGenerationConfigurations</code> API is enabled or disabled.</p>\"\
+        },\
+        \"ImageSelectorType\":{\
+          \"shape\":\"ImageSelectorType\",\
+          \"documentation\":\"<p>The origin of the Server or Producer timestamps to use to generate the images.</p>\"\
+        },\
+        \"DestinationConfig\":{\
+          \"shape\":\"ImageGenerationDestinationConfig\",\
+          \"documentation\":\"<p>The structure that contains the information required to deliver images to a customer.</p>\"\
+        },\
+        \"SamplingInterval\":{\
+          \"shape\":\"SamplingInterval\",\
+          \"documentation\":\"<p>The time interval in milliseconds (ms) at which the images need to be generated from the stream. The minimum value that can be provided is 33 ms, because a camera that generates content at 30 FPS would create a frame every 33.3 ms. If the timestamp range is less than the sampling interval, the Image from the <code>StartTimestamp</code> will be returned if available. </p>\"\
+        },\
+        \"Format\":{\
+          \"shape\":\"Format\",\
+          \"documentation\":\"<p>The accepted image format.</p>\"\
+        },\
+        \"FormatConfig\":{\
+          \"shape\":\"FormatConfig\",\
+          \"documentation\":\"<p>The list of a key-value pair structure that contains extra parameters that can be applied when the image is generated. The <code>FormatConfig</code> key is the <code>JPEGQuality</code>, which indicates the JPEG quality key to be used to generate the image. The <code>FormatConfig</code> value accepts ints from 1 to 100. If the value is 1, the image will be generated with less quality and the best compression. If the value is 100, the image will be generated with the best quality and less compression. If no value is provided, the default value of the <code>JPEGQuality</code> key will be set to 80.</p>\"\
+        },\
+        \"WidthPixels\":{\
+          \"shape\":\"WidthPixels\",\
+          \"documentation\":\"<p>The width of the output image that is used in conjunction with the <code>HeightPixels</code> parameter. When both <code>WidthPixels</code> and <code>HeightPixels</code> parameters are provided, the image will be stretched to fit the specified aspect ratio. If only the <code>WidthPixels</code> parameter is provided, its original aspect ratio will be used to calculate the <code>HeightPixels</code> ratio. If neither parameter is provided, the original image size will be returned.</p>\"\
+        },\
+        \"HeightPixels\":{\
+          \"shape\":\"HeightPixels\",\
+          \"documentation\":\"<p>The height of the output image that is used in conjunction with the <code>WidthPixels</code> parameter. When both <code>HeightPixels</code> and <code>WidthPixels</code> parameters are provided, the image will be stretched to fit the specified aspect ratio. If only the <code>HeightPixels</code> parameter is provided, its original aspect ratio will be used to calculate the <code>WidthPixels</code> ratio. If neither parameter is provided, the original image size will be returned.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The structure that contains the information required for the KVS images delivery. If null, the configuration will be deleted from the stream.</p>\"\
+    },\
+    \"ImageGenerationDestinationConfig\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Uri\",\
+        \"DestinationRegion\"\
+      ],\
+      \"members\":{\
+        \"Uri\":{\
+          \"shape\":\"DestinationUri\",\
+          \"documentation\":\"<p>The Uniform Resource Identifier (URI) that identifies where the images will be delivered.</p>\"\
+        },\
+        \"DestinationRegion\":{\
+          \"shape\":\"DestinationRegion\",\
+          \"documentation\":\"<p>The AWS Region of the S3 bucket where images will be delivered. This <code>DestinationRegion</code> must match the Region where the stream is located.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The structure that contains the information required to deliver images to a customer.</p>\"\
+    },\
+    \"ImageSelectorType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"SERVER_TIMESTAMP\",\
+        \"PRODUCER_TIMESTAMP\"\
+      ]\
     },\
     \"InvalidArgumentException\":{\
       \"type\":\"structure\",\
@@ -775,7 +1262,8 @@
     \"KmsKeyId\":{\
       \"type\":\"string\",\
       \"max\":2048,\
-      \"min\":1\
+      \"min\":1,\
+      \"pattern\":\".+\"\
     },\
     \"ListOfProtocols\":{\
       \"type\":\"list\",\
@@ -854,11 +1342,11 @@
       \"members\":{\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>If you specify this parameter and the result of a ListTagsForResource call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags. </p>\"\
+          \"documentation\":\"<p>If you specify this parameter and the result of a <code>ListTagsForResource</code> call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags. </p>\"\
         },\
         \"ResourceARN\":{\
           \"shape\":\"ResourceARN\",\
-          \"documentation\":\"<p>The ARN of the signaling channel for which you want to list tags.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the signaling channel for which you want to list tags.</p>\"\
         }\
       }\
     },\
@@ -867,7 +1355,7 @@
       \"members\":{\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>If you specify this parameter and the result of a ListTagsForResource call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags. </p>\"\
+          \"documentation\":\"<p>If you specify this parameter and the result of a <code>ListTagsForResource</code> call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags. </p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"ResourceTags\",\
@@ -905,11 +1393,109 @@
         }\
       }\
     },\
+    \"LocalSizeConfig\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"MaxLocalMediaSizeInMB\":{\
+          \"shape\":\"MaxLocalMediaSizeInMB\",\
+          \"documentation\":\"<p>The overall maximum size of the media that you want to store for a stream on the Edge Agent. </p>\"\
+        },\
+        \"StrategyOnFullSize\":{\
+          \"shape\":\"StrategyOnFullSize\",\
+          \"documentation\":\"<p>The strategy to perform when a streamâs <code>MaxLocalMediaSizeInMB</code> limit is reached.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The configuration details that include the maximum size of the media (<code>MaxLocalMediaSizeInMB</code>) that you want to store for a stream on the Edge Agent, as well as the strategy that should be used (<code>StrategyOnFullSize</code>) when a stream's maximum size has been reached.</p>\"\
+    },\
+    \"MappedResourceConfigurationList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"MappedResourceConfigurationListItem\"},\
+      \"max\":1,\
+      \"min\":0\
+    },\
+    \"MappedResourceConfigurationListItem\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Type\":{\
+          \"shape\":\"Type\",\
+          \"documentation\":\"<p>The type of the associated resource for the kinesis video stream.</p>\"\
+        },\
+        \"ARN\":{\
+          \"shape\":\"ResourceARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the Kinesis Video Stream resource, associated with the stream.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A structure that encapsulates, or contains, the media storage configuration properties.</p>\"\
+    },\
+    \"MappedResourceConfigurationListLimit\":{\
+      \"type\":\"integer\",\
+      \"max\":1,\
+      \"min\":1\
+    },\
+    \"MaxLocalMediaSizeInMB\":{\
+      \"type\":\"integer\",\
+      \"max\":2000000,\
+      \"min\":64\
+    },\
+    \"MediaSourceConfig\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"MediaUriSecretArn\",\
+        \"MediaUriType\"\
+      ],\
+      \"members\":{\
+        \"MediaUriSecretArn\":{\
+          \"shape\":\"MediaUriSecretArn\",\
+          \"documentation\":\"<p>The AWS Secrets Manager ARN for the username and password of the camera, or a local media file location.</p>\"\
+        },\
+        \"MediaUriType\":{\
+          \"shape\":\"MediaUriType\",\
+          \"documentation\":\"<p>The Uniform Resource Identifier (URI) type. The <code>FILE_URI</code> value can be used to stream local media files.</p> <note> <p>Preview only supports the <code>RTSP_URI</code> media source URI format .</p> </note>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The configuration details that consist of the credentials required (<code>MediaUriSecretArn</code> and <code>MediaUriType</code>) to access the media files that are streamed to the camera.</p>\"\
+    },\
+    \"MediaStorageConfiguration\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Status\"],\
+      \"members\":{\
+        \"StreamARN\":{\
+          \"shape\":\"ResourceARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the stream </p>\"\
+        },\
+        \"Status\":{\
+          \"shape\":\"MediaStorageConfigurationStatus\",\
+          \"documentation\":\"<p>The status of the media storage configuration.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A structure that encapsulates, or contains, the media storage configuration properties.</p>\"\
+    },\
+    \"MediaStorageConfigurationStatus\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ENABLED\",\
+        \"DISABLED\"\
+      ]\
+    },\
     \"MediaType\":{\
       \"type\":\"string\",\
       \"max\":128,\
       \"min\":1,\
       \"pattern\":\"[\\\\w\\\\-\\\\.\\\\+]+/[\\\\w\\\\-\\\\.\\\\+]+(,[\\\\w\\\\-\\\\.\\\\+]+/[\\\\w\\\\-\\\\.\\\\+]+)*\"\
+    },\
+    \"MediaUriSecretArn\":{\
+      \"type\":\"string\",\
+      \"max\":2048,\
+      \"min\":20,\
+      \"pattern\":\"arn:[a-z\\\\d-]+:secretsmanager:[a-z0-9-]+:[0-9]+:secret:[a-zA-Z0-9_.-]+\",\
+      \"sensitive\":true\
+    },\
+    \"MediaUriType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"RTSP_URI\",\
+        \"FILE_URI\"\
+      ]\
     },\
     \"MessageTtlSeconds\":{\
       \"type\":\"integer\",\
@@ -922,6 +1508,15 @@
       \"min\":0,\
       \"pattern\":\"[a-zA-Z0-9+/=]*\"\
     },\
+    \"NoDataRetentionException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Message\":{\"shape\":\"ErrorMessage\"}\
+      },\
+      \"documentation\":\"<p>The Stream data retention in hours is equal to zero.</p>\",\
+      \"error\":{\"httpStatusCode\":400},\
+      \"exception\":true\
+    },\
     \"NotAuthorizedException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -931,11 +1526,55 @@
       \"error\":{\"httpStatusCode\":401},\
       \"exception\":true\
     },\
+    \"NotificationConfiguration\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Status\",\
+        \"DestinationConfig\"\
+      ],\
+      \"members\":{\
+        \"Status\":{\
+          \"shape\":\"ConfigurationStatus\",\
+          \"documentation\":\"<p>Indicates if a notification configuration is enabled or disabled.</p>\"\
+        },\
+        \"DestinationConfig\":{\
+          \"shape\":\"NotificationDestinationConfig\",\
+          \"documentation\":\"<p>The destination information required to deliver a notification to a customer.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The structure that contains the notification information for the KVS images delivery. If this parameter is null, the configuration will be deleted from the stream.</p>\"\
+    },\
+    \"NotificationDestinationConfig\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Uri\"],\
+      \"members\":{\
+        \"Uri\":{\
+          \"shape\":\"DestinationUri\",\
+          \"documentation\":\"<p>The Uniform Resource Identifier (URI) that identifies where the images will be delivered.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The structure that contains the information required to deliver a notification to a customer.</p>\"\
+    },\
+    \"RecorderConfig\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"MediaSourceConfig\"],\
+      \"members\":{\
+        \"MediaSourceConfig\":{\
+          \"shape\":\"MediaSourceConfig\",\
+          \"documentation\":\"<p>The configuration details that consist of the credentials required (<code>MediaUriSecretArn</code> and <code>MediaUriType</code>) to access the media files streamed to the camera. </p>\"\
+        },\
+        \"ScheduleConfig\":{\
+          \"shape\":\"ScheduleConfig\",\
+          \"documentation\":\"<p>The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code> details that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> attribute is not provided, then the Edge Agent will always be set to recording mode.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The recorder configuration consists of the local <code>MediaSourceConfig</code> details that are used as credentials to accesss the local media files streamed on the camera. </p>\"\
+    },\
     \"ResourceARN\":{\
       \"type\":\"string\",\
       \"max\":1024,\
       \"min\":1,\
-      \"pattern\":\"arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+\"\
+      \"pattern\":\"arn:[a-z\\\\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+\"\
     },\
     \"ResourceEndpoint\":{\"type\":\"string\"},\
     \"ResourceEndpointList\":{\
@@ -961,7 +1600,7 @@
       \"members\":{\
         \"Message\":{\"shape\":\"ErrorMessage\"}\
       },\
-      \"documentation\":\"<p>The stream is currently not available for this operation.</p>\",\
+      \"documentation\":\"<p>When the input <code>StreamARN</code> or <code>ChannelARN</code> in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different Kinesis Video Stream resource, or if the provided input <code>StreamARN</code> or <code>ChannelARN</code> is not in Active status, try one of the following : </p> <ol> <li> <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to. </p> </li> <li> <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to. </p> </li> <li> <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource. </p> </li> </ol>\",\
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
@@ -980,6 +1619,35 @@
       \"value\":{\"shape\":\"TagValue\"},\
       \"max\":50,\
       \"min\":1\
+    },\
+    \"SamplingInterval\":{\
+      \"type\":\"integer\",\
+      \"max\":20000,\
+      \"min\":3000\
+    },\
+    \"ScheduleConfig\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ScheduleExpression\",\
+        \"DurationInSeconds\"\
+      ],\
+      \"members\":{\
+        \"ScheduleExpression\":{\
+          \"shape\":\"ScheduleExpression\",\
+          \"documentation\":\"<p>The Quartz cron expression that takes care of scheduling jobs to record from the camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided for the <code>RecorderConfig</code>, then the Edge Agent will always be set to recording mode.</p> <p>For more information about Quartz, refer to the <a href=\\\"http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html\\\"> <i>Cron Trigger Tutorial</i> </a> page to understand the valid expressions and its use.</p>\"\
+        },\
+        \"DurationInSeconds\":{\
+          \"shape\":\"DurationInSeconds\",\
+          \"documentation\":\"<p>The total duration to record the media. If the <code>ScheduleExpression</code> attribute is provided, then the <code>DurationInSeconds</code> attribute should also be specified.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>This API enables you to specify the duration that the camera, or local media file, should record onto the Edge Agent. The <code>ScheduleConfig</code> consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code> attributes. </p> <p>If the <code>ScheduleExpression</code> is not provided, then the Edge Agent will always be set to recording mode.</p>\"\
+    },\
+    \"ScheduleExpression\":{\
+      \"type\":\"string\",\
+      \"max\":100,\
+      \"min\":11,\
+      \"pattern\":\"[^\\\\n]{11,100}\"\
     },\
     \"SingleMasterChannelEndpointConfiguration\":{\
       \"type\":\"structure\",\
@@ -1000,10 +1668,61 @@
       \"members\":{\
         \"MessageTtlSeconds\":{\
           \"shape\":\"MessageTtlSeconds\",\
-          \"documentation\":\"<p>The period of time a signaling channel retains underlivered messages before they are discarded.</p>\"\
+          \"documentation\":\"<p>The period of time a signaling channel retains undelivered messages before they are discarded.</p>\"\
         }\
       },\
       \"documentation\":\"<p>A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel type.</p>\"\
+    },\
+    \"StartEdgeConfigurationUpdateInput\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"EdgeConfig\"],\
+      \"members\":{\
+        \"StreamName\":{\
+          \"shape\":\"StreamName\",\
+          \"documentation\":\"<p>The name of the stream whose edge configuration you want to update. Specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>\"\
+        },\
+        \"StreamARN\":{\
+          \"shape\":\"ResourceARN\",\
+          \"documentation\":\"<p> The Amazon Resource Name (ARN) of the stream. Specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>\"\
+        },\
+        \"EdgeConfig\":{\
+          \"shape\":\"EdgeConfig\",\
+          \"documentation\":\"<p>The edge configuration details required to invoke the update process.</p>\"\
+        }\
+      }\
+    },\
+    \"StartEdgeConfigurationUpdateOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"StreamName\":{\
+          \"shape\":\"StreamName\",\
+          \"documentation\":\"<p>The name of the stream from which the edge configuration was updated.</p>\"\
+        },\
+        \"StreamARN\":{\
+          \"shape\":\"ResourceARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the stream.</p>\"\
+        },\
+        \"CreationTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The timestamp at which a streamâs edge configuration was first created.</p>\"\
+        },\
+        \"LastUpdatedTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The timestamp at which a streamâs edge configuration was last updated.</p>\"\
+        },\
+        \"SyncStatus\":{\
+          \"shape\":\"SyncStatus\",\
+          \"documentation\":\"<p> The current sync status of the stream's edge configuration. When you invoke this API, the sync status will be set to the <code>SYNCING</code> state. Use the <code>DescribeEdgeConfiguration</code> API to get the latest status of the edge configuration.</p>\"\
+        },\
+        \"FailedStatusDetails\":{\
+          \"shape\":\"FailedStatusDetails\",\
+          \"documentation\":\"<p>A description of the generated failure status.</p>\"\
+        },\
+        \"EdgeConfig\":{\
+          \"shape\":\"EdgeConfig\",\
+          \"documentation\":\"<p>A description of the stream's edge configuration that will be used to sync with the Edge Agent IoT Greengrass component. The Edge Agent component will run on an IoT Hub Device setup at your premise.</p>\"\
+        }\
+      }\
     },\
     \"Status\":{\
       \"type\":\"string\",\
@@ -1013,6 +1732,22 @@
         \"UPDATING\",\
         \"DELETING\"\
       ]\
+    },\
+    \"StrategyOnFullSize\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"DELETE_OLDEST_MEDIA\",\
+        \"DENY_NEW_MEDIA\"\
+      ]\
+    },\
+    \"StreamEdgeConfigurationNotFoundException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Message\":{\"shape\":\"ErrorMessage\"}\
+      },\
+      \"documentation\":\"<p>The Exception rendered when the Amazon Kinesis Video Stream can't find a stream's edge configuration that you specified. </p>\",\
+      \"error\":{\"httpStatusCode\":404},\
+      \"exception\":true\
     },\
     \"StreamInfo\":{\
       \"type\":\"structure\",\
@@ -1035,7 +1770,7 @@
         },\
         \"KmsKeyId\":{\
           \"shape\":\"KmsKeyId\",\
-          \"documentation\":\"<p>The ID of the AWS Key Management Service (AWS KMS) key that Kinesis Video Streams uses to encrypt data on the stream.</p>\"\
+          \"documentation\":\"<p>The ID of the Key Management Service (KMS) key that Kinesis Video Streams uses to encrypt data on the stream.</p>\"\
         },\
         \"Version\":{\
           \"shape\":\"Version\",\
@@ -1079,6 +1814,17 @@
         }\
       },\
       \"documentation\":\"<p>Specifies the condition that streams must satisfy to be returned when you list streams (see the <code>ListStreams</code> API). A condition has a comparison operation and a value. Currently, you can specify only the <code>BEGINS_WITH</code> operator, which finds streams whose names start with a given prefix. </p>\"\
+    },\
+    \"SyncStatus\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"SYNCING\",\
+        \"ACKNOWLEDGED\",\
+        \"IN_SYNC\",\
+        \"SYNC_FAILED\",\
+        \"DELETING\",\
+        \"DELETE_FAILED\"\
+      ]\
     },\
     \"Tag\":{\
       \"type\":\"structure\",\
@@ -1131,7 +1877,7 @@
       \"members\":{\
         \"ResourceARN\":{\
           \"shape\":\"ResourceARN\",\
-          \"documentation\":\"<p>The ARN of the signaling channel to which you want to add tags.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the signaling channel to which you want to add tags.</p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagList\",\
@@ -1178,11 +1924,12 @@
       \"members\":{\
         \"Message\":{\"shape\":\"ErrorMessage\"}\
       },\
-      \"documentation\":\"<p>You have exceeded the limit of tags that you can associate with the resource. Kinesis video streams support up to 50 tags. </p>\",\
+      \"documentation\":\"<p>You have exceeded the limit of tags that you can associate with the resource. A Kinesis video stream can support up to 50 tags. </p>\",\
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
     \"Timestamp\":{\"type\":\"timestamp\"},\
+    \"Type\":{\"type\":\"string\"},\
     \"UntagResourceInput\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -1192,7 +1939,7 @@
       \"members\":{\
         \"ResourceARN\":{\
           \"shape\":\"ResourceARN\",\
-          \"documentation\":\"<p>The ARN of the signaling channel from which you want to remove tags.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the signaling channel from which you want to remove tags.</p>\"\
         },\
         \"TagKeyList\":{\
           \"shape\":\"TagKeyList\",\
@@ -1270,6 +2017,72 @@
       \"members\":{\
       }\
     },\
+    \"UpdateImageGenerationConfigurationInput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"StreamName\":{\
+          \"shape\":\"StreamName\",\
+          \"documentation\":\"<p>The name of the stream from which to update the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>\"\
+        },\
+        \"StreamARN\":{\
+          \"shape\":\"ResourceARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to update the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>\"\
+        },\
+        \"ImageGenerationConfiguration\":{\
+          \"shape\":\"ImageGenerationConfiguration\",\
+          \"documentation\":\"<p>The structure that contains the information required for the KVS images delivery. If the structure is null, the configuration will be deleted from the stream.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateImageGenerationConfigurationOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"UpdateMediaStorageConfigurationInput\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ChannelARN\",\
+        \"MediaStorageConfiguration\"\
+      ],\
+      \"members\":{\
+        \"ChannelARN\":{\
+          \"shape\":\"ResourceARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the channel.</p>\"\
+        },\
+        \"MediaStorageConfiguration\":{\
+          \"shape\":\"MediaStorageConfiguration\",\
+          \"documentation\":\"<p>A structure that encapsulates, or contains, the media storage configuration properties.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateMediaStorageConfigurationOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"UpdateNotificationConfigurationInput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"StreamName\":{\
+          \"shape\":\"StreamName\",\
+          \"documentation\":\"<p>The name of the stream from which to update the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>\"\
+        },\
+        \"StreamARN\":{\
+          \"shape\":\"ResourceARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to update the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>\"\
+        },\
+        \"NotificationConfiguration\":{\
+          \"shape\":\"NotificationConfiguration\",\
+          \"documentation\":\"<p>The structure containing the information required for notifications. If the structure is null, the configuration will be deleted from the stream.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateNotificationConfigurationOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
     \"UpdateSignalingChannelInput\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -1279,7 +2092,7 @@
       \"members\":{\
         \"ChannelARN\":{\
           \"shape\":\"ResourceARN\",\
-          \"documentation\":\"<p>The ARN of the signaling channel that you want to update.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the signaling channel that you want to update.</p>\"\
         },\
         \"CurrentVersion\":{\
           \"shape\":\"Version\",\
@@ -1327,6 +2140,17 @@
       \"members\":{\
       }\
     },\
+    \"UploaderConfig\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"ScheduleConfig\"],\
+      \"members\":{\
+        \"ScheduleConfig\":{\
+          \"shape\":\"ScheduleConfig\",\
+          \"documentation\":\"<p>The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code>details that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided, then the Edge Agent will always be in recording mode.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutesdetails</code>, that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided, then the Edge Agent will always be in upload mode. </p>\"\
+    },\
     \"Version\":{\
       \"type\":\"string\",\
       \"max\":64,\
@@ -1341,6 +2165,11 @@
       \"documentation\":\"<p>The stream version that you specified is not the latest version. To get the latest version, use the <a href=\\\"https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html\\\">DescribeStream</a> API.</p>\",\
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
+    },\
+    \"WidthPixels\":{\
+      \"type\":\"integer\",\
+      \"max\":3840,\
+      \"min\":1\
     }\
   },\
   \"documentation\":\"<p/>\"\

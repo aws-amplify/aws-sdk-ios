@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
 #import "AWSTextractResources.h"
 
 static NSString *const AWSInfoTextract = @"Textract";
-NSString *const AWSTextractSDKVersion = @"2.26.7";
+NSString *const AWSTextractSDKVersion = @"2.30.4";
 
 
 @interface AWSTextractResponseSerializer : AWSJSONResponseSerializer
@@ -448,6 +448,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSTextractGetLendingAnalysisResponse *> *)getLendingAnalysis:(AWSTextractGetLendingAnalysisRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Textract"
+                 operationName:@"GetLendingAnalysis"
+                   outputClass:[AWSTextractGetLendingAnalysisResponse class]];
+}
+
+- (void)getLendingAnalysis:(AWSTextractGetLendingAnalysisRequest *)request
+     completionHandler:(void (^)(AWSTextractGetLendingAnalysisResponse *response, NSError *error))completionHandler {
+    [[self getLendingAnalysis:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractGetLendingAnalysisResponse *> * _Nonnull task) {
+        AWSTextractGetLendingAnalysisResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTextractGetLendingAnalysisSummaryResponse *> *)getLendingAnalysisSummary:(AWSTextractGetLendingAnalysisSummaryRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Textract"
+                 operationName:@"GetLendingAnalysisSummary"
+                   outputClass:[AWSTextractGetLendingAnalysisSummaryResponse class]];
+}
+
+- (void)getLendingAnalysisSummary:(AWSTextractGetLendingAnalysisSummaryRequest *)request
+     completionHandler:(void (^)(AWSTextractGetLendingAnalysisSummaryResponse *response, NSError *error))completionHandler {
+    [[self getLendingAnalysisSummary:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractGetLendingAnalysisSummaryResponse *> * _Nonnull task) {
+        AWSTextractGetLendingAnalysisSummaryResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSTextractStartDocumentAnalysisResponse *> *)startDocumentAnalysis:(AWSTextractStartDocumentAnalysisRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -507,6 +553,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSTextractStartExpenseAnalysisResponse *response, NSError *error))completionHandler {
     [[self startExpenseAnalysis:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractStartExpenseAnalysisResponse *> * _Nonnull task) {
         AWSTextractStartExpenseAnalysisResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTextractStartLendingAnalysisResponse *> *)startLendingAnalysis:(AWSTextractStartLendingAnalysisRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Textract"
+                 operationName:@"StartLendingAnalysis"
+                   outputClass:[AWSTextractStartLendingAnalysisResponse class]];
+}
+
+- (void)startLendingAnalysis:(AWSTextractStartLendingAnalysisRequest *)request
+     completionHandler:(void (^)(AWSTextractStartLendingAnalysisResponse *response, NSError *error))completionHandler {
+    [[self startLendingAnalysis:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractStartLendingAnalysisResponse *> * _Nonnull task) {
+        AWSTextractStartLendingAnalysisResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

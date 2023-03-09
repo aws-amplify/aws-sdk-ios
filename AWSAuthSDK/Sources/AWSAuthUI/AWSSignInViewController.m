@@ -45,6 +45,7 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 @property (weak, nonatomic) IBOutlet UIButton *providerRow1;
 @property (weak, nonatomic) IBOutlet UIButton *providerRow2;
 @property (weak, nonatomic) IBOutlet UIButton *providerRow3;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end
 
@@ -342,7 +343,7 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
             backgroundImageView.backgroundColor = [AWSAuthUIHelper getBackgroundColor:self.config];
         }
         backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        [self.view insertSubview:backgroundImageView atIndex:0];
+        [self.contentView insertSubview:backgroundImageView atIndex:0];
     }
 }
 
@@ -391,7 +392,9 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 
 - (void)barButtonClosePressed {
     [self dismissViewControllerAnimated:YES completion:nil];
-    self.completionHandlerCustom(nil, nil, [[NSError alloc] initWithDomain:@"AWSMobileClientError" code:-2 userInfo:@{@"message": @"The user cancelled the sign in operation"}]);
+    if (self.completionHandlerCustom) {
+        self.completionHandlerCustom(nil, nil, [[NSError alloc] initWithDomain:@"AWSMobileClientError" code:-2 userInfo:@{@"message": @"The user cancelled the sign in operation"}]);
+    }
     AWSDDLogDebug(@"User closed sign in screen.");
 }
 

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
 #import "AWSLocationResources.h"
 
 static NSString *const AWSInfoLocation = @"Location";
-NSString *const AWSLocationSDKVersion = @"2.26.7";
+NSString *const AWSLocationSDKVersion = @"2.30.4";
 
 
 @interface AWSLocationResponseSerializer : AWSJSONResponseSerializer
@@ -466,6 +466,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLocationCalculateRouteMatrixResponse *> *)calculateRouteMatrix:(AWSLocationCalculateRouteMatrixRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/routes/v0/calculators/{CalculatorName}/calculate/route-matrix"
+                  targetPrefix:@""
+                 operationName:@"CalculateRouteMatrix"
+                   outputClass:[AWSLocationCalculateRouteMatrixResponse class]];
+}
+
+- (void)calculateRouteMatrix:(AWSLocationCalculateRouteMatrixRequest *)request
+     completionHandler:(void (^)(AWSLocationCalculateRouteMatrixResponse *response, NSError *error))completionHandler {
+    [[self calculateRouteMatrix:request] continueWithBlock:^id _Nullable(AWSTask<AWSLocationCalculateRouteMatrixResponse *> * _Nonnull task) {
+        AWSLocationCalculateRouteMatrixResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLocationCreateGeofenceCollectionResponse *> *)createGeofenceCollection:(AWSLocationCreateGeofenceCollectionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -479,6 +502,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLocationCreateGeofenceCollectionResponse *response, NSError *error))completionHandler {
     [[self createGeofenceCollection:request] continueWithBlock:^id _Nullable(AWSTask<AWSLocationCreateGeofenceCollectionResponse *> * _Nonnull task) {
         AWSLocationCreateGeofenceCollectionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLocationCreateKeyResponse *> *)createKey:(AWSLocationCreateKeyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/metadata/v0/keys"
+                  targetPrefix:@""
+                 operationName:@"CreateKey"
+                   outputClass:[AWSLocationCreateKeyResponse class]];
+}
+
+- (void)createKey:(AWSLocationCreateKeyRequest *)request
+     completionHandler:(void (^)(AWSLocationCreateKeyResponse *response, NSError *error))completionHandler {
+    [[self createKey:request] continueWithBlock:^id _Nullable(AWSTask<AWSLocationCreateKeyResponse *> * _Nonnull task) {
+        AWSLocationCreateKeyResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -604,6 +650,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLocationDeleteKeyResponse *> *)deleteKey:(AWSLocationDeleteKeyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/metadata/v0/keys/{KeyName}"
+                  targetPrefix:@""
+                 operationName:@"DeleteKey"
+                   outputClass:[AWSLocationDeleteKeyResponse class]];
+}
+
+- (void)deleteKey:(AWSLocationDeleteKeyRequest *)request
+     completionHandler:(void (^)(AWSLocationDeleteKeyResponse *response, NSError *error))completionHandler {
+    [[self deleteKey:request] continueWithBlock:^id _Nullable(AWSTask<AWSLocationDeleteKeyResponse *> * _Nonnull task) {
+        AWSLocationDeleteKeyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLocationDeleteMapResponse *> *)deleteMap:(AWSLocationDeleteMapRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -709,6 +778,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLocationDescribeGeofenceCollectionResponse *response, NSError *error))completionHandler {
     [[self describeGeofenceCollection:request] continueWithBlock:^id _Nullable(AWSTask<AWSLocationDescribeGeofenceCollectionResponse *> * _Nonnull task) {
         AWSLocationDescribeGeofenceCollectionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLocationDescribeKeyResponse *> *)describeKey:(AWSLocationDescribeKeyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/metadata/v0/keys/{KeyName}"
+                  targetPrefix:@""
+                 operationName:@"DescribeKey"
+                   outputClass:[AWSLocationDescribeKeyResponse class]];
+}
+
+- (void)describeKey:(AWSLocationDescribeKeyRequest *)request
+     completionHandler:(void (^)(AWSLocationDescribeKeyResponse *response, NSError *error))completionHandler {
+    [[self describeKey:request] continueWithBlock:^id _Nullable(AWSTask<AWSLocationDescribeKeyResponse *> * _Nonnull task) {
+        AWSLocationDescribeKeyResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -995,6 +1087,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLocationGetPlaceResponse *> *)getPlace:(AWSLocationGetPlaceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/places/v0/indexes/{IndexName}/places/{PlaceId}"
+                  targetPrefix:@""
+                 operationName:@"GetPlace"
+                   outputClass:[AWSLocationGetPlaceResponse class]];
+}
+
+- (void)getPlace:(AWSLocationGetPlaceRequest *)request
+     completionHandler:(void (^)(AWSLocationGetPlaceResponse *response, NSError *error))completionHandler {
+    [[self getPlace:request] continueWithBlock:^id _Nullable(AWSTask<AWSLocationGetPlaceResponse *> * _Nonnull task) {
+        AWSLocationGetPlaceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLocationListDevicePositionsResponse *> *)listDevicePositions:(AWSLocationListDevicePositionsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1054,6 +1169,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLocationListGeofencesResponse *response, NSError *error))completionHandler {
     [[self listGeofences:request] continueWithBlock:^id _Nullable(AWSTask<AWSLocationListGeofencesResponse *> * _Nonnull task) {
         AWSLocationListGeofencesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLocationListKeysResponse *> *)listKeys:(AWSLocationListKeysRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/metadata/v0/list-keys"
+                  targetPrefix:@""
+                 operationName:@"ListKeys"
+                   outputClass:[AWSLocationListKeysResponse class]];
+}
+
+- (void)listKeys:(AWSLocationListKeysRequest *)request
+     completionHandler:(void (^)(AWSLocationListKeysResponse *response, NSError *error))completionHandler {
+    [[self listKeys:request] continueWithBlock:^id _Nullable(AWSTask<AWSLocationListKeysResponse *> * _Nonnull task) {
+        AWSLocationListKeysResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1353,6 +1491,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLocationUpdateGeofenceCollectionResponse *response, NSError *error))completionHandler {
     [[self updateGeofenceCollection:request] continueWithBlock:^id _Nullable(AWSTask<AWSLocationUpdateGeofenceCollectionResponse *> * _Nonnull task) {
         AWSLocationUpdateGeofenceCollectionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLocationUpdateKeyResponse *> *)updateKey:(AWSLocationUpdateKeyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPATCH
+                     URLString:@"/metadata/v0/keys/{KeyName}"
+                  targetPrefix:@""
+                 operationName:@"UpdateKey"
+                   outputClass:[AWSLocationUpdateKeyResponse class]];
+}
+
+- (void)updateKey:(AWSLocationUpdateKeyRequest *)request
+     completionHandler:(void (^)(AWSLocationUpdateKeyResponse *response, NSError *error))completionHandler {
+    [[self updateKey:request] continueWithBlock:^id _Nullable(AWSTask<AWSLocationUpdateKeyResponse *> * _Nonnull task) {
+        AWSLocationUpdateKeyResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

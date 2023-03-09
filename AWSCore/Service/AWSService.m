@@ -21,7 +21,7 @@
 #import "AWSCocoaLumberjack.h"
 #import "AWSCategory.h"
 
-NSString *const AWSiOSSDKVersion = @"2.26.7";
+NSString *const AWSiOSSDKVersion = @"2.30.4";
 NSString *const AWSServiceErrorDomain = @"com.amazonaws.AWSServiceErrorDomain";
 
 static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
@@ -251,6 +251,7 @@ static NSString *const AWSRegionNameEUWest1 = @"eu-west-1";
 static NSString *const AWSRegionNameEUWest2 = @"eu-west-2";
 static NSString *const AWSRegionNameEUWest3 = @"eu-west-3";
 static NSString *const AWSRegionNameEUCentral1 = @"eu-central-1";
+static NSString *const AWSRegionNameEUCentral2 = @"eu-central-2";
 static NSString *const AWSRegionNameEUNorth1 = @"eu-north-1";
 static NSString *const AWSRegionNameAPEast1 = @"ap-east-1";
 static NSString *const AWSRegionNameAPSoutheast1 = @"ap-southeast-1";
@@ -258,16 +259,20 @@ static NSString *const AWSRegionNameAPNortheast1 = @"ap-northeast-1";
 static NSString *const AWSRegionNameAPNortheast2 = @"ap-northeast-2";
 static NSString *const AWSRegionNameAPSoutheast2 = @"ap-southeast-2";
 static NSString *const AWSRegionNameAPSoutheast3 = @"ap-southeast-3";
+static NSString *const AWSRegionNameAPSoutheast4 = @"ap-southeast-4";
 static NSString *const AWSRegionNameAPSouth1 = @"ap-south-1";
+static NSString *const AWSRegionNameAPSouth2 = @"ap-south-2";
 static NSString *const AWSRegionNameSAEast1 = @"sa-east-1";
 static NSString *const AWSRegionNameCNNorth1 = @"cn-north-1";
 static NSString *const AWSRegionNameCNNorthWest1 = @"cn-northwest-1";
 static NSString *const AWSRegionNameCACentral1 = @"ca-central-1";
 static NSString *const AWSRegionNameUSGovWest1 = @"us-gov-west-1";
 static NSString *const AWSRegionNameUSGovEast1 = @"us-gov-east-1";
+static NSString *const AWSRegionNameMECentral1 = @"me-central-1";
 static NSString *const AWSRegionNameMESouth1 = @"me-south-1";
 static NSString *const AWSRegionNameAFSouth1 = @"af-south-1";
 static NSString *const AWSRegionNameEUSouth1 = @"eu-south-1";
+static NSString *const AWSRegionNameEUSouth2 = @"eu-south-2";
 
 static NSString *const AWSServiceNameAPIGateway = @"execute-api";
 static NSString *const AWSServiceNameAutoScaling = @"autoscaling";
@@ -458,18 +463,24 @@ static NSString *const AWSServiceNameChimeSDKIdentity = @"chime";
             return AWSRegionNameEUWest2;
         case AWSRegionEUCentral1:
             return AWSRegionNameEUCentral1;
+        case AWSRegionEUCentral2:
+            return AWSRegionNameEUCentral2;
         case AWSRegionAPSoutheast1:
             return AWSRegionNameAPSoutheast1;
         case AWSRegionAPSoutheast2:
             return AWSRegionNameAPSoutheast2;
         case AWSRegionAPSoutheast3:
             return AWSRegionNameAPSoutheast3;
+        case AWSRegionAPSoutheast4:
+            return AWSRegionNameAPSoutheast4;
         case AWSRegionAPNortheast1:
             return AWSRegionNameAPNortheast1;
         case AWSRegionAPNortheast2:
             return AWSRegionNameAPNortheast2;
         case AWSRegionAPSouth1:
             return AWSRegionNameAPSouth1;
+        case AWSRegionAPSouth2:
+            return AWSRegionNameAPSouth2;
         case AWSRegionSAEast1:
             return AWSRegionNameSAEast1;
         case AWSRegionCNNorth1:
@@ -488,12 +499,16 @@ static NSString *const AWSServiceNameChimeSDKIdentity = @"chime";
             return AWSRegionNameEUNorth1;
         case AWSRegionAPEast1:
             return AWSRegionNameAPEast1;
+        case AWSRegionMECentral1:
+            return AWSRegionNameMECentral1;
         case AWSRegionMESouth1:
             return AWSRegionNameMESouth1;
         case AWSRegionAFSouth1:
             return AWSRegionNameAFSouth1;
         case AWSRegionEUSouth1:
             return AWSRegionNameEUSouth1;
+        case AWSRegionEUSouth2:
+            return AWSRegionNameEUSouth2;
         default:
             return nil;
     }

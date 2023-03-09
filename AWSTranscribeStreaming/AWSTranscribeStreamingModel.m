@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -167,6 +167,33 @@ NSString *const AWSTranscribeStreamingErrorDomain = @"com.amazonaws.AWSTranscrib
         if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
             return @(AWSTranscribeStreamingLanguageCodeFrFR);
         }
+        if ([value caseInsensitiveCompare:@"en-AU"] == NSOrderedSame) {
+             return @(AWSTranscribeStreamingLanguageCodeEnAU);
+         }
+         if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+             return @(AWSTranscribeStreamingLanguageCodeItIT);
+         }
+         if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+             return @(AWSTranscribeStreamingLanguageCodeDeDE);
+         }
+         if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+             return @(AWSTranscribeStreamingLanguageCodePtBR);
+         }
+         if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
+             return @(AWSTranscribeStreamingLanguageCodeJaJP);
+         }
+         if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+             return @(AWSTranscribeStreamingLanguageCodeKoKR);
+         }
+         if ([value caseInsensitiveCompare:@"zh-CN"] == NSOrderedSame) {
+             return @(AWSTranscribeStreamingLanguageCodeZhCN);
+         }
+         if ([value caseInsensitiveCompare:@"hi-IN"] == NSOrderedSame) {
+             return @(AWSTranscribeStreamingLanguageCodeHiIN);
+         }
+         if ([value caseInsensitiveCompare:@"th-TH"] == NSOrderedSame) {
+             return @(AWSTranscribeStreamingLanguageCodeThTH);
+         }
         return @(AWSTranscribeStreamingLanguageCodeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -180,6 +207,24 @@ NSString *const AWSTranscribeStreamingErrorDomain = @"com.amazonaws.AWSTranscrib
                 return @"fr-CA";
             case AWSTranscribeStreamingLanguageCodeFrFR:
                 return @"fr-FR";
+            case AWSTranscribeStreamingLanguageCodeEnAU:
+                return @"en-AU";
+            case AWSTranscribeStreamingLanguageCodeItIT:
+                return @"it-IT";
+            case AWSTranscribeStreamingLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSTranscribeStreamingLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSTranscribeStreamingLanguageCodeJaJP:
+                return @"ja-JP";
+            case AWSTranscribeStreamingLanguageCodeKoKR:
+                return @"ko-KR";
+            case AWSTranscribeStreamingLanguageCodeZhCN:
+                return @"zh-CN";
+            case AWSTranscribeStreamingLanguageCodeHiIN:
+                return @"hi-IN";
+            case AWSTranscribeStreamingLanguageCodeThTH:
+                return @"th-TH";
             default:
                 return nil;
         }
@@ -239,6 +284,33 @@ NSString *const AWSTranscribeStreamingErrorDomain = @"com.amazonaws.AWSTranscrib
         if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
             return @(AWSTranscribeStreamingLanguageCodeFrFR);
         }
+        if ([value caseInsensitiveCompare:@"en-AU"] == NSOrderedSame) {
+            return @(AWSTranscribeStreamingLanguageCodeEnAU);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSTranscribeStreamingLanguageCodeItIT);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSTranscribeStreamingLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSTranscribeStreamingLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
+            return @(AWSTranscribeStreamingLanguageCodeJaJP);
+        }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSTranscribeStreamingLanguageCodeKoKR);
+        }
+        if ([value caseInsensitiveCompare:@"zh-CN"] == NSOrderedSame) {
+            return @(AWSTranscribeStreamingLanguageCodeZhCN);
+        }
+        if ([value caseInsensitiveCompare:@"hi-IN"] == NSOrderedSame) {
+            return @(AWSTranscribeStreamingLanguageCodeHiIN);
+        }
+        if ([value caseInsensitiveCompare:@"th-TH"] == NSOrderedSame) {
+            return @(AWSTranscribeStreamingLanguageCodeThTH);
+        }
         return @(AWSTranscribeStreamingLanguageCodeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -252,6 +324,24 @@ NSString *const AWSTranscribeStreamingErrorDomain = @"com.amazonaws.AWSTranscrib
                 return @"fr-CA";
             case AWSTranscribeStreamingLanguageCodeFrFR:
                 return @"fr-FR";
+            case AWSTranscribeStreamingLanguageCodeEnAU:
+                return @"en-AU";
+            case AWSTranscribeStreamingLanguageCodeItIT:
+                return @"it-IT";
+            case AWSTranscribeStreamingLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSTranscribeStreamingLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSTranscribeStreamingLanguageCodeJaJP:
+                return @"ja-JP";
+            case AWSTranscribeStreamingLanguageCodeKoKR:
+                return @"ko-KR";
+            case AWSTranscribeStreamingLanguageCodeZhCN:
+                return @"zh-CN";
+            case AWSTranscribeStreamingLanguageCodeHiIN:
+                return @"hi-IN";
+            case AWSTranscribeStreamingLanguageCodeThTH:
+                return @"th-TH";
             default:
                 return nil;
         }

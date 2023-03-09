@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -71,6 +71,17 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoArchivedMediaDASHPlaybackMode) {
     AWSKinesisVideoArchivedMediaDASHPlaybackModeOnDemand,
 };
 
+typedef NS_ENUM(NSInteger, AWSKinesisVideoArchivedMediaFormat) {
+    AWSKinesisVideoArchivedMediaFormatUnknown,
+    AWSKinesisVideoArchivedMediaFormatJpeg,
+    AWSKinesisVideoArchivedMediaFormatPng,
+};
+
+typedef NS_ENUM(NSInteger, AWSKinesisVideoArchivedMediaFormatConfigKey) {
+    AWSKinesisVideoArchivedMediaFormatConfigKeyUnknown,
+    AWSKinesisVideoArchivedMediaFormatConfigKeyJPEGQuality,
+};
+
 typedef NS_ENUM(NSInteger, AWSKinesisVideoArchivedMediaFragmentSelectorType) {
     AWSKinesisVideoArchivedMediaFragmentSelectorTypeUnknown,
     AWSKinesisVideoArchivedMediaFragmentSelectorTypeProducerTimestamp,
@@ -103,6 +114,18 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoArchivedMediaHLSPlaybackMode) {
     AWSKinesisVideoArchivedMediaHLSPlaybackModeOnDemand,
 };
 
+typedef NS_ENUM(NSInteger, AWSKinesisVideoArchivedMediaImageError) {
+    AWSKinesisVideoArchivedMediaImageErrorUnknown,
+    AWSKinesisVideoArchivedMediaImageErrorNoMedia,
+    AWSKinesisVideoArchivedMediaImageErrorMediaError,
+};
+
+typedef NS_ENUM(NSInteger, AWSKinesisVideoArchivedMediaImageSelectorType) {
+    AWSKinesisVideoArchivedMediaImageSelectorTypeUnknown,
+    AWSKinesisVideoArchivedMediaImageSelectorTypeProducerTimestamp,
+    AWSKinesisVideoArchivedMediaImageSelectorTypeServerTimestamp,
+};
+
 @class AWSKinesisVideoArchivedMediaClipFragmentSelector;
 @class AWSKinesisVideoArchivedMediaClipTimestampRange;
 @class AWSKinesisVideoArchivedMediaDASHFragmentSelector;
@@ -115,10 +138,13 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoArchivedMediaHLSPlaybackMode) {
 @class AWSKinesisVideoArchivedMediaGetDASHStreamingSessionURLOutput;
 @class AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLInput;
 @class AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput;
+@class AWSKinesisVideoArchivedMediaGetImagesInput;
+@class AWSKinesisVideoArchivedMediaGetImagesOutput;
 @class AWSKinesisVideoArchivedMediaGetMediaForFragmentListInput;
 @class AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput;
 @class AWSKinesisVideoArchivedMediaHLSFragmentSelector;
 @class AWSKinesisVideoArchivedMediaHLSTimestampRange;
+@class AWSKinesisVideoArchivedMediaImage;
 @class AWSKinesisVideoArchivedMediaListFragmentsInput;
 @class AWSKinesisVideoArchivedMediaListFragmentsOutput;
 @class AWSKinesisVideoArchivedMediaTimestampRange;
@@ -420,6 +446,92 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoArchivedMediaHLSPlaybackMode) {
 /**
  
  */
+@interface AWSKinesisVideoArchivedMediaGetImagesInput : AWSRequest
+
+
+/**
+ <p>The end timestamp for the range of images to be generated.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endTimestamp;
+
+/**
+ <p>The format that will be used to encode the image.</p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoArchivedMediaFormat format;
+
+/**
+ <p>The list of a key-value pair structure that contains extra parameters that can be applied when the image is generated. The <code>FormatConfig</code> key is the <code>JPEGQuality</code>, which indicates the JPEG quality key to be used to generate the image. The <code>FormatConfig</code> value accepts ints from 1 to 100. If the value is 1, the image will be generated with less quality and the best compression. If the value is 100, the image will be generated with the best quality and less compression. If no value is provided, the default value of the <code>JPEGQuality</code> key will be set to 80.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable formatConfig;
+
+/**
+ <p>The height of the output image that is used in conjunction with the <code>WidthPixels</code> parameter. When both <code>HeightPixels</code> and <code>WidthPixels</code> parameters are provided, the image will be stretched to fit the specified aspect ratio. If only the <code>HeightPixels</code> parameter is provided, its original aspect ratio will be used to calculate the <code>WidthPixels</code> ratio. If neither parameter is provided, the original image size will be returned.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable heightPixels;
+
+/**
+ <p>The origin of the Server or Producer timestamps to use to generate the images.</p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoArchivedMediaImageSelectorType imageSelectorType;
+
+/**
+ <p>The maximum number of images to be returned by the API. </p><note><p>The default limit is 100 images per API response. The additional results will be paginated. </p></note>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>A token that specifies where to start paginating the next set of Images. This is the <code>GetImages:NextToken</code> from a previously truncated response.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The time interval in milliseconds (ms) at which the images need to be generated from the stream. The minimum value that can be provided is 3000 ms. If the timestamp range is less than the sampling interval, the Image from the <code>startTimestamp</code> will be returned if available. </p><note><p>The minimum value of 3000 ms is a soft limit. If needed, a lower sampling frequency can be requested.</p></note>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable samplingInterval;
+
+/**
+ <p>The starting point from which the images should be generated. This <code>StartTimestamp</code> must be within an inclusive range of timestamps for an image to be returned.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable startTimestamp;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the stream from which to retrieve the images. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamARN;
+
+/**
+ <p>The name of the stream from which to retrieve the images. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamName;
+
+/**
+ <p>The width of the output image that is used in conjunction with the <code>HeightPixels</code> parameter. When both <code>WidthPixels</code> and <code>HeightPixels</code> parameters are provided, the image will be stretched to fit the specified aspect ratio. If only the <code>WidthPixels</code> parameter is provided or if only the <code>HeightPixels</code> is provided, a <code>ValidationException</code> will be thrown. If neither parameter is provided, the original image size from the stream will be returned.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable widthPixels;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoArchivedMediaGetImagesOutput : AWSModel
+
+
+/**
+ <p>The list of images generated from the video stream. If there is no media available for the given timestamp, the <code>NO_MEDIA</code> error will be listed in the output. If an error occurs while the image is being generated, the <code>MEDIA_ERROR</code> will be listed in the output as the cause of the missing image. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSKinesisVideoArchivedMediaImage *> * _Nullable images;
+
+/**
+ <p>The encrypted token that was used in the request to get more images.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
 @interface AWSKinesisVideoArchivedMediaGetMediaForFragmentListInput : AWSRequest
 
 
@@ -491,6 +603,29 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoArchivedMediaHLSPlaybackMode) {
  <p>The start of the timestamp range for the requested media.</p><p>If the <code>HLSTimestampRange</code> value is specified, the <code>StartTimestamp</code> value is required. </p><p>Only fragments that start exactly at or after <code>StartTimestamp</code> are included in the session. Fragments that start before <code>StartTimestamp</code> and continue past it aren't included in the session. If <code>FragmentSelectorType</code> is <code>SERVER_TIMESTAMP</code>, the <code>StartTimestamp</code> must be later than the stream head. </p>
  */
 @property (nonatomic, strong) NSDate * _Nullable startTimestamp;
+
+@end
+
+/**
+ <p>A structure that contains the <code>Timestamp</code>, <code>Error</code>, and <code>ImageContent</code>.</p>
+ */
+@interface AWSKinesisVideoArchivedMediaImage : AWSModel
+
+
+/**
+ <p>The error message shown when the image for the provided timestamp was not extracted due to a non-tryable error. An error will be returned if: </p><ul><li><p>There is no media that exists for the specified <code>Timestamp</code>.</p></li></ul><ul><li><p>The media for the specified time does not allow an image to be extracted. In this case the media is audio only, or the incorrect media has been ingested.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSKinesisVideoArchivedMediaImageError error;
+
+/**
+ <p>An attribute of the <code>Image</code> object that is Base64 encoded.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable imageContent;
+
+/**
+ <p>An attribute of the <code>Image</code> object that is used to extract an image from the video stream. This field is used to manage gaps on images or to better understand the pagination window.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable timeStamp;
 
 @end
 

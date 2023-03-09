@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -6314,6 +6314,10 @@
           \"shape\": \"MapOf__string\",\
           \"locationName\": \"tags\",\
           \"documentation\": \"<p>A string-to-string map of key-value pairs that identifies the tags that are associated with the application. Each tag consists of a required tag key and an associated tag value.</p>\"\
+        },\
+        \"CreationDate\": {\
+          \"shape\": \"__string\",\
+          \"documentation\": \"<p>The date and time when the Application was created.</p>\"\
         }\
       },\
       \"documentation\": \"<p>Provides information about an application.</p>\",\
@@ -11935,6 +11939,18 @@
         \"JourneyChannelSettings\": {\
           \"shape\": \"JourneyChannelSettings\",\
           \"documentation\": \"<p>The channel-specific configurations for the journey.</p>\"\
+        },\
+        \"SendingSchedule\": {\
+            \"shape\": \"__boolean\",\
+            \"documentation\": \"<p>Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays). This flag should be set to true in order to allow (OpenHours and ClosedDays)</p>\"\
+        },\
+        \"OpenHours\": {\
+            \"shape\": \"OpenHours\",\
+            \"documentation\": \"<p>The time when journey allow to send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>\"\
+        },\
+        \"ClosedDays\": {\
+            \"shape\": \"ClosedDays\",\
+            \"documentation\": \"<p>The time when journey will stop sending messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>\"\
         }\
       },\
       \"documentation\": \"<p>Provides information about the status, configuration, and other settings for a journey.</p>\",\
@@ -15649,6 +15665,22 @@
         \"RefreshOnSegmentUpdate\": {\
             \"shape\": \"__boolean\",\
             \"documentation\": \"<p>Specifies whether a journey should be refreshed on segment update.</p>\"\
+        },\
+        \"JourneyChannelSettings\": {\
+            \"shape\": \"JourneyChannelSettings\",\
+            \"documentation\": \"<p>The channel-specific configurations for the journey.</p>\"\
+        },\
+        \"SendingSchedule\": {\
+            \"shape\": \"__boolean\",\
+            \"documentation\": \"<p>Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays). This flag should be set to true in order to allow (OpenHours and ClosedDays)</p>\"\
+        },\
+        \"OpenHours\": {\
+            \"shape\": \"OpenHours\",\
+            \"documentation\": \"<p>The time when journey allow to send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>\"\
+        },\
+        \"ClosedDays\": {\
+            \"shape\": \"ClosedDays\",\
+            \"documentation\": \"<p>The time when journey will stop sending messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>\"\
         }\
       },\
       \"documentation\": \"<p>Specifies the configuration and other settings for a journey.</p>\",\
@@ -16065,6 +16097,127 @@
     \"__timestampUnix\": {\
       \"type\": \"timestamp\",\
       \"timestampFormat\": \"unixTimestamp\"\
+    },\
+    \"DayOfWeek\": {\
+        \"type\": \"string\",\
+        \"enum\": [\
+          \"MONDAY\",\
+          \"TUESDAY\",\
+          \"WEDNESDAY\",\
+          \"THURSDAY\",\
+          \"FRIDAY\",\
+          \"SATURDAY\",\
+          \"SUNDAY\"\
+        ]\
+    },\
+    \"OpenHoursRule\": {\
+        \"type\": \"structure\",\
+        \"documentation\" : \"<p>List of OpenHours Rules.</p>\",\
+        \"members\": {\
+            \"StartTime\": {\
+                \"shape\": \"__string\",\
+                \"documentation\": \"<p>Local start time in ISO 8601 format.</p>\"\
+            },\
+            \"EndTime\": {\
+                \"shape\": \"__string\",\
+                \"documentation\": \"<p>Local start time in ISO 8601 format.</p>\"\
+            }\
+        }\
+    },\
+    \"ListOfOpenHoursRules\": {\
+        \"type\": \"list\",\
+        \"member\": {\
+            \"shape\": \"OpenHoursRule\",\
+            \"documentation\": \"<p>Open Hour Rule Details.</p>\"\
+          }\
+    },\
+    \"MapOfListOfOpenHoursRules\": {\
+        \"type\": \"map\",\
+        \"key\": {\
+          \"shape\": \"DayOfWeek\",\
+          \"documentation\": \"<p>Day of a week when the rule will be applied. Valid values are [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY]</p>\"\
+        },\
+        \"value\": {\
+          \"shape\": \"ListOfOpenHoursRules\",\
+          \"documentation\": \"<p>Open Hour Rules.</p>\"\
+        }\
+    },\
+    \"OpenHours\": {\
+        \"type\": \"structure\",\
+        \"documentation\": \"<p>The time when journey allow to send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>\",\
+        \"members\": {\
+            \"EMAIL\": {\
+                \"shape\": \"MapOfListOfOpenHoursRules\",\
+                \"documentation\": \"<p>Rules for Email Channel.</p>\"\
+            },\
+            \"SMS\": {\
+                \"shape\": \"MapOfListOfOpenHoursRules\",\
+                \"documentation\": \"<p>Rules for SMS Channel.</p>\"\
+            },\
+            \"PUSH\": {\
+                \"shape\": \"MapOfListOfOpenHoursRules\",\
+                \"documentation\": \"<p>Rules for Push Channel.</p>\"\
+            },\
+            \"VOICE\": {\
+                \"shape\": \"MapOfListOfOpenHoursRules\",\
+                \"documentation\": \"<p>Rules for Voice Channel.</p>\"\
+            },\
+            \"CUSTOM\": {\
+                \"shape\": \"MapOfListOfOpenHoursRules\",\
+                \"documentation\": \"<p>Rules for Custom Channel.</p>\"\
+            }\
+        }\
+    },\
+    \"ClosedDaysRule\": {\
+        \"type\": \"structure\",\
+        \"documentation\": \"<p>Closed Days Rule. Part of Journey sending schedule.</p>\",\
+        \"members\": {\
+            \"Name\": {\
+                \"shape\": \"__string\",\
+                \"documentation\": \"<p>Name of the rule.</p>\"\
+            },\
+            \"StartDateTime\": {\
+                \"shape\": \"__string\",\
+                \"documentation\": \"<p>Start Datetime in ISO 8601 format.</p>\"\
+            },\
+            \"EndDateTime\": {\
+                \"shape\": \"__string\",\
+                \"documentation\": \"<p>End Datetime in ISO 8601 format.</p>\"\
+            }\
+        }\
+    },  \
+    \"ListOfClosedDaysRules\": {\
+        \"type\": \"list\",\
+        \"member\": {\
+            \"shape\": \"ClosedDaysRule\",\
+            \"documentation\": \"<p>ClosedDays rule details.</p>\"\
+          }\
+    },\
+    \"ClosedDays\": {\
+        \"type\": \"structure\",\
+        \"documentation\" : \"<p>The time when journey will stop sending messages.</p>\",\
+        \"members\": {\
+            \"EMAIL\": {\
+                \"shape\": \"ListOfClosedDaysRules\",\
+                \"documentation\": \"<p>Rules for Email Channel.</p>\"\
+            },\
+            \"SMS\": {\
+                \"shape\": \"ListOfClosedDaysRules\",\
+                \"documentation\": \"<p>Rules for SMS Channel.</p>\"\
+            },\
+            \"PUSH\": {\
+                \"shape\": \"ListOfClosedDaysRules\",\
+                \"documentation\": \"<p>Rules for Push Channel.</p>\"\
+            },\
+            \"VOICE\": {\
+                \"shape\": \"ListOfClosedDaysRules\",\
+                \"documentation\": \"<p>Rules for Voice Channel.</p>\"\
+            },\
+            \"CUSTOM\": {\
+                \"shape\": \"ListOfClosedDaysRules\",\
+                \"documentation\": \"<p>Rules for Custom Channel.</p>\"\
+            }\
+        }\
     }\
   }\
 }\

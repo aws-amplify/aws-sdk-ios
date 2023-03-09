@@ -233,7 +233,6 @@ class AWSMobileClientCredentialsTest: AWSMobileClientTestBase {
     }
     
     func testMultipleGetCredentials() {
-        AWSDDLog.sharedInstance.logLevel = .verbose
         AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
         let username = "testUser" + UUID().uuidString
         let credentialFetchBeforeSignIn = expectation(description: "Request to getAWSCredentials before signIn")
@@ -266,6 +265,36 @@ class AWSMobileClientCredentialsTest: AWSMobileClientTestBase {
             credentialFetchAfterSignOut.fulfill()
         })
         wait(for: [credentialFetchAfterSignIn2, credentialFetchBeforeSignIn, credentialFetchAfterSignOut], timeout: 15)
+    }
+
+
+    func testMultipleConcurrentGetCredentials() {
+        AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
+        let username = "testUser" + UUID().uuidString
+        let credentialFetchAfterSignIn = expectation(description: "Request to getAWSCredentials after signIn")
+        let credentialFetchAfterSignOut = expectation(description: "Request to getAWSCredentials after signOut")
+
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        credentialFetchAfterSignIn.expectedFulfillmentCount = 100
+        for _ in 1...100 {
+            DispatchQueue.global().async {
+                AWSMobileClient.default().getAWSCredentials({ (awscredentials, error) in
+                    XCTAssertNil(error)
+                    XCTAssertNotNil(awscredentials, "Credentials should not return nil.")
+                    credentialFetchAfterSignIn.fulfill()
+                })
+            }}
+
+        wait(for: [credentialFetchAfterSignIn], timeout: 25)
+
+        AWSMobileClient.default().signOut()
+        AWSMobileClient.default().getAWSCredentials({ (awscredentials, error) in
+            XCTAssertNil(error)
+            XCTAssertNotNil(awscredentials, "Credentials should not return nil.")
+            credentialFetchAfterSignOut.fulfill()
+        })
+        wait(for: [credentialFetchAfterSignOut], timeout: 15)
     }
     
     /// Test AWS credentials fetched for different user are different

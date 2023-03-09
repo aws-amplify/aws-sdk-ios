@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -35,6 +35,8 @@ typedef NS_ENUM(NSInteger, AWSTranslateErrorType) {
     AWSTranslateErrorServiceUnavailable,
     AWSTranslateErrorTextSizeLimitExceeded,
     AWSTranslateErrorTooManyRequests,
+    AWSTranslateErrorTooManyTags,
+    AWSTranslateErrorUnsupportedDisplayLanguageCode,
     AWSTranslateErrorUnsupportedLanguagePair,
 };
 
@@ -44,9 +46,29 @@ typedef NS_ENUM(NSInteger, AWSTranslateDirectionality) {
     AWSTranslateDirectionalityMulti,
 };
 
+typedef NS_ENUM(NSInteger, AWSTranslateDisplayLanguageCode) {
+    AWSTranslateDisplayLanguageCodeUnknown,
+    AWSTranslateDisplayLanguageCodeDe,
+    AWSTranslateDisplayLanguageCodeEn,
+    AWSTranslateDisplayLanguageCodeEs,
+    AWSTranslateDisplayLanguageCodeFr,
+    AWSTranslateDisplayLanguageCodeIt,
+    AWSTranslateDisplayLanguageCodeJa,
+    AWSTranslateDisplayLanguageCodeKo,
+    AWSTranslateDisplayLanguageCodePt,
+    AWSTranslateDisplayLanguageCodeZh,
+    AWSTranslateDisplayLanguageCodeZhTW,
+};
+
 typedef NS_ENUM(NSInteger, AWSTranslateEncryptionKeyType) {
     AWSTranslateEncryptionKeyTypeUnknown,
     AWSTranslateEncryptionKeyTypeKms,
+};
+
+typedef NS_ENUM(NSInteger, AWSTranslateFormality) {
+    AWSTranslateFormalityUnknown,
+    AWSTranslateFormalityFormal,
+    AWSTranslateFormalityInformal,
 };
 
 typedef NS_ENUM(NSInteger, AWSTranslateJobStatus) {
@@ -110,8 +132,13 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @class AWSTranslateImportTerminologyResponse;
 @class AWSTranslateInputDataConfig;
 @class AWSTranslateJobDetails;
+@class AWSTranslateLanguage;
+@class AWSTranslateListLanguagesRequest;
+@class AWSTranslateListLanguagesResponse;
 @class AWSTranslateListParallelDataRequest;
 @class AWSTranslateListParallelDataResponse;
+@class AWSTranslateListTagsForResourceRequest;
+@class AWSTranslateListTagsForResourceResponse;
 @class AWSTranslateListTerminologiesRequest;
 @class AWSTranslateListTerminologiesResponse;
 @class AWSTranslateListTextTranslationJobsRequest;
@@ -124,6 +151,9 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @class AWSTranslateStartTextTranslationJobResponse;
 @class AWSTranslateStopTextTranslationJobRequest;
 @class AWSTranslateStopTextTranslationJobResponse;
+@class AWSTranslateTag;
+@class AWSTranslateTagResourceRequest;
+@class AWSTranslateTagResourceResponse;
 @class AWSTranslateTerm;
 @class AWSTranslateTerminologyData;
 @class AWSTranslateTerminologyDataLocation;
@@ -133,6 +163,8 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @class AWSTranslateTranslateTextRequest;
 @class AWSTranslateTranslateTextResponse;
 @class AWSTranslateTranslationSettings;
+@class AWSTranslateUntagResourceRequest;
+@class AWSTranslateUntagResourceResponse;
 @class AWSTranslateUpdateParallelDataRequest;
 @class AWSTranslateUpdateParallelDataResponse;
 
@@ -184,6 +216,11 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
  <p>Specifies the format and S3 location of the parallel data input file.</p>
  */
 @property (nonatomic, strong) AWSTranslateParallelDataConfig * _Nullable parallelDataConfig;
+
+/**
+ <p>Tags to be associated with this resource. A tag is a key-value pair that adds metadata to a resource. Each tag key for the resource must be unique. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html"> Tagging your resources</a>.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTranslateTag *> * _Nullable tags;
 
 @end
 
@@ -314,17 +351,17 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 
 
 /**
- <p>The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to create a parallel data resource. The location is returned as a presigned URL to that has a 30 minute expiration.</p>
+ <p>The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to create a parallel data resource. The location is returned as a presigned URL to that has a 30-minute expiration.</p>
  */
 @property (nonatomic, strong) AWSTranslateParallelDataDataLocation * _Nullable auxiliaryDataLocation;
 
 /**
- <p>The Amazon S3 location of the most recent parallel data input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30 minute expiration.</p><important><p>Amazon Translate doesn't scan all input files for the risk of CSV injection attacks. </p><p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p><p>Before you download an input file from Amazon S3, ensure that you recognize the file and trust its creator.</p></important>
+ <p>The Amazon S3 location of the most recent parallel data input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30-minute expiration.</p><important><p>Amazon Translate doesn't scan all input files for the risk of CSV injection attacks. </p><p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p><p>Before you download an input file from Amazon S3, ensure that you recognize the file and trust its creator.</p></important>
  */
 @property (nonatomic, strong) AWSTranslateParallelDataDataLocation * _Nullable dataLocation;
 
 /**
- <p>The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to update a parallel data resource. The location is returned as a presigned URL to that has a 30 minute expiration.</p>
+ <p>The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to update a parallel data resource. The location is returned as a presigned URL to that has a 30-minute expiration.</p>
  */
 @property (nonatomic, strong) AWSTranslateParallelDataDataLocation * _Nullable latestUpdateAttemptAuxiliaryDataLocation;
 
@@ -347,7 +384,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>The data format of the custom terminology being retrieved.</p><p>If you don't specify this parameter, Amazon Translate returns a file that has the same format as the file that was imported to create the terminology. </p><p>If you specify this parameter when you retrieve a multi-directional terminology resource, you must specify the same format as that of the input file that was imported to create it. Otherwise, Amazon Translate throws an error.</p>
+ <p>The data format of the custom terminology being retrieved.</p><p>If you don't specify this parameter, Amazon Translate returns a file with the same format as the file that was imported to create the terminology. </p><p>If you specify this parameter when you retrieve a multi-directional terminology resource, you must specify the same format as the input file that was imported to create it. Otherwise, Amazon Translate throws an error.</p>
  */
 @property (nonatomic, assign) AWSTranslateTerminologyDataFormat terminologyDataFormat;
 
@@ -360,12 +397,12 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 
 
 /**
- <p>The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to create a terminology resource. The location is returned as a presigned URL to that has a 30 minute expiration.</p>
+ <p>The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to create a terminology resource. The location is returned as a presigned URL to that has a 30-minute expiration.</p>
  */
 @property (nonatomic, strong) AWSTranslateTerminologyDataLocation * _Nullable auxiliaryDataLocation;
 
 /**
- <p>The Amazon S3 location of the most recent custom terminology input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30 minute expiration.</p><important><p>Amazon Translate doesn't scan all input files for the risk of CSV injection attacks. </p><p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p><p>Before you download an input file from Amazon S3, ensure that you recognize the file and trust its creator.</p></important>
+ <p>The Amazon S3 location of the most recent custom terminology input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30-minute expiration.</p><important><p>Amazon Translate doesn't scan all input files for the risk of CSV injection attacks. </p><p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p><p>Before you download an input file from Amazon S3, ensure that you recognize the file and trust its creator.</p></important>
  */
 @property (nonatomic, strong) AWSTranslateTerminologyDataLocation * _Nullable terminologyDataLocation;
 
@@ -401,6 +438,11 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
  <p>The name of the custom terminology being imported.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>Tags to be associated with this resource. A tag is a key-value pair that adds metadata to a resource. Each tag key for the resource must be unique. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html"> Tagging your resources</a>.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTranslateTag *> * _Nullable tags;
 
 /**
  <p>The terminology data for the custom terminology being imported.</p>
@@ -440,7 +482,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @property (nonatomic, strong) NSString * _Nullable contentType;
 
 /**
- <p>The URI of the AWS S3 folder that contains the input file. The folder must be in the same Region as the API endpoint you are calling.</p>
+ <p>The URI of the AWS S3 folder that contains the input files. Amazon Translate translates all the files in the folder and all its sub-folders. The folder must be in the same Region as the API endpoint you are calling.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable s3Uri;
 
@@ -466,6 +508,71 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
  <p>The number of documents successfully processed during a translation job.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable translatedDocumentsCount;
+
+@end
+
+/**
+ <p>A supported language.</p>
+ Required parameters: [LanguageName, LanguageCode]
+ */
+@interface AWSTranslateLanguage : AWSModel
+
+
+/**
+ <p>Language code for the supported language.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable languageCode;
+
+/**
+ <p>Language name of the supported language.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable languageName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranslateListLanguagesRequest : AWSRequest
+
+
+/**
+ <p>The language code for the language to use to display the language names in the response. The language code is <code>en</code> by default. </p>
+ */
+@property (nonatomic, assign) AWSTranslateDisplayLanguageCode displayLanguageCode;
+
+/**
+ <p>The maximum number of results to return in each response.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>Include the NextToken value to fetch the next group of supported languages. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranslateListLanguagesResponse : AWSModel
+
+
+/**
+ <p>The language code passed in with the request.</p>
+ */
+@property (nonatomic, assign) AWSTranslateDisplayLanguageCode displayLanguageCode;
+
+/**
+ <p>The list of supported languages.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTranslateLanguage *> * _Nullable languages;
+
+/**
+ <p> If the response does not include all remaining results, use the NextToken in the next request to fetch the next group of supported languages.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
@@ -502,6 +609,32 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
  <p>The properties of the parallel data resources returned by this request.</p>
  */
 @property (nonatomic, strong) NSArray<AWSTranslateParallelDataProperties *> * _Nullable parallelDataPropertiesList;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranslateListTagsForResourceRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the given Amazon Translate resource you are querying. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranslateListTagsForResourceResponse : AWSModel
+
+
+/**
+ <p>Tags associated with the Amazon Translate resource being queried. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Translate. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSTranslateTag *> * _Nullable tags;
 
 @end
 
@@ -628,7 +761,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 
 
 /**
- <p>The Amazon S3 location of the parallel data input file. The location is returned as a presigned URL to that has a 30 minute expiration.</p><important><p>Amazon Translate doesn't scan all input files for the risk of CSV injection attacks. </p><p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p><p>Before you download an input file from Amazon S3, ensure that you recognize the file and trust its creator.</p></important>
+ <p>The Amazon S3 location of the parallel data input file. The location is returned as a presigned URL to that has a 30-minute expiration.</p><important><p>Amazon Translate doesn't scan all input files for the risk of CSV injection attacks. </p><p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p><p>Before you download an input file from Amazon S3, ensure that you recognize the file and trust its creator.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable location;
 
@@ -739,17 +872,17 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 
 
 /**
- <p>A unique identifier for the request. This token is auto-generated when using the Amazon Translate SDK.</p>
+ <p>A unique identifier for the request. This token is generated for you when using the Amazon Translate SDK.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
 /**
- <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role that grants Amazon Translate read access to your input data. For more information, see <a>identity-and-access-management</a>.</p>
+ <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role that grants Amazon Translate read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/identity-and-access-management.html">Identity and access management </a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable dataAccessRoleArn;
 
 /**
- <p>Specifies the format and S3 location of the input documents for the translation job.</p>
+ <p>Specifies the format and location of the input documents for the translation job.</p>
  */
 @property (nonatomic, strong) AWSTranslateInputDataConfig * _Nullable inputDataConfig;
 
@@ -764,27 +897,27 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @property (nonatomic, strong) AWSTranslateOutputDataConfig * _Nullable outputDataConfig;
 
 /**
- <p>The name of a parallel data resource to add to the translation job. This resource consists of examples that show how you want segments of text to be translated. When you add parallel data to a translation job, you create an <i>Active Custom Translation</i> job. </p><p>This parameter accepts only one parallel data resource.</p><note><p>Active Custom Translation jobs are priced at a higher rate than other jobs that don't use parallel data. For more information, see <a href="http://aws.amazon.com/translate/pricing/">Amazon Translate pricing</a>.</p></note><p>For a list of available parallel data resources, use the <a>ListParallelData</a> operation.</p><p>For more information, see <a>customizing-translations-parallel-data</a>.</p>
+ <p>The name of a parallel data resource to add to the translation job. This resource consists of examples that show how you want segments of text to be translated. If you specify multiple target languages for the job, the parallel data file must include translations for all the target languages.</p><p>When you add parallel data to a translation job, you create an <i>Active Custom Translation</i> job. </p><p>This parameter accepts only one parallel data resource.</p><note><p>Active Custom Translation jobs are priced at a higher rate than other jobs that don't use parallel data. For more information, see <a href="http://aws.amazon.com/translate/pricing/">Amazon Translate pricing</a>.</p></note><p>For a list of available parallel data resources, use the <a>ListParallelData</a> operation.</p><p>For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-parallel-data.html"> Customizing your translations with parallel data</a>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable parallelDataNames;
 
 /**
- <p>Settings to configure your translation output, including the option to mask profane words and phrases.</p>
+ <p>Settings to configure your translation output, including the option to set the formality level of the output text and the option to mask profane words and phrases.</p>
  */
 @property (nonatomic, strong) AWSTranslateTranslationSettings * _Nullable settings;
 
 /**
- <p>The language code of the input language. For a list of language codes, see <a>what-is-languages</a>.</p><p>Amazon Translate does not automatically detect a source language during batch translation jobs.</p>
+ <p>The language code of the input language. Specify the language if all input documents share the same language. If you don't know the language of the source files, or your input documents contains different source languages, select <code>auto</code>. Amazon Translate auto detects the source language for each input document. For a list of supported language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceLanguageCode;
 
 /**
- <p>The language code of the output language.</p>
+ <p>The target languages of the translation job. Enter up to 10 language codes. Each input file is translated into each target language.</p><p>Each language code is 2 or 5 characters long. For a list of language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable targetLanguageCodes;
 
 /**
- <p>The name of a custom terminology resource to add to the translation job. This resource lists examples source terms and the desired translation for each term.</p><p>This parameter accepts only one custom terminology resource.</p><p>For a list of available custom terminology resources, use the <a>ListTerminologies</a> operation.</p><p>For more information, see <a>how-custom-terminology</a>.</p>
+ <p>The name of a custom terminology resource to add to the translation job. This resource lists examples source terms and the desired translation for each term.</p><p>This parameter accepts only one custom terminology resource.</p><p>If you specify multiple target languages for the job, translate uses the designated terminology for each requested target language that has an entry for the source term in the terminology file.</p><p>For a list of available custom terminology resources, use the <a>ListTerminologies</a> operation.</p><p>For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/how-custom-terminology.html">Custom terminology</a>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable terminologyNames;
 
@@ -840,6 +973,51 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @end
 
 /**
+ <p>A key-value pair that adds as a metadata to a resource used by Amazon Translate. </p>
+ Required parameters: [Key, Value]
+ */
+@interface AWSTranslateTag : AWSModel
+
+
+/**
+ <p>The initial part of a key-value pair that forms a tag associated with a given resource. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable key;
+
+/**
+ <p> The second part of a key-value pair that forms a tag associated with a given resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable value;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranslateTagResourceRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the given Amazon Translate resource to which you want to associate the tags. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ <p>Tags being associated with a specific Amazon Translate resource. There can be a maximum of 50 tags (both existing and pending) associated with a specific resource.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTranslateTag *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranslateTagResourceResponse : AWSModel
+
+
+@end
+
+/**
  <p>The term being translated by the custom terminology.</p>
  */
 @interface AWSTranslateTerm : AWSModel
@@ -858,14 +1036,14 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @end
 
 /**
- <p>The data associated with the custom terminology.</p>
+ <p>The data associated with the custom terminology. For information about the custom terminology file, see <a href="https://docs.aws.amazon.com/translate/latest/dg/creating-custom-terminology.html"> Creating a Custom Terminology</a>.</p>
  Required parameters: [File, Format]
  */
 @interface AWSTranslateTerminologyData : AWSModel
 
 
 /**
- <p>The directionality of your terminology resource indicates whether it has one source language (uni-directional) or multiple (multi-directional).</p><dl><dt>UNI</dt><dd><p>The terminology resource has one source language (for example, the first column in a CSV file), and all of its other languages are target languages. </p></dd><dt>MULTI</dt><dd><p>Any language in the terminology resource can be the source language or a target language. A single multi-directional terminology resource can be used for jobs that translate different language pairs. For example, if the terminology contains terms in English and Spanish, then it can be used for jobs that translate English to Spanish and jobs that translate Spanish to English.</p></dd></dl><p>When you create a custom terminology resource without specifying the directionality, it behaves as uni-directional terminology, although this parameter will have a null value.</p>
+ <p>The directionality of your terminology resource indicates whether it has one source language (uni-directional) or multiple (multi-directional).</p><dl><dt>UNI</dt><dd><p>The terminology resource has one source language (for example, the first column in a CSV file), and all of its other languages are target languages. </p></dd><dt>MULTI</dt><dd><p>Any language in the terminology resource can be the source language or a target language. A single multi-directional terminology resource can be used for jobs that translate different language pairs. For example, if the terminology contains English and Spanish terms, it can be used for jobs that translate English to Spanish and Spanish to English.</p></dd></dl><p>When you create a custom terminology resource without specifying the directionality, it behaves as uni-directional terminology, although this parameter will have a null value.</p>
  */
 @property (nonatomic, assign) AWSTranslateDirectionality directionality;
 
@@ -889,7 +1067,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 
 
 /**
- <p>The Amazon S3 location of the most recent custom terminology input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30 minute expiration.</p><important><p>Amazon Translate doesn't scan all input files for the risk of CSV injection attacks. </p><p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p><p>Before you download an input file from Amazon S3, ensure that you recognize the file and trust its creator.</p></important>
+ <p>The Amazon S3 location of the most recent custom terminology input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30-minute expiration .</p><important><p>Amazon Translate doesn't scan all input files for the risk of CSV injection attacks. </p><p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p><p>Before you download an input file from Amazon S3, ensure that you recognize the file and trust its creator.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable location;
 
@@ -1096,12 +1274,12 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 
 
 /**
- <p>Settings to configure your translation output, including the option to mask profane words and phrases.</p>
+ <p>Settings to configure your translation output, including the option to set the formality level of the output text and the option to mask profane words and phrases.</p>
  */
 @property (nonatomic, strong) AWSTranslateTranslationSettings * _Nullable settings;
 
 /**
- <p>The language code for the language of the source text. The language must be a language supported by Amazon Translate. For a list of language codes, see <a>what-is-languages</a>.</p><p>To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call <a href="https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html">Amazon Comprehend</a> to determine the source language.</p>
+ <p>The language code for the language of the source text. The language must be a language supported by Amazon Translate. For a list of language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p><p>To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call <a href="https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html">Amazon Comprehend</a> to determine the source language.</p><note><p>If you specify <code>auto</code>, you must send the <code>TranslateText</code> request in a region that supports Amazon Comprehend. Otherwise, the request returns an error indicating that autodetect is not supported. </p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceLanguageCode;
 
@@ -1116,7 +1294,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable terminologyNames;
 
 /**
- <p>The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on your character set, this may be fewer than 5,000 characters.</p>
+ <p>The text to translate. The text string can be a maximum of 10,000 bytes long. Depending on your character set, this may be fewer than 10,000 characters.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable text;
 
@@ -1156,15 +1334,46 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @end
 
 /**
- <p>Settings that configure the translation output.</p>
+ <p>Optional settings that configure the translation output. Use these settings for real time translations and asynchronous translation jobs.</p>
  */
 @interface AWSTranslateTranslationSettings : AWSModel
 
 
 /**
- <p>Enable the profanity setting if you want Amazon Translate to mask profane words and phrases in your translation output.</p><p>To mask profane words and phrases, Amazon Translate replaces them with the grawlix string “?$#@$“. This 5-character sequence is used for each profane word or phrase, regardless of the length or number of words.</p><p>Amazon Translate does not detect profanity in all of its supported languages. For languages that support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html#what-is-languages">Supported Languages and Language Codes in the Amazon Translate Developer Guide</a>.</p>
+ <p>You can optionally specify the desired level of formality for translations to supported target languages. The formality setting controls the level of formal language usage (also known as <a href="https://en.wikipedia.org/wiki/Register_(sociolinguistics)">register</a>) in the translation output. You can set the value to informal or formal. If you don't specify a value for formality, or if the target language doesn't support formality, the translation will ignore the formality setting.</p><p> If you specify multiple target languages for the job, translate ignores the formality setting for any unsupported target language.</p><p>For a list of target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html#customizing-translations-formality-languages">Supported languages</a> in the Amazon Translate Developer Guide.</p>
+ */
+@property (nonatomic, assign) AWSTranslateFormality formality;
+
+/**
+ <p>Enable the profanity setting if you want Amazon Translate to mask profane words and phrases in your translation output.</p><p>To mask profane words and phrases, Amazon Translate replaces them with the grawlix string “?$#@$“. This 5-character sequence is used for each profane word or phrase, regardless of the length or number of words.</p><p>Amazon Translate doesn't detect profanity in all of its supported languages. For languages that don't support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html#customizing-translations-profanity-languages">Unsupported languages</a> in the Amazon Translate Developer Guide.</p><p>If you specify multiple target languages for the job, all the target languages must support profanity masking. If any of the target languages don't support profanity masking, the translation job won't mask profanity for any target language.</p>
  */
 @property (nonatomic, assign) AWSTranslateProfanity profanity;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranslateUntagResourceRequest : AWSRequest
+
+
+/**
+ <p> The Amazon Resource Name (ARN) of the given Amazon Translate resource from which you want to remove the tags. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ <p>The initial part of a key-value pair that forms a tag being removed from a given resource. Keys must be unique and cannot be duplicated for a particular resource. </p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable tagKeys;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranslateUntagResourceResponse : AWSModel
+
 
 @end
 

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@
 - (void) test_AWSLogsCreateExportTaskResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsCreateLogGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsCreateLogStreamRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsDeleteDataProtectionPolicyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDeleteDestinationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDeleteLogGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDeleteLogStreamRequest API_AVAILABLE(ios(11));
@@ -60,6 +61,8 @@
 - (void) test_AWSLogsFilterLogEventsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsFilterLogEventsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsFilteredLogEvent API_AVAILABLE(ios(11));
+- (void) test_AWSLogsGetDataProtectionPolicyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsGetDataProtectionPolicyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsGetLogEventsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsGetLogEventsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsGetLogGroupFieldsRequest API_AVAILABLE(ios(11));
@@ -69,6 +72,8 @@
 - (void) test_AWSLogsGetQueryResultsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsGetQueryResultsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsInputLogEvent API_AVAILABLE(ios(11));
+- (void) test_AWSLogsListTagsForResourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsListTagsForResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsListTagsLogGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsListTagsLogGroupResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsLogGroup API_AVAILABLE(ios(11));
@@ -78,6 +83,8 @@
 - (void) test_AWSLogsMetricFilterMatchRecord API_AVAILABLE(ios(11));
 - (void) test_AWSLogsMetricTransformation API_AVAILABLE(ios(11));
 - (void) test_AWSLogsOutputLogEvent API_AVAILABLE(ios(11));
+- (void) test_AWSLogsPutDataProtectionPolicyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsPutDataProtectionPolicyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsPutDestinationPolicyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsPutDestinationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsPutDestinationResponse API_AVAILABLE(ios(11));
@@ -105,9 +112,11 @@
 - (void) test_AWSLogsStopQueryResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsSubscriptionFilter API_AVAILABLE(ios(11));
 - (void) test_AWSLogsTagLogGroupRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsTagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsTestMetricFilterRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsTestMetricFilterResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsUntagLogGroupRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsUntagResourceRequest API_AVAILABLE(ios(11));
 
 @end
 
@@ -135,6 +144,10 @@
 
 - (void) test_AWSLogsCreateLogStreamRequest {
     [self validateSecureCodingForClass:[AWSLogsCreateLogStreamRequest class]];
+}
+
+- (void) test_AWSLogsDeleteDataProtectionPolicyRequest {
+    [self validateSecureCodingForClass:[AWSLogsDeleteDataProtectionPolicyRequest class]];
 }
 
 - (void) test_AWSLogsDeleteDestinationRequest {
@@ -277,6 +290,14 @@
     [self validateSecureCodingForClass:[AWSLogsFilteredLogEvent class]];
 }
 
+- (void) test_AWSLogsGetDataProtectionPolicyRequest {
+    [self validateSecureCodingForClass:[AWSLogsGetDataProtectionPolicyRequest class]];
+}
+
+- (void) test_AWSLogsGetDataProtectionPolicyResponse {
+    [self validateSecureCodingForClass:[AWSLogsGetDataProtectionPolicyResponse class]];
+}
+
 - (void) test_AWSLogsGetLogEventsRequest {
     [self validateSecureCodingForClass:[AWSLogsGetLogEventsRequest class]];
 }
@@ -313,6 +334,14 @@
     [self validateSecureCodingForClass:[AWSLogsInputLogEvent class]];
 }
 
+- (void) test_AWSLogsListTagsForResourceRequest {
+    [self validateSecureCodingForClass:[AWSLogsListTagsForResourceRequest class]];
+}
+
+- (void) test_AWSLogsListTagsForResourceResponse {
+    [self validateSecureCodingForClass:[AWSLogsListTagsForResourceResponse class]];
+}
+
 - (void) test_AWSLogsListTagsLogGroupRequest {
     [self validateSecureCodingForClass:[AWSLogsListTagsLogGroupRequest class]];
 }
@@ -347,6 +376,14 @@
 
 - (void) test_AWSLogsOutputLogEvent {
     [self validateSecureCodingForClass:[AWSLogsOutputLogEvent class]];
+}
+
+- (void) test_AWSLogsPutDataProtectionPolicyRequest {
+    [self validateSecureCodingForClass:[AWSLogsPutDataProtectionPolicyRequest class]];
+}
+
+- (void) test_AWSLogsPutDataProtectionPolicyResponse {
+    [self validateSecureCodingForClass:[AWSLogsPutDataProtectionPolicyResponse class]];
 }
 
 - (void) test_AWSLogsPutDestinationPolicyRequest {
@@ -457,6 +494,10 @@
     [self validateSecureCodingForClass:[AWSLogsTagLogGroupRequest class]];
 }
 
+- (void) test_AWSLogsTagResourceRequest {
+    [self validateSecureCodingForClass:[AWSLogsTagResourceRequest class]];
+}
+
 - (void) test_AWSLogsTestMetricFilterRequest {
     [self validateSecureCodingForClass:[AWSLogsTestMetricFilterRequest class]];
 }
@@ -467,6 +508,10 @@
 
 - (void) test_AWSLogsUntagLogGroupRequest {
     [self validateSecureCodingForClass:[AWSLogsUntagLogGroupRequest class]];
+}
+
+- (void) test_AWSLogsUntagResourceRequest {
+    [self validateSecureCodingForClass:[AWSLogsUntagResourceRequest class]];
 }
 
 @end

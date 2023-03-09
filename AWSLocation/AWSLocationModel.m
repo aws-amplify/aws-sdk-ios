@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -17,6 +17,57 @@
 #import <AWSCore/AWSCategory.h>
 
 NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain";
+
+@implementation AWSLocationApiKeyFilter
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"keyStatus" : @"KeyStatus",
+             };
+}
+
++ (NSValueTransformer *)keyStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Active"] == NSOrderedSame) {
+            return @(AWSLocationStatusActive);
+        }
+        if ([value caseInsensitiveCompare:@"Expired"] == NSOrderedSame) {
+            return @(AWSLocationStatusExpired);
+        }
+        return @(AWSLocationStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLocationStatusActive:
+                return @"Active";
+            case AWSLocationStatusExpired:
+                return @"Expired";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSLocationApiKeyRestrictions
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"allowActions" : @"AllowActions",
+             @"allowReferers" : @"AllowReferers",
+             @"allowResources" : @"AllowResources",
+             };
+}
+
+@end
 
 @implementation AWSLocationAssociateTrackerConsumerRequest
 
@@ -515,6 +566,160 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 @end
 
+@implementation AWSLocationCalculateRouteMatrixRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"calculatorName" : @"CalculatorName",
+             @"carModeOptions" : @"CarModeOptions",
+             @"departNow" : @"DepartNow",
+             @"departurePositions" : @"DeparturePositions",
+             @"departureTime" : @"DepartureTime",
+             @"destinationPositions" : @"DestinationPositions",
+             @"distanceUnit" : @"DistanceUnit",
+             @"travelMode" : @"TravelMode",
+             @"truckModeOptions" : @"TruckModeOptions",
+             };
+}
+
++ (NSValueTransformer *)carModeOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationCalculateRouteCarModeOptions class]];
+}
+
++ (NSValueTransformer *)departureTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)distanceUnitJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Kilometers"] == NSOrderedSame) {
+            return @(AWSLocationDistanceUnitKilometers);
+        }
+        if ([value caseInsensitiveCompare:@"Miles"] == NSOrderedSame) {
+            return @(AWSLocationDistanceUnitMiles);
+        }
+        return @(AWSLocationDistanceUnitUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLocationDistanceUnitKilometers:
+                return @"Kilometers";
+            case AWSLocationDistanceUnitMiles:
+                return @"Miles";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)travelModeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Car"] == NSOrderedSame) {
+            return @(AWSLocationTravelModeCar);
+        }
+        if ([value caseInsensitiveCompare:@"Truck"] == NSOrderedSame) {
+            return @(AWSLocationTravelModeTruck);
+        }
+        if ([value caseInsensitiveCompare:@"Walking"] == NSOrderedSame) {
+            return @(AWSLocationTravelModeWalking);
+        }
+        if ([value caseInsensitiveCompare:@"Bicycle"] == NSOrderedSame) {
+            return @(AWSLocationTravelModeBicycle);
+        }
+        if ([value caseInsensitiveCompare:@"Motorcycle"] == NSOrderedSame) {
+            return @(AWSLocationTravelModeMotorcycle);
+        }
+        return @(AWSLocationTravelModeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLocationTravelModeCar:
+                return @"Car";
+            case AWSLocationTravelModeTruck:
+                return @"Truck";
+            case AWSLocationTravelModeWalking:
+                return @"Walking";
+            case AWSLocationTravelModeBicycle:
+                return @"Bicycle";
+            case AWSLocationTravelModeMotorcycle:
+                return @"Motorcycle";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)truckModeOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationCalculateRouteTruckModeOptions class]];
+}
+
+@end
+
+@implementation AWSLocationCalculateRouteMatrixResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"routeMatrix" : @"RouteMatrix",
+             @"snappedDeparturePositions" : @"SnappedDeparturePositions",
+             @"snappedDestinationPositions" : @"SnappedDestinationPositions",
+             @"summary" : @"Summary",
+             };
+}
+
++ (NSValueTransformer *)summaryJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationCalculateRouteMatrixSummary class]];
+}
+
+@end
+
+@implementation AWSLocationCalculateRouteMatrixSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dataSource" : @"DataSource",
+             @"distanceUnit" : @"DistanceUnit",
+             @"errorCount" : @"ErrorCount",
+             @"routeCount" : @"RouteCount",
+             };
+}
+
++ (NSValueTransformer *)distanceUnitJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Kilometers"] == NSOrderedSame) {
+            return @(AWSLocationDistanceUnitKilometers);
+        }
+        if ([value caseInsensitiveCompare:@"Miles"] == NSOrderedSame) {
+            return @(AWSLocationDistanceUnitMiles);
+        }
+        return @(AWSLocationDistanceUnitUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLocationDistanceUnitKilometers:
+                return @"Kilometers";
+            case AWSLocationDistanceUnitMiles:
+                return @"Miles";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSLocationCalculateRouteRequest
 
 + (BOOL)supportsSecureCoding {
@@ -581,6 +786,12 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
         if ([value caseInsensitiveCompare:@"Walking"] == NSOrderedSame) {
             return @(AWSLocationTravelModeWalking);
         }
+        if ([value caseInsensitiveCompare:@"Bicycle"] == NSOrderedSame) {
+            return @(AWSLocationTravelModeBicycle);
+        }
+        if ([value caseInsensitiveCompare:@"Motorcycle"] == NSOrderedSame) {
+            return @(AWSLocationTravelModeMotorcycle);
+        }
         return @(AWSLocationTravelModeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -590,6 +801,10 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
                 return @"Truck";
             case AWSLocationTravelModeWalking:
                 return @"Walking";
+            case AWSLocationTravelModeBicycle:
+                return @"Bicycle";
+            case AWSLocationTravelModeMotorcycle:
+                return @"Motorcycle";
             default:
                 return nil;
         }
@@ -689,6 +904,21 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 @end
 
+@implementation AWSLocationCircle
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"center" : @"Center",
+             @"radius" : @"Radius",
+             };
+}
+
+@end
+
 @implementation AWSLocationCreateGeofenceCollectionRequest
 
 + (BOOL)supportsSecureCoding {
@@ -745,6 +975,62 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
              @"collectionArn" : @"CollectionArn",
              @"collectionName" : @"CollectionName",
              @"createTime" : @"CreateTime",
+             };
+}
+
++ (NSValueTransformer *)createTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSLocationCreateKeyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"Description",
+             @"expireTime" : @"ExpireTime",
+             @"keyName" : @"KeyName",
+             @"noExpiry" : @"NoExpiry",
+             @"restrictions" : @"Restrictions",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)expireTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)restrictionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationApiKeyRestrictions class]];
+}
+
+@end
+
+@implementation AWSLocationCreateKeyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"createTime" : @"CreateTime",
+             @"key" : @"Key",
+             @"keyArn" : @"KeyArn",
+             @"keyName" : @"KeyName",
              };
 }
 
@@ -1124,6 +1410,28 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 @end
 
+@implementation AWSLocationDeleteKeyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"keyName" : @"KeyName",
+             };
+}
+
+@end
+
+@implementation AWSLocationDeleteKeyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
 @implementation AWSLocationDeleteMapRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1278,6 +1586,70 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)updateTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSLocationDescribeKeyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"keyName" : @"KeyName",
+             };
+}
+
+@end
+
+@implementation AWSLocationDescribeKeyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"createTime" : @"CreateTime",
+             @"detail" : @"Description",
+             @"expireTime" : @"ExpireTime",
+             @"key" : @"Key",
+             @"keyArn" : @"KeyArn",
+             @"keyName" : @"KeyName",
+             @"restrictions" : @"Restrictions",
+             @"tags" : @"Tags",
+             @"updateTime" : @"UpdateTime",
+             };
+}
+
++ (NSValueTransformer *)createTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)expireTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)restrictionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationApiKeyRestrictions class]];
 }
 
 + (NSValueTransformer *)updateTimeJSONTransformer {
@@ -1736,8 +2108,13 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"circle" : @"Circle",
              @"polygon" : @"Polygon",
              };
+}
+
++ (NSValueTransformer *)circleJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationCircle class]];
 }
 
 @end
@@ -1752,6 +2129,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 	return @{
              @"deviceId" : @"DeviceId",
              @"endTimeExclusive" : @"EndTimeExclusive",
+             @"maxResults" : @"MaxResults",
              @"nextToken" : @"NextToken",
              @"startTimeInclusive" : @"StartTimeInclusive",
              @"trackerName" : @"TrackerName",
@@ -1912,6 +2290,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 	return @{
              @"fontStack" : @"FontStack",
              @"fontUnicodeRange" : @"FontUnicodeRange",
+             @"key" : @"Key",
              @"mapName" : @"MapName",
              };
 }
@@ -1927,6 +2306,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"blob" : @"Blob",
+             @"cacheControl" : @"CacheControl",
              @"contentType" : @"ContentType",
              };
 }
@@ -1942,6 +2322,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"fileName" : @"FileName",
+             @"key" : @"Key",
              @"mapName" : @"MapName",
              };
 }
@@ -1957,6 +2338,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"blob" : @"Blob",
+             @"cacheControl" : @"CacheControl",
              @"contentType" : @"ContentType",
              };
 }
@@ -1971,6 +2353,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"key" : @"Key",
              @"mapName" : @"MapName",
              };
 }
@@ -1986,6 +2369,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"blob" : @"Blob",
+             @"cacheControl" : @"CacheControl",
              @"contentType" : @"ContentType",
              };
 }
@@ -2000,6 +2384,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"key" : @"Key",
              @"mapName" : @"MapName",
              @"X" : @"X",
              @"Y" : @"Y",
@@ -2018,8 +2403,43 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"blob" : @"Blob",
+             @"cacheControl" : @"CacheControl",
              @"contentType" : @"ContentType",
              };
+}
+
+@end
+
+@implementation AWSLocationGetPlaceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"indexName" : @"IndexName",
+             @"language" : @"Language",
+             @"placeId" : @"PlaceId",
+             };
+}
+
+@end
+
+@implementation AWSLocationGetPlaceResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"place" : @"Place",
+             };
+}
+
++ (NSValueTransformer *)placeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationPlace class]];
 }
 
 @end
@@ -2272,6 +2692,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"collectionName" : @"CollectionName",
+             @"maxResults" : @"MaxResults",
              @"nextToken" : @"NextToken",
              };
 }
@@ -2293,6 +2714,92 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 + (NSValueTransformer *)entriesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLocationListGeofenceResponseEntry class]];
+}
+
+@end
+
+@implementation AWSLocationListKeysRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"filter" : @"Filter",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)filterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationApiKeyFilter class]];
+}
+
+@end
+
+@implementation AWSLocationListKeysResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"entries" : @"Entries",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)entriesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLocationListKeysResponseEntry class]];
+}
+
+@end
+
+@implementation AWSLocationListKeysResponseEntry
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"createTime" : @"CreateTime",
+             @"detail" : @"Description",
+             @"expireTime" : @"ExpireTime",
+             @"keyName" : @"KeyName",
+             @"restrictions" : @"Restrictions",
+             @"updateTime" : @"UpdateTime",
+             };
+}
+
++ (NSValueTransformer *)createTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)expireTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)restrictionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationApiKeyRestrictions class]];
+}
+
++ (NSValueTransformer *)updateTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -2770,6 +3277,8 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
              @"street" : @"Street",
              @"subRegion" : @"SubRegion",
              @"timeZone" : @"TimeZone",
+             @"unitNumber" : @"UnitNumber",
+             @"unitType" : @"UnitType",
              };
 }
 
@@ -2863,6 +3372,82 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 @end
 
+@implementation AWSLocationRouteMatrixEntry
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"distance" : @"Distance",
+             @"durationSeconds" : @"DurationSeconds",
+             @"error" : @"Error",
+             };
+}
+
++ (NSValueTransformer *)errorJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationRouteMatrixEntryError class]];
+}
+
+@end
+
+@implementation AWSLocationRouteMatrixEntryError
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"code" : @"Code",
+             @"message" : @"Message",
+             };
+}
+
++ (NSValueTransformer *)codeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"RouteNotFound"] == NSOrderedSame) {
+            return @(AWSLocationRouteMatrixErrorCodeRouteNotFound);
+        }
+        if ([value caseInsensitiveCompare:@"RouteTooLong"] == NSOrderedSame) {
+            return @(AWSLocationRouteMatrixErrorCodeRouteTooLong);
+        }
+        if ([value caseInsensitiveCompare:@"PositionsNotFound"] == NSOrderedSame) {
+            return @(AWSLocationRouteMatrixErrorCodePositionsNotFound);
+        }
+        if ([value caseInsensitiveCompare:@"DestinationPositionNotFound"] == NSOrderedSame) {
+            return @(AWSLocationRouteMatrixErrorCodeDestinationPositionNotFound);
+        }
+        if ([value caseInsensitiveCompare:@"DeparturePositionNotFound"] == NSOrderedSame) {
+            return @(AWSLocationRouteMatrixErrorCodeDeparturePositionNotFound);
+        }
+        if ([value caseInsensitiveCompare:@"OtherValidationError"] == NSOrderedSame) {
+            return @(AWSLocationRouteMatrixErrorCodeOtherValidationError);
+        }
+        return @(AWSLocationRouteMatrixErrorCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLocationRouteMatrixErrorCodeRouteNotFound:
+                return @"RouteNotFound";
+            case AWSLocationRouteMatrixErrorCodeRouteTooLong:
+                return @"RouteTooLong";
+            case AWSLocationRouteMatrixErrorCodePositionsNotFound:
+                return @"PositionsNotFound";
+            case AWSLocationRouteMatrixErrorCodeDestinationPositionNotFound:
+                return @"DestinationPositionNotFound";
+            case AWSLocationRouteMatrixErrorCodeDeparturePositionNotFound:
+                return @"DeparturePositionNotFound";
+            case AWSLocationRouteMatrixErrorCodeOtherValidationError:
+                return @"OtherValidationError";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSLocationSearchForPositionResult
 
 + (BOOL)supportsSecureCoding {
@@ -2873,6 +3458,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 	return @{
              @"distance" : @"Distance",
              @"place" : @"Place",
+             @"placeId" : @"PlaceId",
              };
 }
 
@@ -2890,6 +3476,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"placeId" : @"PlaceId",
              @"text" : @"Text",
              };
 }
@@ -2906,6 +3493,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 	return @{
              @"distance" : @"Distance",
              @"place" : @"Place",
+             @"placeId" : @"PlaceId",
              @"relevance" : @"Relevance",
              };
 }
@@ -3306,6 +3894,61 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 	return @{
              @"collectionArn" : @"CollectionArn",
              @"collectionName" : @"CollectionName",
+             @"updateTime" : @"UpdateTime",
+             };
+}
+
++ (NSValueTransformer *)updateTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSLocationUpdateKeyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"Description",
+             @"expireTime" : @"ExpireTime",
+             @"forceUpdate" : @"ForceUpdate",
+             @"keyName" : @"KeyName",
+             @"noExpiry" : @"NoExpiry",
+             @"restrictions" : @"Restrictions",
+             };
+}
+
++ (NSValueTransformer *)expireTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)restrictionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationApiKeyRestrictions class]];
+}
+
+@end
+
+@implementation AWSLocationUpdateKeyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"keyArn" : @"KeyArn",
+             @"keyName" : @"KeyName",
              @"updateTime" : @"UpdateTime",
              };
 }

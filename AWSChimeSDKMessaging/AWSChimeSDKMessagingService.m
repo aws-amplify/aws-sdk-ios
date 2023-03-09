@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
 #import "AWSChimeSDKMessagingResources.h"
 
 static NSString *const AWSInfoChimeSDKMessaging = @"ChimeSDKMessaging";
-NSString *const AWSChimeSDKMessagingSDKVersion = @"2.26.7";
+NSString *const AWSChimeSDKMessagingSDKVersion = @"2.30.4";
 
 
 @interface AWSChimeSDKMessagingResponseSerializer : AWSJSONResponseSerializer
@@ -1081,6 +1081,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSChimeSDKMessagingListSubChannelsResponse *> *)listSubChannels:(AWSChimeSDKMessagingListSubChannelsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/channels/{channelArn}/subchannels"
+                  targetPrefix:@""
+                 operationName:@"ListSubChannels"
+                   outputClass:[AWSChimeSDKMessagingListSubChannelsResponse class]];
+}
+
+- (void)listSubChannels:(AWSChimeSDKMessagingListSubChannelsRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKMessagingListSubChannelsResponse *response, NSError *error))completionHandler {
+    [[self listSubChannels:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingListSubChannelsResponse *> * _Nonnull task) {
+        AWSChimeSDKMessagingListSubChannelsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSChimeSDKMessagingListTagsForResourceResponse *> *)listTagsForResource:(AWSChimeSDKMessagingListTagsForResourceRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -1140,6 +1163,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSChimeSDKMessagingRedactChannelMessageResponse *response, NSError *error))completionHandler {
     [[self redactChannelMessage:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingRedactChannelMessageResponse *> * _Nonnull task) {
         AWSChimeSDKMessagingRedactChannelMessageResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSChimeSDKMessagingSearchChannelsResponse *> *)searchChannels:(AWSChimeSDKMessagingSearchChannelsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/channels?operation=search"
+                  targetPrefix:@""
+                 operationName:@"SearchChannels"
+                   outputClass:[AWSChimeSDKMessagingSearchChannelsResponse class]];
+}
+
+- (void)searchChannels:(AWSChimeSDKMessagingSearchChannelsRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKMessagingSearchChannelsResponse *response, NSError *error))completionHandler {
+    [[self searchChannels:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingSearchChannelsResponse *> * _Nonnull task) {
+        AWSChimeSDKMessagingSearchChannelsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

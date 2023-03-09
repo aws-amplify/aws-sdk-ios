@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
 #import "AWSTranslateResources.h"
 
 static NSString *const AWSInfoTranslate = @"Translate";
-NSString *const AWSTranslateSDKVersion = @"2.26.7";
+NSString *const AWSTranslateSDKVersion = @"2.30.4";
 
 
 @interface AWSTranslateResponseSerializer : AWSJSONResponseSerializer
@@ -51,6 +51,8 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"ServiceUnavailableException" : @(AWSTranslateErrorServiceUnavailable),
                             @"TextSizeLimitExceededException" : @(AWSTranslateErrorTextSizeLimitExceeded),
                             @"TooManyRequestsException" : @(AWSTranslateErrorTooManyRequests),
+                            @"TooManyTagsException" : @(AWSTranslateErrorTooManyTags),
+                            @"UnsupportedDisplayLanguageCodeException" : @(AWSTranslateErrorUnsupportedDisplayLanguageCode),
                             @"UnsupportedLanguagePairException" : @(AWSTranslateErrorUnsupportedLanguagePair),
                             };
 }
@@ -446,6 +448,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSTranslateListLanguagesResponse *> *)listLanguages:(AWSTranslateListLanguagesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSShineFrontendService_20170701"
+                 operationName:@"ListLanguages"
+                   outputClass:[AWSTranslateListLanguagesResponse class]];
+}
+
+- (void)listLanguages:(AWSTranslateListLanguagesRequest *)request
+     completionHandler:(void (^)(AWSTranslateListLanguagesResponse *response, NSError *error))completionHandler {
+    [[self listLanguages:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranslateListLanguagesResponse *> * _Nonnull task) {
+        AWSTranslateListLanguagesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSTranslateListParallelDataResponse *> *)listParallelData:(AWSTranslateListParallelDataRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -459,6 +484,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSTranslateListParallelDataResponse *response, NSError *error))completionHandler {
     [[self listParallelData:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranslateListParallelDataResponse *> * _Nonnull task) {
         AWSTranslateListParallelDataResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTranslateListTagsForResourceResponse *> *)listTagsForResource:(AWSTranslateListTagsForResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSShineFrontendService_20170701"
+                 operationName:@"ListTagsForResource"
+                   outputClass:[AWSTranslateListTagsForResourceResponse class]];
+}
+
+- (void)listTagsForResource:(AWSTranslateListTagsForResourceRequest *)request
+     completionHandler:(void (^)(AWSTranslateListTagsForResourceResponse *response, NSError *error))completionHandler {
+    [[self listTagsForResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranslateListTagsForResourceResponse *> * _Nonnull task) {
+        AWSTranslateListTagsForResourceResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -561,6 +609,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSTranslateTagResourceResponse *> *)tagResource:(AWSTranslateTagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSShineFrontendService_20170701"
+                 operationName:@"TagResource"
+                   outputClass:[AWSTranslateTagResourceResponse class]];
+}
+
+- (void)tagResource:(AWSTranslateTagResourceRequest *)request
+     completionHandler:(void (^)(AWSTranslateTagResourceResponse *response, NSError *error))completionHandler {
+    [[self tagResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranslateTagResourceResponse *> * _Nonnull task) {
+        AWSTranslateTagResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSTranslateTranslateTextResponse *> *)translateText:(AWSTranslateTranslateTextRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -574,6 +645,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSTranslateTranslateTextResponse *response, NSError *error))completionHandler {
     [[self translateText:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranslateTranslateTextResponse *> * _Nonnull task) {
         AWSTranslateTranslateTextResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTranslateUntagResourceResponse *> *)untagResource:(AWSTranslateUntagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSShineFrontendService_20170701"
+                 operationName:@"UntagResource"
+                   outputClass:[AWSTranslateUntagResourceResponse class]];
+}
+
+- (void)untagResource:(AWSTranslateUntagResourceRequest *)request
+     completionHandler:(void (^)(AWSTranslateUntagResourceResponse *response, NSError *error))completionHandler {
+    [[self untagResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranslateUntagResourceResponse *> * _Nonnull task) {
+        AWSTranslateUntagResourceResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

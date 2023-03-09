@@ -1278,7 +1278,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                               partNumber:(long)partNumber
                               dataLength:(NSUInteger)dataLength
                                    error:(NSError **)error {
-    NSURL *fileURL = [NSURL URLWithString:fileName];
+    NSURL *fileURL = [NSURL fileURLWithPath: fileName isDirectory: false];
     NSUInteger offset = (partNumber - 1) * AWSS3TransferUtilityMultiPartSize;
 
     NSURL *partialFileURL = [self createPartialFile:fileURL offset:offset length:dataLength error:error];
@@ -1367,36 +1367,38 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         return nil;
     }
     NSUInteger remaining = length;
-    NSData *data;
 
     while (remaining > 0) {
-        NSUInteger bufferSize = MIN(remaining, AWSS3TransferUtilityMultiPartSize);
+        @autoreleasepool {
+            NSData *data;
+            NSUInteger bufferSize = MIN(remaining, AWSS3TransferUtilityMultiPartSize);
 
-        // Read data
-        if (@available(iOS 13.0, *)) {
-            data = [readFileHandle readDataUpToLength:bufferSize error:error];
-        } else {
-            data = [readFileHandle readDataOfLength:bufferSize];
-        }
-        if (*error) {
-            break;
-        }
+            // Read data
+            if (@available(iOS 13.0, *)) {
+                data = [readFileHandle readDataUpToLength:bufferSize error:error];
+            } else {
+                data = [readFileHandle readDataOfLength:bufferSize];
+            }
+            if (*error) {
+                break;
+            }
 
-        // Write data
-        if (@available(iOS 13.0, *)) {
-            [writeFileHandle writeData:data error:error];
-        } else {
-            [writeFileHandle writeData:data];
+            // Write data
+            if (@available(iOS 13.0, *)) {
+                [writeFileHandle writeData:data error:error];
+            } else {
+                [writeFileHandle writeData:data];
+            }
+            if (*error) {
+                break;
+            }
+            remaining -= bufferSize;
+            data = nil;
         }
-        if (*error) {
-            break;
-        }
-        remaining -= bufferSize;
     }
 
     [readFileHandle closeFile];
     [writeFileHandle closeFile];
-    data = nil;
 
     if (*error) {
         AWSDDLogError(@"Error while creating temporary file for partial file: %@", fileURL);
@@ -1998,23 +2000,28 @@ didCompleteWithError:(NSError *)error {
         else {
             HTTPResponse = (NSHTTPURLResponse *) task.response;
             userInfo = [NSMutableDictionary dictionaryWithDictionary:[HTTPResponse allHeaderFields]];
+            userInfo[@"HTTPStatusCode"] = @(HTTPResponse.statusCode);
+            userInfo[NSLocalizedFailureReasonErrorKey] = [NSHTTPURLResponse localizedStringForStatusCode:HTTPResponse.statusCode];
         }
     
         if (!error) {
             if (HTTPResponse.statusCode / 100 == 3
                 && HTTPResponse.statusCode != 304) { // 304 Not Modified is a valid response.
+                userInfo[NSLocalizedDescriptionKey] = @"Redirection";
                 error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
                                             code:AWSS3TransferUtilityErrorRedirection
                                         userInfo:userInfo];
             }
             
             if (HTTPResponse.statusCode / 100 == 4) {
+                userInfo[NSLocalizedDescriptionKey] = @"Client Error";
                 error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
                                             code:AWSS3TransferUtilityErrorClientError
                                         userInfo:userInfo];
             }
             
             if (HTTPResponse.statusCode / 100 == 5) {
+                userInfo[NSLocalizedDescriptionKey] = @"Server Error";
                 error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
                                             code:AWSS3TransferUtilityErrorServerError
                                         userInfo:userInfo];

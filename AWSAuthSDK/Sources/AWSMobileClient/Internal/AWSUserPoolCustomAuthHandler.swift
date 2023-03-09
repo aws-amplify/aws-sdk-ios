@@ -16,7 +16,7 @@ import AWSCognitoIdentityProvider
 
 class AWSUserPoolCustomAuthHandler: NSObject, AWSCognitoIdentityCustomAuthentication {
     
-    var authHelperDelegate: UserPoolAuthHelperlCallbacks?
+    var authHelperDelegate: UserPoolAuthHelperCallbacks?
     
     public func getCustomChallengeDetails(_ authenticationInput: AWSCognitoIdentityCustomAuthenticationInput,
                                           customAuthCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails>) {

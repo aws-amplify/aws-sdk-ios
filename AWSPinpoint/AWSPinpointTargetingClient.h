@@ -21,11 +21,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AWSPinpointTargetingClient : NSObject
 
-/**
- * Returns the current endpoint.
- * @return (id<AWSPinpointEndpoint>)
- */
+///
+/// Returns the current endpoint.
+/// - Warning: Calling this method from a non-main thread might result in a deadlock if the main queue is blocked
+/// - Returns: An AWSPinpointEndpoint
 - (AWSPinpointEndpointProfile*) currentEndpointProfile;
+
+///
+/// Requests the current endpoint.
+/// - Parameter completion: a block that is called with the current endpoint
+- (void) currentEndpointProfileWithCompletion:(void (^_Nonnull)(AWSPinpointEndpointProfile *profile))completion;
 
 /**
  * Sends an update of the current endpoint

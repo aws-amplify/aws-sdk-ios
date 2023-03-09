@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -31,10 +31,13 @@
 - (void) test_AWSKinesisVideoArchivedMediaGetDASHStreamingSessionURLOutput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLInput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoArchivedMediaGetImagesInput API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoArchivedMediaGetImagesOutput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoArchivedMediaGetMediaForFragmentListInput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoArchivedMediaHLSFragmentSelector API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoArchivedMediaHLSTimestampRange API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoArchivedMediaImage API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoArchivedMediaListFragmentsInput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoArchivedMediaListFragmentsOutput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoArchivedMediaTimestampRange API_AVAILABLE(ios(11));
@@ -91,6 +94,14 @@
     [self validateSecureCodingForClass:[AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput class]];
 }
 
+- (void) test_AWSKinesisVideoArchivedMediaGetImagesInput {
+    [self validateSecureCodingForClass:[AWSKinesisVideoArchivedMediaGetImagesInput class]];
+}
+
+- (void) test_AWSKinesisVideoArchivedMediaGetImagesOutput {
+    [self validateSecureCodingForClass:[AWSKinesisVideoArchivedMediaGetImagesOutput class]];
+}
+
 - (void) test_AWSKinesisVideoArchivedMediaGetMediaForFragmentListInput {
     [self validateSecureCodingForClass:[AWSKinesisVideoArchivedMediaGetMediaForFragmentListInput class]];
 }
@@ -105,6 +116,10 @@
 
 - (void) test_AWSKinesisVideoArchivedMediaHLSTimestampRange {
     [self validateSecureCodingForClass:[AWSKinesisVideoArchivedMediaHLSTimestampRange class]];
+}
+
+- (void) test_AWSKinesisVideoArchivedMediaImage {
+    [self validateSecureCodingForClass:[AWSKinesisVideoArchivedMediaImage class]];
 }
 
 - (void) test_AWSKinesisVideoArchivedMediaListFragmentsInput {

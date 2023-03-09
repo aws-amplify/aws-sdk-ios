@@ -6,7 +6,7 @@
 
 set -x
 
-SDK_VERSION="2.26.7"
+SDK_VERSION="2.30.4"
 
 GITHUB_DOC_ROOT=https://aws-amplify.github.io
 GITHUB_SOURCE_ROOT=https://github.com/aws-amplify/aws-sdk-ios
@@ -50,7 +50,7 @@ SWIFT_SDK_LIST=$(find ${SOURCE_ROOT}/AWSAuthSDK/Sources -type d -maxdepth 1 -min
 
 for sdkRoot in $SWIFT_SDK_LIST ; do
   sdkName=$( basename "$sdkRoot" )
-  jazzy \
+  bundle exec jazzy \
     --clean \
     --author "Amazon Web Services, Inc." \
     --author_url ${GITHUB_DOC_ROOT} \
@@ -86,7 +86,7 @@ OBJC_SDK_LIST=$(find $SOURCE_ROOT ${SOURCE_ROOT}/AWSAuthSDK/Sources -type d -max
 
 for sdkRoot in $OBJC_SDK_LIST ; do
   sdkName=$( basename "$sdkRoot" )
-  jazzy \
+  bundle exec jazzy \
     --objc \
     --clean \
     --author "Amazon Web Services, Inc." \

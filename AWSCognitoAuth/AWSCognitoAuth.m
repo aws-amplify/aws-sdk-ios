@@ -80,7 +80,7 @@ API_AVAILABLE(ios(13.0))
 
 @implementation AWSCognitoAuth
 
-NSString *const AWSCognitoAuthSDKVersion = @"2.26.7";
+NSString *const AWSCognitoAuthSDKVersion = @"2.30.4";
 
 
 static NSMutableDictionary *_instanceDictionary = nil;
@@ -200,6 +200,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         _useSFAuthenticationSession = authConfiguration.isSFAuthenticationSessionEnabled;
         _sfAuthenticationSessionAvailable = NO;
         _keychain = [AWSCognitoAuthUICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@", [NSBundle mainBundle].bundleIdentifier, @"AWSCognitoIdentityUserPool"]];  //Consistent with AWSCognitoIdentityUserPool
+        [_keychain migrateToCurrentAccessibility];
     }
     return self;
 }
@@ -356,11 +357,13 @@ withPresentingViewController:(UIViewController *)presentingViewController {
 - (void)launchSFWebAuthenticationSession:(NSURL *)hostedUIURL API_AVAILABLE(ios(11.0)) {
     self.sfAuthenticationSessionAvailable = YES;
     NSString *callbackURLScheme = [[self urlEncode:self.authConfiguration.signInRedirectUri] copy];
+    __weak AWSCognitoAuth *weakSelf = self;
     self.sfAuthSession = [[SFAuthenticationSession alloc] initWithURL:hostedUIURL
                                                     callbackURLScheme:callbackURLScheme
                                                     completionHandler:^(NSURL * _Nullable url,
                                                                         NSError * _Nullable error) {
-        [self handleSignInCallbackWithURL:url error:error];
+        __strong AWSCognitoAuth *strongSelf = weakSelf;
+        [strongSelf handleSignInCallbackWithURL:url error:error];
     }];
     [self.sfAuthSession start];
 }
@@ -369,11 +372,13 @@ withPresentingViewController:(UIViewController *)presentingViewController {
     NSString *callbackURLString = [[self urlEncode:self.authConfiguration.signInRedirectUri] copy];
     NSURL *callbackURL = [[NSURL alloc] initWithString:callbackURLString];
     NSString *callbackURLScheme = callbackURL.scheme;
+    __weak AWSCognitoAuth *weakSelf = self;
     self.asAuthSession = [[ASWebAuthenticationSession alloc] initWithURL:hostedUIURL
                                                        callbackURLScheme:callbackURLScheme
                                                        completionHandler:^(NSURL * _Nullable url,
                                                                            NSError * _Nullable error) {
-        [self handleSignInCallbackWithURL:url error:error];
+        __strong AWSCognitoAuth *strongSelf = weakSelf;
+        [strongSelf handleSignInCallbackWithURL:url error:error];
     }];
     
     if (@available(iOS 13.0, *)) {
@@ -611,17 +616,19 @@ withPresentingViewController:(UIViewController *)presentingViewController {
     NSString *callbackURLString = [[self urlEncode:self.authConfiguration.signInRedirectUri] copy];
     NSURL *callbackURL = [[NSURL alloc] initWithString:callbackURLString];
     NSString *callbackURLScheme = callbackURL.scheme;
+    __weak AWSCognitoAuth *weakSelf = self;
     self.asAuthSession = [[ASWebAuthenticationSession alloc] initWithURL:url
                                                        callbackURLScheme:callbackURLScheme
                                                        completionHandler:^(NSURL * _Nullable url,
                                                                            NSError * _Nullable error) {
+        __strong AWSCognitoAuth *strongSelf = weakSelf;
         if (url) {
-            [self processURL:url forRedirection:NO];
+            [strongSelf processURL:url forRedirection:NO];
         } else {
             if (error.code != ASWebAuthenticationSessionErrorCodeCanceledLogin) {
-                [self signOutLocallyAndClearLastKnownUser];
+                [strongSelf signOutLocallyAndClearLastKnownUser];
             }
-            [self dismissSafariViewControllerAndCompleteSignOut:error];
+            [strongSelf dismissSafariViewControllerAndCompleteSignOut:error];
         }
     }];
     if (@available(iOS 13.0, *)) {
@@ -646,17 +653,19 @@ withPresentingViewController:(UIViewController *)presentingViewController {
 - (void)launchSFAuthenticationSessionForSignOut:(NSURL *) url API_AVAILABLE(ios(11.0)) {
     self.sfAuthenticationSessionAvailable = YES;
     NSString *callbackURLScheme = [[self urlEncode:self.authConfiguration.signOutRedirectUri] copy];
+    __weak AWSCognitoAuth *weakSelf = self;
     self.sfAuthSession = [[SFAuthenticationSession alloc] initWithURL:url
                                                     callbackURLScheme:callbackURLScheme
                                                     completionHandler:^(NSURL * _Nullable url,
                                                                         NSError * _Nullable error) {
+        __strong AWSCognitoAuth *strongSelf = weakSelf;
         if (url) {
-            [self processURL:url forRedirection:NO];
+            [strongSelf processURL:url forRedirection:NO];
         } else {
             if (error.code != SFAuthenticationErrorCanceledLogin) {
-                [self signOutLocallyAndClearLastKnownUser];
+                [strongSelf signOutLocallyAndClearLastKnownUser];
             }
-            [self dismissSafariViewControllerAndCompleteSignOut:error];
+            [strongSelf dismissSafariViewControllerAndCompleteSignOut:error];
         }
     }];
     [self.sfAuthSession start];

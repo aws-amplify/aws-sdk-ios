@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -28,14 +28,18 @@
 - (void) test_AWSLambdaAliasConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaAliasRoutingConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaAllowedPublishers API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaAmazonManagedKafkaEventSourceConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaCodeSigningConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaCodeSigningPolicies API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaConcurrency API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaCors API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaCreateAliasRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaCreateCodeSigningConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaCreateCodeSigningConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaCreateEventSourceMappingRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaCreateFunctionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaCreateFunctionUrlConfigRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaCreateFunctionUrlConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaDeadLetterConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaDeleteAliasRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaDeleteCodeSigningConfigRequest API_AVAILABLE(ios(11));
@@ -45,12 +49,15 @@
 - (void) test_AWSLambdaDeleteFunctionConcurrencyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaDeleteFunctionEventInvokeConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaDeleteFunctionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaDeleteFunctionUrlConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaDeleteLayerVersionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaDeleteProvisionedConcurrencyConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaDestinationConfig API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaDocumentDBEventSourceConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaEnvironment API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaEnvironmentError API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaEnvironmentResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaEphemeralStorage API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaEventSourceMappingConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaFileSystemConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaFilter API_AVAILABLE(ios(11));
@@ -59,6 +66,7 @@
 - (void) test_AWSLambdaFunctionCodeLocation API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaFunctionConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaFunctionEventInvokeConfig API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaFunctionUrlConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetAccountSettingsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetAccountSettingsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetAliasRequest API_AVAILABLE(ios(11));
@@ -73,6 +81,8 @@
 - (void) test_AWSLambdaGetFunctionEventInvokeConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetFunctionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetFunctionResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaGetFunctionUrlConfigRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaGetFunctionUrlConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetLayerVersionByArnRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetLayerVersionPolicyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetLayerVersionPolicyResponse API_AVAILABLE(ios(11));
@@ -82,6 +92,8 @@
 - (void) test_AWSLambdaGetPolicyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetProvisionedConcurrencyConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetProvisionedConcurrencyConfigResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaGetRuntimeManagementConfigRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaGetRuntimeManagementConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaImageConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaImageConfigError API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaImageConfigResponse API_AVAILABLE(ios(11));
@@ -102,6 +114,8 @@
 - (void) test_AWSLambdaListEventSourceMappingsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaListFunctionEventInvokeConfigsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaListFunctionEventInvokeConfigsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaListFunctionUrlConfigsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaListFunctionUrlConfigsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaListFunctionsByCodeSigningConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaListFunctionsByCodeSigningConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaListFunctionsRequest API_AVAILABLE(ios(11));
@@ -128,9 +142,17 @@
 - (void) test_AWSLambdaPutFunctionEventInvokeConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaPutProvisionedConcurrencyConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaPutProvisionedConcurrencyConfigResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaPutRuntimeManagementConfigRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaPutRuntimeManagementConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaRemoveLayerVersionPermissionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaRemovePermissionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaRuntimeVersionConfig API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaRuntimeVersionError API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaScalingConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaSelfManagedEventSource API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaSelfManagedKafkaEventSourceConfig API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaSnapStart API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaSnapStartResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaSourceAccessConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaTagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaTracingConfig API_AVAILABLE(ios(11));
@@ -143,6 +165,8 @@
 - (void) test_AWSLambdaUpdateFunctionCodeRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaUpdateFunctionConfigurationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaUpdateFunctionEventInvokeConfigRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaUpdateFunctionUrlConfigRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaUpdateFunctionUrlConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaVpcConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaVpcConfigResponse API_AVAILABLE(ios(11));
 
@@ -186,6 +210,10 @@
     [self validateSecureCodingForClass:[AWSLambdaAllowedPublishers class]];
 }
 
+- (void) test_AWSLambdaAmazonManagedKafkaEventSourceConfig {
+    [self validateSecureCodingForClass:[AWSLambdaAmazonManagedKafkaEventSourceConfig class]];
+}
+
 - (void) test_AWSLambdaCodeSigningConfig {
     [self validateSecureCodingForClass:[AWSLambdaCodeSigningConfig class]];
 }
@@ -196,6 +224,10 @@
 
 - (void) test_AWSLambdaConcurrency {
     [self validateSecureCodingForClass:[AWSLambdaConcurrency class]];
+}
+
+- (void) test_AWSLambdaCors {
+    [self validateSecureCodingForClass:[AWSLambdaCors class]];
 }
 
 - (void) test_AWSLambdaCreateAliasRequest {
@@ -216,6 +248,14 @@
 
 - (void) test_AWSLambdaCreateFunctionRequest {
     [self validateSecureCodingForClass:[AWSLambdaCreateFunctionRequest class]];
+}
+
+- (void) test_AWSLambdaCreateFunctionUrlConfigRequest {
+    [self validateSecureCodingForClass:[AWSLambdaCreateFunctionUrlConfigRequest class]];
+}
+
+- (void) test_AWSLambdaCreateFunctionUrlConfigResponse {
+    [self validateSecureCodingForClass:[AWSLambdaCreateFunctionUrlConfigResponse class]];
 }
 
 - (void) test_AWSLambdaDeadLetterConfig {
@@ -254,6 +294,10 @@
     [self validateSecureCodingForClass:[AWSLambdaDeleteFunctionRequest class]];
 }
 
+- (void) test_AWSLambdaDeleteFunctionUrlConfigRequest {
+    [self validateSecureCodingForClass:[AWSLambdaDeleteFunctionUrlConfigRequest class]];
+}
+
 - (void) test_AWSLambdaDeleteLayerVersionRequest {
     [self validateSecureCodingForClass:[AWSLambdaDeleteLayerVersionRequest class]];
 }
@@ -266,6 +310,10 @@
     [self validateSecureCodingForClass:[AWSLambdaDestinationConfig class]];
 }
 
+- (void) test_AWSLambdaDocumentDBEventSourceConfig {
+    [self validateSecureCodingForClass:[AWSLambdaDocumentDBEventSourceConfig class]];
+}
+
 - (void) test_AWSLambdaEnvironment {
     [self validateSecureCodingForClass:[AWSLambdaEnvironment class]];
 }
@@ -276,6 +324,10 @@
 
 - (void) test_AWSLambdaEnvironmentResponse {
     [self validateSecureCodingForClass:[AWSLambdaEnvironmentResponse class]];
+}
+
+- (void) test_AWSLambdaEphemeralStorage {
+    [self validateSecureCodingForClass:[AWSLambdaEphemeralStorage class]];
 }
 
 - (void) test_AWSLambdaEventSourceMappingConfiguration {
@@ -308,6 +360,10 @@
 
 - (void) test_AWSLambdaFunctionEventInvokeConfig {
     [self validateSecureCodingForClass:[AWSLambdaFunctionEventInvokeConfig class]];
+}
+
+- (void) test_AWSLambdaFunctionUrlConfig {
+    [self validateSecureCodingForClass:[AWSLambdaFunctionUrlConfig class]];
 }
 
 - (void) test_AWSLambdaGetAccountSettingsRequest {
@@ -366,6 +422,14 @@
     [self validateSecureCodingForClass:[AWSLambdaGetFunctionResponse class]];
 }
 
+- (void) test_AWSLambdaGetFunctionUrlConfigRequest {
+    [self validateSecureCodingForClass:[AWSLambdaGetFunctionUrlConfigRequest class]];
+}
+
+- (void) test_AWSLambdaGetFunctionUrlConfigResponse {
+    [self validateSecureCodingForClass:[AWSLambdaGetFunctionUrlConfigResponse class]];
+}
+
 - (void) test_AWSLambdaGetLayerVersionByArnRequest {
     [self validateSecureCodingForClass:[AWSLambdaGetLayerVersionByArnRequest class]];
 }
@@ -400,6 +464,14 @@
 
 - (void) test_AWSLambdaGetProvisionedConcurrencyConfigResponse {
     [self validateSecureCodingForClass:[AWSLambdaGetProvisionedConcurrencyConfigResponse class]];
+}
+
+- (void) test_AWSLambdaGetRuntimeManagementConfigRequest {
+    [self validateSecureCodingForClass:[AWSLambdaGetRuntimeManagementConfigRequest class]];
+}
+
+- (void) test_AWSLambdaGetRuntimeManagementConfigResponse {
+    [self validateSecureCodingForClass:[AWSLambdaGetRuntimeManagementConfigResponse class]];
 }
 
 - (void) test_AWSLambdaImageConfig {
@@ -480,6 +552,14 @@
 
 - (void) test_AWSLambdaListFunctionEventInvokeConfigsResponse {
     [self validateSecureCodingForClass:[AWSLambdaListFunctionEventInvokeConfigsResponse class]];
+}
+
+- (void) test_AWSLambdaListFunctionUrlConfigsRequest {
+    [self validateSecureCodingForClass:[AWSLambdaListFunctionUrlConfigsRequest class]];
+}
+
+- (void) test_AWSLambdaListFunctionUrlConfigsResponse {
+    [self validateSecureCodingForClass:[AWSLambdaListFunctionUrlConfigsResponse class]];
 }
 
 - (void) test_AWSLambdaListFunctionsByCodeSigningConfigRequest {
@@ -586,6 +666,14 @@
     [self validateSecureCodingForClass:[AWSLambdaPutProvisionedConcurrencyConfigResponse class]];
 }
 
+- (void) test_AWSLambdaPutRuntimeManagementConfigRequest {
+    [self validateSecureCodingForClass:[AWSLambdaPutRuntimeManagementConfigRequest class]];
+}
+
+- (void) test_AWSLambdaPutRuntimeManagementConfigResponse {
+    [self validateSecureCodingForClass:[AWSLambdaPutRuntimeManagementConfigResponse class]];
+}
+
 - (void) test_AWSLambdaRemoveLayerVersionPermissionRequest {
     [self validateSecureCodingForClass:[AWSLambdaRemoveLayerVersionPermissionRequest class]];
 }
@@ -594,8 +682,32 @@
     [self validateSecureCodingForClass:[AWSLambdaRemovePermissionRequest class]];
 }
 
+- (void) test_AWSLambdaRuntimeVersionConfig {
+    [self validateSecureCodingForClass:[AWSLambdaRuntimeVersionConfig class]];
+}
+
+- (void) test_AWSLambdaRuntimeVersionError {
+    [self validateSecureCodingForClass:[AWSLambdaRuntimeVersionError class]];
+}
+
+- (void) test_AWSLambdaScalingConfig {
+    [self validateSecureCodingForClass:[AWSLambdaScalingConfig class]];
+}
+
 - (void) test_AWSLambdaSelfManagedEventSource {
     [self validateSecureCodingForClass:[AWSLambdaSelfManagedEventSource class]];
+}
+
+- (void) test_AWSLambdaSelfManagedKafkaEventSourceConfig {
+    [self validateSecureCodingForClass:[AWSLambdaSelfManagedKafkaEventSourceConfig class]];
+}
+
+- (void) test_AWSLambdaSnapStart {
+    [self validateSecureCodingForClass:[AWSLambdaSnapStart class]];
+}
+
+- (void) test_AWSLambdaSnapStartResponse {
+    [self validateSecureCodingForClass:[AWSLambdaSnapStartResponse class]];
 }
 
 - (void) test_AWSLambdaSourceAccessConfiguration {
@@ -644,6 +756,14 @@
 
 - (void) test_AWSLambdaUpdateFunctionEventInvokeConfigRequest {
     [self validateSecureCodingForClass:[AWSLambdaUpdateFunctionEventInvokeConfigRequest class]];
+}
+
+- (void) test_AWSLambdaUpdateFunctionUrlConfigRequest {
+    [self validateSecureCodingForClass:[AWSLambdaUpdateFunctionUrlConfigRequest class]];
+}
+
+- (void) test_AWSLambdaUpdateFunctionUrlConfigResponse {
+    [self validateSecureCodingForClass:[AWSLambdaUpdateFunctionUrlConfigResponse class]];
 }
 
 - (void) test_AWSLambdaVpcConfig {

@@ -80,6 +80,7 @@
 @property (atomic, assign) BOOL runLoopShouldContinue;
 
 @property (strong,atomic) dispatch_semaphore_t timerSemaphore;
+@property (strong,atomic) dispatch_queue_t timerQueue;
 
 @end
 
@@ -107,6 +108,7 @@
         _userDidIssueConnect = NO;
         _userDidIssueDisconnect = NO;
         _timerSemaphore = dispatch_semaphore_create(1);
+        _timerQueue = dispatch_queue_create("com.amazon.aws.iot.timer-queue", DISPATCH_QUEUE_SERIAL);
         _streamsThread = nil;
     }
     return self;
@@ -403,7 +405,7 @@
     self.keepAliveInterval = theKeepAliveInterval;
     self.connectStatusCallback = callback;
     
-    return [ self webSocketConnectWithClientId];
+    return [self webSocketConnectWithClientId];
 }
 
 - (BOOL)connectWithClientId:(NSString *)clientId
@@ -721,18 +723,10 @@
     //Set the timeout to 1800 seconds, which is 1.5x of the max keep-alive 1200 seconds.
     //The unit of measure for the dispatch_time function is nano seconds.
 
-    dispatch_semaphore_wait(_timerSemaphore, dispatch_time(DISPATCH_TIME_NOW, 1800 * NSEC_PER_SEC));
-    BOOL isConnectingOrConnected = self.mqttStatus == AWSIoTMQTTStatusConnected || self.mqttStatus == AWSIoTMQTTStatusConnecting;
-    if (!self.reconnectTimer && !isConnectingOrConnected) {
-        self.reconnectTimer = [NSTimer timerWithTimeInterval:self.currentReconnectTime
-                                                      target:self
-                                                    selector: @selector(reconnectToSession)
-                                                    userInfo:nil
-                                                     repeats:NO];
-        [[NSRunLoop currentRunLoop] addTimer:self.reconnectTimer forMode:NSRunLoopCommonModes];
-        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
-    }
-    dispatch_semaphore_signal(_timerSemaphore);
+    dispatch_assert_queue_not(self.timerQueue);
+    dispatch_async(self.timerQueue, ^{
+        [self scheduleReconnection];
+    });
 }
 
 - (void)openStreams:(id)sender
@@ -1313,6 +1307,24 @@
 
 - (void)webSocket:(AWSSRWebSocket *)webSocket didReceivePong:(NSData *)pongPayload {
     AWSDDLogVerbose(@"Websocket received pong");
+}
+
+
+# pragma mark - private/serial functions -
+
+- (void)scheduleReconnection {
+    dispatch_assert_queue(self.timerQueue);
+
+    BOOL isConnectingOrConnected = self.mqttStatus == AWSIoTMQTTStatusConnected || self.mqttStatus == AWSIoTMQTTStatusConnecting;
+    if (!self.reconnectTimer && !isConnectingOrConnected) {
+        self.reconnectTimer = [NSTimer timerWithTimeInterval:self.currentReconnectTime
+                                                      target:self
+                                                    selector: @selector(reconnectToSession)
+                                                    userInfo:nil
+                                                     repeats:NO];
+        [[NSRunLoop currentRunLoop] addTimer:self.reconnectTimer forMode:NSRunLoopCommonModes];
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+    }
 }
 
 @end

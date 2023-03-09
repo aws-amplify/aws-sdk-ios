@@ -12,7 +12,7 @@ for framework in frameworks:
     # AWSiOSSDK podspec can take a long time to build, since it builds each dependent pod as
     # part of its linting process, so set the timeout accordingly.
     (exit_code, out, err) = run_command(
-        ["pod", "trunk", "push", f"{framework}.podspec", "--allow-warnings", "--synchronous"],
+        ["bundle", "exec", "pod", "trunk", "push", f"{framework}.podspec", "--allow-warnings", "--synchronous"],
         keepalive_interval=300,
         timeout=3600,
     )
@@ -24,5 +24,15 @@ for framework in frameworks:
     else:
         log(f"Could not publish {framework}: output: {out}; error: {err}")
         sys.exit(exit_code)
+
+    if framework == "AWSCore":
+        log(f"pod repo update after {framework}")
+        (exit_code, out, err) = run_command(
+            ["bundle", "exec", "pod", "repo", "update"],
+            keepalive_interval=300,
+            timeout=3600,
+        )
+        if exit_code != 0:
+            log(f"Failed to update CocoaPods repo'; output={out}, error={err}")
 
 sys.exit(0)

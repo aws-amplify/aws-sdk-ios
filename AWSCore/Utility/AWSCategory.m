@@ -495,6 +495,11 @@ static NSTimeInterval _clockskew = 0.0;
         || [self isEqualToString:@"eu-central-1"]) {
         return AWSRegionEUCentral1;
     }
+    if ([self isEqualToString:@"AWSRegionEUCentral2"]
+        || [self isEqualToString:@"EUCentral2"]
+        || [self isEqualToString:@"eu-central-2"]) {
+        return AWSRegionEUCentral2;
+    }
     if ([self isEqualToString:@"AWSRegionAPNortheast1"]
         || [self isEqualToString:@"APNortheast1"]
         || [self isEqualToString:@"ap-northeast-1"]) {
@@ -520,10 +525,20 @@ static NSTimeInterval _clockskew = 0.0;
         || [self isEqualToString:@"ap-southeast-3"]) {
         return AWSRegionAPSoutheast3;
     }
+    if ([self isEqualToString:@"AWSRegionAPSoutheast4"]
+        || [self isEqualToString:@"APSoutheast4"]
+        || [self isEqualToString:@"ap-southeast-4"]) {
+        return AWSRegionAPSoutheast4;
+    }
     if ([self isEqualToString:@"AWSRegionAPSouth1"]
         || [self isEqualToString:@"APSouth1"]
         || [self isEqualToString:@"ap-south-1"]) {
         return AWSRegionAPSouth1;
+    }
+    if ([self isEqualToString:@"AWSRegionAPSouth2"]
+        || [self isEqualToString:@"APSouth2"]
+        || [self isEqualToString:@"ap-south-2"]) {
+        return AWSRegionAPSouth2;
     }
     if ([self isEqualToString:@"AWSRegionSAEast1"]
         || [self isEqualToString:@"SAEast1"]
@@ -577,6 +592,12 @@ static NSTimeInterval _clockskew = 0.0;
         return AWSRegionAPEast1;
     }
     
+    if ([self isEqualToString:@"AWSRegionMECentral1"]
+        || [self isEqualToString:@"MECentral1"]
+        || [self isEqualToString:@"me-central-1"]) {
+        return AWSRegionMECentral1;
+    }
+
     if ([self isEqualToString:@"AWSRegionMESouth1"]
         || [self isEqualToString:@"MESouth1"]
         || [self isEqualToString:@"me-south-1"]) {
@@ -593,6 +614,12 @@ static NSTimeInterval _clockskew = 0.0;
         || [self isEqualToString:@"EUSouth1"]
         || [self isEqualToString:@"eu-south-1"]) {
         return AWSRegionEUSouth1;
+    }
+
+    if ([self isEqualToString:@"AWSRegionEUSouth2"]
+        || [self isEqualToString:@"EUSouth2"]
+        || [self isEqualToString:@"eu-south-2"]) {
+        return AWSRegionEUSouth2;
     }
 
     return AWSRegionUnknown;

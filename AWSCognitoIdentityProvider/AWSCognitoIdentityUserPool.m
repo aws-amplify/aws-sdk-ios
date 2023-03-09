@@ -171,7 +171,7 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
         _userPoolConfiguration = userPoolConfiguration;
 
         _keychain = [AWSUICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@", [NSBundle mainBundle].bundleIdentifier, [AWSCognitoIdentityUserPool class]]];
-        
+        [_keychain migrateToCurrentAccessibility];
         
         //If Pinpoint is setup, get the endpoint or create one.
         if(userPoolConfiguration.pinpointAppId) {
@@ -294,7 +294,9 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
 
 #pragma mark identity provider
 - (NSString *) identityProviderName {
-    return [NSString stringWithFormat:@"%@/%@", self.client.configuration.endpoint.hostName, self.userPoolConfiguration.poolId];
+    return [NSString stringWithFormat:@"cognito-idp.%@.amazonaws.com/%@",
+            [AWSEndpoint regionNameFromType:self.client.configuration.endpoint.regionType],
+            self.userPoolConfiguration.poolId];
 }
 
 - (AWSTask<NSString*>*) token {

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -259,6 +259,7 @@
 - (void) test_AWSCognitoIdentityProviderUpdateUserPoolDomainResponse API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderUpdateUserPoolRequest API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderUpdateUserPoolResponse API_AVAILABLE(ios(11));
+- (void) test_AWSCognitoIdentityProviderUserAttributeUpdateSettingsType API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderUserContextDataType API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderUserImportJobType API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderUserPoolAddOnsType API_AVAILABLE(ios(11));
@@ -1237,6 +1238,10 @@
 
 - (void) test_AWSCognitoIdentityProviderUpdateUserPoolResponse {
     [self validateSecureCodingForClass:[AWSCognitoIdentityProviderUpdateUserPoolResponse class]];
+}
+
+- (void) test_AWSCognitoIdentityProviderUserAttributeUpdateSettingsType {
+    [self validateSecureCodingForClass:[AWSCognitoIdentityProviderUserAttributeUpdateSettingsType class]];
 }
 
 - (void) test_AWSCognitoIdentityProviderUserContextDataType {

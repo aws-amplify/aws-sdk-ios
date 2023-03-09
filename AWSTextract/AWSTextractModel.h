@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -48,6 +48,11 @@ typedef NS_ENUM(NSInteger, AWSTextractBlockType) {
     AWSTextractBlockTypeTable,
     AWSTextractBlockTypeCell,
     AWSTextractBlockTypeSelectionElement,
+    AWSTextractBlockTypeMergedCell,
+    AWSTextractBlockTypeTitle,
+    AWSTextractBlockTypeQuery,
+    AWSTextractBlockTypeQueryResult,
+    AWSTextractBlockTypeSignature,
 };
 
 typedef NS_ENUM(NSInteger, AWSTextractContentClassifier) {
@@ -60,12 +65,15 @@ typedef NS_ENUM(NSInteger, AWSTextractEntityType) {
     AWSTextractEntityTypeUnknown,
     AWSTextractEntityTypeKey,
     AWSTextractEntityTypeValue,
+    AWSTextractEntityTypeColumnHeader,
 };
 
 typedef NS_ENUM(NSInteger, AWSTextractFeatureType) {
     AWSTextractFeatureTypeUnknown,
     AWSTextractFeatureTypeTables,
     AWSTextractFeatureTypeForms,
+    AWSTextractFeatureTypeQueries,
+    AWSTextractFeatureTypeSignatures,
 };
 
 typedef NS_ENUM(NSInteger, AWSTextractJobStatus) {
@@ -81,6 +89,9 @@ typedef NS_ENUM(NSInteger, AWSTextractRelationshipType) {
     AWSTextractRelationshipTypeValue,
     AWSTextractRelationshipTypeChild,
     AWSTextractRelationshipTypeComplexFeatures,
+    AWSTextractRelationshipTypeMergedCell,
+    AWSTextractRelationshipTypeTitle,
+    AWSTextractRelationshipTypeAnswer,
 };
 
 typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
@@ -111,13 +122,18 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 @class AWSTextractBoundingBox;
 @class AWSTextractDetectDocumentTextRequest;
 @class AWSTextractDetectDocumentTextResponse;
+@class AWSTextractDetectedSignature;
 @class AWSTextractDocument;
+@class AWSTextractDocumentGroup;
 @class AWSTextractDocumentLocation;
 @class AWSTextractDocumentMetadata;
+@class AWSTextractExpenseCurrency;
 @class AWSTextractExpenseDetection;
 @class AWSTextractExpenseDocument;
 @class AWSTextractExpenseField;
+@class AWSTextractExpenseGroupProperty;
 @class AWSTextractExpenseType;
+@class AWSTextractExtraction;
 @class AWSTextractGeometry;
 @class AWSTextractGetDocumentAnalysisRequest;
 @class AWSTextractGetDocumentAnalysisResponse;
@@ -125,25 +141,43 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 @class AWSTextractGetDocumentTextDetectionResponse;
 @class AWSTextractGetExpenseAnalysisRequest;
 @class AWSTextractGetExpenseAnalysisResponse;
+@class AWSTextractGetLendingAnalysisRequest;
+@class AWSTextractGetLendingAnalysisResponse;
+@class AWSTextractGetLendingAnalysisSummaryRequest;
+@class AWSTextractGetLendingAnalysisSummaryResponse;
 @class AWSTextractHumanLoopActivationOutput;
 @class AWSTextractHumanLoopConfig;
 @class AWSTextractHumanLoopDataAttributes;
 @class AWSTextractIdentityDocument;
 @class AWSTextractIdentityDocumentField;
+@class AWSTextractLendingDetection;
+@class AWSTextractLendingDocument;
+@class AWSTextractLendingField;
+@class AWSTextractLendingResult;
+@class AWSTextractLendingSummary;
 @class AWSTextractLineItemFields;
 @class AWSTextractLineItemGroup;
 @class AWSTextractNormalizedValue;
 @class AWSTextractNotificationChannel;
 @class AWSTextractOutputConfig;
+@class AWSTextractPageClassification;
 @class AWSTextractPoint;
+@class AWSTextractPrediction;
+@class AWSTextractQueriesConfig;
+@class AWSTextractQuery;
 @class AWSTextractRelationship;
 @class AWSTextractS3Object;
+@class AWSTextractSignatureDetection;
+@class AWSTextractSplitDocument;
 @class AWSTextractStartDocumentAnalysisRequest;
 @class AWSTextractStartDocumentAnalysisResponse;
 @class AWSTextractStartDocumentTextDetectionRequest;
 @class AWSTextractStartDocumentTextDetectionResponse;
 @class AWSTextractStartExpenseAnalysisRequest;
 @class AWSTextractStartExpenseAnalysisResponse;
+@class AWSTextractStartLendingAnalysisRequest;
+@class AWSTextractStartLendingAnalysisResponse;
+@class AWSTextractUndetectedSignature;
 @class AWSTextractWarning;
 
 /**
@@ -153,12 +187,12 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 
 
 /**
- <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Textract operations, you can't pass image bytes. The document must be an image in JPEG or PNG format.</p><p>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode image bytes that are passed using the <code>Bytes</code> field. </p>
+ <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Textract operations, you can't pass image bytes. The document must be an image in JPEG, PNG, PDF, or TIFF format.</p><p>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode image bytes that are passed using the <code>Bytes</code> field. </p>
  */
 @property (nonatomic, strong) AWSTextractDocument * _Nullable document;
 
 /**
- <p>A list of the types of analysis to perform. Add TABLES to the list to return information about the tables that are detected in the input document. Add FORMS to return detected form data. To perform both types of analysis, add TABLES and FORMS to <code>FeatureTypes</code>. All lines and words detected in the document are included in the response (including text that isn't related to the value of <code>FeatureTypes</code>). </p>
+ <p>A list of the types of analysis to perform. Add TABLES to the list to return information about the tables that are detected in the input document. Add FORMS to return detected form data. Add SIGNATURES to return the locations of detected signatures. To perform both forms and table analysis, add TABLES and FORMS to <code>FeatureTypes</code>. To detect signatures within form data and table data, add SIGNATURES to either TABLES or FORMS. All lines and words detected in the document are included in the response (including text that isn't related to the value of <code>FeatureTypes</code>). </p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable featureTypes;
 
@@ -166,6 +200,11 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
  <p>Sets the configuration for the human in the loop workflow for analyzing documents.</p>
  */
 @property (nonatomic, strong) AWSTextractHumanLoopConfig * _Nullable humanLoopConfig;
+
+/**
+ <p>Contains Queries and the alias for those Queries, as determined by the input. </p>
+ */
+@property (nonatomic, strong) AWSTextractQueriesConfig * _Nullable queriesConfig;
 
 @end
 
@@ -295,7 +334,7 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 
 
 /**
- <p>The type of text item that's recognized. In operations for text detection, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of the LINE <code>Block</code> objects that are detected on a document page.</p></li><li><p><i>WORD</i> - A word detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p></li></ul><p>In text analysis operations, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of child <code>Block</code> objects that are detected on a document page.</p></li><li><p><i>KEY_VALUE_SET</i> - Stores the KEY and VALUE <code>Block</code> objects for linked text that's detected on a document page. Use the <code>EntityType</code> field to determine if a KEY_VALUE_SET object is a KEY <code>Block</code> object or a VALUE <code>Block</code> object. </p></li><li><p><i>WORD</i> - A word that's detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p></li><li><p><i>TABLE</i> - A table that's detected on a document page. A table is grid-based information with two or more rows or columns, with a cell span of one row and one column each. </p></li><li><p><i>CELL</i> - A cell within a detected table. The cell is the parent of the block that contains the text in the cell.</p></li><li><p><i>SELECTION_ELEMENT</i> - A selection element such as an option button (radio button) or a check box that's detected on a document page. Use the value of <code>SelectionStatus</code> to determine the status of the selection element.</p></li></ul>
+ <p>The type of text item that's recognized. In operations for text detection, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of the LINE <code>Block</code> objects that are detected on a document page.</p></li><li><p><i>WORD</i> - A word detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p></li></ul><p>In text analysis operations, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of child <code>Block</code> objects that are detected on a document page.</p></li><li><p><i>KEY_VALUE_SET</i> - Stores the KEY and VALUE <code>Block</code> objects for linked text that's detected on a document page. Use the <code>EntityType</code> field to determine if a KEY_VALUE_SET object is a KEY <code>Block</code> object or a VALUE <code>Block</code> object. </p></li><li><p><i>WORD</i> - A word that's detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p></li><li><p><i>TABLE</i> - A table that's detected on a document page. A table is grid-based information with two or more rows or columns, with a cell span of one row and one column each. </p></li><li><p><i>CELL</i> - A cell within a detected table. The cell is the parent of the block that contains the text in the cell.</p></li><li><p><i>SELECTION_ELEMENT</i> - A selection element such as an option button (radio button) or a check box that's detected on a document page. Use the value of <code>SelectionStatus</code> to determine the status of the selection element.</p></li><li><p><i>SIGNATURE</i> - The location and confidene score of a signature detected on a document page. Can be returned as part of a Key-Value pair or a detected cell.</p></li><li><p><i>QUERY</i> - A question asked during the call of AnalyzeDocument. Contains an alias and an ID that attaches it to its answer.</p></li><li><p><i>QUERY_RESULT</i> - A response to a question asked during the call of analyze document. Comes with an alias and ID for ease of locating in a response. Also contains location and confidence score.</p></li></ul>
  */
 @property (nonatomic, assign) AWSTextractBlockType blockType;
 
@@ -330,9 +369,14 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>The page on which a block was detected. <code>Page</code> is returned by asynchronous operations. Page values greater than 1 are only returned for multipage documents that are in PDF or TIFF format. A scanned image (JPEG/PNG), even if it contains multiple document pages, is considered to be a single-page document. The value of <code>Page</code> is always 1. Synchronous operations don't return <code>Page</code> because every input document is considered to be a single-page document.</p>
+ <p>The page on which a block was detected. <code>Page</code> is returned by synchronous and asynchronous operations. Page values greater than 1 are only returned for multipage documents that are in PDF or TIFF format. A scanned image (JPEG/PNG) provided to an asynchronous operation, even if it contains multiple document pages, is considered a single-page document. This means that for scanned images the value of <code>Page</code> is always 1. Synchronous operations operations will also return a <code>Page</code> value of 1 because every input document is considered to be a single-page document.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable page;
+
+/**
+ <p/>
+ */
+@property (nonatomic, strong) AWSTextractQuery * _Nullable query;
 
 /**
  <p>A list of child blocks of the current block. For example, a LINE object has child blocks for each WORD block that's part of the line of text. There aren't Relationship objects in the list for relationships that don't exist, such as when the current block has no child blocks. The list size can be the following:</p><ul><li><p>0 - The block has no child blocks.</p></li><li><p>1 - The block has child blocks.</p></li></ul>
@@ -431,6 +475,19 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 @end
 
 /**
+ <p>A structure that holds information regarding a detected signature on a page.</p>
+ */
+@interface AWSTextractDetectedSignature : AWSModel
+
+
+/**
+ <p>The page a detected signature was found on.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable page;
+
+@end
+
+/**
  <p>The input document, either as bytes or as an S3 object.</p><p>You pass image bytes to an Amazon Textract API operation by using the <code>Bytes</code> property. For example, you would use the <code>Bytes</code> property to pass a document loaded from a local file system. Image bytes passed by using the <code>Bytes</code> property must be base64 encoded. Your code might not need to encode document file bytes if you're using an AWS SDK to call Amazon Textract API operations. </p><p>You pass images stored in an S3 bucket to an Amazon Textract API operation by using the <code>S3Object</code> property. Documents stored in an S3 bucket don't need to be base64 encoded.</p><p>The AWS Region for the S3 bucket that contains the S3 object must match the AWS Region that you use for Amazon Textract operations.</p><p>If you use the AWS CLI to call Amazon Textract operations, passing image bytes using the Bytes property isn't supported. You must first upload the document to an Amazon S3 bucket, and then call the operation using the S3Object property.</p><p>For Amazon Textract to process an S3 object, the user must have permission to access the S3 object. </p>
  */
 @interface AWSTextractDocument : AWSModel
@@ -449,7 +506,35 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 @end
 
 /**
- <p>The Amazon S3 bucket that contains the document to be processed. It's used by asynchronous operations such as <a>StartDocumentTextDetection</a>.</p><p>The input document can be an image file in JPEG or PNG format. It can also be a file in PDF format.</p>
+ <p>Summary information about documents grouped by the same document type.</p>
+ */
+@interface AWSTextractDocumentGroup : AWSModel
+
+
+/**
+ <p>A list of the detected signatures found in a document group.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractDetectedSignature *> * _Nullable detectedSignatures;
+
+/**
+ <p>An array that contains information about the pages of a document, defined by logical boundary.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractSplitDocument *> * _Nullable splitDocuments;
+
+/**
+ <p>The type of document that Amazon Textract has detected. See LINK for a list of all types returned by Textract.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable types;
+
+/**
+ <p>A list of any expected signatures not found in a document group.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractUndetectedSignature *> * _Nullable undetectedSignatures;
+
+@end
+
+/**
+ <p>The Amazon S3 bucket that contains the document to be processed. It's used by asynchronous operations.</p><p>The input document can be an image file in JPEG or PNG format. It can also be a file in PDF format.</p>
  */
 @interface AWSTextractDocumentLocation : AWSModel
 
@@ -471,6 +556,24 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
  <p>The number of pages that are detected in the document.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable pages;
+
+@end
+
+/**
+ <p>Returns the kind of currency detected.</p>
+ */
+@interface AWSTextractExpenseCurrency : AWSModel
+
+
+/**
+ <p>Currency code for detected currency. the current supported codes are:</p><ul><li><p>USD</p></li><li><p>EUR</p></li><li><p>GBP</p></li><li><p>CAD</p></li><li><p>INR</p></li><li><p>JPY</p></li><li><p>CHF</p></li><li><p>AUD</p></li><li><p>CNY</p></li><li><p>BZR</p></li><li><p>SEK</p></li><li><p>HKD</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable code;
+
+/**
+ <p>Percentage confideence in the detected currency.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
 
 @end
 
@@ -504,6 +607,11 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 
 
 /**
+ <p>This is a block object, the same as reported when DetectDocumentText is run on a document. It provides word level recognition of text.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractBlock *> * _Nullable blocks;
+
+/**
  <p>Denotes which invoice or receipt in the document the information is coming from. First document will be 1, the second 2, and so on.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable expenseIndex;
@@ -525,6 +633,16 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
  */
 @interface AWSTextractExpenseField : AWSModel
 
+
+/**
+ <p>Shows the kind of currency, both the code and confidence associated with any monatary value detected.</p>
+ */
+@property (nonatomic, strong) AWSTextractExpenseCurrency * _Nullable currency;
+
+/**
+ <p>Shows which group a response object belongs to, such as whether an address line belongs to the vendor's address or the recipent's address.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractExpenseGroupProperty *> * _Nullable groupProperties;
 
 /**
  <p>The explicitly stated label of a detected element.</p>
@@ -549,6 +667,24 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 @end
 
 /**
+ <p>Shows the group that a certain key belongs to. This helps differentiate between names and addresses for different organizations, that can be hard to determine via JSON response.</p>
+ */
+@interface AWSTextractExpenseGroupProperty : AWSModel
+
+
+/**
+ <p>Provides a group Id number, which will be the same for each in the group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>Informs you on whether the expense group is a name or an address.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable types;
+
+@end
+
+/**
  <p>An object used to store information about the Type detected by Amazon Textract.</p>
  */
 @interface AWSTextractExpenseType : AWSModel
@@ -563,6 +699,29 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
  <p>The word or line of text detected by Amazon Textract.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable text;
+
+@end
+
+/**
+ <p>Contains information extracted by an analysis operation after using StartLendingAnalysis.</p>
+ */
+@interface AWSTextractExtraction : AWSModel
+
+
+/**
+ <p>The structure holding all the information returned by AnalyzeExpense</p>
+ */
+@property (nonatomic, strong) AWSTextractExpenseDocument * _Nullable expenseDocument;
+
+/**
+ <p>The structure that lists each document processed in an AnalyzeID operation.</p>
+ */
+@property (nonatomic, strong) AWSTextractIdentityDocument * _Nullable identityDocument;
+
+/**
+ <p>Holds the structured data returned by AnalyzeDocument for lending documents.</p>
+ */
+@property (nonatomic, strong) AWSTextractLendingDocument * _Nullable lendingDocument;
 
 @end
 
@@ -783,6 +942,123 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 @end
 
 /**
+ 
+ */
+@interface AWSTextractGetLendingAnalysisRequest : AWSRequest
+
+
+/**
+ <p>A unique identifier for the lending or text-detection job. The <code>JobId</code> is returned from <code>StartLendingAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>The maximum number of results to return per paginated call. The largest value that you can specify is 30. If you specify a value greater than 30, a maximum of 30 results is returned. The default value is 30.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>If the previous response was incomplete, Amazon Textract returns a pagination token in the response. You can use this pagination token to retrieve the next set of lending results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTextractGetLendingAnalysisResponse : AWSModel
+
+
+/**
+ <p> The current model version of the Analyze Lending API.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable analyzeLendingModelVersion;
+
+/**
+ <p>Information about the input document.</p>
+ */
+@property (nonatomic, strong) AWSTextractDocumentMetadata * _Nullable documentMetadata;
+
+/**
+ <p> The current status of the lending analysis job.</p>
+ */
+@property (nonatomic, assign) AWSTextractJobStatus jobStatus;
+
+/**
+ <p>If the response is truncated, Amazon Textract returns this token. You can use this token in the subsequent request to retrieve the next set of lending results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p> Holds the information returned by one of AmazonTextract's document analysis operations for the pinstripe.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractLendingResult *> * _Nullable results;
+
+/**
+ <p> Returns if the lending analysis job could not be completed. Contains explanation for what error occurred. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+/**
+ <p> A list of warnings that occurred during the lending analysis operation. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractWarning *> * _Nullable warnings;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTextractGetLendingAnalysisSummaryRequest : AWSRequest
+
+
+/**
+ <p> A unique identifier for the lending or text-detection job. The <code>JobId</code> is returned from StartLendingAnalysis. A <code>JobId</code> value is only valid for 7 days.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTextractGetLendingAnalysisSummaryResponse : AWSModel
+
+
+/**
+ <p>The current model version of the Analyze Lending API.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable analyzeLendingModelVersion;
+
+/**
+ <p>Information about the input document.</p>
+ */
+@property (nonatomic, strong) AWSTextractDocumentMetadata * _Nullable documentMetadata;
+
+/**
+ <p> The current status of the lending analysis job. </p>
+ */
+@property (nonatomic, assign) AWSTextractJobStatus jobStatus;
+
+/**
+ <p>Returns if the lending analysis could not be completed. Contains explanation for what error occurred.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+/**
+ <p> Contains summary information for documents grouped by type.</p>
+ */
+@property (nonatomic, strong) AWSTextractLendingSummary * _Nullable summary;
+
+/**
+ <p>A list of warnings that occurred during the lending analysis operation.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractWarning *> * _Nullable warnings;
+
+@end
+
+/**
  <p>Shows the results of the human in the loop evaluation. If there is no HumanLoopArn, the input did not trigger human review.</p>
  */
 @interface AWSTextractHumanLoopActivationOutput : AWSModel
@@ -849,6 +1125,11 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 
 
 /**
+ <p>Individual word recognition, as returned by document detection.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractBlock *> * _Nullable blocks;
+
+/**
  <p>Denotes the placement of a document in the IdentityDocument list. The first document is marked 1, the second 2 and so on.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable documentIndex;
@@ -875,6 +1156,116 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
  <p>Used to contain the information detected by an AnalyzeID operation.</p>
  */
 @property (nonatomic, strong) AWSTextractAnalyzeIDDetections * _Nullable valueDetection;
+
+@end
+
+/**
+ <p>The results extracted for a lending document.</p>
+ */
+@interface AWSTextractLendingDetection : AWSModel
+
+
+/**
+ <p>The confidence level for the text of a detected value in a lending document.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
+
+/**
+ <p>Information about where the following items are located on a document page: detected page, text, key-value pairs, tables, table cells, and selection elements.</p>
+ */
+@property (nonatomic, strong) AWSTextractGeometry * _Nullable geometry;
+
+/**
+ <p>The selection status of a selection element, such as an option button or check box.</p>
+ */
+@property (nonatomic, assign) AWSTextractSelectionStatus selectionStatus;
+
+/**
+ <p>The text extracted for a detected value in a lending document.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable text;
+
+@end
+
+/**
+ <p>Holds the structured data returned by AnalyzeDocument for lending documents.</p>
+ */
+@interface AWSTextractLendingDocument : AWSModel
+
+
+/**
+ <p>An array of LendingField objects.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractLendingField *> * _Nullable lendingFields;
+
+/**
+ <p>A list of signatures detected in a lending document.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractSignatureDetection *> * _Nullable signatureDetections;
+
+@end
+
+/**
+ <p>Holds the normalized key-value pairs returned by AnalyzeDocument, including the document type, detected text, and geometry.</p>
+ */
+@interface AWSTextractLendingField : AWSModel
+
+
+/**
+ <p>The results extracted for a lending document.</p>
+ */
+@property (nonatomic, strong) AWSTextractLendingDetection * _Nullable keyDetection;
+
+/**
+ <p>The type of the lending document.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable types;
+
+/**
+ <p>An array of LendingDetection objects.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractLendingDetection *> * _Nullable valueDetections;
+
+@end
+
+/**
+ <p>Contains the detections for each page analyzed through the Analyze Lending API.</p>
+ */
+@interface AWSTextractLendingResult : AWSModel
+
+
+/**
+ <p>An array of Extraction to hold structured data. e.g. normalized key value pairs instead of raw OCR detections .</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractExtraction *> * _Nullable extractions;
+
+/**
+ <p>The page number for a page, with regard to whole submission.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable page;
+
+/**
+ <p>The classifier result for a given page.</p>
+ */
+@property (nonatomic, strong) AWSTextractPageClassification * _Nullable pageClassification;
+
+@end
+
+/**
+ <p>Contains information regarding DocumentGroups and UndetectedDocumentTypes.</p>
+ */
+@interface AWSTextractLendingSummary : AWSModel
+
+
+/**
+ <p>Contains an array of all DocumentGroup objects.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractDocumentGroup *> * _Nullable documentGroups;
+
+/**
+ <p>UndetectedDocumentTypes.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable undetectedDocumentTypes;
 
 @end
 
@@ -928,7 +1319,7 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 @end
 
 /**
- <p>The Amazon Simple Notification Service (Amazon SNS) topic to which Amazon Textract publishes the completion status of an asynchronous document operation, such as <a>StartDocumentTextDetection</a>. </p>
+ <p>The Amazon Simple Notification Service (Amazon SNS) topic to which Amazon Textract publishes the completion status of an asynchronous document operation. </p>
  Required parameters: [SNSTopicArn, RoleArn]
  */
 @interface AWSTextractNotificationChannel : AWSModel
@@ -947,7 +1338,7 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 @end
 
 /**
- <p>Sets whether or not your output will go to a user created bucket. Used to set the name of the bucket, and the prefix on the output file.</p><p><code>OutputConfig</code> is an optional parameter which lets you adjust where your output will be placed. By default, Amazon Textract will store the results internally and can only be accessed by the Get API operations. With OutputConfig enabled, you can set the name of the bucket the output will be sent to and the file prefix of the results where you can download your results. Additionally, you can set the <code>KMSKeyID</code> parameter to a customer master key (CMK) to encrypt your output. Without this parameter set Amazon Textract will encrypt server-side using the AWS managed CMK for Amazon S3.</p><p>Decryption of Customer Content is necessary for processing of the documents by Amazon Textract. If your account is opted out under an AI services opt out policy then all unencrypted Customer Content is immediately and permanently deleted after the Customer Content has been processed by the service. No copy of of the output is retained by Amazon Textract. For information about how to opt out, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html"> Managing AI services opt-out policy. </a></p><p>For more information on data privacy, see the <a href="https://aws.amazon.com/compliance/data-privacy-faq/">Data Privacy FAQ</a>.</p>
+ <p>Sets whether or not your output will go to a user created bucket. Used to set the name of the bucket, and the prefix on the output file.</p><p><code>OutputConfig</code> is an optional parameter which lets you adjust where your output will be placed. By default, Amazon Textract will store the results internally and can only be accessed by the Get API operations. With <code>OutputConfig</code> enabled, you can set the name of the bucket the output will be sent to the file prefix of the results where you can download your results. Additionally, you can set the <code>KMSKeyID</code> parameter to a customer master key (CMK) to encrypt your output. Without this parameter set Amazon Textract will encrypt server-side using the AWS managed CMK for Amazon S3.</p><p>Decryption of Customer Content is necessary for processing of the documents by Amazon Textract. If your account is opted out under an AI services opt out policy then all unencrypted Customer Content is immediately and permanently deleted after the Customer Content has been processed by the service. No copy of of the output is retained by Amazon Textract. For information about how to opt out, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html"> Managing AI services opt-out policy. </a></p><p>For more information on data privacy, see the <a href="https://aws.amazon.com/compliance/data-privacy-faq/">Data Privacy FAQ</a>.</p>
  Required parameters: [S3Bucket]
  */
 @interface AWSTextractOutputConfig : AWSModel
@@ -966,6 +1357,25 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 @end
 
 /**
+ <p>The class assigned to a Page object detected in an input document. Contains information regarding the predicted type/class of a document's page and the page number that the Page object was detected on.</p>
+ Required parameters: [PageType, PageNumber]
+ */
+@interface AWSTextractPageClassification : AWSModel
+
+
+/**
+ <p> The page number the value was detected on, relative to Amazon Textract's starting position.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractPrediction *> * _Nullable pageNumber;
+
+/**
+ <p>The class, or document type, assigned to a detected Page object. The class, or document type, assigned to a detected Page object.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractPrediction *> * _Nullable pageType;
+
+@end
+
+/**
  <p>The X and Y coordinates of a point on a document page. The X and Y values that are returned are ratios of the overall document page size. For example, if the input document is 700 x 200 and the operation returns X=0.5 and Y=0.25, then the point is at the (350,50) pixel coordinate on the document page.</p><p>An array of <code>Point</code> objects, <code>Polygon</code>, is returned by <a>DetectDocumentText</a>. <code>Polygon</code> represents a fine-grained polygon around detected text. For more information, see Geometry in the Amazon Textract Developer Guide. </p>
  */
 @interface AWSTextractPoint : AWSModel
@@ -980,6 +1390,62 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
  <p>The value of the Y coordinate for a point on a <code>Polygon</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable Y;
+
+@end
+
+/**
+ <p>Contains information regarding predicted values returned by Amazon Textract operations, including the predicted value and the confidence in the predicted value.</p>
+ */
+@interface AWSTextractPrediction : AWSModel
+
+
+/**
+ <p>Amazon Textract's confidence in its predicted value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
+
+/**
+ <p>The predicted value of a detected object.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable value;
+
+@end
+
+/**
+ <p/>
+ Required parameters: [Queries]
+ */
+@interface AWSTextractQueriesConfig : AWSModel
+
+
+/**
+ <p/>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractQuery *> * _Nullable queries;
+
+@end
+
+/**
+ <p>Each query contains the question you want to ask in the Text and the alias you want to associate.</p>
+ Required parameters: [Text]
+ */
+@interface AWSTextractQuery : AWSModel
+
+
+/**
+ <p>Alias attached to the query, for ease of location.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable alias;
+
+/**
+ <p>Pages is a parameter that the user inputs to specify which pages to apply a query to. The following is a list of rules for using this parameter.</p><ul><li><p>If a page is not specified, it is set to <code>["1"]</code> by default.</p></li><li><p>The following characters are allowed in the parameter's string: <code>0 1 2 3 4 5 6 7 8 9 - *</code>. No whitespace is allowed.</p></li><li><p>When using * to indicate all pages, it must be the only element in the list.</p></li><li><p>You can use page intervals, such as <code>[“1-3”, “1-1”, “4-*”]</code>. Where <code>*</code> indicates last page of document.</p></li><li><p>Specified pages must be greater than 0 and less than or equal to the number of pages in the document.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable pages;
+
+/**
+ <p>Question that Amazon Textract will apply to the document. An example would be "What is the customer's SSN?"</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable text;
 
 @end
 
@@ -1025,6 +1491,42 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 @end
 
 /**
+ <p>Information regarding a detected signature on a page.</p>
+ */
+@interface AWSTextractSignatureDetection : AWSModel
+
+
+/**
+ <p>The confidence, from 0 to 100, in the predicted values for a detected signature.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
+
+/**
+ <p>Information about where the following items are located on a document page: detected page, text, key-value pairs, tables, table cells, and selection elements.</p>
+ */
+@property (nonatomic, strong) AWSTextractGeometry * _Nullable geometry;
+
+@end
+
+/**
+ <p>Contains information about the pages of a document, defined by logical boundary.</p>
+ */
+@interface AWSTextractSplitDocument : AWSModel
+
+
+/**
+ <p>The index for a given document in a DocumentGroup of a specific Type.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable index;
+
+/**
+ <p>An array of page numbers for a for a given document, ordered by logical boundary.</p>
+ */
+@property (nonatomic, strong) NSArray<NSNumber *> * _Nullable pages;
+
+@end
+
+/**
  
  */
 @interface AWSTextractStartDocumentAnalysisRequest : AWSRequest
@@ -1064,6 +1566,11 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
  <p>Sets if the output will go to a customer defined bucket. By default, Amazon Textract will save the results internally to be accessed by the GetDocumentAnalysis operation.</p>
  */
 @property (nonatomic, strong) AWSTextractOutputConfig * _Nullable outputConfig;
+
+/**
+ <p/>
+ */
+@property (nonatomic, strong) AWSTextractQueriesConfig * _Nullable queriesConfig;
 
 @end
 
@@ -1179,6 +1686,70 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
  <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from <code>StartExpenseAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTextractStartLendingAnalysisRequest : AWSRequest
+
+
+/**
+ <p>The idempotent token that you use to identify the start request. If you use the same token with multiple <code>StartLendingAnalysis</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidentally started more than once. For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/api-sync.html">Calling Amazon Textract Asynchronous Operations</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientRequestToken;
+
+/**
+ <p>The Amazon S3 bucket that contains the document to be processed. It's used by asynchronous operations.</p><p>The input document can be an image file in JPEG or PNG format. It can also be a file in PDF format.</p>
+ */
+@property (nonatomic, strong) AWSTextractDocumentLocation * _Nullable documentLocation;
+
+/**
+ <p>An identifier that you specify to be included in the completion notification published to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of document that the completion notification corresponds to (such as a tax form or a receipt).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTag;
+
+/**
+ <p>The KMS key used to encrypt the inference results. This can be in either Key ID or Key Alias format. When a KMS key is provided, the KMS key will be used for server-side encryption of the objects in the customer bucket. When this parameter is not enabled, the result will be encrypted server side, using SSE-S3. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable KMSKeyId;
+
+/**
+ <p>The Amazon Simple Notification Service (Amazon SNS) topic to which Amazon Textract publishes the completion status of an asynchronous document operation. </p>
+ */
+@property (nonatomic, strong) AWSTextractNotificationChannel * _Nullable notificationChannel;
+
+/**
+ <p>Sets whether or not your output will go to a user created bucket. Used to set the name of the bucket, and the prefix on the output file.</p><p><code>OutputConfig</code> is an optional parameter which lets you adjust where your output will be placed. By default, Amazon Textract will store the results internally and can only be accessed by the Get API operations. With <code>OutputConfig</code> enabled, you can set the name of the bucket the output will be sent to the file prefix of the results where you can download your results. Additionally, you can set the <code>KMSKeyID</code> parameter to a customer master key (CMK) to encrypt your output. Without this parameter set Amazon Textract will encrypt server-side using the AWS managed CMK for Amazon S3.</p><p>Decryption of Customer Content is necessary for processing of the documents by Amazon Textract. If your account is opted out under an AI services opt out policy then all unencrypted Customer Content is immediately and permanently deleted after the Customer Content has been processed by the service. No copy of of the output is retained by Amazon Textract. For information about how to opt out, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html"> Managing AI services opt-out policy. </a></p><p>For more information on data privacy, see the <a href="https://aws.amazon.com/compliance/data-privacy-faq/">Data Privacy FAQ</a>.</p>
+ */
+@property (nonatomic, strong) AWSTextractOutputConfig * _Nullable outputConfig;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTextractStartLendingAnalysisResponse : AWSModel
+
+
+/**
+ <p>A unique identifier for the lending or text-detection job. The <code>JobId</code> is returned from <code>StartLendingAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+@end
+
+/**
+ <p>A structure containing information about an undetected signature on a page where it was expected but not found.</p>
+ */
+@interface AWSTextractUndetectedSignature : AWSModel
+
+
+/**
+ <p>The page where a signature was expected but not found.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable page;
 
 @end
 

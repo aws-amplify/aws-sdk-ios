@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -84,7 +84,9 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"LimitExceededException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"TooManyTagsException\"},\
         {\"shape\":\"ConflictException\"},\
+        {\"shape\":\"ConcurrentModificationException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Creates a parallel data resource in Amazon Translate by importing an input file from Amazon S3. Parallel data files contain examples that show how you want segments of text to be translated. By adding parallel data, you can influence the style, tone, and word choice in your translation output.</p>\"\
@@ -179,9 +181,27 @@
         {\"shape\":\"InvalidParameterValueException\"},\
         {\"shape\":\"LimitExceededException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"TooManyTagsException\"},\
+        {\"shape\":\"ConcurrentModificationException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
-      \"documentation\":\"<p>Creates or updates a custom terminology, depending on whether or not one already exists for the given terminology name. Importing a terminology with the same name as an existing one will merge the terminologies based on the chosen merge strategy. Currently, the only supported merge strategy is OVERWRITE, and so the imported terminology will overwrite an existing terminology of the same name.</p> <p>If you import a terminology that overwrites an existing one, the new terminology take up to 10 minutes to fully propagate and be available for use in a translation due to cache policies with the DataPlane service that performs the translations.</p>\"\
+      \"documentation\":\"<p>Creates or updates a custom terminology, depending on whether one already exists for the given terminology name. Importing a terminology with the same name as an existing one will merge the terminologies based on the chosen merge strategy. The only supported merge strategy is OVERWRITE, where the imported terminology overwrites the existing terminology of the same name.</p> <p>If you import a terminology that overwrites an existing one, the new terminology takes up to 10 minutes to fully propagate. After that, translations have access to the new terminology.</p>\"\
+    },\
+    \"ListLanguages\":{\
+      \"name\":\"ListLanguages\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ListLanguagesRequest\"},\
+      \"output\":{\"shape\":\"ListLanguagesResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterValueException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"UnsupportedDisplayLanguageCodeException\"},\
+        {\"shape\":\"InternalServerException\"}\
+      ],\
+      \"documentation\":\"<p>Provides a list of languages (RFC-5646 codes and names) that Amazon Translate supports.</p>\"\
     },\
     \"ListParallelData\":{\
       \"name\":\"ListParallelData\",\
@@ -197,6 +217,21 @@
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Provides a list of your parallel data resources in Amazon Translate.</p>\"\
+    },\
+    \"ListTagsForResource\":{\
+      \"name\":\"ListTagsForResource\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ListTagsForResourceRequest\"},\
+      \"output\":{\"shape\":\"ListTagsForResourceResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterValueException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServerException\"}\
+      ],\
+      \"documentation\":\"<p>Lists all tags associated with a given Amazon Translate resource. For more information, see <a href=\\\"https://docs.aws.amazon.com/translate/latest/dg/tagging.html\\\"> Tagging your resources</a>.</p>\"\
     },\
     \"ListTerminologies\":{\
       \"name\":\"ListTerminologies\",\
@@ -245,7 +280,7 @@
         {\"shape\":\"InvalidParameterValueException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
-      \"documentation\":\"<p>Starts an asynchronous batch translation job. Batch translation jobs can be used to translate large volumes of text across multiple documents at once. For more information, see <a>async</a>.</p> <p>Batch translation jobs can be described with the <a>DescribeTextTranslationJob</a> operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with the <a>StopTextTranslationJob</a> operation.</p> <note> <p>Amazon Translate does not support batch translation of multiple source languages at once.</p> </note>\"\
+      \"documentation\":\"<p>Starts an asynchronous batch translation job. Use batch translation jobs to translate large volumes of text across multiple documents at once. For batch translation, you can input documents with different source languages (specify <code>auto</code> as the source language). You can specify one or more target languages. Batch translation translates each input document into each of the target languages. For more information, see <a href=\\\"https://docs.aws.amazon.com/translate/latest/dg/async.html\\\">Asynchronous batch processing</a>.</p> <p>Batch translation jobs can be described with the <a>DescribeTextTranslationJob</a> operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with the <a>StopTextTranslationJob</a> operation.</p>\"\
     },\
     \"StopTextTranslationJob\":{\
       \"name\":\"StopTextTranslationJob\",\
@@ -261,6 +296,23 @@
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Stops an asynchronous batch translation job that is in progress.</p> <p>If the job's state is <code>IN_PROGRESS</code>, the job will be marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state. Otherwise, the job is put into the <code>STOPPED</code> state.</p> <p>Asynchronous batch translation jobs are started with the <a>StartTextTranslationJob</a> operation. You can use the <a>DescribeTextTranslationJob</a> or <a>ListTextTranslationJobs</a> operations to get a batch translation job's <code>JobId</code>.</p>\"\
+    },\
+    \"TagResource\":{\
+      \"name\":\"TagResource\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"TagResourceRequest\"},\
+      \"output\":{\"shape\":\"TagResourceResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterValueException\"},\
+        {\"shape\":\"ConcurrentModificationException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"TooManyTagsException\"},\
+        {\"shape\":\"InternalServerException\"}\
+      ],\
+      \"documentation\":\"<p>Associates a specific tag with a resource. A tag is a key-value pair that adds as a metadata to a resource. For more information, see <a href=\\\"https://docs.aws.amazon.com/translate/latest/dg/tagging.html\\\"> Tagging your resources</a>.</p>\"\
     },\
     \"TranslateText\":{\
       \"name\":\"TranslateText\",\
@@ -280,7 +332,23 @@
         {\"shape\":\"InternalServerException\"},\
         {\"shape\":\"ServiceUnavailableException\"}\
       ],\
-      \"documentation\":\"<p>Translates input text from the source language to the target language. For a list of available languages and language codes, see <a>what-is-languages</a>.</p>\"\
+      \"documentation\":\"<p>Translates input text from the source language to the target language. For a list of available languages and language codes, see <a href=\\\"https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html\\\">Supported languages</a>.</p>\"\
+    },\
+    \"UntagResource\":{\
+      \"name\":\"UntagResource\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"UntagResourceRequest\"},\
+      \"output\":{\"shape\":\"UntagResourceResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterValueException\"},\
+        {\"shape\":\"ConcurrentModificationException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServerException\"}\
+      ],\
+      \"documentation\":\"<p>Removes a specific tag associated with an Amazon Translate resource. For more information, see <a href=\\\"https://docs.aws.amazon.com/translate/latest/dg/tagging.html\\\"> Tagging your resources</a>.</p>\"\
     },\
     \"UpdateParallelData\":{\
       \"name\":\"UpdateParallelData\",\
@@ -324,9 +392,9 @@
     },\
     \"BoundedLengthString\":{\
       \"type\":\"string\",\
-      \"max\":5000,\
+      \"max\":10000,\
       \"min\":1,\
-      \"pattern\":\"[\\\\P{M}\\\\p{M}]{1,5000}\"\
+      \"pattern\":\"[\\\\P{M}\\\\p{M}]{1,10000}\"\
     },\
     \"ClientTokenString\":{\
       \"type\":\"string\",\
@@ -380,6 +448,10 @@
           \"shape\":\"ClientTokenString\",\
           \"documentation\":\"<p>A unique identifier for the request. This token is automatically generated when you use Amazon Translate through an AWS SDK.</p>\",\
           \"idempotencyToken\":true\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags to be associated with this resource. A tag is a key-value pair that adds metadata to a resource. Each tag key for the resource must be unique. For more information, see <a href=\\\"https://docs.aws.amazon.com/translate/latest/dg/tagging.html\\\"> Tagging your resources</a>.</p>\"\
         }\
       }\
     },\
@@ -472,6 +544,21 @@
         \"MULTI\"\
       ]\
     },\
+    \"DisplayLanguageCode\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"de\",\
+        \"en\",\
+        \"es\",\
+        \"fr\",\
+        \"it\",\
+        \"ja\",\
+        \"ko\",\
+        \"pt\",\
+        \"zh\",\
+        \"zh-TW\"\
+      ]\
+    },\
     \"EncryptionKey\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -500,6 +587,13 @@
       \"type\":\"string\",\
       \"enum\":[\"KMS\"]\
     },\
+    \"Formality\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"FORMAL\",\
+        \"INFORMAL\"\
+      ]\
+    },\
     \"GetParallelDataRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"Name\"],\
@@ -519,15 +613,15 @@
         },\
         \"DataLocation\":{\
           \"shape\":\"ParallelDataDataLocation\",\
-          \"documentation\":\"<p>The Amazon S3 location of the most recent parallel data input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30 minute expiration.</p> <important> <p>Amazon Translate doesn't scan all input files for the risk of CSV injection attacks. </p> <p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p> <p>Before you download an input file from Amazon S3, ensure that you recognize the file and trust its creator.</p> </important>\"\
+          \"documentation\":\"<p>The Amazon S3 location of the most recent parallel data input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30-minute expiration.</p> <important> <p>Amazon Translate doesn't scan all input files for the risk of CSV injection attacks. </p> <p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p> <p>Before you download an input file from Amazon S3, ensure that you recognize the file and trust its creator.</p> </important>\"\
         },\
         \"AuxiliaryDataLocation\":{\
           \"shape\":\"ParallelDataDataLocation\",\
-          \"documentation\":\"<p>The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to create a parallel data resource. The location is returned as a presigned URL to that has a 30 minute expiration.</p>\"\
+          \"documentation\":\"<p>The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to create a parallel data resource. The location is returned as a presigned URL to that has a 30-minute expiration.</p>\"\
         },\
         \"LatestUpdateAttemptAuxiliaryDataLocation\":{\
           \"shape\":\"ParallelDataDataLocation\",\
-          \"documentation\":\"<p>The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to update a parallel data resource. The location is returned as a presigned URL to that has a 30 minute expiration.</p>\"\
+          \"documentation\":\"<p>The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to update a parallel data resource. The location is returned as a presigned URL to that has a 30-minute expiration.</p>\"\
         }\
       }\
     },\
@@ -541,7 +635,7 @@
         },\
         \"TerminologyDataFormat\":{\
           \"shape\":\"TerminologyDataFormat\",\
-          \"documentation\":\"<p>The data format of the custom terminology being retrieved.</p> <p>If you don't specify this parameter, Amazon Translate returns a file that has the same format as the file that was imported to create the terminology. </p> <p>If you specify this parameter when you retrieve a multi-directional terminology resource, you must specify the same format as that of the input file that was imported to create it. Otherwise, Amazon Translate throws an error.</p>\"\
+          \"documentation\":\"<p>The data format of the custom terminology being retrieved.</p> <p>If you don't specify this parameter, Amazon Translate returns a file with the same format as the file that was imported to create the terminology. </p> <p>If you specify this parameter when you retrieve a multi-directional terminology resource, you must specify the same format as the input file that was imported to create it. Otherwise, Amazon Translate throws an error.</p>\"\
         }\
       }\
     },\
@@ -554,11 +648,11 @@
         },\
         \"TerminologyDataLocation\":{\
           \"shape\":\"TerminologyDataLocation\",\
-          \"documentation\":\"<p>The Amazon S3 location of the most recent custom terminology input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30 minute expiration.</p> <important> <p>Amazon Translate doesn't scan all input files for the risk of CSV injection attacks. </p> <p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p> <p>Before you download an input file from Amazon S3, ensure that you recognize the file and trust its creator.</p> </important>\"\
+          \"documentation\":\"<p>The Amazon S3 location of the most recent custom terminology input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30-minute expiration.</p> <important> <p>Amazon Translate doesn't scan all input files for the risk of CSV injection attacks. </p> <p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p> <p>Before you download an input file from Amazon S3, ensure that you recognize the file and trust its creator.</p> </important>\"\
         },\
         \"AuxiliaryDataLocation\":{\
           \"shape\":\"TerminologyDataLocation\",\
-          \"documentation\":\"<p>The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to create a terminology resource. The location is returned as a presigned URL to that has a 30 minute expiration.</p>\"\
+          \"documentation\":\"<p>The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to create a terminology resource. The location is returned as a presigned URL to that has a 30-minute expiration.</p>\"\
         }\
       }\
     },\
@@ -595,6 +689,10 @@
         \"EncryptionKey\":{\
           \"shape\":\"EncryptionKey\",\
           \"documentation\":\"<p>The encryption key for the custom terminology being imported.</p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags to be associated with this resource. A tag is a key-value pair that adds metadata to a resource. Each tag key for the resource must be unique. For more information, see <a href=\\\"https://docs.aws.amazon.com/translate/latest/dg/tagging.html\\\"> Tagging your resources</a>.</p>\"\
         }\
       }\
     },\
@@ -620,7 +718,7 @@
       \"members\":{\
         \"S3Uri\":{\
           \"shape\":\"S3Uri\",\
-          \"documentation\":\"<p>The URI of the AWS S3 folder that contains the input file. The folder must be in the same Region as the API endpoint you are calling.</p>\"\
+          \"documentation\":\"<p>The URI of the AWS S3 folder that contains the input files. Amazon Translate translates all the files in the folder and all its sub-folders. The folder must be in the same Region as the API endpoint you are calling.</p>\"\
         },\
         \"ContentType\":{\
           \"shape\":\"ContentType\",\
@@ -644,7 +742,7 @@
       \"members\":{\
         \"Message\":{\"shape\":\"String\"}\
       },\
-      \"documentation\":\"<p>The filter specified for the operation is invalid. Specify a different filter.</p>\",\
+      \"documentation\":\"<p>The filter specified for the operation is not valid. Specify a different filter.</p>\",\
       \"exception\":true\
     },\
     \"InvalidParameterValueException\":{\
@@ -652,7 +750,7 @@
       \"members\":{\
         \"Message\":{\"shape\":\"String\"}\
       },\
-      \"documentation\":\"<p>The value of the parameter is invalid. Review the value of the parameter you are using to correct it, and then retry your operation.</p>\",\
+      \"documentation\":\"<p>The value of the parameter is not valid. Review the value of the parameter you are using to correct it, and then retry your operation.</p>\",\
       \"exception\":true\
     },\
     \"InvalidRequestException\":{\
@@ -660,7 +758,7 @@
       \"members\":{\
         \"Message\":{\"shape\":\"String\"}\
       },\
-      \"documentation\":\"<p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request. </p>\",\
+      \"documentation\":\"<p> The request that you made is not valid. Check your request to determine why it's not valid and then retry the request. </p>\",\
       \"exception\":true\
     },\
     \"JobDetails\":{\
@@ -705,6 +803,24 @@
         \"STOPPED\"\
       ]\
     },\
+    \"Language\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"LanguageName\",\
+        \"LanguageCode\"\
+      ],\
+      \"members\":{\
+        \"LanguageName\":{\
+          \"shape\":\"LocalizedNameString\",\
+          \"documentation\":\"<p>Language name of the supported language.</p>\"\
+        },\
+        \"LanguageCode\":{\
+          \"shape\":\"LanguageCodeString\",\
+          \"documentation\":\"<p>Language code for the supported language.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A supported language.</p>\"\
+    },\
     \"LanguageCodeString\":{\
       \"type\":\"string\",\
       \"max\":5,\
@@ -714,6 +830,10 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"LanguageCodeString\"}\
     },\
+    \"LanguagesList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Language\"}\
+    },\
     \"LimitExceededException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -721,6 +841,40 @@
       },\
       \"documentation\":\"<p>The specified limit has been exceeded. Review your request and retry it with a quantity below the stated limit.</p>\",\
       \"exception\":true\
+    },\
+    \"ListLanguagesRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DisplayLanguageCode\":{\
+          \"shape\":\"DisplayLanguageCode\",\
+          \"documentation\":\"<p>The language code for the language to use to display the language names in the response. The language code is <code>en</code> by default. </p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>Include the NextToken value to fetch the next group of supported languages. </p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResultsInteger\",\
+          \"documentation\":\"<p>The maximum number of results to return in each response.</p>\"\
+        }\
+      }\
+    },\
+    \"ListLanguagesResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Languages\":{\
+          \"shape\":\"LanguagesList\",\
+          \"documentation\":\"<p>The list of supported languages.</p>\"\
+        },\
+        \"DisplayLanguageCode\":{\
+          \"shape\":\"DisplayLanguageCode\",\
+          \"documentation\":\"<p>The language code passed in with the request.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p> If the response does not include all remaining results, use the NextToken in the next request to fetch the next group of supported languages.</p>\"\
+        }\
+      }\
     },\
     \"ListParallelDataRequest\":{\
       \"type\":\"structure\",\
@@ -745,6 +899,25 @@
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
           \"documentation\":\"<p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>\"\
+        }\
+      }\
+    },\
+    \"ListTagsForResourceRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"ResourceArn\"],\
+      \"members\":{\
+        \"ResourceArn\":{\
+          \"shape\":\"ResourceArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the given Amazon Translate resource you are querying. </p>\"\
+        }\
+      }\
+    },\
+    \"ListTagsForResourceResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags associated with the Amazon Translate resource being queried. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Translate. For example, a tag with \\\"Sales\\\" as the key might be added to a resource to indicate its use by the sales department. </p>\"\
         }\
       }\
     },\
@@ -803,6 +976,11 @@
           \"documentation\":\"<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>\"\
         }\
       }\
+    },\
+    \"LocalizedNameString\":{\
+      \"type\":\"string\",\
+      \"max\":256,\
+      \"min\":1\
     },\
     \"Long\":{\"type\":\"long\"},\
     \"MaxResultsInteger\":{\
@@ -867,7 +1045,7 @@
         },\
         \"Location\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The Amazon S3 location of the parallel data input file. The location is returned as a presigned URL to that has a 30 minute expiration.</p> <important> <p>Amazon Translate doesn't scan all input files for the risk of CSV injection attacks. </p> <p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p> <p>Before you download an input file from Amazon S3, ensure that you recognize the file and trust its creator.</p> </important>\"\
+          \"documentation\":\"<p>The Amazon S3 location of the parallel data input file. The location is returned as a presigned URL to that has a 30-minute expiration.</p> <important> <p>Amazon Translate doesn't scan all input files for the risk of CSV injection attacks. </p> <p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p> <p>Before you download an input file from Amazon S3, ensure that you recognize the file and trust its creator.</p> </important>\"\
         }\
       },\
       \"documentation\":\"<p>The location of the most recent parallel data input file that was successfully imported into Amazon Translate.</p>\"\
@@ -969,6 +1147,11 @@
       \"type\":\"string\",\
       \"enum\":[\"MASK\"]\
     },\
+    \"ResourceArn\":{\
+      \"type\":\"string\",\
+      \"max\":512,\
+      \"min\":1\
+    },\
     \"ResourceName\":{\
       \"type\":\"string\",\
       \"max\":256,\
@@ -997,7 +1180,7 @@
       \"members\":{\
         \"Message\":{\"shape\":\"String\"}\
       },\
-      \"documentation\":\"<p>The Amazon Translate service is temporarily unavailable. Please wait a bit and then retry your request.</p>\",\
+      \"documentation\":\"<p>The Amazon Translate service is temporarily unavailable. Wait a bit and then retry your request.</p>\",\
       \"exception\":true,\
       \"fault\":true\
     },\
@@ -1018,7 +1201,7 @@
         },\
         \"InputDataConfig\":{\
           \"shape\":\"InputDataConfig\",\
-          \"documentation\":\"<p>Specifies the format and S3 location of the input documents for the translation job.</p>\"\
+          \"documentation\":\"<p>Specifies the format and location of the input documents for the translation job.</p>\"\
         },\
         \"OutputDataConfig\":{\
           \"shape\":\"OutputDataConfig\",\
@@ -1026,32 +1209,32 @@
         },\
         \"DataAccessRoleArn\":{\
           \"shape\":\"IamRoleArn\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role that grants Amazon Translate read access to your input data. For more information, see <a>identity-and-access-management</a>.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role that grants Amazon Translate read access to your input data. For more information, see <a href=\\\"https://docs.aws.amazon.com/translate/latest/dg/identity-and-access-management.html\\\">Identity and access management </a>.</p>\"\
         },\
         \"SourceLanguageCode\":{\
           \"shape\":\"LanguageCodeString\",\
-          \"documentation\":\"<p>The language code of the input language. For a list of language codes, see <a>what-is-languages</a>.</p> <p>Amazon Translate does not automatically detect a source language during batch translation jobs.</p>\"\
+          \"documentation\":\"<p>The language code of the input language. Specify the language if all input documents share the same language. If you don't know the language of the source files, or your input documents contains different source languages, select <code>auto</code>. Amazon Translate auto detects the source language for each input document. For a list of supported language codes, see <a href=\\\"https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html\\\">Supported languages</a>.</p>\"\
         },\
         \"TargetLanguageCodes\":{\
           \"shape\":\"TargetLanguageCodeStringList\",\
-          \"documentation\":\"<p>The language code of the output language.</p>\"\
+          \"documentation\":\"<p>The target languages of the translation job. Enter up to 10 language codes. Each input file is translated into each target language.</p> <p>Each language code is 2 or 5 characters long. For a list of language codes, see <a href=\\\"https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html\\\">Supported languages</a>.</p>\"\
         },\
         \"TerminologyNames\":{\
           \"shape\":\"ResourceNameList\",\
-          \"documentation\":\"<p>The name of a custom terminology resource to add to the translation job. This resource lists examples source terms and the desired translation for each term.</p> <p>This parameter accepts only one custom terminology resource.</p> <p>For a list of available custom terminology resources, use the <a>ListTerminologies</a> operation.</p> <p>For more information, see <a>how-custom-terminology</a>.</p>\"\
+          \"documentation\":\"<p>The name of a custom terminology resource to add to the translation job. This resource lists examples source terms and the desired translation for each term.</p> <p>This parameter accepts only one custom terminology resource.</p> <p>If you specify multiple target languages for the job, translate uses the designated terminology for each requested target language that has an entry for the source term in the terminology file.</p> <p>For a list of available custom terminology resources, use the <a>ListTerminologies</a> operation.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/translate/latest/dg/how-custom-terminology.html\\\">Custom terminology</a>.</p>\"\
         },\
         \"ParallelDataNames\":{\
           \"shape\":\"ResourceNameList\",\
-          \"documentation\":\"<p>The name of a parallel data resource to add to the translation job. This resource consists of examples that show how you want segments of text to be translated. When you add parallel data to a translation job, you create an <i>Active Custom Translation</i> job. </p> <p>This parameter accepts only one parallel data resource.</p> <note> <p>Active Custom Translation jobs are priced at a higher rate than other jobs that don't use parallel data. For more information, see <a href=\\\"http://aws.amazon.com/translate/pricing/\\\">Amazon Translate pricing</a>.</p> </note> <p>For a list of available parallel data resources, use the <a>ListParallelData</a> operation.</p> <p>For more information, see <a>customizing-translations-parallel-data</a>.</p>\"\
+          \"documentation\":\"<p>The name of a parallel data resource to add to the translation job. This resource consists of examples that show how you want segments of text to be translated. If you specify multiple target languages for the job, the parallel data file must include translations for all the target languages.</p> <p>When you add parallel data to a translation job, you create an <i>Active Custom Translation</i> job. </p> <p>This parameter accepts only one parallel data resource.</p> <note> <p>Active Custom Translation jobs are priced at a higher rate than other jobs that don't use parallel data. For more information, see <a href=\\\"http://aws.amazon.com/translate/pricing/\\\">Amazon Translate pricing</a>.</p> </note> <p>For a list of available parallel data resources, use the <a>ListParallelData</a> operation.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-parallel-data.html\\\"> Customizing your translations with parallel data</a>.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"ClientTokenString\",\
-          \"documentation\":\"<p>A unique identifier for the request. This token is auto-generated when using the Amazon Translate SDK.</p>\",\
+          \"documentation\":\"<p>A unique identifier for the request. This token is generated for you when using the Amazon Translate SDK.</p>\",\
           \"idempotencyToken\":true\
         },\
         \"Settings\":{\
           \"shape\":\"TranslationSettings\",\
-          \"documentation\":\"<p>Settings to configure your translation output, including the option to mask profane words and phrases.</p>\"\
+          \"documentation\":\"<p>Settings to configure your translation output, including the option to set the formality level of the output text and the option to mask profane words and phrases.</p>\"\
         }\
       }\
     },\
@@ -1096,10 +1279,71 @@
       \"max\":10000,\
       \"pattern\":\"[\\\\P{M}\\\\p{M}]{0,10000}\"\
     },\
+    \"Tag\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Key\",\
+        \"Value\"\
+      ],\
+      \"members\":{\
+        \"Key\":{\
+          \"shape\":\"TagKey\",\
+          \"documentation\":\"<p>The initial part of a key-value pair that forms a tag associated with a given resource. </p>\"\
+        },\
+        \"Value\":{\
+          \"shape\":\"TagValue\",\
+          \"documentation\":\"<p> The second part of a key-value pair that forms a tag associated with a given resource.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A key-value pair that adds as a metadata to a resource used by Amazon Translate. </p>\"\
+    },\
+    \"TagKey\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1\
+    },\
+    \"TagKeyList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"TagKey\"},\
+      \"max\":200,\
+      \"min\":0\
+    },\
+    \"TagList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Tag\"},\
+      \"max\":200,\
+      \"min\":0\
+    },\
+    \"TagResourceRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ResourceArn\",\
+        \"Tags\"\
+      ],\
+      \"members\":{\
+        \"ResourceArn\":{\
+          \"shape\":\"ResourceArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the given Amazon Translate resource to which you want to associate the tags. </p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags being associated with a specific Amazon Translate resource. There can be a maximum of 50 tags (both existing and pending) associated with a specific resource.</p>\"\
+        }\
+      }\
+    },\
+    \"TagResourceResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"TagValue\":{\
+      \"type\":\"string\",\
+      \"max\":256,\
+      \"min\":0\
+    },\
     \"TargetLanguageCodeStringList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"LanguageCodeString\"},\
-      \"max\":1,\
       \"min\":1\
     },\
     \"Term\":{\
@@ -1142,10 +1386,10 @@
         },\
         \"Directionality\":{\
           \"shape\":\"Directionality\",\
-          \"documentation\":\"<p>The directionality of your terminology resource indicates whether it has one source language (uni-directional) or multiple (multi-directional).</p> <dl> <dt>UNI</dt> <dd> <p>The terminology resource has one source language (for example, the first column in a CSV file), and all of its other languages are target languages. </p> </dd> <dt>MULTI</dt> <dd> <p>Any language in the terminology resource can be the source language or a target language. A single multi-directional terminology resource can be used for jobs that translate different language pairs. For example, if the terminology contains terms in English and Spanish, then it can be used for jobs that translate English to Spanish and jobs that translate Spanish to English.</p> </dd> </dl> <p>When you create a custom terminology resource without specifying the directionality, it behaves as uni-directional terminology, although this parameter will have a null value.</p>\"\
+          \"documentation\":\"<p>The directionality of your terminology resource indicates whether it has one source language (uni-directional) or multiple (multi-directional).</p> <dl> <dt>UNI</dt> <dd> <p>The terminology resource has one source language (for example, the first column in a CSV file), and all of its other languages are target languages. </p> </dd> <dt>MULTI</dt> <dd> <p>Any language in the terminology resource can be the source language or a target language. A single multi-directional terminology resource can be used for jobs that translate different language pairs. For example, if the terminology contains English and Spanish terms, it can be used for jobs that translate English to Spanish and Spanish to English.</p> </dd> </dl> <p>When you create a custom terminology resource without specifying the directionality, it behaves as uni-directional terminology, although this parameter will have a null value.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The data associated with the custom terminology.</p>\"\
+      \"documentation\":\"<p>The data associated with the custom terminology. For information about the custom terminology file, see <a href=\\\"https://docs.aws.amazon.com/translate/latest/dg/creating-custom-terminology.html\\\"> Creating a Custom Terminology</a>.</p>\"\
     },\
     \"TerminologyDataFormat\":{\
       \"type\":\"string\",\
@@ -1168,7 +1412,7 @@
         },\
         \"Location\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The Amazon S3 location of the most recent custom terminology input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30 minute expiration.</p> <important> <p>Amazon Translate doesn't scan all input files for the risk of CSV injection attacks. </p> <p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p> <p>Before you download an input file from Amazon S3, ensure that you recognize the file and trust its creator.</p> </important>\"\
+          \"documentation\":\"<p>The Amazon S3 location of the most recent custom terminology input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30-minute expiration .</p> <important> <p>Amazon Translate doesn't scan all input files for the risk of CSV injection attacks. </p> <p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p> <p>Before you download an input file from Amazon S3, ensure that you recognize the file and trust its creator.</p> </important>\"\
         }\
       },\
       \"documentation\":\"<p>The location of the custom terminology data.</p>\"\
@@ -1353,6 +1597,15 @@
       \"documentation\":\"<p> You have made too many requests within a short period of time. Wait for a short time and then try your request again.</p>\",\
       \"exception\":true\
     },\
+    \"TooManyTagsException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"String\"},\
+        \"ResourceArn\":{\"shape\":\"ResourceArn\"}\
+      },\
+      \"documentation\":\"<p>You have added too many tags to this resource. The maximum is 50 tags.</p>\",\
+      \"exception\":true\
+    },\
     \"TranslateTextRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -1363,7 +1616,7 @@
       \"members\":{\
         \"Text\":{\
           \"shape\":\"BoundedLengthString\",\
-          \"documentation\":\"<p>The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on your character set, this may be fewer than 5,000 characters.</p>\"\
+          \"documentation\":\"<p>The text to translate. The text string can be a maximum of 10,000 bytes long. Depending on your character set, this may be fewer than 10,000 characters.</p>\"\
         },\
         \"TerminologyNames\":{\
           \"shape\":\"ResourceNameList\",\
@@ -1371,7 +1624,7 @@
         },\
         \"SourceLanguageCode\":{\
           \"shape\":\"LanguageCodeString\",\
-          \"documentation\":\"<p>The language code for the language of the source text. The language must be a language supported by Amazon Translate. For a list of language codes, see <a>what-is-languages</a>.</p> <p>To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html\\\">Amazon Comprehend</a> to determine the source language.</p>\"\
+          \"documentation\":\"<p>The language code for the language of the source text. The language must be a language supported by Amazon Translate. For a list of language codes, see <a href=\\\"https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html\\\">Supported languages</a>.</p> <p>To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html\\\">Amazon Comprehend</a> to determine the source language.</p> <note> <p>If you specify <code>auto</code>, you must send the <code>TranslateText</code> request in a region that supports Amazon Comprehend. Otherwise, the request returns an error indicating that autodetect is not supported. </p> </note>\"\
         },\
         \"TargetLanguageCode\":{\
           \"shape\":\"LanguageCodeString\",\
@@ -1379,7 +1632,7 @@
         },\
         \"Settings\":{\
           \"shape\":\"TranslationSettings\",\
-          \"documentation\":\"<p>Settings to configure your translation output, including the option to mask profane words and phrases.</p>\"\
+          \"documentation\":\"<p>Settings to configure your translation output, including the option to set the formality level of the output text and the option to mask profane words and phrases.</p>\"\
         }\
       }\
     },\
@@ -1392,7 +1645,7 @@
       ],\
       \"members\":{\
         \"TranslatedText\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TranslatedTextString\",\
           \"documentation\":\"<p>The translated text.</p>\"\
         },\
         \"SourceLanguageCode\":{\
@@ -1413,17 +1666,38 @@
         }\
       }\
     },\
+    \"TranslatedTextString\":{\
+      \"type\":\"string\",\
+      \"max\":20000,\
+      \"pattern\":\"[\\\\P{M}\\\\p{M}]{0,20000}\"\
+    },\
     \"TranslationSettings\":{\
       \"type\":\"structure\",\
       \"members\":{\
+        \"Formality\":{\
+          \"shape\":\"Formality\",\
+          \"documentation\":\"<p>You can optionally specify the desired level of formality for translations to supported target languages. The formality setting controls the level of formal language usage (also known as <a href=\\\"https://en.wikipedia.org/wiki/Register_(sociolinguistics)\\\">register</a>) in the translation output. You can set the value to informal or formal. If you don't specify a value for formality, or if the target language doesn't support formality, the translation will ignore the formality setting.</p> <p> If you specify multiple target languages for the job, translate ignores the formality setting for any unsupported target language.</p> <p>For a list of target languages that support formality, see <a href=\\\"https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html#customizing-translations-formality-languages\\\">Supported languages</a> in the Amazon Translate Developer Guide.</p>\"\
+        },\
         \"Profanity\":{\
           \"shape\":\"Profanity\",\
-          \"documentation\":\"<p>Enable the profanity setting if you want Amazon Translate to mask profane words and phrases in your translation output.</p> <p>To mask profane words and phrases, Amazon Translate replaces them with the grawlix string â?$#@$â. This 5-character sequence is used for each profane word or phrase, regardless of the length or number of words.</p> <p>Amazon Translate does not detect profanity in all of its supported languages. For languages that support profanity detection, see <a href=\\\"https://docs.aws.amazon.com/translate/latest/dg/what-is.html#what-is-languages\\\">Supported Languages and Language Codes in the Amazon Translate Developer Guide</a>.</p>\"\
+          \"documentation\":\"<p>Enable the profanity setting if you want Amazon Translate to mask profane words and phrases in your translation output.</p> <p>To mask profane words and phrases, Amazon Translate replaces them with the grawlix string â?$#@$â. This 5-character sequence is used for each profane word or phrase, regardless of the length or number of words.</p> <p>Amazon Translate doesn't detect profanity in all of its supported languages. For languages that don't support profanity detection, see <a href=\\\"https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html#customizing-translations-profanity-languages\\\">Unsupported languages</a> in the Amazon Translate Developer Guide.</p> <p>If you specify multiple target languages for the job, all the target languages must support profanity masking. If any of the target languages don't support profanity masking, the translation job won't mask profanity for any target language.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Settings that configure the translation output.</p>\"\
+      \"documentation\":\"<p>Optional settings that configure the translation output. Use these settings for real time translations and asynchronous translation jobs.</p>\"\
     },\
     \"UnboundedLengthString\":{\"type\":\"string\"},\
+    \"UnsupportedDisplayLanguageCodeException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Message\":{\"shape\":\"String\"},\
+        \"DisplayLanguageCode\":{\
+          \"shape\":\"LanguageCodeString\",\
+          \"documentation\":\"<p>Language code passed in with the request.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Requested display language code is not supported.</p>\",\
+      \"exception\":true\
+    },\
     \"UnsupportedLanguagePairException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -1437,8 +1711,30 @@
           \"documentation\":\"<p>The language code for the language of the translated text. </p>\"\
         }\
       },\
-      \"documentation\":\"<p>Amazon Translate does not support translation from the language of the source text into the requested target language. For more information, see <a>how-to-error-msg</a>. </p>\",\
+      \"documentation\":\"<p>Amazon Translate does not support translation from the language of the source text into the requested target language. For more information, see <a href=\\\"https://docs.aws.amazon.com/translate/latest/dg/how-to-error-msg.html\\\">Error messages</a>. </p>\",\
       \"exception\":true\
+    },\
+    \"UntagResourceRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ResourceArn\",\
+        \"TagKeys\"\
+      ],\
+      \"members\":{\
+        \"ResourceArn\":{\
+          \"shape\":\"ResourceArn\",\
+          \"documentation\":\"<p> The Amazon Resource Name (ARN) of the given Amazon Translate resource from which you want to remove the tags. </p>\"\
+        },\
+        \"TagKeys\":{\
+          \"shape\":\"TagKeyList\",\
+          \"documentation\":\"<p>The initial part of a key-value pair that forms a tag being removed from a given resource. Keys must be unique and cannot be duplicated for a particular resource. </p>\"\
+        }\
+      }\
+    },\
+    \"UntagResourceResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
     },\
     \"UpdateParallelDataRequest\":{\
       \"type\":\"structure\",\
@@ -1489,7 +1785,7 @@
       }\
     }\
   },\
-  \"documentation\":\"<p>Provides translation between one source language and another of the same set of languages.</p>\"\
+  \"documentation\":\"<p>Provides translation of the input content from the source language to the target language.</p>\"\
 }\
 ";
 }

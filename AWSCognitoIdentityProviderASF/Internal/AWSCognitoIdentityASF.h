@@ -23,8 +23,18 @@ NS_ASSUME_NONNULL_BEGIN
  version of the SDK. You should use userContextString instead.
  @deprecated Use userContextString instead.
  */
-+ (NSString *)userContextData: (int) minTarget build: (NSString *) build userPoolId: (NSString*) userPoolId username: (NSString *) username deviceId: ( NSString * _Nullable ) deviceId userPoolClientId: (NSString *) userPoolClientId DEPRECATED_MSG_ATTRIBUTE("Use userContextString instead.");
++ (NSString *)userContextData:(int) minTarget
+                        build:(NSString *) build
+                   userPoolId:(NSString *) userPoolId
+                     username:(NSString *) username
+                     deviceId:( NSString * _Nullable) deviceId
+             userPoolClientId: (NSString *) userPoolClientId DEPRECATED_MSG_ATTRIBUTE("Use userContextString instead.");
 
-+ (nullable NSString *)userContextString: (int) minTarget build: (NSString *) build userPoolId: (NSString*) userPoolId username: (NSString *) username deviceId: ( NSString * _Nullable ) deviceId userPoolClientId: (NSString *) userPoolClientId;
++ (nullable NSString *) userContextString:(int) minTarget
+                           build:(NSString *) build
+                      userPoolId:(NSString *) userPoolId
+                        username:(NSString *) username
+                        deviceId:(NSString * _Nullable) deviceId
+                         userPoolClientId: (NSString *) userPoolClientId;
 @end
 NS_ASSUME_NONNULL_END

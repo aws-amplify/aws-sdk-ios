@@ -19,7 +19,7 @@
 import Foundation
 import AWSCognitoIdentityProvider
 
-protocol UserPoolAuthHelperlCallbacks {
+protocol UserPoolAuthHelperCallbacks {
 
     func getPasswordDetails(_ authenticationInput: AWSCognitoIdentityPasswordAuthenticationInput, passwordAuthenticationCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>)
     
@@ -51,7 +51,6 @@ AWSCognitoUserPoolInternalDelegate {
         return self.userpoolClient?.currentUser()
     }
     
-    internal var passwordAuthTaskCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>?
     internal var newPasswordRequiredTaskCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityNewPasswordRequiredDetails>?
     internal var customAuthChallengeTaskCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails>?
     
@@ -61,13 +60,12 @@ AWSCognitoUserPoolInternalDelegate {
     internal var currentSignInHandlerCallback: ((SignInResult?, Error?) -> Void)?
     internal var currentConfirmSignInHandlerCallback: ((SignInResult?, Error?) -> Void)?
     
-    var authHelperDelegate: UserPoolAuthHelperlCallbacks?
+    var authHelperDelegate: UserPoolAuthHelperCallbacks?
     var customAuthHandler: AWSUserPoolCustomAuthHandler?
     internal static let sharedInstance: UserPoolOperationsHandler = UserPoolOperationsHandler()
 
     static var serviceConfiguration: CognitoServiceConfiguration? = nil
 
-    
     public override init() {
         super.init()
         if (AWSInfo.default().defaultServiceInfo("CognitoUserPool") != nil) {
@@ -114,7 +112,7 @@ AWSCognitoUserPoolInternalDelegate {
         return self
     }
     
-    internal func setAuthHelperDelegate(authHelperDelegate: UserPoolAuthHelperlCallbacks) {
+    internal func setAuthHelperDelegate(authHelperDelegate: UserPoolAuthHelperCallbacks) {
         self.authHelperDelegate = authHelperDelegate
     }
     

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -31,9 +31,11 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoErrorType) {
     AWSKinesisVideoErrorInvalidArgument,
     AWSKinesisVideoErrorInvalidDevice,
     AWSKinesisVideoErrorInvalidResourceFormat,
+    AWSKinesisVideoErrorNoDataRetention,
     AWSKinesisVideoErrorNotAuthorized,
     AWSKinesisVideoErrorResourceInUse,
     AWSKinesisVideoErrorResourceNotFound,
+    AWSKinesisVideoErrorStreamEdgeConfigurationNotFound,
     AWSKinesisVideoErrorTagsPerResourceExceededLimit,
     AWSKinesisVideoErrorVersionMismatch,
 };
@@ -46,12 +48,15 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoAPIName) {
     AWSKinesisVideoAPINameGetMediaForFragmentList,
     AWSKinesisVideoAPINameGetHlsStreamingSessionUrl,
     AWSKinesisVideoAPINameGetDashStreamingSessionUrl,
+    AWSKinesisVideoAPINameGetClip,
+    AWSKinesisVideoAPINameGetImages,
 };
 
 typedef NS_ENUM(NSInteger, AWSKinesisVideoChannelProtocol) {
     AWSKinesisVideoChannelProtocolUnknown,
     AWSKinesisVideoChannelProtocolWss,
     AWSKinesisVideoChannelProtocolHttps,
+    AWSKinesisVideoChannelProtocolWebrtc,
 };
 
 typedef NS_ENUM(NSInteger, AWSKinesisVideoChannelRole) {
@@ -63,11 +68,47 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoChannelRole) {
 typedef NS_ENUM(NSInteger, AWSKinesisVideoChannelType) {
     AWSKinesisVideoChannelTypeUnknown,
     AWSKinesisVideoChannelTypeSingleMaster,
+    AWSKinesisVideoChannelTypeFullMesh,
 };
 
 typedef NS_ENUM(NSInteger, AWSKinesisVideoComparisonOperator) {
     AWSKinesisVideoComparisonOperatorUnknown,
     AWSKinesisVideoComparisonOperatorBeginsWith,
+};
+
+typedef NS_ENUM(NSInteger, AWSKinesisVideoConfigurationStatus) {
+    AWSKinesisVideoConfigurationStatusUnknown,
+    AWSKinesisVideoConfigurationStatusEnabled,
+    AWSKinesisVideoConfigurationStatusDisabled,
+};
+
+typedef NS_ENUM(NSInteger, AWSKinesisVideoFormat) {
+    AWSKinesisVideoFormatUnknown,
+    AWSKinesisVideoFormatJpeg,
+    AWSKinesisVideoFormatPng,
+};
+
+typedef NS_ENUM(NSInteger, AWSKinesisVideoFormatConfigKey) {
+    AWSKinesisVideoFormatConfigKeyUnknown,
+    AWSKinesisVideoFormatConfigKeyJPEGQuality,
+};
+
+typedef NS_ENUM(NSInteger, AWSKinesisVideoImageSelectorType) {
+    AWSKinesisVideoImageSelectorTypeUnknown,
+    AWSKinesisVideoImageSelectorTypeServerTimestamp,
+    AWSKinesisVideoImageSelectorTypeProducerTimestamp,
+};
+
+typedef NS_ENUM(NSInteger, AWSKinesisVideoMediaStorageConfigurationStatus) {
+    AWSKinesisVideoMediaStorageConfigurationStatusUnknown,
+    AWSKinesisVideoMediaStorageConfigurationStatusEnabled,
+    AWSKinesisVideoMediaStorageConfigurationStatusDisabled,
+};
+
+typedef NS_ENUM(NSInteger, AWSKinesisVideoMediaUriType) {
+    AWSKinesisVideoMediaUriTypeUnknown,
+    AWSKinesisVideoMediaUriTypeRtspUri,
+    AWSKinesisVideoMediaUriTypeFileUri,
 };
 
 typedef NS_ENUM(NSInteger, AWSKinesisVideoStatus) {
@@ -76,6 +117,22 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoStatus) {
     AWSKinesisVideoStatusActive,
     AWSKinesisVideoStatusUpdating,
     AWSKinesisVideoStatusDeleting,
+};
+
+typedef NS_ENUM(NSInteger, AWSKinesisVideoStrategyOnFullSize) {
+    AWSKinesisVideoStrategyOnFullSizeUnknown,
+    AWSKinesisVideoStrategyOnFullSizeDeleteOldestMedia,
+    AWSKinesisVideoStrategyOnFullSizeDenyNewMedia,
+};
+
+typedef NS_ENUM(NSInteger, AWSKinesisVideoSyncStatus) {
+    AWSKinesisVideoSyncStatusUnknown,
+    AWSKinesisVideoSyncStatusSyncing,
+    AWSKinesisVideoSyncStatusAcknowledged,
+    AWSKinesisVideoSyncStatusInSync,
+    AWSKinesisVideoSyncStatusSyncFailed,
+    AWSKinesisVideoSyncStatusDeleting,
+    AWSKinesisVideoSyncStatusDeleteFailed,
 };
 
 typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
@@ -94,14 +151,28 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @class AWSKinesisVideoDeleteSignalingChannelOutput;
 @class AWSKinesisVideoDeleteStreamInput;
 @class AWSKinesisVideoDeleteStreamOutput;
+@class AWSKinesisVideoDeletionConfig;
+@class AWSKinesisVideoDescribeEdgeConfigurationInput;
+@class AWSKinesisVideoDescribeEdgeConfigurationOutput;
+@class AWSKinesisVideoDescribeImageGenerationConfigurationInput;
+@class AWSKinesisVideoDescribeImageGenerationConfigurationOutput;
+@class AWSKinesisVideoDescribeMappedResourceConfigurationInput;
+@class AWSKinesisVideoDescribeMappedResourceConfigurationOutput;
+@class AWSKinesisVideoDescribeMediaStorageConfigurationInput;
+@class AWSKinesisVideoDescribeMediaStorageConfigurationOutput;
+@class AWSKinesisVideoDescribeNotificationConfigurationInput;
+@class AWSKinesisVideoDescribeNotificationConfigurationOutput;
 @class AWSKinesisVideoDescribeSignalingChannelInput;
 @class AWSKinesisVideoDescribeSignalingChannelOutput;
 @class AWSKinesisVideoDescribeStreamInput;
 @class AWSKinesisVideoDescribeStreamOutput;
+@class AWSKinesisVideoEdgeConfig;
 @class AWSKinesisVideoGetDataEndpointInput;
 @class AWSKinesisVideoGetDataEndpointOutput;
 @class AWSKinesisVideoGetSignalingChannelEndpointInput;
 @class AWSKinesisVideoGetSignalingChannelEndpointOutput;
+@class AWSKinesisVideoImageGenerationConfiguration;
+@class AWSKinesisVideoImageGenerationDestinationConfig;
 @class AWSKinesisVideoListSignalingChannelsInput;
 @class AWSKinesisVideoListSignalingChannelsOutput;
 @class AWSKinesisVideoListStreamsInput;
@@ -110,9 +181,19 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @class AWSKinesisVideoListTagsForResourceOutput;
 @class AWSKinesisVideoListTagsForStreamInput;
 @class AWSKinesisVideoListTagsForStreamOutput;
+@class AWSKinesisVideoLocalSizeConfig;
+@class AWSKinesisVideoMappedResourceConfigurationListItem;
+@class AWSKinesisVideoMediaSourceConfig;
+@class AWSKinesisVideoMediaStorageConfiguration;
+@class AWSKinesisVideoNotificationConfiguration;
+@class AWSKinesisVideoNotificationDestinationConfig;
+@class AWSKinesisVideoRecorderConfig;
 @class AWSKinesisVideoResourceEndpointListItem;
+@class AWSKinesisVideoScheduleConfig;
 @class AWSKinesisVideoSingleMasterChannelEndpointConfiguration;
 @class AWSKinesisVideoSingleMasterConfiguration;
+@class AWSKinesisVideoStartEdgeConfigurationUpdateInput;
+@class AWSKinesisVideoStartEdgeConfigurationUpdateOutput;
 @class AWSKinesisVideoStreamInfo;
 @class AWSKinesisVideoStreamNameCondition;
 @class AWSKinesisVideoTag;
@@ -126,10 +207,17 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @class AWSKinesisVideoUntagStreamOutput;
 @class AWSKinesisVideoUpdateDataRetentionInput;
 @class AWSKinesisVideoUpdateDataRetentionOutput;
+@class AWSKinesisVideoUpdateImageGenerationConfigurationInput;
+@class AWSKinesisVideoUpdateImageGenerationConfigurationOutput;
+@class AWSKinesisVideoUpdateMediaStorageConfigurationInput;
+@class AWSKinesisVideoUpdateMediaStorageConfigurationOutput;
+@class AWSKinesisVideoUpdateNotificationConfigurationInput;
+@class AWSKinesisVideoUpdateNotificationConfigurationOutput;
 @class AWSKinesisVideoUpdateSignalingChannelInput;
 @class AWSKinesisVideoUpdateSignalingChannelOutput;
 @class AWSKinesisVideoUpdateStreamInput;
 @class AWSKinesisVideoUpdateStreamOutput;
+@class AWSKinesisVideoUploaderConfig;
 
 /**
  <p>A structure that encapsulates a signaling channel's metadata and properties.</p>
@@ -138,7 +226,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The ARN of the signaling channel.</p>
+ <p>The Amazon Resource Name (ARN) of the signaling channel.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable channelARN;
 
@@ -199,7 +287,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>A name for the signaling channel that you are creating. It must be unique for each account and region.</p>
+ <p>A name for the signaling channel that you are creating. It must be unique for each Amazon Web Services account and Amazon Web Services Region.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable channelName;
 
@@ -214,7 +302,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @property (nonatomic, strong) AWSKinesisVideoSingleMasterConfiguration * _Nullable singleMasterConfiguration;
 
 /**
- <p>A set of tags (key/value pairs) that you want to associate with this channel.</p>
+ <p>A set of tags (key-value pairs) that you want to associate with this channel.</p>
  */
 @property (nonatomic, strong) NSArray<AWSKinesisVideoTag *> * _Nullable tags;
 
@@ -227,7 +315,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The ARN of the created channel.</p>
+ <p>The Amazon Resource Name (ARN) of the created channel.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable channelARN;
 
@@ -250,7 +338,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @property (nonatomic, strong) NSString * _Nullable deviceName;
 
 /**
- <p>The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data.</p><p>If no key ID is specified, the default, Kinesis Video-managed key (<code>aws/kinesisvideo</code>) is used.</p><p> For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">DescribeKey</a>. </p>
+ <p>The ID of the Key Management Service (KMS) key that you want Kinesis Video Streams to use to encrypt stream data.</p><p>If no key ID is specified, the default, Kinesis Video-managed key (<code>aws/kinesisvideo</code>) is used.</p><p> For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">DescribeKey</a>. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
@@ -291,12 +379,12 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The ARN of the signaling channel that you want to delete.</p>
+ <p>The Amazon Resource Name (ARN) of the signaling channel that you want to delete.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable channelARN;
 
 /**
- <p>The current version of the signaling channel that you want to delete. You can obtain the current version by invoking the <code>DescribeSignalingChannel</code> or <code>ListSignalingChannels</code> APIs.</p>
+ <p>The current version of the signaling channel that you want to delete. You can obtain the current version by invoking the <code>DescribeSignalingChannel</code> or <code>ListSignalingChannels</code> API operations.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable currentVersion;
 
@@ -333,6 +421,229 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
  */
 @interface AWSKinesisVideoDeleteStreamOutput : AWSModel
 
+
+@end
+
+/**
+ <p>The configuration details required to delete the connection of the stream from the Edge Agent.</p>
+ */
+@interface AWSKinesisVideoDeletionConfig : AWSModel
+
+
+/**
+ <p>The <code>boolean</code> value used to indicate whether or not you want to mark the media for deletion, once it has been uploaded to the Kinesis Video Stream cloud. The media files can be deleted if any of the deletion configuration values are set to <code>true</code>, such as when the limit for the <code>EdgeRetentionInHours</code>, or the <code>MaxLocalMediaSizeInMB</code>, has been reached. </p><p>Since the default value is set to <code>true</code>, configure the uploader schedule such that the media files are not being deleted before they are initially uploaded to AWS cloud.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable deleteAfterUpload;
+
+/**
+ <p>The number of hours that you want to retain the data in the stream on the Edge Agent. The default value of the retention time is 720 hours, which translates to 30 days.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable edgeRetentionInHours;
+
+/**
+ <p>The value of the local size required in order to delete the edge configuration.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoLocalSizeConfig * _Nullable localSizeConfig;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoDescribeEdgeConfigurationInput : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the stream. Specify either the <code>StreamName</code>or the <code>StreamARN</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamARN;
+
+/**
+ <p>The name of the stream whose edge configuration you want to update. Specify either the <code>StreamName</code> or the <code>StreamARN</code>. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoDescribeEdgeConfigurationOutput : AWSModel
+
+
+/**
+ <p>The timestamp at which a stream’s edge configuration was first created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTime;
+
+/**
+ <p>A description of the stream's edge configuration that will be used to sync with the Edge Agent IoT Greengrass component. The Edge Agent component will run on an IoT Hub Device setup at your premise.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoEdgeConfig * _Nullable edgeConfig;
+
+/**
+ <p>A description of the generated failure status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable failedStatusDetails;
+
+/**
+ <p>The timestamp at which a stream’s edge configuration was last updated.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastUpdatedTime;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the stream.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamARN;
+
+/**
+ <p>The name of the stream from which the edge configuration was updated.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamName;
+
+/**
+ <p>The latest status of the edge configuration update.</p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoSyncStatus syncStatus;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoDescribeImageGenerationConfigurationInput : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Kinesis video stream from which to retrieve the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamARN;
+
+/**
+ <p>The name of the stream from which to retrieve the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoDescribeImageGenerationConfigurationOutput : AWSModel
+
+
+/**
+ <p>The structure that contains the information required for the Kinesis video stream (KVS) images delivery. If this structure is null, the configuration will be deleted from the stream.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoImageGenerationConfiguration * _Nullable imageGenerationConfiguration;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoDescribeMappedResourceConfigurationInput : AWSRequest
+
+
+/**
+ <p>The maximum number of results to return in the response.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token to provide in your next request, to get another batch of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the stream.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamARN;
+
+/**
+ <p>The name of the stream.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoDescribeMappedResourceConfigurationOutput : AWSModel
+
+
+/**
+ <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSKinesisVideoMappedResourceConfigurationListItem *> * _Nullable mappedResourceConfigurationList;
+
+/**
+ <p>The token that was used in the <code>NextToken</code>request to fetch the next set of results. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoDescribeMediaStorageConfigurationInput : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the channel.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable channelARN;
+
+/**
+ <p>The name of the channel.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable channelName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoDescribeMediaStorageConfigurationOutput : AWSModel
+
+
+/**
+ <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoMediaStorageConfiguration * _Nullable mediaStorageConfiguration;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoDescribeNotificationConfigurationInput : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to retrieve the notification configuration. You must specify either the <code>StreamName</code> or the StreamARN.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamARN;
+
+/**
+ <p>The name of the stream from which to retrieve the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoDescribeNotificationConfigurationOutput : AWSModel
+
+
+/**
+ <p>The structure that contains the information required for notifications. If the structure is null, the configuration will be deleted from the stream.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoNotificationConfiguration * _Nullable notificationConfiguration;
 
 @end
 
@@ -399,6 +710,35 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @end
 
 /**
+ <p>A description of the stream's edge configuration that will be used to sync with the Edge Agent IoT Greengrass component. The Edge Agent component will run on an IoT Hub Device setup at your premise.</p>
+ Required parameters: [HubDeviceArn, RecorderConfig]
+ */
+@interface AWSKinesisVideoEdgeConfig : AWSModel
+
+
+/**
+ <p>The deletion configuration is made up of the retention time (<code>EdgeRetentionInHours</code>) and local size configuration (<code>LocalSizeConfig</code>) details that are used to make the deletion.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoDeletionConfig * _Nullable deletionConfig;
+
+/**
+ <p>The "<b>Internet of Things (IoT) Thing</b>" Arn of the stream.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable hubDeviceArn;
+
+/**
+ <p>The recorder configuration consists of the local <code>MediaSourceConfig</code> details, that are used as credentials to access the local media files streamed on the camera. </p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoRecorderConfig * _Nullable recorderConfig;
+
+/**
+ <p>The uploader configuration contains the <code>ScheduleExpression</code> details that are used to schedule upload jobs for the recorded media files from the Edge Agent to a Kinesis Video Stream.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoUploaderConfig * _Nullable uploaderConfig;
+
+@end
+
+/**
  
  */
 @interface AWSKinesisVideoGetDataEndpointInput : AWSRequest
@@ -441,7 +781,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The ARN of the signalling channel for which you want to get an endpoint.</p>
+ <p>The Amazon Resource Name (ARN) of the signalling channel for which you want to get an endpoint.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable channelARN;
 
@@ -462,6 +802,74 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
  <p>A list of endpoints for the specified signaling channel.</p>
  */
 @property (nonatomic, strong) NSArray<AWSKinesisVideoResourceEndpointListItem *> * _Nullable resourceEndpointList;
+
+@end
+
+/**
+ <p>The structure that contains the information required for the KVS images delivery. If null, the configuration will be deleted from the stream.</p>
+ Required parameters: [Status, ImageSelectorType, DestinationConfig, SamplingInterval, Format]
+ */
+@interface AWSKinesisVideoImageGenerationConfiguration : AWSModel
+
+
+/**
+ <p>The structure that contains the information required to deliver images to a customer.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoImageGenerationDestinationConfig * _Nullable destinationConfig;
+
+/**
+ <p>The accepted image format.</p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoFormat format;
+
+/**
+ <p>The list of a key-value pair structure that contains extra parameters that can be applied when the image is generated. The <code>FormatConfig</code> key is the <code>JPEGQuality</code>, which indicates the JPEG quality key to be used to generate the image. The <code>FormatConfig</code> value accepts ints from 1 to 100. If the value is 1, the image will be generated with less quality and the best compression. If the value is 100, the image will be generated with the best quality and less compression. If no value is provided, the default value of the <code>JPEGQuality</code> key will be set to 80.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable formatConfig;
+
+/**
+ <p>The height of the output image that is used in conjunction with the <code>WidthPixels</code> parameter. When both <code>HeightPixels</code> and <code>WidthPixels</code> parameters are provided, the image will be stretched to fit the specified aspect ratio. If only the <code>HeightPixels</code> parameter is provided, its original aspect ratio will be used to calculate the <code>WidthPixels</code> ratio. If neither parameter is provided, the original image size will be returned.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable heightPixels;
+
+/**
+ <p>The origin of the Server or Producer timestamps to use to generate the images.</p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoImageSelectorType imageSelectorType;
+
+/**
+ <p>The time interval in milliseconds (ms) at which the images need to be generated from the stream. The minimum value that can be provided is 33 ms, because a camera that generates content at 30 FPS would create a frame every 33.3 ms. If the timestamp range is less than the sampling interval, the Image from the <code>StartTimestamp</code> will be returned if available. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable samplingInterval;
+
+/**
+ <p>Indicates whether the <code>ContinuousImageGenerationConfigurations</code> API is enabled or disabled.</p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoConfigurationStatus status;
+
+/**
+ <p>The width of the output image that is used in conjunction with the <code>HeightPixels</code> parameter. When both <code>WidthPixels</code> and <code>HeightPixels</code> parameters are provided, the image will be stretched to fit the specified aspect ratio. If only the <code>WidthPixels</code> parameter is provided, its original aspect ratio will be used to calculate the <code>HeightPixels</code> ratio. If neither parameter is provided, the original image size will be returned.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable widthPixels;
+
+@end
+
+/**
+ <p>The structure that contains the information required to deliver images to a customer.</p>
+ Required parameters: [Uri, DestinationRegion]
+ */
+@interface AWSKinesisVideoImageGenerationDestinationConfig : AWSModel
+
+
+/**
+ <p>The AWS Region of the S3 bucket where images will be delivered. This <code>DestinationRegion</code> must match the Region where the stream is located.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationRegion;
+
+/**
+ <p>The Uniform Resource Identifier (URI) that identifies where the images will be delivered.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable uri;
 
 @end
 
@@ -554,12 +962,12 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>If you specify this parameter and the result of a ListTagsForResource call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags. </p>
+ <p>If you specify this parameter and the result of a <code>ListTagsForResource</code> call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The ARN of the signaling channel for which you want to list tags.</p>
+ <p>The Amazon Resource Name (ARN) of the signaling channel for which you want to list tags.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceARN;
 
@@ -572,7 +980,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>If you specify this parameter and the result of a ListTagsForResource call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags. </p>
+ <p>If you specify this parameter and the result of a <code>ListTagsForResource</code> call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -625,6 +1033,132 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @end
 
 /**
+ <p>The configuration details that include the maximum size of the media (<code>MaxLocalMediaSizeInMB</code>) that you want to store for a stream on the Edge Agent, as well as the strategy that should be used (<code>StrategyOnFullSize</code>) when a stream's maximum size has been reached.</p>
+ */
+@interface AWSKinesisVideoLocalSizeConfig : AWSModel
+
+
+/**
+ <p>The overall maximum size of the media that you want to store for a stream on the Edge Agent. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxLocalMediaSizeInMB;
+
+/**
+ <p>The strategy to perform when a stream’s <code>MaxLocalMediaSizeInMB</code> limit is reached.</p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoStrategyOnFullSize strategyOnFullSize;
+
+@end
+
+/**
+ <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
+ */
+@interface AWSKinesisVideoMappedResourceConfigurationListItem : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Kinesis Video Stream resource, associated with the stream.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ARN;
+
+/**
+ <p>The type of the associated resource for the kinesis video stream.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable types;
+
+@end
+
+/**
+ <p>The configuration details that consist of the credentials required (<code>MediaUriSecretArn</code> and <code>MediaUriType</code>) to access the media files that are streamed to the camera.</p>
+ Required parameters: [MediaUriSecretArn, MediaUriType]
+ */
+@interface AWSKinesisVideoMediaSourceConfig : AWSModel
+
+
+/**
+ <p>The AWS Secrets Manager ARN for the username and password of the camera, or a local media file location.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable mediaUriSecretArn;
+
+/**
+ <p>The Uniform Resource Identifier (URI) type. The <code>FILE_URI</code> value can be used to stream local media files.</p><note><p>Preview only supports the <code>RTSP_URI</code> media source URI format .</p></note>
+ */
+@property (nonatomic, assign) AWSKinesisVideoMediaUriType mediaUriType;
+
+@end
+
+/**
+ <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
+ Required parameters: [Status]
+ */
+@interface AWSKinesisVideoMediaStorageConfiguration : AWSModel
+
+
+/**
+ <p>The status of the media storage configuration.</p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoMediaStorageConfigurationStatus status;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the stream </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamARN;
+
+@end
+
+/**
+ <p>The structure that contains the notification information for the KVS images delivery. If this parameter is null, the configuration will be deleted from the stream.</p>
+ Required parameters: [Status, DestinationConfig]
+ */
+@interface AWSKinesisVideoNotificationConfiguration : AWSModel
+
+
+/**
+ <p>The destination information required to deliver a notification to a customer.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoNotificationDestinationConfig * _Nullable destinationConfig;
+
+/**
+ <p>Indicates if a notification configuration is enabled or disabled.</p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoConfigurationStatus status;
+
+@end
+
+/**
+ <p>The structure that contains the information required to deliver a notification to a customer.</p>
+ Required parameters: [Uri]
+ */
+@interface AWSKinesisVideoNotificationDestinationConfig : AWSModel
+
+
+/**
+ <p>The Uniform Resource Identifier (URI) that identifies where the images will be delivered.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable uri;
+
+@end
+
+/**
+ <p>The recorder configuration consists of the local <code>MediaSourceConfig</code> details that are used as credentials to accesss the local media files streamed on the camera. </p>
+ Required parameters: [MediaSourceConfig]
+ */
+@interface AWSKinesisVideoRecorderConfig : AWSModel
+
+
+/**
+ <p>The configuration details that consist of the credentials required (<code>MediaUriSecretArn</code> and <code>MediaUriType</code>) to access the media files streamed to the camera. </p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoMediaSourceConfig * _Nullable mediaSourceConfig;
+
+/**
+ <p>The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code> details that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> attribute is not provided, then the Edge Agent will always be set to recording mode.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoScheduleConfig * _Nullable scheduleConfig;
+
+@end
+
+/**
  <p>An object that describes the endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.</p>
  */
 @interface AWSKinesisVideoResourceEndpointListItem : AWSModel
@@ -639,6 +1173,25 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
  <p>The endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceEndpoint;
+
+@end
+
+/**
+ <p>This API enables you to specify the duration that the camera, or local media file, should record onto the Edge Agent. The <code>ScheduleConfig</code> consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code> attributes. </p><p>If the <code>ScheduleExpression</code> is not provided, then the Edge Agent will always be set to recording mode.</p>
+ Required parameters: [ScheduleExpression, DurationInSeconds]
+ */
+@interface AWSKinesisVideoScheduleConfig : AWSModel
+
+
+/**
+ <p>The total duration to record the media. If the <code>ScheduleExpression</code> attribute is provided, then the <code>DurationInSeconds</code> attribute should also be specified.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable durationInSeconds;
+
+/**
+ <p>The Quartz cron expression that takes care of scheduling jobs to record from the camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided for the <code>RecorderConfig</code>, then the Edge Agent will always be set to recording mode.</p><p>For more information about Quartz, refer to the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html"><i>Cron Trigger Tutorial</i></a> page to understand the valid expressions and its use.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable scheduleExpression;
 
 @end
 
@@ -667,9 +1220,75 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The period of time a signaling channel retains underlivered messages before they are discarded.</p>
+ <p>The period of time a signaling channel retains undelivered messages before they are discarded.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable messageTtlSeconds;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoStartEdgeConfigurationUpdateInput : AWSRequest
+
+
+/**
+ <p>The edge configuration details required to invoke the update process.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoEdgeConfig * _Nullable edgeConfig;
+
+/**
+ <p> The Amazon Resource Name (ARN) of the stream. Specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamARN;
+
+/**
+ <p>The name of the stream whose edge configuration you want to update. Specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoStartEdgeConfigurationUpdateOutput : AWSModel
+
+
+/**
+ <p>The timestamp at which a stream’s edge configuration was first created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTime;
+
+/**
+ <p>A description of the stream's edge configuration that will be used to sync with the Edge Agent IoT Greengrass component. The Edge Agent component will run on an IoT Hub Device setup at your premise.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoEdgeConfig * _Nullable edgeConfig;
+
+/**
+ <p>A description of the generated failure status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable failedStatusDetails;
+
+/**
+ <p>The timestamp at which a stream’s edge configuration was last updated.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastUpdatedTime;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the stream.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamARN;
+
+/**
+ <p>The name of the stream from which the edge configuration was updated.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamName;
+
+/**
+ <p> The current sync status of the stream's edge configuration. When you invoke this API, the sync status will be set to the <code>SYNCING</code> state. Use the <code>DescribeEdgeConfiguration</code> API to get the latest status of the edge configuration.</p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoSyncStatus syncStatus;
 
 @end
 
@@ -695,7 +1314,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @property (nonatomic, strong) NSString * _Nullable deviceName;
 
 /**
- <p>The ID of the AWS Key Management Service (AWS KMS) key that Kinesis Video Streams uses to encrypt data on the stream.</p>
+ <p>The ID of the Key Management Service (KMS) key that Kinesis Video Streams uses to encrypt data on the stream.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
@@ -770,7 +1389,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The ARN of the signaling channel to which you want to add tags.</p>
+ <p>The Amazon Resource Name (ARN) of the signaling channel to which you want to add tags.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceARN;
 
@@ -827,7 +1446,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The ARN of the signaling channel from which you want to remove tags.</p>
+ <p>The Amazon Resource Name (ARN) of the signaling channel from which you want to remove tags.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceARN;
 
@@ -921,11 +1540,99 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 /**
  
  */
+@interface AWSKinesisVideoUpdateImageGenerationConfigurationInput : AWSRequest
+
+
+/**
+ <p>The structure that contains the information required for the KVS images delivery. If the structure is null, the configuration will be deleted from the stream.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoImageGenerationConfiguration * _Nullable imageGenerationConfiguration;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to update the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamARN;
+
+/**
+ <p>The name of the stream from which to update the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoUpdateImageGenerationConfigurationOutput : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoUpdateMediaStorageConfigurationInput : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the channel.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable channelARN;
+
+/**
+ <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoMediaStorageConfiguration * _Nullable mediaStorageConfiguration;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoUpdateMediaStorageConfigurationOutput : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoUpdateNotificationConfigurationInput : AWSRequest
+
+
+/**
+ <p>The structure containing the information required for notifications. If the structure is null, the configuration will be deleted from the stream.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoNotificationConfiguration * _Nullable notificationConfiguration;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to update the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamARN;
+
+/**
+ <p>The name of the stream from which to update the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoUpdateNotificationConfigurationOutput : AWSModel
+
+
+@end
+
+/**
+ 
+ */
 @interface AWSKinesisVideoUpdateSignalingChannelInput : AWSRequest
 
 
 /**
- <p>The ARN of the signaling channel that you want to update.</p>
+ <p>The Amazon Resource Name (ARN) of the signaling channel that you want to update.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable channelARN;
 
@@ -987,6 +1694,20 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
  */
 @interface AWSKinesisVideoUpdateStreamOutput : AWSModel
 
+
+@end
+
+/**
+ <p>The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutesdetails</code>, that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided, then the Edge Agent will always be in upload mode. </p>
+ Required parameters: [ScheduleConfig]
+ */
+@interface AWSKinesisVideoUploaderConfig : AWSModel
+
+
+/**
+ <p>The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code>details that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided, then the Edge Agent will always be in recording mode.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoScheduleConfig * _Nullable scheduleConfig;
 
 @end
 

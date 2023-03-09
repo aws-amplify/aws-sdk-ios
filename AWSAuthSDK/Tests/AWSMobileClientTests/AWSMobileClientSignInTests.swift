@@ -463,7 +463,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
     /// - When:
     ///    - I call signOut after receiving signedOutUserPoolsTokenInvalid
     /// - Then:
-    ///    - The waiting getTokens call should complete with an .unableToSignIn error.
+    ///    - The waiting getTokens call should complete with an error.
     ///
     func testSignOutOnSessionExpiry() {
         XCTAssertFalse(AWSMobileClient.default().isSignedIn, "Should be in signOut state")
@@ -499,10 +499,15 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
             defer {
                 tokenFetchFailExpectation.fulfill()
             }
-            guard let error = error as? AWSMobileClientError,
-                case .unableToSignIn = error else {
+            guard let error = error as? AWSMobileClientError else {
                 XCTFail("Should receive an unable to signIn error")
                 return
+            }
+            switch error {
+            case .notSignedIn, .unableToSignIn:
+                break;
+            default:
+                XCTFail("Error should be either of notSignedIn or unableToSigIn but received \(error)")
             }
         }
         wait(for: [tokenFetchFailExpectation], timeout: AWSMobileClientTestBase.networkRequestTimeout)

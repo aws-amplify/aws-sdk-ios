@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -649,6 +649,134 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 @end
 
+@implementation AWSComprehendBatchDetectTargetedSentimentItemResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"entities" : @"Entities",
+             @"index" : @"Index",
+             };
+}
+
++ (NSValueTransformer *)entitiesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTargetedSentimentEntity class]];
+}
+
+@end
+
+@implementation AWSComprehendBatchDetectTargetedSentimentRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"languageCode" : @"LanguageCode",
+             @"textList" : @"TextList",
+             };
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"en"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeEn);
+        }
+        if ([value caseInsensitiveCompare:@"es"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeEs);
+        }
+        if ([value caseInsensitiveCompare:@"fr"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeFr);
+        }
+        if ([value caseInsensitiveCompare:@"de"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeDe);
+        }
+        if ([value caseInsensitiveCompare:@"it"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeIt);
+        }
+        if ([value caseInsensitiveCompare:@"pt"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodePt);
+        }
+        if ([value caseInsensitiveCompare:@"ar"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeAr);
+        }
+        if ([value caseInsensitiveCompare:@"hi"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeHi);
+        }
+        if ([value caseInsensitiveCompare:@"ja"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeJa);
+        }
+        if ([value caseInsensitiveCompare:@"ko"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeKo);
+        }
+        if ([value caseInsensitiveCompare:@"zh"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeZh);
+        }
+        if ([value caseInsensitiveCompare:@"zh-TW"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeZhTW);
+        }
+        return @(AWSComprehendLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendLanguageCodeEn:
+                return @"en";
+            case AWSComprehendLanguageCodeEs:
+                return @"es";
+            case AWSComprehendLanguageCodeFr:
+                return @"fr";
+            case AWSComprehendLanguageCodeDe:
+                return @"de";
+            case AWSComprehendLanguageCodeIt:
+                return @"it";
+            case AWSComprehendLanguageCodePt:
+                return @"pt";
+            case AWSComprehendLanguageCodeAr:
+                return @"ar";
+            case AWSComprehendLanguageCodeHi:
+                return @"hi";
+            case AWSComprehendLanguageCodeJa:
+                return @"ja";
+            case AWSComprehendLanguageCodeKo:
+                return @"ko";
+            case AWSComprehendLanguageCodeZh:
+                return @"zh";
+            case AWSComprehendLanguageCodeZhTW:
+                return @"zh-TW";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSComprehendBatchDetectTargetedSentimentResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"errorList" : @"ErrorList",
+             @"resultList" : @"ResultList",
+             };
+}
+
++ (NSValueTransformer *)errorListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendBatchItemError class]];
+}
+
++ (NSValueTransformer *)resultListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendBatchDetectTargetedSentimentItemResult class]];
+}
+
+@end
+
 @implementation AWSComprehendBatchItemError
 
 + (BOOL)supportsSecureCoding {
@@ -660,6 +788,108 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"errorCode" : @"ErrorCode",
              @"errorMessage" : @"ErrorMessage",
              @"index" : @"Index",
+             };
+}
+
+@end
+
+@implementation AWSComprehendBlock
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"blockType" : @"BlockType",
+             @"geometry" : @"Geometry",
+             @"identifier" : @"Id",
+             @"page" : @"Page",
+             @"relationships" : @"Relationships",
+             @"text" : @"Text",
+             };
+}
+
++ (NSValueTransformer *)blockTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"LINE"] == NSOrderedSame) {
+            return @(AWSComprehendBlockTypeLine);
+        }
+        if ([value caseInsensitiveCompare:@"WORD"] == NSOrderedSame) {
+            return @(AWSComprehendBlockTypeWord);
+        }
+        return @(AWSComprehendBlockTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendBlockTypeLine:
+                return @"LINE";
+            case AWSComprehendBlockTypeWord:
+                return @"WORD";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)geometryJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendGeometry class]];
+}
+
++ (NSValueTransformer *)relationshipsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendRelationshipsListItem class]];
+}
+
+@end
+
+@implementation AWSComprehendBlockReference
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"beginOffset" : @"BeginOffset",
+             @"blockId" : @"BlockId",
+             @"childBlocks" : @"ChildBlocks",
+             @"endOffset" : @"EndOffset",
+             };
+}
+
++ (NSValueTransformer *)childBlocksJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendChildBlock class]];
+}
+
+@end
+
+@implementation AWSComprehendBoundingBox
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"height" : @"Height",
+             @"left" : @"Left",
+             @"top" : @"Top",
+             @"width" : @"Width",
+             };
+}
+
+@end
+
+@implementation AWSComprehendChildBlock
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"beginOffset" : @"BeginOffset",
+             @"childBlockId" : @"ChildBlockId",
+             @"endOffset" : @"EndOffset",
              };
 }
 
@@ -715,9 +945,15 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"bytes" : @"Bytes",
+             @"documentReaderConfig" : @"DocumentReaderConfig",
              @"endpointArn" : @"EndpointArn",
              @"text" : @"Text",
              };
+}
+
++ (NSValueTransformer *)documentReaderConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendDocumentReaderConfig class]];
 }
 
 @end
@@ -731,12 +967,27 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"classes" : @"Classes",
+             @"documentMetadata" : @"DocumentMetadata",
+             @"documentType" : @"DocumentType",
+             @"errors" : @"Errors",
              @"labels" : @"Labels",
              };
 }
 
 + (NSValueTransformer *)classesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendDocumentClass class]];
+}
+
++ (NSValueTransformer *)documentMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendDocumentMetadata class]];
+}
+
++ (NSValueTransformer *)documentTypeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendDocumentTypeListItem class]];
+}
+
++ (NSValueTransformer *)errorsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendErrorsListItem class]];
 }
 
 + (NSValueTransformer *)labelsJSONTransformer {
@@ -864,6 +1115,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"languageCode" : @"LanguageCode",
              @"mode" : @"Mode",
              @"modelKmsKeyId" : @"ModelKmsKeyId",
+             @"modelPolicy" : @"ModelPolicy",
              @"outputDataConfig" : @"OutputDataConfig",
              @"tags" : @"Tags",
              @"versionName" : @"VersionName",
@@ -1046,6 +1298,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"inputDataConfig" : @"InputDataConfig",
              @"languageCode" : @"LanguageCode",
              @"modelKmsKeyId" : @"ModelKmsKeyId",
+             @"modelPolicy" : @"ModelPolicy",
              @"recognizerName" : @"RecognizerName",
              @"tags" : @"Tags",
              @"versionName" : @"VersionName",
@@ -1212,6 +1465,29 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 @end
 
 @implementation AWSComprehendDeleteEntityRecognizerResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSComprehendDeleteResourcePolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policyRevisionId" : @"PolicyRevisionId",
+             @"resourceArn" : @"ResourceArn",
+             };
+}
+
+@end
+
+@implementation AWSComprehendDeleteResourcePolicyResponse
 
 + (BOOL)supportsSecureCoding {
     return YES;
@@ -1507,6 +1783,53 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 @end
 
+@implementation AWSComprehendDescribeResourcePolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             };
+}
+
+@end
+
+@implementation AWSComprehendDescribeResourcePolicyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"creationTime" : @"CreationTime",
+             @"lastModifiedTime" : @"LastModifiedTime",
+             @"policyRevisionId" : @"PolicyRevisionId",
+             @"resourcePolicy" : @"ResourcePolicy",
+             };
+}
+
++ (NSValueTransformer *)creationTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
 @implementation AWSComprehendDescribeSentimentDetectionJobRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1535,6 +1858,38 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSValueTransformer *)sentimentDetectionJobPropertiesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendSentimentDetectionJobProperties class]];
+}
+
+@end
+
+@implementation AWSComprehendDescribeTargetedSentimentDetectionJobRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"jobId" : @"JobId",
+             };
+}
+
+@end
+
+@implementation AWSComprehendDescribeTargetedSentimentDetectionJobResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"targetedSentimentDetectionJobProperties" : @"TargetedSentimentDetectionJobProperties",
+             };
+}
+
++ (NSValueTransformer *)targetedSentimentDetectionJobPropertiesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendTargetedSentimentDetectionJobProperties class]];
 }
 
 @end
@@ -1611,10 +1966,16 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"bytes" : @"Bytes",
+             @"documentReaderConfig" : @"DocumentReaderConfig",
              @"endpointArn" : @"EndpointArn",
              @"languageCode" : @"LanguageCode",
              @"text" : @"Text",
              };
+}
+
++ (NSValueTransformer *)documentReaderConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendDocumentReaderConfig class]];
 }
 
 + (NSValueTransformer *)languageCodeJSONTransformer {
@@ -1698,12 +2059,32 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"blocks" : @"Blocks",
+             @"documentMetadata" : @"DocumentMetadata",
+             @"documentType" : @"DocumentType",
              @"entities" : @"Entities",
+             @"errors" : @"Errors",
              };
+}
+
++ (NSValueTransformer *)blocksJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendBlock class]];
+}
+
++ (NSValueTransformer *)documentMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendDocumentMetadata class]];
+}
+
++ (NSValueTransformer *)documentTypeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendDocumentTypeListItem class]];
 }
 
 + (NSValueTransformer *)entitiesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendEntity class]];
+}
+
++ (NSValueTransformer *)errorsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendErrorsListItem class]];
 }
 
 @end
@@ -2126,6 +2507,110 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 @end
 
+@implementation AWSComprehendDetectTargetedSentimentRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"languageCode" : @"LanguageCode",
+             @"text" : @"Text",
+             };
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"en"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeEn);
+        }
+        if ([value caseInsensitiveCompare:@"es"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeEs);
+        }
+        if ([value caseInsensitiveCompare:@"fr"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeFr);
+        }
+        if ([value caseInsensitiveCompare:@"de"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeDe);
+        }
+        if ([value caseInsensitiveCompare:@"it"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeIt);
+        }
+        if ([value caseInsensitiveCompare:@"pt"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodePt);
+        }
+        if ([value caseInsensitiveCompare:@"ar"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeAr);
+        }
+        if ([value caseInsensitiveCompare:@"hi"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeHi);
+        }
+        if ([value caseInsensitiveCompare:@"ja"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeJa);
+        }
+        if ([value caseInsensitiveCompare:@"ko"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeKo);
+        }
+        if ([value caseInsensitiveCompare:@"zh"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeZh);
+        }
+        if ([value caseInsensitiveCompare:@"zh-TW"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeZhTW);
+        }
+        return @(AWSComprehendLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendLanguageCodeEn:
+                return @"en";
+            case AWSComprehendLanguageCodeEs:
+                return @"es";
+            case AWSComprehendLanguageCodeFr:
+                return @"fr";
+            case AWSComprehendLanguageCodeDe:
+                return @"de";
+            case AWSComprehendLanguageCodeIt:
+                return @"it";
+            case AWSComprehendLanguageCodePt:
+                return @"pt";
+            case AWSComprehendLanguageCodeAr:
+                return @"ar";
+            case AWSComprehendLanguageCodeHi:
+                return @"hi";
+            case AWSComprehendLanguageCodeJa:
+                return @"ja";
+            case AWSComprehendLanguageCodeKo:
+                return @"ko";
+            case AWSComprehendLanguageCodeZh:
+                return @"zh";
+            case AWSComprehendLanguageCodeZhTW:
+                return @"zh-TW";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSComprehendDetectTargetedSentimentResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"entities" : @"Entities",
+             };
+}
+
++ (NSValueTransformer *)entitiesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTargetedSentimentEntity class]];
+}
+
+@end
+
 @implementation AWSComprehendDocumentClass
 
 + (BOOL)supportsSecureCoding {
@@ -2135,6 +2620,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"name" : @"Name",
+             @"page" : @"Page",
              @"score" : @"Score",
              };
 }
@@ -2465,6 +2951,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"mode" : @"Mode",
              @"modelKmsKeyId" : @"ModelKmsKeyId",
              @"outputDataConfig" : @"OutputDataConfig",
+             @"sourceModelArn" : @"SourceModelArn",
              @"status" : @"Status",
              @"submitTime" : @"SubmitTime",
              @"trainingEndTime" : @"TrainingEndTime",
@@ -2744,8 +3231,28 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"name" : @"Name",
+             @"page" : @"Page",
              @"score" : @"Score",
              };
+}
+
+@end
+
+@implementation AWSComprehendDocumentMetadata
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"extractedCharacters" : @"ExtractedCharacters",
+             @"pages" : @"Pages",
+             };
+}
+
++ (NSValueTransformer *)extractedCharactersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendExtractedCharactersListItem class]];
 }
 
 @end
@@ -2800,6 +3307,67 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"SERVICE_DEFAULT";
             case AWSComprehendDocumentReadModeForceDocumentReadAction:
                 return @"FORCE_DOCUMENT_READ_ACTION";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSComprehendDocumentTypeListItem
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"page" : @"Page",
+             @"types" : @"Type",
+             };
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"NATIVE_PDF"] == NSOrderedSame) {
+            return @(AWSComprehendDocumentTypeNativePdf);
+        }
+        if ([value caseInsensitiveCompare:@"SCANNED_PDF"] == NSOrderedSame) {
+            return @(AWSComprehendDocumentTypeScannedPdf);
+        }
+        if ([value caseInsensitiveCompare:@"MS_WORD"] == NSOrderedSame) {
+            return @(AWSComprehendDocumentTypeMsWord);
+        }
+        if ([value caseInsensitiveCompare:@"IMAGE"] == NSOrderedSame) {
+            return @(AWSComprehendDocumentTypeImage);
+        }
+        if ([value caseInsensitiveCompare:@"PLAIN_TEXT"] == NSOrderedSame) {
+            return @(AWSComprehendDocumentTypePlainText);
+        }
+        if ([value caseInsensitiveCompare:@"TEXTRACT_DETECT_DOCUMENT_TEXT_JSON"] == NSOrderedSame) {
+            return @(AWSComprehendDocumentTypeTextractDetectDocumentTextJson);
+        }
+        if ([value caseInsensitiveCompare:@"TEXTRACT_ANALYZE_DOCUMENT_JSON"] == NSOrderedSame) {
+            return @(AWSComprehendDocumentTypeTextractAnalyzeDocumentJson);
+        }
+        return @(AWSComprehendDocumentTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendDocumentTypeNativePdf:
+                return @"NATIVE_PDF";
+            case AWSComprehendDocumentTypeScannedPdf:
+                return @"SCANNED_PDF";
+            case AWSComprehendDocumentTypeMsWord:
+                return @"MS_WORD";
+            case AWSComprehendDocumentTypeImage:
+                return @"IMAGE";
+            case AWSComprehendDocumentTypePlainText:
+                return @"PLAIN_TEXT";
+            case AWSComprehendDocumentTypeTextractDetectDocumentTextJson:
+                return @"TEXTRACT_DETECT_DOCUMENT_TEXT_JSON";
+            case AWSComprehendDocumentTypeTextractAnalyzeDocumentJson:
+                return @"TEXTRACT_ANALYZE_DOCUMENT_JSON";
             default:
                 return nil;
         }
@@ -3386,11 +3954,16 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"beginOffset" : @"BeginOffset",
+             @"blockReferences" : @"BlockReferences",
              @"endOffset" : @"EndOffset",
              @"score" : @"Score",
              @"text" : @"Text",
              @"types" : @"Type",
              };
+}
+
++ (NSValueTransformer *)blockReferencesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendBlockReference class]];
 }
 
 + (NSValueTransformer *)typesJSONTransformer {
@@ -3535,6 +4108,48 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
         if ([value caseInsensitiveCompare:@"ALL"] == NSOrderedSame) {
             return @(AWSComprehendPiiEntityTypeAll);
         }
+        if ([value caseInsensitiveCompare:@"LICENSE_PLATE"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeLicensePlate);
+        }
+        if ([value caseInsensitiveCompare:@"VEHICLE_IDENTIFICATION_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeVehicleIdentificationNumber);
+        }
+        if ([value caseInsensitiveCompare:@"UK_NATIONAL_INSURANCE_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeUkNationalInsuranceNumber);
+        }
+        if ([value caseInsensitiveCompare:@"CA_SOCIAL_INSURANCE_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeCaSocialInsuranceNumber);
+        }
+        if ([value caseInsensitiveCompare:@"US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeUsIndividualTaxIdentificationNumber);
+        }
+        if ([value caseInsensitiveCompare:@"UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeUkUniqueTaxpayerReferenceNumber);
+        }
+        if ([value caseInsensitiveCompare:@"IN_PERMANENT_ACCOUNT_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeInPermanentAccountNumber);
+        }
+        if ([value caseInsensitiveCompare:@"IN_NREGA"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeInNrega);
+        }
+        if ([value caseInsensitiveCompare:@"INTERNATIONAL_BANK_ACCOUNT_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeInternationalBankAccountNumber);
+        }
+        if ([value caseInsensitiveCompare:@"SWIFT_CODE"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeSwiftCode);
+        }
+        if ([value caseInsensitiveCompare:@"UK_NATIONAL_HEALTH_SERVICE_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeUkNationalHealthServiceNumber);
+        }
+        if ([value caseInsensitiveCompare:@"CA_HEALTH_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeCaHealthNumber);
+        }
+        if ([value caseInsensitiveCompare:@"IN_AADHAAR"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeInAadhaar);
+        }
+        if ([value caseInsensitiveCompare:@"IN_VOTER_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeInVoterNumber);
+        }
         return @(AWSComprehendPiiEntityTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3584,6 +4199,34 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"MAC_ADDRESS";
             case AWSComprehendPiiEntityTypeAll:
                 return @"ALL";
+            case AWSComprehendPiiEntityTypeLicensePlate:
+                return @"LICENSE_PLATE";
+            case AWSComprehendPiiEntityTypeVehicleIdentificationNumber:
+                return @"VEHICLE_IDENTIFICATION_NUMBER";
+            case AWSComprehendPiiEntityTypeUkNationalInsuranceNumber:
+                return @"UK_NATIONAL_INSURANCE_NUMBER";
+            case AWSComprehendPiiEntityTypeCaSocialInsuranceNumber:
+                return @"CA_SOCIAL_INSURANCE_NUMBER";
+            case AWSComprehendPiiEntityTypeUsIndividualTaxIdentificationNumber:
+                return @"US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER";
+            case AWSComprehendPiiEntityTypeUkUniqueTaxpayerReferenceNumber:
+                return @"UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER";
+            case AWSComprehendPiiEntityTypeInPermanentAccountNumber:
+                return @"IN_PERMANENT_ACCOUNT_NUMBER";
+            case AWSComprehendPiiEntityTypeInNrega:
+                return @"IN_NREGA";
+            case AWSComprehendPiiEntityTypeInternationalBankAccountNumber:
+                return @"INTERNATIONAL_BANK_ACCOUNT_NUMBER";
+            case AWSComprehendPiiEntityTypeSwiftCode:
+                return @"SWIFT_CODE";
+            case AWSComprehendPiiEntityTypeUkNationalHealthServiceNumber:
+                return @"UK_NATIONAL_HEALTH_SERVICE_NUMBER";
+            case AWSComprehendPiiEntityTypeCaHealthNumber:
+                return @"CA_HEALTH_NUMBER";
+            case AWSComprehendPiiEntityTypeInAadhaar:
+                return @"IN_AADHAAR";
+            case AWSComprehendPiiEntityTypeInVoterNumber:
+                return @"IN_VOTER_NUMBER";
             default:
                 return nil;
         }
@@ -3874,6 +4517,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"message" : @"Message",
              @"modelKmsKeyId" : @"ModelKmsKeyId",
              @"recognizerMetadata" : @"RecognizerMetadata",
+             @"sourceModelArn" : @"SourceModelArn",
              @"status" : @"Status",
              @"submitTime" : @"SubmitTime",
              @"trainingEndTime" : @"TrainingEndTime",
@@ -4149,6 +4793,58 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 @end
 
+@implementation AWSComprehendErrorsListItem
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"errorCode" : @"ErrorCode",
+             @"errorMessage" : @"ErrorMessage",
+             @"page" : @"Page",
+             };
+}
+
++ (NSValueTransformer *)errorCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"TEXTRACT_BAD_PAGE"] == NSOrderedSame) {
+            return @(AWSComprehendPageBasedErrorCodeTextractBadPage);
+        }
+        if ([value caseInsensitiveCompare:@"TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED"] == NSOrderedSame) {
+            return @(AWSComprehendPageBasedErrorCodeTextractProvisionedThroughputExceeded);
+        }
+        if ([value caseInsensitiveCompare:@"PAGE_CHARACTERS_EXCEEDED"] == NSOrderedSame) {
+            return @(AWSComprehendPageBasedErrorCodePageCharactersExceeded);
+        }
+        if ([value caseInsensitiveCompare:@"PAGE_SIZE_EXCEEDED"] == NSOrderedSame) {
+            return @(AWSComprehendPageBasedErrorCodePageSizeExceeded);
+        }
+        if ([value caseInsensitiveCompare:@"INTERNAL_SERVER_ERROR"] == NSOrderedSame) {
+            return @(AWSComprehendPageBasedErrorCodeInternalServerError);
+        }
+        return @(AWSComprehendPageBasedErrorCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendPageBasedErrorCodeTextractBadPage:
+                return @"TEXTRACT_BAD_PAGE";
+            case AWSComprehendPageBasedErrorCodeTextractProvisionedThroughputExceeded:
+                return @"TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED";
+            case AWSComprehendPageBasedErrorCodePageCharactersExceeded:
+                return @"PAGE_CHARACTERS_EXCEEDED";
+            case AWSComprehendPageBasedErrorCodePageSizeExceeded:
+                return @"PAGE_SIZE_EXCEEDED";
+            case AWSComprehendPageBasedErrorCodeInternalServerError:
+                return @"INTERNAL_SERVER_ERROR";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSComprehendEventsDetectionJobFilter
 
 + (BOOL)supportsSecureCoding {
@@ -4384,6 +5080,81 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 @end
 
+@implementation AWSComprehendExtractedCharactersListItem
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"count" : @"Count",
+             @"page" : @"Page",
+             };
+}
+
+@end
+
+@implementation AWSComprehendGeometry
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"boundingBox" : @"BoundingBox",
+             @"polygon" : @"Polygon",
+             };
+}
+
++ (NSValueTransformer *)boundingBoxJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendBoundingBox class]];
+}
+
++ (NSValueTransformer *)polygonJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendPoint class]];
+}
+
+@end
+
+@implementation AWSComprehendImportModelRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dataAccessRoleArn" : @"DataAccessRoleArn",
+             @"modelKmsKeyId" : @"ModelKmsKeyId",
+             @"modelName" : @"ModelName",
+             @"sourceModelArn" : @"SourceModelArn",
+             @"tags" : @"Tags",
+             @"versionName" : @"VersionName",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTag class]];
+}
+
+@end
+
+@implementation AWSComprehendImportModelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"modelArn" : @"ModelArn",
+             };
+}
+
+@end
+
 @implementation AWSComprehendInputDataConfig
 
 + (BOOL)supportsSecureCoding {
@@ -4417,6 +5188,51 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"ONE_DOC_PER_FILE";
             case AWSComprehendInputFormatOneDocPerLine:
                 return @"ONE_DOC_PER_LINE";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSComprehendInvalidRequestDetail
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"reason" : @"Reason",
+             };
+}
+
++ (NSValueTransformer *)reasonJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DOCUMENT_SIZE_EXCEEDED"] == NSOrderedSame) {
+            return @(AWSComprehendInvalidRequestDetailReasonDocumentSizeExceeded);
+        }
+        if ([value caseInsensitiveCompare:@"UNSUPPORTED_DOC_TYPE"] == NSOrderedSame) {
+            return @(AWSComprehendInvalidRequestDetailReasonUnsupportedDocType);
+        }
+        if ([value caseInsensitiveCompare:@"PAGE_LIMIT_EXCEEDED"] == NSOrderedSame) {
+            return @(AWSComprehendInvalidRequestDetailReasonPageLimitExceeded);
+        }
+        if ([value caseInsensitiveCompare:@"TEXTRACT_ACCESS_DENIED"] == NSOrderedSame) {
+            return @(AWSComprehendInvalidRequestDetailReasonTextractAccessDenied);
+        }
+        return @(AWSComprehendInvalidRequestDetailReasonUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendInvalidRequestDetailReasonDocumentSizeExceeded:
+                return @"DOCUMENT_SIZE_EXCEEDED";
+            case AWSComprehendInvalidRequestDetailReasonUnsupportedDocType:
+                return @"UNSUPPORTED_DOC_TYPE";
+            case AWSComprehendInvalidRequestDetailReasonPageLimitExceeded:
+                return @"PAGE_LIMIT_EXCEEDED";
+            case AWSComprehendInvalidRequestDetailReasonTextractAccessDenied:
+                return @"TEXTRACT_ACCESS_DENIED";
             default:
                 return nil;
         }
@@ -5173,6 +5989,45 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 @end
 
+@implementation AWSComprehendListTargetedSentimentDetectionJobsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"filter" : @"Filter",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)filterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendTargetedSentimentDetectionJobFilter class]];
+}
+
+@end
+
+@implementation AWSComprehendListTargetedSentimentDetectionJobsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"targetedSentimentDetectionJobPropertiesList" : @"TargetedSentimentDetectionJobPropertiesList",
+             };
+}
+
++ (NSValueTransformer *)targetedSentimentDetectionJobPropertiesListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTargetedSentimentDetectionJobProperties class]];
+}
+
+@end
+
 @implementation AWSComprehendListTopicsDetectionJobsRequest
 
 + (BOOL)supportsSecureCoding {
@@ -5208,6 +6063,56 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSValueTransformer *)topicsDetectionJobPropertiesListJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTopicsDetectionJobProperties class]];
+}
+
+@end
+
+@implementation AWSComprehendMentionSentiment
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"sentiment" : @"Sentiment",
+             @"sentimentScore" : @"SentimentScore",
+             };
+}
+
++ (NSValueTransformer *)sentimentJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"POSITIVE"] == NSOrderedSame) {
+            return @(AWSComprehendSentimentTypePositive);
+        }
+        if ([value caseInsensitiveCompare:@"NEGATIVE"] == NSOrderedSame) {
+            return @(AWSComprehendSentimentTypeNegative);
+        }
+        if ([value caseInsensitiveCompare:@"NEUTRAL"] == NSOrderedSame) {
+            return @(AWSComprehendSentimentTypeNeutral);
+        }
+        if ([value caseInsensitiveCompare:@"MIXED"] == NSOrderedSame) {
+            return @(AWSComprehendSentimentTypeMixed);
+        }
+        return @(AWSComprehendSentimentTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendSentimentTypePositive:
+                return @"POSITIVE";
+            case AWSComprehendSentimentTypeNegative:
+                return @"NEGATIVE";
+            case AWSComprehendSentimentTypeNeutral:
+                return @"NEUTRAL";
+            case AWSComprehendSentimentTypeMixed:
+                return @"MIXED";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)sentimentScoreJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendSentimentScore class]];
 }
 
 @end
@@ -5690,6 +6595,48 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
         if ([value caseInsensitiveCompare:@"ALL"] == NSOrderedSame) {
             return @(AWSComprehendPiiEntityTypeAll);
         }
+        if ([value caseInsensitiveCompare:@"LICENSE_PLATE"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeLicensePlate);
+        }
+        if ([value caseInsensitiveCompare:@"VEHICLE_IDENTIFICATION_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeVehicleIdentificationNumber);
+        }
+        if ([value caseInsensitiveCompare:@"UK_NATIONAL_INSURANCE_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeUkNationalInsuranceNumber);
+        }
+        if ([value caseInsensitiveCompare:@"CA_SOCIAL_INSURANCE_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeCaSocialInsuranceNumber);
+        }
+        if ([value caseInsensitiveCompare:@"US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeUsIndividualTaxIdentificationNumber);
+        }
+        if ([value caseInsensitiveCompare:@"UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeUkUniqueTaxpayerReferenceNumber);
+        }
+        if ([value caseInsensitiveCompare:@"IN_PERMANENT_ACCOUNT_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeInPermanentAccountNumber);
+        }
+        if ([value caseInsensitiveCompare:@"IN_NREGA"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeInNrega);
+        }
+        if ([value caseInsensitiveCompare:@"INTERNATIONAL_BANK_ACCOUNT_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeInternationalBankAccountNumber);
+        }
+        if ([value caseInsensitiveCompare:@"SWIFT_CODE"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeSwiftCode);
+        }
+        if ([value caseInsensitiveCompare:@"UK_NATIONAL_HEALTH_SERVICE_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeUkNationalHealthServiceNumber);
+        }
+        if ([value caseInsensitiveCompare:@"CA_HEALTH_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeCaHealthNumber);
+        }
+        if ([value caseInsensitiveCompare:@"IN_AADHAAR"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeInAadhaar);
+        }
+        if ([value caseInsensitiveCompare:@"IN_VOTER_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeInVoterNumber);
+        }
         return @(AWSComprehendPiiEntityTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -5739,6 +6686,34 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"MAC_ADDRESS";
             case AWSComprehendPiiEntityTypeAll:
                 return @"ALL";
+            case AWSComprehendPiiEntityTypeLicensePlate:
+                return @"LICENSE_PLATE";
+            case AWSComprehendPiiEntityTypeVehicleIdentificationNumber:
+                return @"VEHICLE_IDENTIFICATION_NUMBER";
+            case AWSComprehendPiiEntityTypeUkNationalInsuranceNumber:
+                return @"UK_NATIONAL_INSURANCE_NUMBER";
+            case AWSComprehendPiiEntityTypeCaSocialInsuranceNumber:
+                return @"CA_SOCIAL_INSURANCE_NUMBER";
+            case AWSComprehendPiiEntityTypeUsIndividualTaxIdentificationNumber:
+                return @"US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER";
+            case AWSComprehendPiiEntityTypeUkUniqueTaxpayerReferenceNumber:
+                return @"UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER";
+            case AWSComprehendPiiEntityTypeInPermanentAccountNumber:
+                return @"IN_PERMANENT_ACCOUNT_NUMBER";
+            case AWSComprehendPiiEntityTypeInNrega:
+                return @"IN_NREGA";
+            case AWSComprehendPiiEntityTypeInternationalBankAccountNumber:
+                return @"INTERNATIONAL_BANK_ACCOUNT_NUMBER";
+            case AWSComprehendPiiEntityTypeSwiftCode:
+                return @"SWIFT_CODE";
+            case AWSComprehendPiiEntityTypeUkNationalHealthServiceNumber:
+                return @"UK_NATIONAL_HEALTH_SERVICE_NUMBER";
+            case AWSComprehendPiiEntityTypeCaHealthNumber:
+                return @"CA_HEALTH_NUMBER";
+            case AWSComprehendPiiEntityTypeInAadhaar:
+                return @"IN_AADHAAR";
+            case AWSComprehendPiiEntityTypeInVoterNumber:
+                return @"IN_VOTER_NUMBER";
             default:
                 return nil;
         }
@@ -5757,6 +6732,51 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 	return @{
              @"kmsKeyId" : @"KmsKeyId",
              @"s3Uri" : @"S3Uri",
+             };
+}
+
+@end
+
+@implementation AWSComprehendPoint
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"X" : @"X",
+             @"Y" : @"Y",
+             };
+}
+
+@end
+
+@implementation AWSComprehendPutResourcePolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policyRevisionId" : @"PolicyRevisionId",
+             @"resourceArn" : @"ResourceArn",
+             @"resourcePolicy" : @"ResourcePolicy",
+             };
+}
+
+@end
+
+@implementation AWSComprehendPutResourcePolicyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policyRevisionId" : @"PolicyRevisionId",
              };
 }
 
@@ -5791,6 +6811,37 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"MASK";
             case AWSComprehendPiiEntitiesDetectionMaskModeReplaceWithPiiEntityType:
                 return @"REPLACE_WITH_PII_ENTITY_TYPE";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSComprehendRelationshipsListItem
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ids" : @"Ids",
+             @"types" : @"Type",
+             };
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CHILD"] == NSOrderedSame) {
+            return @(AWSComprehendRelationshipTypeChild);
+        }
+        return @(AWSComprehendRelationshipTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendRelationshipTypeChild:
+                return @"CHILD";
             default:
                 return nil;
         }
@@ -7092,6 +8143,172 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 @end
 
+@implementation AWSComprehendStartTargetedSentimentDetectionJobRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientRequestToken" : @"ClientRequestToken",
+             @"dataAccessRoleArn" : @"DataAccessRoleArn",
+             @"inputDataConfig" : @"InputDataConfig",
+             @"jobName" : @"JobName",
+             @"languageCode" : @"LanguageCode",
+             @"outputDataConfig" : @"OutputDataConfig",
+             @"tags" : @"Tags",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
+             @"vpcConfig" : @"VpcConfig",
+             };
+}
+
++ (NSValueTransformer *)inputDataConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendInputDataConfig class]];
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"en"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeEn);
+        }
+        if ([value caseInsensitiveCompare:@"es"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeEs);
+        }
+        if ([value caseInsensitiveCompare:@"fr"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeFr);
+        }
+        if ([value caseInsensitiveCompare:@"de"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeDe);
+        }
+        if ([value caseInsensitiveCompare:@"it"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeIt);
+        }
+        if ([value caseInsensitiveCompare:@"pt"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodePt);
+        }
+        if ([value caseInsensitiveCompare:@"ar"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeAr);
+        }
+        if ([value caseInsensitiveCompare:@"hi"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeHi);
+        }
+        if ([value caseInsensitiveCompare:@"ja"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeJa);
+        }
+        if ([value caseInsensitiveCompare:@"ko"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeKo);
+        }
+        if ([value caseInsensitiveCompare:@"zh"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeZh);
+        }
+        if ([value caseInsensitiveCompare:@"zh-TW"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeZhTW);
+        }
+        return @(AWSComprehendLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendLanguageCodeEn:
+                return @"en";
+            case AWSComprehendLanguageCodeEs:
+                return @"es";
+            case AWSComprehendLanguageCodeFr:
+                return @"fr";
+            case AWSComprehendLanguageCodeDe:
+                return @"de";
+            case AWSComprehendLanguageCodeIt:
+                return @"it";
+            case AWSComprehendLanguageCodePt:
+                return @"pt";
+            case AWSComprehendLanguageCodeAr:
+                return @"ar";
+            case AWSComprehendLanguageCodeHi:
+                return @"hi";
+            case AWSComprehendLanguageCodeJa:
+                return @"ja";
+            case AWSComprehendLanguageCodeKo:
+                return @"ko";
+            case AWSComprehendLanguageCodeZh:
+                return @"zh";
+            case AWSComprehendLanguageCodeZhTW:
+                return @"zh-TW";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)outputDataConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendOutputDataConfig class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTag class]];
+}
+
++ (NSValueTransformer *)vpcConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
+}
+
+@end
+
+@implementation AWSComprehendStartTargetedSentimentDetectionJobResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"jobArn" : @"JobArn",
+             @"jobId" : @"JobId",
+             @"jobStatus" : @"JobStatus",
+             };
+}
+
++ (NSValueTransformer *)jobStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"SUBMITTED"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusSubmitted);
+        }
+        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"STOP_REQUESTED"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusStopRequested);
+        }
+        if ([value caseInsensitiveCompare:@"STOPPED"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusStopped);
+        }
+        return @(AWSComprehendJobStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendJobStatusSubmitted:
+                return @"SUBMITTED";
+            case AWSComprehendJobStatusInProgress:
+                return @"IN_PROGRESS";
+            case AWSComprehendJobStatusCompleted:
+                return @"COMPLETED";
+            case AWSComprehendJobStatusFailed:
+                return @"FAILED";
+            case AWSComprehendJobStatusStopRequested:
+                return @"STOP_REQUESTED";
+            case AWSComprehendJobStatusStopped:
+                return @"STOPPED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSComprehendStartTopicsDetectionJobRequest
 
 + (BOOL)supportsSecureCoding {
@@ -7607,6 +8824,76 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 @end
 
+@implementation AWSComprehendStopTargetedSentimentDetectionJobRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"jobId" : @"JobId",
+             };
+}
+
+@end
+
+@implementation AWSComprehendStopTargetedSentimentDetectionJobResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"jobId" : @"JobId",
+             @"jobStatus" : @"JobStatus",
+             };
+}
+
++ (NSValueTransformer *)jobStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"SUBMITTED"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusSubmitted);
+        }
+        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"STOP_REQUESTED"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusStopRequested);
+        }
+        if ([value caseInsensitiveCompare:@"STOPPED"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusStopped);
+        }
+        return @(AWSComprehendJobStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendJobStatusSubmitted:
+                return @"SUBMITTED";
+            case AWSComprehendJobStatusInProgress:
+                return @"IN_PROGRESS";
+            case AWSComprehendJobStatusCompleted:
+                return @"COMPLETED";
+            case AWSComprehendJobStatusFailed:
+                return @"FAILED";
+            case AWSComprehendJobStatusStopRequested:
+                return @"STOP_REQUESTED";
+            case AWSComprehendJobStatusStopped:
+                return @"STOPPED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSComprehendStopTrainingDocumentClassifierRequest
 
 + (BOOL)supportsSecureCoding {
@@ -7711,6 +8998,385 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (BOOL)supportsSecureCoding {
     return YES;
+}
+
+@end
+
+@implementation AWSComprehendTargetedSentimentDetectionJobFilter
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"jobName" : @"JobName",
+             @"jobStatus" : @"JobStatus",
+             @"submitTimeAfter" : @"SubmitTimeAfter",
+             @"submitTimeBefore" : @"SubmitTimeBefore",
+             };
+}
+
++ (NSValueTransformer *)jobStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"SUBMITTED"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusSubmitted);
+        }
+        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"STOP_REQUESTED"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusStopRequested);
+        }
+        if ([value caseInsensitiveCompare:@"STOPPED"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusStopped);
+        }
+        return @(AWSComprehendJobStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendJobStatusSubmitted:
+                return @"SUBMITTED";
+            case AWSComprehendJobStatusInProgress:
+                return @"IN_PROGRESS";
+            case AWSComprehendJobStatusCompleted:
+                return @"COMPLETED";
+            case AWSComprehendJobStatusFailed:
+                return @"FAILED";
+            case AWSComprehendJobStatusStopRequested:
+                return @"STOP_REQUESTED";
+            case AWSComprehendJobStatusStopped:
+                return @"STOPPED";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)submitTimeAfterJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)submitTimeBeforeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSComprehendTargetedSentimentDetectionJobProperties
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dataAccessRoleArn" : @"DataAccessRoleArn",
+             @"endTime" : @"EndTime",
+             @"inputDataConfig" : @"InputDataConfig",
+             @"jobArn" : @"JobArn",
+             @"jobId" : @"JobId",
+             @"jobName" : @"JobName",
+             @"jobStatus" : @"JobStatus",
+             @"languageCode" : @"LanguageCode",
+             @"message" : @"Message",
+             @"outputDataConfig" : @"OutputDataConfig",
+             @"submitTime" : @"SubmitTime",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
+             @"vpcConfig" : @"VpcConfig",
+             };
+}
+
++ (NSValueTransformer *)endTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)inputDataConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendInputDataConfig class]];
+}
+
++ (NSValueTransformer *)jobStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"SUBMITTED"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusSubmitted);
+        }
+        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"STOP_REQUESTED"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusStopRequested);
+        }
+        if ([value caseInsensitiveCompare:@"STOPPED"] == NSOrderedSame) {
+            return @(AWSComprehendJobStatusStopped);
+        }
+        return @(AWSComprehendJobStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendJobStatusSubmitted:
+                return @"SUBMITTED";
+            case AWSComprehendJobStatusInProgress:
+                return @"IN_PROGRESS";
+            case AWSComprehendJobStatusCompleted:
+                return @"COMPLETED";
+            case AWSComprehendJobStatusFailed:
+                return @"FAILED";
+            case AWSComprehendJobStatusStopRequested:
+                return @"STOP_REQUESTED";
+            case AWSComprehendJobStatusStopped:
+                return @"STOPPED";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"en"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeEn);
+        }
+        if ([value caseInsensitiveCompare:@"es"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeEs);
+        }
+        if ([value caseInsensitiveCompare:@"fr"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeFr);
+        }
+        if ([value caseInsensitiveCompare:@"de"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeDe);
+        }
+        if ([value caseInsensitiveCompare:@"it"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeIt);
+        }
+        if ([value caseInsensitiveCompare:@"pt"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodePt);
+        }
+        if ([value caseInsensitiveCompare:@"ar"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeAr);
+        }
+        if ([value caseInsensitiveCompare:@"hi"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeHi);
+        }
+        if ([value caseInsensitiveCompare:@"ja"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeJa);
+        }
+        if ([value caseInsensitiveCompare:@"ko"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeKo);
+        }
+        if ([value caseInsensitiveCompare:@"zh"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeZh);
+        }
+        if ([value caseInsensitiveCompare:@"zh-TW"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeZhTW);
+        }
+        return @(AWSComprehendLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendLanguageCodeEn:
+                return @"en";
+            case AWSComprehendLanguageCodeEs:
+                return @"es";
+            case AWSComprehendLanguageCodeFr:
+                return @"fr";
+            case AWSComprehendLanguageCodeDe:
+                return @"de";
+            case AWSComprehendLanguageCodeIt:
+                return @"it";
+            case AWSComprehendLanguageCodePt:
+                return @"pt";
+            case AWSComprehendLanguageCodeAr:
+                return @"ar";
+            case AWSComprehendLanguageCodeHi:
+                return @"hi";
+            case AWSComprehendLanguageCodeJa:
+                return @"ja";
+            case AWSComprehendLanguageCodeKo:
+                return @"ko";
+            case AWSComprehendLanguageCodeZh:
+                return @"zh";
+            case AWSComprehendLanguageCodeZhTW:
+                return @"zh-TW";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)outputDataConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendOutputDataConfig class]];
+}
+
++ (NSValueTransformer *)submitTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)vpcConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
+}
+
+@end
+
+@implementation AWSComprehendTargetedSentimentEntity
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"descriptiveMentionIndex" : @"DescriptiveMentionIndex",
+             @"mentions" : @"Mentions",
+             };
+}
+
++ (NSValueTransformer *)mentionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTargetedSentimentMention class]];
+}
+
+@end
+
+@implementation AWSComprehendTargetedSentimentMention
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"beginOffset" : @"BeginOffset",
+             @"endOffset" : @"EndOffset",
+             @"groupScore" : @"GroupScore",
+             @"mentionSentiment" : @"MentionSentiment",
+             @"score" : @"Score",
+             @"text" : @"Text",
+             @"types" : @"Type",
+             };
+}
+
++ (NSValueTransformer *)mentionSentimentJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendMentionSentiment class]];
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PERSON"] == NSOrderedSame) {
+            return @(AWSComprehendTargetedSentimentEntityTypePerson);
+        }
+        if ([value caseInsensitiveCompare:@"LOCATION"] == NSOrderedSame) {
+            return @(AWSComprehendTargetedSentimentEntityTypeLocation);
+        }
+        if ([value caseInsensitiveCompare:@"ORGANIZATION"] == NSOrderedSame) {
+            return @(AWSComprehendTargetedSentimentEntityTypeOrganization);
+        }
+        if ([value caseInsensitiveCompare:@"FACILITY"] == NSOrderedSame) {
+            return @(AWSComprehendTargetedSentimentEntityTypeFacility);
+        }
+        if ([value caseInsensitiveCompare:@"BRAND"] == NSOrderedSame) {
+            return @(AWSComprehendTargetedSentimentEntityTypeBrand);
+        }
+        if ([value caseInsensitiveCompare:@"COMMERCIAL_ITEM"] == NSOrderedSame) {
+            return @(AWSComprehendTargetedSentimentEntityTypeCommercialItem);
+        }
+        if ([value caseInsensitiveCompare:@"MOVIE"] == NSOrderedSame) {
+            return @(AWSComprehendTargetedSentimentEntityTypeMovie);
+        }
+        if ([value caseInsensitiveCompare:@"MUSIC"] == NSOrderedSame) {
+            return @(AWSComprehendTargetedSentimentEntityTypeMusic);
+        }
+        if ([value caseInsensitiveCompare:@"BOOK"] == NSOrderedSame) {
+            return @(AWSComprehendTargetedSentimentEntityTypeBook);
+        }
+        if ([value caseInsensitiveCompare:@"SOFTWARE"] == NSOrderedSame) {
+            return @(AWSComprehendTargetedSentimentEntityTypeSoftware);
+        }
+        if ([value caseInsensitiveCompare:@"GAME"] == NSOrderedSame) {
+            return @(AWSComprehendTargetedSentimentEntityTypeGame);
+        }
+        if ([value caseInsensitiveCompare:@"PERSONAL_TITLE"] == NSOrderedSame) {
+            return @(AWSComprehendTargetedSentimentEntityTypePersonalTitle);
+        }
+        if ([value caseInsensitiveCompare:@"EVENT"] == NSOrderedSame) {
+            return @(AWSComprehendTargetedSentimentEntityTypeEvent);
+        }
+        if ([value caseInsensitiveCompare:@"DATE"] == NSOrderedSame) {
+            return @(AWSComprehendTargetedSentimentEntityTypeDate);
+        }
+        if ([value caseInsensitiveCompare:@"QUANTITY"] == NSOrderedSame) {
+            return @(AWSComprehendTargetedSentimentEntityTypeQuantity);
+        }
+        if ([value caseInsensitiveCompare:@"ATTRIBUTE"] == NSOrderedSame) {
+            return @(AWSComprehendTargetedSentimentEntityTypeAttribute);
+        }
+        if ([value caseInsensitiveCompare:@"OTHER"] == NSOrderedSame) {
+            return @(AWSComprehendTargetedSentimentEntityTypeOther);
+        }
+        return @(AWSComprehendTargetedSentimentEntityTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendTargetedSentimentEntityTypePerson:
+                return @"PERSON";
+            case AWSComprehendTargetedSentimentEntityTypeLocation:
+                return @"LOCATION";
+            case AWSComprehendTargetedSentimentEntityTypeOrganization:
+                return @"ORGANIZATION";
+            case AWSComprehendTargetedSentimentEntityTypeFacility:
+                return @"FACILITY";
+            case AWSComprehendTargetedSentimentEntityTypeBrand:
+                return @"BRAND";
+            case AWSComprehendTargetedSentimentEntityTypeCommercialItem:
+                return @"COMMERCIAL_ITEM";
+            case AWSComprehendTargetedSentimentEntityTypeMovie:
+                return @"MOVIE";
+            case AWSComprehendTargetedSentimentEntityTypeMusic:
+                return @"MUSIC";
+            case AWSComprehendTargetedSentimentEntityTypeBook:
+                return @"BOOK";
+            case AWSComprehendTargetedSentimentEntityTypeSoftware:
+                return @"SOFTWARE";
+            case AWSComprehendTargetedSentimentEntityTypeGame:
+                return @"GAME";
+            case AWSComprehendTargetedSentimentEntityTypePersonalTitle:
+                return @"PERSONAL_TITLE";
+            case AWSComprehendTargetedSentimentEntityTypeEvent:
+                return @"EVENT";
+            case AWSComprehendTargetedSentimentEntityTypeDate:
+                return @"DATE";
+            case AWSComprehendTargetedSentimentEntityTypeQuantity:
+                return @"QUANTITY";
+            case AWSComprehendTargetedSentimentEntityTypeAttribute:
+                return @"ATTRIBUTE";
+            case AWSComprehendTargetedSentimentEntityTypeOther:
+                return @"OTHER";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end

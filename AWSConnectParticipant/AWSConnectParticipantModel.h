@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -50,10 +50,8 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantChatItemType) {
     AWSConnectParticipantChatItemTypeEvent,
     AWSConnectParticipantChatItemTypeAttachment,
     AWSConnectParticipantChatItemTypeConnectionAck,
-    AWSConnectParticipantChatItemTypeParticipantActive,
-    AWSConnectParticipantChatItemTypeParticipantInactive,
-    AWSConnectParticipantChatItemTypeParticipantEngaged,
-    AWSConnectParticipantChatItemTypeParticipantDisengaged,
+    AWSConnectParticipantChatItemTypeMessageDelivered,
+    AWSConnectParticipantChatItemTypeMessageRead,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectParticipantConnectionType) {
@@ -94,6 +92,8 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 @class AWSConnectParticipantGetTranscriptRequest;
 @class AWSConnectParticipantGetTranscriptResponse;
 @class AWSConnectParticipantItem;
+@class AWSConnectParticipantMessageMetadata;
+@class AWSConnectParticipantReceipt;
 @class AWSConnectParticipantSendEventRequest;
 @class AWSConnectParticipantSendEventResponse;
 @class AWSConnectParticipantSendMessageRequest;
@@ -121,7 +121,7 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 @property (nonatomic, strong) NSString * _Nullable attachmentName;
 
 /**
- <p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ <p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
 
@@ -144,7 +144,7 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable attachmentIds;
 
 /**
- <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -198,7 +198,7 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 @property (nonatomic, strong) NSString * _Nullable participantToken;
 
 /**
- <p>Type of connection information required.</p>
+ <p>Type of connection information required. This can be omitted if <code>ConnectParticipant</code> is <code>true</code>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable types;
 
@@ -229,7 +229,7 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 
 
 /**
- <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -367,6 +367,11 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 @property (nonatomic, strong) NSArray<AWSConnectParticipantAttachmentItem *> * _Nullable attachments;
 
 /**
+ <p>The contactId on which the transcript item was originally sent. This field is populated only when the transcript item is from the current chat session.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
  <p>The content of the message or event.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable content;
@@ -387,6 +392,11 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
+ <p>The metadata related to the message. Currently this supports only information related to message receipts.</p>
+ */
+@property (nonatomic, strong) AWSConnectParticipantMessageMetadata * _Nullable messageMetadata;
+
+/**
  <p>The ID of the sender in the session.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable participantId;
@@ -397,9 +407,55 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 @property (nonatomic, assign) AWSConnectParticipantParticipantRole participantRole;
 
 /**
+ <p>The contactId on which the transcript item was originally sent. This field is only populated for persistent chats when the transcript item is from the past chat session. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable relatedContactId;
+
+/**
  <p>Type of the item: message or event. </p>
  */
 @property (nonatomic, assign) AWSConnectParticipantChatItemType types;
+
+@end
+
+/**
+ <p>Contains metadata related to a message.</p>
+ */
+@interface AWSConnectParticipantMessageMetadata : AWSModel
+
+
+/**
+ <p>The identifier of the message that contains the metadata information. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable messageId;
+
+/**
+ <p>The list of receipt information for a message for different recipients.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectParticipantReceipt *> * _Nullable receipts;
+
+@end
+
+/**
+ <p>The receipt for the message delivered to the recipient.</p>
+ */
+@interface AWSConnectParticipantReceipt : AWSModel
+
+
+/**
+ <p>The time when the message was delivered to the recipient.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deliveredTimestamp;
+
+/**
+ <p>The time when the message was read by the recipient.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable readTimestamp;
+
+/**
+ <p>The identifier of the recipient of the message. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable recipientParticipantId;
 
 @end
 
@@ -410,7 +466,7 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 
 
 /**
- <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -420,12 +476,12 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 @property (nonatomic, strong) NSString * _Nullable connectionToken;
 
 /**
- <p>The content of the event to be sent (for example, message text). This is not yet supported.</p>
+ <p>The content of the event to be sent (for example, message text). For content related to message receipts, this is supported in the form of a JSON string.</p><p>Sample Content: "{\"messageId\":\"11111111-aaaa-bbbb-cccc-EXAMPLE01234\"}"</p>
  */
 @property (nonatomic, strong) NSString * _Nullable content;
 
 /**
- <p>The content type of the request. Supported types are:</p><ul><li><p>application/vnd.amazonaws.connect.event.typing</p></li><li><p>application/vnd.amazonaws.connect.event.connection.acknowledged</p></li></ul>
+ <p>The content type of the request. Supported types are:</p><ul><li><p>application/vnd.amazonaws.connect.event.typing</p></li><li><p>application/vnd.amazonaws.connect.event.connection.acknowledged</p></li><li><p>application/vnd.amazonaws.connect.event.message.delivered</p></li><li><p>application/vnd.amazonaws.connect.event.message.read</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
 
@@ -456,7 +512,7 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 
 
 /**
- <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -466,12 +522,12 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 @property (nonatomic, strong) NSString * _Nullable connectionToken;
 
 /**
- <p>The content of the message.</p>
+ <p>The content of the message. </p><ul><li><p>For <code>text/plain</code> and <code>text/markdown</code>, the Length Constraints are Minimum of 1, Maximum of 1024. </p></li><li><p>For <code>application/json</code>, the Length Constraints are Minimum of 1, Maximum of 12000. </p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable content;
 
 /**
- <p>The type of the content. Supported types are text/plain.</p>
+ <p>The type of the content. Supported types are <code>text/plain</code>, <code>text/markdown</code>, and <code>application/json</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
 
@@ -512,7 +568,7 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 @property (nonatomic, strong) NSNumber * _Nullable attachmentSizeInBytes;
 
 /**
- <p>A unique case sensitive identifier to support idempotency of request.</p>
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -522,7 +578,7 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 @property (nonatomic, strong) NSString * _Nullable connectionToken;
 
 /**
- <p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ <p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
 

@@ -16,6 +16,8 @@
 #import <Foundation/Foundation.h>
 #import <AWSCore/AWSCore.h>
 
+static NSString *const AWSPinpointContextKeychainService = @"com.amazonaws.AWSPinpointContext";
+
 @class AWSPinpointContext, AWSPinpointConfiguration, AWSPinpointAnalytics, AWSPinpointTargeting, AWSPinpointTargetingClient, AWSPinpointAnalyticsClient, AWSPinpointSessionClient;
 
 @interface AWSPinpointClientContext : AWSClientContext
@@ -33,5 +35,6 @@
 @property (nonatomic, strong) AWSPinpointTargetingClient *targetingClient;
 @property (nonatomic, strong) AWSPinpointAnalyticsClient *analyticsClient;
 @property (nonatomic, strong) AWSPinpointSessionClient *sessionClient;
+@property (nonatomic, strong) AWSUICKeyChainStore *keychain;
 
 @end

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -236,6 +236,246 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSKinesisVideo KinesisVideoForKey:key] deleteStream:[AWSKinesisVideoDeleteStreamInput new] completionHandler:^(AWSKinesisVideoDeleteStreamOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKinesisVideo removeKinesisVideoForKey:key];
+}
+
+- (void)testDescribeEdgeConfiguration {
+    NSString *key = @"testDescribeEdgeConfiguration";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKinesisVideo registerKinesisVideoWithConfiguration:configuration forKey:key];
+
+    AWSKinesisVideo *awsClient = [AWSKinesisVideo KinesisVideoForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSKinesisVideo KinesisVideoForKey:key] describeEdgeConfiguration:[AWSKinesisVideoDescribeEdgeConfigurationInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKinesisVideo removeKinesisVideoForKey:key];
+}
+
+- (void)testDescribeEdgeConfigurationCompletionHandler {
+    NSString *key = @"testDescribeEdgeConfiguration";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKinesisVideo registerKinesisVideoWithConfiguration:configuration forKey:key];
+
+    AWSKinesisVideo *awsClient = [AWSKinesisVideo KinesisVideoForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSKinesisVideo KinesisVideoForKey:key] describeEdgeConfiguration:[AWSKinesisVideoDescribeEdgeConfigurationInput new] completionHandler:^(AWSKinesisVideoDescribeEdgeConfigurationOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKinesisVideo removeKinesisVideoForKey:key];
+}
+
+- (void)testDescribeImageGenerationConfiguration {
+    NSString *key = @"testDescribeImageGenerationConfiguration";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKinesisVideo registerKinesisVideoWithConfiguration:configuration forKey:key];
+
+    AWSKinesisVideo *awsClient = [AWSKinesisVideo KinesisVideoForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSKinesisVideo KinesisVideoForKey:key] describeImageGenerationConfiguration:[AWSKinesisVideoDescribeImageGenerationConfigurationInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKinesisVideo removeKinesisVideoForKey:key];
+}
+
+- (void)testDescribeImageGenerationConfigurationCompletionHandler {
+    NSString *key = @"testDescribeImageGenerationConfiguration";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKinesisVideo registerKinesisVideoWithConfiguration:configuration forKey:key];
+
+    AWSKinesisVideo *awsClient = [AWSKinesisVideo KinesisVideoForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSKinesisVideo KinesisVideoForKey:key] describeImageGenerationConfiguration:[AWSKinesisVideoDescribeImageGenerationConfigurationInput new] completionHandler:^(AWSKinesisVideoDescribeImageGenerationConfigurationOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKinesisVideo removeKinesisVideoForKey:key];
+}
+
+- (void)testDescribeMappedResourceConfiguration {
+    NSString *key = @"testDescribeMappedResourceConfiguration";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKinesisVideo registerKinesisVideoWithConfiguration:configuration forKey:key];
+
+    AWSKinesisVideo *awsClient = [AWSKinesisVideo KinesisVideoForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSKinesisVideo KinesisVideoForKey:key] describeMappedResourceConfiguration:[AWSKinesisVideoDescribeMappedResourceConfigurationInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKinesisVideo removeKinesisVideoForKey:key];
+}
+
+- (void)testDescribeMappedResourceConfigurationCompletionHandler {
+    NSString *key = @"testDescribeMappedResourceConfiguration";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKinesisVideo registerKinesisVideoWithConfiguration:configuration forKey:key];
+
+    AWSKinesisVideo *awsClient = [AWSKinesisVideo KinesisVideoForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSKinesisVideo KinesisVideoForKey:key] describeMappedResourceConfiguration:[AWSKinesisVideoDescribeMappedResourceConfigurationInput new] completionHandler:^(AWSKinesisVideoDescribeMappedResourceConfigurationOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKinesisVideo removeKinesisVideoForKey:key];
+}
+
+- (void)testDescribeMediaStorageConfiguration {
+    NSString *key = @"testDescribeMediaStorageConfiguration";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKinesisVideo registerKinesisVideoWithConfiguration:configuration forKey:key];
+
+    AWSKinesisVideo *awsClient = [AWSKinesisVideo KinesisVideoForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSKinesisVideo KinesisVideoForKey:key] describeMediaStorageConfiguration:[AWSKinesisVideoDescribeMediaStorageConfigurationInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKinesisVideo removeKinesisVideoForKey:key];
+}
+
+- (void)testDescribeMediaStorageConfigurationCompletionHandler {
+    NSString *key = @"testDescribeMediaStorageConfiguration";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKinesisVideo registerKinesisVideoWithConfiguration:configuration forKey:key];
+
+    AWSKinesisVideo *awsClient = [AWSKinesisVideo KinesisVideoForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSKinesisVideo KinesisVideoForKey:key] describeMediaStorageConfiguration:[AWSKinesisVideoDescribeMediaStorageConfigurationInput new] completionHandler:^(AWSKinesisVideoDescribeMediaStorageConfigurationOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKinesisVideo removeKinesisVideoForKey:key];
+}
+
+- (void)testDescribeNotificationConfiguration {
+    NSString *key = @"testDescribeNotificationConfiguration";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKinesisVideo registerKinesisVideoWithConfiguration:configuration forKey:key];
+
+    AWSKinesisVideo *awsClient = [AWSKinesisVideo KinesisVideoForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSKinesisVideo KinesisVideoForKey:key] describeNotificationConfiguration:[AWSKinesisVideoDescribeNotificationConfigurationInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKinesisVideo removeKinesisVideoForKey:key];
+}
+
+- (void)testDescribeNotificationConfigurationCompletionHandler {
+    NSString *key = @"testDescribeNotificationConfiguration";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKinesisVideo registerKinesisVideoWithConfiguration:configuration forKey:key];
+
+    AWSKinesisVideo *awsClient = [AWSKinesisVideo KinesisVideoForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSKinesisVideo KinesisVideoForKey:key] describeNotificationConfiguration:[AWSKinesisVideoDescribeNotificationConfigurationInput new] completionHandler:^(AWSKinesisVideoDescribeNotificationConfigurationOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -633,6 +873,54 @@ static id mockNetworking = nil;
     [AWSKinesisVideo removeKinesisVideoForKey:key];
 }
 
+- (void)testStartEdgeConfigurationUpdate {
+    NSString *key = @"testStartEdgeConfigurationUpdate";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKinesisVideo registerKinesisVideoWithConfiguration:configuration forKey:key];
+
+    AWSKinesisVideo *awsClient = [AWSKinesisVideo KinesisVideoForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSKinesisVideo KinesisVideoForKey:key] startEdgeConfigurationUpdate:[AWSKinesisVideoStartEdgeConfigurationUpdateInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKinesisVideo removeKinesisVideoForKey:key];
+}
+
+- (void)testStartEdgeConfigurationUpdateCompletionHandler {
+    NSString *key = @"testStartEdgeConfigurationUpdate";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKinesisVideo registerKinesisVideoWithConfiguration:configuration forKey:key];
+
+    AWSKinesisVideo *awsClient = [AWSKinesisVideo KinesisVideoForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSKinesisVideo KinesisVideoForKey:key] startEdgeConfigurationUpdate:[AWSKinesisVideoStartEdgeConfigurationUpdateInput new] completionHandler:^(AWSKinesisVideoStartEdgeConfigurationUpdateOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKinesisVideo removeKinesisVideoForKey:key];
+}
+
 - (void)testTagResource {
     NSString *key = @"testTagResource";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -860,6 +1148,150 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSKinesisVideo KinesisVideoForKey:key] updateDataRetention:[AWSKinesisVideoUpdateDataRetentionInput new] completionHandler:^(AWSKinesisVideoUpdateDataRetentionOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKinesisVideo removeKinesisVideoForKey:key];
+}
+
+- (void)testUpdateImageGenerationConfiguration {
+    NSString *key = @"testUpdateImageGenerationConfiguration";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKinesisVideo registerKinesisVideoWithConfiguration:configuration forKey:key];
+
+    AWSKinesisVideo *awsClient = [AWSKinesisVideo KinesisVideoForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSKinesisVideo KinesisVideoForKey:key] updateImageGenerationConfiguration:[AWSKinesisVideoUpdateImageGenerationConfigurationInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKinesisVideo removeKinesisVideoForKey:key];
+}
+
+- (void)testUpdateImageGenerationConfigurationCompletionHandler {
+    NSString *key = @"testUpdateImageGenerationConfiguration";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKinesisVideo registerKinesisVideoWithConfiguration:configuration forKey:key];
+
+    AWSKinesisVideo *awsClient = [AWSKinesisVideo KinesisVideoForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSKinesisVideo KinesisVideoForKey:key] updateImageGenerationConfiguration:[AWSKinesisVideoUpdateImageGenerationConfigurationInput new] completionHandler:^(AWSKinesisVideoUpdateImageGenerationConfigurationOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKinesisVideo removeKinesisVideoForKey:key];
+}
+
+- (void)testUpdateMediaStorageConfiguration {
+    NSString *key = @"testUpdateMediaStorageConfiguration";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKinesisVideo registerKinesisVideoWithConfiguration:configuration forKey:key];
+
+    AWSKinesisVideo *awsClient = [AWSKinesisVideo KinesisVideoForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSKinesisVideo KinesisVideoForKey:key] updateMediaStorageConfiguration:[AWSKinesisVideoUpdateMediaStorageConfigurationInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKinesisVideo removeKinesisVideoForKey:key];
+}
+
+- (void)testUpdateMediaStorageConfigurationCompletionHandler {
+    NSString *key = @"testUpdateMediaStorageConfiguration";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKinesisVideo registerKinesisVideoWithConfiguration:configuration forKey:key];
+
+    AWSKinesisVideo *awsClient = [AWSKinesisVideo KinesisVideoForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSKinesisVideo KinesisVideoForKey:key] updateMediaStorageConfiguration:[AWSKinesisVideoUpdateMediaStorageConfigurationInput new] completionHandler:^(AWSKinesisVideoUpdateMediaStorageConfigurationOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKinesisVideo removeKinesisVideoForKey:key];
+}
+
+- (void)testUpdateNotificationConfiguration {
+    NSString *key = @"testUpdateNotificationConfiguration";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKinesisVideo registerKinesisVideoWithConfiguration:configuration forKey:key];
+
+    AWSKinesisVideo *awsClient = [AWSKinesisVideo KinesisVideoForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSKinesisVideo KinesisVideoForKey:key] updateNotificationConfiguration:[AWSKinesisVideoUpdateNotificationConfigurationInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKinesisVideo removeKinesisVideoForKey:key];
+}
+
+- (void)testUpdateNotificationConfigurationCompletionHandler {
+    NSString *key = @"testUpdateNotificationConfiguration";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKinesisVideo registerKinesisVideoWithConfiguration:configuration forKey:key];
+
+    AWSKinesisVideo *awsClient = [AWSKinesisVideo KinesisVideoForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSKinesisVideo KinesisVideoForKey:key] updateNotificationConfiguration:[AWSKinesisVideoUpdateNotificationConfigurationInput new] completionHandler:^(AWSKinesisVideoUpdateNotificationConfigurationOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);

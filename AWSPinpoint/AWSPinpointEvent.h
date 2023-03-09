@@ -15,6 +15,15 @@
 
 #import <Foundation/Foundation.h>
 
+/// The maximum number of attributes that can be added to an event.
+extern const NSInteger AWSPinpointEventMaxNumberOfAttributes;
+/// The maximum number of metrics that can be added to an event.
+extern const NSInteger AWSPinpointEventMaxNumberOfMetrics;
+/// The maximum length that an attribute or metric key can have.
+extern const NSInteger AWSPinpointEventMaxAttributeAndMetricKeyLength;
+/// The maximum length that an attribute value can have.
+extern const NSInteger AWSPinpointEventMaxAttributeValueLength;
+
 typedef uint64_t UTCTimeMillis;
 
 @class AWSPinpointContext, AWSPinpointSession;
@@ -69,8 +78,8 @@ NS_ASSUME_NONNULL_BEGIN
                          session:(AWSPinpointSession*) session;
 
 /**
- Adds an attribute to this AWSPinpointEvent with the specified key. Only 50 attributes/metrics.
- are allowed to be added to an AWSPinpointEvent. If 50 attributes/metrics already exist on this AWSPinpointEvent, the call is ignored.
+ Adds an attribute to this AWSPinpointEvent with the specified key. Only 40 attributes.
+ are allowed to be added to an AWSPinpointEvent. If 40 attributes already exist on this AWSPinpointEvent, the call is ignored.
  
  @param theValue The value of the attribute. The value will be truncated if it exceeds 200 characters.
  @param theKey The key of the attribute. The key will be truncated if it exceeds 50 characters.
@@ -79,8 +88,8 @@ NS_ASSUME_NONNULL_BEGIN
               forKey:(NSString *)theKey;
 
 /**
- Adds a metric to this AWSPinpointEvent with the specified key. Only 50 attributes/metrics.
- are allowed to be added to an AWSPinpointEvent. If 50 attribute/metrics already exist on this AWSPinpointEvent, the call is ignored.
+ Adds a metric to this AWSPinpointEvent with the specified key. Only 40 metrics.
+ are allowed to be added to an AWSPinpointEvent. If 40 metrics already exist on this AWSPinpointEvent, the call is ignored.
  
  @param theValue The value of the metric.
  @param theKey The key of the metric. The key will be truncated if it exceeds 50 characters.

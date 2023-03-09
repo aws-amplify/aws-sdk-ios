@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -102,7 +102,7 @@
         {\"shape\":\"BatchSizeLimitExceededException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
-      \"documentation\":\"<p>Inspects the text of a batch of documents for named entities and returns information about them. For more information about named entities, see <a>how-entities</a> </p>\"\
+      \"documentation\":\"<p>Inspects the text of a batch of documents for named entities and returns information about them. For more information about named entities, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html\\\">Entities</a> in the Comprehend Developer Guide. </p>\"\
     },\
     \"BatchDetectKeyPhrases\":{\
       \"name\":\"BatchDetectKeyPhrases\",\
@@ -153,7 +153,24 @@
         {\"shape\":\"BatchSizeLimitExceededException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
-      \"documentation\":\"<p>Inspects the text of a batch of documents for the syntax and part of speech of the words in the document and returns information about them. For more information, see <a>how-syntax</a>.</p>\"\
+      \"documentation\":\"<p>Inspects the text of a batch of documents for the syntax and part of speech of the words in the document and returns information about them. For more information, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html\\\">Syntax</a> in the Comprehend Developer Guide. </p>\"\
+    },\
+    \"BatchDetectTargetedSentiment\":{\
+      \"name\":\"BatchDetectTargetedSentiment\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"BatchDetectTargetedSentimentRequest\"},\
+      \"output\":{\"shape\":\"BatchDetectTargetedSentimentResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"TextSizeLimitExceededException\"},\
+        {\"shape\":\"UnsupportedLanguageException\"},\
+        {\"shape\":\"BatchSizeLimitExceededException\"},\
+        {\"shape\":\"InternalServerException\"}\
+      ],\
+      \"documentation\":\"<p>Inspects a batch of documents and returns a sentiment analysis for each entity identified in the documents.</p> <p>For more information about targeted sentiment, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html\\\">Targeted sentiment</a>.</p>\"\
     },\
     \"ClassifyDocument\":{\
       \"name\":\"ClassifyDocument\",\
@@ -169,7 +186,7 @@
         {\"shape\":\"TextSizeLimitExceededException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
-      \"documentation\":\"<p>Creates a new document classification request to analyze a single document in real-time, using a previously created and trained custom model and an endpoint.</p>\"\
+      \"documentation\":\"<p>Creates a new document classification request to analyze a single document in real-time, using a previously created and trained custom model and an endpoint.</p> <p>You can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p> <p>If the system detects errors while processing a page in the input document, the API response includes an entry in <code>Errors</code> that describes the errors.</p> <p>If the system detects a document-level error in your input document, the API returns an <code>InvalidRequestException</code> error response. For details about this exception, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html\\\"> Errors in semi-structured documents</a> in the Comprehend Developer Guide. </p>\"\
     },\
     \"ContainsPiiEntities\":{\
       \"name\":\"ContainsPiiEntities\",\
@@ -205,7 +222,7 @@
         {\"shape\":\"KmsKeyValidationException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
-      \"documentation\":\"<p>Creates a new document classifier that you can use to categorize documents. To create a classifier, you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see <a>how-document-classification</a>.</p>\"\
+      \"documentation\":\"<p>Creates a new document classifier that you can use to categorize documents. To create a classifier, you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html\\\">Document Classification</a> in the Comprehend Developer Guide. </p>\"\
     },\
     \"CreateEndpoint\":{\
       \"name\":\"CreateEndpoint\",\
@@ -225,7 +242,7 @@
         {\"shape\":\"TooManyTagsException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
-      \"documentation\":\"<p>Creates a model-specific endpoint for synchronous inference for a previously trained custom model </p>\"\
+      \"documentation\":\"<p>Creates a model-specific endpoint for synchronous inference for a previously trained custom model For information about endpoints, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html\\\">Managing endpoints</a>.</p>\"\
     },\
     \"CreateEntityRecognizer\":{\
       \"name\":\"CreateEntityRecognizer\",\
@@ -280,7 +297,7 @@
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
-      \"documentation\":\"<p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints must be deleted in order for the model to be deleted.</p>\"\
+      \"documentation\":\"<p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints must be deleted in order for the model to be deleted. For information about endpoints, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html\\\">Managing endpoints</a>.</p>\"\
     },\
     \"DeleteEntityRecognizer\":{\
       \"name\":\"DeleteEntityRecognizer\",\
@@ -299,6 +316,21 @@
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Deletes an entity recognizer.</p> <p>Only those recognizers that are in terminated states (IN_ERROR, TRAINED) will be deleted. If an active inference job is using the model, a <code>ResourceInUseException</code> will be returned.</p> <p>This is an asynchronous action that puts the recognizer into a DELETING state, and it is then removed by a background job. Once removed, the recognizer disappears from your account and is no longer available for use. </p>\"\
+    },\
+    \"DeleteResourcePolicy\":{\
+      \"name\":\"DeleteResourcePolicy\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteResourcePolicyRequest\"},\
+      \"output\":{\"shape\":\"DeleteResourcePolicyResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServerException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes a resource-based policy that is attached to a custom model.</p>\"\
     },\
     \"DescribeDocumentClassificationJob\":{\
       \"name\":\"DescribeDocumentClassificationJob\",\
@@ -362,7 +394,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
-      \"documentation\":\"<p>Gets the properties associated with a specific endpoint. Use this operation to get the status of an endpoint.</p>\"\
+      \"documentation\":\"<p>Gets the properties associated with a specific endpoint. Use this operation to get the status of an endpoint. For information about endpoints, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html\\\">Managing endpoints</a>.</p>\"\
     },\
     \"DescribeEntitiesDetectionJob\":{\
       \"name\":\"DescribeEntitiesDetectionJob\",\
@@ -444,6 +476,21 @@
       ],\
       \"documentation\":\"<p>Gets the properties associated with a PII entities detection job. For example, you can use this operation to get the job status.</p>\"\
     },\
+    \"DescribeResourcePolicy\":{\
+      \"name\":\"DescribeResourcePolicy\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DescribeResourcePolicyRequest\"},\
+      \"output\":{\"shape\":\"DescribeResourcePolicyResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServerException\"}\
+      ],\
+      \"documentation\":\"<p>Gets the details of a resource-based policy that is attached to a custom model, including the JSON body of the policy.</p>\"\
+    },\
     \"DescribeSentimentDetectionJob\":{\
       \"name\":\"DescribeSentimentDetectionJob\",\
       \"http\":{\
@@ -459,6 +506,22 @@
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Gets the properties associated with a sentiment detection job. Use this operation to get the status of a detection job.</p>\"\
+    },\
+    \"DescribeTargetedSentimentDetectionJob\":{\
+      \"name\":\"DescribeTargetedSentimentDetectionJob\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DescribeTargetedSentimentDetectionJobRequest\"},\
+      \"output\":{\"shape\":\"DescribeTargetedSentimentDetectionJobResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"JobNotFoundException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"InternalServerException\"}\
+      ],\
+      \"documentation\":\"<p>Gets the properties associated with a targeted sentiment detection job. Use this operation to get the status of the job.</p>\"\
     },\
     \"DescribeTopicsDetectionJob\":{\
       \"name\":\"DescribeTopicsDetectionJob\",\
@@ -506,7 +569,7 @@
         {\"shape\":\"UnsupportedLanguageException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
-      \"documentation\":\"<p>Inspects text for named entities, and returns information about them. For more information, about named entities, see <a>how-entities</a>. </p>\"\
+      \"documentation\":\"<p>Detects named entities in input text when you use the pre-trained model. Detects custom entities if you have a custom entity recognition model. </p> <p> When detecting named entities using the pre-trained model, use plain text as the input. For more information about named entities, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html\\\">Entities</a> in the Comprehend Developer Guide.</p> <p>When you use a custom entity recognition model, you can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p> <p>If the system detects errors while processing a page in the input document, the API response includes an entry in <code>Errors</code> for each error. </p> <p>If the system detects a document-level error in your input document, the API returns an <code>InvalidRequestException</code> error response. For details about this exception, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html\\\"> Errors in semi-structured documents</a> in the Comprehend Developer Guide. </p>\"\
     },\
     \"DetectKeyPhrases\":{\
       \"name\":\"DetectKeyPhrases\",\
@@ -570,7 +633,44 @@
         {\"shape\":\"UnsupportedLanguageException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
-      \"documentation\":\"<p>Inspects text for syntax and the part of speech of words in the document. For more information, <a>how-syntax</a>.</p>\"\
+      \"documentation\":\"<p>Inspects text for syntax and the part of speech of words in the document. For more information, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html\\\">Syntax</a> in the Comprehend Developer Guide. </p>\"\
+    },\
+    \"DetectTargetedSentiment\":{\
+      \"name\":\"DetectTargetedSentiment\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DetectTargetedSentimentRequest\"},\
+      \"output\":{\"shape\":\"DetectTargetedSentimentResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"TextSizeLimitExceededException\"},\
+        {\"shape\":\"UnsupportedLanguageException\"},\
+        {\"shape\":\"InternalServerException\"}\
+      ],\
+      \"documentation\":\"<p>Inspects the input text and returns a sentiment analysis for each entity identified in the text.</p> <p>For more information about targeted sentiment, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html\\\">Targeted sentiment</a>.</p>\"\
+    },\
+    \"ImportModel\":{\
+      \"name\":\"ImportModel\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ImportModelRequest\"},\
+      \"output\":{\"shape\":\"ImportModelResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ResourceInUseException\"},\
+        {\"shape\":\"ResourceUnavailableException\"},\
+        {\"shape\":\"TooManyTagsException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"ResourceLimitExceededException\"},\
+        {\"shape\":\"KmsKeyValidationException\"},\
+        {\"shape\":\"InternalServerException\"}\
+      ],\
+      \"documentation\":\"<p>Creates a new custom model that replicates a source custom model that you import. The source model can be in your AWS account or another one.</p> <p>If the source model is in another AWS account, then it must have a resource-based policy that authorizes you to import it.</p> <p>The source model must be in the same AWS region that you're using when you import. You can't import a model that's in a different region.</p>\"\
     },\
     \"ListDocumentClassificationJobs\":{\
       \"name\":\"ListDocumentClassificationJobs\",\
@@ -648,7 +748,7 @@
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
-      \"documentation\":\"<p>Gets a list of all existing endpoints that you've created.</p>\"\
+      \"documentation\":\"<p>Gets a list of all existing endpoints that you've created. For information about endpoints, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html\\\">Managing endpoints</a>.</p>\"\
     },\
     \"ListEntitiesDetectionJobs\":{\
       \"name\":\"ListEntitiesDetectionJobs\",\
@@ -776,6 +876,22 @@
       ],\
       \"documentation\":\"<p>Lists all tags associated with a given Amazon Comprehend resource. </p>\"\
     },\
+    \"ListTargetedSentimentDetectionJobs\":{\
+      \"name\":\"ListTargetedSentimentDetectionJobs\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ListTargetedSentimentDetectionJobsRequest\"},\
+      \"output\":{\"shape\":\"ListTargetedSentimentDetectionJobsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"InvalidFilterException\"},\
+        {\"shape\":\"InternalServerException\"}\
+      ],\
+      \"documentation\":\"<p>Gets a list of targeted sentiment detection jobs that you have submitted.</p>\"\
+    },\
     \"ListTopicsDetectionJobs\":{\
       \"name\":\"ListTopicsDetectionJobs\",\
       \"http\":{\
@@ -791,6 +907,21 @@
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Gets a list of the topic detection jobs that you have submitted.</p>\"\
+    },\
+    \"PutResourcePolicy\":{\
+      \"name\":\"PutResourcePolicy\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"PutResourcePolicyRequest\"},\
+      \"output\":{\"shape\":\"PutResourcePolicyResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServerException\"}\
+      ],\
+      \"documentation\":\"<p>Attaches a resource-based policy to a custom model. You can use this policy to authorize an entity in another AWS account to import the custom model, which replicates it in Amazon Comprehend in their account.</p>\"\
     },\
     \"StartDocumentClassificationJob\":{\
       \"name\":\"StartDocumentClassificationJob\",\
@@ -913,7 +1044,24 @@
         {\"shape\":\"TooManyTagsException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
-      \"documentation\":\"<p>Starts an asynchronous sentiment detection job for a collection of documents. use the operation to track the status of a job.</p>\"\
+      \"documentation\":\"<p>Starts an asynchronous sentiment detection job for a collection of documents. Use the operation to track the status of a job.</p>\"\
+    },\
+    \"StartTargetedSentimentDetectionJob\":{\
+      \"name\":\"StartTargetedSentimentDetectionJob\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"StartTargetedSentimentDetectionJobRequest\"},\
+      \"output\":{\"shape\":\"StartTargetedSentimentDetectionJobResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"KmsKeyValidationException\"},\
+        {\"shape\":\"TooManyTagsException\"},\
+        {\"shape\":\"InternalServerException\"}\
+      ],\
+      \"documentation\":\"<p>Starts an asynchronous targeted sentiment detection job for a collection of documents. Use the operation to track the status of a job.</p>\"\
     },\
     \"StartTopicsDetectionJob\":{\
       \"name\":\"StartTopicsDetectionJob\",\
@@ -1020,7 +1168,22 @@
         {\"shape\":\"JobNotFoundException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
-      \"documentation\":\"<p>Stops a sentiment detection job in progress.</p> <p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p> <p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p> <p>When a job is stopped, any documents already processed are written to the output location.</p>\"\
+      \"documentation\":\"<p>Stops a sentiment detection job in progress.</p> <p>If the job state is <code>IN_PROGRESS</code>, the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p> <p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p> <p>When a job is stopped, any documents already processed are written to the output location.</p>\"\
+    },\
+    \"StopTargetedSentimentDetectionJob\":{\
+      \"name\":\"StopTargetedSentimentDetectionJob\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"StopTargetedSentimentDetectionJobRequest\"},\
+      \"output\":{\"shape\":\"StopTargetedSentimentDetectionJobResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"JobNotFoundException\"},\
+        {\"shape\":\"InternalServerException\"}\
+      ],\
+      \"documentation\":\"<p>Stops a targeted sentiment detection job in progress.</p> <p>If the job state is <code>IN_PROGRESS</code>, the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p> <p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p> <p>When a job is stopped, any documents already processed are written to the output location.</p>\"\
     },\
     \"StopTrainingDocumentClassifier\":{\
       \"name\":\"StopTrainingDocumentClassifier\",\
@@ -1105,7 +1268,7 @@
         {\"shape\":\"ResourceUnavailableException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
-      \"documentation\":\"<p>Updates information about the specified endpoint.</p>\"\
+      \"documentation\":\"<p>Updates information about the specified endpoint. For information about endpoints, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html\\\">Managing endpoints</a>.</p>\"\
     }\
   },\
   \"shapes\":{\
@@ -1181,7 +1344,7 @@
       \"members\":{\
         \"TextList\":{\
           \"shape\":\"CustomerInputStringList\",\
-          \"documentation\":\"<p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document should contain at least 20 characters and must contain fewer than 5,000 bytes of UTF-8 encoded characters.</p>\"\
+          \"documentation\":\"<p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. Each document should contain at least 20 characters. The maximum size of each document is 5 KB.</p>\"\
         }\
       }\
     },\
@@ -1226,7 +1389,7 @@
       \"members\":{\
         \"TextList\":{\
           \"shape\":\"CustomerInputStringList\",\
-          \"documentation\":\"<p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded characters.</p>\"\
+          \"documentation\":\"<p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. The maximum size of each document is 5 KB.</p>\"\
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
@@ -1275,7 +1438,7 @@
       \"members\":{\
         \"TextList\":{\
           \"shape\":\"CustomerInputStringList\",\
-          \"documentation\":\"<p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
+          \"documentation\":\"<p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. The maximum size of each document is 5 KB.</p>\"\
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
@@ -1328,7 +1491,7 @@
       \"members\":{\
         \"TextList\":{\
           \"shape\":\"CustomerInputStringList\",\
-          \"documentation\":\"<p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
+          \"documentation\":\"<p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. The maximum size of each document is 5 KB. </p> <note> <p>Amazon Comprehend performs real-time sentiment analysis on the first 500 characters of the input text and ignores any additional text in the input.</p> </note>\"\
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
@@ -1377,7 +1540,7 @@
       \"members\":{\
         \"TextList\":{\
           \"shape\":\"CustomerInputStringList\",\
-          \"documentation\":\"<p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
+          \"documentation\":\"<p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. The maximum size for each document is 5 KB.</p>\"\
         },\
         \"LanguageCode\":{\
           \"shape\":\"SyntaxLanguageCode\",\
@@ -1399,6 +1562,55 @@
         \"ErrorList\":{\
           \"shape\":\"BatchItemErrorList\",\
           \"documentation\":\"<p>A list containing one object for each document that contained an error. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If there are no errors in the batch, the <code>ErrorList</code> is empty.</p>\"\
+        }\
+      },\
+      \"sensitive\":true\
+    },\
+    \"BatchDetectTargetedSentimentItemResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Index\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The zero-based index of this result in the input list.</p>\"\
+        },\
+        \"Entities\":{\
+          \"shape\":\"ListOfTargetedSentimentEntities\",\
+          \"documentation\":\"<p>An array of targeted sentiment entities.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Analysis results for one of the documents in the batch.</p>\"\
+    },\
+    \"BatchDetectTargetedSentimentRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"TextList\",\
+        \"LanguageCode\"\
+      ],\
+      \"members\":{\
+        \"TextList\":{\
+          \"shape\":\"CustomerInputStringList\",\
+          \"documentation\":\"<p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. The maximum size of each document is 5 KB.</p>\"\
+        },\
+        \"LanguageCode\":{\
+          \"shape\":\"LanguageCode\",\
+          \"documentation\":\"<p>The language of the input documents. Currently, English is the only supported language.</p>\"\
+        }\
+      }\
+    },\
+    \"BatchDetectTargetedSentimentResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ResultList\",\
+        \"ErrorList\"\
+      ],\
+      \"members\":{\
+        \"ResultList\":{\
+          \"shape\":\"ListOfDetectTargetedSentimentResult\",\
+          \"documentation\":\"<p>A list of objects containing the results of the operation. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If all of the documents contain an error, the <code>ResultList</code> is empty.</p>\"\
+        },\
+        \"ErrorList\":{\
+          \"shape\":\"BatchItemErrorList\",\
+          \"documentation\":\"<p>List of errors that the operation can return.</p>\"\
         }\
       },\
       \"sensitive\":true\
@@ -1432,6 +1644,105 @@
       },\
       \"documentation\":\"<p>The number of documents in the request exceeds the limit of 25. Try your request again with fewer documents.</p>\",\
       \"exception\":true\
+    },\
+    \"Block\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Id\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Unique identifier for the block.</p>\"\
+        },\
+        \"BlockType\":{\
+          \"shape\":\"BlockType\",\
+          \"documentation\":\"<p>The block represents a line of text or one word of text.</p> <ul> <li> <p>WORD - A word that's detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p> </li> <li> <p>LINE - A string of tab-delimited, contiguous words that are detected on a document page</p> </li> </ul>\"\
+        },\
+        \"Text\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The word or line of text extracted from the block.</p>\"\
+        },\
+        \"Page\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>Page number where the block appears.</p>\"\
+        },\
+        \"Geometry\":{\
+          \"shape\":\"Geometry\",\
+          \"documentation\":\"<p>Co-ordinates of the rectangle or polygon that contains the text.</p>\"\
+        },\
+        \"Relationships\":{\
+          \"shape\":\"ListOfRelationships\",\
+          \"documentation\":\"<p>A list of child blocks of the current block. For example, a LINE object has child blocks for each WORD block that's part of the line of text. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about each word or line of text in the input document.</p> <p>For additional information, see <a href=\\\"https://docs.aws.amazon.com/textract/latest/dg/API_Block.html\\\">Block</a> in the Amazon Textract API reference.</p>\"\
+    },\
+    \"BlockReference\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"BlockId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Unique identifier for the block.</p>\"\
+        },\
+        \"BeginOffset\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>Offset of the start of the block within its parent block.</p>\"\
+        },\
+        \"EndOffset\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>Offset of the end of the block within its parent block.</p>\"\
+        },\
+        \"ChildBlocks\":{\
+          \"shape\":\"ListOfChildBlocks\",\
+          \"documentation\":\"<p>List of child blocks within this block.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A reference to a block. </p>\"\
+    },\
+    \"BlockType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"LINE\",\
+        \"WORD\"\
+      ]\
+    },\
+    \"BoundingBox\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Height\":{\
+          \"shape\":\"Float\",\
+          \"documentation\":\"<p>The height of the bounding box as a ratio of the overall document page height.</p>\"\
+        },\
+        \"Left\":{\
+          \"shape\":\"Float\",\
+          \"documentation\":\"<p>The left coordinate of the bounding box as a ratio of overall document page width.</p>\"\
+        },\
+        \"Top\":{\
+          \"shape\":\"Float\",\
+          \"documentation\":\"<p>The top coordinate of the bounding box as a ratio of overall document page height.</p>\"\
+        },\
+        \"Width\":{\
+          \"shape\":\"Float\",\
+          \"documentation\":\"<p>The width of the bounding box as a ratio of the overall document page width.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The bounding box around the detected page or around an element on a document page. The left (x-coordinate) and top (y-coordinate) are coordinates that represent the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0). </p> <p>For additional information, see <a href=\\\"https://docs.aws.amazon.com/textract/latest/dg/API_BoundingBox.html\\\">BoundingBox</a> in the Amazon Textract API reference.</p>\"\
+    },\
+    \"ChildBlock\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ChildBlockId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Unique identifier for the child block.</p>\"\
+        },\
+        \"BeginOffset\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>Offset of the start of the child block within its parent block.</p>\"\
+        },\
+        \"EndOffset\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>Offset of the end of the child block within its parent block.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Nested block contained within a block.</p>\"\
     },\
     \"ClassifierEvaluationMetrics\":{\
       \"type\":\"structure\",\
@@ -1496,18 +1807,23 @@
     },\
     \"ClassifyDocumentRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"Text\",\
-        \"EndpointArn\"\
-      ],\
+      \"required\":[\"EndpointArn\"],\
       \"members\":{\
         \"Text\":{\
           \"shape\":\"CustomerInputString\",\
-          \"documentation\":\"<p>The document text to be analyzed.</p>\"\
+          \"documentation\":\"<p>The document text to be analyzed. If you enter text using this parameter, do not use the <code>Bytes</code> parameter.</p>\"\
         },\
         \"EndpointArn\":{\
           \"shape\":\"DocumentClassifierEndpointArn\",\
-          \"documentation\":\"<p>The Amazon Resource Number (ARN) of the endpoint.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Number (ARN) of the endpoint. For information about endpoints, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html\\\">Managing endpoints</a>.</p>\"\
+        },\
+        \"Bytes\":{\
+          \"shape\":\"SemiStructuredDocumentBlob\",\
+          \"documentation\":\"<p>Use the <code>Bytes</code> parameter to input a text, PDF, Word or image file. You can also use the <code>Bytes</code> parameter to input an Amazon Textract <code>DetectDocumentText</code> or <code>AnalyzeDocument</code> output file.</p> <p>Provide the input document as a sequence of base64-encoded bytes. If your code uses an Amazon Web Services SDK to classify documents, the SDK may encode the document file bytes for you. </p> <p>The maximum length of this field depends on the input document type. For details, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync.html\\\"> Inputs for real-time custom analysis</a> in the Comprehend Developer Guide. </p> <p>If you use the <code>Bytes</code> parameter, do not use the <code>Text</code> parameter.</p>\"\
+        },\
+        \"DocumentReaderConfig\":{\
+          \"shape\":\"DocumentReaderConfig\",\
+          \"documentation\":\"<p>Provides configuration parameters to override the default actions for extracting text from PDF documents and image files.</p>\"\
         }\
       }\
     },\
@@ -1521,6 +1837,18 @@
         \"Labels\":{\
           \"shape\":\"ListOfLabels\",\
           \"documentation\":\"<p>The labels used the document being analyzed. These are used for multi-label trained models. Individual labels represent different categories that are related in some manner and are not mutually exclusive. For example, a movie can be just an action movie, or it can be an action movie, a science fiction movie, and a comedy, all at the same time. </p>\"\
+        },\
+        \"DocumentMetadata\":{\
+          \"shape\":\"DocumentMetadata\",\
+          \"documentation\":\"<p>Extraction information about the document. This field is present in the response only if your request includes the <code>Byte</code> parameter. </p>\"\
+        },\
+        \"DocumentType\":{\
+          \"shape\":\"ListOfDocumentType\",\
+          \"documentation\":\"<p>The document type for each page in the input document. This field is present in the response only if your request includes the <code>Byte</code> parameter. </p>\"\
+        },\
+        \"Errors\":{\
+          \"shape\":\"ListOfErrors\",\
+          \"documentation\":\"<p>Page-level errors that the system detected while processing the input document. The field is empty if the system encountered no errors.</p>\"\
         }\
       },\
       \"sensitive\":true\
@@ -1573,11 +1901,11 @@
       \"members\":{\
         \"Text\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>Creates a new document classification request to analyze a single document in real-time, returning personally identifiable information (PII) entity labels.</p>\"\
+          \"documentation\":\"<p>A UTF-8 text string. The maximum string size is 100 KB.</p>\"\
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>The language of the input documents.</p>\"\
+          \"documentation\":\"<p>The language of the input documents. Currently, English is the only valid language.</p>\"\
         }\
       }\
     },\
@@ -1647,6 +1975,10 @@
         \"ModelKmsKeyId\":{\
           \"shape\":\"KmsKeyId\",\
           \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
+        },\
+        \"ModelPolicy\":{\
+          \"shape\":\"Policy\",\
+          \"documentation\":\"<p>The resource-based policy to attach to your custom document classifier model. You can use this policy to allow another AWS account to import your custom model.</p> <p>Provide your policy as a JSON body that you enter as a UTF-8 encoded string without line breaks. To provide valid JSON, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:</p> <p> <code>\\\"{\\\\\\\"attribute\\\\\\\": \\\\\\\"value\\\\\\\", \\\\\\\"attribute\\\\\\\": [\\\\\\\"value\\\\\\\"]}\\\"</code> </p> <p>To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:</p> <p> <code>'{\\\"attribute\\\": \\\"value\\\", \\\"attribute\\\": [\\\"value\\\"]}'</code> </p>\"\
         }\
       }\
     },\
@@ -1739,7 +2071,7 @@
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p> You can specify any of the following languages supported by Amazon Comprehend: English (\\\"en\\\"), Spanish (\\\"es\\\"), French (\\\"fr\\\"), Italian (\\\"it\\\"), German (\\\"de\\\"), or Portuguese (\\\"pt\\\"). All documents must be in the same language.</p>\"\
+          \"documentation\":\"<p> You can specify any of the following languages: English (\\\"en\\\"), Spanish (\\\"es\\\"), French (\\\"fr\\\"), Italian (\\\"it\\\"), German (\\\"de\\\"), or Portuguese (\\\"pt\\\"). If you plan to use this entity recognizer with PDF, Word, or image input files, you must specify English as the language. All training documents must be in the same language.</p>\"\
         },\
         \"VolumeKmsKeyId\":{\
           \"shape\":\"KmsKeyId\",\
@@ -1752,6 +2084,10 @@
         \"ModelKmsKeyId\":{\
           \"shape\":\"KmsKeyId\",\
           \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
+        },\
+        \"ModelPolicy\":{\
+          \"shape\":\"Policy\",\
+          \"documentation\":\"<p>The JSON resource-based policy to attach to your custom entity recognizer model. You can use this policy to allow another AWS account to import your custom model.</p> <p>Provide your JSON as a UTF-8 encoded string without line breaks. To provide valid JSON for your policy, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:</p> <p> <code>\\\"{\\\\\\\"attribute\\\\\\\": \\\\\\\"value\\\\\\\", \\\\\\\"attribute\\\\\\\": [\\\\\\\"value\\\\\\\"]}\\\"</code> </p> <p>To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:</p> <p> <code>'{\\\"attribute\\\": \\\"value\\\", \\\"attribute\\\": [\\\"value\\\"]}'</code> </p>\"\
         }\
       }\
     },\
@@ -1772,6 +2108,7 @@
     \"CustomerInputStringList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"CustomerInputString\"},\
+      \"min\":1,\
       \"sensitive\":true\
     },\
     \"DeleteDocumentClassifierRequest\":{\
@@ -1815,6 +2152,25 @@
       }\
     },\
     \"DeleteEntityRecognizerResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"DeleteResourcePolicyRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"ResourceArn\"],\
+      \"members\":{\
+        \"ResourceArn\":{\
+          \"shape\":\"ComprehendModelArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the custom model version that has the policy to delete.</p>\"\
+        },\
+        \"PolicyRevisionId\":{\
+          \"shape\":\"PolicyRevisionId\",\
+          \"documentation\":\"<p>The revision ID of the policy to delete.</p>\"\
+        }\
+      }\
+    },\
+    \"DeleteResourcePolicyResponse\":{\
       \"type\":\"structure\",\
       \"members\":{\
       }\
@@ -1987,6 +2343,37 @@
         \"PiiEntitiesDetectionJobProperties\":{\"shape\":\"PiiEntitiesDetectionJobProperties\"}\
       }\
     },\
+    \"DescribeResourcePolicyRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"ResourceArn\"],\
+      \"members\":{\
+        \"ResourceArn\":{\
+          \"shape\":\"ComprehendModelArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the custom model version that has the resource policy.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeResourcePolicyResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ResourcePolicy\":{\
+          \"shape\":\"Policy\",\
+          \"documentation\":\"<p>The JSON body of the resource-based policy.</p>\"\
+        },\
+        \"CreationTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The time at which the policy was created.</p>\"\
+        },\
+        \"LastModifiedTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The time at which the policy was last modified.</p>\"\
+        },\
+        \"PolicyRevisionId\":{\
+          \"shape\":\"PolicyRevisionId\",\
+          \"documentation\":\"<p>The revision ID of the policy. Each time you modify a policy, Amazon Comprehend assigns a new revision ID, and it deletes the prior version of the policy.</p>\"\
+        }\
+      }\
+    },\
     \"DescribeSentimentDetectionJobRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"JobId\"],\
@@ -2003,6 +2390,25 @@
         \"SentimentDetectionJobProperties\":{\
           \"shape\":\"SentimentDetectionJobProperties\",\
           \"documentation\":\"<p>An object that contains the properties associated with a sentiment detection job.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeTargetedSentimentDetectionJobRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"JobId\"],\
+      \"members\":{\
+        \"JobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeTargetedSentimentDetectionJobResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TargetedSentimentDetectionJobProperties\":{\
+          \"shape\":\"TargetedSentimentDetectionJobProperties\",\
+          \"documentation\":\"<p>An object that contains the properties associated with a targeted sentiment detection job.</p>\"\
         }\
       }\
     },\
@@ -2031,7 +2437,7 @@
       \"members\":{\
         \"Text\":{\
           \"shape\":\"CustomerInputString\",\
-          \"documentation\":\"<p>A UTF-8 text string. Each string should contain at least 20 characters and must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
+          \"documentation\":\"<p>A UTF-8 text string. The string must contain at least 20 characters. The maximum string size is 100 KB.</p>\"\
         }\
       }\
     },\
@@ -2047,19 +2453,26 @@
     },\
     \"DetectEntitiesRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\"Text\"],\
       \"members\":{\
         \"Text\":{\
           \"shape\":\"CustomerInputString\",\
-          \"documentation\":\"<p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
+          \"documentation\":\"<p>A UTF-8 text string. The maximum string size is 100 KB. If you enter text using this parameter, do not use the <code>Bytes</code> parameter.</p>\"\
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p> <p>If your request includes the endpoint for a custom entity recognition model, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you specify here.</p>\"\
+          \"documentation\":\"<p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. If your request includes the endpoint for a custom entity recognition model, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you specify here.</p> <p>All input documents must be in the same language.</p>\"\
         },\
         \"EndpointArn\":{\
           \"shape\":\"EntityRecognizerEndpointArn\",\
-          \"documentation\":\"<p>The Amazon Resource Name of an endpoint that is associated with a custom entity recognition model. Provide an endpoint if you want to detect entities by using your own custom model instead of the default model that is used by Amazon Comprehend.</p> <p>If you specify an endpoint, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you provide in your request.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name of an endpoint that is associated with a custom entity recognition model. Provide an endpoint if you want to detect entities by using your own custom model instead of the default model that is used by Amazon Comprehend.</p> <p>If you specify an endpoint, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you provide in your request.</p> <p>For information about endpoints, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html\\\">Managing endpoints</a>.</p>\"\
+        },\
+        \"Bytes\":{\
+          \"shape\":\"SemiStructuredDocumentBlob\",\
+          \"documentation\":\"<p>This field applies only when you use a custom entity recognition model that was trained with PDF annotations. For other cases, enter your text input in the <code>Text</code> field.</p> <p> Use the <code>Bytes</code> parameter to input a text, PDF, Word or image file. Using a plain-text file in the <code>Bytes</code> parameter is equivelent to using the <code>Text</code> parameter (the <code>Entities</code> field in the response is identical).</p> <p>You can also use the <code>Bytes</code> parameter to input an Amazon Textract <code>DetectDocumentText</code> or <code>AnalyzeDocument</code> output file.</p> <p>Provide the input document as a sequence of base64-encoded bytes. If your code uses an Amazon Web Services SDK to detect entities, the SDK may encode the document file bytes for you. </p> <p>The maximum length of this field depends on the input document type. For details, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync.html\\\"> Inputs for real-time custom analysis</a> in the Comprehend Developer Guide. </p> <p>If you use the <code>Bytes</code> parameter, do not use the <code>Text</code> parameter.</p>\"\
+        },\
+        \"DocumentReaderConfig\":{\
+          \"shape\":\"DocumentReaderConfig\",\
+          \"documentation\":\"<p>Provides configuration parameters to override the default actions for extracting text from PDF documents and image files.</p>\"\
         }\
       }\
     },\
@@ -2068,7 +2481,23 @@
       \"members\":{\
         \"Entities\":{\
           \"shape\":\"ListOfEntities\",\
-          \"documentation\":\"<p>A collection of entities identified in the input text. For each entity, the response provides the entity text, entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection. </p> <p>If your request uses a custom entity recognition model, Amazon Comprehend detects the entities that the model is trained to recognize. Otherwise, it detects the default entity types. For a list of default entity types, see <a>how-entities</a>.</p>\"\
+          \"documentation\":\"<p>A collection of entities identified in the input text. For each entity, the response provides the entity text, entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection. </p> <p>If your request uses a custom entity recognition model, Amazon Comprehend detects the entities that the model is trained to recognize. Otherwise, it detects the default entity types. For a list of default entity types, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html\\\">Entities</a> in the Comprehend Developer Guide. </p>\"\
+        },\
+        \"DocumentMetadata\":{\
+          \"shape\":\"DocumentMetadata\",\
+          \"documentation\":\"<p>Information about the document, discovered during text extraction. This field is present in the response only if your request used the <code>Byte</code> parameter. </p>\"\
+        },\
+        \"DocumentType\":{\
+          \"shape\":\"ListOfDocumentType\",\
+          \"documentation\":\"<p>The document type for each page in the input document. This field is present in the response only if your request used the <code>Byte</code> parameter. </p>\"\
+        },\
+        \"Blocks\":{\
+          \"shape\":\"ListOfBlocks\",\
+          \"documentation\":\"<p>Information about each block of text in the input document. Blocks are nested. A page block contains a block for each line of text, which contains a block for each word. </p> <p>The <code>Block</code> content for a Word input document does not include a <code>Geometry</code> field.</p> <p>The <code>Block</code> field is not present in the response for plain-text inputs.</p>\"\
+        },\
+        \"Errors\":{\
+          \"shape\":\"ListOfErrors\",\
+          \"documentation\":\"<p>Page-level errors that the system detected while processing the input document. The field is empty if the system encountered no errors.</p>\"\
         }\
       },\
       \"sensitive\":true\
@@ -2082,7 +2511,7 @@
       \"members\":{\
         \"Text\":{\
           \"shape\":\"CustomerInputString\",\
-          \"documentation\":\"<p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
+          \"documentation\":\"<p>A UTF-8 text string. The string must contain less than 100 KB of UTF-8 encoded characters.</p>\"\
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
@@ -2109,11 +2538,11 @@
       \"members\":{\
         \"Text\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
+          \"documentation\":\"<p>A UTF-8 text string. The maximum string size is 100 KB.</p>\"\
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>The language of the input documents.</p>\"\
+          \"documentation\":\"<p>The language of the input documents. Currently, English is the only valid language.</p>\"\
         }\
       }\
     },\
@@ -2135,7 +2564,7 @@
       \"members\":{\
         \"Text\":{\
           \"shape\":\"CustomerInputString\",\
-          \"documentation\":\"<p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
+          \"documentation\":\"<p>A UTF-8 text string. The maximum string size is 5 KB.</p> <note> <p>Amazon Comprehend performs real-time sentiment analysis on the first 500 characters of the input text and ignores any additional text in the input.</p> </note>\"\
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
@@ -2166,7 +2595,7 @@
       \"members\":{\
         \"Text\":{\
           \"shape\":\"CustomerInputString\",\
-          \"documentation\":\"<p>A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF encoded characters.</p>\"\
+          \"documentation\":\"<p>A UTF-8 string. The maximum string size is 5 KB.</p>\"\
         },\
         \"LanguageCode\":{\
           \"shape\":\"SyntaxLanguageCode\",\
@@ -2179,7 +2608,34 @@
       \"members\":{\
         \"SyntaxTokens\":{\
           \"shape\":\"ListOfSyntaxTokens\",\
-          \"documentation\":\"<p>A collection of syntax tokens describing the text. For each token, the response provides the text, the token type, where the text begins and ends, and the level of confidence that Amazon Comprehend has that the token is correct. For a list of token types, see <a>how-syntax</a>.</p>\"\
+          \"documentation\":\"<p>A collection of syntax tokens describing the text. For each token, the response provides the text, the token type, where the text begins and ends, and the level of confidence that Amazon Comprehend has that the token is correct. For a list of token types, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html\\\">Syntax</a> in the Comprehend Developer Guide. </p>\"\
+        }\
+      },\
+      \"sensitive\":true\
+    },\
+    \"DetectTargetedSentimentRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Text\",\
+        \"LanguageCode\"\
+      ],\
+      \"members\":{\
+        \"Text\":{\
+          \"shape\":\"CustomerInputString\",\
+          \"documentation\":\"<p>A UTF-8 text string. The maximum string length is 5 KB.</p>\"\
+        },\
+        \"LanguageCode\":{\
+          \"shape\":\"LanguageCode\",\
+          \"documentation\":\"<p>The language of the input documents. Currently, English is the only supported language.</p>\"\
+        }\
+      }\
+    },\
+    \"DetectTargetedSentimentResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Entities\":{\
+          \"shape\":\"ListOfTargetedSentimentEntities\",\
+          \"documentation\":\"<p>Targeted sentiment analysis for each of the entities identified in the input text.</p>\"\
         }\
       },\
       \"sensitive\":true\
@@ -2194,6 +2650,10 @@
         \"Score\":{\
           \"shape\":\"Float\",\
           \"documentation\":\"<p>The confidence score that Amazon Comprehend has this class correctly attributed.</p>\"\
+        },\
+        \"Page\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>Page number in the input document. This field is present in the response only if your request includes the <code>Byte</code> parameter. </p>\"\
         }\
       },\
       \"documentation\":\"<p>Specifies the class that categorizes the document being analyzed</p>\"\
@@ -2273,7 +2733,7 @@
         },\
         \"VpcConfig\":{\
           \"shape\":\"VpcConfig\",\
-          \"documentation\":\"<p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your document classification job. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\\\">Amazon VPC</a>. </p>\"\
+          \"documentation\":\"<p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your document classification job. For more information, see <a href=\\\"https://docs.aws.amazon.com/vppc/latest/userguide/what-is-amazon-vpc.html\\\">Amazon VPC</a>. </p>\"\
         }\
       },\
       \"documentation\":\"<p>Provides information about a document classification job.</p>\"\
@@ -2338,7 +2798,7 @@
         },\
         \"TestS3Uri\":{\
           \"shape\":\"S3Uri\",\
-          \"documentation\":\"<p>The Amazon S3 URI for the input data. The Amazon S3 bucket must be in the same AWS Region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of input files. </p>\"\
+          \"documentation\":\"<p>This specifies the Amazon S3 location where the test annotations for an entity recognizer are located. The URI must be in the same AWS Region as the API endpoint that you are calling. </p>\"\
         },\
         \"LabelDelimiter\":{\
           \"shape\":\"LabelDelimiter\",\
@@ -2349,7 +2809,7 @@
           \"documentation\":\"<p>A list of augmented manifest files that provide training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.</p> <p>This parameter is required if you set <code>DataFormat</code> to <code>AUGMENTED_MANIFEST</code>.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The input properties for training a document classifier. </p> <p>For more information on how the input file is formatted, see <a>how-document-classification-training-data</a>. </p>\"\
+      \"documentation\":\"<p>The input properties for training a document classifier. </p> <p>For more information on how the input file is formatted, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/prep-classifier-data.html\\\">Preparing training data</a> in the Comprehend Developer Guide. </p>\"\
     },\
     \"DocumentClassifierMode\":{\
       \"type\":\"string\",\
@@ -2429,7 +2889,7 @@
         },\
         \"VpcConfig\":{\
           \"shape\":\"VpcConfig\",\
-          \"documentation\":\"<p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\\\">Amazon VPC</a>. </p>\"\
+          \"documentation\":\"<p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see <a href=\\\"https://docs.aws.amazon.com/vppc/latest/userguide/what-is-amazon-vpc.html\\\">Amazon VPC</a>. </p>\"\
         },\
         \"Mode\":{\
           \"shape\":\"DocumentClassifierMode\",\
@@ -2442,6 +2902,10 @@
         \"VersionName\":{\
           \"shape\":\"VersionName\",\
           \"documentation\":\"<p>The version name that you assigned to the document classifier.</p>\"\
+        },\
+        \"SourceModelArn\":{\
+          \"shape\":\"DocumentClassifierArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the source model. This model was imported from a different AWS account to create the document classifier model in your AWS account.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Provides information about a document classifier.</p>\"\
@@ -2490,9 +2954,27 @@
         \"Score\":{\
           \"shape\":\"Float\",\
           \"documentation\":\"<p>The confidence score that Amazon Comprehend has this label correctly attributed.</p>\"\
+        },\
+        \"Page\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>Page number where the label occurs. This field is present in the response only if your request includes the <code>Byte</code> parameter. </p>\"\
         }\
       },\
       \"documentation\":\"<p>Specifies one of the label or labels that categorize the document being analyzed.</p>\"\
+    },\
+    \"DocumentMetadata\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Pages\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>Number of pages in the document.</p>\"\
+        },\
+        \"ExtractedCharacters\":{\
+          \"shape\":\"ListOfExtractedCharacters\",\
+          \"documentation\":\"<p>List of pages in the document, with the number of characters extracted from each page.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about the document, discovered during text extraction.</p>\"\
     },\
     \"DocumentReadAction\":{\
       \"type\":\"string\",\
@@ -2503,7 +2985,7 @@
     },\
     \"DocumentReadFeatureTypes\":{\
       \"type\":\"string\",\
-      \"documentation\":\"<p>A list of the types of analyses to perform. This field specifies what feature types need to be extracted from the document where entity recognition is expected.</p> <ul> <li> <p> <code>TABLES</code> - Add TABLES to the list to return information about the tables that are detected in the input document. </p> </li> <li> <p> <code>FORMS</code> - Add FORMS to return detected form data. </p> </li> </ul>\",\
+      \"documentation\":\"<p>Specifies the type of Amazon Textract features to apply. If you chose <code>TEXTRACT_ANALYZE_DOCUMENT</code> as the read action, you must specify one or both of the following values:</p> <ul> <li> <p> <code>TABLES</code> - Returns additional information about any tables that are detected in the input document. </p> </li> <li> <p> <code>FORMS</code> - Returns additional information about any forms that are detected in the input document. </p> </li> </ul>\",\
       \"enum\":[\
         \"TABLES\",\
         \"FORMS\"\
@@ -2522,18 +3004,44 @@
       \"members\":{\
         \"DocumentReadAction\":{\
           \"shape\":\"DocumentReadAction\",\
-          \"documentation\":\"<p>This enum field will start with two values which will apply to PDFs:</p> <ul> <li> <p> <code>TEXTRACT_DETECT_DOCUMENT_TEXT</code> - The service calls DetectDocumentText for PDF documents per page.</p> </li> <li> <p> <code>TEXTRACT_ANALYZE_DOCUMENT</code> - The service calls AnalyzeDocument for PDF documents per page.</p> </li> </ul>\"\
+          \"documentation\":\"<p>This field defines the Amazon Textract API operation that Amazon Comprehend uses to extract text from PDF files and image files. Enter one of the following values:</p> <ul> <li> <p> <code>TEXTRACT_DETECT_DOCUMENT_TEXT</code> - The Amazon Comprehend service uses the <code>DetectDocumentText</code> API operation. </p> </li> <li> <p> <code>TEXTRACT_ANALYZE_DOCUMENT</code> - The Amazon Comprehend service uses the <code>AnalyzeDocument</code> API operation. </p> </li> </ul>\"\
         },\
         \"DocumentReadMode\":{\
           \"shape\":\"DocumentReadMode\",\
-          \"documentation\":\"<p>This enum field provides two values:</p> <ul> <li> <p> <code>SERVICE_DEFAULT</code> - use service defaults for Document reading. For Digital PDF it would mean using an internal parser instead of Textract APIs</p> </li> <li> <p> <code>FORCE_DOCUMENT_READ_ACTION</code> - Always use specified action for DocumentReadAction, including Digital PDF. </p> </li> </ul>\"\
+          \"documentation\":\"<p>Determines the text extraction actions for PDF files. Enter one of the following values:</p> <ul> <li> <p> <code>SERVICE_DEFAULT</code> - use the Amazon Comprehend service defaults for PDF files.</p> </li> <li> <p> <code>FORCE_DOCUMENT_READ_ACTION</code> - Amazon Comprehend uses the Textract API specified by DocumentReadAction for all PDF files, including digital PDF files. </p> </li> </ul>\"\
         },\
         \"FeatureTypes\":{\
           \"shape\":\"ListOfDocumentReadFeatureTypes\",\
-          \"documentation\":\"<p>Specifies how the text in an input file should be processed:</p>\"\
+          \"documentation\":\"<p>Specifies the type of Amazon Textract features to apply. If you chose <code>TEXTRACT_ANALYZE_DOCUMENT</code> as the read action, you must specify one or both of the following values:</p> <ul> <li> <p> <code>TABLES</code> - Returns information about any tables that are detected in the input document. </p> </li> <li> <p> <code>FORMS</code> - Returns information and the data from any forms that are detected in the input document. </p> </li> </ul>\"\
         }\
       },\
-      \"documentation\":\"<p>The input properties for a topic detection job.</p>\"\
+      \"documentation\":\"<p>Provides configuration parameters to override the default actions for extracting text from PDF documents and image files. </p> <p> By default, Amazon Comprehend performs the following actions to extract text from files, based on the input file type: </p> <ul> <li> <p> <b>Word files</b> - Amazon Comprehend parser extracts the text. </p> </li> <li> <p> <b>Digital PDF files</b> - Amazon Comprehend parser extracts the text. </p> </li> <li> <p> <b>Image files and scanned PDF files</b> - Amazon Comprehend uses the Amazon Textract <code>DetectDocumentText</code> API to extract the text. </p> </li> </ul> <p> <code>DocumentReaderConfig</code> does not apply to plain text files or Word files.</p> <p> For image files and PDF documents, you can override these default actions using the fields listed below. For more information, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/detecting-cer.html#detecting-cer-pdf\\\"> Setting text extraction options</a>. </p>\"\
+    },\
+    \"DocumentType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"NATIVE_PDF\",\
+        \"SCANNED_PDF\",\
+        \"MS_WORD\",\
+        \"IMAGE\",\
+        \"PLAIN_TEXT\",\
+        \"TEXTRACT_DETECT_DOCUMENT_TEXT_JSON\",\
+        \"TEXTRACT_ANALYZE_DOCUMENT_JSON\"\
+      ]\
+    },\
+    \"DocumentTypeListItem\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Page\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>Page number.</p>\"\
+        },\
+        \"Type\":{\
+          \"shape\":\"DocumentType\",\
+          \"documentation\":\"<p>Document type.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Document type for each page in the document.</p>\"\
     },\
     \"DominantLanguage\":{\
       \"type\":\"structure\",\
@@ -2700,7 +3208,7 @@
           \"documentation\":\"<p>Data access role ARN to use in case the new model is encrypted with a customer KMS key.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Specifies information about the specified endpoint.</p>\"\
+      \"documentation\":\"<p>Specifies information about the specified endpoint. For information about endpoints, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html\\\">Managing endpoints</a>.</p>\"\
     },\
     \"EndpointPropertiesList\":{\
       \"type\":\"list\",\
@@ -2813,7 +3321,7 @@
         },\
         \"Type\":{\
           \"shape\":\"EntityType\",\
-          \"documentation\":\"<p>The entity's type.</p>\"\
+          \"documentation\":\"<p>The entity type. For entity detection using the built-in model, this field contains one of the standard entity types listed below.</p> <p>For custom entity detection, this field contains one of the entity types that you specified when you trained your custom model.</p>\"\
         },\
         \"Text\":{\
           \"shape\":\"String\",\
@@ -2821,11 +3329,15 @@
         },\
         \"BeginOffset\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>A character offset in the input text that shows where the entity begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.</p>\"\
+          \"documentation\":\"<p>The zero-based offset from the beginning of the source text to the first character in the entity.</p> <p>This field is empty for non-text input.</p>\"\
         },\
         \"EndOffset\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>A character offset in the input text that shows where the entity ends. The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point. </p>\"\
+          \"documentation\":\"<p>The zero-based offset from the beginning of the source text to the last character in the entity.</p> <p>This field is empty for non-text input.</p>\"\
+        },\
+        \"BlockReferences\":{\
+          \"shape\":\"ListOfBlockReferences\",\
+          \"documentation\":\"<p>A reference to each block for this entity. This field is empty for plain-text input.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Provides information about an entity. </p> <p> </p>\"\
@@ -2854,7 +3366,7 @@
         },\
         \"TestS3Uri\":{\
           \"shape\":\"S3Uri\",\
-          \"documentation\":\"<p>This specifies the Amazon S3 location where the test annotations for an entity recognizer are located. The URI must be in the same AWS Region as the API endpoint that you are calling.</p>\"\
+          \"documentation\":\"<p> Specifies the Amazon S3 location where the test annotations for an entity recognizer are located. The URI must be in the same region as the API endpoint that you are calling.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes the annotations associated with a entity recognizer.</p>\"\
@@ -2923,7 +3435,7 @@
         },\
         \"F1Score\":{\
           \"shape\":\"Double\",\
-          \"documentation\":\"<p>A measure of how accurate the recognizer results are for the test data. It is derived from the <code>Precision</code> and <code>Recall</code> values. The <code>F1Score</code> is the harmonic average of the two scores. The highest score is 1, and the worst score is 0. </p>\"\
+          \"documentation\":\"<p>A measure of how accurate the recognizer results are for the test data. It is derived from the <code>Precision</code> and <code>Recall</code> values. The <code>F1Score</code> is the harmonic average of the two scores. For plain text entity recognizer models, the range is 0 to 100, where 100 is the best score. For PDF/Word entity recognizer models, the range is 0 to 1, where 1 is the best score. </p>\"\
         }\
       },\
       \"documentation\":\"<p>Detailed information about the accuracy of an entity recognizer. </p>\"\
@@ -3088,6 +3600,10 @@
         \"VersionName\":{\
           \"shape\":\"VersionName\",\
           \"documentation\":\"<p>The version name you assigned to the entity recognizer.</p>\"\
+        },\
+        \"SourceModelArn\":{\
+          \"shape\":\"EntityRecognizerArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the source model. This model was imported from a different AWS account to create the entity recognizer model in your AWS account.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes information about an entity recognizer.</p>\"\
@@ -3143,7 +3659,7 @@
     \"EntityTypeName\":{\
       \"type\":\"string\",\
       \"max\":64,\
-      \"pattern\":\"^(?:(?!\\\\\\\\n+|\\\\\\\\t+|\\\\\\\\r+|[\\\\r\\\\t\\\\n,]).)+$\"\
+      \"pattern\":\"^(?![^\\\\n\\\\r\\\\t,]*\\\\\\\\n|\\\\\\\\r|\\\\\\\\t)[^\\\\n\\\\r\\\\t,]+$\"\
     },\
     \"EntityTypesEvaluationMetrics\":{\
       \"type\":\"structure\",\
@@ -3177,6 +3693,24 @@
         }\
       },\
       \"documentation\":\"<p>An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.</p>\"\
+    },\
+    \"ErrorsListItem\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Page\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>Page number where the error occurred.</p>\"\
+        },\
+        \"ErrorCode\":{\
+          \"shape\":\"PageBasedErrorCode\",\
+          \"documentation\":\"<p>Error code for the cause of the error.</p>\"\
+        },\
+        \"ErrorMessage\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Text message explaining the reason for the error.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Text extraction encountered one or more page-level errors in the input document.</p> <p>The <code>ErrorCode</code> contains one of the following values:</p> <ul> <li> <p>TEXTRACT_BAD_PAGE - Amazon Textract cannot read the page. For more information about page limits in Amazon Textract, see <a href=\\\"https://docs.aws.amazon.com/textract/latest/dg/limits-document.html\\\"> Page Quotas in Amazon Textract</a>.</p> </li> <li> <p>TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED - The number of requests exceeded your throughput limit. For more information about throughput quotas in Amazon Textract, see <a href=\\\"https://docs.aws.amazon.com/textract/latest/dg/limits-quotas-explained.html\\\"> Default quotas in Amazon Textract</a>.</p> </li> <li> <p>PAGE_CHARACTERS_EXCEEDED - Too many text characters on the page (10,000 characters maximum).</p> </li> <li> <p>PAGE_SIZE_EXCEEDED - The maximum page size is 10 MB.</p> </li> <li> <p>INTERNAL_SERVER_ERROR - The request encountered a service issue. Try the API request again.</p> </li> </ul>\"\
     },\
     \"EventTypeString\":{\
       \"type\":\"string\",\
@@ -3264,12 +3798,79 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"EventsDetectionJobProperties\"}\
     },\
+    \"ExtractedCharactersListItem\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Page\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>Page number.</p>\"\
+        },\
+        \"Count\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>Number of characters extracted from each page.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Array of the number of characters extracted from each page.</p>\"\
+    },\
     \"Float\":{\"type\":\"float\"},\
+    \"Geometry\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"BoundingBox\":{\
+          \"shape\":\"BoundingBox\",\
+          \"documentation\":\"<p>An axis-aligned coarse representation of the location of the recognized item on the document page.</p>\"\
+        },\
+        \"Polygon\":{\
+          \"shape\":\"Polygon\",\
+          \"documentation\":\"<p>Within the bounding box, a fine-grained polygon around the recognized item.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about the location of items on a document page.</p> <p>For additional information, see <a href=\\\"https://docs.aws.amazon.com/textract/latest/dg/API_Geometry.html\\\">Geometry</a> in the Amazon Textract API reference.</p>\"\
+    },\
     \"IamRoleArn\":{\
       \"type\":\"string\",\
       \"max\":2048,\
       \"min\":20,\
       \"pattern\":\"arn:aws(-[^:]+)?:iam::[0-9]{12}:role/.+\"\
+    },\
+    \"ImportModelRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"SourceModelArn\"],\
+      \"members\":{\
+        \"SourceModelArn\":{\
+          \"shape\":\"ComprehendModelArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the custom model to import.</p>\"\
+        },\
+        \"ModelName\":{\
+          \"shape\":\"ComprehendArnName\",\
+          \"documentation\":\"<p>The name to assign to the custom model that is created in Amazon Comprehend by this import.</p>\"\
+        },\
+        \"VersionName\":{\
+          \"shape\":\"VersionName\",\
+          \"documentation\":\"<p>The version name given to the custom model that is created by this import. Version names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The version name must be unique among all models with the same classifier name in the account/AWS Region.</p>\"\
+        },\
+        \"ModelKmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
+        },\
+        \"DataAccessRoleArn\":{\
+          \"shape\":\"IamRoleArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that allows Amazon Comprehend to use Amazon Key Management Service (KMS) to encrypt or decrypt the custom model.</p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags to be associated with the custom model that is created by this import. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with \\\"Sales\\\" as the key might be added to a resource to indicate its use by the sales department.</p>\"\
+        }\
+      }\
+    },\
+    \"ImportModelResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ModelArn\":{\
+          \"shape\":\"ComprehendModelArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the custom model being imported.</p>\"\
+        }\
+      }\
     },\
     \"InferenceUnitsInteger\":{\
       \"type\":\"integer\",\
@@ -3289,10 +3890,10 @@
         },\
         \"DocumentReaderConfig\":{\
           \"shape\":\"DocumentReaderConfig\",\
-          \"documentation\":\"<p>The document reader config field applies only for InputDataConfig of StartEntitiesDetectionJob. </p> <p>Use DocumentReaderConfig to provide specifications about how you want your inference documents read. Currently it applies for PDF documents in StartEntitiesDetectionJob custom inference.</p>\"\
+          \"documentation\":\"<p>Provides configuration parameters to override the default actions for extracting text from PDF documents and image files.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The input properties for an inference job.</p>\"\
+      \"documentation\":\"<p>The input properties for an inference job. The document reader config field applies only to non-text inputs for custom analysis.</p>\"\
     },\
     \"InputFormat\":{\
       \"type\":\"string\",\
@@ -3319,13 +3920,38 @@
       \"documentation\":\"<p>The filter specified for the operation is invalid. Specify a different filter.</p>\",\
       \"exception\":true\
     },\
+    \"InvalidRequestDetail\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Reason\":{\
+          \"shape\":\"InvalidRequestDetailReason\",\
+          \"documentation\":\"<p>Reason code is <code>INVALID_DOCUMENT</code>.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Provides additional detail about why the request failed:</p> <ul> <li> <p>Document size is too large - Check the size of your file and resubmit the request.</p> </li> <li> <p>Document type is not supported - Check the file type and resubmit the request.</p> </li> <li> <p>Too many pages in the document - Check the number of pages in your file and resubmit the request.</p> </li> <li> <p>Access denied to Amazon Textract - Verify that your account has permission to use Amazon Textract API operations and resubmit the request.</p> </li> </ul>\"\
+    },\
+    \"InvalidRequestDetailReason\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"DOCUMENT_SIZE_EXCEEDED\",\
+        \"UNSUPPORTED_DOC_TYPE\",\
+        \"PAGE_LIMIT_EXCEEDED\",\
+        \"TEXTRACT_ACCESS_DENIED\"\
+      ]\
+    },\
     \"InvalidRequestException\":{\
       \"type\":\"structure\",\
       \"members\":{\
-        \"Message\":{\"shape\":\"String\"}\
+        \"Message\":{\"shape\":\"String\"},\
+        \"Reason\":{\"shape\":\"InvalidRequestReason\"},\
+        \"Detail\":{\"shape\":\"InvalidRequestDetail\"}\
       },\
       \"documentation\":\"<p>The request is invalid.</p>\",\
       \"exception\":true\
+    },\
+    \"InvalidRequestReason\":{\
+      \"type\":\"string\",\
+      \"enum\":[\"INVALID_DOCUMENT\"]\
     },\
     \"JobId\":{\
       \"type\":\"string\",\
@@ -3371,11 +3997,11 @@
         },\
         \"BeginOffset\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>A character offset in the input text that shows where the key phrase begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.</p>\"\
+          \"documentation\":\"<p>The zero-based offset from the beginning of the source text to the first character in the key phrase.</p>\"\
         },\
         \"EndOffset\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>A character offset in the input text where the key phrase ends. The offset returns the position of each UTF-8 code point in the string. A <code>code point</code> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.</p>\"\
+          \"documentation\":\"<p>The zero-based offset from the beginning of the source text to the last character in the key phrase.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes a key noun phrase.</p>\"\
@@ -3467,7 +4093,7 @@
     \"KmsKeyId\":{\
       \"type\":\"string\",\
       \"max\":2048,\
-      \"pattern\":\".*\"\
+      \"pattern\":\"^\\\\p{ASCII}+$\"\
     },\
     \"KmsKeyValidationException\":{\
       \"type\":\"structure\",\
@@ -3792,9 +4418,25 @@
         }\
       }\
     },\
+    \"ListOfBlockReferences\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"BlockReference\"}\
+    },\
+    \"ListOfBlocks\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Block\"}\
+    },\
+    \"ListOfChildBlocks\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ChildBlock\"}\
+    },\
     \"ListOfClasses\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"DocumentClass\"}\
+    },\
+    \"ListOfDescriptiveMentionIndices\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Integer\"}\
     },\
     \"ListOfDetectDominantLanguageResult\":{\
       \"type\":\"list\",\
@@ -3816,11 +4458,19 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"BatchDetectSyntaxItemResult\"}\
     },\
+    \"ListOfDetectTargetedSentimentResult\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"BatchDetectTargetedSentimentItemResult\"}\
+    },\
     \"ListOfDocumentReadFeatureTypes\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"DocumentReadFeatureTypes\"},\
       \"max\":2,\
       \"min\":1\
+    },\
+    \"ListOfDocumentType\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"DocumentTypeListItem\"}\
     },\
     \"ListOfDominantLanguages\":{\
       \"type\":\"list\",\
@@ -3834,6 +4484,14 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"EntityLabel\"}\
     },\
+    \"ListOfErrors\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ErrorsListItem\"}\
+    },\
+    \"ListOfExtractedCharacters\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ExtractedCharactersListItem\"}\
+    },\
     \"ListOfKeyPhrases\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"KeyPhrase\"}\
@@ -3841,6 +4499,10 @@
     \"ListOfLabels\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"DocumentLabel\"}\
+    },\
+    \"ListOfMentions\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"TargetedSentimentMention\"}\
     },\
     \"ListOfPiiEntities\":{\
       \"type\":\"list\",\
@@ -3850,9 +4512,17 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"PiiEntityType\"}\
     },\
+    \"ListOfRelationships\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"RelationshipsListItem\"}\
+    },\
     \"ListOfSyntaxTokens\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"SyntaxToken\"}\
+    },\
+    \"ListOfTargetedSentimentEntities\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"TargetedSentimentEntity\"}\
     },\
     \"ListPiiEntitiesDetectionJobsRequest\":{\
       \"type\":\"structure\",\
@@ -3937,6 +4607,36 @@
         }\
       }\
     },\
+    \"ListTargetedSentimentDetectionJobsRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Filter\":{\
+          \"shape\":\"TargetedSentimentDetectionJobFilter\",\
+          \"documentation\":\"<p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Identifies the next page of results to return.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResultsInteger\",\
+          \"documentation\":\"<p>The maximum number of results to return in each page. The default is 100.</p>\"\
+        }\
+      }\
+    },\
+    \"ListTargetedSentimentDetectionJobsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TargetedSentimentDetectionJobPropertiesList\":{\
+          \"shape\":\"TargetedSentimentDetectionJobPropertiesList\",\
+          \"documentation\":\"<p>A list containing the properties of each job that is returned.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Identifies the next page of results to return.</p>\"\
+        }\
+      }\
+    },\
     \"ListTopicsDetectionJobsRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -3978,6 +4678,17 @@
       \"max\":500,\
       \"min\":1\
     },\
+    \"MentionSentiment\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Sentiment\":{\
+          \"shape\":\"SentimentType\",\
+          \"documentation\":\"<p>The sentiment of the mention. </p>\"\
+        },\
+        \"SentimentScore\":{\"shape\":\"SentimentScore\"}\
+      },\
+      \"documentation\":\"<p>Contains the sentiment and sentiment score for one mention of an entity.</p> <p>For more information about targeted sentiment, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html\\\">Targeted sentiment</a>.</p>\"\
+    },\
     \"ModelStatus\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -4001,14 +4712,24 @@
       \"members\":{\
         \"S3Uri\":{\
           \"shape\":\"S3Uri\",\
-          \"documentation\":\"<p>When you use the <code>OutputDataConfig</code> object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data. The URI must be in the same region as the API endpoint that you are calling. The location is used as the prefix for the actual location of the output file.</p> <p>When the topic detection job is finished, the service creates an output file in a directory specific to the job. The <code>S3Uri</code> field contains the location of the output file, called <code>output.tar.gz</code>. It is a compressed archive that contains the ouput of the operation.</p>\"\
+          \"documentation\":\"<p>When you use the <code>OutputDataConfig</code> object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data. The URI must be in the same region as the API endpoint that you are calling. The location is used as the prefix for the actual location of the output file.</p> <p>When the topic detection job is finished, the service creates an output file in a directory specific to the job. The <code>S3Uri</code> field contains the location of the output file, called <code>output.tar.gz</code>. It is a compressed archive that contains the ouput of the operation.</p> <p> For a PII entity detection job, the output file is plain text, not a compressed archive. The output file name is the same as the input file, with <code>.out</code> appended at the end. </p>\"\
         },\
         \"KmsKeyId\":{\
           \"shape\":\"KmsKeyId\",\
           \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>KMS Key Alias: <code>\\\"alias/ExampleAlias\\\"</code> </p> </li> <li> <p>ARN of a KMS Key Alias: <code>\\\"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias\\\"</code> </p> </li> </ul>\"\
         }\
       },\
-      \"documentation\":\"<p>Provides configuration parameters for the output of topic detection jobs.</p> <p/>\"\
+      \"documentation\":\"<p>Provides configuration parameters for the output of inference jobs.</p> <p/>\"\
+    },\
+    \"PageBasedErrorCode\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"TEXTRACT_BAD_PAGE\",\
+        \"TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED\",\
+        \"PAGE_CHARACTERS_EXCEEDED\",\
+        \"PAGE_SIZE_EXCEEDED\",\
+        \"INTERNAL_SERVER_ERROR\"\
+      ]\
     },\
     \"PartOfSpeechTag\":{\
       \"type\":\"structure\",\
@@ -4022,7 +4743,7 @@
           \"documentation\":\"<p>The confidence that Amazon Comprehend has that the part of speech was correctly identified.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Identifies the part of speech represented by the token and gives the confidence that Amazon Comprehend has that the part of speech was correctly identified. For more information about the parts of speech that Amazon Comprehend can identify, see <a>how-syntax</a>.</p>\"\
+      \"documentation\":\"<p>Identifies the part of speech represented by the token and gives the confidence that Amazon Comprehend has that the part of speech was correctly identified. For more information about the parts of speech that Amazon Comprehend can identify, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html\\\">Syntax</a> in the Comprehend Developer Guide. </p>\"\
     },\
     \"PartOfSpeechTagType\":{\
       \"type\":\"string\",\
@@ -4158,11 +4879,11 @@
         },\
         \"BeginOffset\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>A character offset in the input text that shows where the PII entity begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.</p>\"\
+          \"documentation\":\"<p>The zero-based offset from the beginning of the source text to the first character in the entity.</p>\"\
         },\
         \"EndOffset\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>A character offset in the input text that shows where the PII entity ends. The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.</p>\"\
+          \"documentation\":\"<p>The zero-based offset from the beginning of the source text to the last character in the entity.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Provides information about a PII entity.</p>\"\
@@ -4192,7 +4913,21 @@
         \"AWS_SECRET_KEY\",\
         \"IP_ADDRESS\",\
         \"MAC_ADDRESS\",\
-        \"ALL\"\
+        \"ALL\",\
+        \"LICENSE_PLATE\",\
+        \"VEHICLE_IDENTIFICATION_NUMBER\",\
+        \"UK_NATIONAL_INSURANCE_NUMBER\",\
+        \"CA_SOCIAL_INSURANCE_NUMBER\",\
+        \"US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER\",\
+        \"UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER\",\
+        \"IN_PERMANENT_ACCOUNT_NUMBER\",\
+        \"IN_NREGA\",\
+        \"INTERNATIONAL_BANK_ACCOUNT_NUMBER\",\
+        \"SWIFT_CODE\",\
+        \"UK_NATIONAL_HEALTH_SERVICE_NUMBER\",\
+        \"CA_HEALTH_NUMBER\",\
+        \"IN_AADHAAR\",\
+        \"IN_VOTER_NUMBER\"\
       ]\
     },\
     \"PiiOutputDataConfig\":{\
@@ -4201,7 +4936,7 @@
       \"members\":{\
         \"S3Uri\":{\
           \"shape\":\"S3Uri\",\
-          \"documentation\":\"<p>When you use the <code>PiiOutputDataConfig</code> object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data. </p>\"\
+          \"documentation\":\"<p>When you use the <code>PiiOutputDataConfig</code> object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data. </p> <p> For a PII entity detection job, the output file is plain text, not a compressed archive. The output file name is the same as the input file, with <code>.out</code> appended at the end. </p>\"\
         },\
         \"KmsKeyId\":{\
           \"shape\":\"KmsKeyId\",\
@@ -4209,6 +4944,65 @@
         }\
       },\
       \"documentation\":\"<p>Provides configuration parameters for the output of PII entity detection jobs.</p>\"\
+    },\
+    \"Point\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"X\":{\
+          \"shape\":\"Float\",\
+          \"documentation\":\"<p>The value of the X coordinate for a point on a polygon</p>\"\
+        },\
+        \"Y\":{\
+          \"shape\":\"Float\",\
+          \"documentation\":\"<p>The value of the Y coordinate for a point on a polygon</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The X and Y coordinates of a point on a document page.</p> <p>For additional information, see <a href=\\\"https://docs.aws.amazon.com/textract/latest/dg/API_Point.html\\\">Point</a> in the Amazon Textract API reference.</p>\"\
+    },\
+    \"Policy\":{\
+      \"type\":\"string\",\
+      \"max\":20000,\
+      \"min\":1,\
+      \"pattern\":\"[\\\\u0009\\\\u000A\\\\u000D\\\\u0020-\\\\u00FF]+\"\
+    },\
+    \"PolicyRevisionId\":{\
+      \"type\":\"string\",\
+      \"max\":64,\
+      \"pattern\":\"[0-9A-Fa-f]+\"\
+    },\
+    \"Polygon\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Point\"}\
+    },\
+    \"PutResourcePolicyRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ResourceArn\",\
+        \"ResourcePolicy\"\
+      ],\
+      \"members\":{\
+        \"ResourceArn\":{\
+          \"shape\":\"ComprehendModelArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the custom model to attach the policy to.</p>\"\
+        },\
+        \"ResourcePolicy\":{\
+          \"shape\":\"Policy\",\
+          \"documentation\":\"<p>The JSON resource-based policy to attach to your custom model. Provide your JSON as a UTF-8 encoded string without line breaks. To provide valid JSON for your policy, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:</p> <p> <code>\\\"{\\\\\\\"attribute\\\\\\\": \\\\\\\"value\\\\\\\", \\\\\\\"attribute\\\\\\\": [\\\\\\\"value\\\\\\\"]}\\\"</code> </p> <p>To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:</p> <p> <code>'{\\\"attribute\\\": \\\"value\\\", \\\"attribute\\\": [\\\"value\\\"]}'</code> </p>\"\
+        },\
+        \"PolicyRevisionId\":{\
+          \"shape\":\"PolicyRevisionId\",\
+          \"documentation\":\"<p>The revision ID that Amazon Comprehend assigned to the policy that you are updating. If you are creating a new policy that has no prior version, don't use this parameter. Amazon Comprehend creates the revision ID for you.</p>\"\
+        }\
+      }\
+    },\
+    \"PutResourcePolicyResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PolicyRevisionId\":{\
+          \"shape\":\"PolicyRevisionId\",\
+          \"documentation\":\"<p>The revision ID of the policy. Each time you modify a policy, Amazon Comprehend assigns a new revision ID, and it deletes the prior version of the policy.</p>\"\
+        }\
+      }\
     },\
     \"RedactionConfig\":{\
       \"type\":\"structure\",\
@@ -4227,6 +5021,24 @@
         }\
       },\
       \"documentation\":\"<p>Provides configuration parameters for PII entity redaction.</p>\"\
+    },\
+    \"RelationshipType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\"CHILD\"]\
+    },\
+    \"RelationshipsListItem\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Ids\":{\
+          \"shape\":\"StringList\",\
+          \"documentation\":\"<p>Identifers of the child blocks.</p>\"\
+        },\
+        \"Type\":{\
+          \"shape\":\"RelationshipType\",\
+          \"documentation\":\"<p>Only supported relationship is a child relationship.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>List of child blocks for the current block.</p>\"\
     },\
     \"ResourceInUseException\":{\
       \"type\":\"structure\",\
@@ -4275,6 +5087,10 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"SecurityGroupId\"},\
       \"max\":5,\
+      \"min\":1\
+    },\
+    \"SemiStructuredDocumentBlob\":{\
+      \"type\":\"blob\",\
       \"min\":1\
     },\
     \"SentimentDetectionJobFilter\":{\
@@ -4756,7 +5572,7 @@
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>The language of the input documents.</p>\"\
+          \"documentation\":\"<p>The language of the input documents. Currently, English is the only valid language.</p>\"\
         },\
         \"ClientRequestToken\":{\
           \"shape\":\"ClientRequestTokenString\",\
@@ -4844,6 +5660,65 @@
         \"JobArn\":{\
           \"shape\":\"ComprehendArn\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the sentiment detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:sentiment-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:sentiment-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
+        },\
+        \"JobStatus\":{\
+          \"shape\":\"JobStatus\",\
+          \"documentation\":\"<p>The status of the job. </p> <ul> <li> <p>SUBMITTED - The job has been received and is queued for processing.</p> </li> <li> <p>IN_PROGRESS - Amazon Comprehend is processing the job.</p> </li> <li> <p>COMPLETED - The job was successfully completed and the output is available.</p> </li> <li> <p>FAILED - The job did not complete. To get details, use the operation.</p> </li> </ul>\"\
+        }\
+      }\
+    },\
+    \"StartTargetedSentimentDetectionJobRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InputDataConfig\",\
+        \"OutputDataConfig\",\
+        \"DataAccessRoleArn\",\
+        \"LanguageCode\"\
+      ],\
+      \"members\":{\
+        \"InputDataConfig\":{\"shape\":\"InputDataConfig\"},\
+        \"OutputDataConfig\":{\
+          \"shape\":\"OutputDataConfig\",\
+          \"documentation\":\"<p>Specifies where to send the output files. </p>\"\
+        },\
+        \"DataAccessRoleArn\":{\
+          \"shape\":\"IamRoleArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions\\\">Role-based permissions</a>.</p>\"\
+        },\
+        \"JobName\":{\
+          \"shape\":\"JobName\",\
+          \"documentation\":\"<p>The identifier of the job.</p>\"\
+        },\
+        \"LanguageCode\":{\
+          \"shape\":\"LanguageCode\",\
+          \"documentation\":\"<p>The language of the input documents. Currently, English is the only supported language.</p>\"\
+        },\
+        \"ClientRequestToken\":{\
+          \"shape\":\"ClientRequestTokenString\",\
+          \"documentation\":\"<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>\",\
+          \"idempotencyToken\":true\
+        },\
+        \"VolumeKmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>ID for the KMS key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
+        },\
+        \"VpcConfig\":{\"shape\":\"VpcConfig\"},\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags to be associated with the targeted sentiment detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \\\"Sales\\\" as the key might be added to a resource to indicate its use by the sales department.</p>\"\
+        }\
+      }\
+    },\
+    \"StartTargetedSentimentDetectionJobResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"JobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The identifier generated for the job. To get the status of a job, use this identifier with the operation.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the targeted sentiment detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:targeted-sentiment-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:targeted-sentiment-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobStatus\":{\
           \"shape\":\"JobStatus\",\
@@ -5053,6 +5928,29 @@
         }\
       }\
     },\
+    \"StopTargetedSentimentDetectionJobRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"JobId\"],\
+      \"members\":{\
+        \"JobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The identifier of the targeted sentiment detection job to stop.</p>\"\
+        }\
+      }\
+    },\
+    \"StopTargetedSentimentDetectionJobResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"JobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The identifier of the targeted sentiment detection job to stop.</p>\"\
+        },\
+        \"JobStatus\":{\
+          \"shape\":\"JobStatus\",\
+          \"documentation\":\"<p>Either <code>STOP_REQUESTED</code> if the job is currently running, or <code>STOPPED</code> if the job was previously stopped with the <code>StopSentimentDetectionJob</code> operation.</p>\"\
+        }\
+      }\
+    },\
     \"StopTrainingDocumentClassifierRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"DocumentClassifierArn\"],\
@@ -5086,6 +5984,10 @@
     \"String\":{\
       \"type\":\"string\",\
       \"min\":1\
+    },\
+    \"StringList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"String\"}\
     },\
     \"SubnetId\":{\
       \"type\":\"string\",\
@@ -5131,7 +6033,7 @@
         },\
         \"PartOfSpeech\":{\
           \"shape\":\"PartOfSpeechTag\",\
-          \"documentation\":\"<p>Provides the part of speech label and the confidence level that Amazon Comprehend has that the part of speech was correctly identified. For more information, see <a>how-syntax</a>.</p>\"\
+          \"documentation\":\"<p>Provides the part of speech label and the confidence level that Amazon Comprehend has that the part of speech was correctly identified. For more information, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html\\\">Syntax</a> in the Comprehend Developer Guide. </p>\"\
         }\
       },\
       \"documentation\":\"<p>Represents a work in the input text that was recognized and assigned a part of speech. There is one syntax token record for each word in the source text.</p>\"\
@@ -5195,6 +6097,151 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"EventTypeString\"},\
       \"min\":1\
+    },\
+    \"TargetedSentimentDetectionJobFilter\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"JobName\":{\
+          \"shape\":\"JobName\",\
+          \"documentation\":\"<p>Filters on the name of the job.</p>\"\
+        },\
+        \"JobStatus\":{\
+          \"shape\":\"JobStatus\",\
+          \"documentation\":\"<p>Filters the list of jobs based on job status. Returns only jobs with the specified status.</p>\"\
+        },\
+        \"SubmitTimeBefore\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.</p>\"\
+        },\
+        \"SubmitTimeAfter\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Provides information for filtering a list of dominant language detection jobs. For more information, see the operation.</p>\"\
+    },\
+    \"TargetedSentimentDetectionJobProperties\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"JobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The identifier assigned to the targeted sentiment detection job.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the targeted sentiment detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:targeted-sentiment-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:targeted-sentiment-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
+        },\
+        \"JobName\":{\
+          \"shape\":\"JobName\",\
+          \"documentation\":\"<p>The name that you assigned to the targeted sentiment detection job.</p>\"\
+        },\
+        \"JobStatus\":{\
+          \"shape\":\"JobStatus\",\
+          \"documentation\":\"<p>The current status of the targeted sentiment detection job. If the status is <code>FAILED</code>, the <code>Messages</code> field shows the reason for the failure.</p>\"\
+        },\
+        \"Message\":{\
+          \"shape\":\"AnyLengthString\",\
+          \"documentation\":\"<p>A description of the status of a job.</p>\"\
+        },\
+        \"SubmitTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The time that the targeted sentiment detection job was submitted for processing.</p>\"\
+        },\
+        \"EndTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The time that the targeted sentiment detection job ended.</p>\"\
+        },\
+        \"InputDataConfig\":{\"shape\":\"InputDataConfig\"},\
+        \"OutputDataConfig\":{\"shape\":\"OutputDataConfig\"},\
+        \"LanguageCode\":{\
+          \"shape\":\"LanguageCode\",\
+          \"documentation\":\"<p>The language code of the input documents.</p>\"\
+        },\
+        \"DataAccessRoleArn\":{\
+          \"shape\":\"IamRoleArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>\"\
+        },\
+        \"VolumeKmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the targeted sentiment detection job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
+        },\
+        \"VpcConfig\":{\"shape\":\"VpcConfig\"}\
+      },\
+      \"documentation\":\"<p>Provides information about a targeted sentiment detection job.</p>\"\
+    },\
+    \"TargetedSentimentDetectionJobPropertiesList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"TargetedSentimentDetectionJobProperties\"}\
+    },\
+    \"TargetedSentimentEntity\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DescriptiveMentionIndex\":{\
+          \"shape\":\"ListOfDescriptiveMentionIndices\",\
+          \"documentation\":\"<p>One or more index into the Mentions array that provides the best name for the entity group.</p>\"\
+        },\
+        \"Mentions\":{\
+          \"shape\":\"ListOfMentions\",\
+          \"documentation\":\"<p>An array of mentions of the entity in the document. The array represents a co-reference group. See <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html#how-targeted-sentiment-values\\\"> Co-reference group</a> for an example. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about one of the entities found by targeted sentiment analysis.</p> <p>For more information about targeted sentiment, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html\\\">Targeted sentiment</a>.</p>\"\
+    },\
+    \"TargetedSentimentEntityType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"PERSON\",\
+        \"LOCATION\",\
+        \"ORGANIZATION\",\
+        \"FACILITY\",\
+        \"BRAND\",\
+        \"COMMERCIAL_ITEM\",\
+        \"MOVIE\",\
+        \"MUSIC\",\
+        \"BOOK\",\
+        \"SOFTWARE\",\
+        \"GAME\",\
+        \"PERSONAL_TITLE\",\
+        \"EVENT\",\
+        \"DATE\",\
+        \"QUANTITY\",\
+        \"ATTRIBUTE\",\
+        \"OTHER\"\
+      ]\
+    },\
+    \"TargetedSentimentMention\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Score\":{\
+          \"shape\":\"Float\",\
+          \"documentation\":\"<p>Model confidence that the entity is relevant. Value range is zero to one, where one is highest confidence.</p>\"\
+        },\
+        \"GroupScore\":{\
+          \"shape\":\"Float\",\
+          \"documentation\":\"<p>The confidence that all the entities mentioned in the group relate to the same entity.</p>\"\
+        },\
+        \"Text\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The text in the document that identifies the entity.</p>\"\
+        },\
+        \"Type\":{\
+          \"shape\":\"TargetedSentimentEntityType\",\
+          \"documentation\":\"<p>The type of the entity. Amazon Comprehend supports a variety of <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html#how-targeted-sentiment-entities\\\">entity types</a>.</p>\"\
+        },\
+        \"MentionSentiment\":{\
+          \"shape\":\"MentionSentiment\",\
+          \"documentation\":\"<p>Contains the sentiment and sentiment score for the mention.</p>\"\
+        },\
+        \"BeginOffset\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The offset into the document text where the mention begins.</p>\"\
+        },\
+        \"EndOffset\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The offset into the document text where the mention ends.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about one mention of an entity. The mention information includes the location of the mention in the text and the sentiment of the mention.</p> <p>For more information about targeted sentiment, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html\\\">Targeted sentiment</a>.</p>\"\
     },\
     \"TextSizeLimitExceededException\":{\
       \"type\":\"structure\",\
@@ -5318,7 +6365,7 @@
       \"members\":{\
         \"Message\":{\"shape\":\"String\"}\
       },\
-      \"documentation\":\"<p>Amazon Comprehend can't process the language of the input text. For custom entity recognition APIs, only English, Spanish, French, Italian, German, or Portuguese are accepted. For a list of supported languages, see <a>supported-languages</a>. </p>\",\
+      \"documentation\":\"<p>Amazon Comprehend can't process the language of the input text. For custom entity recognition APIs, only English, Spanish, French, Italian, German, or Portuguese are accepted. For a list of supported languages, <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html\\\">Supported languages</a> in the Comprehend Developer Guide. </p>\",\
       \"exception\":true\
     },\
     \"UntagResourceRequest\":{\

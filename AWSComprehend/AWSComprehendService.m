@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
 #import "AWSComprehendResources.h"
 
 static NSString *const AWSInfoComprehend = @"Comprehend";
-NSString *const AWSComprehendSDKVersion = @"2.26.7";
+NSString *const AWSComprehendSDKVersion = @"2.30.4";
 
 
 @interface AWSComprehendResponseSerializer : AWSJSONResponseSerializer
@@ -404,6 +404,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendBatchDetectTargetedSentimentResponse *> *)batchDetectTargetedSentiment:(AWSComprehendBatchDetectTargetedSentimentRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"BatchDetectTargetedSentiment"
+                   outputClass:[AWSComprehendBatchDetectTargetedSentimentResponse class]];
+}
+
+- (void)batchDetectTargetedSentiment:(AWSComprehendBatchDetectTargetedSentimentRequest *)request
+     completionHandler:(void (^)(AWSComprehendBatchDetectTargetedSentimentResponse *response, NSError *error))completionHandler {
+    [[self batchDetectTargetedSentiment:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendBatchDetectTargetedSentimentResponse *> * _Nonnull task) {
+        AWSComprehendBatchDetectTargetedSentimentResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendClassifyDocumentResponse *> *)classifyDocument:(AWSComprehendClassifyDocumentRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -578,6 +601,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendDeleteEntityRecognizerResponse *response, NSError *error))completionHandler {
     [[self deleteEntityRecognizer:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDeleteEntityRecognizerResponse *> * _Nonnull task) {
         AWSComprehendDeleteEntityRecognizerResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendDeleteResourcePolicyResponse *> *)deleteResourcePolicy:(AWSComprehendDeleteResourcePolicyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DeleteResourcePolicy"
+                   outputClass:[AWSComprehendDeleteResourcePolicyResponse class]];
+}
+
+- (void)deleteResourcePolicy:(AWSComprehendDeleteResourcePolicyRequest *)request
+     completionHandler:(void (^)(AWSComprehendDeleteResourcePolicyResponse *response, NSError *error))completionHandler {
+    [[self deleteResourcePolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDeleteResourcePolicyResponse *> * _Nonnull task) {
+        AWSComprehendDeleteResourcePolicyResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -795,6 +841,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendDescribeResourcePolicyResponse *> *)describeResourcePolicy:(AWSComprehendDescribeResourcePolicyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DescribeResourcePolicy"
+                   outputClass:[AWSComprehendDescribeResourcePolicyResponse class]];
+}
+
+- (void)describeResourcePolicy:(AWSComprehendDescribeResourcePolicyRequest *)request
+     completionHandler:(void (^)(AWSComprehendDescribeResourcePolicyResponse *response, NSError *error))completionHandler {
+    [[self describeResourcePolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDescribeResourcePolicyResponse *> * _Nonnull task) {
+        AWSComprehendDescribeResourcePolicyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendDescribeSentimentDetectionJobResponse *> *)describeSentimentDetectionJob:(AWSComprehendDescribeSentimentDetectionJobRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -808,6 +877,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendDescribeSentimentDetectionJobResponse *response, NSError *error))completionHandler {
     [[self describeSentimentDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDescribeSentimentDetectionJobResponse *> * _Nonnull task) {
         AWSComprehendDescribeSentimentDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendDescribeTargetedSentimentDetectionJobResponse *> *)describeTargetedSentimentDetectionJob:(AWSComprehendDescribeTargetedSentimentDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DescribeTargetedSentimentDetectionJob"
+                   outputClass:[AWSComprehendDescribeTargetedSentimentDetectionJobResponse class]];
+}
+
+- (void)describeTargetedSentimentDetectionJob:(AWSComprehendDescribeTargetedSentimentDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendDescribeTargetedSentimentDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self describeTargetedSentimentDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDescribeTargetedSentimentDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendDescribeTargetedSentimentDetectionJobResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -969,6 +1061,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendDetectSyntaxResponse *response, NSError *error))completionHandler {
     [[self detectSyntax:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDetectSyntaxResponse *> * _Nonnull task) {
         AWSComprehendDetectSyntaxResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendDetectTargetedSentimentResponse *> *)detectTargetedSentiment:(AWSComprehendDetectTargetedSentimentRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DetectTargetedSentiment"
+                   outputClass:[AWSComprehendDetectTargetedSentimentResponse class]];
+}
+
+- (void)detectTargetedSentiment:(AWSComprehendDetectTargetedSentimentRequest *)request
+     completionHandler:(void (^)(AWSComprehendDetectTargetedSentimentResponse *response, NSError *error))completionHandler {
+    [[self detectTargetedSentiment:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDetectTargetedSentimentResponse *> * _Nonnull task) {
+        AWSComprehendDetectTargetedSentimentResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendImportModelResponse *> *)importModel:(AWSComprehendImportModelRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"ImportModel"
+                   outputClass:[AWSComprehendImportModelResponse class]];
+}
+
+- (void)importModel:(AWSComprehendImportModelRequest *)request
+     completionHandler:(void (^)(AWSComprehendImportModelResponse *response, NSError *error))completionHandler {
+    [[self importModel:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendImportModelResponse *> * _Nonnull task) {
+        AWSComprehendImportModelResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1278,6 +1416,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendListTargetedSentimentDetectionJobsResponse *> *)listTargetedSentimentDetectionJobs:(AWSComprehendListTargetedSentimentDetectionJobsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"ListTargetedSentimentDetectionJobs"
+                   outputClass:[AWSComprehendListTargetedSentimentDetectionJobsResponse class]];
+}
+
+- (void)listTargetedSentimentDetectionJobs:(AWSComprehendListTargetedSentimentDetectionJobsRequest *)request
+     completionHandler:(void (^)(AWSComprehendListTargetedSentimentDetectionJobsResponse *response, NSError *error))completionHandler {
+    [[self listTargetedSentimentDetectionJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendListTargetedSentimentDetectionJobsResponse *> * _Nonnull task) {
+        AWSComprehendListTargetedSentimentDetectionJobsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendListTopicsDetectionJobsResponse *> *)listTopicsDetectionJobs:(AWSComprehendListTopicsDetectionJobsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1291,6 +1452,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendListTopicsDetectionJobsResponse *response, NSError *error))completionHandler {
     [[self listTopicsDetectionJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendListTopicsDetectionJobsResponse *> * _Nonnull task) {
         AWSComprehendListTopicsDetectionJobsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendPutResourcePolicyResponse *> *)putResourcePolicy:(AWSComprehendPutResourcePolicyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"PutResourcePolicy"
+                   outputClass:[AWSComprehendPutResourcePolicyResponse class]];
+}
+
+- (void)putResourcePolicy:(AWSComprehendPutResourcePolicyRequest *)request
+     completionHandler:(void (^)(AWSComprehendPutResourcePolicyResponse *response, NSError *error))completionHandler {
+    [[self putResourcePolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendPutResourcePolicyResponse *> * _Nonnull task) {
+        AWSComprehendPutResourcePolicyResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1462,6 +1646,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendStartTargetedSentimentDetectionJobResponse *> *)startTargetedSentimentDetectionJob:(AWSComprehendStartTargetedSentimentDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"StartTargetedSentimentDetectionJob"
+                   outputClass:[AWSComprehendStartTargetedSentimentDetectionJobResponse class]];
+}
+
+- (void)startTargetedSentimentDetectionJob:(AWSComprehendStartTargetedSentimentDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendStartTargetedSentimentDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self startTargetedSentimentDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStartTargetedSentimentDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendStartTargetedSentimentDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendStartTopicsDetectionJobResponse *> *)startTopicsDetectionJob:(AWSComprehendStartTopicsDetectionJobRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1613,6 +1820,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendStopSentimentDetectionJobResponse *response, NSError *error))completionHandler {
     [[self stopSentimentDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStopSentimentDetectionJobResponse *> * _Nonnull task) {
         AWSComprehendStopSentimentDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendStopTargetedSentimentDetectionJobResponse *> *)stopTargetedSentimentDetectionJob:(AWSComprehendStopTargetedSentimentDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"StopTargetedSentimentDetectionJob"
+                   outputClass:[AWSComprehendStopTargetedSentimentDetectionJobResponse class]];
+}
+
+- (void)stopTargetedSentimentDetectionJob:(AWSComprehendStopTargetedSentimentDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendStopTargetedSentimentDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self stopTargetedSentimentDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStopTargetedSentimentDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendStopTargetedSentimentDetectionJobResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

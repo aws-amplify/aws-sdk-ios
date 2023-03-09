@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -82,7 +82,8 @@
         {\"shape\":\"BadRequestException\"},\
         {\"shape\":\"LimitExceededException\"},\
         {\"shape\":\"InternalFailureException\"},\
-        {\"shape\":\"ConflictException\"}\
+        {\"shape\":\"ConflictException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
       ],\
       \"documentation\":\"<p>Starts a bidirectional HTTP2 stream where audio is streamed to Amazon Transcribe and the transcription results are streamed to your application.</p> <p>The following are encoded as HTTP2 headers:</p> <ul> <li> <p>x-amzn-transcribe-language-code</p> </li> <li> <p>x-amzn-transcribe-media-encoding</p> </li> <li> <p>x-amzn-transcribe-sample-rate</p> </li> <li> <p>x-amzn-transcribe-session-id</p> </li> </ul>\"\
     }\
@@ -200,7 +201,16 @@
         \"en-GB\",\
         \"es-US\",\
         \"fr-CA\",\
-        \"fr-FR\"\
+        \"fr-FR\",\
+        \"en-AU\",\
+        \"it-IT\",\
+        \"de-DE\",\
+        \"pt-BR\",\
+        \"ja-JP\",\
+        \"ko-KR\",\
+        \"zh-CN\",\
+        \"hi-IN\",\
+        \"th-TH\"\
       ]\
     },\
     \"LimitExceededException\":{\

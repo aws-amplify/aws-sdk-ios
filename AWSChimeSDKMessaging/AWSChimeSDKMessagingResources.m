@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -103,8 +103,10 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"UnauthorizedClientException\"},\
         {\"shape\":\"BadRequestException\"},\
+        {\"shape\":\"NotFoundException\"},\
         {\"shape\":\"ForbiddenException\"},\
-        {\"shape\":\"ThrottledClientException\"}\
+        {\"shape\":\"ThrottledClientException\"},\
+        {\"shape\":\"ResourceLimitExceededException\"}\
       ],\
       \"documentation\":\"<p>Adds a specified number of users to a channel. </p>\"\
     },\
@@ -202,6 +204,7 @@
       \"output\":{\"shape\":\"CreateChannelMembershipResponse\"},\
       \"errors\":[\
         {\"shape\":\"BadRequestException\"},\
+        {\"shape\":\"NotFoundException\"},\
         {\"shape\":\"ForbiddenException\"},\
         {\"shape\":\"UnauthorizedClientException\"},\
         {\"shape\":\"ConflictException\"},\
@@ -746,6 +749,25 @@
       ],\
       \"documentation\":\"<p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
     },\
+    \"ListSubChannels\":{\
+      \"name\":\"ListSubChannels\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/channels/{channelArn}/subchannels\",\
+        \"responseCode\":200\
+      },\
+      \"input\":{\"shape\":\"ListSubChannelsRequest\"},\
+      \"output\":{\"shape\":\"ListSubChannelsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"BadRequestException\"},\
+        {\"shape\":\"ForbiddenException\"},\
+        {\"shape\":\"UnauthorizedClientException\"},\
+        {\"shape\":\"ThrottledClientException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"ServiceFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Lists all the SubChannels in an elastic channel when given a channel ID. Available only to the app instance admins and channel moderators of elastic channels.</p>\"\
+    },\
     \"ListTagsForResource\":{\
       \"name\":\"ListTagsForResource\",\
       \"http\":{\
@@ -797,12 +819,32 @@
       \"errors\":[\
         {\"shape\":\"BadRequestException\"},\
         {\"shape\":\"ForbiddenException\"},\
+        {\"shape\":\"ConflictException\"},\
         {\"shape\":\"UnauthorizedClientException\"},\
         {\"shape\":\"ThrottledClientException\"},\
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
       \"documentation\":\"<p>Redacts message content, but not metadata. The message exists in the back end, but the action returns null content, and the state shows as redacted.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+    },\
+    \"SearchChannels\":{\
+      \"name\":\"SearchChannels\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/channels?operation=search\",\
+        \"responseCode\":200\
+      },\
+      \"input\":{\"shape\":\"SearchChannelsRequest\"},\
+      \"output\":{\"shape\":\"SearchChannelsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"BadRequestException\"},\
+        {\"shape\":\"ForbiddenException\"},\
+        {\"shape\":\"UnauthorizedClientException\"},\
+        {\"shape\":\"ThrottledClientException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"ServiceFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Allows <code>ChimeBearer</code> to search channels by channel members. AppInstanceUsers can search across the channels that they belong to. AppInstanceAdmins can search across all channels.</p>\"\
     },\
     \"SendChannelMessage\":{\
       \"name\":\"SendChannelMessage\",\
@@ -960,7 +1002,11 @@
         },\
         \"ReadMarkerTimestamp\":{\
           \"shape\":\"Timestamp\",\
-          \"documentation\":\"<p>The time at which a message was last read.</p>\"\
+          \"documentation\":\"<p>The time at which an <code>AppInstanceUser</code> last marked a channel as read.</p>\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel that the <code>AppInstanceUser</code> is a member of.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Summary of the membership details of an <code>AppInstanceUser</code>.</p>\"\
@@ -1019,6 +1065,10 @@
         \"ChannelArn\":{\
           \"shape\":\"ChimeArn\",\
           \"documentation\":\"<p>The ARN of the channel to which you're adding users.</p>\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The membership information, including member ARNs, the channel ARN, and membership types.</p>\"\
@@ -1072,6 +1122,10 @@
           \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel in the request. </p> <note> <p>Only required when creating membership in a SubChannel for a moderator in an elastic channel.</p> </note>\"\
         }\
       }\
     },\
@@ -1135,6 +1189,10 @@
         \"ChannelFlowArn\":{\
           \"shape\":\"ChimeArn\",\
           \"documentation\":\"<p>The ARN of the channel flow.</p>\"\
+        },\
+        \"ElasticChannelConfiguration\":{\
+          \"shape\":\"ElasticChannelConfiguration\",\
+          \"documentation\":\"<p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million members.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The details of a channel.</p>\"\
@@ -1300,6 +1358,19 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"ChannelFlowSummary\"}\
     },\
+    \"ChannelId\":{\
+      \"type\":\"string\",\
+      \"max\":64,\
+      \"min\":1,\
+      \"pattern\":\"[A-Za-z0-9]([A-Za-z0-9\\\\:\\\\-\\\\_\\\\.\\\\@]{0,62}[A-Za-z0-9])?\",\
+      \"sensitive\":true\
+    },\
+    \"ChannelMemberArns\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ChimeArn\"},\
+      \"max\":10,\
+      \"min\":1\
+    },\
     \"ChannelMembership\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -1326,6 +1397,10 @@
         \"LastUpdatedTimestamp\":{\
           \"shape\":\"Timestamp\",\
           \"documentation\":\"<p>The time at which a channel membership was last updated.</p>\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel that a user belongs to.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The details of a channel member.</p>\"\
@@ -1433,6 +1508,10 @@
         \"MessageAttributes\":{\
           \"shape\":\"MessageAttributeMap\",\
           \"documentation\":\"<p>The attributes for the message, used for message filtering along with a <code>FilterRule</code> defined in the <code>PushNotificationPreferences</code>.</p>\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The details of a message in a channel.</p>\"\
@@ -1460,6 +1539,10 @@
         \"MessageAttributes\":{\
           \"shape\":\"MessageAttributeMap\",\
           \"documentation\":\"<p>The attributes for the message, used for message filtering along with a <code>FilterRule</code> defined in the <code>PushNotificationPreferences</code>. </p>\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Stores information about a callback.</p>\"\
@@ -1598,6 +1681,12 @@
       },\
       \"documentation\":\"<p>The details of a channel moderator.</p>\"\
     },\
+    \"ChannelModeratorArns\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ChimeArn\"},\
+      \"max\":10,\
+      \"min\":1\
+    },\
     \"ChannelModeratorSummary\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -1644,7 +1733,7 @@
         },\
         \"LastMessageTimestamp\":{\
           \"shape\":\"Timestamp\",\
-          \"documentation\":\"<p>The time at which the last message in a channel was sent.</p>\"\
+          \"documentation\":\"<p>The time at which the last persistent message in a channel was sent.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Summary of the details of a <code>Channel</code>.</p>\"\
@@ -1790,6 +1879,10 @@
           \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel in the request.</p> <note> <p>Only required when creating membership in a SubChannel for a moderator in an elastic channel.</p> </note>\"\
         }\
       }\
     },\
@@ -1803,6 +1896,10 @@
         \"Member\":{\
           \"shape\":\"Identity\",\
           \"documentation\":\"<p>The ARN and metadata of the member being added.</p>\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel in the response.</p>\"\
         }\
       }\
     },\
@@ -1888,6 +1985,22 @@
           \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
+        },\
+        \"ChannelId\":{\
+          \"shape\":\"ChannelId\",\
+          \"documentation\":\"<p>The ID of the channel in the request.</p>\"\
+        },\
+        \"MemberArns\":{\
+          \"shape\":\"ChannelMemberArns\",\
+          \"documentation\":\"<p>The ARNs of the channel members in the request.</p>\"\
+        },\
+        \"ModeratorArns\":{\
+          \"shape\":\"ChannelModeratorArns\",\
+          \"documentation\":\"<p>The ARNs of the channel moderators in the request.</p>\"\
+        },\
+        \"ElasticChannelConfiguration\":{\
+          \"shape\":\"ElasticChannelConfiguration\",\
+          \"documentation\":\"<p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million users, excluding moderators.</p>\"\
         }\
       }\
     },\
@@ -1965,6 +2078,12 @@
           \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel in the request.</p> <note> <p>Only for use by moderators.</p> </note>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"sub-channel-id\"\
         }\
       }\
     },\
@@ -1993,6 +2112,12 @@
           \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel in the request.</p> <note> <p>Only required when deleting messages in a SubChannel that the user belongs to.</p> </note>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"sub-channel-id\"\
         }\
       }\
     },\
@@ -2042,6 +2167,12 @@
           \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel in the request.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"sub-channel-id\"\
         }\
       }\
     },\
@@ -2165,6 +2296,12 @@
           \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel in the request. The response contains an <code>ElasticChannelConfiguration</code> object.</p> <note> <p>Only required to get a userâs SubChannel membership details.</p> </note>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"sub-channel-id\"\
         }\
       }\
     },\
@@ -2309,6 +2446,29 @@
         }\
       }\
     },\
+    \"ElasticChannelConfiguration\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"MaximumSubChannels\",\
+        \"TargetMembershipsPerSubChannel\",\
+        \"MinimumMembershipPercentage\"\
+      ],\
+      \"members\":{\
+        \"MaximumSubChannels\":{\
+          \"shape\":\"MaximumSubChannels\",\
+          \"documentation\":\"<p>The maximum number of SubChannels that you want to allow in the elastic channel.</p>\"\
+        },\
+        \"TargetMembershipsPerSubChannel\":{\
+          \"shape\":\"TargetMembershipsPerSubChannel\",\
+          \"documentation\":\"<p>The maximum number of members allowed in a SubChannel.</p>\"\
+        },\
+        \"MinimumMembershipPercentage\":{\
+          \"shape\":\"MinimumMembershipPercentage\",\
+          \"documentation\":\"<p>The minimum allowed percentage of TargetMembershipsPerSubChannel users. Ceil of the calculated value is used in balancing members among SubChannels of the elastic channel.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million members.</p>\"\
+    },\
     \"ErrorCode\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -2387,7 +2547,10 @@
           \"shape\":\"ChimeArn\",\
           \"documentation\":\"<p>The ARN of the channel.</p>\"\
         },\
-        \"Member\":{\"shape\":\"Identity\"},\
+        \"Member\":{\
+          \"shape\":\"Identity\",\
+          \"documentation\":\"<p>The details of a user.</p>\"\
+        },\
         \"Preferences\":{\
           \"shape\":\"ChannelMembershipPreferences\",\
           \"documentation\":\"<p>The channel membership preferences for an <code>AppInstanceUser</code> .</p>\"\
@@ -2419,6 +2582,12 @@
           \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel in the request.</p> <note> <p>Only required when getting messages in a SubChannel that the user belongs to.</p> </note>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"sub-channel-id\"\
         }\
       }\
     },\
@@ -2456,6 +2625,12 @@
           \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel in the request.</p> <note> <p>Only required when getting message status in a SubChannel that the user belongs to.</p> </note>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"sub-channel-id\"\
         }\
       }\
     },\
@@ -2646,7 +2821,7 @@
       \"members\":{\
         \"ChannelMemberships\":{\
           \"shape\":\"ChannelMembershipForAppInstanceUserSummaryList\",\
-          \"documentation\":\"<p>The token passed by previous API calls until all requested users are returned.</p>\"\
+          \"documentation\":\"<p>The information for the requested channel memberships.</p>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
@@ -2690,6 +2865,12 @@
           \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel in the request.</p> <note> <p>Only required when listing a user's memberships in a particular sub-channel of an elastic channel.</p> </note>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"sub-channel-id\"\
         }\
       }\
     },\
@@ -2758,6 +2939,12 @@
           \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel in the request.</p> <note> <p>Only required when listing the messages in a SubChannel that the user belongs to.</p> </note>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"sub-channel-id\"\
         }\
       }\
     },\
@@ -2775,6 +2962,10 @@
         \"ChannelMessages\":{\
           \"shape\":\"ChannelMessageSummaryList\",\
           \"documentation\":\"<p>The information about, and content of, each requested message.</p>\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel in the response.</p>\"\
         }\
       }\
     },\
@@ -2960,6 +3151,56 @@
         }\
       }\
     },\
+    \"ListSubChannelsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ChannelArn\",\
+        \"ChimeBearer\"\
+      ],\
+      \"members\":{\
+        \"ChannelArn\":{\
+          \"shape\":\"ChimeArn\",\
+          \"documentation\":\"<p>The ARN of elastic channel.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"channelArn\"\
+        },\
+        \"ChimeBearer\":{\
+          \"shape\":\"ChimeArn\",\
+          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-chime-bearer\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResults\",\
+          \"documentation\":\"<p>The maximum number of sub-channels that you want to return.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"max-results\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token passed by previous API calls until all requested sub-channels are returned.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"next-token\"\
+        }\
+      }\
+    },\
+    \"ListSubChannelsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ChannelArn\":{\
+          \"shape\":\"ChimeArn\",\
+          \"documentation\":\"<p>The ARN of elastic channel.</p>\"\
+        },\
+        \"SubChannels\":{\
+          \"shape\":\"SubChannelSummaryList\",\
+          \"documentation\":\"<p>The information about each sub-channel.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token passed by previous API calls until all requested sub-channels are returned.</p>\"\
+        }\
+      }\
+    },\
     \"ListTagsForResourceRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"ResourceARN\"],\
@@ -2986,6 +3227,10 @@
       \"max\":50,\
       \"min\":1\
     },\
+    \"MaximumSubChannels\":{\
+      \"type\":\"integer\",\
+      \"min\":2\
+    },\
     \"MemberArns\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"ChimeArn\"},\
@@ -2996,6 +3241,7 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"Identity\"}\
     },\
+    \"MembershipCount\":{\"type\":\"integer\"},\
     \"MessageAttributeMap\":{\
       \"type\":\"map\",\
       \"key\":{\"shape\":\"MessageAttributeName\"},\
@@ -3051,6 +3297,11 @@
       \"min\":0,\
       \"pattern\":\".*\",\
       \"sensitive\":true\
+    },\
+    \"MinimumMembershipPercentage\":{\
+      \"type\":\"integer\",\
+      \"max\":40,\
+      \"min\":1\
     },\
     \"NextToken\":{\
       \"type\":\"string\",\
@@ -3163,7 +3414,7 @@
         },\
         \"FilterRule\":{\
           \"shape\":\"FilterRule\",\
-          \"documentation\":\"<p>The simple JSON object used to send a subset of a push notification to the requsted member.</p>\"\
+          \"documentation\":\"<p>The simple JSON object used to send a subset of a push notification to the requested member.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The channel membership preferences for push notification.</p>\"\
@@ -3222,7 +3473,10 @@
           \"shape\":\"ChimeArn\",\
           \"documentation\":\"<p>The ARN of the channel.</p>\"\
         },\
-        \"Member\":{\"shape\":\"Identity\"},\
+        \"Member\":{\
+          \"shape\":\"Identity\",\
+          \"documentation\":\"<p>The details of a user.</p>\"\
+        },\
         \"Preferences\":{\
           \"shape\":\"ChannelMembershipPreferences\",\
           \"documentation\":\"<p>The ARN and metadata of the member being added.</p>\"\
@@ -3254,6 +3508,10 @@
           \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel in the request.</p>\"\
         }\
       }\
     },\
@@ -3267,6 +3525,10 @@
         \"MessageId\":{\
           \"shape\":\"MessageId\",\
           \"documentation\":\"<p>The ID of the message being redacted.</p>\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel in the response.</p> <note> <p>Only required when redacting messages in a SubChannel that the user belongs to.</p> </note>\"\
         }\
       }\
     },\
@@ -3286,6 +3548,99 @@
       \"min\":0,\
       \"pattern\":\"[\\\\u0009\\\\u000A\\\\u000D\\\\u0020-\\\\u007E\\\\u0085\\\\u00A0-\\\\uD7FF\\\\uE000-\\\\uFFFD\\\\u10000-\\\\u10FFFF]*\",\
       \"sensitive\":true\
+    },\
+    \"SearchChannelsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Fields\"],\
+      \"members\":{\
+        \"ChimeBearer\":{\
+          \"shape\":\"ChimeArn\",\
+          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-chime-bearer\"\
+        },\
+        \"Fields\":{\
+          \"shape\":\"SearchFields\",\
+          \"documentation\":\"<p>A list of the <code>Field</code> objects in the channel being searched.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResults\",\
+          \"documentation\":\"<p>The maximum number of channels that you want returned.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"max-results\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token returned from previous API requests until the number of channels is reached.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"next-token\"\
+        }\
+      }\
+    },\
+    \"SearchChannelsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Channels\":{\
+          \"shape\":\"ChannelSummaryList\",\
+          \"documentation\":\"<p>A list of the channels in the request.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token returned from previous API responses until the number of channels is reached.</p>\"\
+        }\
+      }\
+    },\
+    \"SearchField\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Key\",\
+        \"Values\",\
+        \"Operator\"\
+      ],\
+      \"members\":{\
+        \"Key\":{\
+          \"shape\":\"SearchFieldKey\",\
+          \"documentation\":\"<p>An <code>enum</code> value that indicates the key to search the channel on. <code>MEMBERS</code> allows you to search channels based on memberships. You can use it with the <code>EQUALS</code> operator to get channels whose memberships are equal to the specified values, and with the <code>INCLUDES</code> operator to get channels whose memberships include the specified values.</p>\"\
+        },\
+        \"Values\":{\
+          \"shape\":\"SearchFieldValues\",\
+          \"documentation\":\"<p>The values that you want to search for, a list of strings. The values must be <code>AppInstanceUserArns</code> specified as a list of strings.</p> <note> <p>This operation isn't supported for <code>AppInstanceUsers</code> with large number of memberships.</p> </note>\"\
+        },\
+        \"Operator\":{\
+          \"shape\":\"SearchFieldOperator\",\
+          \"documentation\":\"<p>The operator used to compare field values, currently <code>EQUALS</code> or <code>INCLUDES</code>. Use the <code>EQUALS</code> operator to find channels whose memberships equal the specified values. Use the <code>INCLUDES</code> operator to find channels whose memberships include the specified values.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A <code>Field</code> of the channel that you want to search.</p>\"\
+    },\
+    \"SearchFieldKey\":{\
+      \"type\":\"string\",\
+      \"enum\":[\"MEMBERS\"]\
+    },\
+    \"SearchFieldOperator\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"EQUALS\",\
+        \"INCLUDES\"\
+      ]\
+    },\
+    \"SearchFieldValue\":{\
+      \"type\":\"string\",\
+      \"max\":512,\
+      \"min\":1,\
+      \"pattern\":\"[\\\\s\\\\S]*\"\
+    },\
+    \"SearchFieldValues\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"SearchFieldValue\"},\
+      \"max\":20,\
+      \"min\":1\
+    },\
+    \"SearchFields\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"SearchField\"},\
+      \"max\":20,\
+      \"min\":1\
     },\
     \"SendChannelMessageRequest\":{\
       \"type\":\"structure\",\
@@ -3338,6 +3693,10 @@
         \"MessageAttributes\":{\
           \"shape\":\"MessageAttributeMap\",\
           \"documentation\":\"<p>The attributes for the message, used for message filtering along with a <code>FilterRule</code> defined in the <code>PushNotificationPreferences</code>.</p>\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel in the request.</p>\"\
         }\
       }\
     },\
@@ -3355,6 +3714,10 @@
         \"Status\":{\
           \"shape\":\"ChannelMessageStatusStructure\",\
           \"documentation\":\"<p>The status of the channel message.</p>\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel in the response.</p>\"\
         }\
       }\
     },\
@@ -3394,6 +3757,30 @@
       \"pattern\":\"[\\\\s\\\\S]*\"\
     },\
     \"String\":{\"type\":\"string\"},\
+    \"SubChannelId\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1,\
+      \"pattern\":\"[-_a-zA-Z0-9]*\"\
+    },\
+    \"SubChannelSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The unique ID of a SubChannel.</p>\"\
+        },\
+        \"MembershipCount\":{\
+          \"shape\":\"MembershipCount\",\
+          \"documentation\":\"<p>The number of members in a SubChannel.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Summary of the sub-channels associated with the elastic channel.</p>\"\
+    },\
+    \"SubChannelSummaryList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"SubChannelSummary\"}\
+    },\
     \"Tag\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -3452,6 +3839,10 @@
       \"max\":256,\
       \"min\":1,\
       \"sensitive\":true\
+    },\
+    \"TargetMembershipsPerSubChannel\":{\
+      \"type\":\"integer\",\
+      \"min\":2\
     },\
     \"ThrottledClientException\":{\
       \"type\":\"structure\",\
@@ -3557,6 +3948,10 @@
           \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel in the request.</p> <note> <p>Only required when updating messages in a SubChannel that the user belongs to.</p> </note>\"\
         }\
       }\
     },\
@@ -3574,6 +3969,10 @@
         \"Status\":{\
           \"shape\":\"ChannelMessageStatusStructure\",\
           \"documentation\":\"<p>The status of the message update.</p>\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel in the response.</p>\"\
         }\
       }\
     },\
@@ -3595,6 +3994,10 @@
           \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel in the request.</p>\"\
         }\
       }\
     },\
@@ -3604,6 +4007,10 @@
         \"ChannelArn\":{\
           \"shape\":\"ChimeArn\",\
           \"documentation\":\"<p>The ARN of the channel.</p>\"\
+        },\
+        \"SubChannelId\":{\
+          \"shape\":\"SubChannelId\",\
+          \"documentation\":\"<p>The ID of the SubChannel in the response.</p>\"\
         }\
       }\
     },\
@@ -3611,8 +4018,6 @@
       \"type\":\"structure\",\
       \"required\":[\
         \"ChannelArn\",\
-        \"Name\",\
-        \"Mode\",\
         \"ChimeBearer\"\
       ],\
       \"members\":{\
@@ -3656,7 +4061,7 @@
       \"max\":4096\
     }\
   },\
-  \"documentation\":\"<p>The Amazon Chime SDK Messaging APIs in this section allow software developers to send and receive messages in custom messaging applications. These APIs depend on the frameworks provided by the Amazon Chime SDK Identity APIs. For more information about the messaging APIs, see <a href=\\\"https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging\\\">Amazon Chime SDK messaging</a> </p>\"\
+  \"documentation\":\"<p>The Amazon Chime SDK Messaging APIs in this section allow software developers to send and receive messages in custom messaging applications. These APIs depend on the frameworks provided by the Amazon Chime SDK Identity APIs. For more information about the messaging APIs, see <a href=\\\"https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging.html\\\">Amazon Chime SDK messaging</a>.</p>\"\
 }\
 ";
 }

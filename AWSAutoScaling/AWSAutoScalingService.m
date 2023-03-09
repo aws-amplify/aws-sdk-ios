@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
 #import "AWSAutoScalingResources.h"
 
 static NSString *const AWSInfoAutoScaling = @"AutoScaling";
-NSString *const AWSAutoScalingSDKVersion = @"2.26.7";
+NSString *const AWSAutoScalingSDKVersion = @"2.30.4";
 
 
 @interface AWSAutoScalingResponseSerializer : AWSXMLResponseSerializer
@@ -43,6 +43,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"AlreadyExists" : @(AWSAutoScalingErrorAlreadyExists),
                             @"InstanceRefreshInProgress" : @(AWSAutoScalingErrorInstanceRefreshInProgress),
                             @"InvalidNextToken" : @(AWSAutoScalingErrorInvalidNextToken),
+                            @"IrreversibleInstanceRefresh" : @(AWSAutoScalingErrorIrreversibleInstanceRefresh),
                             @"LimitExceeded" : @(AWSAutoScalingErrorLimitExceeded),
                             @"ResourceContention" : @(AWSAutoScalingErrorResourceContention),
                             @"ResourceInUse" : @(AWSAutoScalingErrorResourceInUse),
@@ -338,6 +339,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSAutoScalingAttachLoadBalancersResultType *response, NSError *error))completionHandler {
     [[self attachLoadBalancers:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingAttachLoadBalancersResultType *> * _Nonnull task) {
         AWSAutoScalingAttachLoadBalancersResultType *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSAutoScalingAttachTrafficSourcesResultType *> *)attachTrafficSources:(AWSAutoScalingAttachTrafficSourcesType *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"AttachTrafficSources"
+                   outputClass:[AWSAutoScalingAttachTrafficSourcesResultType class]];
+}
+
+- (void)attachTrafficSources:(AWSAutoScalingAttachTrafficSourcesType *)request
+     completionHandler:(void (^)(AWSAutoScalingAttachTrafficSourcesResultType *response, NSError *error))completionHandler {
+    [[self attachTrafficSources:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingAttachTrafficSourcesResultType *> * _Nonnull task) {
+        AWSAutoScalingAttachTrafficSourcesResultType *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1121,6 +1145,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSAutoScalingDescribeTrafficSourcesResponse *> *)describeTrafficSources:(AWSAutoScalingDescribeTrafficSourcesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeTrafficSources"
+                   outputClass:[AWSAutoScalingDescribeTrafficSourcesResponse class]];
+}
+
+- (void)describeTrafficSources:(AWSAutoScalingDescribeTrafficSourcesRequest *)request
+     completionHandler:(void (^)(AWSAutoScalingDescribeTrafficSourcesResponse *response, NSError *error))completionHandler {
+    [[self describeTrafficSources:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingDescribeTrafficSourcesResponse *> * _Nonnull task) {
+        AWSAutoScalingDescribeTrafficSourcesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSAutoScalingDescribeWarmPoolAnswer *> *)describeWarmPool:(AWSAutoScalingDescribeWarmPoolType *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1203,6 +1250,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSAutoScalingDetachLoadBalancersResultType *response, NSError *error))completionHandler {
     [[self detachLoadBalancers:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingDetachLoadBalancersResultType *> * _Nonnull task) {
         AWSAutoScalingDetachLoadBalancersResultType *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSAutoScalingDetachTrafficSourcesResultType *> *)detachTrafficSources:(AWSAutoScalingDetachTrafficSourcesType *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DetachTrafficSources"
+                   outputClass:[AWSAutoScalingDetachTrafficSourcesResultType class]];
+}
+
+- (void)detachTrafficSources:(AWSAutoScalingDetachTrafficSourcesType *)request
+     completionHandler:(void (^)(AWSAutoScalingDetachTrafficSourcesResultType *response, NSError *error))completionHandler {
+    [[self detachTrafficSources:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingDetachTrafficSourcesResultType *> * _Nonnull task) {
+        AWSAutoScalingDetachTrafficSourcesResultType *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1500,6 +1570,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSAutoScalingRollbackInstanceRefreshAnswer *> *)rollbackInstanceRefresh:(AWSAutoScalingRollbackInstanceRefreshType *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"RollbackInstanceRefresh"
+                   outputClass:[AWSAutoScalingRollbackInstanceRefreshAnswer class]];
+}
+
+- (void)rollbackInstanceRefresh:(AWSAutoScalingRollbackInstanceRefreshType *)request
+     completionHandler:(void (^)(AWSAutoScalingRollbackInstanceRefreshAnswer *response, NSError *error))completionHandler {
+    [[self rollbackInstanceRefresh:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingRollbackInstanceRefreshAnswer *> * _Nonnull task) {
+        AWSAutoScalingRollbackInstanceRefreshAnswer *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -90,6 +90,27 @@
       ],\
       \"documentation\":\"<p>Compares a face in the <i>source</i> input image with each of the 100 largest faces detected in the <i>target</i> input image. </p> <p> If the source image contains multiple faces, the service detects the largest face and compares it with each face detected in the target image. </p> <note> <p>CompareFaces uses machine learning algorithms, which are probabilistic. A false negative is an incorrect prediction that a face in the target image has a low similarity confidence score when compared to the face in the source image. To reduce the probability of false negatives, we recommend that you compare the target image against multiple source images. If you plan to use <code>CompareFaces</code> to make a decision that impacts an individual's rights, privacy, or access to services, we recommend that you pass the result to a human for review and further validation before taking action.</p> </note> <p>You pass the input and target images either as base64-encoded image bytes or as references to images in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes isn't supported. The image must be formatted as a PNG or JPEG file. </p> <p>In response, the operation returns an array of face matches ordered by similarity score in descending order. For each face match, the response provides a bounding box of the face, facial landmarks, pose details (pitch, roll, and yaw), quality (brightness and sharpness), and confidence value (indicating the level of confidence that the bounding box contains a face). The response also provides a similarity score, which indicates how closely the faces match. </p> <note> <p>By default, only faces with a similarity score of greater than or equal to 80% are returned in the response. You can change this value by specifying the <code>SimilarityThreshold</code> parameter.</p> </note> <p> <code>CompareFaces</code> also returns an array of faces that don't match the source image. For each face, it returns a bounding box, confidence value, landmarks, pose details, and quality. The response also returns information about the face in the source image, including the bounding box of the face and confidence value.</p> <p>The <code>QualityFilter</code> input parameter allows you to filter out detected faces that donât meet a required quality bar. The quality bar is based on a variety of common use cases. Use <code>QualityFilter</code> to set the quality bar by specifying <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>. If you do not want to filter detected faces, specify <code>NONE</code>. The default value is <code>NONE</code>. </p> <p>If the image doesn't contain Exif metadata, <code>CompareFaces</code> returns orientation information for the source and target images. Use these values to display the images with the correct image orientation.</p> <p>If no faces are detected in the source or target images, <code>CompareFaces</code> returns an <code>InvalidParameterException</code> error. </p> <note> <p> This is a stateless API operation. That is, data returned by this operation doesn't persist.</p> </note> <p>For an example, see Comparing Faces in Images in the Amazon Rekognition Developer Guide.</p> <p>This operation requires permissions to perform the <code>rekognition:CompareFaces</code> action.</p>\"\
     },\
+    \"CopyProjectVersion\":{\
+      \"name\":\"CopyProjectVersion\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"CopyProjectVersionRequest\"},\
+      \"output\":{\"shape\":\"CopyProjectVersionResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"InternalServerError\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ServiceQuotaExceededException\"},\
+        {\"shape\":\"ProvisionedThroughputExceededException\"},\
+        {\"shape\":\"ResourceInUseException\"}\
+      ],\
+      \"documentation\":\"<p>Copies a version of an Amazon Rekognition Custom Labels model from a source project to a destination project. The source and destination projects can be in different AWS accounts but must be in the same AWS Region. You can't copy a model to another AWS service. </p> <p>To copy a model version to a different AWS account, you need to create a resource-based policy known as a <i>project policy</i>. You attach the project policy to the source project by calling <a>PutProjectPolicy</a>. The project policy gives permission to copy the model version from a trusting AWS account to a trusted account.</p> <p>For more information creating and attaching a project policy, see Attaching a project policy (SDK) in the <i>Amazon Rekognition Custom Labels Developer Guide</i>. </p> <p>If you are copying a model version to a project in the same AWS account, you don't need to create a project policy.</p> <note> <p>To copy a model, the destination project, source project, and source model version must already exist.</p> </note> <p>Copying a model version takes a while to complete. To get the current status, call <a>DescribeProjectVersions</a> and check the value of <code>Status</code> in the <a>ProjectVersionDescription</a> object. The copy operation has finished when the value of <code>Status</code> is <code>COPYING_COMPLETED</code>.</p>\"\
+    },\
     \"CreateCollection\":{\
       \"name\":\"CreateCollection\",\
       \"http\":{\
@@ -168,7 +189,7 @@
         {\"shape\":\"ProvisionedThroughputExceededException\"},\
         {\"shape\":\"ServiceQuotaExceededException\"}\
       ],\
-      \"documentation\":\"<p>Creates a new version of a model and begins training. Models are managed as part of an Amazon Rekognition Custom Labels project. The response from <code>CreateProjectVersion</code> is an Amazon Resource Name (ARN) for the version of the model. </p> <p>Training uses the training and test datasets associated with the project. For more information, see Creating training and test dataset in the <i>Amazon Rekognition Custom Labels Developer Guide</i>. </p> <note> <p>You can train a modelin a project that doesn't have associated datasets by specifying manifest files in the <code>TrainingData</code> and <code>TestingData</code> fields. </p> <p>If you open the console after training a model with manifest files, Amazon Rekognition Custom Labels creates the datasets for you using the most recent manifest files. You can no longer train a model version for the project by specifying manifest files. </p> <p>Instead of training with a project without associated datasets, we recommend that you use the manifest files to create training and test datasets for the project.</p> </note> <p>Training takes a while to complete. You can get the current status by calling <a>DescribeProjectVersions</a>. Training completed successfully if the value of the <code>Status</code> field is <code>TRAINING_COMPLETED</code>.</p> <p>If training fails, see Debugging a failed model training in the <i>Amazon Rekognition Custom Labels</i> developer guide. </p> <p>Once training has successfully completed, call <a>DescribeProjectVersions</a> to get the training results and evaluate the model. For more information, see Improving a trained Amazon Rekognition Custom Labels model in the <i>Amazon Rekognition Custom Labels</i> developers guide. </p> <p>After evaluating the model, you start the model by calling <a>StartProjectVersion</a>.</p> <p>This operation requires permissions to perform the <code>rekognition:CreateProjectVersion</code> action.</p>\"\
+      \"documentation\":\"<p>Creates a new version of a model and begins training. Models are managed as part of an Amazon Rekognition Custom Labels project. The response from <code>CreateProjectVersion</code> is an Amazon Resource Name (ARN) for the version of the model. </p> <p>Training uses the training and test datasets associated with the project. For more information, see Creating training and test dataset in the <i>Amazon Rekognition Custom Labels Developer Guide</i>. </p> <note> <p>You can train a model in a project that doesn't have associated datasets by specifying manifest files in the <code>TrainingData</code> and <code>TestingData</code> fields. </p> <p>If you open the console after training a model with manifest files, Amazon Rekognition Custom Labels creates the datasets for you using the most recent manifest files. You can no longer train a model version for the project by specifying manifest files. </p> <p>Instead of training with a project without associated datasets, we recommend that you use the manifest files to create training and test datasets for the project.</p> </note> <p>Training takes a while to complete. You can get the current status by calling <a>DescribeProjectVersions</a>. Training completed successfully if the value of the <code>Status</code> field is <code>TRAINING_COMPLETED</code>.</p> <p>If training fails, see Debugging a failed model training in the <i>Amazon Rekognition Custom Labels</i> developer guide. </p> <p>Once training has successfully completed, call <a>DescribeProjectVersions</a> to get the training results and evaluate the model. For more information, see Improving a trained Amazon Rekognition Custom Labels model in the <i>Amazon Rekognition Custom Labels</i> developers guide. </p> <p>After evaluating the model, you start the model by calling <a>StartProjectVersion</a>.</p> <p>This operation requires permissions to perform the <code>rekognition:CreateProjectVersion</code> action.</p>\"\
     },\
     \"CreateStreamProcessor\":{\
       \"name\":\"CreateStreamProcessor\",\
@@ -188,7 +209,7 @@
         {\"shape\":\"ProvisionedThroughputExceededException\"},\
         {\"shape\":\"ServiceQuotaExceededException\"}\
       ],\
-      \"documentation\":\"<p>Creates an Amazon Rekognition stream processor that you can use to detect and recognize faces in a streaming video.</p> <p>Amazon Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams. Amazon Rekognition Video sends analysis results to Amazon Kinesis Data Streams.</p> <p>You provide as input a Kinesis video stream (<code>Input</code>) and a Kinesis data stream (<code>Output</code>) stream. You also specify the face recognition criteria in <code>Settings</code>. For example, the collection containing faces that you want to recognize. Use <code>Name</code> to assign an identifier for the stream processor. You use <code>Name</code> to manage the stream processor. For example, you can start processing the source video by calling <a>StartStreamProcessor</a> with the <code>Name</code> field. </p> <p>After you have finished analyzing a streaming video, use <a>StopStreamProcessor</a> to stop processing. You can delete the stream processor by calling <a>DeleteStreamProcessor</a>.</p> <p>This operation requires permissions to perform the <code>rekognition:CreateStreamProcessor</code> action. If you want to tag your stream processor, you also require permission to perform the <code>rekognition:TagResource</code> operation.</p>\"\
+      \"documentation\":\"<p>Creates an Amazon Rekognition stream processor that you can use to detect and recognize faces or to detect labels in a streaming video.</p> <p>Amazon Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams. There are two different settings for stream processors in Amazon Rekognition: detecting faces and detecting labels.</p> <ul> <li> <p>If you are creating a stream processor for detecting faces, you provide as input a Kinesis video stream (<code>Input</code>) and a Kinesis data stream (<code>Output</code>) stream. You also specify the face recognition criteria in <code>Settings</code>. For example, the collection containing faces that you want to recognize. After you have finished analyzing a streaming video, use <a>StopStreamProcessor</a> to stop processing.</p> </li> <li> <p>If you are creating a stream processor to detect labels, you provide as input a Kinesis video stream (<code>Input</code>), Amazon S3 bucket information (<code>Output</code>), and an Amazon SNS topic ARN (<code>NotificationChannel</code>). You can also provide a KMS key ID to encrypt the data sent to your Amazon S3 bucket. You specify what you want to detect in <code>ConnectedHomeSettings</code>, such as people, packages and people, or pets, people, and packages. You can also specify where in the frame you want Amazon Rekognition to monitor with <code>RegionsOfInterest</code>. When you run the <a>StartStreamProcessor</a> operation on a label detection stream processor, you input start and stop information to determine the length of the processing time.</p> </li> </ul> <p> Use <code>Name</code> to assign an identifier for the stream processor. You use <code>Name</code> to manage the stream processor. For example, you can start processing the source video by calling <a>StartStreamProcessor</a> with the <code>Name</code> field. </p> <p>This operation requires permissions to perform the <code>rekognition:CreateStreamProcessor</code> action. If you want to tag your stream processor, you also require permission to perform the <code>rekognition:TagResource</code> operation.</p>\"\
     },\
     \"DeleteCollection\":{\
       \"name\":\"DeleteCollection\",\
@@ -206,7 +227,7 @@
         {\"shape\":\"ProvisionedThroughputExceededException\"},\
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
-      \"documentation\":\"<p>Deletes the specified collection. Note that this operation removes all faces in the collection. For an example, see <a>delete-collection-procedure</a>.</p> <p>This operation requires permissions to perform the <code>rekognition:DeleteCollection</code> action.</p>\"\
+      \"documentation\":\"<p>Deletes the specified collection. Note that this operation removes all faces in the collection. For an example, see <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/dg/delete-collection-procedure.html\\\">Deleting a collection</a>.</p> <p>This operation requires permissions to perform the <code>rekognition:DeleteCollection</code> action.</p>\"\
     },\
     \"DeleteDataset\":{\
       \"name\":\"DeleteDataset\",\
@@ -263,7 +284,26 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"ProvisionedThroughputExceededException\"}\
       ],\
-      \"documentation\":\"<p>Deletes an Amazon Rekognition Custom Labels project. To delete a project you must first delete all models associated with the project. To delete a model, see <a>DeleteProjectVersion</a>.</p> <p> <code>DeleteProject</code> is an asynchronous operation. To check if the project is deleted, call <a>DescribeProjects</a>. The project is deleted when the project no longer appears in the response.</p> <p>This operation requires permissions to perform the <code>rekognition:DeleteProject</code> action. </p>\"\
+      \"documentation\":\"<p>Deletes an Amazon Rekognition Custom Labels project. To delete a project you must first delete all models associated with the project. To delete a model, see <a>DeleteProjectVersion</a>.</p> <p> <code>DeleteProject</code> is an asynchronous operation. To check if the project is deleted, call <a>DescribeProjects</a>. The project is deleted when the project no longer appears in the response. Be aware that deleting a given project will also delete any <code>ProjectPolicies</code> associated with that project.</p> <p>This operation requires permissions to perform the <code>rekognition:DeleteProject</code> action. </p>\"\
+    },\
+    \"DeleteProjectPolicy\":{\
+      \"name\":\"DeleteProjectPolicy\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteProjectPolicyRequest\"},\
+      \"output\":{\"shape\":\"DeleteProjectPolicyResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"InternalServerError\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ProvisionedThroughputExceededException\"},\
+        {\"shape\":\"InvalidPolicyRevisionIdException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes an existing project policy.</p> <p>To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>. To attach a project policy to a project, call <a>PutProjectPolicy</a>.</p>\"\
     },\
     \"DeleteProjectVersion\":{\
       \"name\":\"DeleteProjectVersion\",\
@@ -455,7 +495,7 @@
         {\"shape\":\"ProvisionedThroughputExceededException\"},\
         {\"shape\":\"InvalidImageFormatException\"}\
       ],\
-      \"documentation\":\"<p>Detects instances of real-world entities within an image (JPEG or PNG) provided as input. This includes objects like flower, tree, and table; events like wedding, graduation, and birthday party; and concepts like landscape, evening, and nature. </p> <p>For an example, see Analyzing Images Stored in an Amazon S3 Bucket in the Amazon Rekognition Developer Guide.</p> <note> <p> <code>DetectLabels</code> does not support the detection of activities. However, activity detection is supported for label detection in videos. For more information, see StartLabelDetection in the Amazon Rekognition Developer Guide.</p> </note> <p>You pass the input image as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file. </p> <p> For each object, scene, and concept the API returns one or more labels. Each label provides the object name, and the level of confidence that the image contains the object. For example, suppose the input image has a lighthouse, the sea, and a rock. The response includes all three labels, one for each object. </p> <p> <code>{Name: lighthouse, Confidence: 98.4629}</code> </p> <p> <code>{Name: rock,Confidence: 79.2097}</code> </p> <p> <code> {Name: sea,Confidence: 75.061}</code> </p> <p>In the preceding example, the operation returns one label for each of the three objects. The operation can also return multiple labels for the same object in the image. For example, if the input image shows a flower (for example, a tulip), the operation might return the following three labels. </p> <p> <code>{Name: flower,Confidence: 99.0562}</code> </p> <p> <code>{Name: plant,Confidence: 99.0562}</code> </p> <p> <code>{Name: tulip,Confidence: 99.0562}</code> </p> <p>In this example, the detection algorithm more precisely identifies the flower as a tulip.</p> <p>In response, the API returns an array of labels. In addition, the response also includes the orientation correction. Optionally, you can specify <code>MinConfidence</code> to control the confidence threshold for the labels returned. The default is 55%. You can also add the <code>MaxLabels</code> parameter to limit the number of labels returned. </p> <note> <p>If the object detected is a person, the operation doesn't provide the same facial details that the <a>DetectFaces</a> operation provides.</p> </note> <p> <code>DetectLabels</code> returns bounding boxes for instances of common object labels in an array of <a>Instance</a> objects. An <code>Instance</code> object contains a <a>BoundingBox</a> object, for the location of the label on the image. It also includes the confidence by which the bounding box was detected.</p> <p> <code>DetectLabels</code> also returns a hierarchical taxonomy of detected labels. For example, a detected car might be assigned the label <i>car</i>. The label <i>car</i> has two parent labels: <i>Vehicle</i> (its parent) and <i>Transportation</i> (its grandparent). The response returns the entire list of ancestors for a label. Each ancestor is a unique label in the response. In the previous example, <i>Car</i>, <i>Vehicle</i>, and <i>Transportation</i> are returned as unique labels in the response. </p> <p>This is a stateless API operation. That is, the operation does not persist any data.</p> <p>This operation requires permissions to perform the <code>rekognition:DetectLabels</code> action. </p>\"\
+      \"documentation\":\"<p>Detects instances of real-world entities within an image (JPEG or PNG) provided as input. This includes objects like flower, tree, and table; events like wedding, graduation, and birthday party; and concepts like landscape, evening, and nature. </p> <p>For an example, see Analyzing images stored in an Amazon S3 bucket in the Amazon Rekognition Developer Guide.</p> <p>You pass the input image as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file. </p> <p> <b>Optional Parameters</b> </p> <p>You can specify one or both of the <code>GENERAL_LABELS</code> and <code>IMAGE_PROPERTIES</code> feature types when calling the DetectLabels API. Including <code>GENERAL_LABELS</code> will ensure the response includes the labels detected in the input image, while including <code>IMAGE_PROPERTIES </code>will ensure the response includes information about the image quality and color.</p> <p>When using <code>GENERAL_LABELS</code> and/or <code>IMAGE_PROPERTIES</code> you can provide filtering criteria to the Settings parameter. You can filter with sets of individual labels or with label categories. You can specify inclusive filters, exclusive filters, or a combination of inclusive and exclusive filters. For more information on filtering see <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/dg/labels-detect-labels-image.html\\\">Detecting Labels in an Image</a>.</p> <p>You can specify <code>MinConfidence</code> to control the confidence threshold for the labels returned. The default is 55%. You can also add the <code>MaxLabels</code> parameter to limit the number of labels returned. The default and upper limit is 1000 labels.</p> <p> <b>Response Elements</b> </p> <p> For each object, scene, and concept the API returns one or more labels. The API returns the following types of information regarding labels:</p> <ul> <li> <p> Name - The name of the detected label. </p> </li> <li> <p> Confidence - The level of confidence in the label assigned to a detected object. </p> </li> <li> <p> Parents - The ancestor labels for a detected label. DetectLabels returns a hierarchical taxonomy of detected labels. For example, a detected car might be assigned the label car. The label car has two parent labels: Vehicle (its parent) and Transportation (its grandparent). The response includes the all ancestors for a label, where every ancestor is a unique label. In the previous example, Car, Vehicle, and Transportation are returned as unique labels in the response. </p> </li> <li> <p> Aliases - Possible Aliases for the label. </p> </li> <li> <p> Categories - The label categories that the detected label belongs to. </p> </li> <li> <p> BoundingBox â Bounding boxes are described for all instances of detected common object labels, returned in an array of Instance objects. An Instance object contains a BoundingBox object, describing the location of the label on the input image. It also includes the confidence for the accuracy of the detected bounding box. </p> </li> </ul> <p> The API returns the following information regarding the image, as part of the ImageProperties structure:</p> <ul> <li> <p>Quality - Information about the Sharpness, Brightness, and Contrast of the input image, scored between 0 to 100. Image quality is returned for the entire image, as well as the background and the foreground. </p> </li> <li> <p>Dominant Color - An array of the dominant colors in the image. </p> </li> <li> <p>Foreground - Information about the sharpness, brightness, and dominant colors of the input imageâs foreground. </p> </li> <li> <p>Background - Information about the sharpness, brightness, and dominant colors of the input imageâs background.</p> </li> </ul> <p>The list of returned labels will include at least one label for every detected object, along with information about that label. In the following example, suppose the input image has a lighthouse, the sea, and a rock. The response includes all three labels, one for each object, as well as the confidence in the label:</p> <p> <code>{Name: lighthouse, Confidence: 98.4629}</code> </p> <p> <code>{Name: rock,Confidence: 79.2097}</code> </p> <p> <code> {Name: sea,Confidence: 75.061}</code> </p> <p>The list of labels can include multiple labels for the same object. For example, if the input image shows a flower (for example, a tulip), the operation might return the following three labels. </p> <p> <code>{Name: flower,Confidence: 99.0562}</code> </p> <p> <code>{Name: plant,Confidence: 99.0562}</code> </p> <p> <code>{Name: tulip,Confidence: 99.0562}</code> </p> <p>In this example, the detection algorithm more precisely identifies the flower as a tulip.</p> <note> <p>If the object detected is a person, the operation doesn't provide the same facial details that the <a>DetectFaces</a> operation provides.</p> </note> <p>This is a stateless API operation. That is, the operation does not persist any data.</p> <p>This operation requires permissions to perform the <code>rekognition:DetectLabels</code> action. </p>\"\
     },\
     \"DetectModerationLabels\":{\
       \"name\":\"DetectModerationLabels\",\
@@ -516,7 +556,7 @@
         {\"shape\":\"ProvisionedThroughputExceededException\"},\
         {\"shape\":\"InvalidImageFormatException\"}\
       ],\
-      \"documentation\":\"<p>Detects text in the input image and converts it into machine-readable text.</p> <p>Pass the input image as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, you must pass it as a reference to an image in an Amazon S3 bucket. For the AWS CLI, passing image bytes is not supported. The image must be either a .png or .jpeg formatted file. </p> <p>The <code>DetectText</code> operation returns text in an array of <a>TextDetection</a> elements, <code>TextDetections</code>. Each <code>TextDetection</code> element provides information about a single word or line of text that was detected in the image. </p> <p>A word is one or more script characters that are not separated by spaces. <code>DetectText</code> can detect up to 100 words in an image.</p> <p>A line is a string of equally spaced words. A line isn't necessarily a complete sentence. For example, a driver's license number is detected as a line. A line ends when there is no aligned text after it. Also, a line ends when there is a large gap between words, relative to the length of the words. This means, depending on the gap between words, Amazon Rekognition may detect multiple lines in text aligned in the same direction. Periods don't represent the end of a line. If a sentence spans multiple lines, the <code>DetectText</code> operation returns multiple lines.</p> <p>To determine whether a <code>TextDetection</code> element is a line of text or a word, use the <code>TextDetection</code> object <code>Type</code> field. </p> <p>To be detected, text must be within +/- 90 degrees orientation of the horizontal axis.</p> <p>For more information, see DetectText in the Amazon Rekognition Developer Guide.</p>\"\
+      \"documentation\":\"<p>Detects text in the input image and converts it into machine-readable text.</p> <p>Pass the input image as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, you must pass it as a reference to an image in an Amazon S3 bucket. For the AWS CLI, passing image bytes is not supported. The image must be either a .png or .jpeg formatted file. </p> <p>The <code>DetectText</code> operation returns text in an array of <a>TextDetection</a> elements, <code>TextDetections</code>. Each <code>TextDetection</code> element provides information about a single word or line of text that was detected in the image. </p> <p>A word is one or more script characters that are not separated by spaces. <code>DetectText</code> can detect up to 100 words in an image.</p> <p>A line is a string of equally spaced words. A line isn't necessarily a complete sentence. For example, a driver's license number is detected as a line. A line ends when there is no aligned text after it. Also, a line ends when there is a large gap between words, relative to the length of the words. This means, depending on the gap between words, Amazon Rekognition may detect multiple lines in text aligned in the same direction. Periods don't represent the end of a line. If a sentence spans multiple lines, the <code>DetectText</code> operation returns multiple lines.</p> <p>To determine whether a <code>TextDetection</code> element is a line of text or a word, use the <code>TextDetection</code> object <code>Type</code> field. </p> <p>To be detected, text must be within +/- 90 degrees orientation of the horizontal axis.</p> <p>For more information, see Detecting text in the Amazon Rekognition Developer Guide.</p>\"\
     },\
     \"DistributeDatasetEntries\":{\
       \"name\":\"DistributeDatasetEntries\",\
@@ -553,7 +593,7 @@
         {\"shape\":\"ProvisionedThroughputExceededException\"},\
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
-      \"documentation\":\"<p>Gets the name and additional information about a celebrity based on their Amazon Rekognition ID. The additional information is returned as an array of URLs. If there is no additional information about the celebrity, this list is empty.</p> <p>For more information, see Recognizing Celebrities in an Image in the Amazon Rekognition Developer Guide.</p> <p>This operation requires permissions to perform the <code>rekognition:GetCelebrityInfo</code> action. </p>\"\
+      \"documentation\":\"<p>Gets the name and additional information about a celebrity based on their Amazon Rekognition ID. The additional information is returned as an array of URLs. If there is no additional information about the celebrity, this list is empty.</p> <p>For more information, see Getting information about a celebrity in the Amazon Rekognition Developer Guide.</p> <p>This operation requires permissions to perform the <code>rekognition:GetCelebrityInfo</code> action. </p>\"\
     },\
     \"GetCelebrityRecognition\":{\
       \"name\":\"GetCelebrityRecognition\",\
@@ -591,7 +631,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Gets the inappropriate, unwanted, or offensive content analysis results for a Amazon Rekognition Video analysis started by <a>StartContentModeration</a>. For a list of moderation labels in Amazon Rekognition, see <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api\\\">Using the image and video moderation APIs</a>.</p> <p>Amazon Rekognition Video inappropriate or offensive content detection in a stored video is an asynchronous operation. You start analysis by calling <a>StartContentModeration</a> which returns a job identifier (<code>JobId</code>). When analysis finishes, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to <code>StartContentModeration</code>. To get the results of the content analysis, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetContentModeration</code> and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>. </p> <p>For more information, see Working with Stored Videos in the Amazon Rekognition Devlopers Guide.</p> <p> <code>GetContentModeration</code> returns detected inappropriate, unwanted, or offensive content moderation labels, and the time they are detected, in an array, <code>ModerationLabels</code>, of <a>ContentModerationDetection</a> objects. </p> <p>By default, the moderated labels are returned sorted by time, in milliseconds from the start of the video. You can also sort them by moderated label by specifying <code>NAME</code> for the <code>SortBy</code> input parameter. </p> <p>Since video analysis can return a large number of results, use the <code>MaxResults</code> parameter to limit the number of labels returned in a single call to <code>GetContentModeration</code>. If there are more results than specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains a pagination token for getting the next set of results. To get the next page of results, call <code>GetContentModeration</code> and populate the <code>NextToken</code> request parameter with the value of <code>NextToken</code> returned from the previous call to <code>GetContentModeration</code>.</p> <p>For more information, see Content moderation in the Amazon Rekognition Developer Guide.</p>\"\
+      \"documentation\":\"<p>Gets the inappropriate, unwanted, or offensive content analysis results for a Amazon Rekognition Video analysis started by <a>StartContentModeration</a>. For a list of moderation labels in Amazon Rekognition, see <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api\\\">Using the image and video moderation APIs</a>.</p> <p>Amazon Rekognition Video inappropriate or offensive content detection in a stored video is an asynchronous operation. You start analysis by calling <a>StartContentModeration</a> which returns a job identifier (<code>JobId</code>). When analysis finishes, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to <code>StartContentModeration</code>. To get the results of the content analysis, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetContentModeration</code> and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>. </p> <p>For more information, see Working with Stored Videos in the Amazon Rekognition Devlopers Guide.</p> <p> <code>GetContentModeration</code> returns detected inappropriate, unwanted, or offensive content moderation labels, and the time they are detected, in an array, <code>ModerationLabels</code>, of <a>ContentModerationDetection</a> objects. </p> <p>By default, the moderated labels are returned sorted by time, in milliseconds from the start of the video. You can also sort them by moderated label by specifying <code>NAME</code> for the <code>SortBy</code> input parameter. </p> <p>Since video analysis can return a large number of results, use the <code>MaxResults</code> parameter to limit the number of labels returned in a single call to <code>GetContentModeration</code>. If there are more results than specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains a pagination token for getting the next set of results. To get the next page of results, call <code>GetContentModeration</code> and populate the <code>NextToken</code> request parameter with the value of <code>NextToken</code> returned from the previous call to <code>GetContentModeration</code>.</p> <p>For more information, see moderating content in the Amazon Rekognition Developer Guide.</p>\"\
     },\
     \"GetFaceDetection\":{\
       \"name\":\"GetFaceDetection\",\
@@ -648,7 +688,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Gets the label detection results of a Amazon Rekognition Video analysis started by <a>StartLabelDetection</a>. </p> <p>The label detection operation is started by a call to <a>StartLabelDetection</a> which returns a job identifier (<code>JobId</code>). When the label detection operation finishes, Amazon Rekognition publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to <code>StartlabelDetection</code>. To get the results of the label detection operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetLabelDetection</a> and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartLabelDetection</code>.</p> <p> <code>GetLabelDetection</code> returns an array of detected labels (<code>Labels</code>) sorted by the time the labels were detected. You can also sort by the label name by specifying <code>NAME</code> for the <code>SortBy</code> input parameter.</p> <p>The labels returned include the label name, the percentage confidence in the accuracy of the detected label, and the time the label was detected in the video.</p> <p>The returned labels also include bounding box information for common objects, a hierarchical taxonomy of detected labels, and the version of the label model used for detection.</p> <p>Use MaxResults parameter to limit the number of labels returned. If there are more results than specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains a pagination token for getting the next set of results. To get the next page of results, call <code>GetlabelDetection</code> and populate the <code>NextToken</code> request parameter with the token value returned from the previous call to <code>GetLabelDetection</code>.</p>\"\
+      \"documentation\":\"<p>Gets the label detection results of a Amazon Rekognition Video analysis started by <a>StartLabelDetection</a>. </p> <p>The label detection operation is started by a call to <a>StartLabelDetection</a> which returns a job identifier (<code>JobId</code>). When the label detection operation finishes, Amazon Rekognition publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to <code>StartlabelDetection</code>. </p> <p>To get the results of the label detection operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetLabelDetection</a> and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartLabelDetection</code>.</p> <p> <code>GetLabelDetection</code> returns an array of detected labels (<code>Labels</code>) sorted by the time the labels were detected. You can also sort by the label name by specifying <code>NAME</code> for the <code>SortBy</code> input parameter. If there is no <code>NAME</code> specified, the default sort is by timestamp.</p> <p>You can select how results are aggregated by using the <code>AggregateBy</code> input parameter. The default aggregation method is <code>TIMESTAMPS</code>. You can also aggregate by <code>SEGMENTS</code>, which aggregates all instances of labels detected in a given segment. </p> <p>The returned Labels array may include the following attributes:</p> <ul> <li> <p>Name - The name of the detected label.</p> </li> <li> <p>Confidence - The level of confidence in the label assigned to a detected object. </p> </li> <li> <p>Parents - The ancestor labels for a detected label. GetLabelDetection returns a hierarchical taxonomy of detected labels. For example, a detected car might be assigned the label car. The label car has two parent labels: Vehicle (its parent) and Transportation (its grandparent). The response includes the all ancestors for a label, where every ancestor is a unique label. In the previous example, Car, Vehicle, and Transportation are returned as unique labels in the response. </p> </li> <li> <p> Aliases - Possible Aliases for the label. </p> </li> <li> <p>Categories - The label categories that the detected label belongs to.</p> </li> <li> <p>BoundingBox â Bounding boxes are described for all instances of detected common object labels, returned in an array of Instance objects. An Instance object contains a BoundingBox object, describing the location of the label on the input image. It also includes the confidence for the accuracy of the detected bounding box.</p> </li> <li> <p>Timestamp - Time, in milliseconds from the start of the video, that the label was detected. For aggregation by <code>SEGMENTS</code>, the <code>StartTimestampMillis</code>, <code>EndTimestampMillis</code>, and <code>DurationMillis</code> structures are what define a segment. Although the âTimestampâ structure is still returned with each label, its value is set to be the same as <code>StartTimestampMillis</code>.</p> </li> </ul> <p>Timestamp and Bounding box information are returned for detected Instances, only if aggregation is done by <code>TIMESTAMPS</code>. If aggregating by <code>SEGMENTS</code>, information about detected instances isnât returned. </p> <p>The version of the label model used for the detection is also returned.</p> <p> <b>Note <code>DominantColors</code> isn't returned for <code>Instances</code>, although it is shown as part of the response in the sample seen below.</b> </p> <p>Use <code>MaxResults</code> parameter to limit the number of labels returned. If there are more results than specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains a pagination token for getting the next set of results. To get the next page of results, call <code>GetlabelDetection</code> and populate the <code>NextToken</code> request parameter with the token value returned from the previous call to <code>GetLabelDetection</code>.</p>\"\
     },\
     \"GetPersonTracking\":{\
       \"name\":\"GetPersonTracking\",\
@@ -686,7 +726,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Gets the segment detection results of a Amazon Rekognition Video analysis started by <a>StartSegmentDetection</a>.</p> <p>Segment detection with Amazon Rekognition Video is an asynchronous operation. You start segment detection by calling <a>StartSegmentDetection</a> which returns a job identifier (<code>JobId</code>). When the segment detection operation finishes, Amazon Rekognition publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to <code>StartSegmentDetection</code>. To get the results of the segment detection operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. if so, call <code>GetSegmentDetection</code> and pass the job identifier (<code>JobId</code>) from the initial call of <code>StartSegmentDetection</code>.</p> <p> <code>GetSegmentDetection</code> returns detected segments in an array (<code>Segments</code>) of <a>SegmentDetection</a> objects. <code>Segments</code> is sorted by the segment types specified in the <code>SegmentTypes</code> input parameter of <code>StartSegmentDetection</code>. Each element of the array includes the detected segment, the precentage confidence in the acuracy of the detected segment, the type of the segment, and the frame in which the segment was detected.</p> <p>Use <code>SelectedSegmentTypes</code> to find out the type of segment detection requested in the call to <code>StartSegmentDetection</code>.</p> <p>Use the <code>MaxResults</code> parameter to limit the number of segment detections returned. If there are more results than specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains a pagination token for getting the next set of results. To get the next page of results, call <code>GetSegmentDetection</code> and populate the <code>NextToken</code> request parameter with the token value returned from the previous call to <code>GetSegmentDetection</code>.</p> <p>For more information, see Detecting Video Segments in Stored Video in the Amazon Rekognition Developer Guide.</p>\"\
+      \"documentation\":\"<p>Gets the segment detection results of a Amazon Rekognition Video analysis started by <a>StartSegmentDetection</a>.</p> <p>Segment detection with Amazon Rekognition Video is an asynchronous operation. You start segment detection by calling <a>StartSegmentDetection</a> which returns a job identifier (<code>JobId</code>). When the segment detection operation finishes, Amazon Rekognition publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to <code>StartSegmentDetection</code>. To get the results of the segment detection operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. if so, call <code>GetSegmentDetection</code> and pass the job identifier (<code>JobId</code>) from the initial call of <code>StartSegmentDetection</code>.</p> <p> <code>GetSegmentDetection</code> returns detected segments in an array (<code>Segments</code>) of <a>SegmentDetection</a> objects. <code>Segments</code> is sorted by the segment types specified in the <code>SegmentTypes</code> input parameter of <code>StartSegmentDetection</code>. Each element of the array includes the detected segment, the precentage confidence in the acuracy of the detected segment, the type of the segment, and the frame in which the segment was detected.</p> <p>Use <code>SelectedSegmentTypes</code> to find out the type of segment detection requested in the call to <code>StartSegmentDetection</code>.</p> <p>Use the <code>MaxResults</code> parameter to limit the number of segment detections returned. If there are more results than specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains a pagination token for getting the next set of results. To get the next page of results, call <code>GetSegmentDetection</code> and populate the <code>NextToken</code> request parameter with the token value returned from the previous call to <code>GetSegmentDetection</code>.</p> <p>For more information, see Detecting video segments in stored video in the Amazon Rekognition Developer Guide.</p>\"\
     },\
     \"GetTextDetection\":{\
       \"name\":\"GetTextDetection\",\
@@ -727,7 +767,7 @@
         {\"shape\":\"InvalidImageFormatException\"},\
         {\"shape\":\"ServiceQuotaExceededException\"}\
       ],\
-      \"documentation\":\"<p>Detects faces in the input image and adds them to the specified collection. </p> <p>Amazon Rekognition doesn't save the actual faces that are detected. Instead, the underlying detection algorithm first detects the faces in the input image. For each face, the algorithm extracts facial features into a feature vector, and stores it in the backend database. Amazon Rekognition uses feature vectors when it performs face match and search operations using the <a>SearchFaces</a> and <a>SearchFacesByImage</a> operations.</p> <p>For more information, see Adding Faces to a Collection in the Amazon Rekognition Developer Guide.</p> <p>To get the number of faces in a collection, call <a>DescribeCollection</a>. </p> <p>If you're using version 1.0 of the face detection model, <code>IndexFaces</code> indexes the 15 largest faces in the input image. Later versions of the face detection model index the 100 largest faces in the input image. </p> <p>If you're using version 4 or later of the face model, image orientation information is not returned in the <code>OrientationCorrection</code> field. </p> <p>To determine which version of the model you're using, call <a>DescribeCollection</a> and supply the collection ID. You can also get the model version from the value of <code>FaceModelVersion</code> in the response from <code>IndexFaces</code> </p> <p>For more information, see Model Versioning in the Amazon Rekognition Developer Guide.</p> <p>If you provide the optional <code>ExternalImageId</code> for the input image you provided, Amazon Rekognition associates this ID with all faces that it detects. When you call the <a>ListFaces</a> operation, the response returns the external ID. You can use this external image ID to create a client-side index to associate the faces with each image. You can then use the index to find all faces in an image.</p> <p>You can specify the maximum number of faces to index with the <code>MaxFaces</code> input parameter. This is useful when you want to index the largest faces in an image and don't want to index smaller faces, such as those belonging to people standing in the background.</p> <p>The <code>QualityFilter</code> input parameter allows you to filter out detected faces that donât meet a required quality bar. The quality bar is based on a variety of common use cases. By default, <code>IndexFaces</code> chooses the quality bar that's used to filter faces. You can also explicitly choose the quality bar. Use <code>QualityFilter</code>, to set the quality bar by specifying <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>. If you do not want to filter detected faces, specify <code>NONE</code>. </p> <note> <p>To use quality filtering, you need a collection associated with version 3 of the face model or higher. To get the version of the face model associated with a collection, call <a>DescribeCollection</a>. </p> </note> <p>Information about faces detected in an image, but not indexed, is returned in an array of <a>UnindexedFace</a> objects, <code>UnindexedFaces</code>. Faces aren't indexed for reasons such as:</p> <ul> <li> <p>The number of faces detected exceeds the value of the <code>MaxFaces</code> request parameter.</p> </li> <li> <p>The face is too small compared to the image dimensions.</p> </li> <li> <p>The face is too blurry.</p> </li> <li> <p>The image is too dark.</p> </li> <li> <p>The face has an extreme pose.</p> </li> <li> <p>The face doesnât have enough detail to be suitable for face search.</p> </li> </ul> <p>In response, the <code>IndexFaces</code> operation returns an array of metadata for all detected faces, <code>FaceRecords</code>. This includes: </p> <ul> <li> <p>The bounding box, <code>BoundingBox</code>, of the detected face. </p> </li> <li> <p>A confidence value, <code>Confidence</code>, which indicates the confidence that the bounding box contains a face.</p> </li> <li> <p>A face ID, <code>FaceId</code>, assigned by the service for each face that's detected and stored.</p> </li> <li> <p>An image ID, <code>ImageId</code>, assigned by the service for the input image.</p> </li> </ul> <p>If you request all facial attributes (by using the <code>detectionAttributes</code> parameter), Amazon Rekognition returns detailed facial attributes, such as facial landmarks (for example, location of eye and mouth) and other facial attributes. If you provide the same image, specify the same collection, and use the same external ID in the <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate face metadata.</p> <p/> <p>The input image is passed either as base64-encoded image bytes, or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes isn't supported. The image must be formatted as a PNG or JPEG file. </p> <p>This operation requires permissions to perform the <code>rekognition:IndexFaces</code> action.</p>\"\
+      \"documentation\":\"<p>Detects faces in the input image and adds them to the specified collection. </p> <p>Amazon Rekognition doesn't save the actual faces that are detected. Instead, the underlying detection algorithm first detects the faces in the input image. For each face, the algorithm extracts facial features into a feature vector, and stores it in the backend database. Amazon Rekognition uses feature vectors when it performs face match and search operations using the <a>SearchFaces</a> and <a>SearchFacesByImage</a> operations.</p> <p>For more information, see Adding faces to a collection in the Amazon Rekognition Developer Guide.</p> <p>To get the number of faces in a collection, call <a>DescribeCollection</a>. </p> <p>If you're using version 1.0 of the face detection model, <code>IndexFaces</code> indexes the 15 largest faces in the input image. Later versions of the face detection model index the 100 largest faces in the input image. </p> <p>If you're using version 4 or later of the face model, image orientation information is not returned in the <code>OrientationCorrection</code> field. </p> <p>To determine which version of the model you're using, call <a>DescribeCollection</a> and supply the collection ID. You can also get the model version from the value of <code>FaceModelVersion</code> in the response from <code>IndexFaces</code> </p> <p>For more information, see Model Versioning in the Amazon Rekognition Developer Guide.</p> <p>If you provide the optional <code>ExternalImageId</code> for the input image you provided, Amazon Rekognition associates this ID with all faces that it detects. When you call the <a>ListFaces</a> operation, the response returns the external ID. You can use this external image ID to create a client-side index to associate the faces with each image. You can then use the index to find all faces in an image.</p> <p>You can specify the maximum number of faces to index with the <code>MaxFaces</code> input parameter. This is useful when you want to index the largest faces in an image and don't want to index smaller faces, such as those belonging to people standing in the background.</p> <p>The <code>QualityFilter</code> input parameter allows you to filter out detected faces that donât meet a required quality bar. The quality bar is based on a variety of common use cases. By default, <code>IndexFaces</code> chooses the quality bar that's used to filter faces. You can also explicitly choose the quality bar. Use <code>QualityFilter</code>, to set the quality bar by specifying <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>. If you do not want to filter detected faces, specify <code>NONE</code>. </p> <note> <p>To use quality filtering, you need a collection associated with version 3 of the face model or higher. To get the version of the face model associated with a collection, call <a>DescribeCollection</a>. </p> </note> <p>Information about faces detected in an image, but not indexed, is returned in an array of <a>UnindexedFace</a> objects, <code>UnindexedFaces</code>. Faces aren't indexed for reasons such as:</p> <ul> <li> <p>The number of faces detected exceeds the value of the <code>MaxFaces</code> request parameter.</p> </li> <li> <p>The face is too small compared to the image dimensions.</p> </li> <li> <p>The face is too blurry.</p> </li> <li> <p>The image is too dark.</p> </li> <li> <p>The face has an extreme pose.</p> </li> <li> <p>The face doesnât have enough detail to be suitable for face search.</p> </li> </ul> <p>In response, the <code>IndexFaces</code> operation returns an array of metadata for all detected faces, <code>FaceRecords</code>. This includes: </p> <ul> <li> <p>The bounding box, <code>BoundingBox</code>, of the detected face. </p> </li> <li> <p>A confidence value, <code>Confidence</code>, which indicates the confidence that the bounding box contains a face.</p> </li> <li> <p>A face ID, <code>FaceId</code>, assigned by the service for each face that's detected and stored.</p> </li> <li> <p>An image ID, <code>ImageId</code>, assigned by the service for the input image.</p> </li> </ul> <p>If you request all facial attributes (by using the <code>detectionAttributes</code> parameter), Amazon Rekognition returns detailed facial attributes, such as facial landmarks (for example, location of eye and mouth) and other facial attributes. If you provide the same image, specify the same collection, and use the same external ID in the <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate face metadata.</p> <p/> <p>The input image is passed either as base64-encoded image bytes, or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes isn't supported. The image must be formatted as a PNG or JPEG file. </p> <p>This operation requires permissions to perform the <code>rekognition:IndexFaces</code> action.</p>\"\
     },\
     \"ListCollections\":{\
       \"name\":\"ListCollections\",\
@@ -746,7 +786,7 @@
         {\"shape\":\"InvalidPaginationTokenException\"},\
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
-      \"documentation\":\"<p>Returns list of collection IDs in your account. If the result is truncated, the response also provides a <code>NextToken</code> that you can use in the subsequent request to fetch the next set of collection IDs.</p> <p>For an example, see Listing Collections in the Amazon Rekognition Developer Guide.</p> <p>This operation requires permissions to perform the <code>rekognition:ListCollections</code> action.</p>\"\
+      \"documentation\":\"<p>Returns list of collection IDs in your account. If the result is truncated, the response also provides a <code>NextToken</code> that you can use in the subsequent request to fetch the next set of collection IDs.</p> <p>For an example, see Listing collections in the Amazon Rekognition Developer Guide.</p> <p>This operation requires permissions to perform the <code>rekognition:ListCollections</code> action.</p>\"\
     },\
     \"ListDatasetEntries\":{\
       \"name\":\"ListDatasetEntries\",\
@@ -809,6 +849,25 @@
       ],\
       \"documentation\":\"<p>Returns metadata for faces in the specified collection. This metadata includes information such as the bounding box coordinates, the confidence (that the bounding box contains a face), and face ID. For an example, see Listing Faces in a Collection in the Amazon Rekognition Developer Guide.</p> <p>This operation requires permissions to perform the <code>rekognition:ListFaces</code> action.</p>\"\
     },\
+    \"ListProjectPolicies\":{\
+      \"name\":\"ListProjectPolicies\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ListProjectPoliciesRequest\"},\
+      \"output\":{\"shape\":\"ListProjectPoliciesResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"InternalServerError\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ProvisionedThroughputExceededException\"},\
+        {\"shape\":\"InvalidPaginationTokenException\"}\
+      ],\
+      \"documentation\":\"<p>Gets a list of the project policies attached to a project.</p> <p>To attach a project policy to a project, call <a>PutProjectPolicy</a>. To remove a project policy from a project, call <a>DeleteProjectPolicy</a>.</p>\"\
+    },\
     \"ListStreamProcessors\":{\
       \"name\":\"ListStreamProcessors\",\
       \"http\":{\
@@ -845,6 +904,29 @@
       ],\
       \"documentation\":\"<p> Returns a list of tags in an Amazon Rekognition collection, stream processor, or Custom Labels model. </p> <p>This operation requires permissions to perform the <code>rekognition:ListTagsForResource</code> action. </p>\"\
     },\
+    \"PutProjectPolicy\":{\
+      \"name\":\"PutProjectPolicy\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"PutProjectPolicyRequest\"},\
+      \"output\":{\"shape\":\"PutProjectPolicyResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"InternalServerError\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"InvalidPolicyRevisionIdException\"},\
+        {\"shape\":\"MalformedPolicyDocumentException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ResourceAlreadyExistsException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ServiceQuotaExceededException\"},\
+        {\"shape\":\"ProvisionedThroughputExceededException\"},\
+        {\"shape\":\"LimitExceededException\"}\
+      ],\
+      \"documentation\":\"<p>Attaches a project policy to a Amazon Rekognition Custom Labels project in a trusting AWS account. A project policy specifies that a trusted AWS account can copy a model version from a trusting AWS account to a project in the trusted AWS account. To copy a model version you use the <a>CopyProjectVersion</a> operation.</p> <p>For more information about the format of a project policy document, see Attaching a project policy (SDK) in the <i>Amazon Rekognition Custom Labels Developer Guide</i>. </p> <p>The response from <code>PutProjectPolicy</code> is a revision ID for the project policy. You can attach multiple project policies to a project. You can also update an existing project policy by specifying the policy revision ID of the existing policy.</p> <p>To remove a project policy from a project, call <a>DeleteProjectPolicy</a>. To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>. </p> <p>You copy a model version by calling <a>CopyProjectVersion</a>.</p>\"\
+    },\
     \"RecognizeCelebrities\":{\
       \"name\":\"RecognizeCelebrities\",\
       \"http\":{\
@@ -864,7 +946,7 @@
         {\"shape\":\"ProvisionedThroughputExceededException\"},\
         {\"shape\":\"InvalidImageFormatException\"}\
       ],\
-      \"documentation\":\"<p>Returns an array of celebrities recognized in the input image. For more information, see Recognizing Celebrities in the Amazon Rekognition Developer Guide. </p> <p> <code>RecognizeCelebrities</code> returns the 64 largest faces in the image. It lists the recognized celebrities in the <code>CelebrityFaces</code> array and any unrecognized faces in the <code>UnrecognizedFaces</code> array. <code>RecognizeCelebrities</code> doesn't return celebrities whose faces aren't among the largest 64 faces in the image.</p> <p>For each celebrity recognized, <code>RecognizeCelebrities</code> returns a <code>Celebrity</code> object. The <code>Celebrity</code> object contains the celebrity name, ID, URL links to additional information, match confidence, and a <code>ComparedFace</code> object that you can use to locate the celebrity's face on the image.</p> <p>Amazon Rekognition doesn't retain information about which images a celebrity has been recognized in. Your application must store this information and use the <code>Celebrity</code> ID property as a unique identifier for the celebrity. If you don't store the celebrity name or additional information URLs returned by <code>RecognizeCelebrities</code>, you will need the ID to identify the celebrity in a call to the <a>GetCelebrityInfo</a> operation.</p> <p>You pass the input image either as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file. </p> <p>For an example, see Recognizing Celebrities in an Image in the Amazon Rekognition Developer Guide.</p> <p>This operation requires permissions to perform the <code>rekognition:RecognizeCelebrities</code> operation.</p>\"\
+      \"documentation\":\"<p>Returns an array of celebrities recognized in the input image. For more information, see Recognizing celebrities in the Amazon Rekognition Developer Guide. </p> <p> <code>RecognizeCelebrities</code> returns the 64 largest faces in the image. It lists the recognized celebrities in the <code>CelebrityFaces</code> array and any unrecognized faces in the <code>UnrecognizedFaces</code> array. <code>RecognizeCelebrities</code> doesn't return celebrities whose faces aren't among the largest 64 faces in the image.</p> <p>For each celebrity recognized, <code>RecognizeCelebrities</code> returns a <code>Celebrity</code> object. The <code>Celebrity</code> object contains the celebrity name, ID, URL links to additional information, match confidence, and a <code>ComparedFace</code> object that you can use to locate the celebrity's face on the image.</p> <p>Amazon Rekognition doesn't retain information about which images a celebrity has been recognized in. Your application must store this information and use the <code>Celebrity</code> ID property as a unique identifier for the celebrity. If you don't store the celebrity name or additional information URLs returned by <code>RecognizeCelebrities</code>, you will need the ID to identify the celebrity in a call to the <a>GetCelebrityInfo</a> operation.</p> <p>You pass the input image either as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file. </p> <p>For an example, see Recognizing celebrities in an image in the Amazon Rekognition Developer Guide.</p> <p>This operation requires permissions to perform the <code>rekognition:RecognizeCelebrities</code> operation.</p>\"\
     },\
     \"SearchFaces\":{\
       \"name\":\"SearchFaces\",\
@@ -882,7 +964,7 @@
         {\"shape\":\"ProvisionedThroughputExceededException\"},\
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
-      \"documentation\":\"<p>For a given input face ID, searches for matching faces in the collection the face belongs to. You get a face ID when you add a face to the collection using the <a>IndexFaces</a> operation. The operation compares the features of the input face with faces in the specified collection. </p> <note> <p>You can also search faces without indexing faces by using the <code>SearchFacesByImage</code> operation.</p> </note> <p> The operation response returns an array of faces that match, ordered by similarity score with the highest similarity first. More specifically, it is an array of metadata for each face match that is found. Along with the metadata, the response also includes a <code>confidence</code> value for each face match, indicating the confidence that the specific face matches the input face. </p> <p>For an example, see Searching for a Face Using Its Face ID in the Amazon Rekognition Developer Guide.</p> <p>This operation requires permissions to perform the <code>rekognition:SearchFaces</code> action.</p>\"\
+      \"documentation\":\"<p>For a given input face ID, searches for matching faces in the collection the face belongs to. You get a face ID when you add a face to the collection using the <a>IndexFaces</a> operation. The operation compares the features of the input face with faces in the specified collection. </p> <note> <p>You can also search faces without indexing faces by using the <code>SearchFacesByImage</code> operation.</p> </note> <p> The operation response returns an array of faces that match, ordered by similarity score with the highest similarity first. More specifically, it is an array of metadata for each face match that is found. Along with the metadata, the response also includes a <code>confidence</code> value for each face match, indicating the confidence that the specific face matches the input face. </p> <p>For an example, see Searching for a face using its face ID in the Amazon Rekognition Developer Guide.</p> <p>This operation requires permissions to perform the <code>rekognition:SearchFaces</code> action.</p>\"\
     },\
     \"SearchFacesByImage\":{\
       \"name\":\"SearchFacesByImage\",\
@@ -924,7 +1006,7 @@
         {\"shape\":\"LimitExceededException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Starts asynchronous recognition of celebrities in a stored video.</p> <p>Amazon Rekognition Video can detect celebrities in a video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartCelebrityRecognition</code> returns a job identifier (<code>JobId</code>) which you use to get the results of the analysis. When celebrity recognition analysis is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>. To get the results of the celebrity recognition analysis, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetCelebrityRecognition</a> and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartCelebrityRecognition</code>. </p> <p>For more information, see Recognizing Celebrities in the Amazon Rekognition Developer Guide.</p>\",\
+      \"documentation\":\"<p>Starts asynchronous recognition of celebrities in a stored video.</p> <p>Amazon Rekognition Video can detect celebrities in a video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartCelebrityRecognition</code> returns a job identifier (<code>JobId</code>) which you use to get the results of the analysis. When celebrity recognition analysis is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>. To get the results of the celebrity recognition analysis, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetCelebrityRecognition</a> and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartCelebrityRecognition</code>. </p> <p>For more information, see Recognizing celebrities in the Amazon Rekognition Developer Guide.</p>\",\
       \"idempotent\":true\
     },\
     \"StartContentModeration\":{\
@@ -946,7 +1028,7 @@
         {\"shape\":\"LimitExceededException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p> Starts asynchronous detection of inappropriate, unwanted, or offensive content in a stored video. For a list of moderation labels in Amazon Rekognition, see <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api\\\">Using the image and video moderation APIs</a>.</p> <p>Amazon Rekognition Video can moderate content in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartContentModeration</code> returns a job identifier (<code>JobId</code>) which you use to get the results of the analysis. When content analysis is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>.</p> <p>To get the results of the content analysis, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetContentModeration</a> and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>. </p> <p>For more information, see Content moderation in the Amazon Rekognition Developer Guide.</p>\",\
+      \"documentation\":\"<p> Starts asynchronous detection of inappropriate, unwanted, or offensive content in a stored video. For a list of moderation labels in Amazon Rekognition, see <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api\\\">Using the image and video moderation APIs</a>.</p> <p>Amazon Rekognition Video can moderate content in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartContentModeration</code> returns a job identifier (<code>JobId</code>) which you use to get the results of the analysis. When content analysis is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>.</p> <p>To get the results of the content analysis, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetContentModeration</a> and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>. </p> <p>For more information, see Moderating content in the Amazon Rekognition Developer Guide.</p>\",\
       \"idempotent\":true\
     },\
     \"StartFaceDetection\":{\
@@ -968,7 +1050,7 @@
         {\"shape\":\"LimitExceededException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Starts asynchronous detection of faces in a stored video.</p> <p>Amazon Rekognition Video can detect faces in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartFaceDetection</code> returns a job identifier (<code>JobId</code>) that you use to get the results of the operation. When face detection is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>. To get the results of the face detection operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetFaceDetection</a> and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartFaceDetection</code>.</p> <p>For more information, see Detecting Faces in a Stored Video in the Amazon Rekognition Developer Guide.</p>\",\
+      \"documentation\":\"<p>Starts asynchronous detection of faces in a stored video.</p> <p>Amazon Rekognition Video can detect faces in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartFaceDetection</code> returns a job identifier (<code>JobId</code>) that you use to get the results of the operation. When face detection is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>. To get the results of the face detection operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetFaceDetection</a> and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartFaceDetection</code>.</p> <p>For more information, see Detecting faces in a stored video in the Amazon Rekognition Developer Guide.</p>\",\
       \"idempotent\":true\
     },\
     \"StartFaceSearch\":{\
@@ -991,7 +1073,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Starts the asynchronous search for faces in a collection that match the faces of persons detected in a stored video.</p> <p>The video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartFaceSearch</code> returns a job identifier (<code>JobId</code>) which you use to get the search results once the search has completed. When searching is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>. To get the search results, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetFaceSearch</a> and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartFaceSearch</code>. For more information, see <a>procedure-person-search-videos</a>.</p>\",\
+      \"documentation\":\"<p>Starts the asynchronous search for faces in a collection that match the faces of persons detected in a stored video.</p> <p>The video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartFaceSearch</code> returns a job identifier (<code>JobId</code>) which you use to get the search results once the search has completed. When searching is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>. To get the search results, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetFaceSearch</a> and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartFaceSearch</code>. For more information, see <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/dg/procedure-person-search-videos.html\\\">Searching stored videos for faces</a>. </p>\",\
       \"idempotent\":true\
     },\
     \"StartLabelDetection\":{\
@@ -1013,7 +1095,7 @@
         {\"shape\":\"LimitExceededException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Starts asynchronous detection of labels in a stored video.</p> <p>Amazon Rekognition Video can detect labels in a video. Labels are instances of real-world entities. This includes objects like flower, tree, and table; events like wedding, graduation, and birthday party; concepts like landscape, evening, and nature; and activities like a person getting out of a car or a person skiing.</p> <p>The video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartLabelDetection</code> returns a job identifier (<code>JobId</code>) which you use to get the results of the operation. When label detection is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>.</p> <p>To get the results of the label detection operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetLabelDetection</a> and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartLabelDetection</code>.</p> <p/>\",\
+      \"documentation\":\"<p>Starts asynchronous detection of labels in a stored video.</p> <p>Amazon Rekognition Video can detect labels in a video. Labels are instances of real-world entities. This includes objects like flower, tree, and table; events like wedding, graduation, and birthday party; concepts like landscape, evening, and nature; and activities like a person getting out of a car or a person skiing.</p> <p>The video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartLabelDetection</code> returns a job identifier (<code>JobId</code>) which you use to get the results of the operation. When label detection is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>.</p> <p>To get the results of the label detection operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetLabelDetection</a> and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartLabelDetection</code>.</p> <p> <i>Optional Parameters</i> </p> <p> <code>StartLabelDetection</code> has the <code>GENERAL_LABELS</code> Feature applied by default. This feature allows you to provide filtering criteria to the <code>Settings</code> parameter. You can filter with sets of individual labels or with label categories. You can specify inclusive filters, exclusive filters, or a combination of inclusive and exclusive filters. For more information on filtering, see <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/dg/labels-detecting-labels-video.html\\\">Detecting labels in a video</a>.</p> <p>You can specify <code>MinConfidence</code> to control the confidence threshold for the labels returned. The default is 50.</p>\",\
       \"idempotent\":true\
     },\
     \"StartPersonTracking\":{\
@@ -1056,7 +1138,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"ProvisionedThroughputExceededException\"}\
       ],\
-      \"documentation\":\"<p>Starts the running of the version of a model. Starting a model takes a while to complete. To check the current state of the model, use <a>DescribeProjectVersions</a>.</p> <p>Once the model is running, you can detect custom labels in new images by calling <a>DetectCustomLabels</a>.</p> <note> <p>You are charged for the amount of time that the model is running. To stop a running model, call <a>StopProjectVersion</a>.</p> </note> <p>This operation requires permissions to perform the <code>rekognition:StartProjectVersion</code> action.</p>\"\
+      \"documentation\":\"<p>Starts the running of the version of a model. Starting a model takes a while to complete. To check the current state of the model, use <a>DescribeProjectVersions</a>.</p> <p>Once the model is running, you can detect custom labels in new images by calling <a>DetectCustomLabels</a>.</p> <note> <p>You are charged for the amount of time that the model is running. To stop a running model, call <a>StopProjectVersion</a>.</p> </note> <p>For more information, see <i>Running a trained Amazon Rekognition Custom Labels model</i> in the Amazon Rekognition Custom Labels Guide.</p> <p>This operation requires permissions to perform the <code>rekognition:StartProjectVersion</code> action.</p>\"\
     },\
     \"StartSegmentDetection\":{\
       \"name\":\"StartSegmentDetection\",\
@@ -1077,7 +1159,7 @@
         {\"shape\":\"LimitExceededException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Starts asynchronous detection of segment detection in a stored video.</p> <p>Amazon Rekognition Video can detect segments in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartSegmentDetection</code> returns a job identifier (<code>JobId</code>) which you use to get the results of the operation. When segment detection is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>.</p> <p>You can use the <code>Filters</code> (<a>StartSegmentDetectionFilters</a>) input parameter to specify the minimum detection confidence returned in the response. Within <code>Filters</code>, use <code>ShotFilter</code> (<a>StartShotDetectionFilter</a>) to filter detected shots. Use <code>TechnicalCueFilter</code> (<a>StartTechnicalCueDetectionFilter</a>) to filter technical cues. </p> <p>To get the results of the segment detection operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. if so, call <a>GetSegmentDetection</a> and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartSegmentDetection</code>. </p> <p>For more information, see Detecting Video Segments in Stored Video in the Amazon Rekognition Developer Guide.</p>\",\
+      \"documentation\":\"<p>Starts asynchronous detection of segment detection in a stored video.</p> <p>Amazon Rekognition Video can detect segments in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartSegmentDetection</code> returns a job identifier (<code>JobId</code>) which you use to get the results of the operation. When segment detection is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>.</p> <p>You can use the <code>Filters</code> (<a>StartSegmentDetectionFilters</a>) input parameter to specify the minimum detection confidence returned in the response. Within <code>Filters</code>, use <code>ShotFilter</code> (<a>StartShotDetectionFilter</a>) to filter detected shots. Use <code>TechnicalCueFilter</code> (<a>StartTechnicalCueDetectionFilter</a>) to filter technical cues. </p> <p>To get the results of the segment detection operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. if so, call <a>GetSegmentDetection</a> and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartSegmentDetection</code>. </p> <p>For more information, see Detecting video segments in stored video in the Amazon Rekognition Developer Guide.</p>\",\
       \"idempotent\":true\
     },\
     \"StartStreamProcessor\":{\
@@ -1097,7 +1179,7 @@
         {\"shape\":\"ResourceInUseException\"},\
         {\"shape\":\"ProvisionedThroughputExceededException\"}\
       ],\
-      \"documentation\":\"<p>Starts processing a stream processor. You create a stream processor by calling <a>CreateStreamProcessor</a>. To tell <code>StartStreamProcessor</code> which stream processor to start, use the value of the <code>Name</code> field specified in the call to <code>CreateStreamProcessor</code>.</p>\"\
+      \"documentation\":\"<p>Starts processing a stream processor. You create a stream processor by calling <a>CreateStreamProcessor</a>. To tell <code>StartStreamProcessor</code> which stream processor to start, use the value of the <code>Name</code> field specified in the call to <code>CreateStreamProcessor</code>.</p> <p>If you are using a label detection stream processor to detect labels, you need to provide a <code>Start selector</code> and a <code>Stop selector</code> to determine the length of the stream processing time.</p>\"\
     },\
     \"StartTextDetection\":{\
       \"name\":\"StartTextDetection\",\
@@ -1215,6 +1297,24 @@
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
       \"documentation\":\"<p>Adds or updates one or more entries (images) in a dataset. An entry is a JSON Line which contains the information for a single image, including the image location, assigned labels, and object location bounding boxes. For more information, see Image-Level labels in manifest files and Object localization in manifest files in the <i>Amazon Rekognition Custom Labels Developer Guide</i>. </p> <p>If the <code>source-ref</code> field in the JSON line references an existing image, the existing image in the dataset is updated. If <code>source-ref</code> field doesn't reference an existing image, the image is added as a new image to the dataset. </p> <p>You specify the changes that you want to make in the <code>Changes</code> input parameter. There isn't a limit to the number JSON Lines that you can change, but the size of <code>Changes</code> must be less than 5MB.</p> <p> <code>UpdateDatasetEntries</code> returns immediatly, but the dataset update might take a while to complete. Use <a>DescribeDataset</a> to check the current status. The dataset updated successfully if the value of <code>Status</code> is <code>UPDATE_COMPLETE</code>. </p> <p>To check if any non-terminal errors occured, call <a>ListDatasetEntries</a> and check for the presence of <code>errors</code> lists in the JSON Lines.</p> <p>Dataset update fails if a terminal error occurs (<code>Status</code> = <code>UPDATE_FAILED</code>). Currently, you can't access the terminal error information from the Amazon Rekognition Custom Labels SDK. </p> <p>This operation requires permissions to perform the <code>rekognition:UpdateDatasetEntries</code> action.</p>\"\
+    },\
+    \"UpdateStreamProcessor\":{\
+      \"name\":\"UpdateStreamProcessor\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"UpdateStreamProcessorRequest\"},\
+      \"output\":{\"shape\":\"UpdateStreamProcessorResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"InternalServerError\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ProvisionedThroughputExceededException\"}\
+      ],\
+      \"documentation\":\"<p> Allows you to update a stream processor. You can change some settings and regions of interest and delete certain parameters. </p>\"\
     }\
   },\
   \"shapes\":{\
@@ -1349,7 +1449,7 @@
           \"documentation\":\"<p>Top coordinate of the bounding box as a ratio of overall image height.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Identifies the bounding box around the label, face, text or personal protective equipment. The <code>left</code> (x-coordinate) and <code>top</code> (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0). </p> <p>The <code>top</code> and <code>left</code> values returned are ratios of the overall image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of the bounding box is 350x50 pixels, the API returns a <code>left</code> value of 0.5 (350/700) and a <code>top</code> value of 0.25 (50/200).</p> <p>The <code>width</code> and <code>height</code> values represent the dimensions of the bounding box as a ratio of the overall image dimension. For example, if the input image is 700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. </p> <note> <p> The bounding box coordinates can have negative values. For example, if Amazon Rekognition is able to detect a face that is at the image edge and is only partially visible, the service can return coordinates that are outside the image bounds and, depending on the image edge, you might get negative values or values greater than 1 for the <code>left</code> or <code>top</code> values. </p> </note>\"\
+      \"documentation\":\"<p>Identifies the bounding box around the label, face, text, object of interest, or personal protective equipment. The <code>left</code> (x-coordinate) and <code>top</code> (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0). </p> <p>The <code>top</code> and <code>left</code> values returned are ratios of the overall image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of the bounding box is 350x50 pixels, the API returns a <code>left</code> value of 0.5 (350/700) and a <code>top</code> value of 0.25 (50/200).</p> <p>The <code>width</code> and <code>height</code> values represent the dimensions of the bounding box as a ratio of the overall image dimension. For example, if the input image is 700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. </p> <note> <p> The bounding box coordinates can have negative values. For example, if Amazon Rekognition is able to detect a face that is at the image edge and is only partially visible, the service can return coordinates that are outside the image bounds and, depending on the image edge, you might get negative values or values greater than 1 for the <code>left</code> or <code>top</code> values. </p> </note>\"\
     },\
     \"BoundingBoxHeight\":{\
       \"type\":\"float\",\
@@ -1431,7 +1531,7 @@
       \"members\":{\
         \"Timestamp\":{\
           \"shape\":\"Timestamp\",\
-          \"documentation\":\"<p>The time, in milliseconds from the start of the video, that the celebrity was recognized.</p>\"\
+          \"documentation\":\"<p>The time, in milliseconds from the start of the video, that the celebrity was recognized. Note that <code>Timestamp</code> is not guaranteed to be accurate to the individual frame where the celebrity first appears.</p>\"\
         },\
         \"Celebrity\":{\
           \"shape\":\"CelebrityDetail\",\
@@ -1591,6 +1691,42 @@
       },\
       \"documentation\":\"<p>Type that describes the face Amazon Rekognition chose to compare with the faces in the target. This contains a bounding box for the selected face and confidence level that the bounding box contains a face. Note that Amazon Rekognition selects the largest face in the source image for this comparison. </p>\"\
     },\
+    \"ConnectedHomeLabel\":{\"type\":\"string\"},\
+    \"ConnectedHomeLabels\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ConnectedHomeLabel\"},\
+      \"max\":128,\
+      \"min\":1\
+    },\
+    \"ConnectedHomeSettings\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Labels\"],\
+      \"members\":{\
+        \"Labels\":{\
+          \"shape\":\"ConnectedHomeLabels\",\
+          \"documentation\":\"<p> Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: \\\"PERSON\\\", \\\"PET\\\", \\\"PACKAGE\\\", and \\\"ALL\\\". </p>\"\
+        },\
+        \"MinConfidence\":{\
+          \"shape\":\"Percent\",\
+          \"documentation\":\"<p> The minimum confidence required to label an object in the video. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p> Label detection settings to use on a streaming video. Defining the settings is required in the request parameter for <a>CreateStreamProcessor</a>. Including this setting in the <code>CreateStreamProcessor</code> request enables you to use the stream processor for label detection. You can then select what you want the stream processor to detect, such as people or pets. When the stream processor has started, one notification is sent for each object class specified. For example, if packages and pets are selected, one SNS notification is published the first time a package is detected and one SNS notification is published the first time a pet is detected, as well as an end-of-session summary. </p>\"\
+    },\
+    \"ConnectedHomeSettingsForUpdate\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Labels\":{\
+          \"shape\":\"ConnectedHomeLabels\",\
+          \"documentation\":\"<p> Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: \\\"PERSON\\\", \\\"PET\\\", \\\"PACKAGE\\\", and \\\"ALL\\\". </p>\"\
+        },\
+        \"MinConfidence\":{\
+          \"shape\":\"Percent\",\
+          \"documentation\":\"<p> The minimum confidence required to label an object in the video. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p> The label detection settings you want to use in your stream processor. This includes the labels you want the stream processor to detect and the minimum confidence level allowed to label objects. </p>\"\
+    },\
     \"ContentClassifier\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -1608,7 +1744,7 @@
       \"members\":{\
         \"Timestamp\":{\
           \"shape\":\"Timestamp\",\
-          \"documentation\":\"<p>Time, in milliseconds from the beginning of the video, that the content moderation label was detected.</p>\"\
+          \"documentation\":\"<p>Time, in milliseconds from the beginning of the video, that the content moderation label was detected. Note that <code>Timestamp</code> is not guaranteed to be accurate to the individual frame where the moderated content first appears.</p>\"\
         },\
         \"ModerationLabel\":{\
           \"shape\":\"ModerationLabel\",\
@@ -1627,6 +1763,55 @@
         \"NAME\",\
         \"TIMESTAMP\"\
       ]\
+    },\
+    \"CopyProjectVersionRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"SourceProjectArn\",\
+        \"SourceProjectVersionArn\",\
+        \"DestinationProjectArn\",\
+        \"VersionName\",\
+        \"OutputConfig\"\
+      ],\
+      \"members\":{\
+        \"SourceProjectArn\":{\
+          \"shape\":\"ProjectArn\",\
+          \"documentation\":\"<p>The ARN of the source project in the trusting AWS account.</p>\"\
+        },\
+        \"SourceProjectVersionArn\":{\
+          \"shape\":\"ProjectVersionArn\",\
+          \"documentation\":\"<p>The ARN of the model version in the source project that you want to copy to a destination project.</p>\"\
+        },\
+        \"DestinationProjectArn\":{\
+          \"shape\":\"ProjectArn\",\
+          \"documentation\":\"<p>The ARN of the project in the trusted AWS account that you want to copy the model version to. </p>\"\
+        },\
+        \"VersionName\":{\
+          \"shape\":\"VersionName\",\
+          \"documentation\":\"<p>A name for the version of the model that's copied to the destination project.</p>\"\
+        },\
+        \"OutputConfig\":{\
+          \"shape\":\"OutputConfig\",\
+          \"documentation\":\"<p>The S3 bucket and folder location where the training output for the source model version is placed.</p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagMap\",\
+          \"documentation\":\"<p>The key-value tags to assign to the model version. </p>\"\
+        },\
+        \"KmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>The identifier for your AWS Key Management Service key (AWS KMS key). You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for your KMS key, or an alias ARN. The key is used to encrypt training results and manifest files written to the output Amazon S3 bucket (<code>OutputConfig</code>).</p> <p>If you choose to use your own KMS key, you need the following permissions on the KMS key.</p> <ul> <li> <p>kms:CreateGrant</p> </li> <li> <p>kms:DescribeKey</p> </li> <li> <p>kms:GenerateDataKey</p> </li> <li> <p>kms:Decrypt</p> </li> </ul> <p>If you don't specify a value for <code>KmsKeyId</code>, images copied into the service are encrypted using a key that AWS owns and manages.</p>\"\
+        }\
+      }\
+    },\
+    \"CopyProjectVersionResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ProjectVersionArn\":{\
+          \"shape\":\"ProjectVersionArn\",\
+          \"documentation\":\"<p>The ARN of the copied model version in the destination project. </p>\"\
+        }\
+      }\
     },\
     \"CoversBodyPart\":{\
       \"type\":\"structure\",\
@@ -1781,27 +1966,40 @@
       \"members\":{\
         \"Input\":{\
           \"shape\":\"StreamProcessorInput\",\
-          \"documentation\":\"<p>Kinesis video stream stream that provides the source streaming video. If you are using the AWS CLI, the parameter name is <code>StreamProcessorInput</code>.</p>\"\
+          \"documentation\":\"<p>Kinesis video stream stream that provides the source streaming video. If you are using the AWS CLI, the parameter name is <code>StreamProcessorInput</code>. This is required for both face search and label detection stream processors.</p>\"\
         },\
         \"Output\":{\
           \"shape\":\"StreamProcessorOutput\",\
-          \"documentation\":\"<p>Kinesis data stream stream to which Amazon Rekognition Video puts the analysis results. If you are using the AWS CLI, the parameter name is <code>StreamProcessorOutput</code>.</p>\"\
+          \"documentation\":\"<p>Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. If you are using the AWS CLI, the parameter name is <code>StreamProcessorOutput</code>. This must be a <a>S3Destination</a> of an Amazon S3 bucket that you own for a label detection stream processor or a Kinesis data stream ARN for a face search stream processor.</p>\"\
         },\
         \"Name\":{\
           \"shape\":\"StreamProcessorName\",\
-          \"documentation\":\"<p>An identifier you assign to the stream processor. You can use <code>Name</code> to manage the stream processor. For example, you can get the current status of the stream processor by calling <a>DescribeStreamProcessor</a>. <code>Name</code> is idempotent. </p>\"\
+          \"documentation\":\"<p>An identifier you assign to the stream processor. You can use <code>Name</code> to manage the stream processor. For example, you can get the current status of the stream processor by calling <a>DescribeStreamProcessor</a>. <code>Name</code> is idempotent. This is required for both face search and label detection stream processors. </p>\"\
         },\
         \"Settings\":{\
           \"shape\":\"StreamProcessorSettings\",\
-          \"documentation\":\"<p>Face recognition input parameters to be used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.</p>\"\
+          \"documentation\":\"<p>Input parameters used in a streaming video analyzed by a stream processor. You can use <code>FaceSearch</code> to recognize faces in a streaming video, or you can use <code>ConnectedHome</code> to detect labels.</p>\"\
         },\
         \"RoleArn\":{\
           \"shape\":\"RoleArn\",\
-          \"documentation\":\"<p>ARN of the IAM role that allows access to the stream processor.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.</p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
           \"documentation\":\"<p> A set of tags (key-value pairs) that you want to attach to the stream processor. </p>\"\
+        },\
+        \"NotificationChannel\":{\"shape\":\"StreamProcessorNotificationChannel\"},\
+        \"KmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p> The identifier for your AWS Key Management Service key (AWS KMS key). This is an optional parameter for label detection stream processors and should not be used to create a face search stream processor. You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for your KMS key, or an alias ARN. The key is used to encrypt results and data published to your Amazon S3 bucket, which includes image frames and hero images. Your source images are unaffected. </p> <p> </p>\"\
+        },\
+        \"RegionsOfInterest\":{\
+          \"shape\":\"RegionsOfInterest\",\
+          \"documentation\":\"<p> Specifies locations in the frames where Amazon Rekognition checks for objects or people. You can specify up to 10 regions of interest, and each region has either a polygon or a bounding box. This is an optional parameter for label detection stream processors and should not be used to create a face search stream processor. </p>\"\
+        },\
+        \"DataSharingPreference\":{\
+          \"shape\":\"StreamProcessorDataSharingPreference\",\
+          \"documentation\":\"<p> Shows whether you are sharing data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis. Note that if you opt out at the account level this setting is ignored on individual streams. </p>\"\
         }\
       }\
     },\
@@ -1810,7 +2008,7 @@
       \"members\":{\
         \"StreamProcessorArn\":{\
           \"shape\":\"StreamProcessorArn\",\
-          \"documentation\":\"<p>ARN for the newly create stream processor.</p>\"\
+          \"documentation\":\"<p>Amazon Resource Number for the newly created stream processor.</p>\"\
         }\
       }\
     },\
@@ -2097,6 +2295,32 @@
         }\
       }\
     },\
+    \"DeleteProjectPolicyRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ProjectArn\",\
+        \"PolicyName\"\
+      ],\
+      \"members\":{\
+        \"ProjectArn\":{\
+          \"shape\":\"ProjectArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the project that the project policy you want to delete is attached to.</p>\"\
+        },\
+        \"PolicyName\":{\
+          \"shape\":\"ProjectPolicyName\",\
+          \"documentation\":\"<p>The name of the policy that you want to delete.</p>\"\
+        },\
+        \"PolicyRevisionId\":{\
+          \"shape\":\"ProjectPolicyRevisionId\",\
+          \"documentation\":\"<p>The ID of the project policy revision that you want to delete.</p>\"\
+        }\
+      }\
+    },\
+    \"DeleteProjectPolicyResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
     \"DeleteProjectRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"ProjectArn\"],\
@@ -2169,7 +2393,7 @@
         },\
         \"FaceModelVersion\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The version of the face model that's used by the collection for face detection.</p> <p>For more information, see Model Versioning in the Amazon Rekognition Developer Guide.</p>\"\
+          \"documentation\":\"<p>The version of the face model that's used by the collection for face detection.</p> <p>For more information, see Model versioning in the Amazon Rekognition Developer Guide.</p>\"\
         },\
         \"CollectionARN\":{\
           \"shape\":\"String\",\
@@ -2316,7 +2540,20 @@
         },\
         \"Settings\":{\
           \"shape\":\"StreamProcessorSettings\",\
-          \"documentation\":\"<p>Face recognition input parameters that are being used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.</p>\"\
+          \"documentation\":\"<p>Input parameters used in a streaming video analyzed by a stream processor. You can use <code>FaceSearch</code> to recognize faces in a streaming video, or you can use <code>ConnectedHome</code> to detect labels.</p>\"\
+        },\
+        \"NotificationChannel\":{\"shape\":\"StreamProcessorNotificationChannel\"},\
+        \"KmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p> The identifier for your AWS Key Management Service key (AWS KMS key). This is an optional parameter for label detection stream processors. </p>\"\
+        },\
+        \"RegionsOfInterest\":{\
+          \"shape\":\"RegionsOfInterest\",\
+          \"documentation\":\"<p> Specifies locations in the frames where Amazon Rekognition checks for objects or people. This is an optional parameter for label detection stream processors. </p>\"\
+        },\
+        \"DataSharingPreference\":{\
+          \"shape\":\"StreamProcessorDataSharingPreference\",\
+          \"documentation\":\"<p> Shows whether you are sharing data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis. Note that if you opt out at the account level this setting is ignored on individual streams. </p>\"\
         }\
       }\
     },\
@@ -2378,6 +2615,102 @@
         }\
       }\
     },\
+    \"DetectLabelsFeatureList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"DetectLabelsFeatureName\"},\
+      \"max\":2,\
+      \"min\":0\
+    },\
+    \"DetectLabelsFeatureName\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"GENERAL_LABELS\",\
+        \"IMAGE_PROPERTIES\"\
+      ]\
+    },\
+    \"DetectLabelsImageBackground\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Quality\":{\
+          \"shape\":\"DetectLabelsImageQuality\",\
+          \"documentation\":\"<p>The quality of the image background as defined by brightness and sharpness.</p>\"\
+        },\
+        \"DominantColors\":{\
+          \"shape\":\"DominantColors\",\
+          \"documentation\":\"<p>The dominant colors found in the background of an image, defined with RGB values, CSS color name, simplified color name, and PixelPercentage (the percentage of image pixels that have a particular color).</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The background of the image with regard to image quality and dominant colors.</p>\"\
+    },\
+    \"DetectLabelsImageForeground\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Quality\":{\
+          \"shape\":\"DetectLabelsImageQuality\",\
+          \"documentation\":\"<p>The quality of the image foreground as defined by brightness and sharpness.</p>\"\
+        },\
+        \"DominantColors\":{\
+          \"shape\":\"DominantColors\",\
+          \"documentation\":\"<p>The dominant colors found in the foreground of an image, defined with RGB values, CSS color name, simplified color name, and PixelPercentage (the percentage of image pixels that have a particular color).</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The foreground of the image with regard to image quality and dominant colors.</p>\"\
+    },\
+    \"DetectLabelsImageProperties\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Quality\":{\
+          \"shape\":\"DetectLabelsImageQuality\",\
+          \"documentation\":\"<p>Information about the quality of the image foreground as defined by brightness, sharpness, and contrast. The higher the value the greater the brightness, sharpness, and contrast respectively.</p>\"\
+        },\
+        \"DominantColors\":{\
+          \"shape\":\"DominantColors\",\
+          \"documentation\":\"<p>Information about the dominant colors found in an image, described with RGB values, CSS color name, simplified color name, and PixelPercentage (the percentage of image pixels that have a particular color).</p>\"\
+        },\
+        \"Foreground\":{\
+          \"shape\":\"DetectLabelsImageForeground\",\
+          \"documentation\":\"<p>Information about the properties of an imageâs foreground, including the foregroundâs quality and dominant colors, including the quality and dominant colors of the image.</p>\"\
+        },\
+        \"Background\":{\
+          \"shape\":\"DetectLabelsImageBackground\",\
+          \"documentation\":\"<p>Information about the properties of an imageâs background, including the backgroundâs quality and dominant colors, including the quality and dominant colors of the image.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about the quality and dominant colors of an input image. Quality and color information is returned for the entire image, foreground, and background.</p>\"\
+    },\
+    \"DetectLabelsImagePropertiesSettings\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"MaxDominantColors\":{\
+          \"shape\":\"DetectLabelsMaxDominantColors\",\
+          \"documentation\":\"<p>The maximum number of dominant colors to return when detecting labels in an image. The default value is 10.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Settings for the IMAGE_PROPERTIES feature type.</p>\"\
+    },\
+    \"DetectLabelsImageQuality\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Brightness\":{\
+          \"shape\":\"Float\",\
+          \"documentation\":\"<p>The brightness of an image provided for label detection.</p>\"\
+        },\
+        \"Sharpness\":{\
+          \"shape\":\"Float\",\
+          \"documentation\":\"<p>The sharpness of an image provided for label detection.</p>\"\
+        },\
+        \"Contrast\":{\
+          \"shape\":\"Float\",\
+          \"documentation\":\"<p>The contrast of an image provided for label detection.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The quality of an image provided for label detection, with regard to brightness, sharpness, and contrast.</p>\"\
+    },\
+    \"DetectLabelsMaxDominantColors\":{\
+      \"type\":\"integer\",\
+      \"max\":20,\
+      \"min\":0\
+    },\
     \"DetectLabelsRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"Image\"],\
@@ -2393,6 +2726,14 @@
         \"MinConfidence\":{\
           \"shape\":\"Percent\",\
           \"documentation\":\"<p>Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value.</p> <p>If <code>MinConfidence</code> is not specified, the operation returns labels with a confidence values greater than or equal to 55 percent.</p>\"\
+        },\
+        \"Features\":{\
+          \"shape\":\"DetectLabelsFeatureList\",\
+          \"documentation\":\"<p>A list of the types of analysis to perform. Specifying GENERAL_LABELS uses the label detection feature, while specifying IMAGE_PROPERTIES returns information regarding image color and quality. If no option is specified GENERAL_LABELS is used by default.</p>\"\
+        },\
+        \"Settings\":{\
+          \"shape\":\"DetectLabelsSettings\",\
+          \"documentation\":\"<p>A list of the filters to be applied to returned detected labels and image properties. Specified filters can be inclusive, exclusive, or a combination of both. Filters can be used for individual labels or label categories. The exact label names or label categories must be supplied. For a full list of labels and label categories, see LINK HERE.</p>\"\
         }\
       }\
     },\
@@ -2410,8 +2751,26 @@
         \"LabelModelVersion\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>Version number of the label detection model that was used to detect labels.</p>\"\
+        },\
+        \"ImageProperties\":{\
+          \"shape\":\"DetectLabelsImageProperties\",\
+          \"documentation\":\"<p>Information about the properties of the input image, such as brightness, sharpness, contrast, and dominant colors.</p>\"\
         }\
       }\
+    },\
+    \"DetectLabelsSettings\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"GeneralLabels\":{\
+          \"shape\":\"GeneralLabelsSettings\",\
+          \"documentation\":\"<p>Contains the specified filters for GENERAL_LABELS.</p>\"\
+        },\
+        \"ImageProperties\":{\
+          \"shape\":\"DetectLabelsImagePropertiesSettings\",\
+          \"documentation\":\"<p>Contains the chosen number of maximum dominant colors in an image.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Settings for the DetectLabels request. Settings can include filters for both GENERAL_LABELS and IMAGE_PROPERTIES. GENERAL_LABELS filters can be inclusive or exclusive and applied to individual labels or label categories. IMAGE_PROPERTIES filters allow specification of a maximum number of dominant colors.</p>\"\
     },\
     \"DetectModerationLabelsRequest\":{\
       \"type\":\"structure\",\
@@ -2522,7 +2881,7 @@
       \"members\":{\
         \"MinConfidence\":{\
           \"shape\":\"Percent\",\
-          \"documentation\":\"<p>Sets the confidence of word detection. Words with detection confidence below this will be excluded from the result. Values should be between 50 and 100 as Text in Video will not return any result below 50.</p>\"\
+          \"documentation\":\"<p>Sets the confidence of word detection. Words with detection confidence below this will be excluded from the result. Values should be between 0 and 100. The default MinConfidence is 80.</p>\"\
         },\
         \"MinBoundingBoxHeight\":{\
           \"shape\":\"BoundingBoxHeight\",\
@@ -2566,6 +2925,44 @@
       \"member\":{\"shape\":\"DistributeDataset\"},\
       \"max\":2,\
       \"min\":2\
+    },\
+    \"DominantColor\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Red\":{\
+          \"shape\":\"UInteger\",\
+          \"documentation\":\"<p>The Red RGB value for a dominant color.</p>\"\
+        },\
+        \"Blue\":{\
+          \"shape\":\"UInteger\",\
+          \"documentation\":\"<p>The Blue RGB value for a dominant color.</p>\"\
+        },\
+        \"Green\":{\
+          \"shape\":\"UInteger\",\
+          \"documentation\":\"<p>The Green RGB value for a dominant color.</p>\"\
+        },\
+        \"HexCode\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The Hex code equivalent of the RGB values for a dominant color.</p>\"\
+        },\
+        \"CSSColor\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The CSS color name of a dominant color.</p>\"\
+        },\
+        \"SimplifiedColor\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>One of 12 simplified color names applied to a dominant color.</p>\"\
+        },\
+        \"PixelPercent\":{\
+          \"shape\":\"Percent\",\
+          \"documentation\":\"<p>The percentage of image pixels that have a given dominant color.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A description of the dominant colors in an image.</p>\"\
+    },\
+    \"DominantColors\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"DominantColor\"}\
     },\
     \"Emotion\":{\
       \"type\":\"structure\",\
@@ -2699,6 +3096,10 @@
         \"Confidence\":{\
           \"shape\":\"Percent\",\
           \"documentation\":\"<p>Confidence level that the bounding box contains a face (and not a different object such as a tree).</p>\"\
+        },\
+        \"IndexFacesModelVersion\":{\
+          \"shape\":\"IndexFacesModelVersion\",\
+          \"documentation\":\"<p> The version of the face detect and storage model that was used when indexing the face vector. </p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes the face properties such as the bounding box, face ID, image ID of the input image, and external image ID that you assigned. </p>\"\
@@ -2774,7 +3175,7 @@
           \"documentation\":\"<p>Confidence level that the bounding box contains a face (and not a different object such as a tree). Default attribute.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Structure containing attributes of the face that the algorithm detected.</p> <p>A <code>FaceDetail</code> object contains either the default facial attributes or all facial attributes. The default attributes are <code>BoundingBox</code>, <code>Confidence</code>, <code>Landmarks</code>, <code>Pose</code>, and <code>Quality</code>.</p> <p> <a>GetFaceDetection</a> is the only Amazon Rekognition Video stored video operation that can return a <code>FaceDetail</code> object with all attributes. To specify which attributes to return, use the <code>FaceAttributes</code> input parameter for <a>StartFaceDetection</a>. The following Amazon Rekognition Video operations return only the default attributes. The corresponding Start operations don't have a <code>FaceAttributes</code> input parameter.</p> <ul> <li> <p>GetCelebrityRecognition</p> </li> <li> <p>GetPersonTracking</p> </li> <li> <p>GetFaceSearch</p> </li> </ul> <p>The Amazon Rekognition Image <a>DetectFaces</a> and <a>IndexFaces</a> operations can return all facial attributes. To specify which attributes to return, use the <code>Attributes</code> input parameter for <code>DetectFaces</code>. For <code>IndexFaces</code>, use the <code>DetectAttributes</code> input parameter.</p>\"\
+      \"documentation\":\"<p>Structure containing attributes of the face that the algorithm detected.</p> <p>A <code>FaceDetail</code> object contains either the default facial attributes or all facial attributes. The default attributes are <code>BoundingBox</code>, <code>Confidence</code>, <code>Landmarks</code>, <code>Pose</code>, and <code>Quality</code>.</p> <p> <a>GetFaceDetection</a> is the only Amazon Rekognition Video stored video operation that can return a <code>FaceDetail</code> object with all attributes. To specify which attributes to return, use the <code>FaceAttributes</code> input parameter for <a>StartFaceDetection</a>. The following Amazon Rekognition Video operations return only the default attributes. The corresponding Start operations don't have a <code>FaceAttributes</code> input parameter:</p> <ul> <li> <p>GetCelebrityRecognition</p> </li> <li> <p>GetPersonTracking</p> </li> <li> <p>GetFaceSearch</p> </li> </ul> <p>The Amazon Rekognition Image <a>DetectFaces</a> and <a>IndexFaces</a> operations can return all facial attributes. To specify which attributes to return, use the <code>Attributes</code> input parameter for <code>DetectFaces</code>. For <code>IndexFaces</code>, use the <code>DetectAttributes</code> input parameter.</p>\"\
     },\
     \"FaceDetailList\":{\
       \"type\":\"list\",\
@@ -2785,7 +3186,7 @@
       \"members\":{\
         \"Timestamp\":{\
           \"shape\":\"Timestamp\",\
-          \"documentation\":\"<p>Time, in milliseconds from the start of the video, that the face was detected.</p>\"\
+          \"documentation\":\"<p>Time, in milliseconds from the start of the video, that the face was detected. Note that <code>Timestamp</code> is not guaranteed to be accurate to the individual frame where the face first appears.</p>\"\
         },\
         \"Face\":{\
           \"shape\":\"FaceDetail\",\
@@ -2864,7 +3265,7 @@
           \"documentation\":\"<p>Minimum face match confidence score that must be met to return a result for a recognized face. The default is 80. 0 is the lowest confidence. 100 is the highest confidence. Values between 0 and 100 are accepted, and values lower than 80 are set to 80.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Input face recognition parameters for an Amazon Rekognition stream processor. <code>FaceRecognitionSettings</code> is a request parameter for <a>CreateStreamProcessor</a>.</p>\"\
+      \"documentation\":\"<p>Input face recognition parameters for an Amazon Rekognition stream processor. Includes the collection to use for face recognition and the face attributes to detect. Defining the settings is required in the request parameter for <a>CreateStreamProcessor</a>.</p>\"\
     },\
     \"FaceSearchSortBy\":{\
       \"type\":\"string\",\
@@ -2890,7 +3291,7 @@
           \"documentation\":\"<p>Level of confidence in the prediction.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The predicted gender of a detected face. </p> <p>Amazon Rekognition makes gender binary (male/female) predictions based on the physical appearance of a face in a particular image. This kind of prediction is not designed to categorize a personâs gender identity, and you shouldn't use Amazon Rekognition to make such a determination. For example, a male actor wearing a long-haired wig and earrings for a role might be predicted as female.</p> <p>Using Amazon Rekognition to make gender binary predictions is best suited for use cases where aggregate gender distribution statistics need to be analyzed without identifying specific users. For example, the percentage of female users compared to male users on a social media platform. </p> <p>We don't recommend using gender binary predictions to make decisions that impact&#x2028; an individual's rights, privacy, or access to services.</p>\"\
+      \"documentation\":\"<p>The predicted gender of a detected face. </p> <p>Amazon Rekognition makes gender binary (male/female) predictions based on the physical appearance of a face in a particular image. This kind of prediction is not designed to categorize a personâs gender identity, and you shouldn't use Amazon Rekognition to make such a determination. For example, a male actor wearing a long-haired wig and earrings for a role might be predicted as female.</p> <p>Using Amazon Rekognition to make gender binary predictions is best suited for use cases where aggregate gender distribution statistics need to be analyzed without identifying specific users. For example, the percentage of female users compared to male users on a social media platform. </p> <p>We don't recommend using gender binary predictions to make decisions that impact an individual's rights, privacy, or access to services.</p>\"\
     },\
     \"GenderType\":{\
       \"type\":\"string\",\
@@ -2898,6 +3299,40 @@
         \"Male\",\
         \"Female\"\
       ]\
+    },\
+    \"GeneralLabelsFilterList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"GeneralLabelsFilterValue\"},\
+      \"max\":100,\
+      \"min\":0\
+    },\
+    \"GeneralLabelsFilterValue\":{\
+      \"type\":\"string\",\
+      \"max\":50,\
+      \"min\":0,\
+      \"pattern\":\"[A-Za-z0-9Ã Ã¢Ã¨Ã§Ã±Ã³'-_(). ]*\"\
+    },\
+    \"GeneralLabelsSettings\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"LabelInclusionFilters\":{\
+          \"shape\":\"GeneralLabelsFilterList\",\
+          \"documentation\":\"<p>The labels that should be included in the return from DetectLabels.</p>\"\
+        },\
+        \"LabelExclusionFilters\":{\
+          \"shape\":\"GeneralLabelsFilterList\",\
+          \"documentation\":\"<p>The labels that should be excluded from the return from DetectLabels.</p>\"\
+        },\
+        \"LabelCategoryInclusionFilters\":{\
+          \"shape\":\"GeneralLabelsFilterList\",\
+          \"documentation\":\"<p>The label categories that should be included in the return from DetectLabels.</p>\"\
+        },\
+        \"LabelCategoryExclusionFilters\":{\
+          \"shape\":\"GeneralLabelsFilterList\",\
+          \"documentation\":\"<p>The label categories that should be excluded from the return from DetectLabels.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Contains filters for the object labels returned by DetectLabels. Filters can be inclusive, exclusive, or a combination of both and can be applied to individual l abels or entire label categories.</p>\"\
     },\
     \"Geometry\":{\
       \"type\":\"structure\",\
@@ -3147,6 +3582,10 @@
         \"SortBy\":{\
           \"shape\":\"LabelDetectionSortBy\",\
           \"documentation\":\"<p>Sort to use for elements in the <code>Labels</code> array. Use <code>TIMESTAMP</code> to sort array elements by the time labels are detected. Use <code>NAME</code> to alphabetically group elements for a label together. Within each label group, the array element are sorted by detection confidence. The default sort is by <code>TIMESTAMP</code>.</p>\"\
+        },\
+        \"AggregateBy\":{\
+          \"shape\":\"LabelDetectionAggregateBy\",\
+          \"documentation\":\"<p>Defines how to aggregate the returned results. Results can be aggregated by timestamps or segments.</p>\"\
         }\
       }\
     },\
@@ -3443,7 +3882,7 @@
           \"documentation\":\"<p>Identifies an S3 object as the image source.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Provides the input image either as bytes or an S3 object.</p> <p>You pass image bytes to an Amazon Rekognition API operation by using the <code>Bytes</code> property. For example, you would use the <code>Bytes</code> property to pass an image loaded from a local file system. Image bytes passed by using the <code>Bytes</code> property must be base64-encoded. Your code may not need to encode image bytes if you are using an AWS SDK to call Amazon Rekognition API operations. </p> <p>For more information, see Analyzing an Image Loaded from a Local File System in the Amazon Rekognition Developer Guide.</p> <p> You pass images stored in an S3 bucket to an Amazon Rekognition API operation by using the <code>S3Object</code> property. Images stored in an S3 bucket do not need to be base64-encoded.</p> <p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p> <p>If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes using the Bytes property is not supported. You must first upload the image to an Amazon S3 bucket and then call the operation using the S3Object property.</p> <p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see Resource Based Policies in the Amazon Rekognition Developer Guide. </p>\"\
+      \"documentation\":\"<p>Provides the input image either as bytes or an S3 object.</p> <p>You pass image bytes to an Amazon Rekognition API operation by using the <code>Bytes</code> property. For example, you would use the <code>Bytes</code> property to pass an image loaded from a local file system. Image bytes passed by using the <code>Bytes</code> property must be base64-encoded. Your code may not need to encode image bytes if you are using an AWS SDK to call Amazon Rekognition API operations. </p> <p>For more information, see Analyzing an Image Loaded from a Local File System in the Amazon Rekognition Developer Guide.</p> <p> You pass images stored in an S3 bucket to an Amazon Rekognition API operation by using the <code>S3Object</code> property. Images stored in an S3 bucket do not need to be base64-encoded.</p> <p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p> <p>If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes using the Bytes property is not supported. You must first upload the image to an Amazon S3 bucket and then call the operation using the S3Object property.</p> <p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see How Amazon Rekognition works with IAM in the Amazon Rekognition Developer Guide. </p>\"\
     },\
     \"ImageBlob\":{\
       \"type\":\"blob\",\
@@ -3472,8 +3911,12 @@
       \"type\":\"structure\",\
       \"members\":{\
       },\
-      \"documentation\":\"<p>The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>\",\
+      \"documentation\":\"<p>The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>\",\
       \"exception\":true\
+    },\
+    \"IndexFacesModelVersion\":{\
+      \"type\":\"string\",\
+      \"pattern\":\"[0-9\\\\.]+\"\
     },\
     \"IndexFacesRequest\":{\
       \"type\":\"structure\",\
@@ -3543,6 +3986,10 @@
         \"Confidence\":{\
           \"shape\":\"Percent\",\
           \"documentation\":\"<p>The confidence that Amazon Rekognition has in the accuracy of the bounding box.</p>\"\
+        },\
+        \"DominantColors\":{\
+          \"shape\":\"DominantColors\",\
+          \"documentation\":\"<p>The dominant colors found in an individual instance of a label.</p>\"\
         }\
       },\
       \"documentation\":\"<p>An instance of a label returned by Amazon Rekognition Image (<a>DetectLabels</a>) or by Amazon Rekognition Video (<a>GetLabelDetection</a>).</p>\"\
@@ -3578,6 +4025,13 @@
       \"members\":{\
       },\
       \"documentation\":\"<p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>\",\
+      \"exception\":true\
+    },\
+    \"InvalidPolicyRevisionIdException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      },\
+      \"documentation\":\"<p>The supplied revision id for the project policy is invalid.</p>\",\
       \"exception\":true\
     },\
     \"InvalidS3ObjectException\":{\
@@ -3628,6 +4082,26 @@
       },\
       \"documentation\":\"<p>Kinesis video stream stream that provides the source streaming video for a Amazon Rekognition Video stream processor. For more information, see CreateStreamProcessor in the Amazon Rekognition Developer Guide.</p>\"\
     },\
+    \"KinesisVideoStreamFragmentNumber\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1,\
+      \"pattern\":\"^[0-9]+$\"\
+    },\
+    \"KinesisVideoStreamStartSelector\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ProducerTimestamp\":{\
+          \"shape\":\"ULong\",\
+          \"documentation\":\"<p> The timestamp from the producer corresponding to the fragment, in milliseconds, expressed in unix time format. </p>\"\
+        },\
+        \"FragmentNumber\":{\
+          \"shape\":\"KinesisVideoStreamFragmentNumber\",\
+          \"documentation\":\"<p> The unique identifier of the fragment. This value monotonically increases based on the ingestion order. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Specifies the starting point in a Kinesis stream to start processing. You can use the producer timestamp or the fragment number. One of either producer timestamp or fragment number is required. If you use the producer timestamp, you must put the time in milliseconds. For more information about fragment numbers, see <a href=\\\"https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_Fragment.html\\\">Fragment</a>. </p>\"\
+    },\
     \"KmsKeyId\":{\
       \"type\":\"string\",\
       \"max\":2048,\
@@ -3672,23 +4146,95 @@
         \"Parents\":{\
           \"shape\":\"Parents\",\
           \"documentation\":\"<p>The parent labels for a label. The response includes all ancestor labels.</p>\"\
+        },\
+        \"Aliases\":{\
+          \"shape\":\"LabelAliases\",\
+          \"documentation\":\"<p>A list of potential aliases for a given label.</p>\"\
+        },\
+        \"Categories\":{\
+          \"shape\":\"LabelCategories\",\
+          \"documentation\":\"<p>A list of the categories associated with a given label.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Structure containing details about the detected label, including the name, detected instances, parent labels, and level of confidence.</p> <p> </p>\"\
+    },\
+    \"LabelAlias\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Name\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The name of an alias for a given label.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A potential alias of for a given label.</p>\"\
+    },\
+    \"LabelAliases\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"LabelAlias\"}\
+    },\
+    \"LabelCategories\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"LabelCategory\"}\
+    },\
+    \"LabelCategory\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Name\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The name of a category that applies to a given label.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The category that applies to a given label.</p>\"\
     },\
     \"LabelDetection\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"Timestamp\":{\
           \"shape\":\"Timestamp\",\
-          \"documentation\":\"<p>Time, in milliseconds from the start of the video, that the label was detected.</p>\"\
+          \"documentation\":\"<p>Time, in milliseconds from the start of the video, that the label was detected. Note that <code>Timestamp</code> is not guaranteed to be accurate to the individual frame where the label first appears.</p>\"\
         },\
         \"Label\":{\
           \"shape\":\"Label\",\
           \"documentation\":\"<p>Details about the detected label.</p>\"\
+        },\
+        \"StartTimestampMillis\":{\
+          \"shape\":\"ULong\",\
+          \"documentation\":\"<p>The time in milliseconds defining the start of the timeline segment containing a continuously detected label.</p>\"\
+        },\
+        \"EndTimestampMillis\":{\
+          \"shape\":\"ULong\",\
+          \"documentation\":\"<p>The time in milliseconds defining the end of the timeline segment containing a continuously detected label.</p>\"\
+        },\
+        \"DurationMillis\":{\
+          \"shape\":\"ULong\",\
+          \"documentation\":\"<p>The time duration of a segment in milliseconds, I.e. time elapsed from StartTimestampMillis to EndTimestampMillis.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about a label detected in a video analysis request and the time the label was detected in the video. </p>\"\
+    },\
+    \"LabelDetectionAggregateBy\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"TIMESTAMPS\",\
+        \"SEGMENTS\"\
+      ]\
+    },\
+    \"LabelDetectionFeatureList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"LabelDetectionFeatureName\"},\
+      \"max\":1,\
+      \"min\":0\
+    },\
+    \"LabelDetectionFeatureName\":{\
+      \"type\":\"string\",\
+      \"enum\":[\"GENERAL_LABELS\"]\
+    },\
+    \"LabelDetectionSettings\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"GeneralLabels\":{\"shape\":\"GeneralLabelsSettings\"}\
+      },\
+      \"documentation\":\"<p>Contains the specified filters that should be applied to a list of returned GENERAL_LABELS.</p>\"\
     },\
     \"LabelDetectionSortBy\":{\
       \"type\":\"string\",\
@@ -3922,6 +4468,42 @@
         }\
       }\
     },\
+    \"ListProjectPoliciesPageSize\":{\
+      \"type\":\"integer\",\
+      \"max\":5,\
+      \"min\":1\
+    },\
+    \"ListProjectPoliciesRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"ProjectArn\"],\
+      \"members\":{\
+        \"ProjectArn\":{\
+          \"shape\":\"ProjectArn\",\
+          \"documentation\":\"<p>The ARN of the project for which you want to list the project policies.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"ExtendedPaginationToken\",\
+          \"documentation\":\"<p>If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"ListProjectPoliciesPageSize\",\
+          \"documentation\":\"<p>The maximum number of results to return per paginated call. The largest value you can specify is 5. If you specify a value greater than 5, a ValidationException error occurs. The default value is 5. </p>\"\
+        }\
+      }\
+    },\
+    \"ListProjectPoliciesResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ProjectPolicies\":{\
+          \"shape\":\"ProjectPolicies\",\
+          \"documentation\":\"<p>A list of project policies attached to the project.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"ExtendedPaginationToken\",\
+          \"documentation\":\"<p>If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of project policies.</p>\"\
+        }\
+      }\
+    },\
     \"ListStreamProcessorsRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -3966,6 +4548,18 @@
           \"documentation\":\"<p> A list of key-value tags assigned to the resource. </p>\"\
         }\
       }\
+    },\
+    \"MalformedPolicyDocumentException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      },\
+      \"documentation\":\"<p>The format of the project policy document that you supplied to <code>PutProjectPolicy</code> is incorrect. </p>\",\
+      \"exception\":true\
+    },\
+    \"MaxDurationInSecondsULong\":{\
+      \"type\":\"long\",\
+      \"max\":120,\
+      \"min\":1\
     },\
     \"MaxFaces\":{\
       \"type\":\"integer\",\
@@ -4049,14 +4643,14 @@
       \"members\":{\
         \"SNSTopicArn\":{\
           \"shape\":\"SNSTopicArn\",\
-          \"documentation\":\"<p>The Amazon SNS topic to which Amazon Rekognition to posts the completion status.</p>\"\
+          \"documentation\":\"<p>The Amazon SNS topic to which Amazon Rekognition posts the completion status.</p>\"\
         },\
         \"RoleArn\":{\
           \"shape\":\"RoleArn\",\
           \"documentation\":\"<p>The ARN of an IAM role that gives Amazon Rekognition publishing permissions to the Amazon SNS topic. </p>\"\
         }\
       },\
-      \"documentation\":\"<p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see <a>api-video</a>. Note that the Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic. For more information, see <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/dg/api-video-roles.html#api-video-roles-all-topics\\\">Giving access to multiple Amazon SNS topics</a>.</p>\"\
+      \"documentation\":\"<p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/dg/api-video.html\\\">Calling Amazon Rekognition Video operations</a>. Note that the Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic. For more information, see <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/dg/api-video-roles.html#api-video-roles-all-topics\\\">Giving access to multiple Amazon SNS topics</a>.</p>\"\
     },\
     \"OrientationCorrection\":{\
       \"type\":\"string\",\
@@ -4132,7 +4726,7 @@
       \"members\":{\
         \"Timestamp\":{\
           \"shape\":\"Timestamp\",\
-          \"documentation\":\"<p>The time, in milliseconds from the start of the video, that the person's path was tracked.</p>\"\
+          \"documentation\":\"<p>The time, in milliseconds from the start of the video, that the person's path was tracked. Note that <code>Timestamp</code> is not guaranteed to be accurate to the individual frame where the person's path first appears.</p>\"\
         },\
         \"Person\":{\
           \"shape\":\"PersonDetail\",\
@@ -4187,7 +4781,7 @@
           \"documentation\":\"<p>The value of the Y coordinate for a point on a <code>Polygon</code>.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The X and Y coordinates of a point on an image. The X and Y values returned are ratios of the overall image size. For example, if the input image is 700x200 and the operation returns X=0.5 and Y=0.25, then the point is at the (350,50) pixel coordinate on the image.</p> <p>An array of <code>Point</code> objects, <code>Polygon</code>, is returned by <a>DetectText</a> and by <a>DetectCustomLabels</a>. <code>Polygon</code> represents a fine-grained polygon around a detected item. For more information, see Geometry in the Amazon Rekognition Developer Guide. </p>\"\
+      \"documentation\":\"<p>The X and Y coordinates of a point on an image or video frame. The X and Y values are ratios of the overall image size or video resolution. For example, if an input image is 700x200 and the values are X=0.5 and Y=0.25, then the point is at the (350,50) pixel coordinate on the image.</p> <p>An array of <code>Point</code> objects makes up a <code>Polygon</code>. A <code>Polygon</code> is returned by <a>DetectText</a> and by <a>DetectCustomLabels</a> <code>Polygon</code> represents a fine-grained polygon around a detected item. For more information, see Geometry in the Amazon Rekognition Developer Guide. </p>\"\
     },\
     \"Polygon\":{\
       \"type\":\"list\",\
@@ -4254,6 +4848,57 @@
       \"member\":{\"shape\":\"ProjectName\"},\
       \"max\":10,\
       \"min\":1\
+    },\
+    \"ProjectPolicies\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ProjectPolicy\"}\
+    },\
+    \"ProjectPolicy\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ProjectArn\":{\
+          \"shape\":\"ProjectArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the project to which the project policy is attached.</p>\"\
+        },\
+        \"PolicyName\":{\
+          \"shape\":\"ProjectPolicyName\",\
+          \"documentation\":\"<p>The name of the project policy.</p>\"\
+        },\
+        \"PolicyRevisionId\":{\
+          \"shape\":\"ProjectPolicyRevisionId\",\
+          \"documentation\":\"<p>The revision ID of the project policy.</p>\"\
+        },\
+        \"PolicyDocument\":{\
+          \"shape\":\"ProjectPolicyDocument\",\
+          \"documentation\":\"<p>The JSON document for the project policy.</p>\"\
+        },\
+        \"CreationTimestamp\":{\
+          \"shape\":\"DateTime\",\
+          \"documentation\":\"<p>The Unix datetime for the creation of the project policy.</p>\"\
+        },\
+        \"LastUpdatedTimestamp\":{\
+          \"shape\":\"DateTime\",\
+          \"documentation\":\"<p>The Unix datetime for when the project policy was last updated. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes a project policy in the response from <a>ListProjectPolicies</a>. </p> <p> </p>\"\
+    },\
+    \"ProjectPolicyDocument\":{\
+      \"type\":\"string\",\
+      \"max\":2000,\
+      \"min\":1,\
+      \"pattern\":\"[\\\\u0009\\\\u000A\\\\u000D\\\\u0020-\\\\u00FF]+\"\
+    },\
+    \"ProjectPolicyName\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1,\
+      \"pattern\":\"[a-zA-Z0-9_.\\\\-]+\"\
+    },\
+    \"ProjectPolicyRevisionId\":{\
+      \"type\":\"string\",\
+      \"max\":64,\
+      \"pattern\":\"[0-9A-Fa-f]+\"\
     },\
     \"ProjectStatus\":{\
       \"type\":\"string\",\
@@ -4323,6 +4968,14 @@
         \"KmsKeyId\":{\
           \"shape\":\"KmsKeyId\",\
           \"documentation\":\"<p>The identifer for the AWS Key Management Service key (AWS KMS key) that was used to encrypt the model during training. </p>\"\
+        },\
+        \"MaxInferenceUnits\":{\
+          \"shape\":\"InferenceUnits\",\
+          \"documentation\":\"<p>The maximum number of inference units Amazon Rekognition Custom Labels uses to auto-scale the model. For more information, see <a>StartProjectVersion</a>.</p>\"\
+        },\
+        \"SourceProjectVersionArn\":{\
+          \"shape\":\"ProjectVersionArn\",\
+          \"documentation\":\"<p>If the model version was copied from a different project, <code>SourceProjectVersionArn</code> contains the ARN of the source model version. </p>\"\
         }\
       },\
       \"documentation\":\"<p>A description of a version of an Amazon Rekognition Custom Labels model.</p>\"\
@@ -4342,7 +4995,10 @@
         \"FAILED\",\
         \"STOPPING\",\
         \"STOPPED\",\
-        \"DELETING\"\
+        \"DELETING\",\
+        \"COPYING_IN_PROGRESS\",\
+        \"COPYING_COMPLETED\",\
+        \"COPYING_FAILED\"\
       ]\
     },\
     \"ProjectVersionsPageSize\":{\
@@ -4458,6 +5114,41 @@
       \"documentation\":\"<p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>\",\
       \"exception\":true\
     },\
+    \"PutProjectPolicyRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ProjectArn\",\
+        \"PolicyName\",\
+        \"PolicyDocument\"\
+      ],\
+      \"members\":{\
+        \"ProjectArn\":{\
+          \"shape\":\"ProjectArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the project that the project policy is attached to.</p>\"\
+        },\
+        \"PolicyName\":{\
+          \"shape\":\"ProjectPolicyName\",\
+          \"documentation\":\"<p>A name for the policy.</p>\"\
+        },\
+        \"PolicyRevisionId\":{\
+          \"shape\":\"ProjectPolicyRevisionId\",\
+          \"documentation\":\"<p>The revision ID for the Project Policy. Each time you modify a policy, Amazon Rekognition Custom Labels generates and assigns a new <code>PolicyRevisionId</code> and then deletes the previous version of the policy.</p>\"\
+        },\
+        \"PolicyDocument\":{\
+          \"shape\":\"ProjectPolicyDocument\",\
+          \"documentation\":\"<p>A resource policy to add to the model. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow the IAM syntax. For more information about the contents of a JSON policy document, see <a href=\\\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html\\\">IAM JSON policy reference</a>. </p>\"\
+        }\
+      }\
+    },\
+    \"PutProjectPolicyResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PolicyRevisionId\":{\
+          \"shape\":\"ProjectPolicyRevisionId\",\
+          \"documentation\":\"<p>The ID of the project policy.</p>\"\
+        }\
+      }\
+    },\
     \"QualityFilter\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -4523,9 +5214,13 @@
         \"BoundingBox\":{\
           \"shape\":\"BoundingBox\",\
           \"documentation\":\"<p>The box representing a region of interest on screen.</p>\"\
+        },\
+        \"Polygon\":{\
+          \"shape\":\"Polygon\",\
+          \"documentation\":\"<p> Specifies a shape made up of up to 10 <code>Point</code> objects to define a region of interest. </p>\"\
         }\
       },\
-      \"documentation\":\"<p>Specifies a location within the frame that Rekognition checks for text. Uses a <code>BoundingBox</code> object to set a region of the screen.</p> <p>A word is included in the region if the word is more than half in that region. If there is more than one region, the word will be compared with all regions of the screen. Any word more than half in a region is kept in the results.</p>\"\
+      \"documentation\":\"<p>Specifies a location within the frame that Rekognition checks for objects of interest such as text, labels, or faces. It uses a <code>BoundingBox</code> or <code>Polygon</code> to set a region of the screen.</p> <p>A word, face, or label is included in the region if it is more than half in that region. If there is more than one region, the word, face, or label is compared with all regions of the screen. Any object of interest that is more than half in a region is kept in the results.</p>\"\
     },\
     \"RegionsOfInterest\":{\
       \"type\":\"list\",\
@@ -4580,6 +5275,20 @@
       \"min\":3,\
       \"pattern\":\"[0-9A-Za-z\\\\.\\\\-_]*\"\
     },\
+    \"S3Destination\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Bucket\":{\
+          \"shape\":\"S3Bucket\",\
+          \"documentation\":\"<p> The name of the Amazon S3 bucket you want to associate with the streaming video project. You must be the owner of the Amazon S3 bucket. </p>\"\
+        },\
+        \"KeyPrefix\":{\
+          \"shape\":\"S3KeyPrefix\",\
+          \"documentation\":\"<p> The prefix value of the location within the bucket that you want the information to be published to. For more information, see <a href=\\\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html\\\">Using prefixes</a>. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p> The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. These results include the name of the stream processor resource, the session ID of the stream processing session, and labeled timestamps and bounding boxes for detected labels. </p>\"\
+    },\
     \"S3KeyPrefix\":{\
       \"type\":\"string\",\
       \"max\":1024\
@@ -4600,7 +5309,7 @@
           \"documentation\":\"<p>If the bucket is versioning enabled, you can specify the object version. </p>\"\
         }\
       },\
-      \"documentation\":\"<p>Provides the S3 bucket name and object name.</p> <p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p> <p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see Resource-Based Policies in the Amazon Rekognition Developer Guide. </p>\"\
+      \"documentation\":\"<p>Provides the S3 bucket name and object name.</p> <p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p> <p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see How Amazon Rekognition works with IAM in the Amazon Rekognition Developer Guide. </p>\"\
     },\
     \"S3ObjectName\":{\
       \"type\":\"string\",\
@@ -4805,7 +5514,7 @@
       \"type\":\"structure\",\
       \"members\":{\
       },\
-      \"documentation\":\"<p/> <p>The size of the collection exceeds the allowed limit. For more information, see Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>\",\
+      \"documentation\":\"<p/> <p>The size of the collection exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>\",\
       \"exception\":true\
     },\
     \"ShotSegment\":{\
@@ -4993,7 +5702,7 @@
         },\
         \"MinConfidence\":{\
           \"shape\":\"Percent\",\
-          \"documentation\":\"<p>Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected label. Confidence represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any labels with a confidence level lower than this specified value.</p> <p>If you don't specify <code>MinConfidence</code>, the operation returns labels with confidence values greater than or equal to 50 percent.</p>\"\
+          \"documentation\":\"<p>Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected label. Confidence represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any labels with a confidence level lower than this specified value.</p> <p>If you don't specify <code>MinConfidence</code>, the operation returns labels and bounding boxes (if detected) with confidence values greater than or equal to 50 percent.</p>\"\
         },\
         \"NotificationChannel\":{\
           \"shape\":\"NotificationChannel\",\
@@ -5002,6 +5711,14 @@
         \"JobTag\":{\
           \"shape\":\"JobTag\",\
           \"documentation\":\"<p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>\"\
+        },\
+        \"Features\":{\
+          \"shape\":\"LabelDetectionFeatureList\",\
+          \"documentation\":\"<p>The features to return after video analysis. You can specify that GENERAL_LABELS are returned.</p>\"\
+        },\
+        \"Settings\":{\
+          \"shape\":\"LabelDetectionSettings\",\
+          \"documentation\":\"<p>The settings for a StartLabelDetection request.Contains the specified parameters for the label detection request of an asynchronous label analysis operation. Settings can include filters for GENERAL_LABELS.</p>\"\
         }\
       }\
     },\
@@ -5058,7 +5775,11 @@
         },\
         \"MinInferenceUnits\":{\
           \"shape\":\"InferenceUnits\",\
-          \"documentation\":\"<p>The minimum number of inference units to use. A single inference unit represents 1 hour of processing and can support up to 5 Transaction Pers Second (TPS). Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use. </p>\"\
+          \"documentation\":\"<p>The minimum number of inference units to use. A single inference unit represents 1 hour of processing. </p> <p>For information about the number of transactions per second (TPS) that an inference unit can support, see <i>Running a trained Amazon Rekognition Custom Labels model</i> in the Amazon Rekognition Custom Labels Guide. </p> <p>Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use. </p>\"\
+        },\
+        \"MaxInferenceUnits\":{\
+          \"shape\":\"InferenceUnits\",\
+          \"documentation\":\"<p>The maximum number of inference units to use for auto-scaling the model. If you don't specify a value, Amazon Rekognition Custom Labels doesn't auto-scale the model.</p>\"\
         }\
       }\
     },\
@@ -5141,14 +5862,27 @@
         \"Name\":{\
           \"shape\":\"StreamProcessorName\",\
           \"documentation\":\"<p>The name of the stream processor to start processing.</p>\"\
+        },\
+        \"StartSelector\":{\
+          \"shape\":\"StreamProcessingStartSelector\",\
+          \"documentation\":\"<p> Specifies the starting point in the Kinesis stream to start processing. You can use the producer timestamp or the fragment number. If you use the producer timestamp, you must put the time in milliseconds. For more information about fragment numbers, see <a href=\\\"https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_Fragment.html\\\">Fragment</a>. </p> <p>This is a required parameter for label detection stream processors and should not be used to start a face search stream processor.</p>\"\
+        },\
+        \"StopSelector\":{\
+          \"shape\":\"StreamProcessingStopSelector\",\
+          \"documentation\":\"<p> Specifies when to stop processing the stream. You can specify a maximum amount of time to process the video. </p> <p>This is a required parameter for label detection stream processors and should not be used to start a face search stream processor.</p>\"\
         }\
       }\
     },\
     \"StartStreamProcessorResponse\":{\
       \"type\":\"structure\",\
       \"members\":{\
+        \"SessionId\":{\
+          \"shape\":\"StartStreamProcessorSessionId\",\
+          \"documentation\":\"<p> A unique identifier for the stream processing session. </p>\"\
+        }\
       }\
     },\
+    \"StartStreamProcessorSessionId\":{\"type\":\"string\"},\
     \"StartTechnicalCueDetectionFilter\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -5241,6 +5975,26 @@
       \"members\":{\
       }\
     },\
+    \"StreamProcessingStartSelector\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"KVSStreamStartSelector\":{\
+          \"shape\":\"KinesisVideoStreamStartSelector\",\
+          \"documentation\":\"<p> Specifies the starting point in the stream to start processing. This can be done with a producer timestamp or a fragment number in a Kinesis stream. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>This is a required parameter for label detection stream processors and should not be used to start a face search stream processor.</p>\"\
+    },\
+    \"StreamProcessingStopSelector\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"MaxDurationInSeconds\":{\
+          \"shape\":\"MaxDurationInSecondsULong\",\
+          \"documentation\":\"<p> Specifies the maximum amount of time in seconds that you want the stream to be processed. The largest amount of time is 2 minutes. The default is 10 seconds. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p> Specifies when to stop processing the stream. You can specify a maximum amount of time to process the video. </p>\"\
+    },\
     \"StreamProcessor\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -5253,11 +6007,22 @@
           \"documentation\":\"<p>Current status of the Amazon Rekognition stream processor.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>An object that recognizes faces in a streaming video. An Amazon Rekognition stream processor is created by a call to <a>CreateStreamProcessor</a>. The request parameters for <code>CreateStreamProcessor</code> describe the Kinesis video stream source for the streaming video, face recognition parameters, and where to stream the analysis resullts. </p>\"\
+      \"documentation\":\"<p>An object that recognizes faces or labels in a streaming video. An Amazon Rekognition stream processor is created by a call to <a>CreateStreamProcessor</a>. The request parameters for <code>CreateStreamProcessor</code> describe the Kinesis video stream source for the streaming video, face recognition parameters, and where to stream the analysis resullts. </p>\"\
     },\
     \"StreamProcessorArn\":{\
       \"type\":\"string\",\
       \"pattern\":\"(^arn:[a-z\\\\d-]+:rekognition:[a-z\\\\d-]+:\\\\d{12}:streamprocessor\\\\/.+$)\"\
+    },\
+    \"StreamProcessorDataSharingPreference\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"OptIn\"],\
+      \"members\":{\
+        \"OptIn\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p> If this option is set to true, you choose to share data with Rekognition to improve model performance. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p> Allows you to opt in or opt out to share data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis. Note that if you opt out at the account level this setting is ignored on individual streams. </p>\"\
     },\
     \"StreamProcessorInput\":{\
       \"type\":\"structure\",\
@@ -5279,15 +6044,41 @@
       \"min\":1,\
       \"pattern\":\"[a-zA-Z0-9_.\\\\-]+\"\
     },\
+    \"StreamProcessorNotificationChannel\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"SNSTopicArn\"],\
+      \"members\":{\
+        \"SNSTopicArn\":{\
+          \"shape\":\"SNSTopicArn\",\
+          \"documentation\":\"<p> The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation.</p> <p>Amazon Rekognition publishes a notification the first time an object of interest or a person is detected in the video stream. For example, if Amazon Rekognition detects a person at second 2, a pet at second 4, and a person again at second 5, Amazon Rekognition sends 2 object class detected notifications, one for a person at second 2 and one for a pet at second 4.</p> <p>Amazon Rekognition also publishes an an end-of-session notification with a summary when the stream processing session is complete.</p>\"\
+    },\
     \"StreamProcessorOutput\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"KinesisDataStream\":{\
           \"shape\":\"KinesisDataStream\",\
           \"documentation\":\"<p>The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results.</p>\"\
+        },\
+        \"S3Destination\":{\
+          \"shape\":\"S3Destination\",\
+          \"documentation\":\"<p> The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. </p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about the Amazon Kinesis Data Streams stream to which a Amazon Rekognition Video stream processor streams the results of a video analysis. For more information, see CreateStreamProcessor in the Amazon Rekognition Developer Guide.</p>\"\
+    },\
+    \"StreamProcessorParameterToDelete\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ConnectedHomeMinConfidence\",\
+        \"RegionsOfInterest\"\
+      ]\
+    },\
+    \"StreamProcessorParametersToDelete\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"StreamProcessorParameterToDelete\"}\
     },\
     \"StreamProcessorSettings\":{\
       \"type\":\"structure\",\
@@ -5295,9 +6086,20 @@
         \"FaceSearch\":{\
           \"shape\":\"FaceSearchSettings\",\
           \"documentation\":\"<p>Face search settings to use on a streaming video. </p>\"\
+        },\
+        \"ConnectedHome\":{\"shape\":\"ConnectedHomeSettings\"}\
+      },\
+      \"documentation\":\"<p>Input parameters used in a streaming video analyzed by a Amazon Rekognition stream processor. You can use <code>FaceSearch</code> to recognize faces in a streaming video, or you can use <code>ConnectedHome</code> to detect labels. </p>\"\
+    },\
+    \"StreamProcessorSettingsForUpdate\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ConnectedHomeForUpdate\":{\
+          \"shape\":\"ConnectedHomeSettingsForUpdate\",\
+          \"documentation\":\"<p> The label detection settings you want to use for your stream processor. </p>\"\
         }\
       },\
-      \"documentation\":\"<p>Input parameters used to recognize faces in a streaming video analyzed by a Amazon Rekognition stream processor.</p>\"\
+      \"documentation\":\"<p> The stream processor settings that you want to update. <code>ConnectedHome</code> settings can be updated to detect different labels with a different minimum confidence. </p>\"\
     },\
     \"StreamProcessorStatus\":{\
       \"type\":\"string\",\
@@ -5306,7 +6108,8 @@
         \"STARTING\",\
         \"RUNNING\",\
         \"FAILED\",\
-        \"STOPPING\"\
+        \"STOPPING\",\
+        \"UPDATING\"\
       ]\
     },\
     \"String\":{\"type\":\"string\"},\
@@ -5464,7 +6267,7 @@
           \"documentation\":\"<p>The location of the detected text on the image. Includes an axis aligned coarse bounding box surrounding the text and a finer grain polygon for more accurate spatial information.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Information about a word or line of text detected by <a>DetectText</a>.</p> <p>The <code>DetectedText</code> field contains the text that Amazon Rekognition detected in the image. </p> <p>Every word and line has an identifier (<code>Id</code>). Each word belongs to a line and has a parent identifier (<code>ParentId</code>) that identifies the line of text in which the word appears. The word <code>Id</code> is also an index for the word within a line of words. </p> <p>For more information, see Detecting Text in the Amazon Rekognition Developer Guide.</p>\"\
+      \"documentation\":\"<p>Information about a word or line of text detected by <a>DetectText</a>.</p> <p>The <code>DetectedText</code> field contains the text that Amazon Rekognition detected in the image. </p> <p>Every word and line has an identifier (<code>Id</code>). Each word belongs to a line and has a parent identifier (<code>ParentId</code>) that identifies the line of text in which the word appears. The word <code>Id</code> is also an index for the word within a line of words. </p> <p>For more information, see Detecting text in the Amazon Rekognition Developer Guide.</p>\"\
     },\
     \"TextDetectionList\":{\
       \"type\":\"list\",\
@@ -5475,7 +6278,7 @@
       \"members\":{\
         \"Timestamp\":{\
           \"shape\":\"Timestamp\",\
-          \"documentation\":\"<p>The time, in milliseconds from the start of the video, that the text was detected.</p>\"\
+          \"documentation\":\"<p>The time, in milliseconds from the start of the video, that the text was detected. Note that <code>Timestamp</code> is not guaranteed to be accurate to the individual frame where the text first appears.</p>\"\
         },\
         \"TextDetection\":{\
           \"shape\":\"TextDetection\",\
@@ -5603,6 +6406,37 @@
       \"members\":{\
       }\
     },\
+    \"UpdateStreamProcessorRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Name\"],\
+      \"members\":{\
+        \"Name\":{\
+          \"shape\":\"StreamProcessorName\",\
+          \"documentation\":\"<p> Name of the stream processor that you want to update. </p>\"\
+        },\
+        \"SettingsForUpdate\":{\
+          \"shape\":\"StreamProcessorSettingsForUpdate\",\
+          \"documentation\":\"<p> The stream processor settings that you want to update. Label detection settings can be updated to detect different labels with a different minimum confidence. </p>\"\
+        },\
+        \"RegionsOfInterestForUpdate\":{\
+          \"shape\":\"RegionsOfInterest\",\
+          \"documentation\":\"<p> Specifies locations in the frames where Amazon Rekognition checks for objects or people. This is an optional parameter for label detection stream processors. </p>\"\
+        },\
+        \"DataSharingPreferenceForUpdate\":{\
+          \"shape\":\"StreamProcessorDataSharingPreference\",\
+          \"documentation\":\"<p> Shows whether you are sharing data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis. Note that if you opt out at the account level this setting is ignored on individual streams. </p>\"\
+        },\
+        \"ParametersToDelete\":{\
+          \"shape\":\"StreamProcessorParametersToDelete\",\
+          \"documentation\":\"<p> A list of parameters you want to delete from the stream processor. </p>\"\
+        }\
+      }\
+    },\
+    \"UpdateStreamProcessorResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
     \"Url\":{\"type\":\"string\"},\
     \"Urls\":{\
       \"type\":\"list\",\
@@ -5703,7 +6537,7 @@
       \"exception\":true\
     }\
   },\
-  \"documentation\":\"<p>This is the Amazon Rekognition API reference.</p>\"\
+  \"documentation\":\"<p>This is the API Reference for <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/dg/images.html\\\">Amazon Rekognition Image</a>, <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/what-is.html\\\">Amazon Rekognition Custom Labels</a>, <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/dg/video.html\\\">Amazon Rekognition Stored Video</a>, <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/dg/streaming-video.html\\\">Amazon Rekognition Streaming Video</a>. It provides descriptions of actions, data types, common parameters, and common errors.</p> <p> <b>Amazon Rekognition Image</b> </p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CompareFaces.html\\\">CompareFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateCollection.html\\\">CreateCollection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteCollection.html\\\">DeleteCollection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteFaces.html\\\">DeleteFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeCollection.html\\\">DescribeCollection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectFaces.html\\\">DetectFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectLabels.html\\\">DetectLabels</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectModerationLabels.html\\\">DetectModerationLabels</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectProtectiveEquipment.html\\\">DetectProtectiveEquipment</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectText.html\\\">DetectText</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetCelebrityInfo.html\\\">GetCelebrityInfo</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_IndexFaces.html\\\">IndexFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListCollections.html\\\">ListCollections</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListFaces.html\\\">ListFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_RecognizeCelebrities.html\\\">RecognizeCelebrities</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFaces.html\\\">SearchFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFacesByImage.html\\\">SearchFacesByImage</a> </p> </li> </ul> <p> <b>Amazon Rekognition Custom Labels</b> </p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CopyProjectVersion.html\\\">CopyProjectVersion</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateDataset.html\\\">CreateDataset</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateProject.html\\\">CreateProject</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateProjectVersion.html\\\">CreateProjectVersion</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteDataset.html\\\">DeleteDataset</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProject.html\\\">DeleteProject</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProjectPolicy.html\\\">DeleteProjectPolicy</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProjectVersion.html\\\">DeleteProjectVersion</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeDataset.html\\\">DescribeDataset</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeProjects.html\\\">DescribeProjects</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeProjectVersions.html\\\">DescribeProjectVersions</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectCustomLabels.html\\\">DetectCustomLabels</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DistributeDatasetEntries.html\\\">DistributeDatasetEntries</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListDatasetEntries.html\\\">ListDatasetEntries</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListDatasetLabels.html\\\">ListDatasetLabels</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListProjectPolicies.html\\\">ListProjectPolicies</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_PutProjectPolicy.html\\\">PutProjectPolicy</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartProjectVersion.html\\\">StartProjectVersion</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StopProjectVersion.html\\\">StopProjectVersion</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_UpdateDatasetEntries.html\\\">UpdateDatasetEntries</a> </p> </li> </ul> <p> <b>Amazon Rekognition Video Stored Video</b> </p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetCelebrityRecognition.html\\\">GetCelebrityRecognition</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetContentModeration.html\\\">GetContentModeration</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetFaceDetection.html\\\">GetFaceDetection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetFaceSearch.html\\\">GetFaceSearch</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetLabelDetection.html\\\">GetLabelDetection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetPersonTracking.html\\\">GetPersonTracking</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetSegmentDetection.html\\\">GetSegmentDetection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetTextDetection.html\\\">GetTextDetection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartCelebrityRecognition.html\\\">StartCelebrityRecognition</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartContentModeration.html\\\">StartContentModeration</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartFaceDetection.html\\\">StartFaceDetection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartFaceSearch.html\\\">StartFaceSearch</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartLabelDetection.html\\\">StartLabelDetection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartPersonTracking.html\\\">StartPersonTracking</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartSegmentDetection.html\\\">StartSegmentDetection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartTextDetection.html\\\">StartTextDetection</a> </p> </li> </ul> <p> <b>Amazon Rekognition Video Streaming Video</b> </p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor.html\\\">CreateStreamProcessor</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteStreamProcessor.html\\\">DeleteStreamProcessor</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeStreamProcessor.html\\\">DescribeStreamProcessor</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListStreamProcessors.html\\\">ListStreamProcessors</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartStreamProcessor.html\\\">StartStreamProcessor</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StopStreamProcessor.html\\\">StopStreamProcessor</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_UpdateStreamProcessor.html\\\">UpdateStreamProcessor</a> </p> </li> </ul>\"\
 }\
 ";
 }

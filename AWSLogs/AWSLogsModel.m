@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -107,6 +107,20 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 	return @{
              @"logGroupName" : @"logGroupName",
              @"logStreamName" : @"logStreamName",
+             };
+}
+
+@end
+
+@implementation AWSLogsDeleteDataProtectionPolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logGroupIdentifier" : @"logGroupIdentifier",
              };
 }
 
@@ -361,7 +375,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"accountIdentifiers" : @"accountIdentifiers",
+             @"includeLinkedAccounts" : @"includeLinkedAccounts",
              @"limit" : @"limit",
+             @"logGroupNamePattern" : @"logGroupNamePattern",
              @"logGroupNamePrefix" : @"logGroupNamePrefix",
              @"nextToken" : @"nextToken",
              };
@@ -398,6 +415,7 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 	return @{
              @"descending" : @"descending",
              @"limit" : @"limit",
+             @"logGroupIdentifier" : @"logGroupIdentifier",
              @"logGroupName" : @"logGroupName",
              @"logStreamNamePrefix" : @"logStreamNamePrefix",
              @"nextToken" : @"nextToken",
@@ -818,11 +836,13 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
              @"filterPattern" : @"filterPattern",
              @"interleaved" : @"interleaved",
              @"limit" : @"limit",
+             @"logGroupIdentifier" : @"logGroupIdentifier",
              @"logGroupName" : @"logGroupName",
              @"logStreamNamePrefix" : @"logStreamNamePrefix",
              @"logStreamNames" : @"logStreamNames",
              @"nextToken" : @"nextToken",
              @"startTime" : @"startTime",
+             @"unmask" : @"unmask",
              };
 }
 
@@ -870,6 +890,36 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsGetDataProtectionPolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logGroupIdentifier" : @"logGroupIdentifier",
+             };
+}
+
+@end
+
+@implementation AWSLogsGetDataProtectionPolicyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"lastUpdatedTime" : @"lastUpdatedTime",
+             @"logGroupIdentifier" : @"logGroupIdentifier",
+             @"policyDocument" : @"policyDocument",
+             };
+}
+
+@end
+
 @implementation AWSLogsGetLogEventsRequest
 
 + (BOOL)supportsSecureCoding {
@@ -880,11 +930,13 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 	return @{
              @"endTime" : @"endTime",
              @"limit" : @"limit",
+             @"logGroupIdentifier" : @"logGroupIdentifier",
              @"logGroupName" : @"logGroupName",
              @"logStreamName" : @"logStreamName",
              @"nextToken" : @"nextToken",
              @"startFromHead" : @"startFromHead",
              @"startTime" : @"startTime",
+             @"unmask" : @"unmask",
              };
 }
 
@@ -918,6 +970,7 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"logGroupIdentifier" : @"logGroupIdentifier",
              @"logGroupName" : @"logGroupName",
              @"time" : @"time",
              };
@@ -952,6 +1005,7 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"logRecordPointer" : @"logRecordPointer",
+             @"unmask" : @"unmask",
              };
 }
 
@@ -1066,6 +1120,34 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsListTagsForResourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"resourceArn",
+             };
+}
+
+@end
+
+@implementation AWSLogsListTagsForResourceResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tags" : @"tags",
+             };
+}
+
+@end
+
 @implementation AWSLogsListTagsLogGroupRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1104,12 +1186,44 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 	return @{
              @"arn" : @"arn",
              @"creationTime" : @"creationTime",
+             @"dataProtectionStatus" : @"dataProtectionStatus",
              @"kmsKeyId" : @"kmsKeyId",
              @"logGroupName" : @"logGroupName",
              @"metricFilterCount" : @"metricFilterCount",
              @"retentionInDays" : @"retentionInDays",
              @"storedBytes" : @"storedBytes",
              };
+}
+
++ (NSValueTransformer *)dataProtectionStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ACTIVATED"] == NSOrderedSame) {
+            return @(AWSLogsDataProtectionStatusActivated);
+        }
+        if ([value caseInsensitiveCompare:@"DELETED"] == NSOrderedSame) {
+            return @(AWSLogsDataProtectionStatusDeleted);
+        }
+        if ([value caseInsensitiveCompare:@"ARCHIVED"] == NSOrderedSame) {
+            return @(AWSLogsDataProtectionStatusArchived);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
+            return @(AWSLogsDataProtectionStatusDisabled);
+        }
+        return @(AWSLogsDataProtectionStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLogsDataProtectionStatusActivated:
+                return @"ACTIVATED";
+            case AWSLogsDataProtectionStatusDeleted:
+                return @"DELETED";
+            case AWSLogsDataProtectionStatusArchived:
+                return @"ARCHIVED";
+            case AWSLogsDataProtectionStatusDisabled:
+                return @"DISABLED";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -1369,6 +1483,37 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsPutDataProtectionPolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logGroupIdentifier" : @"logGroupIdentifier",
+             @"policyDocument" : @"policyDocument",
+             };
+}
+
+@end
+
+@implementation AWSLogsPutDataProtectionPolicyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"lastUpdatedTime" : @"lastUpdatedTime",
+             @"logGroupIdentifier" : @"logGroupIdentifier",
+             @"policyDocument" : @"policyDocument",
+             };
+}
+
+@end
+
 @implementation AWSLogsPutDestinationPolicyRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1395,6 +1540,7 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 	return @{
              @"destinationName" : @"destinationName",
              @"roleArn" : @"roleArn",
+             @"tags" : @"tags",
              @"targetArn" : @"targetArn",
              };
 }
@@ -1803,6 +1949,7 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 	return @{
              @"endTime" : @"endTime",
              @"limit" : @"limit",
+             @"logGroupIdentifiers" : @"logGroupIdentifiers",
              @"logGroupName" : @"logGroupName",
              @"logGroupNames" : @"logGroupNames",
              @"queryString" : @"queryString",
@@ -1910,6 +2057,21 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsTagResourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"resourceArn",
+             @"tags" : @"tags",
+             };
+}
+
+@end
+
 @implementation AWSLogsTestMetricFilterRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1953,6 +2115,21 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 	return @{
              @"logGroupName" : @"logGroupName",
              @"tags" : @"tags",
+             };
+}
+
+@end
+
+@implementation AWSLogsUntagResourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"resourceArn",
+             @"tagKeys" : @"tagKeys",
              };
 }
 

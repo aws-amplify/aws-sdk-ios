@@ -116,7 +116,7 @@ static NSString *_defaultService;
 
 - (void)commonInit
 {
-    _accessibility = AWSCognitoAuthUICKeyChainStoreAccessibilityAfterFirstUnlock;
+    _accessibility = AWSCognitoAuthUICKeyChainStoreAccessibilityAfterFirstUnlockThisDeviceOnly;
 }
 
 #pragma mark -
@@ -929,6 +929,26 @@ static NSString *_defaultService;
     }
     
     return prettified.copy;
+}
+
+#pragma mark -
+
+- (void)migrateToCurrentAccessibility {
+    NSArray *items = [self allItems];
+    for (NSDictionary *item in items) {
+        CFComparisonResult result = CFStringCompare((CFStringRef)item[@"accessibility"],
+                                                    [self accessibilityObject], 0);
+        if (result == kCFCompareEqualTo) {
+            continue;
+        }
+        NSString *key = item[@"key"];
+        NSObject *value = item[@"value"];
+        if ([value isKindOfClass:[NSString class]]) {
+            [self setString: (NSString *)value forKey:key];
+        } else if ([value isKindOfClass:[NSData class]]) {
+            [self setData: (NSData *)value forKey:key];
+        }
+    }
 }
 
 #pragma mark -

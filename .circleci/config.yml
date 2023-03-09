@@ -13,6 +13,16 @@
 version: 2.1
 
 commands:
+  restore_gem:
+    steps:
+      - restore_cache:
+          key: 1-gems-{{ checksum "Gemfile.lock" }}
+      - run: bundle check || bundle install --path vendor/bundle --clean
+      - save_cache:
+          key: 1-gems-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
   update_brew:
     description: >-
       Update Homebrew
@@ -249,10 +259,11 @@ commands:
 jobs:
   build:
     macos:
-      xcode: "13.1.0"
+      xcode: "13.2.1"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
+      - restore_gem
       - run:
           name: Git GC
           command: git gc
@@ -272,7 +283,7 @@ jobs:
 
   build_test_host_apps:
     macos:
-      xcode: "13.1.0"
+      xcode: "13.2.1"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -289,7 +300,7 @@ jobs:
 
   unit_test:
     macos:
-      xcode: "13.1.0"
+      xcode: "13.2.1"
     parameters:
       project:
         default: "AWSiOSSDKv2.xcodeproj"
@@ -300,6 +311,7 @@ jobs:
     steps:
       - skip_job_unless_required
       - checkout_with_cache
+      - restore_gem
       - set_environment_variables
       - pre_start_simulator
       - make_artifacts_directory
@@ -342,7 +354,7 @@ jobs:
 
   integ_test:
     macos:
-      xcode: "13.1.0"
+      xcode: "13.2.1"
     parameters:
       project:
         default: "AWSiOSSDKv2.xcodeproj"
@@ -353,6 +365,7 @@ jobs:
     steps:
       - skip_job_unless_required
       - checkout_with_cache
+      - restore_gem
       - skip_test_job_by_commit_message
       - set_environment_variables
       - pre_start_simulator
@@ -393,7 +406,7 @@ jobs:
 
   release_tag:
     macos:
-      xcode: "13.1.0"
+      xcode: "13.2.1"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -410,7 +423,7 @@ jobs:
 
   build_xcframeworks:
     macos:
-      xcode: "13.1.0"
+      xcode: "13.2.1"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -428,7 +441,7 @@ jobs:
 
   release_carthage:
     macos:
-      xcode: "13.1.0"
+      xcode: "13.2.1"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -449,35 +462,27 @@ jobs:
 
   release_cocoapods:
     macos:
-      xcode: "13.1.0"
+      xcode: "13.2.1"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
-      - run:
-          # Note that this invocation of cocoapods_release requires at least
-          # CocoaPods 1.9.3, and cocoalpods-trunk 1.5.0, since it uses the
-          # `--synchronous` flag. CocoaPods 1.9.3 comes with the 12.1.0 Xcode
-          # image, but just to be safe, we'll manually update cocoapods-trunk
-          name: Update cocoapods-trunk to support --synchronous flag
-          command: gem update cocoapods-trunk
+      - restore_gem
       - run:
           name: Release CocoaPods
           command: python3 ./CircleciScripts/cocoapods_release.py
-          no_output_timeout: 20m
+          no_output_timeout: 100m
 
   release_docs:
     macos:
-      xcode: "13.1.0"
+      xcode: "13.2.1"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
-      - run:
-          name: Install jazzy
-          command: |
-            sudo gem install jazzy --source http://rubygems.org
+      - restore_gem
       - run:
           name: Generate documents
           command: bash ./CircleciScripts/generate_documentation.sh
+          no_output_timeout: 100m
       - run:
           name: Copy documents
           command: |
@@ -497,7 +502,7 @@ jobs:
 
   add_doc_tag:
     macos:
-      xcode: "13.0.0"
+      xcode: "13.2.1"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -511,7 +516,7 @@ jobs:
 
   bump_ios_sampleapp_version:
     macos:
-      xcode: "13.1.0"
+      xcode: "13.2.1"
     steps:
       - skip_job_unless_required
       - set_environment_variables
@@ -530,7 +535,7 @@ jobs:
   
   release_xcframeworks:
     macos:
-      xcode: "13.1.0"
+      xcode: "13.2.1"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -574,7 +579,7 @@ jobs:
 
   release_xcframeworks_combined:
     macos:
-      xcode: "13.1.0"
+      xcode: "13.2.1"
     environment:
       TERM: xterm-256color
     steps:
@@ -618,7 +623,7 @@ jobs:
 
   bump_sdk_version:
     macos:
-      xcode: "13.1.0"
+      xcode: "13.2.1"
     steps:
       - skip_job_unless_required
       - set_environment_variables
