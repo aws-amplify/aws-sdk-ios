@@ -1,12 +1,17 @@
----
+# AWS Mobile SDK for iOS CHANGELOG
 
-MOVE THIS SECTION TO THE CORRECT LOCATION
+## Unreleased
 
 ### Misc. Updates
 
 - Model updates for the following services
----AWSConnect
-# AWS Mobile SDK for iOS CHANGELOG
+  - AWSComprehend
+  - AWSConnect
+  - AWSDynamoDB
+  - AWSEC2  
+  - AWSIoT
+  - AWSLocation
+  - AWSTranscribe
 
 ## 2.30.4
 
