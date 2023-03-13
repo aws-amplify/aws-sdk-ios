@@ -2019,6 +2019,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectGetMetricDataV2Response *> *)getMetricDataV2:(AWSConnectGetMetricDataV2Request *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/metrics/data"
+                  targetPrefix:@""
+                 operationName:@"GetMetricDataV2"
+                   outputClass:[AWSConnectGetMetricDataV2Response class]];
+}
+
+- (void)getMetricDataV2:(AWSConnectGetMetricDataV2Request *)request
+     completionHandler:(void (^)(AWSConnectGetMetricDataV2Response *response, NSError *error))completionHandler {
+    [[self getMetricDataV2:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectGetMetricDataV2Response *> * _Nonnull task) {
+        AWSConnectGetMetricDataV2Response *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectGetTaskTemplateResponse *> *)getTaskTemplate:(AWSConnectGetTaskTemplateRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
