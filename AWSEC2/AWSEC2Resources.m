@@ -9025,7 +9025,8 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"legacy-bios\",\
-        \"uefi\"\
+        \"uefi\",\
+        \"uefi-preferred\"\
       ]\
     },\
     \"BoxedDouble\":{\"type\":\"double\"},\
@@ -11847,10 +11848,7 @@
     },\
     \"CreateCustomerGatewayRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"BgpAsn\",\
-        \"Type\"\
-      ],\
+      \"required\":[\"Type\"],\
       \"members\":{\
         \"BgpAsn\":{\
           \"shape\":\"Integer\",\
@@ -32448,7 +32446,7 @@
         },\
         \"BootMode\":{\
           \"shape\":\"BootModeValues\",\
-          \"documentation\":\"<p>The boot mode of the instance. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html\\\">Boot modes</a> in the <i>Amazon EC2 User Guide</i>.</p>\",\
+          \"documentation\":\"<p>The boot mode that was specified by the AMI. If the value is <code>uefi-preferred</code>, the AMI supports both UEFI and Legacy BIOS. The <code>currentInstanceBootMode</code> parameter is the boot mode that is used to boot the instance at launch or start.</p> <note> <p>The operating system contained in the AMI must be configured to support the specified boot mode.</p> </note> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html\\\">Boot modes</a> in the <i>Amazon EC2 User Guide</i>.</p>\",\
           \"locationName\":\"bootMode\"\
         },\
         \"PlatformDetails\":{\
@@ -32485,6 +32483,11 @@
           \"shape\":\"InstanceMaintenanceOptions\",\
           \"documentation\":\"<p>Provides information on the recovery and maintenance options of your instance.</p>\",\
           \"locationName\":\"maintenanceOptions\"\
+        },\
+        \"CurrentInstanceBootMode\":{\
+          \"shape\":\"InstanceBootModeValues\",\
+          \"documentation\":\"<p>The boot mode that is used to boot the instance at launch or start. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html\\\">Boot modes</a> in the <i>Amazon EC2 User Guide</i>.</p>\",\
+          \"locationName\":\"currentInstanceBootMode\"\
         }\
       },\
       \"documentation\":\"<p>Describes an instance.</p>\"\
@@ -32663,6 +32666,13 @@
         \"shape\":\"InstanceBlockDeviceMappingSpecification\",\
         \"locationName\":\"item\"\
       }\
+    },\
+    \"InstanceBootModeValues\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"legacy-bios\",\
+        \"uefi\"\
+      ]\
     },\
     \"InstanceCapacity\":{\
       \"type\":\"structure\",\
@@ -34744,7 +34754,26 @@
         \"r6idn.12xlarge\",\
         \"r6idn.16xlarge\",\
         \"r6idn.24xlarge\",\
-        \"r6idn.32xlarge\"\
+        \"r6idn.32xlarge\",\
+        \"c7g.metal\",\
+        \"m7g.medium\",\
+        \"m7g.large\",\
+        \"m7g.xlarge\",\
+        \"m7g.2xlarge\",\
+        \"m7g.4xlarge\",\
+        \"m7g.8xlarge\",\
+        \"m7g.12xlarge\",\
+        \"m7g.16xlarge\",\
+        \"m7g.metal\",\
+        \"r7g.medium\",\
+        \"r7g.large\",\
+        \"r7g.xlarge\",\
+        \"r7g.2xlarge\",\
+        \"r7g.4xlarge\",\
+        \"r7g.8xlarge\",\
+        \"r7g.12xlarge\",\
+        \"r7g.16xlarge\",\
+        \"r7g.metal\"\
       ]\
     },\
     \"InstanceTypeHypervisor\":{\
@@ -45195,7 +45224,7 @@
         },\
         \"BootMode\":{\
           \"shape\":\"BootModeValues\",\
-          \"documentation\":\"<p>The boot mode of the AMI. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html\\\">Boot modes</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
+          \"documentation\":\"<p>The boot mode of the AMI. A value of <code>uefi-preferred</code> indicates that the AMI supports both UEFI and Legacy BIOS.</p> <note> <p>The operating system contained in the AMI must be configured to support the specified boot mode.</p> </note> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html\\\">Boot modes</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
         },\
         \"TpmSupport\":{\
           \"shape\":\"TpmSupportValues\",\
