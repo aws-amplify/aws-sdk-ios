@@ -99,6 +99,10 @@ NSString *TestsIdentityPoolId = nil;
             [provider clearCredentials];
             [identityProvider setIdentityId:nil];
             [[provider credentials] continueWithBlock:^id(AWSTask *task) {
+                if (task.error != nil) {
+                    XCTFail("Received error %@", task.error);
+                    return nil;
+                }
                 XCTAssertNotNil(provider.identityId, @"Unable to get identityId");
 
                 AWSCredentials *credentials = task.result;
