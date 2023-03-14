@@ -80,6 +80,7 @@ NSString *TestsIdentityPoolId = nil;
 }
 
 - (void)testMultiThreadedWithEnhancedFlow {
+
     AWSCognitoCredentialsProviderHelper *identityProvider = [[AWSCognitoCredentialsProviderHelper alloc]
                                                              initWithRegionType: self.region
                                                              identityPoolId:TestsIdentityPoolId

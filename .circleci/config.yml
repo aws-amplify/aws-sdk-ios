@@ -1205,7 +1205,7 @@ workflows:
           filters:
             branches:
               only:
-                - main
+                - royjit.addErrorHandleTest
 
       - integ_test:
           scheme: AWSDynamoDB
