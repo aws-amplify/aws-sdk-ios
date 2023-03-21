@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -109,6 +109,12 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingInvocationType) {
     AWSChimeSDKMessagingInvocationTypeAsync,
 };
 
+typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingMessagingDataType) {
+    AWSChimeSDKMessagingMessagingDataTypeUnknown,
+    AWSChimeSDKMessagingMessagingDataTypeChannel,
+    AWSChimeSDKMessagingMessagingDataTypeChannelMessage,
+};
+
 typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingPushNotificationType) {
     AWSChimeSDKMessagingPushNotificationTypeUnknown,
     AWSChimeSDKMessagingPushNotificationTypeDefault,
@@ -174,6 +180,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 @class AWSChimeSDKMessagingDeleteChannelMessageRequest;
 @class AWSChimeSDKMessagingDeleteChannelModeratorRequest;
 @class AWSChimeSDKMessagingDeleteChannelRequest;
+@class AWSChimeSDKMessagingDeleteMessagingStreamingConfigurationsRequest;
 @class AWSChimeSDKMessagingDescribeChannelBanRequest;
 @class AWSChimeSDKMessagingDescribeChannelBanResponse;
 @class AWSChimeSDKMessagingDescribeChannelFlowRequest;
@@ -198,6 +205,8 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 @class AWSChimeSDKMessagingGetChannelMessageStatusResponse;
 @class AWSChimeSDKMessagingGetMessagingSessionEndpointRequest;
 @class AWSChimeSDKMessagingGetMessagingSessionEndpointResponse;
+@class AWSChimeSDKMessagingGetMessagingStreamingConfigurationsRequest;
+@class AWSChimeSDKMessagingGetMessagingStreamingConfigurationsResponse;
 @class AWSChimeSDKMessagingIdentity;
 @class AWSChimeSDKMessagingLambdaConfiguration;
 @class AWSChimeSDKMessagingListChannelBansRequest;
@@ -230,6 +239,8 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 @class AWSChimeSDKMessagingPushNotificationPreferences;
 @class AWSChimeSDKMessagingPutChannelMembershipPreferencesRequest;
 @class AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse;
+@class AWSChimeSDKMessagingPutMessagingStreamingConfigurationsRequest;
+@class AWSChimeSDKMessagingPutMessagingStreamingConfigurationsResponse;
 @class AWSChimeSDKMessagingRedactChannelMessageRequest;
 @class AWSChimeSDKMessagingRedactChannelMessageResponse;
 @class AWSChimeSDKMessagingSearchChannelsRequest;
@@ -237,6 +248,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 @class AWSChimeSDKMessagingSearchField;
 @class AWSChimeSDKMessagingSendChannelMessageRequest;
 @class AWSChimeSDKMessagingSendChannelMessageResponse;
+@class AWSChimeSDKMessagingStreamingConfiguration;
 @class AWSChimeSDKMessagingSubChannelSummary;
 @class AWSChimeSDKMessagingTag;
 @class AWSChimeSDKMessagingTagResourceRequest;
@@ -1425,6 +1437,19 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 /**
  
  */
+@interface AWSChimeSDKMessagingDeleteMessagingStreamingConfigurationsRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the streaming configurations being deleted.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceArn;
+
+@end
+
+/**
+ 
+ */
 @interface AWSChimeSDKMessagingDescribeChannelBanRequest : AWSRequest
 
 
@@ -1857,6 +1882,32 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
  <p>The endpoint returned in the response.</p>
  */
 @property (nonatomic, strong) AWSChimeSDKMessagingMessagingSessionEndpoint * _Nullable endpoint;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKMessagingGetMessagingStreamingConfigurationsRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the streaming configurations.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKMessagingGetMessagingStreamingConfigurationsResponse : AWSModel
+
+
+/**
+ <p>The streaming settings.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSChimeSDKMessagingStreamingConfiguration *> * _Nullable streamingConfigurations;
 
 @end
 
@@ -2603,6 +2654,37 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 /**
  
  */
+@interface AWSChimeSDKMessagingPutMessagingStreamingConfigurationsRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the streaming configuration.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceArn;
+
+/**
+ <p>The streaming configurations.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSChimeSDKMessagingStreamingConfiguration *> * _Nullable streamingConfigurations;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKMessagingPutMessagingStreamingConfigurationsResponse : AWSModel
+
+
+/**
+ <p>The requested streaming configurations.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSChimeSDKMessagingStreamingConfiguration *> * _Nullable streamingConfigurations;
+
+@end
+
+/**
+ 
+ */
 @interface AWSChimeSDKMessagingRedactChannelMessageRequest : AWSRequest
 
 
@@ -2804,6 +2886,25 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
  <p>The ID of the SubChannel in the response.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable subChannelId;
+
+@end
+
+/**
+ <p>The configuration for connecting a messaging stream to Amazon Kinesis.</p>
+ Required parameters: [DataType, ResourceArn]
+ */
+@interface AWSChimeSDKMessagingStreamingConfiguration : AWSModel
+
+
+/**
+ <p>The data type of the configuration.</p>
+ */
+@property (nonatomic, assign) AWSChimeSDKMessagingMessagingDataType dataType;
+
+/**
+ <p>The ARN of the resource in the configuration. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
 
 @end
 

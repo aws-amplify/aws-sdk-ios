@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -1480,6 +1480,20 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 
 @end
 
+@implementation AWSChimeSDKMessagingDeleteMessagingStreamingConfigurationsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceArn" : @"AppInstanceArn",
+             };
+}
+
+@end
+
 @implementation AWSChimeSDKMessagingDescribeChannelBanRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1880,6 +1894,38 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 
 + (NSValueTransformer *)endpointJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKMessagingMessagingSessionEndpoint class]];
+}
+
+@end
+
+@implementation AWSChimeSDKMessagingGetMessagingStreamingConfigurationsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceArn" : @"AppInstanceArn",
+             };
+}
+
+@end
+
+@implementation AWSChimeSDKMessagingGetMessagingStreamingConfigurationsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"streamingConfigurations" : @"StreamingConfigurations",
+             };
+}
+
++ (NSValueTransformer *)streamingConfigurationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSChimeSDKMessagingStreamingConfiguration class]];
 }
 
 @end
@@ -2623,6 +2669,43 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 
 @end
 
+@implementation AWSChimeSDKMessagingPutMessagingStreamingConfigurationsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceArn" : @"AppInstanceArn",
+             @"streamingConfigurations" : @"StreamingConfigurations",
+             };
+}
+
++ (NSValueTransformer *)streamingConfigurationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSChimeSDKMessagingStreamingConfiguration class]];
+}
+
+@end
+
+@implementation AWSChimeSDKMessagingPutMessagingStreamingConfigurationsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"streamingConfigurations" : @"StreamingConfigurations",
+             };
+}
+
++ (NSValueTransformer *)streamingConfigurationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSChimeSDKMessagingStreamingConfiguration class]];
+}
+
+@end
+
 @implementation AWSChimeSDKMessagingRedactChannelMessageRequest
 
 + (BOOL)supportsSecureCoding {
@@ -2843,6 +2926,42 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 
 + (NSValueTransformer *)statusJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKMessagingChannelMessageStatusStructure class]];
+}
+
+@end
+
+@implementation AWSChimeSDKMessagingStreamingConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dataType" : @"DataType",
+             @"resourceArn" : @"ResourceArn",
+             };
+}
+
++ (NSValueTransformer *)dataTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Channel"] == NSOrderedSame) {
+            return @(AWSChimeSDKMessagingMessagingDataTypeChannel);
+        }
+        if ([value caseInsensitiveCompare:@"ChannelMessage"] == NSOrderedSame) {
+            return @(AWSChimeSDKMessagingMessagingDataTypeChannelMessage);
+        }
+        return @(AWSChimeSDKMessagingMessagingDataTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSChimeSDKMessagingMessagingDataTypeChannel:
+                return @"Channel";
+            case AWSChimeSDKMessagingMessagingDataTypeChannelMessage:
+                return @"ChannelMessage";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
