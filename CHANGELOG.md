@@ -6,6 +6,15 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 - Model updates for the following services
 ---AWSEC2
+---AWSChimeSDKMessaging
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSEC2
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
