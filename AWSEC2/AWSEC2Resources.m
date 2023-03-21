@@ -25685,6 +25685,11 @@
           \"shape\":\"DnsRecordIpType\",\
           \"documentation\":\"<p>The DNS records created for the endpoint.</p>\",\
           \"locationName\":\"dnsRecordIpType\"\
+        },\
+        \"PrivateDnsOnlyForInboundResolverEndpoint\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Indicates whether to enable private DNS only for inbound endpoints.</p>\",\
+          \"locationName\":\"privateDnsOnlyForInboundResolverEndpoint\"\
         }\
       },\
       \"documentation\":\"<p>Describes the DNS options for an endpoint.</p>\"\
@@ -25695,6 +25700,10 @@
         \"DnsRecordIpType\":{\
           \"shape\":\"DnsRecordIpType\",\
           \"documentation\":\"<p>The DNS records created for the endpoint.</p>\"\
+        },\
+        \"PrivateDnsOnlyForInboundResolverEndpoint\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes the DNS options for an endpoint.</p>\"\
