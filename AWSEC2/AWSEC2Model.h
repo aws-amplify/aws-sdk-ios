@@ -3977,6 +3977,9 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2FederatedAuthentication;
 @class AWSEC2FederatedAuthenticationRequest;
 @class AWSEC2Filter;
+@class AWSEC2FilterPortRange;
+@class AWSEC2FirewallStatefulRule;
+@class AWSEC2FirewallStatelessRule;
 @class AWSEC2FleetCapacityReservation;
 @class AWSEC2FleetData;
 @class AWSEC2FleetLaunchTemplateConfig;
@@ -4441,6 +4444,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2PacketHeaderStatement;
 @class AWSEC2PacketHeaderStatementRequest;
 @class AWSEC2PathComponent;
+@class AWSEC2PathFilter;
+@class AWSEC2PathRequestFilter;
 @class AWSEC2PathStatement;
 @class AWSEC2PathStatementRequest;
 @class AWSEC2PciId;
@@ -4543,6 +4548,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ReplaceTransitGatewayRouteRequest;
 @class AWSEC2ReplaceTransitGatewayRouteResult;
 @class AWSEC2ReportInstanceStatusRequest;
+@class AWSEC2RequestFilterPortRange;
 @class AWSEC2RequestIpamResourceTag;
 @class AWSEC2RequestLaunchTemplateData;
 @class AWSEC2RequestSpotFleetRequest;
@@ -4596,6 +4602,9 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2RouteTable;
 @class AWSEC2RouteTableAssociation;
 @class AWSEC2RouteTableAssociationState;
+@class AWSEC2RuleGroupRuleOptionsPair;
+@class AWSEC2RuleGroupTypePair;
+@class AWSEC2RuleOption;
 @class AWSEC2RunInstancesMonitoringEnabled;
 @class AWSEC2RunInstancesRequest;
 @class AWSEC2RunScheduledInstancesRequest;
@@ -5337,13 +5346,13 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes an additional detail for a path analysis.</p>
+ <p>Describes an additional detail for a path analysis. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/additional-detail-codes.html">Reachability Analyzer additional detail codes</a>.</p>
  */
 @interface AWSEC2AdditionalDetail : AWSModel
 
 
 /**
- <p>The information type.</p>
+ <p>The additional detail code.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable additionalDetailType;
 
@@ -5351,6 +5360,36 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The path component.</p>
  */
 @property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable component;
+
+/**
+ <p>The load balancers.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2AnalysisComponent *> * _Nullable loadBalancers;
+
+/**
+ <p>The rule options.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2RuleGroupRuleOptionsPair *> * _Nullable ruleGroupRuleOptionsPairs;
+
+/**
+ <p>The rule group type.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2RuleGroupTypePair *> * _Nullable ruleGroupTypePairs;
+
+/**
+ <p>The rule options.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2RuleOption *> * _Nullable ruleOptions;
+
+/**
+ <p>The name of the VPC endpoint service.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable serviceName;
+
+/**
+ <p>The VPC endpoint service.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable vpcEndpointService;
 
 @end
 
@@ -5950,6 +5989,16 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
+ <p>The ID of a carrier gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable carrierGatewayId;
+
+/**
+ <p>The Amazon Resource Name (ARN) of a core network.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable coreNetworkArn;
+
+/**
  <p>The destination IPv4 address, in CIDR notation.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationCidr;
@@ -5973,6 +6022,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the instance, such as a NAT instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The ID of a local gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable localGatewayId;
 
 /**
  <p>The ID of a NAT gateway.</p>
@@ -11897,12 +11951,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
 /**
- <p>The Amazon Web Services resource that is the destination of the path.</p>
+ <p>The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destination;
 
 /**
- <p>The IP address of the Amazon Web Services resource that is the destination of the path.</p>
+ <p>The IP address of the destination.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationIp;
 
@@ -11917,17 +11971,27 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
+ <p>Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify the parameter for the destination IP address.</p>
+ */
+@property (nonatomic, strong) AWSEC2PathRequestFilter * _Nullable filterAtDestination;
+
+/**
+ <p>Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify the parameters for the source IP address or the destination port.</p>
+ */
+@property (nonatomic, strong) AWSEC2PathRequestFilter * _Nullable filterAtSource;
+
+/**
  <p>The protocol.</p>
  */
 @property (nonatomic, assign) AWSEC2Protocols protocols;
 
 /**
- <p>The Amazon Web Services resource that is the source of the path.</p>
+ <p>The ID or ARN of the source. If the resource is in another account, you must specify an ARN.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable source;
 
 /**
- <p>The IP address of the Amazon Web Services resource that is the source of the path.</p>
+ <p>The IP address of the source.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceIp;
 
@@ -12474,7 +12538,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>A description for the security group. This is informational only.</p><p>Constraints: Up to 255 characters in length</p><p>Constraints for EC2-Classic: ASCII characters</p><p>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</p>
+ <p>A description for the security group.</p><p>Constraints: Up to 255 characters in length</p><p>Constraints for EC2-Classic: ASCII characters</p><p>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
 
@@ -21111,7 +21175,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The filters. The following are the possible values:</p><ul><li><p>destination - The ID of the resource.</p></li><li><p>destination-port - The destination port.</p></li><li><p>protocol - The protocol.</p></li><li><p>source - The ID of the resource.</p></li></ul>
+ <p>The filters. The following are the possible values:</p><ul><li><p>destination - The ID of the resource.</p></li><li><p>filter-at-source.source-address - The source IPv4 address at the source.</p></li><li><p>filter-at-source.source-port-range - The source port range at the source.</p></li><li><p>filter-at-source.destination-address - The destination IPv4 address at the source.</p></li><li><p>filter-at-source.destination-port-range - The destination port range at the source.</p></li><li><p>filter-at-destination.source-address - The source IPv4 address at the destination.</p></li><li><p>filter-at-destination.source-port-range - The source port range at the destination.</p></li><li><p>filter-at-destination.destination-address - The destination IPv4 address at the destination.</p></li><li><p>filter-at-destination.destination-port-range - The destination port range at the destination.</p></li><li><p>protocol - The protocol.</p></li><li><p>source - The ID of the resource.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -27249,6 +27313,16 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable explanationCode;
 
 /**
+ <p>The Network Firewall stateful rule.</p>
+ */
+@property (nonatomic, strong) AWSEC2FirewallStatefulRule * _Nullable firewallStatefulRule;
+
+/**
+ <p>The Network Firewall stateless rule.</p>
+ */
+@property (nonatomic, strong) AWSEC2FirewallStatelessRule * _Nullable firewallStatelessRule;
+
+/**
  <p>The route table.</p>
  */
 @property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable ingressRouteTable;
@@ -27978,6 +28052,120 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The filter values. Filter values are case-sensitive. If you specify multiple values for a filter, the values are joined with an <code>OR</code>, and the request returns all results that match any of the specified values.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable values;
+
+@end
+
+/**
+ <p>Describes a port range.</p>
+ */
+@interface AWSEC2FilterPortRange : AWSModel
+
+
+/**
+ <p>The first port in the range.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable fromPort;
+
+/**
+ <p>The last port in the range.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable toPort;
+
+@end
+
+/**
+ <p>Describes a stateful rule.</p>
+ */
+@interface AWSEC2FirewallStatefulRule : AWSModel
+
+
+/**
+ <p>The destination ports.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2PortRange *> * _Nullable destinationPorts;
+
+/**
+ <p>The destination IP addresses, in CIDR notation.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable destinations;
+
+/**
+ <p>The direction. The possible values are <code>FORWARD</code> and <code>ANY</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable direction;
+
+/**
+ <p>The protocol.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable protocols;
+
+/**
+ <p>The rule action. The possible values are <code>pass</code>, <code>drop</code>, and <code>alert</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleAction;
+
+/**
+ <p>The ARN of the stateful rule group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleGroupArn;
+
+/**
+ <p>The source ports.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2PortRange *> * _Nullable sourcePorts;
+
+/**
+ <p>The source IP addresses, in CIDR notation.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable sources;
+
+@end
+
+/**
+ <p>Describes a stateless rule.</p>
+ */
+@interface AWSEC2FirewallStatelessRule : AWSModel
+
+
+/**
+ <p>The destination ports.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2PortRange *> * _Nullable destinationPorts;
+
+/**
+ <p>The destination IP addresses, in CIDR notation.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable destinations;
+
+/**
+ <p>The rule priority.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable priority;
+
+/**
+ <p>The protocols.</p>
+ */
+@property (nonatomic, strong) NSArray<NSNumber *> * _Nullable protocols;
+
+/**
+ <p>The rule action. The possible values are <code>pass</code>, <code>drop</code>, and <code>forward_to_site</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleAction;
+
+/**
+ <p>The ARN of the stateless rule group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleGroupArn;
+
+/**
+ <p>The source ports.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2PortRange *> * _Nullable sourcePorts;
+
+/**
+ <p>The source IP addresses, in CIDR notation.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable sources;
 
 @end
 
@@ -41413,7 +41601,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Explanation *> * _Nullable explanations;
 
 /**
- <p>The Amazon Resource Names (ARN) of the Amazon Web Services resources that the path must traverse.</p>
+ <p>The Amazon Resource Names (ARN) of the resources that the path must traverse.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable filterInArns;
 
@@ -41491,7 +41679,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSDate * _Nullable createdDate;
 
 /**
- <p>The Amazon Web Services resource that is the destination of the path.</p>
+ <p>The ID of the destination.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destination;
 
@@ -41501,7 +41689,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable destinationArn;
 
 /**
- <p>The IP address of the Amazon Web Services resource that is the destination of the path.</p>
+ <p>The IP address of the destination.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationIp;
 
@@ -41509,6 +41697,16 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The destination port.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable destinationPort;
+
+/**
+ <p>Scopes the analysis to network paths that match specific filters at the destination.</p>
+ */
+@property (nonatomic, strong) AWSEC2PathFilter * _Nullable filterAtDestination;
+
+/**
+ <p>Scopes the analysis to network paths that match specific filters at the source.</p>
+ */
+@property (nonatomic, strong) AWSEC2PathFilter * _Nullable filterAtSource;
 
 /**
  <p>The Amazon Resource Name (ARN) of the path.</p>
@@ -41526,7 +41724,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2Protocols protocols;
 
 /**
- <p>The Amazon Web Services resource that is the source of the path.</p>
+ <p>The ID of the source.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable source;
 
@@ -41536,7 +41734,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable sourceArn;
 
 /**
- <p>The IP address of the Amazon Web Services resource that is the source of the path.</p>
+ <p>The IP address of the source.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceIp;
 
@@ -42197,6 +42395,16 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Explanation *> * _Nullable explanations;
 
 /**
+ <p>The Network Firewall stateful rule.</p>
+ */
+@property (nonatomic, strong) AWSEC2FirewallStatefulRule * _Nullable firewallStatefulRule;
+
+/**
+ <p>The Network Firewall stateless rule.</p>
+ */
+@property (nonatomic, strong) AWSEC2FirewallStatelessRule * _Nullable firewallStatelessRule;
+
+/**
  <p>The inbound header.</p>
  */
 @property (nonatomic, strong) AWSEC2AnalysisPacketHeader * _Nullable inboundHeader;
@@ -42222,6 +42430,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable sequenceNumber;
 
 /**
+ <p>The name of the VPC endpoint service.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable serviceName;
+
+/**
  <p>The source VPC.</p>
  */
 @property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable sourceVpc;
@@ -42245,6 +42458,62 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The component VPC.</p>
  */
 @property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable vpc;
+
+@end
+
+/**
+ <p>Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.</p>
+ */
+@interface AWSEC2PathFilter : AWSModel
+
+
+/**
+ <p>The destination IPv4 address.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationAddress;
+
+/**
+ <p>The destination port range.</p>
+ */
+@property (nonatomic, strong) AWSEC2FilterPortRange * _Nullable destinationPortRange;
+
+/**
+ <p>The source IPv4 address.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceAddress;
+
+/**
+ <p>The source port range.</p>
+ */
+@property (nonatomic, strong) AWSEC2FilterPortRange * _Nullable sourcePortRange;
+
+@end
+
+/**
+ <p>Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.</p>
+ */
+@interface AWSEC2PathRequestFilter : AWSModel
+
+
+/**
+ <p>The destination IPv4 address.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationAddress;
+
+/**
+ <p>The destination port range.</p>
+ */
+@property (nonatomic, strong) AWSEC2RequestFilterPortRange * _Nullable destinationPortRange;
+
+/**
+ <p>The source IPv4 address.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceAddress;
+
+/**
+ <p>The source port range.</p>
+ */
+@property (nonatomic, strong) AWSEC2RequestFilterPortRange * _Nullable sourcePortRange;
 
 @end
 
@@ -44590,6 +44859,24 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Describes a port range.</p>
+ */
+@interface AWSEC2RequestFilterPortRange : AWSModel
+
+
+/**
+ <p>The first port in the range.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable fromPort;
+
+/**
+ <p>The last port in the range.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable toPort;
+
+@end
+
+/**
  <p>A tag on an IPAM resource.</p>
  */
 @interface AWSEC2RequestIpamResourceTag : AWSModel
@@ -46503,6 +46790,60 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The status message, if applicable.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+@end
+
+/**
+ <p>Describes the rule options for a stateful rule group.</p>
+ */
+@interface AWSEC2RuleGroupRuleOptionsPair : AWSModel
+
+
+/**
+ <p>The ARN of the rule group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleGroupArn;
+
+/**
+ <p>The rule options.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2RuleOption *> * _Nullable ruleOptions;
+
+@end
+
+/**
+ <p>Describes the type of a stateful rule group.</p>
+ */
+@interface AWSEC2RuleGroupTypePair : AWSModel
+
+
+/**
+ <p>The ARN of the rule group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleGroupArn;
+
+/**
+ <p>The rule group type. The possible values are <code>Domain List</code> and <code>Suricata</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleGroupType;
+
+@end
+
+/**
+ <p>Describes additional settings for a stateful rule.</p>
+ */
+@interface AWSEC2RuleOption : AWSModel
+
+
+/**
+ <p>The Suricata keyword.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyword;
+
+/**
+ <p>The settings for the keyword.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable settings;
 
 @end
 
