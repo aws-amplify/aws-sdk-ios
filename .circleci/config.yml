@@ -242,19 +242,20 @@ commands:
       - store_artifacts:
           path: artifacts
 
-  checkout_with_cache:
+  shallow_checkout:
     # Workaround for https://discuss.circleci.com/t/checkout-fails-on-git-tags-when-git-directory-is-already-present/22437/5
     steps:
-      - restore_cache:
-          keys:
-            - v1-source-{{ .Revision }}
-      - run: 
+      - run:
+          name: Checkout code shallow and change to working directory
+          command: |
+            git clone --depth 1 "$CIRCLE_REPOSITORY_URL" --branch "$CIRCLE_BRANCH" "$CIRCLE_WORKING_DIRECTORY"
+            cd "$CIRCLE_WORKING_DIRECTORY"
+      - run:
           name: Fetch tag from origin if present
           command: |
             if [ -n "$CIRCLE_TAG" ] ; then
               git fetch --force origin "refs/tags/${CIRCLE_TAG}:refs/tags/${CIRCLE_TAG}"
             fi
-      - checkout
 
 jobs:
   build:
@@ -262,15 +263,8 @@ jobs:
       xcode: "13.2.1"
     steps:
       - skip_job_unless_required
-      - checkout_with_cache
+      - shallow_checkout
       - restore_gem
-      - run:
-          name: Git GC
-          command: git gc
-      - save_cache:
-          key: v1-source-{{ .Revision }}
-          paths:
-            - ".git"
       - set_environment_variables
       - pre_start_simulator
       - make_artifacts_directory
@@ -286,7 +280,7 @@ jobs:
       xcode: "13.2.1"
     steps:
       - skip_job_unless_required
-      - checkout_with_cache
+      - shallow_checkout
       - set_environment_variables
       - pre_start_simulator
       - make_artifacts_directory
@@ -310,7 +304,7 @@ jobs:
     description: Run non-integration tests for << parameters.scheme >>
     steps:
       - skip_job_unless_required
-      - checkout_with_cache
+      - shallow_checkout
       - restore_gem
       - set_environment_variables
       - pre_start_simulator
@@ -364,7 +358,7 @@ jobs:
     description: Run integration tests for << parameters.scheme >>
     steps:
       - skip_job_unless_required
-      - checkout_with_cache
+      - shallow_checkout
       - restore_gem
       - skip_test_job_by_commit_message
       - set_environment_variables
@@ -409,7 +403,7 @@ jobs:
       xcode: "13.2.1"
     steps:
       - skip_job_unless_required
-      - checkout_with_cache
+      - shallow_checkout
       - update_brew
       - run:
           name: Install github-release
@@ -426,7 +420,7 @@ jobs:
       xcode: "13.2.1"
     steps:
       - skip_job_unless_required
-      - checkout_with_cache
+      - shallow_checkout
       - pre_start_simulator
       - update_brew
       - run:
@@ -444,7 +438,7 @@ jobs:
       xcode: "13.2.1"
     steps:
       - skip_job_unless_required
-      - checkout_with_cache
+      - shallow_checkout
       - pre_start_simulator
       - update_brew
       - run:
@@ -465,7 +459,7 @@ jobs:
       xcode: "13.2.1"
     steps:
       - skip_job_unless_required
-      - checkout_with_cache
+      - shallow_checkout
       - restore_gem
       - run:
           name: Release CocoaPods
@@ -477,7 +471,7 @@ jobs:
       xcode: "13.2.1"
     steps:
       - skip_job_unless_required
-      - checkout_with_cache
+      - shallow_checkout
       - restore_gem
       - run:
           name: Generate documents
@@ -505,7 +499,7 @@ jobs:
       xcode: "13.2.1"
     steps:
       - skip_job_unless_required
-      - checkout_with_cache
+      - shallow_checkout
       - run:
           name: Add documentation tags to gh-pages
           command: |
@@ -521,7 +515,7 @@ jobs:
       - skip_job_unless_required
       - set_environment_variables
       - quit_for_nominorversion
-      - checkout_with_cache
+      - shallow_checkout
       - run:
           name: Checkout repository for bump version
           command: |
@@ -532,13 +526,13 @@ jobs:
           name: Build projects
           command:
             python3 CircleciScripts/build_iossample.py "$(pwd)/aws-sdk-ios-samples"
-  
+
   release_xcframeworks:
     macos:
       xcode: "13.2.1"
     steps:
       - skip_job_unless_required
-      - checkout_with_cache
+      - shallow_checkout
       - set_environment_variables
       - configure_aws
       - restore_cache:
@@ -565,7 +559,7 @@ jobs:
           name: Create PR for SPM package manifest
           command: |
             cd aws-sdk-ios-spm
-            head_branch=pre-release-${release_version} 
+            head_branch=pre-release-${release_version}
             target_branch="main"
             title="[release-spm]: Version and checksum update for ${release_version}"
             content="Update for package manifest and version for the next release"
@@ -584,7 +578,7 @@ jobs:
       TERM: xterm-256color
     steps:
       - skip_job_unless_required
-      - checkout_with_cache
+      - shallow_checkout
       - update_brew
       - set_environment_variables
       - configure_aws
@@ -627,7 +621,7 @@ jobs:
     steps:
       - skip_job_unless_required
       - set_environment_variables
-      - checkout_with_cache
+      - shallow_checkout
       - run:
           name: Install JSON parser
           command: sudo pip3 install demjson
@@ -684,7 +678,7 @@ jobs:
       JVM_OPTS: -Xmx1024m
     steps:
       - skip_job_unless_required
-      - checkout
+      - shallow_checkout
       - set_environment_variables
       - run:
           name: Trigger release_sdk if current commit is a bump version
@@ -699,7 +693,7 @@ jobs:
     steps:
       - skip_job_unless_required
       - set_environment_variables
-      - checkout
+      - shallow_checkout
       - run:
           name: Create pull request
           command: |
@@ -747,7 +741,7 @@ workflows:
             branches:
               only:
                 - bump_sdk_version
-  
+
   build_and_test:
     jobs:
       - build:
@@ -1119,7 +1113,7 @@ workflows:
           filters:
             branches:
               ignore: bump_sdk_version
-      
+
       - unit_test:
           scheme: AWSLocation
           name: unit_test_AWSLocation

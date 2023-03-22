@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -608,7 +608,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable categoryName;
 
 /**
- <p>Choose whether you want to create a streaming or a batch category for your Call Analytics transcription.</p><p>Specifying <code>POST_CALL</code> assigns your category to batch transcriptions; categories with this input type cannot be applied to streaming (real-time) transcriptions.</p><p>Specifying <code>REAL_TIME</code> assigns your category to streaming transcriptions; categories with this input type cannot be applied to batch (post-call) transcriptions.</p><p>If you do not include <code>InputType</code>, your category is created as a batch category by default.</p>
+ <p>Choose whether you want to create a real-time or a post-call category for your Call Analytics transcription.</p><p>Specifying <code>POST_CALL</code> assigns your category to post-call transcriptions; categories with this input type cannot be applied to streaming (real-time) transcriptions.</p><p>Specifying <code>REAL_TIME</code> assigns your category to streaming transcriptions; categories with this input type cannot be applied to post-call transcriptions.</p><p>If you do not include <code>InputType</code>, your category is created as a post-call category by default.</p>
  */
 @property (nonatomic, assign) AWSTranscribeInputType inputType;
 
@@ -766,6 +766,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
+ <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon S3 bucket that contains your input files (in this case, your custom vocabulary filter). If the role that you specify doesn’t have the appropriate permissions to access the specified Amazon S3 location, your request fails.</p><p>IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>. For example: <code>arn:aws:iam::111122223333:role/Admin</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataAccessRoleArn;
+
+/**
  <p>The language code that represents the language of the entries in your vocabulary filter. Each custom vocabulary filter must contain terms in only one language.</p><p>A custom vocabulary filter can only be used to transcribe files in the same language as the filter. For example, if you create a custom vocabulary filter using US English (<code>en-US</code>), you can only apply this filter to files that contain English audio.</p><p>For a list of supported languages and their associated language codes, refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table.</p>
  */
 @property (nonatomic, assign) AWSTranscribeLanguageCode languageCode;
@@ -820,6 +825,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  */
 @interface AWSTranscribeCreateVocabularyRequest : AWSRequest
 
+
+/**
+ <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon S3 bucket that contains your input files (in this case, your custom vocabulary). If the role that you specify doesn’t have the appropriate permissions to access the specified Amazon S3 location, your request fails.</p><p>IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>. For example: <code>arn:aws:iam::111122223333:role/Admin</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataAccessRoleArn;
 
 /**
  <p>The language code that represents the language of the entries in your custom vocabulary. Each custom vocabulary must contain terms in only one language.</p><p>A custom vocabulary can only be used to transcribe files in the same language as the custom vocabulary. For example, if you create a custom vocabulary using US English (<code>en-US</code>), you can only apply this custom vocabulary to files that contain English audio.</p><p>For a list of supported languages and their associated language codes, refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table.</p>
@@ -1299,7 +1309,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @end
 
 /**
- <p>Flag the presence or absence of interruptions in your Call Analytics transcription output.</p><p>Rules using <code>InterruptionFilter</code> are designed to match:</p><ul><li><p>Instances where an agent interrupts a customer</p></li><li><p>Instances where a customer interrupts an agent</p></li><li><p>Either participant interrupting the other</p></li><li><p>A lack of interruptions</p></li></ul><p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch">Rule criteria for batch categories</a> for usage examples.</p>
+ <p>Flag the presence or absence of interruptions in your Call Analytics transcription output.</p><p>Rules using <code>InterruptionFilter</code> are designed to match:</p><ul><li><p>Instances where an agent interrupts a customer</p></li><li><p>Instances where a customer interrupts an agent</p></li><li><p>Either participant interrupting the other</p></li><li><p>A lack of interruptions</p></li></ul><p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch">Rule criteria for post-call categories</a> for usage examples.</p>
  */
 @interface AWSTranscribeInterruptionFilter : AWSModel
 
@@ -1338,7 +1348,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
- <p>Makes it possible to enable job queuing when your concurrent request limit is exceeded. When <code>AllowDeferredExecution</code> is set to <code>true</code>, transcription job requests are placed in a queue until the number of jobs falls below the concurrent request limit. If <code>AllowDeferredExecution</code> is set to <code>false</code> and the number of transcription job requests exceed the concurrent request limit, you get a <code>LimitExceededException</code> error.</p><p>Note that job queuing is enabled by default for Call Analytics jobs.</p><p>If you include <code>AllowDeferredExecution</code> in your request, you must also include <code>DataAccessRoleArn</code>.</p>
+ <p>Makes it possible to enable job queuing when your concurrent request limit is exceeded. When <code>AllowDeferredExecution</code> is set to <code>true</code>, transcription job requests are placed in a queue until the number of jobs falls below the concurrent request limit. If <code>AllowDeferredExecution</code> is set to <code>false</code> and the number of transcription job requests exceed the concurrent request limit, you get a <code>LimitExceededException</code> error.</p><p>If you include <code>AllowDeferredExecution</code> in your request, you must also include <code>DataAccessRoleArn</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable allowDeferredExecution;
 
@@ -1391,7 +1401,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @end
 
 /**
- <p>Provides information about a custom language model, including the base model name, when the model was created, the location of the files used to train the model, when the model was last modified, the name you chose for the model, its language, its processing state, and if there is an upgrade available for the base model.</p>
+ <p>Provides information about a custom language model, including:</p><ul><li><p>The base model name</p></li><li><p>When the model was created</p></li><li><p>The location of the files used to train the model</p></li><li><p>When the model was last modified</p></li><li><p>The name you chose for the model</p></li><li><p>The model's language</p></li><li><p>The model's processing state</p></li><li><p>Any available upgrades for the base model</p></li></ul>
  */
 @interface AWSTranscribeLanguageModel : AWSModel
 
@@ -2086,7 +2096,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @end
 
 /**
- <p>Flag the presence or absence of periods of silence in your Call Analytics transcription output.</p><p>Rules using <code>NonTalkTimeFilter</code> are designed to match:</p><ul><li><p>The presence of silence at specified periods throughout the call</p></li><li><p>The presence of speech at specified periods throughout the call</p></li></ul><p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch">Rule criteria for batch categories</a> for usage examples.</p>
+ <p>Flag the presence or absence of periods of silence in your Call Analytics transcription output.</p><p>Rules using <code>NonTalkTimeFilter</code> are designed to match:</p><ul><li><p>The presence of silence at specified periods throughout the call</p></li><li><p>The presence of speech at specified periods throughout the call</p></li></ul><p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch">Rule criteria for post-call categories</a> for usage examples.</p>
  */
 @interface AWSTranscribeNonTalkTimeFilter : AWSModel
 
@@ -2142,7 +2152,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @end
 
 /**
- <p>A rule is a set of criteria that you can specify to flag an attribute in your Call Analytics output. Rules define a Call Analytics category.</p><p>Rules can include these parameters: , , , and .</p><p>To learn more about Call Analytics rules and categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating categories for batch transcriptions</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html">Creating categories for streaming transcriptions</a>.</p><p>To learn more about Call Analytics, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html">Analyzing call center audio with Call Analytics</a>.</p>
+ <p>A rule is a set of criteria that you can specify to flag an attribute in your Call Analytics output. Rules define a Call Analytics category.</p><p>Rules can include these parameters: , , , and .</p><p>To learn more about Call Analytics rules and categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating categories for post-call transcriptions</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html">Creating categories for real-time transcriptions</a>.</p><p>To learn more about Call Analytics, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html">Analyzing call center audio with Call Analytics</a>.</p>
  */
 @interface AWSTranscribeRule : AWSModel
 
@@ -2170,7 +2180,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @end
 
 /**
- <p>Flag the presence or absence of specific sentiments detected in your Call Analytics transcription output.</p><p>Rules using <code>SentimentFilter</code> are designed to match:</p><ul><li><p>The presence or absence of a positive sentiment felt by the customer, agent, or both at specified points in the call</p></li><li><p>The presence or absence of a negative sentiment felt by the customer, agent, or both at specified points in the call</p></li><li><p>The presence or absence of a neutral sentiment felt by the customer, agent, or both at specified points in the call</p></li><li><p>The presence or absence of a mixed sentiment felt by the customer, the agent, or both at specified points in the call</p></li></ul><p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch">Rule criteria for batch categories</a> for usage examples.</p>
+ <p>Flag the presence or absence of specific sentiments detected in your Call Analytics transcription output.</p><p>Rules using <code>SentimentFilter</code> are designed to match:</p><ul><li><p>The presence or absence of a positive sentiment felt by the customer, agent, or both at specified points in the call</p></li><li><p>The presence or absence of a negative sentiment felt by the customer, agent, or both at specified points in the call</p></li><li><p>The presence or absence of a neutral sentiment felt by the customer, agent, or both at specified points in the call</p></li><li><p>The presence or absence of a mixed sentiment felt by the customer, the agent, or both at specified points in the call</p></li></ul><p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch">Rule criteria for post-call categories</a> for usage examples.</p>
  Required parameters: [Sentiments]
  */
 @interface AWSTranscribeSentimentFilter : AWSModel
@@ -2278,7 +2288,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) AWSTranscribeMedia * _Nullable media;
 
 /**
- <p>The KMS key you want to use to encrypt your Call Analytics output.</p><p>If using a key located in the <b>current</b> Amazon Web Services account, you can specify your KMS key in one of four ways:</p><ol><li><p>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</p></li><li><p>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If using a key located in a <b>different</b> Amazon Web Services account than the current Amazon Web Services account, you can specify your KMS key in one of two ways:</p><ol><li><p>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If you don't specify an encryption key, your output is encrypted with the default Amazon S3 key (SSE-S3).</p><p>If you specify a KMS key to encrypt your output, you must also specify an output location using the <code>OutputLocation</code> parameter.</p><p>Note that the user making the request must have permission to use the specified KMS key.</p>
+ <p>The KMS key you want to use to encrypt your Call Analytics output.</p><p>If using a key located in the <b>current</b> Amazon Web Services account, you can specify your KMS key in one of four ways:</p><ol><li><p>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</p></li><li><p>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If using a key located in a <b>different</b> Amazon Web Services account than the current Amazon Web Services account, you can specify your KMS key in one of two ways:</p><ol><li><p>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If you don't specify an encryption key, your output is encrypted with the default Amazon S3 key (SSE-S3).</p><p>If you specify a KMS key to encrypt your output, you must also specify an output location using the <code>OutputLocation</code> parameter.</p><p>Note that the role making the request must have permission to use the specified KMS key.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outputEncryptionKMSKeyId;
 
@@ -2354,7 +2364,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable outputBucketName;
 
 /**
- <p>The KMS key you want to use to encrypt your medical transcription output.</p><p>If using a key located in the <b>current</b> Amazon Web Services account, you can specify your KMS key in one of four ways:</p><ol><li><p>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</p></li><li><p>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If using a key located in a <b>different</b> Amazon Web Services account than the current Amazon Web Services account, you can specify your KMS key in one of two ways:</p><ol><li><p>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If you don't specify an encryption key, your output is encrypted with the default Amazon S3 key (SSE-S3).</p><p>If you specify a KMS key to encrypt your output, you must also specify an output location using the <code>OutputLocation</code> parameter.</p><p>Note that the user making the request must have permission to use the specified KMS key.</p>
+ <p>The KMS key you want to use to encrypt your medical transcription output.</p><p>If using a key located in the <b>current</b> Amazon Web Services account, you can specify your KMS key in one of four ways:</p><ol><li><p>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</p></li><li><p>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If using a key located in a <b>different</b> Amazon Web Services account than the current Amazon Web Services account, you can specify your KMS key in one of two ways:</p><ol><li><p>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If you don't specify an encryption key, your output is encrypted with the default Amazon S3 key (SSE-S3).</p><p>If you specify a KMS key to encrypt your output, you must also specify an output location using the <code>OutputLocation</code> parameter.</p><p>Note that the role making the request must have permission to use the specified KMS key.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outputEncryptionKMSKeyId;
 
@@ -2470,7 +2480,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable outputBucketName;
 
 /**
- <p>The KMS key you want to use to encrypt your transcription output.</p><p>If using a key located in the <b>current</b> Amazon Web Services account, you can specify your KMS key in one of four ways:</p><ol><li><p>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</p></li><li><p>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If using a key located in a <b>different</b> Amazon Web Services account than the current Amazon Web Services account, you can specify your KMS key in one of two ways:</p><ol><li><p>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If you don't specify an encryption key, your output is encrypted with the default Amazon S3 key (SSE-S3).</p><p>If you specify a KMS key to encrypt your output, you must also specify an output location using the <code>OutputLocation</code> parameter.</p><p>Note that the user making the request must have permission to use the specified KMS key.</p>
+ <p>The KMS key you want to use to encrypt your transcription output.</p><p>If using a key located in the <b>current</b> Amazon Web Services account, you can specify your KMS key in one of four ways:</p><ol><li><p>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</p></li><li><p>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If using a key located in a <b>different</b> Amazon Web Services account than the current Amazon Web Services account, you can specify your KMS key in one of two ways:</p><ol><li><p>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If you don't specify an encryption key, your output is encrypted with the default Amazon S3 key (SSE-S3).</p><p>If you specify a KMS key to encrypt your output, you must also specify an output location using the <code>OutputLocation</code> parameter.</p><p>Note that the role making the request must have permission to use the specified KMS key.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outputEncryptionKMSKeyId;
 
@@ -2619,7 +2629,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @end
 
 /**
- <p>Flag the presence or absence of specific words or phrases detected in your Call Analytics transcription output.</p><p>Rules using <code>TranscriptFilter</code> are designed to match:</p><ul><li><p>Custom words or phrases spoken by the agent, the customer, or both</p></li><li><p>Custom words or phrases <b>not</b> spoken by the agent, the customer, or either</p></li><li><p>Custom words or phrases that occur at a specific time frame</p></li></ul><p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch">Rule criteria for batch categories</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html#tca-rules-stream">Rule criteria for streaming categories</a> for usage examples.</p>
+ <p>Flag the presence or absence of specific words or phrases detected in your Call Analytics transcription output.</p><p>Rules using <code>TranscriptFilter</code> are designed to match:</p><ul><li><p>Custom words or phrases spoken by the agent, the customer, or both</p></li><li><p>Custom words or phrases <b>not</b> spoken by the agent, the customer, or either</p></li><li><p>Custom words or phrases that occur at a specific time frame</p></li></ul><p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch">Rule criteria for post-call categories</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html#tca-rules-stream">Rule criteria for streaming categories</a> for usage examples.</p>
  Required parameters: [TranscriptFilterType, Targets]
  */
 @interface AWSTranscribeTranscriptFilter : AWSModel
@@ -2896,7 +2906,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable categoryName;
 
 /**
- <p>Choose whether you want to update a streaming or a batch Call Analytics category. The input type you specify must match the input type specified when the category was created. For example, if you created a category with the <code>POST_CALL</code> input type, you must use <code>POST_CALL</code> as the input type when updating this category.</p>
+ <p>Choose whether you want to update a real-time or a post-call category. The input type you specify must match the input type specified when the category was created. For example, if you created a category with the <code>POST_CALL</code> input type, you must use <code>POST_CALL</code> as the input type when updating this category.</p>
  */
 @property (nonatomic, assign) AWSTranscribeInputType inputType;
 
@@ -2978,6 +2988,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
+ <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon S3 bucket that contains your input files (in this case, your custom vocabulary filter). If the role that you specify doesn’t have the appropriate permissions to access the specified Amazon S3 location, your request fails.</p><p>IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>. For example: <code>arn:aws:iam::111122223333:role/Admin</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataAccessRoleArn;
+
+/**
  <p>The Amazon S3 location of the text file that contains your custom vocabulary filter terms. The URI must be located in the same Amazon Web Services Region as the resource you're calling.</p><p>Here's an example URI path: <code>s3://DOC-EXAMPLE-BUCKET/my-vocab-filter-file.txt</code></p><p>Note that if you include <code>VocabularyFilterFileUri</code> in your request, you cannot use <code>Words</code>; you must choose one or the other.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vocabularyFilterFileUri;
@@ -3022,6 +3037,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  */
 @interface AWSTranscribeUpdateVocabularyRequest : AWSRequest
 
+
+/**
+ <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon S3 bucket that contains your input files (in this case, your custom vocabulary). If the role that you specify doesn’t have the appropriate permissions to access the specified Amazon S3 location, your request fails.</p><p>IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>. For example: <code>arn:aws:iam::111122223333:role/Admin</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataAccessRoleArn;
 
 /**
  <p>The language code that represents the language of the entries in the custom vocabulary you want to update. Each custom vocabulary must contain terms in only one language.</p><p>A custom vocabulary can only be used to transcribe files in the same language as the custom vocabulary. For example, if you create a custom vocabulary using US English (<code>en-US</code>), you can only apply this custom vocabulary to files that contain English audio.</p><p>For a list of supported languages and their associated language codes, refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table.</p>

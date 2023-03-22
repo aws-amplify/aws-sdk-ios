@@ -1,4 +1,25 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSEC2
 # AWS Mobile SDK for iOS CHANGELOG
+
+## Unreleased
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSComprehend
+  - AWSConnect
+  - AWSDynamoDB
+  - AWSEC2  
+  - AWSIoT
+  - AWSLocation
+  - AWSTranscribe
 
 ## 2.30.4
 
