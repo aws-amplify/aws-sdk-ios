@@ -979,6 +979,9 @@
 - (void) test_AWSEC2FederatedAuthentication API_AVAILABLE(ios(11));
 - (void) test_AWSEC2FederatedAuthenticationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2Filter API_AVAILABLE(ios(11));
+- (void) test_AWSEC2FilterPortRange API_AVAILABLE(ios(11));
+- (void) test_AWSEC2FirewallStatefulRule API_AVAILABLE(ios(11));
+- (void) test_AWSEC2FirewallStatelessRule API_AVAILABLE(ios(11));
 - (void) test_AWSEC2FleetCapacityReservation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2FleetData API_AVAILABLE(ios(11));
 - (void) test_AWSEC2FleetLaunchTemplateConfig API_AVAILABLE(ios(11));
@@ -1443,6 +1446,8 @@
 - (void) test_AWSEC2PacketHeaderStatement API_AVAILABLE(ios(11));
 - (void) test_AWSEC2PacketHeaderStatementRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2PathComponent API_AVAILABLE(ios(11));
+- (void) test_AWSEC2PathFilter API_AVAILABLE(ios(11));
+- (void) test_AWSEC2PathRequestFilter API_AVAILABLE(ios(11));
 - (void) test_AWSEC2PathStatement API_AVAILABLE(ios(11));
 - (void) test_AWSEC2PathStatementRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2PciId API_AVAILABLE(ios(11));
@@ -1545,6 +1550,7 @@
 - (void) test_AWSEC2ReplaceTransitGatewayRouteRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ReplaceTransitGatewayRouteResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ReportInstanceStatusRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2RequestFilterPortRange API_AVAILABLE(ios(11));
 - (void) test_AWSEC2RequestIpamResourceTag API_AVAILABLE(ios(11));
 - (void) test_AWSEC2RequestLaunchTemplateData API_AVAILABLE(ios(11));
 - (void) test_AWSEC2RequestSpotFleetRequest API_AVAILABLE(ios(11));
@@ -1598,6 +1604,9 @@
 - (void) test_AWSEC2RouteTable API_AVAILABLE(ios(11));
 - (void) test_AWSEC2RouteTableAssociation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2RouteTableAssociationState API_AVAILABLE(ios(11));
+- (void) test_AWSEC2RuleGroupRuleOptionsPair API_AVAILABLE(ios(11));
+- (void) test_AWSEC2RuleGroupTypePair API_AVAILABLE(ios(11));
+- (void) test_AWSEC2RuleOption API_AVAILABLE(ios(11));
 - (void) test_AWSEC2RunInstancesMonitoringEnabled API_AVAILABLE(ios(11));
 - (void) test_AWSEC2RunInstancesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2RunScheduledInstancesRequest API_AVAILABLE(ios(11));
@@ -5674,6 +5683,18 @@
     [self validateSecureCodingForClass:[AWSEC2Filter class]];
 }
 
+- (void) test_AWSEC2FilterPortRange {
+    [self validateSecureCodingForClass:[AWSEC2FilterPortRange class]];
+}
+
+- (void) test_AWSEC2FirewallStatefulRule {
+    [self validateSecureCodingForClass:[AWSEC2FirewallStatefulRule class]];
+}
+
+- (void) test_AWSEC2FirewallStatelessRule {
+    [self validateSecureCodingForClass:[AWSEC2FirewallStatelessRule class]];
+}
+
 - (void) test_AWSEC2FleetCapacityReservation {
     [self validateSecureCodingForClass:[AWSEC2FleetCapacityReservation class]];
 }
@@ -7530,6 +7551,14 @@
     [self validateSecureCodingForClass:[AWSEC2PathComponent class]];
 }
 
+- (void) test_AWSEC2PathFilter {
+    [self validateSecureCodingForClass:[AWSEC2PathFilter class]];
+}
+
+- (void) test_AWSEC2PathRequestFilter {
+    [self validateSecureCodingForClass:[AWSEC2PathRequestFilter class]];
+}
+
 - (void) test_AWSEC2PathStatement {
     [self validateSecureCodingForClass:[AWSEC2PathStatement class]];
 }
@@ -7938,6 +7967,10 @@
     [self validateSecureCodingForClass:[AWSEC2ReportInstanceStatusRequest class]];
 }
 
+- (void) test_AWSEC2RequestFilterPortRange {
+    [self validateSecureCodingForClass:[AWSEC2RequestFilterPortRange class]];
+}
+
 - (void) test_AWSEC2RequestIpamResourceTag {
     [self validateSecureCodingForClass:[AWSEC2RequestIpamResourceTag class]];
 }
@@ -8148,6 +8181,18 @@
 
 - (void) test_AWSEC2RouteTableAssociationState {
     [self validateSecureCodingForClass:[AWSEC2RouteTableAssociationState class]];
+}
+
+- (void) test_AWSEC2RuleGroupRuleOptionsPair {
+    [self validateSecureCodingForClass:[AWSEC2RuleGroupRuleOptionsPair class]];
+}
+
+- (void) test_AWSEC2RuleGroupTypePair {
+    [self validateSecureCodingForClass:[AWSEC2RuleGroupTypePair class]];
+}
+
+- (void) test_AWSEC2RuleOption {
+    [self validateSecureCodingForClass:[AWSEC2RuleOption class]];
 }
 
 - (void) test_AWSEC2RunInstancesMonitoringEnabled {
