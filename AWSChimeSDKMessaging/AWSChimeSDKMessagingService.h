@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -175,7 +175,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 + (void)removeChimeSDKMessagingForKey:(NSString *)key;
 
 /**
- <p>Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the <code>DisassociateChannelFlow</code> API.</p><note><p>Only administrators or channel moderators can associate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the <code>DisassociateChannelFlow</code> API.</p><note><p>Only administrators or channel moderators can associate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the AssociateChannelFlow service method.
 
@@ -186,7 +186,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask *)associateChannelFlow:(AWSChimeSDKMessagingAssociateChannelFlowRequest *)request;
 
 /**
- <p>Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the <code>DisassociateChannelFlow</code> API.</p><note><p>Only administrators or channel moderators can associate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the <code>DisassociateChannelFlow</code> API.</p><note><p>Only administrators or channel moderators can associate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the AssociateChannelFlow service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -197,7 +197,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)associateChannelFlow:(AWSChimeSDKMessagingAssociateChannelFlowRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds a specified number of users to a channel. </p>
+ <p>Adds a specified number of users and bots to a channel. </p>
  
  @param request A container for the necessary parameters to execute the BatchCreateChannelMembership service method.
 
@@ -209,7 +209,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingBatchCreateChannelMembershipResponse *> *)batchCreateChannelMembership:(AWSChimeSDKMessagingBatchCreateChannelMembershipRequest *)request;
 
 /**
- <p>Adds a specified number of users to a channel. </p>
+ <p>Adds a specified number of users and bots to a channel. </p>
  
  @param request A container for the necessary parameters to execute the BatchCreateChannelMembership service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -247,7 +247,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)channelFlowCallback:(AWSChimeSDKMessagingChannelFlowCallbackRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingChannelFlowCallbackResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a channel to which you can add users and send messages.</p><p><b>Restriction</b>: You can't change a channel's privacy.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Creates a channel to which you can add users and send messages.</p><p><b>Restriction</b>: You can't change a channel's privacy.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateChannel service method.
 
@@ -259,7 +259,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingCreateChannelResponse *> *)createChannel:(AWSChimeSDKMessagingCreateChannelRequest *)request;
 
 /**
- <p>Creates a channel to which you can add users and send messages.</p><p><b>Restriction</b>: You can't change a channel's privacy.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Creates a channel to which you can add users and send messages.</p><p><b>Restriction</b>: You can't change a channel's privacy.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -272,7 +272,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)createChannel:(AWSChimeSDKMessagingCreateChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingCreateChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Permanently bans a member from a channel. Moderators can't add banned members to a channel. To undo a ban, you first have to <code>DeleteChannelBan</code>, and then <code>CreateChannelMembership</code>. Bans are cleaned up when you delete users or channels.</p><p>If you ban a user who is already part of a channel, that user is automatically kicked from the channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Permanently bans a member from a channel. Moderators can't add banned members to a channel. To undo a ban, you first have to <code>DeleteChannelBan</code>, and then <code>CreateChannelMembership</code>. Bans are cleaned up when you delete users or channels.</p><p>If you ban a user who is already part of a channel, that user is automatically kicked from the channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateChannelBan service method.
 
@@ -284,7 +284,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingCreateChannelBanResponse *> *)createChannelBan:(AWSChimeSDKMessagingCreateChannelBanRequest *)request;
 
 /**
- <p>Permanently bans a member from a channel. Moderators can't add banned members to a channel. To undo a ban, you first have to <code>DeleteChannelBan</code>, and then <code>CreateChannelMembership</code>. Bans are cleaned up when you delete users or channels.</p><p>If you ban a user who is already part of a channel, that user is automatically kicked from the channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Permanently bans a member from a channel. Moderators can't add banned members to a channel. To undo a ban, you first have to <code>DeleteChannelBan</code>, and then <code>CreateChannelMembership</code>. Bans are cleaned up when you delete users or channels.</p><p>If you ban a user who is already part of a channel, that user is automatically kicked from the channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateChannelBan service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -322,7 +322,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)createChannelFlow:(AWSChimeSDKMessagingCreateChannelFlowRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingCreateChannelFlowResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds a user to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code> is derived from the request header. A channel member can:</p><ul><li><p>List messages</p></li><li><p>Send messages</p></li><li><p>Receive messages</p></li><li><p>Edit their own messages</p></li><li><p>Leave the channel</p></li></ul><p>Privacy settings impact this action as follows:</p><ul><li><p>Public Channels: You do not need to be a member to list messages, but you must be a member to send messages.</p></li><li><p>Private Channels: You must be a member to list or send messages.</p></li></ul><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Adds a member to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code> is derived from the request header. A channel member can:</p><ul><li><p>List messages</p></li><li><p>Send messages</p></li><li><p>Receive messages</p></li><li><p>Edit their own messages</p></li><li><p>Leave the channel</p></li></ul><p>Privacy settings impact this action as follows:</p><ul><li><p>Public Channels: You do not need to be a member to list messages, but you must be a member to send messages.</p></li><li><p>Private Channels: You must be a member to list or send messages.</p></li></ul><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUserArn</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateChannelMembership service method.
 
@@ -334,7 +334,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingCreateChannelMembershipResponse *> *)createChannelMembership:(AWSChimeSDKMessagingCreateChannelMembershipRequest *)request;
 
 /**
- <p>Adds a user to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code> is derived from the request header. A channel member can:</p><ul><li><p>List messages</p></li><li><p>Send messages</p></li><li><p>Receive messages</p></li><li><p>Edit their own messages</p></li><li><p>Leave the channel</p></li></ul><p>Privacy settings impact this action as follows:</p><ul><li><p>Public Channels: You do not need to be a member to list messages, but you must be a member to send messages.</p></li><li><p>Private Channels: You must be a member to list or send messages.</p></li></ul><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Adds a member to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code> is derived from the request header. A channel member can:</p><ul><li><p>List messages</p></li><li><p>Send messages</p></li><li><p>Receive messages</p></li><li><p>Edit their own messages</p></li><li><p>Leave the channel</p></li></ul><p>Privacy settings impact this action as follows:</p><ul><li><p>Public Channels: You do not need to be a member to list messages, but you must be a member to send messages.</p></li><li><p>Private Channels: You must be a member to list or send messages.</p></li></ul><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUserArn</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateChannelMembership service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -347,7 +347,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)createChannelMembership:(AWSChimeSDKMessagingCreateChannelMembershipRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingCreateChannelMembershipResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p><ul><li><p>Add and remove other members of the channel.</p></li><li><p>Add and remove other moderators of the channel.</p></li><li><p>Add and remove user bans for the channel.</p></li><li><p>Redact messages in the channel.</p></li><li><p>List messages in the channel.</p></li></ul><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p><ul><li><p>Add and remove other members of the channel.</p></li><li><p>Add and remove other moderators of the channel.</p></li><li><p>Add and remove user bans for the channel.</p></li><li><p>Redact messages in the channel.</p></li><li><p>List messages in the channel.</p></li></ul><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>of the user that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateChannelModerator service method.
 
@@ -359,7 +359,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingCreateChannelModeratorResponse *> *)createChannelModerator:(AWSChimeSDKMessagingCreateChannelModeratorRequest *)request;
 
 /**
- <p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p><ul><li><p>Add and remove other members of the channel.</p></li><li><p>Add and remove other moderators of the channel.</p></li><li><p>Add and remove user bans for the channel.</p></li><li><p>Redact messages in the channel.</p></li><li><p>List messages in the channel.</p></li></ul><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p><ul><li><p>Add and remove other members of the channel.</p></li><li><p>Add and remove other moderators of the channel.</p></li><li><p>Add and remove user bans for the channel.</p></li><li><p>Redact messages in the channel.</p></li><li><p>List messages in the channel.</p></li></ul><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>of the user that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateChannelModerator service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -372,7 +372,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)createChannelModerator:(AWSChimeSDKMessagingCreateChannelModeratorRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingCreateChannelModeratorResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Immediately makes a channel and its memberships inaccessible and marks them for deletion. This is an irreversible process.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Immediately makes a channel and its memberships inaccessible and marks them for deletion. This is an irreversible process.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUserArn</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DeleteChannel service method.
 
@@ -383,7 +383,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask *)deleteChannel:(AWSChimeSDKMessagingDeleteChannelRequest *)request;
 
 /**
- <p>Immediately makes a channel and its memberships inaccessible and marks them for deletion. This is an irreversible process.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Immediately makes a channel and its memberships inaccessible and marks them for deletion. This is an irreversible process.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUserArn</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DeleteChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -394,7 +394,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)deleteChannel:(AWSChimeSDKMessagingDeleteChannelRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes a user from a channel's ban list.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Removes a member from a channel's ban list.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DeleteChannelBan service method.
 
@@ -405,7 +405,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask *)deleteChannelBan:(AWSChimeSDKMessagingDeleteChannelBanRequest *)request;
 
 /**
- <p>Removes a user from a channel's ban list.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Removes a member from a channel's ban list.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DeleteChannelBan service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -460,7 +460,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)deleteChannelMembership:(AWSChimeSDKMessagingDeleteChannelMembershipRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a channel message. Only admins can perform this action. Deletion makes messages inaccessible immediately. A background process deletes any revisions created by <code>UpdateChannelMessage</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Deletes a channel message. Only admins can perform this action. Deletion makes messages inaccessible immediately. A background process deletes any revisions created by <code>UpdateChannelMessage</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DeleteChannelMessage service method.
 
@@ -471,7 +471,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask *)deleteChannelMessage:(AWSChimeSDKMessagingDeleteChannelMessageRequest *)request;
 
 /**
- <p>Deletes a channel message. Only admins can perform this action. Deletion makes messages inaccessible immediately. A background process deletes any revisions created by <code>UpdateChannelMessage</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Deletes a channel message. Only admins can perform this action. Deletion makes messages inaccessible immediately. A background process deletes any revisions created by <code>UpdateChannelMessage</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DeleteChannelMessage service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -482,7 +482,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)deleteChannelMessage:(AWSChimeSDKMessagingDeleteChannelMessageRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a channel moderator.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Deletes a channel moderator.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DeleteChannelModerator service method.
 
@@ -493,7 +493,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask *)deleteChannelModerator:(AWSChimeSDKMessagingDeleteChannelModeratorRequest *)request;
 
 /**
- <p>Deletes a channel moderator.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Deletes a channel moderator.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DeleteChannelModerator service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -504,7 +504,29 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)deleteChannelModerator:(AWSChimeSDKMessagingDeleteChannelModeratorRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns the full details of a channel in an Amazon Chime <code>AppInstance</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Deletes the streaming configurations for an <code>AppInstance</code>. For more information, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteMessagingStreamingConfigurations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingDeleteMessagingStreamingConfigurationsRequest
+ */
+- (AWSTask *)deleteMessagingStreamingConfigurations:(AWSChimeSDKMessagingDeleteMessagingStreamingConfigurationsRequest *)request;
+
+/**
+ <p>Deletes the streaming configurations for an <code>AppInstance</code>. For more information, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteMessagingStreamingConfigurations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingDeleteMessagingStreamingConfigurationsRequest
+ */
+- (void)deleteMessagingStreamingConfigurations:(AWSChimeSDKMessagingDeleteMessagingStreamingConfigurationsRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Returns the full details of a channel in an Amazon Chime <code>AppInstance</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DescribeChannel service method.
 
@@ -516,7 +538,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingDescribeChannelResponse *> *)describeChannel:(AWSChimeSDKMessagingDescribeChannelRequest *)request;
 
 /**
- <p>Returns the full details of a channel in an Amazon Chime <code>AppInstance</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Returns the full details of a channel in an Amazon Chime <code>AppInstance</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DescribeChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -529,7 +551,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)describeChannel:(AWSChimeSDKMessagingDescribeChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingDescribeChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns the full details of a channel ban.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Returns the full details of a channel ban.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DescribeChannelBan service method.
 
@@ -541,7 +563,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingDescribeChannelBanResponse *> *)describeChannelBan:(AWSChimeSDKMessagingDescribeChannelBanRequest *)request;
 
 /**
- <p>Returns the full details of a channel ban.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Returns the full details of a channel ban.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DescribeChannelBan service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -579,7 +601,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)describeChannelFlow:(AWSChimeSDKMessagingDescribeChannelFlowRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingDescribeChannelFlowResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns the full details of a user's channel membership.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Returns the full details of a user's channel membership.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DescribeChannelMembership service method.
 
@@ -591,7 +613,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingDescribeChannelMembershipResponse *> *)describeChannelMembership:(AWSChimeSDKMessagingDescribeChannelMembershipRequest *)request;
 
 /**
- <p>Returns the full details of a user's channel membership.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Returns the full details of a user's channel membership.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DescribeChannelMembership service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -604,7 +626,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)describeChannelMembership:(AWSChimeSDKMessagingDescribeChannelMembershipRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingDescribeChannelMembershipResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Returns the details of a channel based on the membership of the specified <code>AppInstanceUser</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p> Returns the details of a channel based on the membership of the specified <code>AppInstanceUser</code> or <code>AppInstanceBot</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DescribeChannelMembershipForAppInstanceUser service method.
 
@@ -616,7 +638,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingDescribeChannelMembershipForAppInstanceUserResponse *> *)describeChannelMembershipForAppInstanceUser:(AWSChimeSDKMessagingDescribeChannelMembershipForAppInstanceUserRequest *)request;
 
 /**
- <p> Returns the details of a channel based on the membership of the specified <code>AppInstanceUser</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p> Returns the details of a channel based on the membership of the specified <code>AppInstanceUser</code> or <code>AppInstanceBot</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DescribeChannelMembershipForAppInstanceUser service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -629,7 +651,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)describeChannelMembershipForAppInstanceUser:(AWSChimeSDKMessagingDescribeChannelMembershipForAppInstanceUserRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingDescribeChannelMembershipForAppInstanceUserResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns the full details of a channel moderated by the specified <code>AppInstanceUser</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Returns the full details of a channel moderated by the specified <code>AppInstanceUser</code> or <code>AppInstanceBot</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DescribeChannelModeratedByAppInstanceUser service method.
 
@@ -641,7 +663,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingDescribeChannelModeratedByAppInstanceUserResponse *> *)describeChannelModeratedByAppInstanceUser:(AWSChimeSDKMessagingDescribeChannelModeratedByAppInstanceUserRequest *)request;
 
 /**
- <p>Returns the full details of a channel moderated by the specified <code>AppInstanceUser</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Returns the full details of a channel moderated by the specified <code>AppInstanceUser</code> or <code>AppInstanceBot</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DescribeChannelModeratedByAppInstanceUser service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -679,7 +701,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)describeChannelModerator:(AWSChimeSDKMessagingDescribeChannelModeratorRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingDescribeChannelModeratorResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Disassociates a channel flow from all its channels. Once disassociated, all messages to that channel stop going through the channel flow processor.</p><note><p>Only administrators or channel moderators can disassociate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Disassociates a channel flow from all its channels. Once disassociated, all messages to that channel stop going through the channel flow processor.</p><note><p>Only administrators or channel moderators can disassociate a channel flow.</p><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DisassociateChannelFlow service method.
 
@@ -690,7 +712,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask *)disassociateChannelFlow:(AWSChimeSDKMessagingDisassociateChannelFlowRequest *)request;
 
 /**
- <p>Disassociates a channel flow from all its channels. Once disassociated, all messages to that channel stop going through the channel flow processor.</p><note><p>Only administrators or channel moderators can disassociate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Disassociates a channel flow from all its channels. Once disassociated, all messages to that channel stop going through the channel flow processor.</p><note><p>Only administrators or channel moderators can disassociate a channel flow.</p><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DisassociateChannelFlow service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -701,7 +723,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)disassociateChannelFlow:(AWSChimeSDKMessagingDisassociateChannelFlowRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets the membership preferences of an <code>AppInstanceUser</code> for the specified channel. The <code>AppInstanceUser</code> must be a member of the channel. Only the <code>AppInstanceUser</code> who owns the membership can retrieve preferences. Users in the <code>AppInstanceAdmin</code> and channel moderator roles can't retrieve preferences for other users. Banned users can't retrieve membership preferences for the channel from which they are banned.</p>
+ <p>Gets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> for the specified channel. A user or a bot must be a member of the channel and own the membership to be able to retrieve membership preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't retrieve preferences for other users or bots. Banned users or bots can't retrieve membership preferences for the channel from which they are banned.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the GetChannelMembershipPreferences service method.
 
@@ -713,7 +735,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingGetChannelMembershipPreferencesResponse *> *)getChannelMembershipPreferences:(AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest *)request;
 
 /**
- <p>Gets the membership preferences of an <code>AppInstanceUser</code> for the specified channel. The <code>AppInstanceUser</code> must be a member of the channel. Only the <code>AppInstanceUser</code> who owns the membership can retrieve preferences. Users in the <code>AppInstanceAdmin</code> and channel moderator roles can't retrieve preferences for other users. Banned users can't retrieve membership preferences for the channel from which they are banned.</p>
+ <p>Gets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> for the specified channel. A user or a bot must be a member of the channel and own the membership to be able to retrieve membership preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't retrieve preferences for other users or bots. Banned users or bots can't retrieve membership preferences for the channel from which they are banned.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the GetChannelMembershipPreferences service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -726,7 +748,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)getChannelMembershipPreferences:(AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingGetChannelMembershipPreferencesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets the full details of a channel message.</p><note><p>The x-amz-chime-bearer request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Gets the full details of a channel message.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the GetChannelMessage service method.
 
@@ -738,7 +760,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingGetChannelMessageResponse *> *)getChannelMessage:(AWSChimeSDKMessagingGetChannelMessageRequest *)request;
 
 /**
- <p>Gets the full details of a channel message.</p><note><p>The x-amz-chime-bearer request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Gets the full details of a channel message.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the GetChannelMessage service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -751,7 +773,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)getChannelMessage:(AWSChimeSDKMessagingGetChannelMessageRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingGetChannelMessageResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to retrieving message status if the event was not received because a client wasn't connected to a websocket. </p><p>Messages can have any one of these statuses.</p><dl><dt>SENT</dt><dd><p>Message processed successfully</p></dd><dt>PENDING</dt><dd><p>Ongoing processing</p></dd><dt>FAILED</dt><dd><p>Processing failed</p></dd><dt>DENIED</dt><dd><p>Messasge denied by the processor</p></dd></dl><note><ul><li><p>This API does not return statuses for denied messages, because we don't store them once the processor denies them. </p></li><li><p>Only the message sender can invoke this API.</p></li><li><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header</p></li></ul></note>
+ <p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to retrieving message status if the event was not received because a client wasn't connected to a websocket. </p><p>Messages can have any one of these statuses.</p><dl><dt>SENT</dt><dd><p>Message processed successfully</p></dd><dt>PENDING</dt><dd><p>Ongoing processing</p></dd><dt>FAILED</dt><dd><p>Processing failed</p></dd><dt>DENIED</dt><dd><p>Messasge denied by the processor</p></dd></dl><note><ul><li><p>This API does not return statuses for denied messages, because we don't store them once the processor denies them. </p></li><li><p>Only the message sender can invoke this API.</p></li><li><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></li></ul></note>
  
  @param request A container for the necessary parameters to execute the GetChannelMessageStatus service method.
 
@@ -763,7 +785,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingGetChannelMessageStatusResponse *> *)getChannelMessageStatus:(AWSChimeSDKMessagingGetChannelMessageStatusRequest *)request;
 
 /**
- <p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to retrieving message status if the event was not received because a client wasn't connected to a websocket. </p><p>Messages can have any one of these statuses.</p><dl><dt>SENT</dt><dd><p>Message processed successfully</p></dd><dt>PENDING</dt><dd><p>Ongoing processing</p></dd><dt>FAILED</dt><dd><p>Processing failed</p></dd><dt>DENIED</dt><dd><p>Messasge denied by the processor</p></dd></dl><note><ul><li><p>This API does not return statuses for denied messages, because we don't store them once the processor denies them. </p></li><li><p>Only the message sender can invoke this API.</p></li><li><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header</p></li></ul></note>
+ <p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to retrieving message status if the event was not received because a client wasn't connected to a websocket. </p><p>Messages can have any one of these statuses.</p><dl><dt>SENT</dt><dd><p>Message processed successfully</p></dd><dt>PENDING</dt><dd><p>Ongoing processing</p></dd><dt>FAILED</dt><dd><p>Processing failed</p></dd><dt>DENIED</dt><dd><p>Messasge denied by the processor</p></dd></dl><note><ul><li><p>This API does not return statuses for denied messages, because we don't store them once the processor denies them. </p></li><li><p>Only the message sender can invoke this API.</p></li><li><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></li></ul></note>
  
  @param request A container for the necessary parameters to execute the GetChannelMessageStatus service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -801,7 +823,32 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)getMessagingSessionEndpoint:(AWSChimeSDKMessagingGetMessagingSessionEndpointRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingGetMessagingSessionEndpointResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists all the users banned from a particular channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Retrieves the data streaming configuration for an <code>AppInstance</code>. For more information, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetMessagingStreamingConfigurations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKMessagingGetMessagingStreamingConfigurationsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorNotFound`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingGetMessagingStreamingConfigurationsRequest
+ @see AWSChimeSDKMessagingGetMessagingStreamingConfigurationsResponse
+ */
+- (AWSTask<AWSChimeSDKMessagingGetMessagingStreamingConfigurationsResponse *> *)getMessagingStreamingConfigurations:(AWSChimeSDKMessagingGetMessagingStreamingConfigurationsRequest *)request;
+
+/**
+ <p>Retrieves the data streaming configuration for an <code>AppInstance</code>. For more information, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetMessagingStreamingConfigurations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorNotFound`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingGetMessagingStreamingConfigurationsRequest
+ @see AWSChimeSDKMessagingGetMessagingStreamingConfigurationsResponse
+ */
+- (void)getMessagingStreamingConfigurations:(AWSChimeSDKMessagingGetMessagingStreamingConfigurationsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingGetMessagingStreamingConfigurationsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Lists all the users and bots banned from a particular channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the ListChannelBans service method.
 
@@ -813,7 +860,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingListChannelBansResponse *> *)listChannelBans:(AWSChimeSDKMessagingListChannelBansRequest *)request;
 
 /**
- <p>Lists all the users banned from a particular channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Lists all the users and bots banned from a particular channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the ListChannelBans service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -851,7 +898,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)listChannelFlows:(AWSChimeSDKMessagingListChannelFlowsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingListChannelFlowsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists all channel memberships in a channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note><p>If you want to list the channels to which a specific app instance user belongs, see the <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html">ListChannelMembershipsForAppInstanceUser</a> API.</p>
+ <p>Lists all channel memberships in a channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note><p>If you want to list the channels to which a specific app instance user belongs, see the <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html">ListChannelMembershipsForAppInstanceUser</a> API.</p>
  
  @param request A container for the necessary parameters to execute the ListChannelMemberships service method.
 
@@ -863,7 +910,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingListChannelMembershipsResponse *> *)listChannelMemberships:(AWSChimeSDKMessagingListChannelMembershipsRequest *)request;
 
 /**
- <p>Lists all channel memberships in a channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note><p>If you want to list the channels to which a specific app instance user belongs, see the <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html">ListChannelMembershipsForAppInstanceUser</a> API.</p>
+ <p>Lists all channel memberships in a channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note><p>If you want to list the channels to which a specific app instance user belongs, see the <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html">ListChannelMembershipsForAppInstanceUser</a> API.</p>
  
  @param request A container for the necessary parameters to execute the ListChannelMemberships service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -876,7 +923,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)listChannelMemberships:(AWSChimeSDKMessagingListChannelMembershipsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingListChannelMembershipsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Lists all channels that a particular <code>AppInstanceUser</code> is a part of. Only an <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p> Lists all channels that anr <code>AppInstanceUser</code> or <code>AppInstanceBot</code> is a part of. Only an <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the ListChannelMembershipsForAppInstanceUser service method.
 
@@ -888,7 +935,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingListChannelMembershipsForAppInstanceUserResponse *> *)listChannelMembershipsForAppInstanceUser:(AWSChimeSDKMessagingListChannelMembershipsForAppInstanceUserRequest *)request;
 
 /**
- <p> Lists all channels that a particular <code>AppInstanceUser</code> is a part of. Only an <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p> Lists all channels that anr <code>AppInstanceUser</code> or <code>AppInstanceBot</code> is a part of. Only an <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the ListChannelMembershipsForAppInstanceUser service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -901,7 +948,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)listChannelMembershipsForAppInstanceUser:(AWSChimeSDKMessagingListChannelMembershipsForAppInstanceUserRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingListChannelMembershipsForAppInstanceUserResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending order.</p><note><p>Redacted messages appear in the results as empty, since they are only redacted, not deleted. Deleted messages do not appear in the results. This action always returns the latest version of an edited message.</p><p>Also, the x-amz-chime-bearer request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending order.</p><note><p>Redacted messages appear in the results as empty, since they are only redacted, not deleted. Deleted messages do not appear in the results. This action always returns the latest version of an edited message.</p><p>Also, the <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the ListChannelMessages service method.
 
@@ -913,7 +960,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingListChannelMessagesResponse *> *)listChannelMessages:(AWSChimeSDKMessagingListChannelMessagesRequest *)request;
 
 /**
- <p>List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending order.</p><note><p>Redacted messages appear in the results as empty, since they are only redacted, not deleted. Deleted messages do not appear in the results. This action always returns the latest version of an edited message.</p><p>Also, the x-amz-chime-bearer request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending order.</p><note><p>Redacted messages appear in the results as empty, since they are only redacted, not deleted. Deleted messages do not appear in the results. This action always returns the latest version of an edited message.</p><p>Also, the <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the ListChannelMessages service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -926,7 +973,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)listChannelMessages:(AWSChimeSDKMessagingListChannelMessagesRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingListChannelMessagesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists all the moderators for a channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Lists all the moderators for a channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the ListChannelModerators service method.
 
@@ -938,7 +985,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingListChannelModeratorsResponse *> *)listChannelModerators:(AWSChimeSDKMessagingListChannelModeratorsRequest *)request;
 
 /**
- <p>Lists all the moderators for a channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Lists all the moderators for a channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the ListChannelModerators service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -951,7 +998,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)listChannelModerators:(AWSChimeSDKMessagingListChannelModeratorsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingListChannelModeratorsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists all Channels created under a single Chime App as a paginated list. You can specify filters to narrow results.</p><p class="title"><b>Functionality &amp; restrictions</b></p><ul><li><p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the account.</p></li><li><p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to list the private channels in an account.</p></li></ul><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Lists all Channels created under a single Chime App as a paginated list. You can specify filters to narrow results.</p><p class="title"><b>Functionality &amp; restrictions</b></p><ul><li><p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the account.</p></li><li><p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to list the private channels in an account.</p></li></ul><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the ListChannels service method.
 
@@ -963,7 +1010,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingListChannelsResponse *> *)listChannels:(AWSChimeSDKMessagingListChannelsRequest *)request;
 
 /**
- <p>Lists all Channels created under a single Chime App as a paginated list. You can specify filters to narrow results.</p><p class="title"><b>Functionality &amp; restrictions</b></p><ul><li><p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the account.</p></li><li><p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to list the private channels in an account.</p></li></ul><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Lists all Channels created under a single Chime App as a paginated list. You can specify filters to narrow results.</p><p class="title"><b>Functionality &amp; restrictions</b></p><ul><li><p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the account.</p></li><li><p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to list the private channels in an account.</p></li></ul><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the ListChannels service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1001,7 +1048,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)listChannelsAssociatedWithChannelFlow:(AWSChimeSDKMessagingListChannelsAssociatedWithChannelFlowRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingListChannelsAssociatedWithChannelFlowResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the ListChannelsModeratedByAppInstanceUser service method.
 
@@ -1013,7 +1060,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingListChannelsModeratedByAppInstanceUserResponse *> *)listChannelsModeratedByAppInstanceUser:(AWSChimeSDKMessagingListChannelsModeratedByAppInstanceUserRequest *)request;
 
 /**
- <p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the ListChannelsModeratedByAppInstanceUser service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1076,7 +1123,32 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)listTagsForResource:(AWSChimeSDKMessagingListTagsForResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingListTagsForResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sets the membership preferences of an <code>AppInstanceUser</code> for the specified channel. The <code>AppInstanceUser</code> must be a member of the channel. Only the <code>AppInstanceUser</code> who owns the membership can set preferences. Users in the <code>AppInstanceAdmin</code> and channel moderator roles can't set preferences for other users. Banned users can't set membership preferences for the channel from which they are banned.</p>
+ <p>Sets the number of days before the channel is automatically deleted.</p><note><ul><li><p>A background process deletes expired channels within 6 hours of expiration. Actual deletion times may vary.</p></li><li><p>Expired channels that have not yet been deleted appear as active, and you can update their expiration settings. The system honors the new settings.</p></li><li><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></li></ul></note>
+ 
+ @param request A container for the necessary parameters to execute the PutChannelExpirationSettings service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKMessagingPutChannelExpirationSettingsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingPutChannelExpirationSettingsRequest
+ @see AWSChimeSDKMessagingPutChannelExpirationSettingsResponse
+ */
+- (AWSTask<AWSChimeSDKMessagingPutChannelExpirationSettingsResponse *> *)putChannelExpirationSettings:(AWSChimeSDKMessagingPutChannelExpirationSettingsRequest *)request;
+
+/**
+ <p>Sets the number of days before the channel is automatically deleted.</p><note><ul><li><p>A background process deletes expired channels within 6 hours of expiration. Actual deletion times may vary.</p></li><li><p>Expired channels that have not yet been deleted appear as active, and you can update their expiration settings. The system honors the new settings.</p></li><li><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></li></ul></note>
+ 
+ @param request A container for the necessary parameters to execute the PutChannelExpirationSettings service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingPutChannelExpirationSettingsRequest
+ @see AWSChimeSDKMessagingPutChannelExpirationSettingsResponse
+ */
+- (void)putChannelExpirationSettings:(AWSChimeSDKMessagingPutChannelExpirationSettingsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingPutChannelExpirationSettingsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppIntanceBot</code> for the specified channel. The user or bot must be a member of the channel. Only the user or bot who owns the membership can set preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't set preferences for other users or users. Banned users or bots can't set membership preferences for the channel from which they are banned.</p><note><p>The x-amz-chime-bearer request header is mandatory. Use the ARN of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the PutChannelMembershipPreferences service method.
 
@@ -1088,7 +1160,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse *> *)putChannelMembershipPreferences:(AWSChimeSDKMessagingPutChannelMembershipPreferencesRequest *)request;
 
 /**
- <p>Sets the membership preferences of an <code>AppInstanceUser</code> for the specified channel. The <code>AppInstanceUser</code> must be a member of the channel. Only the <code>AppInstanceUser</code> who owns the membership can set preferences. Users in the <code>AppInstanceAdmin</code> and channel moderator roles can't set preferences for other users. Banned users can't set membership preferences for the channel from which they are banned.</p>
+ <p>Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppIntanceBot</code> for the specified channel. The user or bot must be a member of the channel. Only the user or bot who owns the membership can set preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't set preferences for other users or users. Banned users or bots can't set membership preferences for the channel from which they are banned.</p><note><p>The x-amz-chime-bearer request header is mandatory. Use the ARN of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the PutChannelMembershipPreferences service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1101,7 +1173,32 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)putChannelMembershipPreferences:(AWSChimeSDKMessagingPutChannelMembershipPreferencesRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Redacts message content, but not metadata. The message exists in the back end, but the action returns null content, and the state shows as redacted.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Sets the data streaming configuration for an <code>AppInstance</code>. For more information, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutMessagingStreamingConfigurations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKMessagingPutMessagingStreamingConfigurationsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorNotFound`, `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingPutMessagingStreamingConfigurationsRequest
+ @see AWSChimeSDKMessagingPutMessagingStreamingConfigurationsResponse
+ */
+- (AWSTask<AWSChimeSDKMessagingPutMessagingStreamingConfigurationsResponse *> *)putMessagingStreamingConfigurations:(AWSChimeSDKMessagingPutMessagingStreamingConfigurationsRequest *)request;
+
+/**
+ <p>Sets the data streaming configuration for an <code>AppInstance</code>. For more information, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutMessagingStreamingConfigurations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorNotFound`, `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingPutMessagingStreamingConfigurationsRequest
+ @see AWSChimeSDKMessagingPutMessagingStreamingConfigurationsResponse
+ */
+- (void)putMessagingStreamingConfigurations:(AWSChimeSDKMessagingPutMessagingStreamingConfigurationsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingPutMessagingStreamingConfigurationsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Redacts message content, but not metadata. The message exists in the back end, but the action returns null content, and the state shows as redacted.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the RedactChannelMessage service method.
 
@@ -1113,7 +1210,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingRedactChannelMessageResponse *> *)redactChannelMessage:(AWSChimeSDKMessagingRedactChannelMessageRequest *)request;
 
 /**
- <p>Redacts message content, but not metadata. The message exists in the back end, but the action returns null content, and the state shows as redacted.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Redacts message content, but not metadata. The message exists in the back end, but the action returns null content, and the state shows as redacted.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the RedactChannelMessage service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1126,7 +1223,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)redactChannelMessage:(AWSChimeSDKMessagingRedactChannelMessageRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingRedactChannelMessageResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Allows <code>ChimeBearer</code> to search channels by channel members. AppInstanceUsers can search across the channels that they belong to. AppInstanceAdmins can search across all channels.</p>
+ <p>Allows the <code>ChimeBearer</code> to search channels by channel members. Users or bots can search across the channels that they belong to. Users in the <code>AppInstanceAdmin</code> role can search across all channels.</p><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p>
  
  @param request A container for the necessary parameters to execute the SearchChannels service method.
 
@@ -1138,7 +1235,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingSearchChannelsResponse *> *)searchChannels:(AWSChimeSDKMessagingSearchChannelsRequest *)request;
 
 /**
- <p>Allows <code>ChimeBearer</code> to search channels by channel members. AppInstanceUsers can search across the channels that they belong to. AppInstanceAdmins can search across all channels.</p>
+ <p>Allows the <code>ChimeBearer</code> to search channels by channel members. Users or bots can search across the channels that they belong to. Users in the <code>AppInstanceAdmin</code> role can search across all channels.</p><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p>
  
  @param request A container for the necessary parameters to execute the SearchChannels service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1151,7 +1248,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)searchChannels:(AWSChimeSDKMessagingSearchChannelsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingSearchChannelsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sends a message to a particular channel that the member is a part of.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p><p>Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata. <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.</p></note>
+ <p>Sends a message to a particular channel that the member is a part of.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p><p>Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata. <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.</p></note>
  
  @param request A container for the necessary parameters to execute the SendChannelMessage service method.
 
@@ -1163,7 +1260,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingSendChannelMessageResponse *> *)sendChannelMessage:(AWSChimeSDKMessagingSendChannelMessageRequest *)request;
 
 /**
- <p>Sends a message to a particular channel that the member is a part of.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p><p>Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata. <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.</p></note>
+ <p>Sends a message to a particular channel that the member is a part of.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p><p>Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata. <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.</p></note>
  
  @param request A container for the necessary parameters to execute the SendChannelMessage service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1220,7 +1317,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)untagResource:(AWSChimeSDKMessagingUntagResourceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Update a channel's attributes.</p><p><b>Restriction</b>: You can't change a channel's privacy. </p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Update a channel's attributes.</p><p><b>Restriction</b>: You can't change a channel's privacy. </p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the UpdateChannel service method.
 
@@ -1232,7 +1329,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingUpdateChannelResponse *> *)updateChannel:(AWSChimeSDKMessagingUpdateChannelRequest *)request;
 
 /**
- <p>Update a channel's attributes.</p><p><b>Restriction</b>: You can't change a channel's privacy. </p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Update a channel's attributes.</p><p><b>Restriction</b>: You can't change a channel's privacy. </p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the UpdateChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1270,7 +1367,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)updateChannelFlow:(AWSChimeSDKMessagingUpdateChannelFlowRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingUpdateChannelFlowResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the content of a message.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Updates the content of a message.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the UpdateChannelMessage service method.
 
@@ -1282,7 +1379,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingUpdateChannelMessageResponse *> *)updateChannelMessage:(AWSChimeSDKMessagingUpdateChannelMessageRequest *)request;
 
 /**
- <p>Updates the content of a message.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Updates the content of a message.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the UpdateChannelMessage service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1295,7 +1392,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)updateChannelMessage:(AWSChimeSDKMessagingUpdateChannelMessageRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingUpdateChannelMessageResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>The details of the time when a user last read messages in a channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>The details of the time when a user last read messages in a channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the UpdateChannelReadMarker service method.
 
@@ -1307,7 +1404,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingUpdateChannelReadMarkerResponse *> *)updateChannelReadMarker:(AWSChimeSDKMessagingUpdateChannelReadMarkerRequest *)request;
 
 /**
- <p>The details of the time when a user last read messages in a channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>The details of the time when a user last read messages in a channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the UpdateChannelReadMarker service method.
  @param completionHandler The completion handler to call when the load request is complete.
