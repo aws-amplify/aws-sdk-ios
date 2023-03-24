@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -504,6 +504,28 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)deleteChannelModerator:(AWSChimeSDKMessagingDeleteChannelModeratorRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Deletes the streaming configurations for an <code>AppInstance</code>. For more information, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteMessagingStreamingConfigurations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingDeleteMessagingStreamingConfigurationsRequest
+ */
+- (AWSTask *)deleteMessagingStreamingConfigurations:(AWSChimeSDKMessagingDeleteMessagingStreamingConfigurationsRequest *)request;
+
+/**
+ <p>Deletes the streaming configurations for an <code>AppInstance</code>. For more information, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteMessagingStreamingConfigurations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingDeleteMessagingStreamingConfigurationsRequest
+ */
+- (void)deleteMessagingStreamingConfigurations:(AWSChimeSDKMessagingDeleteMessagingStreamingConfigurationsRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p>Returns the full details of a channel in an Amazon Chime <code>AppInstance</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DescribeChannel service method.
@@ -799,6 +821,31 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
  @see AWSChimeSDKMessagingGetMessagingSessionEndpointResponse
  */
 - (void)getMessagingSessionEndpoint:(AWSChimeSDKMessagingGetMessagingSessionEndpointRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingGetMessagingSessionEndpointResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Retrieves the data streaming configuration for an <code>AppInstance</code>. For more information, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetMessagingStreamingConfigurations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKMessagingGetMessagingStreamingConfigurationsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorNotFound`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingGetMessagingStreamingConfigurationsRequest
+ @see AWSChimeSDKMessagingGetMessagingStreamingConfigurationsResponse
+ */
+- (AWSTask<AWSChimeSDKMessagingGetMessagingStreamingConfigurationsResponse *> *)getMessagingStreamingConfigurations:(AWSChimeSDKMessagingGetMessagingStreamingConfigurationsRequest *)request;
+
+/**
+ <p>Retrieves the data streaming configuration for an <code>AppInstance</code>. For more information, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetMessagingStreamingConfigurations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorNotFound`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingGetMessagingStreamingConfigurationsRequest
+ @see AWSChimeSDKMessagingGetMessagingStreamingConfigurationsResponse
+ */
+- (void)getMessagingStreamingConfigurations:(AWSChimeSDKMessagingGetMessagingStreamingConfigurationsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingGetMessagingStreamingConfigurationsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Lists all the users banned from a particular channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
@@ -1099,6 +1146,31 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
  @see AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse
  */
 - (void)putChannelMembershipPreferences:(AWSChimeSDKMessagingPutChannelMembershipPreferencesRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Sets the data streaming configuration for an <code>AppInstance</code>. For more information, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutMessagingStreamingConfigurations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKMessagingPutMessagingStreamingConfigurationsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorNotFound`, `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingPutMessagingStreamingConfigurationsRequest
+ @see AWSChimeSDKMessagingPutMessagingStreamingConfigurationsResponse
+ */
+- (AWSTask<AWSChimeSDKMessagingPutMessagingStreamingConfigurationsResponse *> *)putMessagingStreamingConfigurations:(AWSChimeSDKMessagingPutMessagingStreamingConfigurationsRequest *)request;
+
+/**
+ <p>Sets the data streaming configuration for an <code>AppInstance</code>. For more information, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutMessagingStreamingConfigurations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorNotFound`, `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingPutMessagingStreamingConfigurationsRequest
+ @see AWSChimeSDKMessagingPutMessagingStreamingConfigurationsResponse
+ */
+- (void)putMessagingStreamingConfigurations:(AWSChimeSDKMessagingPutMessagingStreamingConfigurationsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingPutMessagingStreamingConfigurationsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Redacts message content, but not metadata. The message exists in the back end, but the action returns null content, and the state shows as redacted.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
