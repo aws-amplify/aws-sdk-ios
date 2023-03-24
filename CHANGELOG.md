@@ -5,7 +5,11 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ### Misc. Updates
 
 - Model updates for the following services
----AWSEC2
+  - AWSChimeSDKMessaging
+  - AWSSageMakerRuntime
+  - AWSEC2
+
+
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
