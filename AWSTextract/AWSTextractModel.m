@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -243,6 +243,12 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
         if ([value caseInsensitiveCompare:@"SIGNATURE"] == NSOrderedSame) {
             return @(AWSTextractBlockTypeSignature);
         }
+        if ([value caseInsensitiveCompare:@"TABLE_TITLE"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeTableTitle);
+        }
+        if ([value caseInsensitiveCompare:@"TABLE_FOOTER"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeTableFooter);
+        }
         return @(AWSTextractBlockTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -270,6 +276,10 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
                 return @"QUERY_RESULT";
             case AWSTextractBlockTypeSignature:
                 return @"SIGNATURE";
+            case AWSTextractBlockTypeTableTitle:
+                return @"TABLE_TITLE";
+            case AWSTextractBlockTypeTableFooter:
+                return @"TABLE_FOOTER";
             default:
                 return nil;
         }
@@ -1508,6 +1518,15 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
         if ([value caseInsensitiveCompare:@"ANSWER"] == NSOrderedSame) {
             return @(AWSTextractRelationshipTypeAnswer);
         }
+        if ([value caseInsensitiveCompare:@"TABLE"] == NSOrderedSame) {
+            return @(AWSTextractRelationshipTypeTable);
+        }
+        if ([value caseInsensitiveCompare:@"TABLE_TITLE"] == NSOrderedSame) {
+            return @(AWSTextractRelationshipTypeTableTitle);
+        }
+        if ([value caseInsensitiveCompare:@"TABLE_FOOTER"] == NSOrderedSame) {
+            return @(AWSTextractRelationshipTypeTableFooter);
+        }
         return @(AWSTextractRelationshipTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1523,6 +1542,12 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
                 return @"TITLE";
             case AWSTextractRelationshipTypeAnswer:
                 return @"ANSWER";
+            case AWSTextractRelationshipTypeTable:
+                return @"TABLE";
+            case AWSTextractRelationshipTypeTableTitle:
+                return @"TABLE_TITLE";
+            case AWSTextractRelationshipTypeTableFooter:
+                return @"TABLE_FOOTER";
             default:
                 return nil;
         }
