@@ -26059,6 +26059,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @property (nonatomic, assign) AWSEC2DnsRecordIpType dnsRecordIpType;
 
+/**
+ <p>Indicates whether to enable private DNS only for inbound endpoints.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable privateDnsOnlyForInboundResolverEndpoint;
+
 @end
 
 /**
@@ -26071,6 +26076,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The DNS records created for the endpoint.</p>
  */
 @property (nonatomic, assign) AWSEC2DnsRecordIpType dnsRecordIpType;
+
+/**
+ <p>Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable privateDnsOnlyForInboundResolverEndpoint;
 
 @end
 
