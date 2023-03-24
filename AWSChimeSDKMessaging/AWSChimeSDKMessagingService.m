@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -599,6 +599,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)deleteMessagingStreamingConfigurations:(AWSChimeSDKMessagingDeleteMessagingStreamingConfigurationsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/app-instances/{appInstanceArn}/streaming-configurations"
+                  targetPrefix:@""
+                 operationName:@"DeleteMessagingStreamingConfigurations"
+                   outputClass:nil];
+}
+
+- (void)deleteMessagingStreamingConfigurations:(AWSChimeSDKMessagingDeleteMessagingStreamingConfigurationsRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteMessagingStreamingConfigurations:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSChimeSDKMessagingDescribeChannelResponse *> *)describeChannel:(AWSChimeSDKMessagingDescribeChannelRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -874,6 +896,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSChimeSDKMessagingGetMessagingStreamingConfigurationsResponse *> *)getMessagingStreamingConfigurations:(AWSChimeSDKMessagingGetMessagingStreamingConfigurationsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/app-instances/{appInstanceArn}/streaming-configurations"
+                  targetPrefix:@""
+                 operationName:@"GetMessagingStreamingConfigurations"
+                   outputClass:[AWSChimeSDKMessagingGetMessagingStreamingConfigurationsResponse class]];
+}
+
+- (void)getMessagingStreamingConfigurations:(AWSChimeSDKMessagingGetMessagingStreamingConfigurationsRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKMessagingGetMessagingStreamingConfigurationsResponse *response, NSError *error))completionHandler {
+    [[self getMessagingStreamingConfigurations:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingGetMessagingStreamingConfigurationsResponse *> * _Nonnull task) {
+        AWSChimeSDKMessagingGetMessagingStreamingConfigurationsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSChimeSDKMessagingListChannelBansResponse *> *)listChannelBans:(AWSChimeSDKMessagingListChannelBansRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -1127,6 +1172,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSChimeSDKMessagingPutChannelExpirationSettingsResponse *> *)putChannelExpirationSettings:(AWSChimeSDKMessagingPutChannelExpirationSettingsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/channels/{channelArn}/expiration-settings"
+                  targetPrefix:@""
+                 operationName:@"PutChannelExpirationSettings"
+                   outputClass:[AWSChimeSDKMessagingPutChannelExpirationSettingsResponse class]];
+}
+
+- (void)putChannelExpirationSettings:(AWSChimeSDKMessagingPutChannelExpirationSettingsRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKMessagingPutChannelExpirationSettingsResponse *response, NSError *error))completionHandler {
+    [[self putChannelExpirationSettings:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingPutChannelExpirationSettingsResponse *> * _Nonnull task) {
+        AWSChimeSDKMessagingPutChannelExpirationSettingsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse *> *)putChannelMembershipPreferences:(AWSChimeSDKMessagingPutChannelMembershipPreferencesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -1140,6 +1208,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse *response, NSError *error))completionHandler {
     [[self putChannelMembershipPreferences:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse *> * _Nonnull task) {
         AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSChimeSDKMessagingPutMessagingStreamingConfigurationsResponse *> *)putMessagingStreamingConfigurations:(AWSChimeSDKMessagingPutMessagingStreamingConfigurationsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/app-instances/{appInstanceArn}/streaming-configurations"
+                  targetPrefix:@""
+                 operationName:@"PutMessagingStreamingConfigurations"
+                   outputClass:[AWSChimeSDKMessagingPutMessagingStreamingConfigurationsResponse class]];
+}
+
+- (void)putMessagingStreamingConfigurations:(AWSChimeSDKMessagingPutMessagingStreamingConfigurationsRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKMessagingPutMessagingStreamingConfigurationsResponse *response, NSError *error))completionHandler {
+    [[self putMessagingStreamingConfigurations:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingPutMessagingStreamingConfigurationsResponse *> * _Nonnull task) {
+        AWSChimeSDKMessagingPutMessagingStreamingConfigurationsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
