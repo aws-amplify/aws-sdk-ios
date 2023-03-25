@@ -303,6 +303,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"createdBy" : @"CreatedBy",
              @"createdTimestamp" : @"CreatedTimestamp",
              @"elasticChannelConfiguration" : @"ElasticChannelConfiguration",
+             @"expirationSettings" : @"ExpirationSettings",
              @"lastMessageTimestamp" : @"LastMessageTimestamp",
              @"lastUpdatedTimestamp" : @"LastUpdatedTimestamp",
              @"metadata" : @"Metadata",
@@ -326,6 +327,10 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 
 + (NSValueTransformer *)elasticChannelConfigurationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKMessagingElasticChannelConfiguration class]];
+}
+
++ (NSValueTransformer *)expirationSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKMessagingExpirationSettings class]];
 }
 
 + (NSValueTransformer *)lastMessageTimestampJSONTransformer {
@@ -727,6 +732,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 	return @{
              @"channelArn" : @"ChannelArn",
              @"content" : @"Content",
+             @"contentType" : @"ContentType",
              @"createdTimestamp" : @"CreatedTimestamp",
              @"lastEditedTimestamp" : @"LastEditedTimestamp",
              @"lastUpdatedTimestamp" : @"LastUpdatedTimestamp",
@@ -835,6 +841,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"content" : @"Content",
+             @"contentType" : @"ContentType",
              @"messageAttributes" : @"MessageAttributes",
              @"messageId" : @"MessageId",
              @"metadata" : @"Metadata",
@@ -912,6 +919,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"content" : @"Content",
+             @"contentType" : @"ContentType",
              @"createdTimestamp" : @"CreatedTimestamp",
              @"lastEditedTimestamp" : @"LastEditedTimestamp",
              @"lastUpdatedTimestamp" : @"LastUpdatedTimestamp",
@@ -1308,6 +1316,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"chimeBearer" : @"ChimeBearer",
              @"clientRequestToken" : @"ClientRequestToken",
              @"elasticChannelConfiguration" : @"ElasticChannelConfiguration",
+             @"expirationSettings" : @"ExpirationSettings",
              @"memberArns" : @"MemberArns",
              @"metadata" : @"Metadata",
              @"mode" : @"Mode",
@@ -1320,6 +1329,10 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 
 + (NSValueTransformer *)elasticChannelConfigurationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKMessagingElasticChannelConfiguration class]];
+}
+
++ (NSValueTransformer *)expirationSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKMessagingExpirationSettings class]];
 }
 
 + (NSValueTransformer *)modeJSONTransformer {
@@ -1758,6 +1771,42 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"minimumMembershipPercentage" : @"MinimumMembershipPercentage",
              @"targetMembershipsPerSubChannel" : @"TargetMembershipsPerSubChannel",
              };
+}
+
+@end
+
+@implementation AWSChimeSDKMessagingExpirationSettings
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"expirationCriterion" : @"ExpirationCriterion",
+             @"expirationDays" : @"ExpirationDays",
+             };
+}
+
++ (NSValueTransformer *)expirationCriterionJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CREATED_TIMESTAMP"] == NSOrderedSame) {
+            return @(AWSChimeSDKMessagingExpirationCriterionCreatedTimestamp);
+        }
+        if ([value caseInsensitiveCompare:@"LAST_MESSAGE_TIMESTAMP"] == NSOrderedSame) {
+            return @(AWSChimeSDKMessagingExpirationCriterionLastMessageTimestamp);
+        }
+        return @(AWSChimeSDKMessagingExpirationCriterionUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSChimeSDKMessagingExpirationCriterionCreatedTimestamp:
+                return @"CREATED_TIMESTAMP";
+            case AWSChimeSDKMessagingExpirationCriterionLastMessageTimestamp:
+                return @"LAST_MESSAGE_TIMESTAMP";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -2624,6 +2673,45 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 
 @end
 
+@implementation AWSChimeSDKMessagingPutChannelExpirationSettingsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"channelArn" : @"ChannelArn",
+             @"chimeBearer" : @"ChimeBearer",
+             @"expirationSettings" : @"ExpirationSettings",
+             };
+}
+
++ (NSValueTransformer *)expirationSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKMessagingExpirationSettings class]];
+}
+
+@end
+
+@implementation AWSChimeSDKMessagingPutChannelExpirationSettingsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"channelArn" : @"ChannelArn",
+             @"expirationSettings" : @"ExpirationSettings",
+             };
+}
+
++ (NSValueTransformer *)expirationSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKMessagingExpirationSettings class]];
+}
+
+@end
+
 @implementation AWSChimeSDKMessagingPutChannelMembershipPreferencesRequest
 
 + (BOOL)supportsSecureCoding {
@@ -2844,6 +2932,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"chimeBearer" : @"ChimeBearer",
              @"clientRequestToken" : @"ClientRequestToken",
              @"content" : @"Content",
+             @"contentType" : @"ContentType",
              @"messageAttributes" : @"MessageAttributes",
              @"metadata" : @"Metadata",
              @"persistence" : @"Persistence",
@@ -3075,6 +3164,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"channelArn" : @"ChannelArn",
              @"chimeBearer" : @"ChimeBearer",
              @"content" : @"Content",
+             @"contentType" : @"ContentType",
              @"messageId" : @"MessageId",
              @"metadata" : @"Metadata",
              @"subChannelId" : @"SubChannelId",

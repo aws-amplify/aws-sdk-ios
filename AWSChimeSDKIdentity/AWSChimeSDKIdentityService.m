@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -42,6 +42,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"BadRequestException" : @(AWSChimeSDKIdentityErrorBadRequest),
                             @"ConflictException" : @(AWSChimeSDKIdentityErrorConflict),
                             @"ForbiddenException" : @(AWSChimeSDKIdentityErrorForbidden),
+                            @"NotFoundException" : @(AWSChimeSDKIdentityErrorNotFound),
                             @"ResourceLimitExceededException" : @(AWSChimeSDKIdentityErrorResourceLimitExceeded),
                             @"ServiceFailureException" : @(AWSChimeSDKIdentityErrorServiceFailure),
                             @"ServiceUnavailableException" : @(AWSChimeSDKIdentityErrorServiceUnavailable),
@@ -329,6 +330,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSChimeSDKIdentityCreateAppInstanceBotResponse *> *)createAppInstanceBot:(AWSChimeSDKIdentityCreateAppInstanceBotRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/app-instance-bots"
+                  targetPrefix:@""
+                 operationName:@"CreateAppInstanceBot"
+                   outputClass:[AWSChimeSDKIdentityCreateAppInstanceBotResponse class]];
+}
+
+- (void)createAppInstanceBot:(AWSChimeSDKIdentityCreateAppInstanceBotRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKIdentityCreateAppInstanceBotResponse *response, NSError *error))completionHandler {
+    [[self createAppInstanceBot:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKIdentityCreateAppInstanceBotResponse *> * _Nonnull task) {
+        AWSChimeSDKIdentityCreateAppInstanceBotResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSChimeSDKIdentityCreateAppInstanceUserResponse *> *)createAppInstanceUser:(AWSChimeSDKIdentityCreateAppInstanceUserRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -386,6 +410,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)deleteAppInstanceAdmin:(AWSChimeSDKIdentityDeleteAppInstanceAdminRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteAppInstanceAdmin:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteAppInstanceBot:(AWSChimeSDKIdentityDeleteAppInstanceBotRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/app-instance-bots/{appInstanceBotArn}"
+                  targetPrefix:@""
+                 operationName:@"DeleteAppInstanceBot"
+                   outputClass:nil];
+}
+
+- (void)deleteAppInstanceBot:(AWSChimeSDKIdentityDeleteAppInstanceBotRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteAppInstanceBot:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -486,6 +532,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSChimeSDKIdentityDescribeAppInstanceBotResponse *> *)describeAppInstanceBot:(AWSChimeSDKIdentityDescribeAppInstanceBotRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/app-instance-bots/{appInstanceBotArn}"
+                  targetPrefix:@""
+                 operationName:@"DescribeAppInstanceBot"
+                   outputClass:[AWSChimeSDKIdentityDescribeAppInstanceBotResponse class]];
+}
+
+- (void)describeAppInstanceBot:(AWSChimeSDKIdentityDescribeAppInstanceBotRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKIdentityDescribeAppInstanceBotResponse *response, NSError *error))completionHandler {
+    [[self describeAppInstanceBot:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKIdentityDescribeAppInstanceBotResponse *> * _Nonnull task) {
+        AWSChimeSDKIdentityDescribeAppInstanceBotResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSChimeSDKIdentityDescribeAppInstanceUserResponse *> *)describeAppInstanceUser:(AWSChimeSDKIdentityDescribeAppInstanceUserRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -568,6 +637,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSChimeSDKIdentityListAppInstanceAdminsResponse *response, NSError *error))completionHandler {
     [[self listAppInstanceAdmins:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKIdentityListAppInstanceAdminsResponse *> * _Nonnull task) {
         AWSChimeSDKIdentityListAppInstanceAdminsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSChimeSDKIdentityListAppInstanceBotsResponse *> *)listAppInstanceBots:(AWSChimeSDKIdentityListAppInstanceBotsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/app-instance-bots"
+                  targetPrefix:@""
+                 operationName:@"ListAppInstanceBots"
+                   outputClass:[AWSChimeSDKIdentityListAppInstanceBotsResponse class]];
+}
+
+- (void)listAppInstanceBots:(AWSChimeSDKIdentityListAppInstanceBotsRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKIdentityListAppInstanceBotsResponse *response, NSError *error))completionHandler {
+    [[self listAppInstanceBots:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKIdentityListAppInstanceBotsResponse *> * _Nonnull task) {
+        AWSChimeSDKIdentityListAppInstanceBotsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -693,6 +785,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsResponse *> *)putAppInstanceUserExpirationSettings:(AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/app-instance-users/{appInstanceUserArn}/expiration-settings"
+                  targetPrefix:@""
+                 operationName:@"PutAppInstanceUserExpirationSettings"
+                   outputClass:[AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsResponse class]];
+}
+
+- (void)putAppInstanceUserExpirationSettings:(AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsResponse *response, NSError *error))completionHandler {
+    [[self putAppInstanceUserExpirationSettings:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsResponse *> * _Nonnull task) {
+        AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSChimeSDKIdentityRegisterAppInstanceUserEndpointResponse *> *)registerAppInstanceUserEndpoint:(AWSChimeSDKIdentityRegisterAppInstanceUserEndpointRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -773,6 +888,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSChimeSDKIdentityUpdateAppInstanceResponse *response, NSError *error))completionHandler {
     [[self updateAppInstance:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKIdentityUpdateAppInstanceResponse *> * _Nonnull task) {
         AWSChimeSDKIdentityUpdateAppInstanceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSChimeSDKIdentityUpdateAppInstanceBotResponse *> *)updateAppInstanceBot:(AWSChimeSDKIdentityUpdateAppInstanceBotRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/app-instance-bots/{appInstanceBotArn}"
+                  targetPrefix:@""
+                 operationName:@"UpdateAppInstanceBot"
+                   outputClass:[AWSChimeSDKIdentityUpdateAppInstanceBotResponse class]];
+}
+
+- (void)updateAppInstanceBot:(AWSChimeSDKIdentityUpdateAppInstanceBotRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKIdentityUpdateAppInstanceBotResponse *response, NSError *error))completionHandler {
+    [[self updateAppInstanceBot:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKIdentityUpdateAppInstanceBotResponse *> * _Nonnull task) {
+        AWSChimeSDKIdentityUpdateAppInstanceBotResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

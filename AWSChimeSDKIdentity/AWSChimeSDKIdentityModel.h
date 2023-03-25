@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,6 +26,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorType) {
     AWSChimeSDKIdentityErrorBadRequest,
     AWSChimeSDKIdentityErrorConflict,
     AWSChimeSDKIdentityErrorForbidden,
+    AWSChimeSDKIdentityErrorNotFound,
     AWSChimeSDKIdentityErrorResourceLimitExceeded,
     AWSChimeSDKIdentityErrorServiceFailure,
     AWSChimeSDKIdentityErrorServiceUnavailable,
@@ -77,9 +78,21 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
     AWSChimeSDKIdentityErrorCodePhoneNumberAssociationsExist,
 };
 
+typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityExpirationCriterion) {
+    AWSChimeSDKIdentityExpirationCriterionUnknown,
+    AWSChimeSDKIdentityExpirationCriterionCreatedTimestamp,
+};
+
+typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityRespondsTo) {
+    AWSChimeSDKIdentityRespondsToUnknown,
+    AWSChimeSDKIdentityRespondsToStandardMessages,
+};
+
 @class AWSChimeSDKIdentityAppInstance;
 @class AWSChimeSDKIdentityAppInstanceAdmin;
 @class AWSChimeSDKIdentityAppInstanceAdminSummary;
+@class AWSChimeSDKIdentityAppInstanceBot;
+@class AWSChimeSDKIdentityAppInstanceBotSummary;
 @class AWSChimeSDKIdentityAppInstanceRetentionSettings;
 @class AWSChimeSDKIdentityAppInstanceSummary;
 @class AWSChimeSDKIdentityAppInstanceUser;
@@ -87,18 +100,24 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
 @class AWSChimeSDKIdentityAppInstanceUserEndpointSummary;
 @class AWSChimeSDKIdentityAppInstanceUserSummary;
 @class AWSChimeSDKIdentityChannelRetentionSettings;
+@class AWSChimeSDKIdentityConfiguration;
 @class AWSChimeSDKIdentityCreateAppInstanceAdminRequest;
 @class AWSChimeSDKIdentityCreateAppInstanceAdminResponse;
+@class AWSChimeSDKIdentityCreateAppInstanceBotRequest;
+@class AWSChimeSDKIdentityCreateAppInstanceBotResponse;
 @class AWSChimeSDKIdentityCreateAppInstanceRequest;
 @class AWSChimeSDKIdentityCreateAppInstanceResponse;
 @class AWSChimeSDKIdentityCreateAppInstanceUserRequest;
 @class AWSChimeSDKIdentityCreateAppInstanceUserResponse;
 @class AWSChimeSDKIdentityDeleteAppInstanceAdminRequest;
+@class AWSChimeSDKIdentityDeleteAppInstanceBotRequest;
 @class AWSChimeSDKIdentityDeleteAppInstanceRequest;
 @class AWSChimeSDKIdentityDeleteAppInstanceUserRequest;
 @class AWSChimeSDKIdentityDeregisterAppInstanceUserEndpointRequest;
 @class AWSChimeSDKIdentityDescribeAppInstanceAdminRequest;
 @class AWSChimeSDKIdentityDescribeAppInstanceAdminResponse;
+@class AWSChimeSDKIdentityDescribeAppInstanceBotRequest;
+@class AWSChimeSDKIdentityDescribeAppInstanceBotResponse;
 @class AWSChimeSDKIdentityDescribeAppInstanceRequest;
 @class AWSChimeSDKIdentityDescribeAppInstanceResponse;
 @class AWSChimeSDKIdentityDescribeAppInstanceUserEndpointRequest;
@@ -107,11 +126,15 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
 @class AWSChimeSDKIdentityDescribeAppInstanceUserResponse;
 @class AWSChimeSDKIdentityEndpointAttributes;
 @class AWSChimeSDKIdentityEndpointState;
+@class AWSChimeSDKIdentityExpirationSettings;
 @class AWSChimeSDKIdentityGetAppInstanceRetentionSettingsRequest;
 @class AWSChimeSDKIdentityGetAppInstanceRetentionSettingsResponse;
 @class AWSChimeSDKIdentityIdentity;
+@class AWSChimeSDKIdentityLexConfiguration;
 @class AWSChimeSDKIdentityListAppInstanceAdminsRequest;
 @class AWSChimeSDKIdentityListAppInstanceAdminsResponse;
+@class AWSChimeSDKIdentityListAppInstanceBotsRequest;
+@class AWSChimeSDKIdentityListAppInstanceBotsResponse;
 @class AWSChimeSDKIdentityListAppInstanceUserEndpointsRequest;
 @class AWSChimeSDKIdentityListAppInstanceUserEndpointsResponse;
 @class AWSChimeSDKIdentityListAppInstanceUsersRequest;
@@ -122,11 +145,15 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
 @class AWSChimeSDKIdentityListTagsForResourceResponse;
 @class AWSChimeSDKIdentityPutAppInstanceRetentionSettingsRequest;
 @class AWSChimeSDKIdentityPutAppInstanceRetentionSettingsResponse;
+@class AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsRequest;
+@class AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsResponse;
 @class AWSChimeSDKIdentityRegisterAppInstanceUserEndpointRequest;
 @class AWSChimeSDKIdentityRegisterAppInstanceUserEndpointResponse;
 @class AWSChimeSDKIdentityTag;
 @class AWSChimeSDKIdentityTagResourceRequest;
 @class AWSChimeSDKIdentityUntagResourceRequest;
+@class AWSChimeSDKIdentityUpdateAppInstanceBotRequest;
+@class AWSChimeSDKIdentityUpdateAppInstanceBotResponse;
 @class AWSChimeSDKIdentityUpdateAppInstanceRequest;
 @class AWSChimeSDKIdentityUpdateAppInstanceResponse;
 @class AWSChimeSDKIdentityUpdateAppInstanceUserEndpointRequest;
@@ -168,7 +195,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
 @end
 
 /**
- <p>The details of an <code>AppInstanceAdmin</code>.</p>
+ <p>The name and ARN of the admin for the <code>AppInstance</code>.</p>
  */
 @interface AWSChimeSDKIdentityAppInstanceAdmin : AWSModel
 
@@ -200,6 +227,67 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
  <p>The details of the <code>AppInstanceAdmin</code>.</p>
  */
 @property (nonatomic, strong) AWSChimeSDKIdentityIdentity * _Nullable admin;
+
+@end
+
+/**
+ <p>An Amazon Lex V2 chat bot created under an <code>AppInstance</code>.</p>
+ */
+@interface AWSChimeSDKIdentityAppInstanceBot : AWSModel
+
+
+/**
+ <p>The ARN of the AppInstanceBot.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceBotArn;
+
+/**
+ <p>The data processing instructions for an AppInstanceBot.</p>
+ */
+@property (nonatomic, strong) AWSChimeSDKIdentityConfiguration * _Nullable configuration;
+
+/**
+ <p>The time at which the <code>AppInstanceBot</code> was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable createdTimestamp;
+
+/**
+ <p>The time at which the <code>AppInstanceBot</code> was last updated.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastUpdatedTimestamp;
+
+/**
+ <p>The metadata for an AppInstanceBot.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metadata;
+
+/**
+ <p>The name of the AppInstanceBot.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ <p>High-level information about an AppInstanceBot.</p>
+ */
+@interface AWSChimeSDKIdentityAppInstanceBotSummary : AWSModel
+
+
+/**
+ <p>The ARN of the AppInstanceBot.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceBotArn;
+
+/**
+ <p>The metadata of the AppInstanceBot.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metadata;
+
+/**
+ <p>The name of the AppInstanceBox.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
 
 @end
 
@@ -254,6 +342,11 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
  <p>The time at which the <code>AppInstanceUser</code> was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable createdTimestamp;
+
+/**
+ <p>The interval after which an <code>AppInstanceUser</code> is automatically deleted.</p>
+ */
+@property (nonatomic, strong) AWSChimeSDKIdentityExpirationSettings * _Nullable expirationSettings;
 
 /**
  <p>The time at which the <code>AppInstanceUser</code> was last updated.</p>
@@ -405,6 +498,20 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
 @end
 
 /**
+ <p>A structure that contains configuration data.</p>
+ Required parameters: [Lex]
+ */
+@interface AWSChimeSDKIdentityConfiguration : AWSModel
+
+
+/**
+ <p>The configuration for an Amazon Lex V2 bot.</p>
+ */
+@property (nonatomic, strong) AWSChimeSDKIdentityLexConfiguration * _Nullable lex;
+
+@end
+
+/**
  
  */
 @interface AWSChimeSDKIdentityCreateAppInstanceAdminRequest : AWSRequest
@@ -429,7 +536,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
 
 
 /**
- <p>The name and ARN of the admin for the <code>AppInstance</code>.</p>
+ <p>The ARN and name of the administrator, the ARN of the <code>AppInstance</code>, and the created and last-updated timestamps. All timestamps use epoch milliseconds.</p>
  */
 @property (nonatomic, strong) AWSChimeSDKIdentityIdentity * _Nullable appInstanceAdmin;
 
@@ -443,11 +550,62 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
 /**
  
  */
+@interface AWSChimeSDKIdentityCreateAppInstanceBotRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the <code>AppInstance</code> request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceArn;
+
+/**
+ <p>The unique ID for the client making the request. Use different tokens for different <code>AppInstanceBots</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientRequestToken;
+
+/**
+ <p>Configuration information about the Amazon Lex V2 V2 bot.</p>
+ */
+@property (nonatomic, strong) AWSChimeSDKIdentityConfiguration * _Nullable configuration;
+
+/**
+ <p>The request metadata. Limited to a 1KB string in UTF-8.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metadata;
+
+/**
+ <p>The user's name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The tags assigned to the <code>AppInstanceBot</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSChimeSDKIdentityTag *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKIdentityCreateAppInstanceBotResponse : AWSModel
+
+
+/**
+ <p>The ARN of the <code>AppinstanceBot</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceBotArn;
+
+@end
+
+/**
+ 
+ */
 @interface AWSChimeSDKIdentityCreateAppInstanceRequest : AWSRequest
 
 
 /**
- <p>The <code>ClientRequestToken</code> of the <code>AppInstance</code>.</p>
+ <p>The unique ID of the request. Use different tokens to create different <code>AppInstances</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientRequestToken;
 
@@ -462,7 +620,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>Tags assigned to the <code>AppInstanceUser</code>.</p>
+ <p>Tags assigned to the <code>AppInstance</code>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSChimeSDKIdentityTag *> * _Nullable tags;
 
@@ -498,9 +656,14 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
 @property (nonatomic, strong) NSString * _Nullable appInstanceUserId;
 
 /**
- <p>The token assigned to the user requesting an <code>AppInstance</code>.</p>
+ <p>The unique ID of the request. Use different tokens to request additional <code>AppInstances</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientRequestToken;
+
+/**
+ <p>Settings that control the interval after which the <code>AppInstanceUser</code> is automatically deleted.</p>
+ */
+@property (nonatomic, strong) AWSChimeSDKIdentityExpirationSettings * _Nullable expirationSettings;
 
 /**
  <p>The request's metadata. Limited to a 1KB string in UTF-8.</p>
@@ -547,6 +710,19 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
  <p>The ARN of the <code>AppInstance</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable appInstanceArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKIdentityDeleteAppInstanceBotRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the <code>AppInstanceBot</code> being deleted.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceBotArn;
 
 @end
 
@@ -622,6 +798,32 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
  <p>The ARN and name of the <code>AppInstanceUser</code>, the ARN of the <code>AppInstance</code>, and the created and last-updated timestamps. All timestamps use epoch milliseconds.</p>
  */
 @property (nonatomic, strong) AWSChimeSDKIdentityAppInstanceAdmin * _Nullable appInstanceAdmin;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKIdentityDescribeAppInstanceBotRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the <code>AppInstanceBot</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceBotArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKIdentityDescribeAppInstanceBotResponse : AWSModel
+
+
+/**
+ <p>The detials of the <code>AppInstanceBot</code>.</p>
+ */
+@property (nonatomic, strong) AWSChimeSDKIdentityAppInstanceBot * _Nullable appInstanceBot;
 
 @end
 
@@ -747,6 +949,25 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
 @end
 
 /**
+ <p>Determines the interval after which an <code>AppInstanceUser</code> is automatically deleted.</p>
+ Required parameters: [ExpirationDays, ExpirationCriterion]
+ */
+@interface AWSChimeSDKIdentityExpirationSettings : AWSModel
+
+
+/**
+ <p>Specifies the conditions under which an <code>AppInstanceUser</code> will expire.</p>
+ */
+@property (nonatomic, assign) AWSChimeSDKIdentityExpirationCriterion expirationCriterion;
+
+/**
+ <p>The period in days after which an <code>AppInstanceUser</code> will be automatically deleted.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable expirationDays;
+
+@end
+
+/**
  
  */
 @interface AWSChimeSDKIdentityGetAppInstanceRetentionSettingsRequest : AWSRequest
@@ -778,7 +999,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
 @end
 
 /**
- <p>The details of a user.</p>
+ <p>The details of a user or bot.</p>
  */
 @interface AWSChimeSDKIdentityIdentity : AWSModel
 
@@ -792,6 +1013,35 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
  <p>The name in an Identity.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ <p>The configuration for an Amazon Lex V2 bot.</p>
+ Required parameters: [RespondsTo, LexBotAliasArn, LocaleId]
+ */
+@interface AWSChimeSDKIdentityLexConfiguration : AWSModel
+
+
+/**
+ <p>The ARN of the Amazon Lex V2 bot's alias. The ARN uses this format: <code>arn:aws:lex:REGION:ACCOUNT:bot-alias/MYBOTID/MYBOTALIAS</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lexBotAliasArn;
+
+/**
+ <p>Identifies the Amazon Lex V2 bot's language and locale. The string must match one of the supported locales in Amazon Lex V2. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a> in the <i>Amazon Lex V2 Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable localeId;
+
+/**
+ <p>Determines whether the Amazon Lex V2 bot responds to all standard messages. Control messages are not supported.</p>
+ */
+@property (nonatomic, assign) AWSChimeSDKIdentityRespondsTo respondsTo;
+
+/**
+ <p>The name of the welcome intent configured in the Amazon Lex V2 bot.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable welcomeIntent;
 
 @end
 
@@ -836,6 +1086,52 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
 
 /**
  <p>The token returned from previous API requests until the number of administrators is reached.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKIdentityListAppInstanceBotsRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the <code>AppInstance</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceArn;
+
+/**
+ <p>The maximum number of requests to return.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token passed by previous API calls until all requested bots are returned.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKIdentityListAppInstanceBotsResponse : AWSModel
+
+
+/**
+ <p>The ARN of the AppInstance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceArn;
+
+/**
+ <p>The information for each requested <code>AppInstanceBot</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSChimeSDKIdentityAppInstanceBotSummary *> * _Nullable appInstanceBots;
+
+/**
+ <p>The token passed by previous API calls until all requested bots are returned.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -1029,6 +1325,42 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
 /**
  
  */
+@interface AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the <code>AppInstanceUser</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceUserArn;
+
+/**
+ <p>Settings that control the interval after which an <code>AppInstanceUser</code> is automatically deleted.</p>
+ */
+@property (nonatomic, strong) AWSChimeSDKIdentityExpirationSettings * _Nullable expirationSettings;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsResponse : AWSModel
+
+
+/**
+ <p>The ARN of the <code>AppInstanceUser</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceUserArn;
+
+/**
+ <p>Settings that control the interval after which an <code>AppInstanceUser</code> is automatically deleted.</p>
+ */
+@property (nonatomic, strong) AWSChimeSDKIdentityExpirationSettings * _Nullable expirationSettings;
+
+@end
+
+/**
+ 
+ */
 @interface AWSChimeSDKIdentityRegisterAppInstanceUserEndpointRequest : AWSRequest
 
 
@@ -1043,7 +1375,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
 @property (nonatomic, strong) NSString * _Nullable appInstanceUserArn;
 
 /**
- <p>The idempotency token for each client request. </p>
+ <p>The unique ID assigned to the request. Use different tokens to register other endpoints.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientRequestToken;
 
@@ -1139,6 +1471,42 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
  <p>The tag keys.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable tagKeys;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKIdentityUpdateAppInstanceBotRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the <code>AppInstanceBot</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceBotArn;
+
+/**
+ <p>The metadata of the <code>AppInstanceBot</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metadata;
+
+/**
+ <p>The name of the <code>AppInstanceBot</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKIdentityUpdateAppInstanceBotResponse : AWSModel
+
+
+/**
+ <p>The ARN of the <code>AppInstanceBot</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceBotArn;
 
 @end
 

@@ -87,7 +87,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the <code>DisassociateChannelFlow</code> API.</p> <note> <p>Only administrators or channel moderators can associate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the <code>DisassociateChannelFlow</code> API.</p> <note> <p>Only administrators or channel moderators can associate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"BatchCreateChannelMembership\":{\
       \"name\":\"BatchCreateChannelMembership\",\
@@ -108,7 +108,7 @@
         {\"shape\":\"ThrottledClientException\"},\
         {\"shape\":\"ResourceLimitExceededException\"}\
       ],\
-      \"documentation\":\"<p>Adds a specified number of users to a channel. </p>\"\
+      \"documentation\":\"<p>Adds a specified number of users and bots to a channel. </p>\"\
     },\
     \"ChannelFlowCallback\":{\
       \"name\":\"ChannelFlowCallback\",\
@@ -149,7 +149,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Creates a channel to which you can add users and send messages.</p> <p> <b>Restriction</b>: You can't change a channel's privacy.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>Creates a channel to which you can add users and send messages.</p> <p> <b>Restriction</b>: You can't change a channel's privacy.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"CreateChannelBan\":{\
       \"name\":\"CreateChannelBan\",\
@@ -170,7 +170,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Permanently bans a member from a channel. Moderators can't add banned members to a channel. To undo a ban, you first have to <code>DeleteChannelBan</code>, and then <code>CreateChannelMembership</code>. Bans are cleaned up when you delete users or channels.</p> <p>If you ban a user who is already part of a channel, that user is automatically kicked from the channel.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>Permanently bans a member from a channel. Moderators can't add banned members to a channel. To undo a ban, you first have to <code>DeleteChannelBan</code>, and then <code>CreateChannelMembership</code>. Bans are cleaned up when you delete users or channels.</p> <p>If you ban a user who is already part of a channel, that user is automatically kicked from the channel.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"CreateChannelFlow\":{\
       \"name\":\"CreateChannelFlow\",\
@@ -213,7 +213,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Adds a user to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code> is derived from the request header. A channel member can:</p> <ul> <li> <p>List messages</p> </li> <li> <p>Send messages</p> </li> <li> <p>Receive messages</p> </li> <li> <p>Edit their own messages</p> </li> <li> <p>Leave the channel</p> </li> </ul> <p>Privacy settings impact this action as follows:</p> <ul> <li> <p>Public Channels: You do not need to be a member to list messages, but you must be a member to send messages.</p> </li> <li> <p>Private Channels: You must be a member to list or send messages.</p> </li> </ul> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>Adds a member to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code> is derived from the request header. A channel member can:</p> <ul> <li> <p>List messages</p> </li> <li> <p>Send messages</p> </li> <li> <p>Receive messages</p> </li> <li> <p>Edit their own messages</p> </li> <li> <p>Leave the channel</p> </li> </ul> <p>Privacy settings impact this action as follows:</p> <ul> <li> <p>Public Channels: You do not need to be a member to list messages, but you must be a member to send messages.</p> </li> <li> <p>Private Channels: You must be a member to list or send messages.</p> </li> </ul> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUserArn</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"CreateChannelModerator\":{\
       \"name\":\"CreateChannelModerator\",\
@@ -234,7 +234,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p> <ul> <li> <p>Add and remove other members of the channel.</p> </li> <li> <p>Add and remove other moderators of the channel.</p> </li> <li> <p>Add and remove user bans for the channel.</p> </li> <li> <p>Redact messages in the channel.</p> </li> <li> <p>List messages in the channel.</p> </li> </ul> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p> <ul> <li> <p>Add and remove other members of the channel.</p> </li> <li> <p>Add and remove other moderators of the channel.</p> </li> <li> <p>Add and remove user bans for the channel.</p> </li> <li> <p>Redact messages in the channel.</p> </li> <li> <p>List messages in the channel.</p> </li> </ul> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>of the user that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"DeleteChannel\":{\
       \"name\":\"DeleteChannel\",\
@@ -252,7 +252,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Immediately makes a channel and its memberships inaccessible and marks them for deletion. This is an irreversible process.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>Immediately makes a channel and its memberships inaccessible and marks them for deletion. This is an irreversible process.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUserArn</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"DeleteChannelBan\":{\
       \"name\":\"DeleteChannelBan\",\
@@ -270,7 +270,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Removes a user from a channel's ban list.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>Removes a member from a channel's ban list.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"DeleteChannelFlow\":{\
       \"name\":\"DeleteChannelFlow\",\
@@ -326,7 +326,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Deletes a channel message. Only admins can perform this action. Deletion makes messages inaccessible immediately. A background process deletes any revisions created by <code>UpdateChannelMessage</code>.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>Deletes a channel message. Only admins can perform this action. Deletion makes messages inaccessible immediately. A background process deletes any revisions created by <code>UpdateChannelMessage</code>.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"DeleteChannelModerator\":{\
       \"name\":\"DeleteChannelModerator\",\
@@ -344,7 +344,24 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Deletes a channel moderator.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>Deletes a channel moderator.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
+    },\
+    \"DeleteMessagingStreamingConfigurations\":{\
+      \"name\":\"DeleteMessagingStreamingConfigurations\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/app-instances/{appInstanceArn}/streaming-configurations\",\
+        \"responseCode\":204\
+      },\
+      \"input\":{\"shape\":\"DeleteMessagingStreamingConfigurationsRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"ForbiddenException\"},\
+        {\"shape\":\"UnauthorizedClientException\"},\
+        {\"shape\":\"ThrottledClientException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"ServiceFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes the streaming configurations for an <code>AppInstance</code>. For more information, see <a href=\\\"https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html\\\">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>\"\
     },\
     \"DeleteMessagingStreamingConfigurations\":{\
       \"name\":\"DeleteMessagingStreamingConfigurations\",\
@@ -380,7 +397,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Returns the full details of a channel in an Amazon Chime <code>AppInstance</code>.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>Returns the full details of a channel in an Amazon Chime <code>AppInstance</code>.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"DescribeChannelBan\":{\
       \"name\":\"DescribeChannelBan\",\
@@ -400,7 +417,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Returns the full details of a channel ban.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>Returns the full details of a channel ban.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"DescribeChannelFlow\":{\
       \"name\":\"DescribeChannelFlow\",\
@@ -439,7 +456,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Returns the full details of a user's channel membership.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>Returns the full details of a user's channel membership.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"DescribeChannelMembershipForAppInstanceUser\":{\
       \"name\":\"DescribeChannelMembershipForAppInstanceUser\",\
@@ -458,7 +475,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p> Returns the details of a channel based on the membership of the specified <code>AppInstanceUser</code>.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p> Returns the details of a channel based on the membership of the specified <code>AppInstanceUser</code> or <code>AppInstanceBot</code>.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"DescribeChannelModeratedByAppInstanceUser\":{\
       \"name\":\"DescribeChannelModeratedByAppInstanceUser\",\
@@ -477,7 +494,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Returns the full details of a channel moderated by the specified <code>AppInstanceUser</code>.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>Returns the full details of a channel moderated by the specified <code>AppInstanceUser</code> or <code>AppInstanceBot</code>.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"DescribeChannelModerator\":{\
       \"name\":\"DescribeChannelModerator\",\
@@ -517,7 +534,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Disassociates a channel flow from all its channels. Once disassociated, all messages to that channel stop going through the channel flow processor.</p> <note> <p>Only administrators or channel moderators can disassociate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>Disassociates a channel flow from all its channels. Once disassociated, all messages to that channel stop going through the channel flow processor.</p> <note> <p>Only administrators or channel moderators can disassociate a channel flow.</p> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"GetChannelMembershipPreferences\":{\
       \"name\":\"GetChannelMembershipPreferences\",\
@@ -536,7 +553,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Gets the membership preferences of an <code>AppInstanceUser</code> for the specified channel. The <code>AppInstanceUser</code> must be a member of the channel. Only the <code>AppInstanceUser</code> who owns the membership can retrieve preferences. Users in the <code>AppInstanceAdmin</code> and channel moderator roles can't retrieve preferences for other users. Banned users can't retrieve membership preferences for the channel from which they are banned.</p>\"\
+      \"documentation\":\"<p>Gets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> for the specified channel. A user or a bot must be a member of the channel and own the membership to be able to retrieve membership preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't retrieve preferences for other users or bots. Banned users or bots can't retrieve membership preferences for the channel from which they are banned.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"GetChannelMessage\":{\
       \"name\":\"GetChannelMessage\",\
@@ -556,7 +573,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Gets the full details of a channel message.</p> <note> <p>The x-amz-chime-bearer request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>Gets the full details of a channel message.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"GetChannelMessageStatus\":{\
       \"name\":\"GetChannelMessageStatus\",\
@@ -575,7 +592,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to retrieving message status if the event was not received because a client wasn't connected to a websocket. </p> <p>Messages can have any one of these statuses.</p> <dl> <dt>SENT</dt> <dd> <p>Message processed successfully</p> </dd> <dt>PENDING</dt> <dd> <p>Ongoing processing</p> </dd> <dt>FAILED</dt> <dd> <p>Processing failed</p> </dd> <dt>DENIED</dt> <dd> <p>Messasge denied by the processor</p> </dd> </dl> <note> <ul> <li> <p>This API does not return statuses for denied messages, because we don't store them once the processor denies them. </p> </li> <li> <p>Only the message sender can invoke this API.</p> </li> <li> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header</p> </li> </ul> </note>\"\
+      \"documentation\":\"<p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to retrieving message status if the event was not received because a client wasn't connected to a websocket. </p> <p>Messages can have any one of these statuses.</p> <dl> <dt>SENT</dt> <dd> <p>Message processed successfully</p> </dd> <dt>PENDING</dt> <dd> <p>Ongoing processing</p> </dd> <dt>FAILED</dt> <dd> <p>Processing failed</p> </dd> <dt>DENIED</dt> <dd> <p>Messasge denied by the processor</p> </dd> </dl> <note> <ul> <li> <p>This API does not return statuses for denied messages, because we don't store them once the processor denies them. </p> </li> <li> <p>Only the message sender can invoke this API.</p> </li> <li> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </li> </ul> </note>\"\
     },\
     \"GetMessagingSessionEndpoint\":{\
       \"name\":\"GetMessagingSessionEndpoint\",\
@@ -632,7 +649,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Lists all the users banned from a particular channel.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>Lists all the users and bots banned from a particular channel.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"ListChannelFlows\":{\
       \"name\":\"ListChannelFlows\",\
@@ -670,7 +687,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Lists all channel memberships in a channel.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note> <p>If you want to list the channels to which a specific app instance user belongs, see the <a href=\\\"https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html\\\">ListChannelMembershipsForAppInstanceUser</a> API.</p>\"\
+      \"documentation\":\"<p>Lists all channel memberships in a channel.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note> <p>If you want to list the channels to which a specific app instance user belongs, see the <a href=\\\"https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html\\\">ListChannelMembershipsForAppInstanceUser</a> API.</p>\"\
     },\
     \"ListChannelMembershipsForAppInstanceUser\":{\
       \"name\":\"ListChannelMembershipsForAppInstanceUser\",\
@@ -689,7 +706,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p> Lists all channels that a particular <code>AppInstanceUser</code> is a part of. Only an <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p> Lists all channels that anr <code>AppInstanceUser</code> or <code>AppInstanceBot</code> is a part of. Only an <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"ListChannelMessages\":{\
       \"name\":\"ListChannelMessages\",\
@@ -708,7 +725,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending order.</p> <note> <p>Redacted messages appear in the results as empty, since they are only redacted, not deleted. Deleted messages do not appear in the results. This action always returns the latest version of an edited message.</p> <p>Also, the x-amz-chime-bearer request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending order.</p> <note> <p>Redacted messages appear in the results as empty, since they are only redacted, not deleted. Deleted messages do not appear in the results. This action always returns the latest version of an edited message.</p> <p>Also, the <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"ListChannelModerators\":{\
       \"name\":\"ListChannelModerators\",\
@@ -727,7 +744,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Lists all the moderators for a channel.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>Lists all the moderators for a channel.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"ListChannels\":{\
       \"name\":\"ListChannels\",\
@@ -746,7 +763,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Lists all Channels created under a single Chime App as a paginated list. You can specify filters to narrow results.</p> <p class=\\\"title\\\"> <b>Functionality &amp; restrictions</b> </p> <ul> <li> <p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the account.</p> </li> <li> <p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to list the private channels in an account.</p> </li> </ul> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>Lists all Channels created under a single Chime App as a paginated list. You can specify filters to narrow results.</p> <p class=\\\"title\\\"> <b>Functionality &amp; restrictions</b> </p> <ul> <li> <p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the account.</p> </li> <li> <p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to list the private channels in an account.</p> </li> </ul> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"ListChannelsAssociatedWithChannelFlow\":{\
       \"name\":\"ListChannelsAssociatedWithChannelFlow\",\
@@ -784,7 +801,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"ListSubChannels\":{\
       \"name\":\"ListSubChannels\",\
@@ -824,6 +841,26 @@
       ],\
       \"documentation\":\"<p>Lists the tags applied to an Amazon Chime SDK messaging resource.</p>\"\
     },\
+    \"PutChannelExpirationSettings\":{\
+      \"name\":\"PutChannelExpirationSettings\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/channels/{channelArn}/expiration-settings\",\
+        \"responseCode\":200\
+      },\
+      \"input\":{\"shape\":\"PutChannelExpirationSettingsRequest\"},\
+      \"output\":{\"shape\":\"PutChannelExpirationSettingsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"BadRequestException\"},\
+        {\"shape\":\"ForbiddenException\"},\
+        {\"shape\":\"ConflictException\"},\
+        {\"shape\":\"UnauthorizedClientException\"},\
+        {\"shape\":\"ThrottledClientException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"ServiceFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Sets the number of days before the channel is automatically deleted.</p> <note> <ul> <li> <p>A background process deletes expired channels within 6 hours of expiration. Actual deletion times may vary.</p> </li> <li> <p>Expired channels that have not yet been deleted appear as active, and you can update their expiration settings. The system honors the new settings.</p> </li> <li> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </li> </ul> </note>\"\
+    },\
     \"PutChannelMembershipPreferences\":{\
       \"name\":\"PutChannelMembershipPreferences\",\
       \"http\":{\
@@ -842,7 +879,28 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Sets the membership preferences of an <code>AppInstanceUser</code> for the specified channel. The <code>AppInstanceUser</code> must be a member of the channel. Only the <code>AppInstanceUser</code> who owns the membership can set preferences. Users in the <code>AppInstanceAdmin</code> and channel moderator roles can't set preferences for other users. Banned users can't set membership preferences for the channel from which they are banned.</p>\"\
+      \"documentation\":\"<p>Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppIntanceBot</code> for the specified channel. The user or bot must be a member of the channel. Only the user or bot who owns the membership can set preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't set preferences for other users or users. Banned users or bots can't set membership preferences for the channel from which they are banned.</p> <note> <p>The x-amz-chime-bearer request header is mandatory. Use the ARN of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
+    },\
+    \"PutMessagingStreamingConfigurations\":{\
+      \"name\":\"PutMessagingStreamingConfigurations\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/app-instances/{appInstanceArn}/streaming-configurations\",\
+        \"responseCode\":200\
+      },\
+      \"input\":{\"shape\":\"PutMessagingStreamingConfigurationsRequest\"},\
+      \"output\":{\"shape\":\"PutMessagingStreamingConfigurationsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"NotFoundException\"},\
+        {\"shape\":\"BadRequestException\"},\
+        {\"shape\":\"ForbiddenException\"},\
+        {\"shape\":\"UnauthorizedClientException\"},\
+        {\"shape\":\"ThrottledClientException\"},\
+        {\"shape\":\"ConflictException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"ServiceFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Sets the data streaming configuration for an <code>AppInstance</code>. For more information, see <a href=\\\"https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html\\\">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>\"\
     },\
     \"PutMessagingStreamingConfigurations\":{\
       \"name\":\"PutMessagingStreamingConfigurations\",\
@@ -883,7 +941,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Redacts message content, but not metadata. The message exists in the back end, but the action returns null content, and the state shows as redacted.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>Redacts message content, but not metadata. The message exists in the back end, but the action returns null content, and the state shows as redacted.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"SearchChannels\":{\
       \"name\":\"SearchChannels\",\
@@ -902,7 +960,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Allows <code>ChimeBearer</code> to search channels by channel members. AppInstanceUsers can search across the channels that they belong to. AppInstanceAdmins can search across all channels.</p>\"\
+      \"documentation\":\"<p>Allows the <code>ChimeBearer</code> to search channels by channel members. Users or bots can search across the channels that they belong to. Users in the <code>AppInstanceAdmin</code> role can search across all channels.</p> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p>\"\
     },\
     \"SendChannelMessage\":{\
       \"name\":\"SendChannelMessage\",\
@@ -922,7 +980,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Sends a message to a particular channel that the member is a part of.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> <p>Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata. <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.</p> </note>\"\
+      \"documentation\":\"<p>Sends a message to a particular channel that the member is a part of.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> <p>Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata. <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.</p> </note>\"\
     },\
     \"TagResource\":{\
       \"name\":\"TagResource\",\
@@ -979,7 +1037,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Update a channel's attributes.</p> <p> <b>Restriction</b>: You can't change a channel's privacy. </p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>Update a channel's attributes.</p> <p> <b>Restriction</b>: You can't change a channel's privacy. </p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"UpdateChannelFlow\":{\
       \"name\":\"UpdateChannelFlow\",\
@@ -1019,7 +1077,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Updates the content of a message.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>Updates the content of a message.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     },\
     \"UpdateChannelReadMarker\":{\
       \"name\":\"UpdateChannelReadMarker\",\
@@ -1039,7 +1097,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>The details of the time when a user last read messages in a channel.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p> </note>\"\
+      \"documentation\":\"<p>The details of the time when a user last read messages in a channel.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
     }\
   },\
   \"shapes\":{\
@@ -1114,7 +1172,7 @@
         },\
         \"Type\":{\
           \"shape\":\"ChannelMembershipType\",\
-          \"documentation\":\"<p>The membership types set for the channel users.</p>\"\
+          \"documentation\":\"<p>The membership types set for the channel members.</p>\"\
         },\
         \"Members\":{\
           \"shape\":\"Members\",\
@@ -1122,7 +1180,7 @@
         },\
         \"ChannelArn\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The ARN of the channel to which you're adding users.</p>\"\
+          \"documentation\":\"<p>The ARN of the channel to which you're adding members.</p>\"\
         },\
         \"SubChannelId\":{\
           \"shape\":\"SubChannelId\",\
@@ -1163,7 +1221,7 @@
       \"members\":{\
         \"ChannelArn\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The ARN of the channel to which you're adding users.</p>\",\
+          \"documentation\":\"<p>The ARN of the channel to which you're adding users or bots.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"channelArn\"\
         },\
@@ -1173,11 +1231,11 @@
         },\
         \"MemberArns\":{\
           \"shape\":\"MemberArns\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code>s of the members you want to add to the channel.</p>\"\
+          \"documentation\":\"<p>The ARNs of the members you want to add to the channel. Only <code>AppInstanceUsers</code> and <code>AppInstanceBots</code> can be added as a channel member.</p>\"\
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         },\
@@ -1251,6 +1309,10 @@
         \"ElasticChannelConfiguration\":{\
           \"shape\":\"ElasticChannelConfiguration\",\
           \"documentation\":\"<p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million members.</p>\"\
+        },\
+        \"ExpirationSettings\":{\
+          \"shape\":\"ExpirationSettings\",\
+          \"documentation\":\"<p>Settings that control when a channel expires.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The details of a channel.</p>\"\
@@ -1570,6 +1632,10 @@
         \"SubChannelId\":{\
           \"shape\":\"SubChannelId\",\
           \"documentation\":\"<p>The ID of the SubChannel.</p>\"\
+        },\
+        \"ContentType\":{\
+          \"shape\":\"ContentType\",\
+          \"documentation\":\"<p>The content type of the channel message.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The details of a message in a channel.</p>\"\
@@ -1601,6 +1667,10 @@
         \"SubChannelId\":{\
           \"shape\":\"SubChannelId\",\
           \"documentation\":\"<p>The ID of the SubChannel.</p>\"\
+        },\
+        \"ContentType\":{\
+          \"shape\":\"ContentType\",\
+          \"documentation\":\"<p>The content type of the call-back message.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Stores information about a callback.</p>\"\
@@ -1681,6 +1751,10 @@
         \"MessageAttributes\":{\
           \"shape\":\"MessageAttributeMap\",\
           \"documentation\":\"<p>The message attribues listed in a the summary of a channel message.</p>\"\
+        },\
+        \"ContentType\":{\
+          \"shape\":\"ContentType\",\
+          \"documentation\":\"<p>The content type of the channel messsage listed in the summary.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Summary of the messages in a <code>Channel</code>.</p>\"\
@@ -1830,6 +1904,13 @@
       \"pattern\":\"[\\\\s\\\\S]*\",\
       \"sensitive\":true\
     },\
+    \"ContentType\":{\
+      \"type\":\"string\",\
+      \"max\":45,\
+      \"min\":0,\
+      \"pattern\":\"[\\\\s\\\\S]*\",\
+      \"sensitive\":true\
+    },\
     \"CreateChannelBanRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -1850,7 +1931,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         }\
@@ -1934,7 +2015,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         },\
@@ -1981,7 +2062,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         }\
@@ -2040,7 +2121,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         },\
@@ -2059,6 +2140,10 @@
         \"ElasticChannelConfiguration\":{\
           \"shape\":\"ElasticChannelConfiguration\",\
           \"documentation\":\"<p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million users, excluding moderators.</p>\"\
+        },\
+        \"ExpirationSettings\":{\
+          \"shape\":\"ExpirationSettings\",\
+          \"documentation\":\"<p>Settings that control the interval after which the channel is automatically deleted.</p>\"\
         }\
       }\
     },\
@@ -2093,7 +2178,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         }\
@@ -2133,7 +2218,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         },\
@@ -2167,7 +2252,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         },\
@@ -2201,7 +2286,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         }\
@@ -2222,7 +2307,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         },\
@@ -2268,7 +2353,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         }\
@@ -2320,13 +2405,13 @@
         },\
         \"AppInstanceUserArn\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The ARN of the user in a channel.</p>\",\
+          \"documentation\":\"<p>The ARN of the user or bot in a channel.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"app-instance-user-arn\"\
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         }\
@@ -2363,7 +2448,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         },\
@@ -2400,13 +2485,13 @@
         },\
         \"AppInstanceUserArn\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> in the moderated channel.</p>\",\
+          \"documentation\":\"<p>The ARN of the user or bot in the moderated channel.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"app-instance-user-arn\"\
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         }\
@@ -2443,7 +2528,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         }\
@@ -2473,7 +2558,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         }\
@@ -2559,6 +2644,36 @@
         \"PhoneNumberAssociationsExist\"\
       ]\
     },\
+    \"ExpirationCriterion\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"CREATED_TIMESTAMP\",\
+        \"LAST_MESSAGE_TIMESTAMP\"\
+      ]\
+    },\
+    \"ExpirationDays\":{\
+      \"type\":\"integer\",\
+      \"max\":5475,\
+      \"min\":1\
+    },\
+    \"ExpirationSettings\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ExpirationDays\",\
+        \"ExpirationCriterion\"\
+      ],\
+      \"members\":{\
+        \"ExpirationDays\":{\
+          \"shape\":\"ExpirationDays\",\
+          \"documentation\":\"<p>The period in days after which the system automatically deletes a channel.</p>\"\
+        },\
+        \"ExpirationCriterion\":{\
+          \"shape\":\"ExpirationCriterion\",\
+          \"documentation\":\"<p>The conditions that must be met for a channel to expire.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Settings that control the interval after which a channel is deleted.</p>\"\
+    },\
     \"FallbackAction\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -2604,7 +2719,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserARN</code> of the user making the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         }\
@@ -2649,7 +2764,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         },\
@@ -2760,7 +2875,7 @@
           \"documentation\":\"<p>The name in an Identity.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The details of a user.</p>\"\
+      \"documentation\":\"<p>The details of a user or bot.</p>\"\
     },\
     \"InvocationType\":{\
       \"type\":\"string\",\
@@ -2817,7 +2932,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         }\
@@ -2883,7 +2998,7 @@
       \"members\":{\
         \"AppInstanceUserArn\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code>s</p>\",\
+          \"documentation\":\"<p>The ARN of the user or bot.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"app-instance-user-arn\"\
         },\
@@ -2901,7 +3016,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         }\
@@ -2953,7 +3068,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         },\
@@ -3027,7 +3142,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         },\
@@ -3087,7 +3202,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         }\
@@ -3153,7 +3268,7 @@
       \"members\":{\
         \"AppInstanceUserArn\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The ARN of the user in the moderated channel.</p>\",\
+          \"documentation\":\"<p>The ARN of the user or bot in the moderated channel.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"app-instance-user-arn\"\
         },\
@@ -3171,7 +3286,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         }\
@@ -3223,7 +3338,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         }\
@@ -3480,7 +3595,7 @@
     \"PushNotificationBody\":{\
       \"type\":\"string\",\
       \"max\":150,\
-      \"min\":0,\
+      \"min\":1,\
       \"pattern\":\"[\\\\s\\\\S]*\",\
       \"sensitive\":true\
     },\
@@ -3520,7 +3635,7 @@
     \"PushNotificationTitle\":{\
       \"type\":\"string\",\
       \"max\":50,\
-      \"min\":0,\
+      \"min\":1,\
       \"pattern\":\".*\",\
       \"sensitive\":true\
     },\
@@ -3530,6 +3645,41 @@
         \"DEFAULT\",\
         \"VOIP\"\
       ]\
+    },\
+    \"PutChannelExpirationSettingsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"ChannelArn\"],\
+      \"members\":{\
+        \"ChannelArn\":{\
+          \"shape\":\"ChimeArn\",\
+          \"documentation\":\"<p>The ARN of the channel.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"channelArn\"\
+        },\
+        \"ChimeBearer\":{\
+          \"shape\":\"ChimeArn\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-chime-bearer\"\
+        },\
+        \"ExpirationSettings\":{\
+          \"shape\":\"ExpirationSettings\",\
+          \"documentation\":\"<p>Settings that control the interval after which a channel is deleted.</p>\"\
+        }\
+      }\
+    },\
+    \"PutChannelExpirationSettingsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ChannelArn\":{\
+          \"shape\":\"ChimeArn\",\
+          \"documentation\":\"<p>The channel ARN.</p>\"\
+        },\
+        \"ExpirationSettings\":{\
+          \"shape\":\"ExpirationSettings\",\
+          \"documentation\":\"<p>Settings that control the interval after which a channel is deleted.</p>\"\
+        }\
+      }\
     },\
     \"PutChannelMembershipPreferencesRequest\":{\
       \"type\":\"structure\",\
@@ -3548,13 +3698,13 @@
         },\
         \"MemberArn\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the member setting the preferences.</p>\",\
+          \"documentation\":\"<p>The ARN of the member setting the preferences.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"memberArn\"\
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserARN</code> of the user making the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         },\
@@ -3631,7 +3781,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         },\
@@ -3808,7 +3958,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         },\
@@ -3823,6 +3973,10 @@
         \"SubChannelId\":{\
           \"shape\":\"SubChannelId\",\
           \"documentation\":\"<p>The ID of the SubChannel in the request.</p>\"\
+        },\
+        \"ContentType\":{\
+          \"shape\":\"ContentType\",\
+          \"documentation\":\"<p>The content type of the channel message.</p>\"\
         }\
       }\
     },\
@@ -4070,6 +4224,7 @@
       \"required\":[\
         \"ChannelArn\",\
         \"MessageId\",\
+        \"Content\",\
         \"ChimeBearer\"\
       ],\
       \"members\":{\
@@ -4086,7 +4241,7 @@
           \"locationName\":\"messageId\"\
         },\
         \"Content\":{\
-          \"shape\":\"Content\",\
+          \"shape\":\"NonEmptyContent\",\
           \"documentation\":\"<p>The content of the message being updated.</p>\"\
         },\
         \"Metadata\":{\
@@ -4095,13 +4250,17 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         },\
         \"SubChannelId\":{\
           \"shape\":\"SubChannelId\",\
           \"documentation\":\"<p>The ID of the SubChannel in the request.</p> <note> <p>Only required when updating messages in a SubChannel that the user belongs to.</p> </note>\"\
+        },\
+        \"ContentType\":{\
+          \"shape\":\"ContentType\",\
+          \"documentation\":\"<p>The content type of the channel message.</p>\"\
         }\
       }\
     },\
@@ -4141,7 +4300,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         },\
@@ -4191,7 +4350,7 @@
         },\
         \"ChimeBearer\":{\
           \"shape\":\"ChimeArn\",\
-          \"documentation\":\"<p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>\",\
+          \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
         }\
