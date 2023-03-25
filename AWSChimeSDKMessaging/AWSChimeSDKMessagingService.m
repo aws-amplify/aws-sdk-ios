@@ -1172,6 +1172,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSChimeSDKMessagingPutChannelExpirationSettingsResponse *> *)putChannelExpirationSettings:(AWSChimeSDKMessagingPutChannelExpirationSettingsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/channels/{channelArn}/expiration-settings"
+                  targetPrefix:@""
+                 operationName:@"PutChannelExpirationSettings"
+                   outputClass:[AWSChimeSDKMessagingPutChannelExpirationSettingsResponse class]];
+}
+
+- (void)putChannelExpirationSettings:(AWSChimeSDKMessagingPutChannelExpirationSettingsRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKMessagingPutChannelExpirationSettingsResponse *response, NSError *error))completionHandler {
+    [[self putChannelExpirationSettings:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingPutChannelExpirationSettingsResponse *> * _Nonnull task) {
+        AWSChimeSDKMessagingPutChannelExpirationSettingsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse *> *)putChannelMembershipPreferences:(AWSChimeSDKMessagingPutChannelMembershipPreferencesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT

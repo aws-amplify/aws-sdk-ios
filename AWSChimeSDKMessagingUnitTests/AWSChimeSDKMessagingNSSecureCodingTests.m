@@ -78,6 +78,7 @@
 - (void) test_AWSChimeSDKMessagingDescribeChannelResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingDisassociateChannelFlowRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingElasticChannelConfiguration API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKMessagingExpirationSettings API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingGetChannelMembershipPreferencesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingGetChannelMessageRequest API_AVAILABLE(ios(11));
@@ -118,6 +119,8 @@
 - (void) test_AWSChimeSDKMessagingProcessorConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingPushNotificationConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingPushNotificationPreferences API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKMessagingPutChannelExpirationSettingsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKMessagingPutChannelExpirationSettingsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingPutChannelMembershipPreferencesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingPutMessagingStreamingConfigurationsRequest API_AVAILABLE(ios(11));
@@ -383,6 +386,10 @@
     [self validateSecureCodingForClass:[AWSChimeSDKMessagingElasticChannelConfiguration class]];
 }
 
+- (void) test_AWSChimeSDKMessagingExpirationSettings {
+    [self validateSecureCodingForClass:[AWSChimeSDKMessagingExpirationSettings class]];
+}
+
 - (void) test_AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest {
     [self validateSecureCodingForClass:[AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest class]];
 }
@@ -541,6 +548,14 @@
 
 - (void) test_AWSChimeSDKMessagingPushNotificationPreferences {
     [self validateSecureCodingForClass:[AWSChimeSDKMessagingPushNotificationPreferences class]];
+}
+
+- (void) test_AWSChimeSDKMessagingPutChannelExpirationSettingsRequest {
+    [self validateSecureCodingForClass:[AWSChimeSDKMessagingPutChannelExpirationSettingsRequest class]];
+}
+
+- (void) test_AWSChimeSDKMessagingPutChannelExpirationSettingsResponse {
+    [self validateSecureCodingForClass:[AWSChimeSDKMessagingPutChannelExpirationSettingsResponse class]];
 }
 
 - (void) test_AWSChimeSDKMessagingPutChannelMembershipPreferencesRequest {
