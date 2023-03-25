@@ -7,6 +7,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 - Model updates for the following services
   - AWSChimeSDKIdentity
   - AWSChimeSDKMessaging
+  - AWSComprehend  
   - AWSEC2  
   - AWSSageMakerRuntime
   - AWSTextract
