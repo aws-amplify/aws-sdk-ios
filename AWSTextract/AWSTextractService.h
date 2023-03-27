@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -225,7 +225,7 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
 - (void)analyzeExpense:(AWSTextractAnalyzeExpenseRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractAnalyzeExpenseResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Analyzes identity documents for relevant information. This information is extracted and returned as <code>IdentityDocumentFields</code>, which records both the normalized field and value of the extracted text.Unlike other Amazon Textract operations, <code>AnalyzeID</code> doesn't return any Geometry data.</p>
+ <p>Analyzes identity documents for relevant information. This information is extracted and returned as <code>IdentityDocumentFields</code>, which records both the normalized field and value of the extracted text. Unlike other Amazon Textract operations, <code>AnalyzeID</code> doesn't return any Geometry data.</p>
  
  @param request A container for the necessary parameters to execute the AnalyzeID service method.
 
@@ -237,7 +237,7 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
 - (AWSTask<AWSTextractAnalyzeIDResponse *> *)analyzeID:(AWSTextractAnalyzeIDRequest *)request;
 
 /**
- <p>Analyzes identity documents for relevant information. This information is extracted and returned as <code>IdentityDocumentFields</code>, which records both the normalized field and value of the extracted text.Unlike other Amazon Textract operations, <code>AnalyzeID</code> doesn't return any Geometry data.</p>
+ <p>Analyzes identity documents for relevant information. This information is extracted and returned as <code>IdentityDocumentFields</code>, which records both the normalized field and value of the extracted text. Unlike other Amazon Textract operations, <code>AnalyzeID</code> doesn't return any Geometry data.</p>
  
  @param request A container for the necessary parameters to execute the AnalyzeID service method.
  @param completionHandler The completion handler to call when the load request is complete.

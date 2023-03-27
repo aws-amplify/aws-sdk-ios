@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -200,7 +200,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKIdentitySDKVersion;
 - (void)createAppInstance:(AWSChimeSDKIdentityCreateAppInstanceRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKIdentityCreateAppInstanceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Promotes an <code>AppInstanceUser</code> to an <code>AppInstanceAdmin</code>. The promoted user can perform the following actions. </p><ul><li><p><code>ChannelModerator</code> actions across all channels in the <code>AppInstance</code>.</p></li><li><p><code>DeleteChannelMessage</code> actions.</p></li></ul><p>Only an <code>AppInstanceUser</code> can be promoted to an <code>AppInstanceAdmin</code> role.</p>
+ <p>Promotes an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> to an <code>AppInstanceAdmin</code>. The promoted entity can perform the following actions. </p><ul><li><p><code>ChannelModerator</code> actions across all channels in the <code>AppInstance</code>.</p></li><li><p><code>DeleteChannelMessage</code> actions.</p></li></ul><p>Only an <code>AppInstanceUser</code> and <code>AppInstanceBot</code> can be promoted to an <code>AppInstanceAdmin</code> role.</p>
  
  @param request A container for the necessary parameters to execute the CreateAppInstanceAdmin service method.
 
@@ -212,7 +212,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKIdentitySDKVersion;
 - (AWSTask<AWSChimeSDKIdentityCreateAppInstanceAdminResponse *> *)createAppInstanceAdmin:(AWSChimeSDKIdentityCreateAppInstanceAdminRequest *)request;
 
 /**
- <p>Promotes an <code>AppInstanceUser</code> to an <code>AppInstanceAdmin</code>. The promoted user can perform the following actions. </p><ul><li><p><code>ChannelModerator</code> actions across all channels in the <code>AppInstance</code>.</p></li><li><p><code>DeleteChannelMessage</code> actions.</p></li></ul><p>Only an <code>AppInstanceUser</code> can be promoted to an <code>AppInstanceAdmin</code> role.</p>
+ <p>Promotes an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> to an <code>AppInstanceAdmin</code>. The promoted entity can perform the following actions. </p><ul><li><p><code>ChannelModerator</code> actions across all channels in the <code>AppInstance</code>.</p></li><li><p><code>DeleteChannelMessage</code> actions.</p></li></ul><p>Only an <code>AppInstanceUser</code> and <code>AppInstanceBot</code> can be promoted to an <code>AppInstanceAdmin</code> role.</p>
  
  @param request A container for the necessary parameters to execute the CreateAppInstanceAdmin service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -223,6 +223,31 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKIdentitySDKVersion;
  @see AWSChimeSDKIdentityCreateAppInstanceAdminResponse
  */
 - (void)createAppInstanceAdmin:(AWSChimeSDKIdentityCreateAppInstanceAdminRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKIdentityCreateAppInstanceAdminResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates a bot under an Amazon Chime <code>AppInstance</code>. The request consists of a unique <code>Configuration</code> and <code>Name</code> for that bot.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateAppInstanceBot service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKIdentityCreateAppInstanceBotResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorConflict`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorResourceLimitExceeded`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityCreateAppInstanceBotRequest
+ @see AWSChimeSDKIdentityCreateAppInstanceBotResponse
+ */
+- (AWSTask<AWSChimeSDKIdentityCreateAppInstanceBotResponse *> *)createAppInstanceBot:(AWSChimeSDKIdentityCreateAppInstanceBotRequest *)request;
+
+/**
+ <p>Creates a bot under an Amazon Chime <code>AppInstance</code>. The request consists of a unique <code>Configuration</code> and <code>Name</code> for that bot.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateAppInstanceBot service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorConflict`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorResourceLimitExceeded`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityCreateAppInstanceBotRequest
+ @see AWSChimeSDKIdentityCreateAppInstanceBotResponse
+ */
+- (void)createAppInstanceBot:(AWSChimeSDKIdentityCreateAppInstanceBotRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKIdentityCreateAppInstanceBotResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Creates a user under an Amazon Chime <code>AppInstance</code>. The request consists of a unique <code>appInstanceUserId</code> and <code>Name</code> for that user.</p>
@@ -272,7 +297,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKIdentitySDKVersion;
 - (void)deleteAppInstance:(AWSChimeSDKIdentityDeleteAppInstanceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Demotes an <code>AppInstanceAdmin</code> to an <code>AppInstanceUser</code>. This action does not delete the user.</p>
+ <p>Demotes an <code>AppInstanceAdmin</code> to an <code>AppInstanceUser</code> or <code>AppInstanceBot</code>. This action does not delete the user.</p>
  
  @param request A container for the necessary parameters to execute the DeleteAppInstanceAdmin service method.
 
@@ -283,7 +308,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKIdentitySDKVersion;
 - (AWSTask *)deleteAppInstanceAdmin:(AWSChimeSDKIdentityDeleteAppInstanceAdminRequest *)request;
 
 /**
- <p>Demotes an <code>AppInstanceAdmin</code> to an <code>AppInstanceUser</code>. This action does not delete the user.</p>
+ <p>Demotes an <code>AppInstanceAdmin</code> to an <code>AppInstanceUser</code> or <code>AppInstanceBot</code>. This action does not delete the user.</p>
  
  @param request A container for the necessary parameters to execute the DeleteAppInstanceAdmin service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -292,6 +317,28 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKIdentitySDKVersion;
  @see AWSChimeSDKIdentityDeleteAppInstanceAdminRequest
  */
 - (void)deleteAppInstanceAdmin:(AWSChimeSDKIdentityDeleteAppInstanceAdminRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes an <code>AppInstanceBot</code>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteAppInstanceBot service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorConflict`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorResourceLimitExceeded`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityDeleteAppInstanceBotRequest
+ */
+- (AWSTask *)deleteAppInstanceBot:(AWSChimeSDKIdentityDeleteAppInstanceBotRequest *)request;
+
+/**
+ <p>Deletes an <code>AppInstanceBot</code>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteAppInstanceBot service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorConflict`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorResourceLimitExceeded`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityDeleteAppInstanceBotRequest
+ */
+- (void)deleteAppInstanceBot:(AWSChimeSDKIdentityDeleteAppInstanceBotRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes an <code>AppInstanceUser</code>.</p>
@@ -386,6 +433,31 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKIdentitySDKVersion;
  @see AWSChimeSDKIdentityDescribeAppInstanceAdminResponse
  */
 - (void)describeAppInstanceAdmin:(AWSChimeSDKIdentityDescribeAppInstanceAdminRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKIdentityDescribeAppInstanceAdminResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>The <code>AppInstanceBot's</code> information.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeAppInstanceBot service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKIdentityDescribeAppInstanceBotResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorNotFound`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityDescribeAppInstanceBotRequest
+ @see AWSChimeSDKIdentityDescribeAppInstanceBotResponse
+ */
+- (AWSTask<AWSChimeSDKIdentityDescribeAppInstanceBotResponse *> *)describeAppInstanceBot:(AWSChimeSDKIdentityDescribeAppInstanceBotRequest *)request;
+
+/**
+ <p>The <code>AppInstanceBot's</code> information.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeAppInstanceBot service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorNotFound`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityDescribeAppInstanceBotRequest
+ @see AWSChimeSDKIdentityDescribeAppInstanceBotResponse
+ */
+- (void)describeAppInstanceBot:(AWSChimeSDKIdentityDescribeAppInstanceBotRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKIdentityDescribeAppInstanceBotResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Returns the full details of an <code>AppInstanceUser</code>.</p>
@@ -486,6 +558,31 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKIdentitySDKVersion;
  @see AWSChimeSDKIdentityListAppInstanceAdminsResponse
  */
 - (void)listAppInstanceAdmins:(AWSChimeSDKIdentityListAppInstanceAdminsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKIdentityListAppInstanceAdminsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Lists all <code>AppInstanceBots</code> created under a single <code>AppInstance</code>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListAppInstanceBots service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKIdentityListAppInstanceBotsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorResourceLimitExceeded`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityListAppInstanceBotsRequest
+ @see AWSChimeSDKIdentityListAppInstanceBotsResponse
+ */
+- (AWSTask<AWSChimeSDKIdentityListAppInstanceBotsResponse *> *)listAppInstanceBots:(AWSChimeSDKIdentityListAppInstanceBotsRequest *)request;
+
+/**
+ <p>Lists all <code>AppInstanceBots</code> created under a single <code>AppInstance</code>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListAppInstanceBots service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorResourceLimitExceeded`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityListAppInstanceBotsRequest
+ @see AWSChimeSDKIdentityListAppInstanceBotsResponse
+ */
+- (void)listAppInstanceBots:(AWSChimeSDKIdentityListAppInstanceBotsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKIdentityListAppInstanceBotsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Lists all the <code>AppInstanceUserEndpoints</code> created under a single <code>AppInstanceUser</code>.</p>
@@ -613,6 +710,31 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKIdentitySDKVersion;
 - (void)putAppInstanceRetentionSettings:(AWSChimeSDKIdentityPutAppInstanceRetentionSettingsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKIdentityPutAppInstanceRetentionSettingsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Sets the number of days before the <code>AppInstanceUser</code> is automatically deleted.</p><note><p>A background process deletes expired <code>AppInstanceUsers</code> within 6 hours of expiration. Actual deletion times may vary.</p><p>Expired <code>AppInstanceUsers</code> that have not yet been deleted appear as active, and you can update their expiration settings. The system honors the new settings.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the PutAppInstanceUserExpirationSettings service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorConflict`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsRequest
+ @see AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsResponse
+ */
+- (AWSTask<AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsResponse *> *)putAppInstanceUserExpirationSettings:(AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsRequest *)request;
+
+/**
+ <p>Sets the number of days before the <code>AppInstanceUser</code> is automatically deleted.</p><note><p>A background process deletes expired <code>AppInstanceUsers</code> within 6 hours of expiration. Actual deletion times may vary.</p><p>Expired <code>AppInstanceUsers</code> that have not yet been deleted appear as active, and you can update their expiration settings. The system honors the new settings.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the PutAppInstanceUserExpirationSettings service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorConflict`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsRequest
+ @see AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsResponse
+ */
+- (void)putAppInstanceUserExpirationSettings:(AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Registers an endpoint under an Amazon Chime <code>AppInstanceUser</code>. The endpoint receives messages for a user. For push notifications, the endpoint is a mobile device used to receive mobile push notifications for a user.</p>
  
  @param request A container for the necessary parameters to execute the RegisterAppInstanceUserEndpoint service method.
@@ -705,6 +827,31 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKIdentitySDKVersion;
  @see AWSChimeSDKIdentityUpdateAppInstanceResponse
  */
 - (void)updateAppInstance:(AWSChimeSDKIdentityUpdateAppInstanceRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKIdentityUpdateAppInstanceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates the name and metadata of an <code>AppInstanceBot</code>.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateAppInstanceBot service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKIdentityUpdateAppInstanceBotResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorConflict`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorResourceLimitExceeded`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityUpdateAppInstanceBotRequest
+ @see AWSChimeSDKIdentityUpdateAppInstanceBotResponse
+ */
+- (AWSTask<AWSChimeSDKIdentityUpdateAppInstanceBotResponse *> *)updateAppInstanceBot:(AWSChimeSDKIdentityUpdateAppInstanceBotRequest *)request;
+
+/**
+ <p>Updates the name and metadata of an <code>AppInstanceBot</code>.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateAppInstanceBot service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorConflict`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorResourceLimitExceeded`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityUpdateAppInstanceBotRequest
+ @see AWSChimeSDKIdentityUpdateAppInstanceBotResponse
+ */
+- (void)updateAppInstanceBot:(AWSChimeSDKIdentityUpdateAppInstanceBotRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKIdentityUpdateAppInstanceBotResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Updates the details of an <code>AppInstanceUser</code>. You can update names and metadata.</p>
