@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -98,6 +98,61 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 
 @end
 
+@implementation AWSChimeSDKIdentityAppInstanceBot
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceBotArn" : @"AppInstanceBotArn",
+             @"configuration" : @"Configuration",
+             @"createdTimestamp" : @"CreatedTimestamp",
+             @"lastUpdatedTimestamp" : @"LastUpdatedTimestamp",
+             @"metadata" : @"Metadata",
+             @"name" : @"Name",
+             };
+}
+
++ (NSValueTransformer *)configurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKIdentityConfiguration class]];
+}
+
++ (NSValueTransformer *)createdTimestampJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastUpdatedTimestampJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityAppInstanceBotSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceBotArn" : @"AppInstanceBotArn",
+             @"metadata" : @"Metadata",
+             @"name" : @"Name",
+             };
+}
+
+@end
+
 @implementation AWSChimeSDKIdentityAppInstanceRetentionSettings
 
 + (BOOL)supportsSecureCoding {
@@ -142,6 +197,7 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 	return @{
              @"appInstanceUserArn" : @"AppInstanceUserArn",
              @"createdTimestamp" : @"CreatedTimestamp",
+             @"expirationSettings" : @"ExpirationSettings",
              @"lastUpdatedTimestamp" : @"LastUpdatedTimestamp",
              @"metadata" : @"Metadata",
              @"name" : @"Name",
@@ -154,6 +210,10 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)expirationSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKIdentityExpirationSettings class]];
 }
 
 + (NSValueTransformer *)lastUpdatedTimestampJSONTransformer {
@@ -360,6 +420,24 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 
 @end
 
+@implementation AWSChimeSDKIdentityConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"lex" : @"Lex",
+             };
+}
+
++ (NSValueTransformer *)lexJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKIdentityLexConfiguration class]];
+}
+
+@end
+
 @implementation AWSChimeSDKIdentityCreateAppInstanceAdminRequest
 
 + (BOOL)supportsSecureCoding {
@@ -390,6 +468,47 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 
 + (NSValueTransformer *)appInstanceAdminJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKIdentityIdentity class]];
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityCreateAppInstanceBotRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceArn" : @"AppInstanceArn",
+             @"clientRequestToken" : @"ClientRequestToken",
+             @"configuration" : @"Configuration",
+             @"metadata" : @"Metadata",
+             @"name" : @"Name",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)configurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKIdentityConfiguration class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSChimeSDKIdentityTag class]];
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityCreateAppInstanceBotResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceBotArn" : @"AppInstanceBotArn",
+             };
 }
 
 @end
@@ -440,10 +559,15 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
              @"appInstanceArn" : @"AppInstanceArn",
              @"appInstanceUserId" : @"AppInstanceUserId",
              @"clientRequestToken" : @"ClientRequestToken",
+             @"expirationSettings" : @"ExpirationSettings",
              @"metadata" : @"Metadata",
              @"name" : @"Name",
              @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)expirationSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKIdentityExpirationSettings class]];
 }
 
 + (NSValueTransformer *)tagsJSONTransformer {
@@ -476,6 +600,20 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 	return @{
              @"appInstanceAdminArn" : @"AppInstanceAdminArn",
              @"appInstanceArn" : @"AppInstanceArn",
+             };
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityDeleteAppInstanceBotRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceBotArn" : @"AppInstanceBotArn",
              };
 }
 
@@ -553,6 +691,38 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 
 + (NSValueTransformer *)appInstanceAdminJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKIdentityAppInstanceAdmin class]];
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityDescribeAppInstanceBotRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceBotArn" : @"AppInstanceBotArn",
+             };
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityDescribeAppInstanceBotResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceBot" : @"AppInstanceBot",
+             };
+}
+
++ (NSValueTransformer *)appInstanceBotJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKIdentityAppInstanceBot class]];
 }
 
 @end
@@ -726,6 +896,37 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 
 @end
 
+@implementation AWSChimeSDKIdentityExpirationSettings
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"expirationCriterion" : @"ExpirationCriterion",
+             @"expirationDays" : @"ExpirationDays",
+             };
+}
+
++ (NSValueTransformer *)expirationCriterionJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CREATED_TIMESTAMP"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityExpirationCriterionCreatedTimestamp);
+        }
+        return @(AWSChimeSDKIdentityExpirationCriterionUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSChimeSDKIdentityExpirationCriterionCreatedTimestamp:
+                return @"CREATED_TIMESTAMP";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSChimeSDKIdentityGetAppInstanceRetentionSettingsRequest
 
 + (BOOL)supportsSecureCoding {
@@ -782,6 +983,39 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 
 @end
 
+@implementation AWSChimeSDKIdentityLexConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"lexBotAliasArn" : @"LexBotAliasArn",
+             @"localeId" : @"LocaleId",
+             @"respondsTo" : @"RespondsTo",
+             @"welcomeIntent" : @"WelcomeIntent",
+             };
+}
+
++ (NSValueTransformer *)respondsToJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"STANDARD_MESSAGES"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityRespondsToStandardMessages);
+        }
+        return @(AWSChimeSDKIdentityRespondsToUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSChimeSDKIdentityRespondsToStandardMessages:
+                return @"STANDARD_MESSAGES";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSChimeSDKIdentityListAppInstanceAdminsRequest
 
 + (BOOL)supportsSecureCoding {
@@ -814,6 +1048,42 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 
 + (NSValueTransformer *)appInstanceAdminsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSChimeSDKIdentityAppInstanceAdminSummary class]];
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityListAppInstanceBotsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceArn" : @"AppInstanceArn",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityListAppInstanceBotsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceArn" : @"AppInstanceArn",
+             @"appInstanceBots" : @"AppInstanceBots",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)appInstanceBotsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSChimeSDKIdentityAppInstanceBotSummary class]];
 }
 
 @end
@@ -1001,6 +1271,44 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 
 @end
 
+@implementation AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceUserArn" : @"AppInstanceUserArn",
+             @"expirationSettings" : @"ExpirationSettings",
+             };
+}
+
++ (NSValueTransformer *)expirationSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKIdentityExpirationSettings class]];
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceUserArn" : @"AppInstanceUserArn",
+             @"expirationSettings" : @"ExpirationSettings",
+             };
+}
+
++ (NSValueTransformer *)expirationSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKIdentityExpirationSettings class]];
+}
+
+@end
+
 @implementation AWSChimeSDKIdentityRegisterAppInstanceUserEndpointRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1131,6 +1439,36 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 	return @{
              @"resourceARN" : @"ResourceARN",
              @"tagKeys" : @"TagKeys",
+             };
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityUpdateAppInstanceBotRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceBotArn" : @"AppInstanceBotArn",
+             @"metadata" : @"Metadata",
+             @"name" : @"Name",
+             };
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityUpdateAppInstanceBotResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceBotArn" : @"AppInstanceBotArn",
              };
 }
 

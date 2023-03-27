@@ -243,19 +243,34 @@ commands:
           path: artifacts
 
   shallow_checkout:
-    # Workaround for https://discuss.circleci.com/t/checkout-fails-on-git-tags-when-git-directory-is-already-present/22437/5
+    # Workaround for https://github.com/guitarrapc/git-shallow-clone-orb/blob/main/src/commands/checkout.yml
     steps:
       - run:
-          name: Checkout code shallow and change to working directory
+          name: Checkout code shallow to working directory
           command: |
-            git clone --depth 1 "$CIRCLE_REPOSITORY_URL" --branch "$CIRCLE_BRANCH" "$CIRCLE_WORKING_DIRECTORY"
-            cd "$CIRCLE_WORKING_DIRECTORY"
-      - run:
-          name: Fetch tag from origin if present
-          command: |
-            if [ -n "$CIRCLE_TAG" ] ; then
-              git fetch --force origin "refs/tags/${CIRCLE_TAG}:refs/tags/${CIRCLE_TAG}"
+            export SSH_CONFIG_DIR=${SSH_CONFIG_DIR:-"${HOME}/.ssh"}
+            echo "Using SSH Config Dir '$SSH_CONFIG_DIR'"
+            mkdir -p $SSH_CONFIG_DIR
+            echo -e 'github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=\n' >> "$SSH_CONFIG_DIR/known_hosts"
+            chmod 0600 $SSH_CONFIG_DIR/known_hosts
+
+            mkdir -p $CIRCLE_WORKING_DIRECTORY
+            git clone --depth 1 "$CIRCLE_REPOSITORY_URL" $CIRCLE_WORKING_DIRECTORY
+            cd $CIRCLE_WORKING_DIRECTORY
+
+            if [ -n "$CIRCLE_TAG" ]; then
+              echo 'Fetch tag'
+              git fetch --depth 1 --force origin "+refs/tags/${CIRCLE_TAG}:refs/tags/${CIRCLE_TAG}"
+            elif [[ $(echo $CIRCLE_PULL_REQUEST | grep -E "${CIRCLE_BRANCH}$") ]]; then
+              echo 'Fetch pull request'
+              git fetch --depth 1 --force origin "$CIRCLE_BRANCH/head:remotes/origin/$CIRCLE_BRANCH"
+            else
+              echo 'Fetch branch'
+              git fetch --depth 1 --force origin "$CIRCLE_BRANCH:remotes/origin/$CIRCLE_BRANCH"
             fi
+
+            echo "Checking out the CI HEAD"
+            git reset --hard "$CIRCLE_SHA1"
 
 jobs:
   build:
@@ -674,6 +689,7 @@ jobs:
   prepare_release_sdk:
     docker:
       - image: circleci/android:api-27-alpha
+    working_directory: /tmp/project
     environment:
       JVM_OPTS: -Xmx1024m
     steps:
@@ -688,6 +704,7 @@ jobs:
   create_pullrequest_for_modelupdate:
     docker:
       - image: circleci/android:api-27-alpha
+    working_directory: /tmp/project
     environment:
       JVM_OPTS: -Xmx1024m
     steps:
