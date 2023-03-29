@@ -1,4 +1,3 @@
-### Misc. Updates
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -18,6 +17,7 @@
   - AWSSageMakerRuntime
   - AWSTextract
   - AWSConnectParticipant
+  - AWSIoTDataPlane
 
 ## 2.30.4
 
