@@ -3508,6 +3508,9 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
         if ([value caseInsensitiveCompare:@"TRAINED"] == NSOrderedSame) {
             return @(AWSComprehendModelStatusTrained);
         }
+        if ([value caseInsensitiveCompare:@"TRAINED_WITH_WARNING"] == NSOrderedSame) {
+            return @(AWSComprehendModelStatusTrainedWithWarning);
+        }
         return @(AWSComprehendModelStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3525,6 +3528,8 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"IN_ERROR";
             case AWSComprehendModelStatusTrained:
                 return @"TRAINED";
+            case AWSComprehendModelStatusTrainedWithWarning:
+                return @"TRAINED_WITH_WARNING";
             default:
                 return nil;
         }
@@ -3773,6 +3778,9 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
         if ([value caseInsensitiveCompare:@"TRAINED"] == NSOrderedSame) {
             return @(AWSComprehendModelStatusTrained);
         }
+        if ([value caseInsensitiveCompare:@"TRAINED_WITH_WARNING"] == NSOrderedSame) {
+            return @(AWSComprehendModelStatusTrainedWithWarning);
+        }
         return @(AWSComprehendModelStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3790,6 +3798,8 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"IN_ERROR";
             case AWSComprehendModelStatusTrained:
                 return @"TRAINED";
+            case AWSComprehendModelStatusTrainedWithWarning:
+                return @"TRAINED_WITH_WARNING";
             default:
                 return nil;
         }
@@ -3873,6 +3883,9 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
         if ([value caseInsensitiveCompare:@"TRAINED"] == NSOrderedSame) {
             return @(AWSComprehendModelStatusTrained);
         }
+        if ([value caseInsensitiveCompare:@"TRAINED_WITH_WARNING"] == NSOrderedSame) {
+            return @(AWSComprehendModelStatusTrainedWithWarning);
+        }
         return @(AWSComprehendModelStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3890,6 +3903,8 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"IN_ERROR";
             case AWSComprehendModelStatusTrained:
                 return @"TRAINED";
+            case AWSComprehendModelStatusTrainedWithWarning:
+                return @"TRAINED_WITH_WARNING";
             default:
                 return nil;
         }
@@ -4466,6 +4481,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"dataAccessRoleArn" : @"DataAccessRoleArn",
              @"endTime" : @"EndTime",
              @"entityRecognizerArn" : @"EntityRecognizerArn",
+             @"flywheelArn" : @"FlywheelArn",
              @"inputDataConfig" : @"InputDataConfig",
              @"jobArn" : @"JobArn",
              @"jobId" : @"JobId",
@@ -5050,6 +5066,9 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
         if ([value caseInsensitiveCompare:@"TRAINED"] == NSOrderedSame) {
             return @(AWSComprehendModelStatusTrained);
         }
+        if ([value caseInsensitiveCompare:@"TRAINED_WITH_WARNING"] == NSOrderedSame) {
+            return @(AWSComprehendModelStatusTrainedWithWarning);
+        }
         return @(AWSComprehendModelStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -5067,6 +5086,8 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"IN_ERROR";
             case AWSComprehendModelStatusTrained:
                 return @"TRAINED";
+            case AWSComprehendModelStatusTrainedWithWarning:
+                return @"TRAINED_WITH_WARNING";
             default:
                 return nil;
         }
@@ -5353,6 +5374,9 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
         if ([value caseInsensitiveCompare:@"TRAINED"] == NSOrderedSame) {
             return @(AWSComprehendModelStatusTrained);
         }
+        if ([value caseInsensitiveCompare:@"TRAINED_WITH_WARNING"] == NSOrderedSame) {
+            return @(AWSComprehendModelStatusTrainedWithWarning);
+        }
         return @(AWSComprehendModelStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -5370,6 +5394,8 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"IN_ERROR";
             case AWSComprehendModelStatusTrained:
                 return @"TRAINED";
+            case AWSComprehendModelStatusTrainedWithWarning:
+                return @"TRAINED_WITH_WARNING";
             default:
                 return nil;
         }
@@ -5453,6 +5479,9 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
         if ([value caseInsensitiveCompare:@"TRAINED"] == NSOrderedSame) {
             return @(AWSComprehendModelStatusTrained);
         }
+        if ([value caseInsensitiveCompare:@"TRAINED_WITH_WARNING"] == NSOrderedSame) {
+            return @(AWSComprehendModelStatusTrainedWithWarning);
+        }
         return @(AWSComprehendModelStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -5470,6 +5499,8 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"IN_ERROR";
             case AWSComprehendModelStatusTrained:
                 return @"TRAINED";
+            case AWSComprehendModelStatusTrainedWithWarning:
+                return @"TRAINED_WITH_WARNING";
             default:
                 return nil;
         }
