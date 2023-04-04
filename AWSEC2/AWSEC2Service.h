@@ -11342,6 +11342,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)getVpnConnectionDeviceTypes:(AWSEC2GetVpnConnectionDeviceTypesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetVpnConnectionDeviceTypesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Get details of available tunnel endpoint maintenance.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetVpnTunnelReplacementStatus service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetVpnTunnelReplacementStatusResult`.
+ 
+ @see AWSEC2GetVpnTunnelReplacementStatusRequest
+ @see AWSEC2GetVpnTunnelReplacementStatusResult
+ */
+- (AWSTask<AWSEC2GetVpnTunnelReplacementStatusResult *> *)getVpnTunnelReplacementStatus:(AWSEC2GetVpnTunnelReplacementStatusRequest *)request;
+
+/**
+ <p>Get details of available tunnel endpoint maintenance.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetVpnTunnelReplacementStatus service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetVpnTunnelReplacementStatusRequest
+ @see AWSEC2GetVpnTunnelReplacementStatusResult
+ */
+- (void)getVpnTunnelReplacementStatus:(AWSEC2GetVpnTunnelReplacementStatusRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetVpnTunnelReplacementStatusResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Uploads a client certificate revocation list to the specified Client VPN endpoint. Uploading a client certificate revocation list overwrites the existing client certificate revocation list.</p><p>Uploading a client certificate revocation list resets existing client connections.</p>
  
  @param request A container for the necessary parameters to execute the ImportClientVpnClientCertificateRevocationList service method.
@@ -13801,6 +13826,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2ReplaceTransitGatewayRouteResult
  */
 - (void)replaceTransitGatewayRoute:(AWSEC2ReplaceTransitGatewayRouteRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ReplaceTransitGatewayRouteResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Trigger replacement of specified VPN tunnel.</p>
+ 
+ @param request A container for the necessary parameters to execute the ReplaceVpnTunnel service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ReplaceVpnTunnelResult`.
+ 
+ @see AWSEC2ReplaceVpnTunnelRequest
+ @see AWSEC2ReplaceVpnTunnelResult
+ */
+- (AWSTask<AWSEC2ReplaceVpnTunnelResult *> *)replaceVpnTunnel:(AWSEC2ReplaceVpnTunnelRequest *)request;
+
+/**
+ <p>Trigger replacement of specified VPN tunnel.</p>
+ 
+ @param request A container for the necessary parameters to execute the ReplaceVpnTunnel service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ReplaceVpnTunnelRequest
+ @see AWSEC2ReplaceVpnTunnelResult
+ */
+- (void)replaceVpnTunnel:(AWSEC2ReplaceVpnTunnelRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ReplaceVpnTunnelResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Submits feedback about the status of an instance. The instance must be in the <code>running</code> state. If your experience with the instance differs from the instance status returned by <a>DescribeInstanceStatus</a>, use <a>ReportInstanceStatus</a> to report your experience with the instance. Amazon EC2 collects this information to improve the accuracy of status checks.</p><p>Use of this action does not change the value returned by <a>DescribeInstanceStatus</a>.</p>
