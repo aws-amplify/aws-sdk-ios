@@ -12,6 +12,12 @@
   - AWSIoT
   - AWSLocation
   - AWSTranscribe
+  - AWSChimeSDKIdentity
+  - AWSChimeSDKMessaging
+  - AWSSageMakerRuntime
+  - AWSTextract
+  - AWSConnectParticipant
+  - AWSIoTDataPlane
 
 ## 2.30.4
 
