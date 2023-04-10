@@ -91,6 +91,7 @@
 - (void) test_AWSConnectCreateVocabularyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateVocabularyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCredentials API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCrossChannelBehavior API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCurrentMetric API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCurrentMetricData API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCurrentMetricResult API_AVAILABLE(ios(11));
@@ -750,6 +751,10 @@
 
 - (void) test_AWSConnectCredentials {
     [self validateSecureCodingForClass:[AWSConnectCredentials class]];
+}
+
+- (void) test_AWSConnectCrossChannelBehavior {
+    [self validateSecureCodingForClass:[AWSConnectCrossChannelBehavior class]];
 }
 
 - (void) test_AWSConnectCurrentMetric {

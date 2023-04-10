@@ -5014,6 +5014,41 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectCrossChannelBehavior
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"behaviorType" : @"BehaviorType",
+             };
+}
+
++ (NSValueTransformer *)behaviorTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ROUTE_CURRENT_CHANNEL_ONLY"] == NSOrderedSame) {
+            return @(AWSConnectBehaviorTypeRouteCurrentChannelOnly);
+        }
+        if ([value caseInsensitiveCompare:@"ROUTE_ANY_CHANNEL"] == NSOrderedSame) {
+            return @(AWSConnectBehaviorTypeRouteAnyChannel);
+        }
+        return @(AWSConnectBehaviorTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectBehaviorTypeRouteCurrentChannelOnly:
+                return @"ROUTE_CURRENT_CHANNEL_ONLY";
+            case AWSConnectBehaviorTypeRouteAnyChannel:
+                return @"ROUTE_ANY_CHANNEL";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSConnectCurrentMetric
 
 + (BOOL)supportsSecureCoding {
@@ -11094,6 +11129,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"channel" : @"Channel",
              @"concurrency" : @"Concurrency",
+             @"crossChannelBehavior" : @"CrossChannelBehavior",
              };
 }
 
@@ -11121,6 +11157,10 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)crossChannelBehaviorJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectCrossChannelBehavior class]];
 }
 
 @end
