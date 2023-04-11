@@ -131,9 +131,9 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     return status;
 }
 
-+ (BOOL)isValidCertificate:(NSString*)tag {
++ (BOOL)isValidCertificate:(NSString*)privateKeyTag certificateLabel:(NSString*)certificateLabel {
     
-    SecIdentityRef identityRef = [AWSIoTKeychain getIdentityRef:tag];
+    SecIdentityRef identityRef = [AWSIoTKeychain getIdentityRef:privateKeyTag certificateLabel:certificateLabel];
     if (identityRef) {
         SecCertificateRef cert = NULL;
         OSStatus status = SecIdentityCopyCertificate(identityRef, &cert);
@@ -350,22 +350,22 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     return (__bridge NSData *)privateKeyBits;
 }
 
-+ (SecIdentityRef)getIdentityRef:(NSString*)tag {
++ (SecIdentityRef)getIdentityRef:(NSString*)privateKeyTag certificateLabel:(NSString *)certificateLabel {
     OSStatus sanityCheck = noErr;
     SecIdentityRef identityRef = NULL;
     
     NSMutableDictionary * queryIdentityRef = [[NSMutableDictionary alloc] init];
     
     [queryIdentityRef setObject:(id)kSecClassIdentity forKey:(id)kSecClass];
-    [queryIdentityRef setObject:tag forKey:(id)kSecAttrApplicationTag]; 
+    [queryIdentityRef setObject:privateKeyTag forKey:(id)kSecAttrApplicationTag];
+    [queryIdentityRef setObject:certificateLabel forKey:(id)kSecAttrLabel];
     [queryIdentityRef setObject:(id)kSecAttrKeyTypeRSA forKey:(id)kSecAttrKeyType];
     [queryIdentityRef setObject:[NSNumber numberWithBool:YES] forKey:(id)kSecReturnRef];
     
     sanityCheck = SecItemCopyMatching((CFDictionaryRef)queryIdentityRef, (CFTypeRef *)&identityRef);
-    
     if (sanityCheck != noErr){
         AWSDDLogError(@"getIdentityRef error: %d",(int)sanityCheck);
-        identityRef = NULL;
+        return nil;
     }
     
     return identityRef;
