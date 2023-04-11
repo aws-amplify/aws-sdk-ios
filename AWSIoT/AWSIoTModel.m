@@ -2648,6 +2648,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"serverCertificateArns" : @"serverCertificateArns",
              @"serviceType" : @"serviceType",
              @"tags" : @"tags",
+             @"tlsConfig" : @"tlsConfig",
              @"validationCertificateArn" : @"validationCertificateArn",
              };
 }
@@ -2684,6 +2685,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)tagsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTTag class]];
+}
+
++ (NSValueTransformer *)tlsConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTTlsConfig class]];
 }
 
 @end
@@ -5365,6 +5370,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"lastStatusChangeDate" : @"lastStatusChangeDate",
              @"serverCertificates" : @"serverCertificates",
              @"serviceType" : @"serviceType",
+             @"tlsConfig" : @"tlsConfig",
              };
 }
 
@@ -5455,6 +5461,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)tlsConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTTlsConfig class]];
 }
 
 @end
@@ -14872,6 +14882,20 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTTlsConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"securityPolicy" : @"securityPolicy",
+             };
+}
+
+@end
+
 @implementation AWSIoTTlsContext
 
 + (BOOL)supportsSecureCoding {
@@ -15760,6 +15784,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"domainConfigurationName" : @"domainConfigurationName",
              @"domainConfigurationStatus" : @"domainConfigurationStatus",
              @"removeAuthorizerConfig" : @"removeAuthorizerConfig",
+             @"tlsConfig" : @"tlsConfig",
              };
 }
 
@@ -15786,6 +15811,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)tlsConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTTlsConfig class]];
 }
 
 @end
