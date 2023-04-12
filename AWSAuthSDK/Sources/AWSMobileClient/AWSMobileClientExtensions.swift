@@ -25,7 +25,7 @@ extension AWSMobileClient {
     }
     
     internal var userPoolClient: AWSCognitoIdentityUserPool? {
-        return self.userpoolOpsHelper.userpoolClient
+        return self.userpoolOpsHelper?.userpoolClient
     }
     
     internal var currentUser: AWSCognitoIdentityUser? {
@@ -36,7 +36,7 @@ extension AWSMobileClient {
     /// Note that the value stored may vary depending on how sign-in was performed.
     /// @see https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html#amazon-cognito-user-pools-using-the-access-token
     public var username: String? {
-        return self.userpoolOpsHelper.currentActiveUser?.username
+        return self.userpoolOpsHelper?.currentActiveUser?.username
     }
 
     public var userSub: String? {

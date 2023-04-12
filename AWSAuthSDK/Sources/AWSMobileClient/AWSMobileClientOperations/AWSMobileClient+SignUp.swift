@@ -40,13 +40,20 @@ extension AWSMobileClient {
             Please add Cognito User Pools before using this API.
             """
             let error = AWSMobileClientError.userPoolNotConfigured(message: message)
-            completionHandler(nil, error)}
+            completionHandler(nil, error)
+            return
+        }
 
         let userAttributesTransformed = userAttributes.map {
             AWSCognitoIdentityUserAttributeType.init(name: $0, value: $1)
         }
         let validationDataTransformed = validationData.map {
             AWSCognitoIdentityUserAttributeType.init(name: $0, value: $1)
+        }
+
+        guard let userpoolOpsHelper = self.userpoolOpsHelper else {
+            completionHandler(nil, Self.missingUserpoolOpsHelperError())
+            return
         }
 
         self.userPoolClient?.signUp(
@@ -58,7 +65,7 @@ extension AWSMobileClient {
                 if let error = task.error {
                     completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
                 } else if let result = task.result {
-                    self.userpoolOpsHelper.signUpUser = task.result?.user
+                    userpoolOpsHelper.signUpUser = task.result?.user
                     var confirmedStatus: SignUpConfirmationState?
                     if(result.userConfirmed!.intValue == 1) {
                         confirmedStatus = .confirmed
@@ -112,8 +119,12 @@ extension AWSMobileClient {
                               confirmationCode: String,
                               clientMetaData: [String:String] = [:],
                               completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
-        if let uname = self.userpoolOpsHelper.signUpUser?.username, uname == username {
-            confirmSignUp(user: self.userpoolOpsHelper.signUpUser!,
+        guard let userpoolOpsHelper = self.userpoolOpsHelper else {
+            completionHandler(nil, Self.missingUserpoolOpsHelperError())
+            return
+        }
+        if let user = userpoolOpsHelper.signUpUser, let uname = user.username, uname == username {
+            confirmSignUp(user: user,
                           confirmationCode: confirmationCode,
                           clientMetaData: clientMetaData,
                           completionHandler: completionHandler)
@@ -151,8 +162,12 @@ extension AWSMobileClient {
     public func resendSignUpCode(username: String,
                                  clientMetaData: [String:String] = [:],
                                  completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
-        if let uname = self.userpoolOpsHelper.signUpUser?.username, uname == username {
-            resendSignUpCode(user: self.userpoolOpsHelper.signUpUser!, clientMetaData: clientMetaData, completionHandler: completionHandler)
+        guard let userpoolOpsHelper = self.userpoolOpsHelper else {
+            completionHandler(nil, Self.missingUserpoolOpsHelperError())
+            return
+        }
+        if let user = userpoolOpsHelper.signUpUser, let uname = user.username, uname == username {
+            resendSignUpCode(user: user, clientMetaData: clientMetaData, completionHandler: completionHandler)
         } else {
             let user = self.userPoolClient?.getUser(username)
             resendSignUpCode(user: user!, clientMetaData: clientMetaData, completionHandler: completionHandler)
