@@ -40,19 +40,23 @@ extension AWSMobileClient {
         default:
             break
         }
-        self.userpoolOpsHelper.userpoolClient?.delegate = self.userpoolOpsHelper
-        self.userpoolOpsHelper.authHelperDelegate = self
+        guard let userpoolOpsHelper = self.userpoolOpsHelper else {
+            completionHandler(nil, Self.missingUserpoolOpsHelperError())
+            return
+        }
+        userpoolOpsHelper.userpoolClient?.delegate = userpoolOpsHelper
+        userpoolOpsHelper.authHelperDelegate = self
         let user = self.userPoolClient?.getUser(username)
-        self.userpoolOpsHelper.currentSignInHandlerCallback = completionHandler
+        userpoolOpsHelper.currentSignInHandlerCallback = completionHandler
         var validationAttributes: [AWSCognitoIdentityUserAttributeType]? = nil
         if (validationData != nil) {
             validationAttributes = validationData!.map {AWSCognitoIdentityUserAttributeType.init(name: $0, value: $1) }
         }
-        if (self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource != nil) {
+        if (userpoolOpsHelper.customAuthChallengeTaskCompletionSource != nil) {
             let details = AWSCognitoIdentityCustomChallengeDetails(challengeResponses: ["USERNAME": username])
             details.initialChallengeName = "SRP_A"
-            self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(result: details)
-            self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = nil
+            userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(result: details)
+            userpoolOpsHelper.customAuthChallengeTaskCompletionSource = nil
         } else {
             let isCustomAuth = self.userPoolClient?.isCustomAuth ?? false
             if (isCustomAuth) {
@@ -94,23 +98,27 @@ extension AWSMobileClient {
                               userAttributes: [String:String] = [:],
                               clientMetaData: [String:String] = [:],
                               completionHandler: @escaping ((SignInResult?, Error?) -> Void)) {
-        if (self.userpoolOpsHelper.mfaCodeCompletionSource != nil) {
-            self.userpoolOpsHelper.currentConfirmSignInHandlerCallback = completionHandler
+        guard let userpoolOpsHelper = self.userpoolOpsHelper else {
+            completionHandler(nil, Self.missingUserpoolOpsHelperError())
+            return
+        }
+        if (userpoolOpsHelper.mfaCodeCompletionSource != nil) {
+            userpoolOpsHelper.currentConfirmSignInHandlerCallback = completionHandler
             let mfaDetails = AWSCognitoIdentityMfaCodeDetails.init(mfaCode: challengeResponse);
             mfaDetails.clientMetaData = clientMetaData;
-            self.userpoolOpsHelper.mfaCodeCompletionSource?.set(result: mfaDetails)
-        } else if (self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource != nil) {
-            self.userpoolOpsHelper.currentConfirmSignInHandlerCallback = completionHandler
+            userpoolOpsHelper.mfaCodeCompletionSource?.set(result: mfaDetails)
+        } else if (userpoolOpsHelper.newPasswordRequiredTaskCompletionSource != nil) {
+            userpoolOpsHelper.currentConfirmSignInHandlerCallback = completionHandler
             let passwordDetails = AWSCognitoIdentityNewPasswordRequiredDetails.init(proposedPassword: challengeResponse,
                                                                                     userAttributes: userAttributes)
             passwordDetails.clientMetaData = clientMetaData
-            self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource?.set(result: passwordDetails)
-        } else if (self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource != nil) {
-            self.userpoolOpsHelper.currentConfirmSignInHandlerCallback = completionHandler
+            userpoolOpsHelper.newPasswordRequiredTaskCompletionSource?.set(result: passwordDetails)
+        } else if (userpoolOpsHelper.customAuthChallengeTaskCompletionSource != nil) {
+            userpoolOpsHelper.currentConfirmSignInHandlerCallback = completionHandler
             let customAuthDetails = AWSCognitoIdentityCustomChallengeDetails.init(challengeResponses: ["ANSWER": challengeResponse])
             customAuthDetails.clientMetaData = clientMetaData
-            self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(result: customAuthDetails)
-            self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = nil
+            userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(result: customAuthDetails)
+            userpoolOpsHelper.customAuthChallengeTaskCompletionSource = nil
         }
         else {
             completionHandler(nil, AWSMobileClientError.invalidState(message: "Please call `signIn` before calling this method."))
@@ -205,19 +213,19 @@ extension AWSMobileClient {
     ///     - signResult: signIn result if there is no error
     ///     - error: error occured
     internal func invokeSignInCallback(signResult: SignInResult?, error: Error?) {
-        if let signCallback = userpoolOpsHelper.currentSignInHandlerCallback {
+        if let signCallback = userpoolOpsHelper?.currentSignInHandlerCallback {
             invalidateSignInCallbacks()
             signCallback(signResult, error)
 
-        } else if let confirmSignCallback = userpoolOpsHelper.currentConfirmSignInHandlerCallback {
+        } else if let confirmSignCallback = userpoolOpsHelper?.currentConfirmSignInHandlerCallback {
             invalidateSignInCallbacks()
             confirmSignCallback(signResult, error)
         }
     }
 
     private func invalidateSignInCallbacks() {
-        userpoolOpsHelper.currentSignInHandlerCallback = nil
-        userpoolOpsHelper.currentConfirmSignInHandlerCallback = nil
+        userpoolOpsHelper?.currentSignInHandlerCallback = nil
+        userpoolOpsHelper?.currentConfirmSignInHandlerCallback = nil
     }
 
     internal func performUserPoolSuccessfulSignInTasks(session: AWSCognitoIdentityUserSession) {
