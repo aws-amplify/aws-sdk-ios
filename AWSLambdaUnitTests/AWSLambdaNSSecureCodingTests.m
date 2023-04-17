@@ -101,6 +101,11 @@
 - (void) test_AWSLambdaInvocationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaInvokeAsyncRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaInvokeAsyncResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaInvokeResponseStreamUpdate API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaInvokeWithResponseStreamCompleteEvent API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaInvokeWithResponseStreamRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaInvokeWithResponseStreamResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaInvokeWithResponseStreamResponseEvent API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaLayer API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaLayerVersionContentInput API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaLayerVersionContentOutput API_AVAILABLE(ios(11));
@@ -500,6 +505,26 @@
 
 - (void) test_AWSLambdaInvokeAsyncResponse {
     [self validateSecureCodingForClass:[AWSLambdaInvokeAsyncResponse class]];
+}
+
+- (void) test_AWSLambdaInvokeResponseStreamUpdate {
+    [self validateClassDoesNotSupportSecureCoding:[AWSLambdaInvokeResponseStreamUpdate class]];
+}
+
+- (void) test_AWSLambdaInvokeWithResponseStreamCompleteEvent {
+    [self validateSecureCodingForClass:[AWSLambdaInvokeWithResponseStreamCompleteEvent class]];
+}
+
+- (void) test_AWSLambdaInvokeWithResponseStreamRequest {
+    [self validateClassDoesNotSupportSecureCoding:[AWSLambdaInvokeWithResponseStreamRequest class]];
+}
+
+- (void) test_AWSLambdaInvokeWithResponseStreamResponse {
+    [self validateSecureCodingForClass:[AWSLambdaInvokeWithResponseStreamResponse class]];
+}
+
+- (void) test_AWSLambdaInvokeWithResponseStreamResponseEvent {
+    [self validateSecureCodingForClass:[AWSLambdaInvokeWithResponseStreamResponseEvent class]];
 }
 
 - (void) test_AWSLambdaLayer {
