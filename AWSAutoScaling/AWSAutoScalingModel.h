@@ -232,6 +232,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
     AWSAutoScalingScalingActivityStatusCodeSuccessful,
     AWSAutoScalingScalingActivityStatusCodeFailed,
     AWSAutoScalingScalingActivityStatusCodeCancelled,
+    AWSAutoScalingScalingActivityStatusCodeWaitingForConnectionDraining,
 };
 
 typedef NS_ENUM(NSInteger, AWSAutoScalingStandbyInstances) {
@@ -687,7 +688,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable autoScalingGroupName;
 
 /**
- <p>The unique identifiers of one or more traffic sources. You can specify up to 10 traffic sources.</p><p>Currently, you must specify an Amazon Resource Name (ARN) for an existing VPC Lattice target group. Amazon EC2 Auto Scaling registers the running instances with the attached target groups. The target groups receive incoming traffic and route requests to one or more registered targets.</p>
+ <p>The unique identifiers of one or more traffic sources. You can specify up to 10 traffic sources.</p>
  */
 @property (nonatomic, strong) NSArray<AWSAutoScalingTrafficSourceIdentifier *> * _Nullable trafficSources;
 
@@ -761,7 +762,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable healthCheckGracePeriod;
 
 /**
- <p>Determines whether any additional health checks are performed on the instances in this group. Amazon EC2 health checks are always on.</p><p>The valid values are <code>EC2</code> (default), <code>ELB</code>, and <code>VPC_LATTICE</code>. The <code>VPC_LATTICE</code> health check type is reserved for use with VPC Lattice, which is in preview release and is subject to change.</p>
+ <p>A comma-separated value string of one or more health check types.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable healthCheckType;
 
@@ -851,7 +852,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable terminationPolicies;
 
 /**
- <p><b>Reserved for use with Amazon VPC Lattice, which is in preview release and is subject to change. Do not use this parameter for production workloads. It is also subject to change.</b></p><p>The unique identifiers of the traffic sources.</p>
+ <p>The traffic sources associated with this Auto Scaling group.</p>
  */
 @property (nonatomic, strong) NSArray<AWSAutoScalingTrafficSourceIdentifier *> * _Nullable trafficSources;
 
@@ -936,7 +937,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable availabilityZone;
 
 /**
- <p>The last reported health status of this instance. "Healthy" means that the instance is healthy and should remain in service. "Unhealthy" means that the instance is unhealthy and Amazon EC2 Auto Scaling should terminate and replace it.</p>
+ <p>The last reported health status of this instance. <code>Healthy</code> means that the instance is healthy and should remain in service. <code>Unhealthy</code> means that the instance is unhealthy and Amazon EC2 Auto Scaling should terminate and replace it.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable healthStatus;
 
@@ -1242,7 +1243,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable healthCheckGracePeriod;
 
 /**
- <p>Determines whether any additional health checks are performed on the instances in this group. Amazon EC2 health checks are always on. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>The valid values are <code>EC2</code> (default), <code>ELB</code>, and <code>VPC_LATTICE</code>. The <code>VPC_LATTICE</code> health check type is reserved for use with VPC Lattice, which is in preview release and is subject to change.</p>
+ <p>A comma-separated value string of one or more health check types.</p><p>The valid values are <code>EC2</code>, <code>ELB</code>, and <code>VPC_LATTICE</code>. <code>EC2</code> is the default health check and cannot be disabled. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>Only specify <code>EC2</code> if you must clear a value that was previously set.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable healthCheckType;
 
@@ -1267,7 +1268,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSArray<AWSAutoScalingLifecycleHookSpecification *> * _Nullable lifecycleHookSpecificationList;
 
 /**
- <p>A list of Classic Load Balancers associated with this Auto Scaling group. For Application Load Balancers, Network Load Balancers, and Gateway Load Balancer, specify the <code>TargetGroupARNs</code> property instead.</p>
+ <p>A list of Classic Load Balancers associated with this Auto Scaling group. For Application Load Balancers, Network Load Balancers, and Gateway Load Balancers, specify the <code>TargetGroupARNs</code> property instead.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable loadBalancerNames;
 
@@ -1322,7 +1323,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable terminationPolicies;
 
 /**
- <p><b>Reserved for use with Amazon VPC Lattice, which is in preview release and is subject to change. Do not use this parameter for production workloads. It is also subject to change.</b></p><p>The unique identifiers of one or more traffic sources.</p><p>Currently, you must specify an Amazon Resource Name (ARN) for an existing VPC Lattice target group. Amazon EC2 Auto Scaling registers the running instances with the attached target groups. The target groups receive incoming traffic and route requests to one or more registered targets.</p>
+ <p>The list of traffic sources to attach to this Auto Scaling group. You can use any of the following as traffic sources for an Auto Scaling group: Classic Load Balancer, Application Load Balancer, Gateway Load Balancer, Network Load Balancer, and VPC Lattice.</p>
  */
 @property (nonatomic, strong) NSArray<AWSAutoScalingTrafficSourceIdentifier *> * _Nullable trafficSources;
 
@@ -2094,7 +2095,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The type of traffic source you are describing. Currently, the only valid value is <code>vpc-lattice</code>.</p>
+ <p>The traffic source type that you want to describe.</p><p>The following lists the valid values:</p><ul><li><p><code>elb</code> if the traffic source is a Classic Load Balancer.</p></li><li><p><code>elbv2</code> if the traffic source is a Application Load Balancer, Gateway Load Balancer, or Network Load Balancer.</p></li><li><p><code>vpc-lattice</code> if the traffic source is VPC Lattice.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable trafficSourceType;
 
@@ -2290,7 +2291,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable autoScalingGroupName;
 
 /**
- <p>The unique identifiers of one or more traffic sources you are detaching. You can specify up to 10 traffic sources.</p><p>Currently, you must specify an Amazon Resource Name (ARN) for an existing VPC Lattice target group. When you detach a target group, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the target group using the <a>DescribeTrafficSources</a> API call. The instances continue to run.</p>
+ <p>The unique identifiers of one or more traffic sources. You can specify up to 10 traffic sources.</p>
  */
 @property (nonatomic, strong) NSArray<AWSAutoScalingTrafficSourceIdentifier *> * _Nullable trafficSources;
 
@@ -2604,7 +2605,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable availabilityZone;
 
 /**
- <p>The last reported health status of the instance. "Healthy" means that the instance is healthy and should remain in service. "Unhealthy" means that the instance is unhealthy and that Amazon EC2 Auto Scaling should terminate and replace it.</p>
+ <p>The last reported health status of the instance. <code>Healthy</code> means that the instance is healthy and should remain in service. <code>Unhealthy</code> means that the instance is unhealthy and that Amazon EC2 Auto Scaling should terminate and replace it.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable healthStatus;
 
@@ -2718,7 +2719,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable percentageComplete;
 
 /**
- <p>Describes the preferences for an instance refresh.</p>
+ <p>The preferences for an instance refresh.</p>
  */
 @property (nonatomic, strong) AWSAutoScalingRefreshPreferences * _Nullable preferences;
 
@@ -4811,19 +4812,19 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @end
 
 /**
- <p>This structure defines the CloudWatch metric to return, along with the statistic, period, and unit.</p><p>For more information about the CloudWatch terminology below, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch concepts</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+ <p>This structure defines the CloudWatch metric to return, along with the statistic and unit.</p><p>For more information about the CloudWatch terminology below, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch concepts</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
  Required parameters: [Metric, Stat]
  */
 @interface AWSAutoScalingTargetTrackingMetricStat : AWSModel
 
 
 /**
- <p>Represents a specific metric. </p>
+ <p>The metric to use.</p>
  */
 @property (nonatomic, strong) AWSAutoScalingMetric * _Nullable metric;
 
 /**
- <p>The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic">Statistics</a> in the <i>Amazon CloudWatch User Guide</i>.</p><p>The most commonly used metrics for scaling is <code>Average</code></p>
+ <p>The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic">Statistics</a> in the <i>Amazon CloudWatch User Guide</i>.</p><p>The most commonly used metric for scaling is <code>Average</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable stat;
 
@@ -4871,15 +4872,21 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @end
 
 /**
- <p>Describes the identifier of a traffic source.</p><p>Currently, you must specify an Amazon Resource Name (ARN) for an existing VPC Lattice target group.</p>
+ <p>Identifying information for a traffic source.</p>
+ Required parameters: [Identifier]
  */
 @interface AWSAutoScalingTrafficSourceIdentifier : AWSModel
 
 
 /**
- <p>The unique identifier of the traffic source.</p>
+ <p>Identifies the traffic source.</p><p>For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.</p><p>For example: </p><ul><li><p>Application Load Balancer ARN: <code>arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/1234567890123456</code></p></li><li><p>Classic Load Balancer name: <code>my-classic-load-balancer</code></p></li><li><p>VPC Lattice ARN: <code>arn:aws:vpc-lattice:us-west-2:123456789012:targetgroup/tg-1234567890123456</code></p></li></ul><p>To get the ARN of a target group for a Application Load Balancer, Gateway Load Balancer, or Network Load Balancer, or the name of a Classic Load Balancer, use the Elastic Load Balancing <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> and <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a> API operations.</p><p>To get the ARN of a target group for VPC Lattice, use the VPC Lattice <a href="https://docs.aws.amazon.com/vpc-lattice/latest/APIReference/API_GetTargetGroup.html">GetTargetGroup</a> API operation.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>Provides additional context for the value of <code>Identifier</code>.</p><p>The following lists the valid values:</p><ul><li><p><code>elb</code> if <code>Identifier</code> is the name of a Classic Load Balancer.</p></li><li><p><code>elbv2</code> if <code>Identifier</code> is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.</p></li><li><p><code>vpc-lattice</code> if <code>Identifier</code> is the ARN of a VPC Lattice target group.</p></li></ul><p>Required if the identifier is the name of a Classic Load Balancer.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable types;
 
 @end
 
@@ -4890,14 +4897,24 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 
 
 /**
- <p>The following are the possible states for a VPC Lattice target group:</p><ul><li><p><code>Adding</code> - The Auto Scaling instances are being registered with the target group.</p></li><li><p><code>Added</code> - All Auto Scaling instances are registered with the target group.</p></li><li><p><code>InService</code> - At least one Auto Scaling instance passed the <code>VPC_LATTICE</code> health check.</p></li><li><p><code>Removing</code> - The Auto Scaling instances are being deregistered from the target group. If connection draining is enabled, VPC Lattice waits for in-flight requests to complete before deregistering the instances.</p></li><li><p><code>Removed</code> - All Auto Scaling instances are deregistered from the target group.</p></li></ul>
+ <p>The unique identifier of the traffic source.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>Describes the current state of a traffic source.</p><p>The state values are as follows:</p><ul><li><p><code>Adding</code> - The Auto Scaling instances are being registered with the load balancer or target group.</p></li><li><p><code>Added</code> - All Auto Scaling instances are registered with the load balancer or target group.</p></li><li><p><code>InService</code> - For an Elastic Load Balancing load balancer or target group, at least one Auto Scaling instance passed an <code>ELB</code> health check. For VPC Lattice, at least one Auto Scaling instance passed an <code>VPC_LATTICE</code> health check.</p></li><li><p><code>Removing</code> - The Auto Scaling instances are being deregistered from the load balancer or target group. If connection draining (deregistration delay) is enabled, Elastic Load Balancing or VPC Lattice waits for in-flight requests to complete before deregistering the instances.</p></li><li><p><code>Removed</code> - All Auto Scaling instances are deregistered from the load balancer or target group.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable state;
 
 /**
- <p>The unique identifier of the traffic source. Currently, this is the Amazon Resource Name (ARN) for a VPC Lattice target group.</p>
+ <p>This is replaced by <code>Identifier</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable trafficSource;
+
+/**
+ <p>Provides additional context for the value of <code>Identifier</code>.</p><p>The following lists the valid values:</p><ul><li><p><code>elb</code> if <code>Identifier</code> is the name of a Classic Load Balancer.</p></li><li><p><code>elbv2</code> if <code>Identifier</code> is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.</p></li><li><p><code>vpc-lattice</code> if <code>Identifier</code> is the ARN of a VPC Lattice target group.</p></li></ul><p>Required if the identifier is the name of a Classic Load Balancer.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable types;
 
 @end
 
@@ -4953,7 +4970,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable healthCheckGracePeriod;
 
 /**
- <p>Determines whether any additional health checks are performed on the instances in this group. Amazon EC2 health checks are always on.</p><p>The valid values are <code>EC2</code> (default), <code>ELB</code>, and <code>VPC_LATTICE</code>. The <code>VPC_LATTICE</code> health check type is reserved for use with VPC Lattice, which is in preview release and is subject to change.</p>
+ <p>A comma-separated value string of one or more health check types.</p><p>The valid values are <code>EC2</code>, <code>ELB</code>, and <code>VPC_LATTICE</code>. <code>EC2</code> is the default health check and cannot be disabled. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>Only specify <code>EC2</code> if you must clear a value that was previously set.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable healthCheckType;
 

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -41,6 +41,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionErrorType) {
     AWSRekognitionErrorResourceNotFound,
     AWSRekognitionErrorResourceNotReady,
     AWSRekognitionErrorServiceQuotaExceeded,
+    AWSRekognitionErrorSessionNotFound,
     AWSRekognitionErrorThrottling,
     AWSRekognitionErrorVideoTooLarge,
 };
@@ -196,6 +197,15 @@ typedef NS_ENUM(NSInteger, AWSRekognitionLandmarkType) {
     AWSRekognitionLandmarkTypeUpperJawlineRight,
 };
 
+typedef NS_ENUM(NSInteger, AWSRekognitionLivenessSessionStatus) {
+    AWSRekognitionLivenessSessionStatusUnknown,
+    AWSRekognitionLivenessSessionStatusCreated,
+    AWSRekognitionLivenessSessionStatusInProgress,
+    AWSRekognitionLivenessSessionStatusSucceeded,
+    AWSRekognitionLivenessSessionStatusFailed,
+    AWSRekognitionLivenessSessionStatusExpired,
+};
+
 typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
     AWSRekognitionOrientationCorrectionUnknown,
     AWSRekognitionOrientationCorrectionRotate0,
@@ -315,6 +325,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionAgeRange;
 @class AWSRekognitionAsset;
 @class AWSRekognitionAudioMetadata;
+@class AWSRekognitionAuditImage;
 @class AWSRekognitionBeard;
 @class AWSRekognitionBlackFrame;
 @class AWSRekognitionBoundingBox;
@@ -336,6 +347,9 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionCreateCollectionResponse;
 @class AWSRekognitionCreateDatasetRequest;
 @class AWSRekognitionCreateDatasetResponse;
+@class AWSRekognitionCreateFaceLivenessSessionRequest;
+@class AWSRekognitionCreateFaceLivenessSessionRequestSettings;
+@class AWSRekognitionCreateFaceLivenessSessionResponse;
 @class AWSRekognitionCreateProjectRequest;
 @class AWSRekognitionCreateProjectResponse;
 @class AWSRekognitionCreateProjectVersionRequest;
@@ -420,6 +434,8 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionGetContentModerationResponse;
 @class AWSRekognitionGetFaceDetectionRequest;
 @class AWSRekognitionGetFaceDetectionResponse;
+@class AWSRekognitionGetFaceLivenessSessionResultsRequest;
+@class AWSRekognitionGetFaceLivenessSessionResultsResponse;
 @class AWSRekognitionGetFaceSearchRequest;
 @class AWSRekognitionGetFaceSearchResponse;
 @class AWSRekognitionGetLabelDetectionRequest;
@@ -463,6 +479,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionListStreamProcessorsResponse;
 @class AWSRekognitionListTagsForResourceRequest;
 @class AWSRekognitionListTagsForResourceResponse;
+@class AWSRekognitionLivenessOutputConfig;
 @class AWSRekognitionModerationLabel;
 @class AWSRekognitionMouthOpen;
 @class AWSRekognitionMustache;
@@ -611,6 +628,29 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>The sample rate for the audio stream.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable sampleRate;
+
+@end
+
+/**
+ <p>An image that is picked from the Face Liveness video and returned for audit trail purposes, returned as Base64-encoded bytes.</p>
+ */
+@interface AWSRekognitionAuditImage : AWSModel
+
+
+/**
+ <p>Identifies the bounding box around the label, face, text, object of interest, or personal protective equipment. The <code>left</code> (x-coordinate) and <code>top</code> (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0). </p><p>The <code>top</code> and <code>left</code> values returned are ratios of the overall image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of the bounding box is 350x50 pixels, the API returns a <code>left</code> value of 0.5 (350/700) and a <code>top</code> value of 0.25 (50/200).</p><p>The <code>width</code> and <code>height</code> values represent the dimensions of the bounding box as a ratio of the overall image dimension. For example, if the input image is 700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. </p><note><p> The bounding box coordinates can have negative values. For example, if Amazon Rekognition is able to detect a face that is at the image edge and is only partially visible, the service can return coordinates that are outside the image bounds and, depending on the image edge, you might get negative values or values greater than 1 for the <code>left</code> or <code>top</code> values. </p></note>
+ */
+@property (nonatomic, strong) AWSRekognitionBoundingBox * _Nullable boundingBox;
+
+/**
+ <p>The Base64-encoded bytes representing an image selected from the Face Liveness video and returned for audit purposes.</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable bytes;
+
+/**
+ <p>Provides the S3 bucket name and object name.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see How Amazon Rekognition works with IAM in the Amazon Rekognition Developer Guide. </p>
+ */
+@property (nonatomic, strong) AWSRekognitionS3Object * _Nullable s3Object;
 
 @end
 
@@ -1120,6 +1160,60 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p> The ARN of the created Amazon Rekognition Custom Labels dataset. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable datasetArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionCreateFaceLivenessSessionRequest : AWSRequest
+
+
+/**
+ <p>Idempotent token is used to recognize the Face Liveness request. If the same token is used with multiple <code>CreateFaceLivenessSession</code> requests, the same session is returned. This token is employed to avoid unintentionally creating the same session multiple times.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientRequestToken;
+
+/**
+ <p> The identifier for your AWS Key Management Service key (AWS KMS key). Used to encrypt audit images and reference images.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kmsKeyId;
+
+/**
+ <p>A session settings object. It contains settings for the operation to be performed. For Face Liveness, it accepts <code>OutputConfig</code> and <code>AuditImagesLimit</code>.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionCreateFaceLivenessSessionRequestSettings * _Nullable settings;
+
+@end
+
+/**
+ <p>A session settings object. It contains settings for the operation to be performed. It accepts arguments for OutputConfig and AuditImagesLimit.</p>
+ */
+@interface AWSRekognitionCreateFaceLivenessSessionRequestSettings : AWSModel
+
+
+/**
+ <p>Number of audit images to be returned back. Takes an integer between 0-4. Any integer less than 0 will return 0, any integer above 4 will return 4 images in the response. By default, it is set to 0. The limit is best effort and is based on the actual duration of the selfie-video.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable auditImagesLimit;
+
+/**
+ <p>Can specify the location of an Amazon S3 bucket, where reference and audit images will be stored. Note that the Amazon S3 bucket must be located in the caller's AWS account and in the same region as the Face Liveness end-point. Additionally, the Amazon S3 object keys are auto-generated by the Face Liveness system.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionLivenessOutputConfig * _Nullable outputConfig;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionCreateFaceLivenessSessionResponse : AWSModel
+
+
+/**
+ <p>A unique 128-bit UUID identifying a Face Liveness session.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sessionId;
 
 @end
 
@@ -2102,7 +2196,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable minConfidence;
 
 /**
- <p>A list of the filters to be applied to returned detected labels and image properties. Specified filters can be inclusive, exclusive, or a combination of both. Filters can be used for individual labels or label categories. The exact label names or label categories must be supplied. For a full list of labels and label categories, see LINK HERE.</p>
+ <p>A list of the filters to be applied to returned detected labels and image properties. Specified filters can be inclusive, exclusive, or a combination of both. Filters can be used for individual labels or label categories. The exact label names or label categories must be supplied. For a full list of labels and label categories, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels.html">Detecting labels</a>.</p>
  */
 @property (nonatomic, strong) AWSRekognitionDetectLabelsSettings * _Nullable settings;
 
@@ -2708,7 +2802,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Contains filters for the object labels returned by DetectLabels. Filters can be inclusive, exclusive, or a combination of both and can be applied to individual l abels or entire label categories.</p>
+ <p>Contains filters for the object labels returned by DetectLabels. Filters can be inclusive, exclusive, or a combination of both and can be applied to individual labels or entire label categories. To see a list of label categories, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels.html">Detecting Labels</a>.</p>
  */
 @interface AWSRekognitionGeneralLabelsSettings : AWSModel
 
@@ -2969,6 +3063,52 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition video operation.</p>
  */
 @property (nonatomic, strong) AWSRekognitionVideoMetadata * _Nullable videoMetadata;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionGetFaceLivenessSessionResultsRequest : AWSRequest
+
+
+/**
+ <p>A unique 128-bit UUID. This is used to uniquely identify the session and also acts as an idempotency token for all operations associated with the session.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sessionId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionGetFaceLivenessSessionResultsResponse : AWSModel
+
+
+/**
+ <p>A set of images from the Face Liveness video that can be used for audit purposes. It includes a bounding box of the face and the Base64-encoded bytes that return an image. If the CreateFaceLivenessSession request included an OutputConfig argument, the image will be uploaded to an S3Object specified in the output configuration.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionAuditImage *> * _Nullable auditImages;
+
+/**
+ <p>Probabalistic confidence score for if the person in the given video was live, represented as a float value between 0 to 100.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
+
+/**
+ <p>A high-quality image from the Face Liveness video that can be used for face comparison or search. It includes a bounding box of the face and the Base64-encoded bytes that return an image. If the CreateFaceLivenessSession request included an OutputConfig argument, the image will be uploaded to an S3Object specified in the output configuration. In case the reference image is not returned, it's recommended to retry the Liveness check.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionAuditImage * _Nullable referenceImage;
+
+/**
+ <p>The sessionId for which this request was called.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sessionId;
+
+/**
+ <p>Represents a status corresponding to the state of the session. Possible statuses are: CREATED, IN_PROGRESS, SUCCEEDED, FAILED, EXPIRED.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionLivenessSessionStatus status;
 
 @end
 
@@ -3372,7 +3512,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>Blob of image bytes up to 5 MBs.</p>
+ <p>Blob of image bytes up to 5 MBs. Note that the maximum image size you can pass to <code>DetectCustomLabels</code> is 4MB. </p>
  */
 @property (nonatomic, strong) NSData * _Nullable bytes;
 
@@ -3651,7 +3791,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>Contains filters for the object labels returned by DetectLabels. Filters can be inclusive, exclusive, or a combination of both and can be applied to individual l abels or entire label categories.</p>
+ <p>Contains filters for the object labels returned by DetectLabels. Filters can be inclusive, exclusive, or a combination of both and can be applied to individual labels or entire label categories. To see a list of label categories, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels.html">Detecting Labels</a>.</p>
  */
 @property (nonatomic, strong) AWSRekognitionGeneralLabelsSettings * _Nullable generalLabels;
 
@@ -3969,6 +4109,25 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p> A list of key-value tags assigned to the resource. </p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ <p>Contains settings that specify the location of an Amazon S3 bucket used to store the output of a Face Liveness session. Note that the S3 bucket must be located in the caller's AWS account and in the same region as the Face Liveness end-point. Additionally, the Amazon S3 object keys are auto-generated by the Face Liveness system. </p>
+ Required parameters: [S3Bucket]
+ */
+@interface AWSRekognitionLivenessOutputConfig : AWSModel
+
+
+/**
+ <p>The path to an AWS Amazon S3 bucket used to store Face Liveness session results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Bucket;
+
+/**
+ <p>The prefix prepended to the output files for the Face Liveness session results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3KeyPrefix;
 
 @end
 
