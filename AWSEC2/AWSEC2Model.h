@@ -1624,6 +1624,11 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeR7G_12xlarge,
     AWSEC2InstanceTypeR7G_16xlarge,
     AWSEC2InstanceTypeR7G_metal,
+    AWSEC2InstanceTypeC6In_metal,
+    AWSEC2InstanceTypeM6In_metal,
+    AWSEC2InstanceTypeM6Idn_metal,
+    AWSEC2InstanceTypeR6In_metal,
+    AWSEC2InstanceTypeR6Idn_metal,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {
@@ -4083,6 +4088,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2GetVpnConnectionDeviceSampleConfigurationResult;
 @class AWSEC2GetVpnConnectionDeviceTypesRequest;
 @class AWSEC2GetVpnConnectionDeviceTypesResult;
+@class AWSEC2GetVpnTunnelReplacementStatusRequest;
+@class AWSEC2GetVpnTunnelReplacementStatusResult;
 @class AWSEC2GpuDeviceInfo;
 @class AWSEC2GpuDeviceMemoryInfo;
 @class AWSEC2GpuInfo;
@@ -4273,6 +4280,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2LocalGatewayRouteTableVpcAssociation;
 @class AWSEC2LocalGatewayVirtualInterface;
 @class AWSEC2LocalGatewayVirtualInterfaceGroup;
+@class AWSEC2MaintenanceDetails;
 @class AWSEC2ManagedPrefixList;
 @class AWSEC2MemoryGiBPerVCpu;
 @class AWSEC2MemoryGiBPerVCpuRequest;
@@ -4547,6 +4555,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ReplaceRouteTableAssociationResult;
 @class AWSEC2ReplaceTransitGatewayRouteRequest;
 @class AWSEC2ReplaceTransitGatewayRouteResult;
+@class AWSEC2ReplaceVpnTunnelRequest;
+@class AWSEC2ReplaceVpnTunnelResult;
 @class AWSEC2ReportInstanceStatusRequest;
 @class AWSEC2RequestFilterPortRange;
 @class AWSEC2RequestIpamResourceTag;
@@ -29359,7 +29369,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The ID of the Capacity Reservation.</p>
+ <p>The ID of the Capacity Reservation. If you specify a Capacity Reservation that is shared with you, the operation returns only Capacity Reservation groups that you own.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable capacityReservationId;
 
@@ -30886,6 +30896,67 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>List of customer gateway devices that have a sample configuration file available for use.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2VpnConnectionDeviceType *> * _Nullable vpnConnectionDeviceTypes;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetVpnTunnelReplacementStatusRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the Site-to-Site VPN connection. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vpnConnectionId;
+
+/**
+ <p>The external IP address of the VPN tunnel.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vpnTunnelOutsideIpAddress;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetVpnTunnelReplacementStatusResult : AWSModel
+
+
+/**
+ <p>The ID of the customer gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable customerGatewayId;
+
+/**
+ <p>Get details of pending tunnel endpoint maintenance.</p>
+ */
+@property (nonatomic, strong) AWSEC2MaintenanceDetails * _Nullable maintenanceDetails;
+
+/**
+ <p>The ID of the transit gateway associated with the VPN connection.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayId;
+
+/**
+ <p>The ID of the Site-to-Site VPN connection. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vpnConnectionId;
+
+/**
+ <p>The ID of the virtual private gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vpnGatewayId;
+
+/**
+ <p>The external IP address of the VPN tunnel.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vpnTunnelOutsideIpAddress;
 
 @end
 
@@ -32609,7 +32680,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2ElasticGpuAssociation *> * _Nullable elasticGpuAssociations;
 
 /**
- <p> The elastic inference accelerator associated with the instance.</p>
+ <p>The elastic inference accelerator associated with the instance.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2ElasticInferenceAcceleratorAssociation *> * _Nullable elasticInferenceAcceleratorAssociations;
 
@@ -37434,6 +37505,29 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Details for Site-to-Site VPN tunnel endpoint maintenance events.</p>
+ */
+@interface AWSEC2MaintenanceDetails : AWSModel
+
+
+/**
+ <p>Timestamp of last applied maintenance.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastMaintenanceApplied;
+
+/**
+ <p>The timestamp after which Amazon Web Services will automatically apply maintenance.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable maintenanceAutoAppliedAfter;
+
+/**
+ <p>Verify existence of a pending maintenance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable pendingMaintenance;
+
+@end
+
+/**
  <p>Describes a managed prefix list.</p>
  */
 @interface AWSEC2ManagedPrefixList : AWSModel
@@ -40827,6 +40921,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
+ <p>Choose whether or not to trigger immediate tunnel replacement.</p><p>Valid values: <code>True</code> | <code>False</code></p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable skipTunnelReplacement;
+
+/**
  <p>The tunnel options to modify.</p>
  */
 @property (nonatomic, strong) AWSEC2ModifyVpnTunnelOptionsSpecification * _Nullable tunnelOptions;
@@ -40871,6 +40970,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The number of seconds after which a DPD timeout occurs.</p><p>Constraints: A value greater than or equal to 30.</p><p>Default: <code>30</code></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable DPDTimeoutSeconds;
+
+/**
+ <p>Turn on or off tunnel endpoint lifecycle control feature.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enableTunnelLifecycleControl;
 
 /**
  <p>The IKE versions that are permitted for the VPN tunnel.</p><p>Valid values: <code>ikev1</code> | <code>ikev2</code></p>
@@ -44818,6 +44922,47 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2ReplaceVpnTunnelRequest : AWSRequest
+
+
+/**
+ <p>Trigger pending tunnel endpoint maintenance.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable applyPendingMaintenance;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the Site-to-Site VPN connection. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vpnConnectionId;
+
+/**
+ <p>The external IP address of the VPN tunnel.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vpnTunnelOutsideIpAddress;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ReplaceVpnTunnelResult : AWSModel
+
+
+/**
+ <p>Confirmation of replace tunnel operation.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable returned;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2ReportInstanceStatusRequest : AWSRequest
 
 
@@ -46923,7 +47068,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2ElasticGpuSpecification *> * _Nullable elasticGpuSpecification;
 
 /**
- <p>An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.</p><p>You cannot specify accelerators from different generations in the same request.</p>
+ <p>An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.</p><p>You cannot specify accelerators from different generations in the same request.</p><note><p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSEC2ElasticInferenceAccelerator *> * _Nullable elasticInferenceAccelerators;
 
@@ -52214,6 +52359,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dpdTimeoutSeconds;
 
 /**
+ <p>Status of tunnel endpoint lifecycle control feature.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enableTunnelLifecycleControl;
+
+/**
  <p>The IKE versions that are permitted for the VPN tunnel.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2IKEVersionsListValue *> * _Nullable ikeVersions;
@@ -54615,6 +54765,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The number of seconds after which a DPD timeout occurs.</p><p>Constraints: A value greater than or equal to 30.</p><p>Default: <code>30</code></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable DPDTimeoutSeconds;
+
+/**
+ <p>Turn on or off tunnel endpoint lifecycle control feature.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enableTunnelLifecycleControl;
 
 /**
  <p>The IKE versions that are permitted for the VPN tunnel.</p><p>Valid values: <code>ikev1</code> | <code>ikev2</code></p>

@@ -1085,6 +1085,8 @@
 - (void) test_AWSEC2GetVpnConnectionDeviceSampleConfigurationResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetVpnConnectionDeviceTypesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetVpnConnectionDeviceTypesResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetVpnTunnelReplacementStatusRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetVpnTunnelReplacementStatusResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GpuDeviceInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GpuDeviceMemoryInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GpuInfo API_AVAILABLE(ios(11));
@@ -1275,6 +1277,7 @@
 - (void) test_AWSEC2LocalGatewayRouteTableVpcAssociation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2LocalGatewayVirtualInterface API_AVAILABLE(ios(11));
 - (void) test_AWSEC2LocalGatewayVirtualInterfaceGroup API_AVAILABLE(ios(11));
+- (void) test_AWSEC2MaintenanceDetails API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ManagedPrefixList API_AVAILABLE(ios(11));
 - (void) test_AWSEC2MemoryGiBPerVCpu API_AVAILABLE(ios(11));
 - (void) test_AWSEC2MemoryGiBPerVCpuRequest API_AVAILABLE(ios(11));
@@ -1549,6 +1552,8 @@
 - (void) test_AWSEC2ReplaceRouteTableAssociationResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ReplaceTransitGatewayRouteRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ReplaceTransitGatewayRouteResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2ReplaceVpnTunnelRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2ReplaceVpnTunnelResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ReportInstanceStatusRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2RequestFilterPortRange API_AVAILABLE(ios(11));
 - (void) test_AWSEC2RequestIpamResourceTag API_AVAILABLE(ios(11));
@@ -6107,6 +6112,14 @@
     [self validateSecureCodingForClass:[AWSEC2GetVpnConnectionDeviceTypesResult class]];
 }
 
+- (void) test_AWSEC2GetVpnTunnelReplacementStatusRequest {
+    [self validateSecureCodingForClass:[AWSEC2GetVpnTunnelReplacementStatusRequest class]];
+}
+
+- (void) test_AWSEC2GetVpnTunnelReplacementStatusResult {
+    [self validateSecureCodingForClass:[AWSEC2GetVpnTunnelReplacementStatusResult class]];
+}
+
 - (void) test_AWSEC2GpuDeviceInfo {
     [self validateSecureCodingForClass:[AWSEC2GpuDeviceInfo class]];
 }
@@ -6865,6 +6878,10 @@
 
 - (void) test_AWSEC2LocalGatewayVirtualInterfaceGroup {
     [self validateSecureCodingForClass:[AWSEC2LocalGatewayVirtualInterfaceGroup class]];
+}
+
+- (void) test_AWSEC2MaintenanceDetails {
+    [self validateSecureCodingForClass:[AWSEC2MaintenanceDetails class]];
 }
 
 - (void) test_AWSEC2ManagedPrefixList {
@@ -7961,6 +7978,14 @@
 
 - (void) test_AWSEC2ReplaceTransitGatewayRouteResult {
     [self validateSecureCodingForClass:[AWSEC2ReplaceTransitGatewayRouteResult class]];
+}
+
+- (void) test_AWSEC2ReplaceVpnTunnelRequest {
+    [self validateSecureCodingForClass:[AWSEC2ReplaceVpnTunnelRequest class]];
+}
+
+- (void) test_AWSEC2ReplaceVpnTunnelResult {
+    [self validateSecureCodingForClass:[AWSEC2ReplaceVpnTunnelResult class]];
 }
 
 - (void) test_AWSEC2ReportInstanceStatusRequest {
