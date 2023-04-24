@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -22,6 +22,8 @@
 - (void) test_AWSChimeSDKIdentityAppInstance API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityAppInstanceAdmin API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityAppInstanceAdminSummary API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKIdentityAppInstanceBot API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKIdentityAppInstanceBotSummary API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityAppInstanceRetentionSettings API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityAppInstanceSummary API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityAppInstanceUser API_AVAILABLE(ios(11));
@@ -29,18 +31,24 @@
 - (void) test_AWSChimeSDKIdentityAppInstanceUserEndpointSummary API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityAppInstanceUserSummary API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityChannelRetentionSettings API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKIdentityConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityCreateAppInstanceAdminRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityCreateAppInstanceAdminResponse API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKIdentityCreateAppInstanceBotRequest API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKIdentityCreateAppInstanceBotResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityCreateAppInstanceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityCreateAppInstanceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityCreateAppInstanceUserRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityCreateAppInstanceUserResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityDeleteAppInstanceAdminRequest API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKIdentityDeleteAppInstanceBotRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityDeleteAppInstanceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityDeleteAppInstanceUserRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityDeregisterAppInstanceUserEndpointRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityDescribeAppInstanceAdminRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityDescribeAppInstanceAdminResponse API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKIdentityDescribeAppInstanceBotRequest API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKIdentityDescribeAppInstanceBotResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityDescribeAppInstanceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityDescribeAppInstanceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityDescribeAppInstanceUserEndpointRequest API_AVAILABLE(ios(11));
@@ -49,11 +57,15 @@
 - (void) test_AWSChimeSDKIdentityDescribeAppInstanceUserResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityEndpointAttributes API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityEndpointState API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKIdentityExpirationSettings API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityGetAppInstanceRetentionSettingsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityGetAppInstanceRetentionSettingsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityIdentity API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKIdentityLexConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityListAppInstanceAdminsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityListAppInstanceAdminsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKIdentityListAppInstanceBotsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKIdentityListAppInstanceBotsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityListAppInstanceUserEndpointsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityListAppInstanceUserEndpointsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityListAppInstanceUsersRequest API_AVAILABLE(ios(11));
@@ -64,11 +76,15 @@
 - (void) test_AWSChimeSDKIdentityListTagsForResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityPutAppInstanceRetentionSettingsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityPutAppInstanceRetentionSettingsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityRegisterAppInstanceUserEndpointRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityRegisterAppInstanceUserEndpointResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityTag API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityTagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityUntagResourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKIdentityUpdateAppInstanceBotRequest API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKIdentityUpdateAppInstanceBotResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityUpdateAppInstanceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityUpdateAppInstanceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityUpdateAppInstanceUserEndpointRequest API_AVAILABLE(ios(11));
@@ -90,6 +106,14 @@
 
 - (void) test_AWSChimeSDKIdentityAppInstanceAdminSummary {
     [self validateSecureCodingForClass:[AWSChimeSDKIdentityAppInstanceAdminSummary class]];
+}
+
+- (void) test_AWSChimeSDKIdentityAppInstanceBot {
+    [self validateSecureCodingForClass:[AWSChimeSDKIdentityAppInstanceBot class]];
+}
+
+- (void) test_AWSChimeSDKIdentityAppInstanceBotSummary {
+    [self validateSecureCodingForClass:[AWSChimeSDKIdentityAppInstanceBotSummary class]];
 }
 
 - (void) test_AWSChimeSDKIdentityAppInstanceRetentionSettings {
@@ -120,12 +144,24 @@
     [self validateSecureCodingForClass:[AWSChimeSDKIdentityChannelRetentionSettings class]];
 }
 
+- (void) test_AWSChimeSDKIdentityConfiguration {
+    [self validateSecureCodingForClass:[AWSChimeSDKIdentityConfiguration class]];
+}
+
 - (void) test_AWSChimeSDKIdentityCreateAppInstanceAdminRequest {
     [self validateSecureCodingForClass:[AWSChimeSDKIdentityCreateAppInstanceAdminRequest class]];
 }
 
 - (void) test_AWSChimeSDKIdentityCreateAppInstanceAdminResponse {
     [self validateSecureCodingForClass:[AWSChimeSDKIdentityCreateAppInstanceAdminResponse class]];
+}
+
+- (void) test_AWSChimeSDKIdentityCreateAppInstanceBotRequest {
+    [self validateSecureCodingForClass:[AWSChimeSDKIdentityCreateAppInstanceBotRequest class]];
+}
+
+- (void) test_AWSChimeSDKIdentityCreateAppInstanceBotResponse {
+    [self validateSecureCodingForClass:[AWSChimeSDKIdentityCreateAppInstanceBotResponse class]];
 }
 
 - (void) test_AWSChimeSDKIdentityCreateAppInstanceRequest {
@@ -148,6 +184,10 @@
     [self validateSecureCodingForClass:[AWSChimeSDKIdentityDeleteAppInstanceAdminRequest class]];
 }
 
+- (void) test_AWSChimeSDKIdentityDeleteAppInstanceBotRequest {
+    [self validateSecureCodingForClass:[AWSChimeSDKIdentityDeleteAppInstanceBotRequest class]];
+}
+
 - (void) test_AWSChimeSDKIdentityDeleteAppInstanceRequest {
     [self validateSecureCodingForClass:[AWSChimeSDKIdentityDeleteAppInstanceRequest class]];
 }
@@ -166,6 +206,14 @@
 
 - (void) test_AWSChimeSDKIdentityDescribeAppInstanceAdminResponse {
     [self validateSecureCodingForClass:[AWSChimeSDKIdentityDescribeAppInstanceAdminResponse class]];
+}
+
+- (void) test_AWSChimeSDKIdentityDescribeAppInstanceBotRequest {
+    [self validateSecureCodingForClass:[AWSChimeSDKIdentityDescribeAppInstanceBotRequest class]];
+}
+
+- (void) test_AWSChimeSDKIdentityDescribeAppInstanceBotResponse {
+    [self validateSecureCodingForClass:[AWSChimeSDKIdentityDescribeAppInstanceBotResponse class]];
 }
 
 - (void) test_AWSChimeSDKIdentityDescribeAppInstanceRequest {
@@ -200,6 +248,10 @@
     [self validateSecureCodingForClass:[AWSChimeSDKIdentityEndpointState class]];
 }
 
+- (void) test_AWSChimeSDKIdentityExpirationSettings {
+    [self validateSecureCodingForClass:[AWSChimeSDKIdentityExpirationSettings class]];
+}
+
 - (void) test_AWSChimeSDKIdentityGetAppInstanceRetentionSettingsRequest {
     [self validateSecureCodingForClass:[AWSChimeSDKIdentityGetAppInstanceRetentionSettingsRequest class]];
 }
@@ -212,12 +264,24 @@
     [self validateSecureCodingForClass:[AWSChimeSDKIdentityIdentity class]];
 }
 
+- (void) test_AWSChimeSDKIdentityLexConfiguration {
+    [self validateSecureCodingForClass:[AWSChimeSDKIdentityLexConfiguration class]];
+}
+
 - (void) test_AWSChimeSDKIdentityListAppInstanceAdminsRequest {
     [self validateSecureCodingForClass:[AWSChimeSDKIdentityListAppInstanceAdminsRequest class]];
 }
 
 - (void) test_AWSChimeSDKIdentityListAppInstanceAdminsResponse {
     [self validateSecureCodingForClass:[AWSChimeSDKIdentityListAppInstanceAdminsResponse class]];
+}
+
+- (void) test_AWSChimeSDKIdentityListAppInstanceBotsRequest {
+    [self validateSecureCodingForClass:[AWSChimeSDKIdentityListAppInstanceBotsRequest class]];
+}
+
+- (void) test_AWSChimeSDKIdentityListAppInstanceBotsResponse {
+    [self validateSecureCodingForClass:[AWSChimeSDKIdentityListAppInstanceBotsResponse class]];
 }
 
 - (void) test_AWSChimeSDKIdentityListAppInstanceUserEndpointsRequest {
@@ -260,6 +324,14 @@
     [self validateSecureCodingForClass:[AWSChimeSDKIdentityPutAppInstanceRetentionSettingsResponse class]];
 }
 
+- (void) test_AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsRequest {
+    [self validateSecureCodingForClass:[AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsRequest class]];
+}
+
+- (void) test_AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsResponse {
+    [self validateSecureCodingForClass:[AWSChimeSDKIdentityPutAppInstanceUserExpirationSettingsResponse class]];
+}
+
 - (void) test_AWSChimeSDKIdentityRegisterAppInstanceUserEndpointRequest {
     [self validateSecureCodingForClass:[AWSChimeSDKIdentityRegisterAppInstanceUserEndpointRequest class]];
 }
@@ -278,6 +350,14 @@
 
 - (void) test_AWSChimeSDKIdentityUntagResourceRequest {
     [self validateSecureCodingForClass:[AWSChimeSDKIdentityUntagResourceRequest class]];
+}
+
+- (void) test_AWSChimeSDKIdentityUpdateAppInstanceBotRequest {
+    [self validateSecureCodingForClass:[AWSChimeSDKIdentityUpdateAppInstanceBotRequest class]];
+}
+
+- (void) test_AWSChimeSDKIdentityUpdateAppInstanceBotResponse {
+    [self validateSecureCodingForClass:[AWSChimeSDKIdentityUpdateAppInstanceBotResponse class]];
 }
 
 - (void) test_AWSChimeSDKIdentityUpdateAppInstanceRequest {

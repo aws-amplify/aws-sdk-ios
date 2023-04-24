@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@
 - (void) test_AWSRekognitionAgeRange API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionAsset API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionAudioMetadata API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionAuditImage API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionBeard API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionBlackFrame API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionBoundingBox API_AVAILABLE(ios(11));
@@ -43,6 +44,9 @@
 - (void) test_AWSRekognitionCreateCollectionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionCreateDatasetRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionCreateDatasetResponse API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionCreateFaceLivenessSessionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionCreateFaceLivenessSessionRequestSettings API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionCreateFaceLivenessSessionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionCreateProjectRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionCreateProjectResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionCreateProjectVersionRequest API_AVAILABLE(ios(11));
@@ -127,6 +131,8 @@
 - (void) test_AWSRekognitionGetContentModerationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetFaceDetectionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetFaceDetectionResponse API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionGetFaceLivenessSessionResultsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionGetFaceLivenessSessionResultsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetFaceSearchRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetFaceSearchResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetLabelDetectionRequest API_AVAILABLE(ios(11));
@@ -170,6 +176,7 @@
 - (void) test_AWSRekognitionListStreamProcessorsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionListTagsForResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionListTagsForResourceResponse API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionLivenessOutputConfig API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionModerationLabel API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionMouthOpen API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionMustache API_AVAILABLE(ios(11));
@@ -278,6 +285,10 @@
     [self validateSecureCodingForClass:[AWSRekognitionAudioMetadata class]];
 }
 
+- (void) test_AWSRekognitionAuditImage {
+    [self validateSecureCodingForClass:[AWSRekognitionAuditImage class]];
+}
+
 - (void) test_AWSRekognitionBeard {
     [self validateSecureCodingForClass:[AWSRekognitionBeard class]];
 }
@@ -360,6 +371,18 @@
 
 - (void) test_AWSRekognitionCreateDatasetResponse {
     [self validateSecureCodingForClass:[AWSRekognitionCreateDatasetResponse class]];
+}
+
+- (void) test_AWSRekognitionCreateFaceLivenessSessionRequest {
+    [self validateSecureCodingForClass:[AWSRekognitionCreateFaceLivenessSessionRequest class]];
+}
+
+- (void) test_AWSRekognitionCreateFaceLivenessSessionRequestSettings {
+    [self validateSecureCodingForClass:[AWSRekognitionCreateFaceLivenessSessionRequestSettings class]];
+}
+
+- (void) test_AWSRekognitionCreateFaceLivenessSessionResponse {
+    [self validateSecureCodingForClass:[AWSRekognitionCreateFaceLivenessSessionResponse class]];
 }
 
 - (void) test_AWSRekognitionCreateProjectRequest {
@@ -698,6 +721,14 @@
     [self validateSecureCodingForClass:[AWSRekognitionGetFaceDetectionResponse class]];
 }
 
+- (void) test_AWSRekognitionGetFaceLivenessSessionResultsRequest {
+    [self validateSecureCodingForClass:[AWSRekognitionGetFaceLivenessSessionResultsRequest class]];
+}
+
+- (void) test_AWSRekognitionGetFaceLivenessSessionResultsResponse {
+    [self validateSecureCodingForClass:[AWSRekognitionGetFaceLivenessSessionResultsResponse class]];
+}
+
 - (void) test_AWSRekognitionGetFaceSearchRequest {
     [self validateSecureCodingForClass:[AWSRekognitionGetFaceSearchRequest class]];
 }
@@ -868,6 +899,10 @@
 
 - (void) test_AWSRekognitionListTagsForResourceResponse {
     [self validateSecureCodingForClass:[AWSRekognitionListTagsForResourceResponse class]];
+}
+
+- (void) test_AWSRekognitionLivenessOutputConfig {
+    [self validateSecureCodingForClass:[AWSRekognitionLivenessOutputConfig class]];
 }
 
 - (void) test_AWSRekognitionModerationLabel {

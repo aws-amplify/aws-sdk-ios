@@ -228,4 +228,6 @@
 
 + (void)setKeyChainAccessibility:(AWSIoTKeyChainAccessibility)accessibility;
 
++ (NSString *)certTagWithCertificateId:(NSString *)certificateId;
+
 @end

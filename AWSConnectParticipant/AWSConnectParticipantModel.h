@@ -188,7 +188,7 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 
 
 /**
- <p>Amazon Connect Participant is used to mark the participant as connected for message streaming.</p>
+ <p>Amazon Connect Participant is used to mark the participant as connected for customer participant in message streaming, as well as for agent or manager participant in non-streaming chats.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable connectParticipant;
 
@@ -522,12 +522,12 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 @property (nonatomic, strong) NSString * _Nullable connectionToken;
 
 /**
- <p>The content of the message. </p><ul><li><p>For <code>text/plain</code> and <code>text/markdown</code>, the Length Constraints are Minimum of 1, Maximum of 1024. </p></li><li><p>For <code>application/json</code>, the Length Constraints are Minimum of 1, Maximum of 12000. </p></li></ul>
+ <p>The content of the message. </p><ul><li><p>For <code>text/plain</code> and <code>text/markdown</code>, the Length Constraints are Minimum of 1, Maximum of 1024. </p></li><li><p>For <code>application/json</code>, the Length Constraints are Minimum of 1, Maximum of 12000. </p></li><li><p>For <code>application/vnd.amazonaws.connect.message.interactive.response</code>, the Length Constraints are Minimum of 1, Maximum of 12288.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable content;
 
 /**
- <p>The type of the content. Supported types are <code>text/plain</code>, <code>text/markdown</code>, and <code>application/json</code>.</p>
+ <p>The type of the content. Supported types are <code>text/plain</code>, <code>text/markdown</code>, <code>application/json</code>, and <code>application/vnd.amazonaws.connect.message.interactive.response</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
 
