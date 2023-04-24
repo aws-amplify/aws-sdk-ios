@@ -260,13 +260,13 @@ commands:
 
             if [ -n "$CIRCLE_TAG" ]; then
               echo 'Fetch tag'
-              git fetch --depth 1 --force origin "+refs/tags/${CIRCLE_TAG}:refs/tags/${CIRCLE_TAG}"
+              git fetch --depth 10 --force origin "+refs/tags/${CIRCLE_TAG}:refs/tags/${CIRCLE_TAG}"
             elif [[ $(echo $CIRCLE_PULL_REQUEST | grep -E "${CIRCLE_BRANCH}$") ]]; then
               echo 'Fetch pull request'
-              git fetch --depth 1 --force origin "$CIRCLE_BRANCH/head:remotes/origin/$CIRCLE_BRANCH"
+              git fetch --depth 10 --force origin "$CIRCLE_BRANCH/head:remotes/origin/$CIRCLE_BRANCH"
             else
               echo 'Fetch branch'
-              git fetch --depth 1 --force origin "$CIRCLE_BRANCH:remotes/origin/$CIRCLE_BRANCH"
+              git fetch --depth 10 --force origin "$CIRCLE_BRANCH:remotes/origin/$CIRCLE_BRANCH"
             fi
 
             echo "Checking out the CI HEAD"
