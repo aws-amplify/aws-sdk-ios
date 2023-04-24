@@ -65,7 +65,7 @@
     \"serviceFullName\":\"AWS IoT\",\
     \"serviceId\":\"IoT\",\
     \"signatureVersion\":\"v4\",\
-    \"signingName\":\"execute-api\",\
+    \"signingName\":\"iot\",\
     \"uid\":\"iot-2015-05-28\"\
   },\
   \"operations\":{\
@@ -15056,7 +15056,6 @@
     \"OTAUpdateFiles\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"OTAUpdateFile\"},\
-      \"max\":50,\
       \"min\":1\
     },\
     \"OTAUpdateId\":{\
@@ -15141,7 +15140,9 @@
         \"CREATE_PENDING\",\
         \"CREATE_IN_PROGRESS\",\
         \"CREATE_COMPLETE\",\
-        \"CREATE_FAILED\"\
+        \"CREATE_FAILED\",\
+        \"DELETE_IN_PROGRESS\",\
+        \"DELETE_FAILED\"\
       ]\
     },\
     \"OTAUpdateSummary\":{\
