@@ -10608,6 +10608,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2GetVpnTunnelReplacementStatusResult *> *)getVpnTunnelReplacementStatus:(AWSEC2GetVpnTunnelReplacementStatusRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetVpnTunnelReplacementStatus"
+                   outputClass:[AWSEC2GetVpnTunnelReplacementStatusResult class]];
+}
+
+- (void)getVpnTunnelReplacementStatus:(AWSEC2GetVpnTunnelReplacementStatusRequest *)request
+     completionHandler:(void (^)(AWSEC2GetVpnTunnelReplacementStatusResult *response, NSError *error))completionHandler {
+    [[self getVpnTunnelReplacementStatus:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetVpnTunnelReplacementStatusResult *> * _Nonnull task) {
+        AWSEC2GetVpnTunnelReplacementStatusResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2ImportClientVpnClientCertificateRevocationListResult *> *)importClientVpnClientCertificateRevocationList:(AWSEC2ImportClientVpnClientCertificateRevocationListRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -12885,6 +12908,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2ReplaceTransitGatewayRouteResult *response, NSError *error))completionHandler {
     [[self replaceTransitGatewayRoute:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ReplaceTransitGatewayRouteResult *> * _Nonnull task) {
         AWSEC2ReplaceTransitGatewayRouteResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2ReplaceVpnTunnelResult *> *)replaceVpnTunnel:(AWSEC2ReplaceVpnTunnelRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ReplaceVpnTunnel"
+                   outputClass:[AWSEC2ReplaceVpnTunnelResult class]];
+}
+
+- (void)replaceVpnTunnel:(AWSEC2ReplaceVpnTunnelRequest *)request
+     completionHandler:(void (^)(AWSEC2ReplaceVpnTunnelResult *response, NSError *error))completionHandler {
+    [[self replaceVpnTunnel:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ReplaceVpnTunnelResult *> * _Nonnull task) {
+        AWSEC2ReplaceVpnTunnelResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

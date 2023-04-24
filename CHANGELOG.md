@@ -1,17 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
-  - AWSChimeSDKIdentity
-  - AWSChimeSDKMessaging
-  - AWSComprehend  
-  - AWSEC2  
-  - AWSSageMakerRuntime
-  - AWSTextract
-  
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -26,6 +12,12 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSIoT
   - AWSLocation
   - AWSTranscribe
+  - AWSChimeSDKIdentity
+  - AWSChimeSDKMessaging
+  - AWSSageMakerRuntime
+  - AWSTextract
+  - AWSConnectParticipant
+  - AWSIoTDataPlane
 
 ## 2.30.4
 

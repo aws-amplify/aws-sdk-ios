@@ -475,6 +475,8 @@ typedef NS_ENUM(NSInteger, AWSIoTOTAUpdateStatus) {
     AWSIoTOTAUpdateStatusCreateInProgress,
     AWSIoTOTAUpdateStatusCreateComplete,
     AWSIoTOTAUpdateStatusCreateFailed,
+    AWSIoTOTAUpdateStatusDeleteInProgress,
+    AWSIoTOTAUpdateStatusDeleteFailed,
 };
 
 typedef NS_ENUM(NSInteger, AWSIoTPolicyTemplateName) {
@@ -1173,6 +1175,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTTimestreamAction;
 @class AWSIoTTimestreamDimension;
 @class AWSIoTTimestreamTimestamp;
+@class AWSIoTTlsConfig;
 @class AWSIoTTlsContext;
 @class AWSIoTTopicRule;
 @class AWSIoTTopicRuleDestination;
@@ -3526,6 +3529,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>Metadata which can be used to manage the domain configuration.</p><note><p>For URI Request parameters use format: ...key1=value1&amp;key2=value2...</p><p>For the CLI command-line parameter use format: &amp;&amp;tags "key1=value1&amp;key2=value2..."</p><p>For the cli-input-json file use format: "tags": "key1=value1&amp;key2=value2..."</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSIoTTag *> * _Nullable tags;
+
+/**
+ <p>An object that specifies the TLS configuration for a domain.</p>
+ */
+@property (nonatomic, strong) AWSIoTTlsConfig * _Nullable tlsConfig;
 
 /**
  <p>The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.</p>
@@ -6092,6 +6100,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The type of service delivered by the endpoint.</p>
  */
 @property (nonatomic, assign) AWSIoTServiceType serviceType;
+
+/**
+ <p>An object that specifies the TLS configuration for a domain.</p>
+ */
+@property (nonatomic, strong) AWSIoTTlsConfig * _Nullable tlsConfig;
 
 @end
 
@@ -14729,6 +14742,19 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
+ <p>An object that specifies the TLS configuration for a domain.</p>
+ */
+@interface AWSIoTTlsConfig : AWSModel
+
+
+/**
+ <p>The security policy for a domain configuration. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html#tls-policy-table">Security policies </a> in the <i>Amazon Web Services IoT Core developer guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable securityPolicy;
+
+@end
+
+/**
  <p>Specifies the TLS context to use for the test authorizer request.</p>
  */
 @interface AWSIoTTlsContext : AWSModel
@@ -15443,6 +15469,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>Removes the authorization configuration from a domain.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable removeAuthorizerConfig;
+
+/**
+ <p>An object that specifies the TLS configuration for a domain.</p>
+ */
+@property (nonatomic, strong) AWSIoTTlsConfig * _Nullable tlsConfig;
 
 @end
 
