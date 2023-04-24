@@ -3279,6 +3279,12 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
         if ([value caseInsensitiveCompare:@"CREATE_FAILED"] == NSOrderedSame) {
             return @(AWSIoTOTAUpdateStatusCreateFailed);
         }
+        if ([value caseInsensitiveCompare:@"DELETE_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSIoTOTAUpdateStatusDeleteInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"DELETE_FAILED"] == NSOrderedSame) {
+            return @(AWSIoTOTAUpdateStatusDeleteFailed);
+        }
         return @(AWSIoTOTAUpdateStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3290,6 +3296,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return @"CREATE_COMPLETE";
             case AWSIoTOTAUpdateStatusCreateFailed:
                 return @"CREATE_FAILED";
+            case AWSIoTOTAUpdateStatusDeleteInProgress:
+                return @"DELETE_IN_PROGRESS";
+            case AWSIoTOTAUpdateStatusDeleteFailed:
+                return @"DELETE_FAILED";
             default:
                 return nil;
         }
@@ -10363,6 +10373,12 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
         if ([value caseInsensitiveCompare:@"CREATE_FAILED"] == NSOrderedSame) {
             return @(AWSIoTOTAUpdateStatusCreateFailed);
         }
+        if ([value caseInsensitiveCompare:@"DELETE_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSIoTOTAUpdateStatusDeleteInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"DELETE_FAILED"] == NSOrderedSame) {
+            return @(AWSIoTOTAUpdateStatusDeleteFailed);
+        }
         return @(AWSIoTOTAUpdateStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -10374,6 +10390,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return @"CREATE_COMPLETE";
             case AWSIoTOTAUpdateStatusCreateFailed:
                 return @"CREATE_FAILED";
+            case AWSIoTOTAUpdateStatusDeleteInProgress:
+                return @"DELETE_IN_PROGRESS";
+            case AWSIoTOTAUpdateStatusDeleteFailed:
+                return @"DELETE_FAILED";
             default:
                 return nil;
         }
@@ -12286,6 +12306,12 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
         if ([value caseInsensitiveCompare:@"CREATE_FAILED"] == NSOrderedSame) {
             return @(AWSIoTOTAUpdateStatusCreateFailed);
         }
+        if ([value caseInsensitiveCompare:@"DELETE_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSIoTOTAUpdateStatusDeleteInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"DELETE_FAILED"] == NSOrderedSame) {
+            return @(AWSIoTOTAUpdateStatusDeleteFailed);
+        }
         return @(AWSIoTOTAUpdateStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -12297,6 +12323,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return @"CREATE_COMPLETE";
             case AWSIoTOTAUpdateStatusCreateFailed:
                 return @"CREATE_FAILED";
+            case AWSIoTOTAUpdateStatusDeleteInProgress:
+                return @"DELETE_IN_PROGRESS";
+            case AWSIoTOTAUpdateStatusDeleteFailed:
+                return @"DELETE_FAILED";
             default:
                 return nil;
         }
