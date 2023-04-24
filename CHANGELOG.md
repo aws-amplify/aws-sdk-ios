@@ -1,12 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSEC2
----AWSRekognition
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -14,15 +5,19 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ### Misc. Updates
 
 - Model updates for the following services
+  - AWSAutoScaling
   - AWSComprehend
   - AWSConnect
   - AWSDynamoDB
   - AWSEC2  
   - AWSIoT
+  - AWSLambda
   - AWSLocation
   - AWSTranscribe
   - AWSChimeSDKIdentity
   - AWSChimeSDKMessaging
+  - AWSKinesisVideoWebRTCStorage
+  - AWSRekognition
   - AWSSageMakerRuntime
   - AWSTextract
   - AWSConnectParticipant
