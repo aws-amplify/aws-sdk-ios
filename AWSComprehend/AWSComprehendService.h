@@ -400,7 +400,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)createDataset:(AWSComprehendCreateDatasetRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendCreateDatasetResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a new document classifier that you can use to categorize documents. To create a classifier, you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html">Document Classification</a> in the Comprehend Developer Guide. </p>
+ <p>Creates a new document classifier that you can use to categorize documents. To create a classifier, you provide a set of training documents that are labeled with the categories that you want to use. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/training-classifier-model.html">Training classifier models</a> in the Comprehend Developer Guide. </p>
  
  @param request A container for the necessary parameters to execute the CreateDocumentClassifier service method.
 
@@ -412,7 +412,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (AWSTask<AWSComprehendCreateDocumentClassifierResponse *> *)createDocumentClassifier:(AWSComprehendCreateDocumentClassifierRequest *)request;
 
 /**
- <p>Creates a new document classifier that you can use to categorize documents. To create a classifier, you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html">Document Classification</a> in the Comprehend Developer Guide. </p>
+ <p>Creates a new document classifier that you can use to categorize documents. To create a classifier, you provide a set of training documents that are labeled with the categories that you want to use. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/training-classifier-model.html">Training classifier models</a> in the Comprehend Developer Guide. </p>
  
  @param request A container for the necessary parameters to execute the CreateDocumentClassifier service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1704,7 +1704,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  
  @param request A container for the necessary parameters to execute the StartDocumentClassificationJob service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStartDocumentClassificationJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorResourceUnavailable`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStartDocumentClassificationJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorResourceUnavailable`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendStartDocumentClassificationJobRequest
  @see AWSComprehendStartDocumentClassificationJobResponse
@@ -1717,7 +1717,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @param request A container for the necessary parameters to execute the StartDocumentClassificationJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorResourceUnavailable`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorResourceUnavailable`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendStartDocumentClassificationJobRequest
  @see AWSComprehendStartDocumentClassificationJobResponse
@@ -1729,7 +1729,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  
  @param request A container for the necessary parameters to execute the StartDominantLanguageDetectionJob service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStartDominantLanguageDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStartDominantLanguageDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendStartDominantLanguageDetectionJobRequest
  @see AWSComprehendStartDominantLanguageDetectionJobResponse
@@ -1742,7 +1742,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @param request A container for the necessary parameters to execute the StartDominantLanguageDetectionJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendStartDominantLanguageDetectionJobRequest
  @see AWSComprehendStartDominantLanguageDetectionJobResponse
@@ -1754,7 +1754,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  
  @param request A container for the necessary parameters to execute the StartEntitiesDetectionJob service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStartEntitiesDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorResourceUnavailable`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStartEntitiesDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorResourceUnavailable`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendStartEntitiesDetectionJobRequest
  @see AWSComprehendStartEntitiesDetectionJobResponse
@@ -1767,7 +1767,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @param request A container for the necessary parameters to execute the StartEntitiesDetectionJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorResourceUnavailable`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorResourceUnavailable`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendStartEntitiesDetectionJobRequest
  @see AWSComprehendStartEntitiesDetectionJobResponse
@@ -1779,7 +1779,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  
  @param request A container for the necessary parameters to execute the StartEventsDetectionJob service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStartEventsDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStartEventsDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendStartEventsDetectionJobRequest
  @see AWSComprehendStartEventsDetectionJobResponse
@@ -1792,7 +1792,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @param request A container for the necessary parameters to execute the StartEventsDetectionJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendStartEventsDetectionJobRequest
  @see AWSComprehendStartEventsDetectionJobResponse
@@ -1829,7 +1829,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  
  @param request A container for the necessary parameters to execute the StartKeyPhrasesDetectionJob service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStartKeyPhrasesDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStartKeyPhrasesDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendStartKeyPhrasesDetectionJobRequest
  @see AWSComprehendStartKeyPhrasesDetectionJobResponse
@@ -1842,7 +1842,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @param request A container for the necessary parameters to execute the StartKeyPhrasesDetectionJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendStartKeyPhrasesDetectionJobRequest
  @see AWSComprehendStartKeyPhrasesDetectionJobResponse
@@ -1854,7 +1854,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  
  @param request A container for the necessary parameters to execute the StartPiiEntitiesDetectionJob service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStartPiiEntitiesDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStartPiiEntitiesDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendStartPiiEntitiesDetectionJobRequest
  @see AWSComprehendStartPiiEntitiesDetectionJobResponse
@@ -1867,7 +1867,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @param request A container for the necessary parameters to execute the StartPiiEntitiesDetectionJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendStartPiiEntitiesDetectionJobRequest
  @see AWSComprehendStartPiiEntitiesDetectionJobResponse
@@ -1879,7 +1879,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  
  @param request A container for the necessary parameters to execute the StartSentimentDetectionJob service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStartSentimentDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStartSentimentDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendStartSentimentDetectionJobRequest
  @see AWSComprehendStartSentimentDetectionJobResponse
@@ -1892,7 +1892,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @param request A container for the necessary parameters to execute the StartSentimentDetectionJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendStartSentimentDetectionJobRequest
  @see AWSComprehendStartSentimentDetectionJobResponse
@@ -1904,7 +1904,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  
  @param request A container for the necessary parameters to execute the StartTargetedSentimentDetectionJob service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStartTargetedSentimentDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStartTargetedSentimentDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendStartTargetedSentimentDetectionJobRequest
  @see AWSComprehendStartTargetedSentimentDetectionJobResponse
@@ -1917,7 +1917,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @param request A container for the necessary parameters to execute the StartTargetedSentimentDetectionJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendStartTargetedSentimentDetectionJobRequest
  @see AWSComprehendStartTargetedSentimentDetectionJobResponse
@@ -1929,7 +1929,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  
  @param request A container for the necessary parameters to execute the StartTopicsDetectionJob service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStartTopicsDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStartTopicsDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendStartTopicsDetectionJobRequest
  @see AWSComprehendStartTopicsDetectionJobResponse
@@ -1942,7 +1942,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @param request A container for the necessary parameters to execute the StartTopicsDetectionJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendStartTopicsDetectionJobRequest
  @see AWSComprehendStartTopicsDetectionJobResponse
