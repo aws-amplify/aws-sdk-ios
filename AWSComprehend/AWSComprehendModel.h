@@ -78,6 +78,12 @@ typedef NS_ENUM(NSInteger, AWSComprehendDocumentClassifierDataFormat) {
     AWSComprehendDocumentClassifierDataFormatAugmentedManifest,
 };
 
+typedef NS_ENUM(NSInteger, AWSComprehendDocumentClassifierDocumentTypeFormat) {
+    AWSComprehendDocumentClassifierDocumentTypeFormatUnknown,
+    AWSComprehendDocumentClassifierDocumentTypeFormatPlainTextDocument,
+    AWSComprehendDocumentClassifierDocumentTypeFormatSemiStructuredDocument,
+};
+
 typedef NS_ENUM(NSInteger, AWSComprehendDocumentClassifierMode) {
     AWSComprehendDocumentClassifierModeUnknown,
     AWSComprehendDocumentClassifierModeMultiClass,
@@ -230,6 +236,12 @@ typedef NS_ENUM(NSInteger, AWSComprehendPageBasedErrorCode) {
     AWSComprehendPageBasedErrorCodePageCharactersExceeded,
     AWSComprehendPageBasedErrorCodePageSizeExceeded,
     AWSComprehendPageBasedErrorCodeInternalServerError,
+};
+
+typedef NS_ENUM(NSInteger, AWSComprehendPageBasedWarningCode) {
+    AWSComprehendPageBasedWarningCodeUnknown,
+    AWSComprehendPageBasedWarningCodeInferencingPlaintextWithNativeTrainedModel,
+    AWSComprehendPageBasedWarningCodeInferencingNativeDocumentWithPlaintextTrainedModel,
 };
 
 typedef NS_ENUM(NSInteger, AWSComprehendPartOfSpeechTagType) {
@@ -467,6 +479,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @class AWSComprehendDocumentClassificationConfig;
 @class AWSComprehendDocumentClassificationJobFilter;
 @class AWSComprehendDocumentClassificationJobProperties;
+@class AWSComprehendDocumentClassifierDocuments;
 @class AWSComprehendDocumentClassifierFilter;
 @class AWSComprehendDocumentClassifierInputDataConfig;
 @class AWSComprehendDocumentClassifierOutputDataConfig;
@@ -625,6 +638,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @class AWSComprehendUpdateFlywheelRequest;
 @class AWSComprehendUpdateFlywheelResponse;
 @class AWSComprehendVpcConfig;
+@class AWSComprehendWarningsListItem;
 
 /**
  <p>An augmented manifest file that provides training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.</p>
@@ -1264,6 +1278,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
  */
 @property (nonatomic, strong) NSArray<AWSComprehendDocumentLabel *> * _Nullable labels;
 
+/**
+ <p>Warnings detected while processing the input document. The response includes a warning if there is a mismatch between the input document type and the model type associated with the endpoint that you specified. The response can also include warnings for individual pages that have a mismatch. </p><p>The field is empty if the system generated no warnings.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendWarningsListItem *> * _Nullable warnings;
+
 @end
 
 /**
@@ -1400,7 +1419,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @property (nonatomic, strong) NSString * _Nullable modelPolicy;
 
 /**
- <p>Enables the addition of output results configuration parameters for custom classifier jobs.</p>
+ <p>Specifies the location for the output files from a custom classifier job. This parameter is required for a request that creates a native classifier model.</p>
  */
 @property (nonatomic, strong) AWSComprehendDocumentClassifierOutputDataConfig * _Nullable outputDataConfig;
 
@@ -2860,6 +2879,25 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @end
 
 /**
+ <p>The location of the training documents. This parameter is required in a request to create a native classifier model.</p>
+ Required parameters: [S3Uri]
+ */
+@interface AWSComprehendDocumentClassifierDocuments : AWSModel
+
+
+/**
+ <p>The S3 URI location of the training documents specified in the S3Uri CSV file.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Uri;
+
+/**
+ <p>The S3 URI location of the test documents included in the TestS3Uri CSV file. This field is not required if you do not specify a test CSV file.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable testS3Uri;
+
+@end
+
+/**
  <p>Provides information for filtering a list of document classifiers. You can only specify one filtering parameter in a request. For more information, see the <code>ListDocumentClassifiers</code> operation.</p>
  */
 @interface AWSComprehendDocumentClassifierFilter : AWSModel
@@ -2904,6 +2942,21 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @property (nonatomic, assign) AWSComprehendDocumentClassifierDataFormat dataFormat;
 
 /**
+ <p>Provides configuration parameters to override the default actions for extracting text from PDF documents and image files. </p><p> By default, Amazon Comprehend performs the following actions to extract text from files, based on the input file type: </p><ul><li><p><b>Word files</b> - Amazon Comprehend parser extracts the text. </p></li><li><p><b>Digital PDF files</b> - Amazon Comprehend parser extracts the text. </p></li><li><p><b>Image files and scanned PDF files</b> - Amazon Comprehend uses the Amazon Textract <code>DetectDocumentText</code> API to extract the text. </p></li></ul><p><code>DocumentReaderConfig</code> does not apply to plain text files or Word files.</p><p> For image files and PDF documents, you can override these default actions using the fields listed below. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-set-textract-options.html"> Setting text extraction options</a> in the Comprehend Developer Guide. </p>
+ */
+@property (nonatomic, strong) AWSComprehendDocumentReaderConfig * _Nullable documentReaderConfig;
+
+/**
+ <p>The type of input documents for training the model. Provide plain-text documents to create a plain-text model, and provide semi-structured documents to create a native model.</p>
+ */
+@property (nonatomic, assign) AWSComprehendDocumentClassifierDocumentTypeFormat documentType;
+
+/**
+ <p>The S3 location of the training documents. This parameter is required in a request to create a native classifier model.</p>
+ */
+@property (nonatomic, strong) AWSComprehendDocumentClassifierDocuments * _Nullable documents;
+
+/**
  <p>Indicates the delimiter used to separate each label for training a multi-label classifier. The default delimiter between labels is a pipe (|). You can use a different character as a delimiter (if it's an allowed character) by specifying it under Delimiter for labels. If the training documents use a delimiter other than the default or the delimiter you specify, the labels on that line will be combined to make a single unique label, such as LABELLABELLABEL.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable labelDelimiter;
@@ -2921,7 +2974,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @end
 
 /**
- <p>Provides output results configuration parameters for custom classifier jobs. </p>
+ <p>Provide the location for output data from a custom classifier job. This field is mandatory if you are training a native classifier model.</p>
  */
 @interface AWSComprehendDocumentClassifierOutputDataConfig : AWSModel
 
@@ -2937,7 +2990,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
- <p>When you use the <code>OutputDataConfig</code> object while creating a custom classifier, you specify the Amazon S3 location where you want to write the confusion matrix. The URI must be in the same Region as the API endpoint that you are calling. The location is used as the prefix for the actual location of this output file.</p><p>When the custom classifier job is finished, the service creates the output file in a directory specific to the job. The <code>S3Uri</code> field contains the location of the output file, called <code>output.tar.gz</code>. It is a compressed archive that contains the confusion matrix.</p>
+ <p>When you use the <code>OutputDataConfig</code> object while creating a custom classifier, you specify the Amazon S3 location where you want to write the confusion matrix and other output files. The URI must be in the same Region as the API endpoint that you are calling. The location is used as the prefix for the actual location of this output file.</p><p>When the custom classifier job is finished, the service creates the output file in a directory specific to the job. The <code>S3Uri</code> field contains the location of the output file, called <code>output.tar.gz</code>. It is a compressed archive that contains the confusion matrix.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable s3Uri;
 
@@ -3010,7 +3063,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @property (nonatomic, strong) NSString * _Nullable sourceModelArn;
 
 /**
- <p>The status of the document classifier. If the status is <code>TRAINED</code> the classifier is ready to use. If the status is <code>FAILED</code> you can see additional information about why the classifier wasn't trained in the <code>Message</code> field.</p>
+ <p>The status of the document classifier. If the status is <code>TRAINED</code> the classifier is ready to use. If the status is <code>TRAINED_WITH_WARNINGS</code> the classifier training succeeded, but you should review the warnings returned in the <code>CreateDocumentClassifier</code> response.</p><p> If the status is <code>FAILED</code> you can see additional information about why the classifier wasn't trained in the <code>Message</code> field.</p>
  */
 @property (nonatomic, assign) AWSComprehendModelStatus status;
 
@@ -3121,7 +3174,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @end
 
 /**
- <p>Provides configuration parameters to override the default actions for extracting text from PDF documents and image files. </p><p> By default, Amazon Comprehend performs the following actions to extract text from files, based on the input file type: </p><ul><li><p><b>Word files</b> - Amazon Comprehend parser extracts the text. </p></li><li><p><b>Digital PDF files</b> - Amazon Comprehend parser extracts the text. </p></li><li><p><b>Image files and scanned PDF files</b> - Amazon Comprehend uses the Amazon Textract <code>DetectDocumentText</code> API to extract the text. </p></li></ul><p><code>DocumentReaderConfig</code> does not apply to plain text files or Word files.</p><p> For image files and PDF documents, you can override these default actions using the fields listed below. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/detecting-cer.html#detecting-cer-pdf"> Setting text extraction options</a>. </p>
+ <p>Provides configuration parameters to override the default actions for extracting text from PDF documents and image files. </p><p> By default, Amazon Comprehend performs the following actions to extract text from files, based on the input file type: </p><ul><li><p><b>Word files</b> - Amazon Comprehend parser extracts the text. </p></li><li><p><b>Digital PDF files</b> - Amazon Comprehend parser extracts the text. </p></li><li><p><b>Image files and scanned PDF files</b> - Amazon Comprehend uses the Amazon Textract <code>DetectDocumentText</code> API to extract the text. </p></li></ul><p><code>DocumentReaderConfig</code> does not apply to plain text files or Word files.</p><p> For image files and PDF documents, you can override these default actions using the fields listed below. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-set-textract-options.html"> Setting text extraction options</a> in the Comprehend Developer Guide. </p>
  Required parameters: [DocumentReadAction]
  */
 @interface AWSComprehendDocumentReaderConfig : AWSModel
@@ -7223,6 +7276,29 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
  <p>The ID for each subnet being used in your private VPC. This subnet is a subset of the a range of IPv4 addresses used by the VPC and is specific to a given availability zone in the VPC’s Region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055". For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">VPCs and Subnets</a>. </p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable subnets;
+
+@end
+
+/**
+ <p>The system identified one of the following warnings while processing the input document:</p><ul><li><p>The document to classify is plain text, but the classifier is a native model.</p></li><li><p>The document to classify is semi-structured, but the classifier is a plain-text model.</p></li></ul>
+ */
+@interface AWSComprehendWarningsListItem : AWSModel
+
+
+/**
+ <p>Page number in the input document.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable page;
+
+/**
+ <p>The type of warning.</p>
+ */
+@property (nonatomic, assign) AWSComprehendPageBasedWarningCode warnCode;
+
+/**
+ <p>Text message associated with the warning.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable warnMessage;
 
 @end
 
