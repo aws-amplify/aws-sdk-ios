@@ -602,6 +602,7 @@
 - (void) test_AWSIoTTimestreamAction API_AVAILABLE(ios(11));
 - (void) test_AWSIoTTimestreamDimension API_AVAILABLE(ios(11));
 - (void) test_AWSIoTTimestreamTimestamp API_AVAILABLE(ios(11));
+- (void) test_AWSIoTTlsConfig API_AVAILABLE(ios(11));
 - (void) test_AWSIoTTlsContext API_AVAILABLE(ios(11));
 - (void) test_AWSIoTTopicRule API_AVAILABLE(ios(11));
 - (void) test_AWSIoTTopicRuleDestination API_AVAILABLE(ios(11));
@@ -3005,6 +3006,10 @@
 
 - (void) test_AWSIoTTimestreamTimestamp {
     [self validateSecureCodingForClass:[AWSIoTTimestreamTimestamp class]];
+}
+
+- (void) test_AWSIoTTlsConfig {
+    [self validateSecureCodingForClass:[AWSIoTTlsConfig class]];
 }
 
 - (void) test_AWSIoTTlsContext {

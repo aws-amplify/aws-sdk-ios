@@ -203,6 +203,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionLivenessSessionStatus) {
     AWSRekognitionLivenessSessionStatusInProgress,
     AWSRekognitionLivenessSessionStatusSucceeded,
     AWSRekognitionLivenessSessionStatusFailed,
+    AWSRekognitionLivenessSessionStatusExpired,
 };
 
 typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
@@ -4124,7 +4125,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable s3Bucket;
 
 /**
- <p>The prefix appended to the output files for the Face Liveness session results.</p>
+ <p>The prefix prepended to the output files for the Face Liveness session results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable s3KeyPrefix;
 

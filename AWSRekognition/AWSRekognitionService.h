@@ -275,7 +275,7 @@ FOUNDATION_EXPORT NSString *const AWSRekognitionSDKVersion;
 - (void)createDataset:(AWSRekognitionCreateDatasetRequest *)request completionHandler:(void (^ _Nullable)(AWSRekognitionCreateDatasetResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>This API operation initiates a Face Liveness session. It returns a <code>SessionId</code>, which you can use to start streaming Face Liveness video and get the results for a Face Liveness session. You can use the <code>OutputConfig</code> option in the Settings parameter to provide an Amazon S3 bucket location. The Amazon S3 bucket stores reference images and audit images. You can use <code>AuditImagesLimit</code> to limit of audit images returned. This number is between 0 and 4. By default, it is set to 0. The limit is best effort and based on the duration of the selfie-video. </p>
+ <p>This API operation initiates a Face Liveness session. It returns a <code>SessionId</code>, which you can use to start streaming Face Liveness video and get the results for a Face Liveness session. You can use the <code>OutputConfig</code> option in the Settings parameter to provide an Amazon S3 bucket location. The Amazon S3 bucket stores reference images and audit images. You can use <code>AuditImagesLimit</code> to limit the number of audit images returned. This number is between 0 and 4. By default, it is set to 0. The limit is best effort and based on the duration of the selfie-video. </p>
  
  @param request A container for the necessary parameters to execute the CreateFaceLivenessSession service method.
 
@@ -287,7 +287,7 @@ FOUNDATION_EXPORT NSString *const AWSRekognitionSDKVersion;
 - (AWSTask<AWSRekognitionCreateFaceLivenessSessionResponse *> *)createFaceLivenessSession:(AWSRekognitionCreateFaceLivenessSessionRequest *)request;
 
 /**
- <p>This API operation initiates a Face Liveness session. It returns a <code>SessionId</code>, which you can use to start streaming Face Liveness video and get the results for a Face Liveness session. You can use the <code>OutputConfig</code> option in the Settings parameter to provide an Amazon S3 bucket location. The Amazon S3 bucket stores reference images and audit images. You can use <code>AuditImagesLimit</code> to limit of audit images returned. This number is between 0 and 4. By default, it is set to 0. The limit is best effort and based on the duration of the selfie-video. </p>
+ <p>This API operation initiates a Face Liveness session. It returns a <code>SessionId</code>, which you can use to start streaming Face Liveness video and get the results for a Face Liveness session. You can use the <code>OutputConfig</code> option in the Settings parameter to provide an Amazon S3 bucket location. The Amazon S3 bucket stores reference images and audit images. You can use <code>AuditImagesLimit</code> to limit the number of audit images returned. This number is between 0 and 4. By default, it is set to 0. The limit is best effort and based on the duration of the selfie-video. </p>
  
  @param request A container for the necessary parameters to execute the CreateFaceLivenessSession service method.
  @param completionHandler The completion handler to call when the load request is complete.
