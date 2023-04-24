@@ -475,6 +475,8 @@ typedef NS_ENUM(NSInteger, AWSIoTOTAUpdateStatus) {
     AWSIoTOTAUpdateStatusCreateInProgress,
     AWSIoTOTAUpdateStatusCreateComplete,
     AWSIoTOTAUpdateStatusCreateFailed,
+    AWSIoTOTAUpdateStatusDeleteInProgress,
+    AWSIoTOTAUpdateStatusDeleteFailed,
 };
 
 typedef NS_ENUM(NSInteger, AWSIoTPolicyTemplateName) {
