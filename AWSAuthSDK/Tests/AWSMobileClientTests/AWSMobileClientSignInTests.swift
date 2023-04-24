@@ -57,7 +57,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
             signInWasSuccessful.fulfill()
         }
         wait(for: [signInWasSuccessful, signInListenerWasSuccessful], timeout: 10)
-        XCTAssertNil(AWSMobileClient.default().userpoolOpsHelper.currentSignInHandlerCallback,
+        XCTAssertNil(AWSMobileClient.default().userpoolOpsHelper?.currentSignInHandlerCallback,
                      "Current sign callback should be nil after callback is invoked")
         AWSMobileClient.default().removeUserStateListener(self)
     }
@@ -80,7 +80,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
             signInShouldFail.fulfill()
         }
         wait(for: [signInShouldFail], timeout: 10)
-        XCTAssertNil(AWSMobileClient.default().userpoolOpsHelper.currentSignInHandlerCallback,
+        XCTAssertNil(AWSMobileClient.default().userpoolOpsHelper?.currentSignInHandlerCallback,
                      "Current sign callback should be nil after callback is invoked")
     }
 
@@ -112,16 +112,16 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
             
             // Manually set password completion task to mock confirm signIn flow.
             let newPasswordRequiredTask = AWSTaskCompletionSource<AWSCognitoIdentityNewPasswordRequiredDetails>()
-            AWSMobileClient.default().userpoolOpsHelper.newPasswordRequiredTaskCompletionSource = newPasswordRequiredTask
+            AWSMobileClient.default().userpoolOpsHelper?.newPasswordRequiredTaskCompletionSource = newPasswordRequiredTask
             AWSMobileClient.default().confirmSignIn(challengeResponse: "code") { (signInResult, error) in
                 // Completion will not be called because the continuation is mocked above.
             }
             signInWasSuccessfulExpectation.fulfill()
         }
         wait(for: [signInWasSuccessfulExpectation], timeout: AWSMobileClientTestBase.networkRequestTimeout)
-        XCTAssertNotNil(AWSMobileClient.default().userpoolOpsHelper.currentConfirmSignInHandlerCallback,
+        XCTAssertNotNil(AWSMobileClient.default().userpoolOpsHelper?.currentConfirmSignInHandlerCallback,
                         "Current confirmsign callback should not be nil")
-        XCTAssertNil(AWSMobileClient.default().userpoolOpsHelper.currentSignInHandlerCallback,
+        XCTAssertNil(AWSMobileClient.default().userpoolOpsHelper?.currentSignInHandlerCallback,
                      "Current sign callback should be nil")
     }
     
@@ -178,9 +178,9 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
                     }
                     
                     XCTAssert(signInResult.signInState == .signedIn)
-                    XCTAssertNil(AWSMobileClient.default().userpoolOpsHelper.currentConfirmSignInHandlerCallback,
+                    XCTAssertNil(AWSMobileClient.default().userpoolOpsHelper?.currentConfirmSignInHandlerCallback,
                                     "Current confirmsign callback should be nil")
-                    XCTAssertNil(AWSMobileClient.default().userpoolOpsHelper.newPasswordRequiredTaskCompletionSource,
+                    XCTAssertNil(AWSMobileClient.default().userpoolOpsHelper?.newPasswordRequiredTaskCompletionSource,
                                     "New password completion source should be nil")
                 }
             }
