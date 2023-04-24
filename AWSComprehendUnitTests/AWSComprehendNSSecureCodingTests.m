@@ -129,6 +129,7 @@
 - (void) test_AWSComprehendDocumentClassificationConfig API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDocumentClassificationJobFilter API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDocumentClassificationJobProperties API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendDocumentClassifierDocuments API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDocumentClassifierFilter API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDocumentClassifierInputDataConfig API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDocumentClassifierOutputDataConfig API_AVAILABLE(ios(11));
@@ -287,6 +288,7 @@
 - (void) test_AWSComprehendUpdateFlywheelRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendUpdateFlywheelResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendVpcConfig API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendWarningsListItem API_AVAILABLE(ios(11));
 
 @end
 
@@ -730,6 +732,10 @@
 
 - (void) test_AWSComprehendDocumentClassificationJobProperties {
     [self validateSecureCodingForClass:[AWSComprehendDocumentClassificationJobProperties class]];
+}
+
+- (void) test_AWSComprehendDocumentClassifierDocuments {
+    [self validateSecureCodingForClass:[AWSComprehendDocumentClassifierDocuments class]];
 }
 
 - (void) test_AWSComprehendDocumentClassifierFilter {
@@ -1362,6 +1368,10 @@
 
 - (void) test_AWSComprehendVpcConfig {
     [self validateSecureCodingForClass:[AWSComprehendVpcConfig class]];
+}
+
+- (void) test_AWSComprehendWarningsListItem {
+    [self validateSecureCodingForClass:[AWSComprehendWarningsListItem class]];
 }
 
 @end
