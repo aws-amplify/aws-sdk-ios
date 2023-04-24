@@ -41,7 +41,11 @@ extension AWSMobileClient {
                 completionHandler(nil, error)
                 return
             }
-            let userDetails = AWSMobileClientUserDetails(with: self.userpoolOpsHelper.currentActiveUser!)
+            guard let currentActiveUser = self.userpoolOpsHelper?.currentActiveUser else {
+                completionHandler(nil, Self.missingCurrentActiveUser())
+                return
+            }
+            let userDetails = AWSMobileClientUserDetails(with: currentActiveUser)
             userDetails.verifyUserAttribute(attributeName: attributeName, clientMetaData: clientMetaData, completionHandler: completionHandler)
         }
     }
@@ -69,7 +73,11 @@ extension AWSMobileClient {
                 completionHandler(nil, error)
                 return
             }
-            let userDetails = AWSMobileClientUserDetails(with: self.userpoolOpsHelper.currentActiveUser!)
+            guard let currentActiveUser = self.userpoolOpsHelper?.currentActiveUser else {
+                completionHandler(nil, Self.missingCurrentActiveUser())
+                return
+            }
+            let userDetails = AWSMobileClientUserDetails(with: currentActiveUser)
             userDetails.updateUserAttributes(attributeMap: attributeMap, clientMetaData: clientMetaData, completionHandler: completionHandler)
         }
     }
@@ -86,10 +94,8 @@ extension AWSMobileClient {
             completionHandler(nil, error)
             return
         }
-        guard let currentActiveUser = self.userpoolOpsHelper.currentActiveUser else {
-            let message = AWSMobileClientConstants.notSignedInMessage
-            let error = AWSMobileClientError.notSignedIn(message: message)
-            completionHandler(nil, error)
+        guard let currentActiveUser = self.userpoolOpsHelper?.currentActiveUser else {
+            completionHandler(nil, Self.missingCurrentActiveUser())
             return
         }
         self.getTokens { _, error in
@@ -140,7 +146,11 @@ extension AWSMobileClient {
                 completionHandler(error)
                 return
             }
-            let userDetails = AWSMobileClientUserDetails(with: self.userpoolOpsHelper.currentActiveUser!)
+            guard let currentActiveUser = self.userpoolOpsHelper?.currentActiveUser else {
+                completionHandler(Self.missingCurrentActiveUser())
+                return
+            }
+            let userDetails = AWSMobileClientUserDetails(with: currentActiveUser)
             userDetails.confirmVerifyUserAttribute(attributeName: attributeName,
                                                code: code,
                                                completionHandler: completionHandler)
