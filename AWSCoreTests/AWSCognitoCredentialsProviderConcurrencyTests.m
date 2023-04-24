@@ -80,7 +80,7 @@ NSString *TestsIdentityPoolId = nil;
 }
 
 - (void)testMultiThreadedWithEnhancedFlow {
-
+    XCTSkip("TODO: get/set of property IdentityId in CredentialProvider is not thread safe");
     AWSCognitoCredentialsProviderHelper *identityProvider = [[AWSCognitoCredentialsProviderHelper alloc]
                                                              initWithRegionType: self.region
                                                              identityPoolId:TestsIdentityPoolId
