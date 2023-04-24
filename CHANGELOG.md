@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+### Bug Fixes
+
+- **AWSMobileClient**
+  - Handling AWSMobileClient state issues gracefully handled gracefully
+  
+- **AWSIot**
+  - Include the certificate tag in Keychain query to look up identity
+
 ### Misc. Updates
 
 - Model updates for the following services
