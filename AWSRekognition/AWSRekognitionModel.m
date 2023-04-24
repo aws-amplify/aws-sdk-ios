@@ -3028,6 +3028,9 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
         if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
             return @(AWSRekognitionLivenessSessionStatusFailed);
         }
+        if ([value caseInsensitiveCompare:@"EXPIRED"] == NSOrderedSame) {
+            return @(AWSRekognitionLivenessSessionStatusExpired);
+        }
         return @(AWSRekognitionLivenessSessionStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3039,6 +3042,8 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
                 return @"SUCCEEDED";
             case AWSRekognitionLivenessSessionStatusFailed:
                 return @"FAILED";
+            case AWSRekognitionLivenessSessionStatusExpired:
+                return @"EXPIRED";
             default:
                 return nil;
         }
