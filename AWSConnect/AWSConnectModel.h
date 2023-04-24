@@ -299,6 +299,14 @@ typedef NS_ENUM(NSInteger, AWSConnectNotificationDeliveryType) {
     AWSConnectNotificationDeliveryTypeEmail,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectParticipantRole) {
+    AWSConnectParticipantRoleUnknown,
+    AWSConnectParticipantRoleAgent,
+    AWSConnectParticipantRoleCustomer,
+    AWSConnectParticipantRoleSystem,
+    AWSConnectParticipantRoleCustomBot,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectParticipantTimerAction) {
     AWSConnectParticipantTimerActionUnknown,
     AWSConnectParticipantTimerActionUnset,
@@ -825,6 +833,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectCreateInstanceResponse;
 @class AWSConnectCreateIntegrationAssociationRequest;
 @class AWSConnectCreateIntegrationAssociationResponse;
+@class AWSConnectCreateParticipantRequest;
+@class AWSConnectCreateParticipantResponse;
 @class AWSConnectCreateQueueRequest;
 @class AWSConnectCreateQueueResponse;
 @class AWSConnectCreateQuickConnectRequest;
@@ -1051,8 +1061,10 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectNumberReference;
 @class AWSConnectOutboundCallerConfig;
 @class AWSConnectParticipantDetails;
+@class AWSConnectParticipantDetailsToAdd;
 @class AWSConnectParticipantTimerConfiguration;
 @class AWSConnectParticipantTimerValue;
+@class AWSConnectParticipantTokenCredentials;
 @class AWSConnectPersistentChat;
 @class AWSConnectPhoneNumberQuickConnectConfig;
 @class AWSConnectPhoneNumberStatus;
@@ -2496,6 +2508,52 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier for the integration association.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable integrationAssociationId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateParticipantRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The identifier of the contact in this instance of Amazon Connect. Only contacts in the CHAT channel are supported.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>Information identifying the participant.</p><important><p>The only Valid value for <code>ParticipantRole</code> is <code>CUSTOM_BOT</code>. </p><p><code>DisplayName</code> is <b>Required</b>.</p></important>
+ */
+@property (nonatomic, strong) AWSConnectParticipantDetailsToAdd * _Nullable participantDetails;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateParticipantResponse : AWSModel
+
+
+/**
+ <p>The token used by the chat participant to call <code>CreateParticipantConnection</code>. The participant token is valid for the lifetime of a chat participant.</p>
+ */
+@property (nonatomic, strong) AWSConnectParticipantTokenCredentials * _Nullable participantCredentials;
+
+/**
+ <p>The identifier for a chat participant. The participantId for a chat participant is the same throughout the chat lifecycle.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable participantId;
 
 @end
 
@@ -7257,7 +7315,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The key to use for filtering data. </p><p>Valid metric filter keys: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code></p>
+ <p>The key to use for filtering data. </p><p>Valid metric filter keys: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code>. These are the same values as the <code>InitiationMethod</code> and <code>DisconnectReason</code> in the contact record. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord">ContactTraceRecord</a> in the <i>Amazon Connect Administrator's Guide</i>. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricFilterKey;
 
@@ -7434,6 +7492,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>The details to add for the participant.</p>
+ */
+@interface AWSConnectParticipantDetailsToAdd : AWSModel
+
+
+/**
+ <p>The display name of the participant.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable displayName;
+
+/**
+ <p>The role of the participant being added.</p>
+ */
+@property (nonatomic, assign) AWSConnectParticipantRole participantRole;
+
+@end
+
+/**
  <p>Configuration information for the timer. After the timer configuration is set, it persists for the duration of the chat. It persists across new contacts in the chain, for example, transfer contacts.</p><p>For more information about how chat timeouts work, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
  Required parameters: [ParticipantRole, TimerType, TimerValue]
  */
@@ -7472,6 +7548,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The duration of a timer, in minutes. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable participantTimerDurationInMinutes;
+
+@end
+
+/**
+ <p>The credentials used by the participant.</p>
+ */
+@interface AWSConnectParticipantTokenCredentials : AWSModel
+
+
+/**
+ <p>The expiration of the token. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable expiry;
+
+/**
+ <p>The token used by the chat participant to call <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>. The participant token is valid for the lifetime of a chat participant. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable participantToken;
 
 @end
 

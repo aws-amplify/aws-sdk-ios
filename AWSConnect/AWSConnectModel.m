@@ -4336,6 +4336,46 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectCreateParticipantRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientToken" : @"ClientToken",
+             @"contactId" : @"ContactId",
+             @"instanceId" : @"InstanceId",
+             @"participantDetails" : @"ParticipantDetails",
+             };
+}
+
++ (NSValueTransformer *)participantDetailsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectParticipantDetailsToAdd class]];
+}
+
+@end
+
+@implementation AWSConnectCreateParticipantResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"participantCredentials" : @"ParticipantCredentials",
+             @"participantId" : @"ParticipantId",
+             };
+}
+
++ (NSValueTransformer *)participantCredentialsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectParticipantTokenCredentials class]];
+}
+
+@end
+
 @implementation AWSConnectCreateQueueRequest
 
 + (BOOL)supportsSecureCoding {
@@ -11335,6 +11375,52 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectParticipantDetailsToAdd
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"displayName" : @"DisplayName",
+             @"participantRole" : @"ParticipantRole",
+             };
+}
+
++ (NSValueTransformer *)participantRoleJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"AGENT"] == NSOrderedSame) {
+            return @(AWSConnectParticipantRoleAgent);
+        }
+        if ([value caseInsensitiveCompare:@"CUSTOMER"] == NSOrderedSame) {
+            return @(AWSConnectParticipantRoleCustomer);
+        }
+        if ([value caseInsensitiveCompare:@"SYSTEM"] == NSOrderedSame) {
+            return @(AWSConnectParticipantRoleSystem);
+        }
+        if ([value caseInsensitiveCompare:@"CUSTOM_BOT"] == NSOrderedSame) {
+            return @(AWSConnectParticipantRoleCustomBot);
+        }
+        return @(AWSConnectParticipantRoleUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectParticipantRoleAgent:
+                return @"AGENT";
+            case AWSConnectParticipantRoleCustomer:
+                return @"CUSTOMER";
+            case AWSConnectParticipantRoleSystem:
+                return @"SYSTEM";
+            case AWSConnectParticipantRoleCustomBot:
+                return @"CUSTOM_BOT";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSConnectParticipantTimerConfiguration
 
 + (BOOL)supportsSecureCoding {
@@ -11424,6 +11510,21 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSConnectParticipantTokenCredentials
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"expiry" : @"Expiry",
+             @"participantToken" : @"ParticipantToken",
+             };
 }
 
 @end

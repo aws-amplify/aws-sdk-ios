@@ -74,8 +74,8 @@ extension AWSMobileClient {
             operation.acceptEvent(.releaseWait)
         }
         if self.federationProvider == .userPools {
-            self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: AWSMobileClientConstants.noValidSignInSession))
-            self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = nil
+            self.userpoolOpsHelper?.customAuthChallengeTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: AWSMobileClientConstants.noValidSignInSession))
+            self.userpoolOpsHelper?.customAuthChallengeTaskCompletionSource = nil
         } else if self.federationProvider == .oidcFederation {
             self.pendingAWSCredentialsCompletion?(nil, AWSMobileClientError.unableToSignIn(message: "Could not get valid federation token from the user."))
             self.pendingAWSCredentialsCompletion = nil
@@ -110,7 +110,11 @@ extension AWSMobileClient {
         }
         // If using userpools sign in and global sign out is specified, we try logging out the user from all devices.
         if federationProvider == .userPools && options.signOutGlobally == true {
-            let _ = self.userpoolOpsHelper.currentActiveUser!.globalSignOut().continueWith { [weak self] (task) -> Any? in
+            guard let currentActiveUser = self.userpoolOpsHelper?.currentActiveUser else {
+                completionHandler(Self.missingCurrentActiveUser())
+                return
+            }
+            let _ = currentActiveUser.globalSignOut().continueWith { [weak self] (task) -> Any? in
                 guard let self = self else {
                     let message = "Unexpectedly encountered nil when unwrapping self. This should not happen."
                     completionHandler(AWSMobileClientError.unknown(message: message))
@@ -146,13 +150,17 @@ extension AWSMobileClient {
 
     /// Returns if the session is not revocable, attempts to revoke the token if it is.
     private func revokeIfSessionIsRevocable(completionHandler: @escaping ((Error?) -> Void)) {
-        guard let isSessionRevocable = self.userpoolOpsHelper.currentActiveUser?.isSessionRevocable,
+        guard let userpoolOpsHelper = self.userpoolOpsHelper else {
+            completionHandler(Self.missingUserpoolOpsHelperError())
+            return
+        }
+        guard let isSessionRevocable = userpoolOpsHelper.currentActiveUser?.isSessionRevocable,
               isSessionRevocable else {
             completionHandler(nil)
             return
         }
 
-        let _ = self.userpoolOpsHelper.currentActiveUser?.revokeToken().continueWith { (task) -> Any? in
+        let _ = userpoolOpsHelper.currentActiveUser?.revokeToken().continueWith { (task) -> Any? in
             if let error = task.error {
                 completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
             } else if let _ = task.result {
@@ -181,12 +189,16 @@ extension AWSMobileClient {
     }
 
     internal func performUserPoolSignOut() {
-
-        if let task = self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.task, !task.isCompleted {
-            let error = AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in.")
-            self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(error: error)
+        guard let userpoolOpsHelper = self.userpoolOpsHelper else {
+            invokeSignInCallback(signResult: nil, error: Self.missingUserpoolOpsHelperError())
+            return
         }
-        self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = nil
+
+        if let task = userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.task, !task.isCompleted {
+            let error = AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in.")
+            userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(error: error)
+        }
+        userpoolOpsHelper.customAuthChallengeTaskCompletionSource = nil
         invokeSignInCallback(signResult: nil, error: AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in."))
         self.userPoolClient?.clearAll()
     }

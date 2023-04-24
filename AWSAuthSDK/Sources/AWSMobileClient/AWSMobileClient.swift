@@ -40,7 +40,15 @@ final public class AWSMobileClient: _AWSMobileClient {
     // UserPoolOperationHandler should be initialized after AWSMobileClient init and AWSInfo init is
     // completed, because it require the AWSInfo to be in a valid state to initialize. To achieve this
     // currently userpoolOpsHelper is initialized inside `_internalInitialize`.
-    internal var userpoolOpsHelper: UserPoolOperationsHandler!
+    internal var userpoolOpsHelper: UserPoolOperationsHandler?
+
+    internal static func missingUserpoolOpsHelperError() -> AWSMobileClientError {
+        return AWSMobileClientError.invalidConfiguration(message: "Missing CognitoUserPool helper.")
+    }
+
+    internal static func missingCurrentActiveUser() -> AWSMobileClientError {
+        return AWSMobileClientError.notSignedIn(message: AWSMobileClientConstants.notSignedInMessage)
+    }
 
     // MARK: Execution Helpers (DispatchQueue, OperationQueue, DispatchGroup)
     
