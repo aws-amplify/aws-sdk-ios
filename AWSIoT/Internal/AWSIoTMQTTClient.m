@@ -23,6 +23,7 @@
 #import "AWSIoTMessage.h"
 #import "AWSIoTMessage+AWSMQTTMessage.h"
 #import "AWSMQTTMessage.h"
+#import "AWSIoTManager.h"
 
 @implementation AWSIoTMQTTTopicModel
 @end
@@ -259,7 +260,10 @@
     self.userDidIssueConnect = YES;
     self.session = nil;
     
-    SecIdentityRef identityRef = [AWSIoTKeychain getIdentityRef:[NSString stringWithFormat:@"%@%@",[AWSIoTKeychain privateKeyTag], certificateId ]];
+    NSString *privateKeyTag = [NSString stringWithFormat:@"%@%@",[AWSIoTKeychain privateKeyTag], certificateId];
+    NSString *certificateLabel = [AWSIoTManager certTagWithCertificateId:certificateId];
+    
+    SecIdentityRef identityRef = [AWSIoTKeychain getIdentityRef:privateKeyTag certificateLabel:certificateLabel];
     if (identityRef == NULL) {
         AWSDDLogError(@"Could not find SecIdentityRef");
         return NO;

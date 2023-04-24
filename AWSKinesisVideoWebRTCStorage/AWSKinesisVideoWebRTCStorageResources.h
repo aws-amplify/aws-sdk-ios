@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AWSRekognitionResources : NSObject
+@interface AWSKinesisVideoWebRTCStorageResources : NSObject
 
 + (instancetype)sharedInstance;
 
