@@ -48,7 +48,11 @@ extension AWSMobileClient: UserPoolAuthHelperCallbacks {
 
     func getNewPasswordDetails(_ newPasswordRequiredInput: AWSCognitoIdentityNewPasswordRequiredInput,
                                newPasswordRequiredCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityNewPasswordRequiredDetails>) {
-        self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource = newPasswordRequiredCompletionSource
+        guard let userpoolOpsHelper = self.userpoolOpsHelper else {
+            invokeSignInCallback(signResult: nil, error: Self.missingUserpoolOpsHelperError())
+            return
+        }
+        userpoolOpsHelper.newPasswordRequiredTaskCompletionSource = newPasswordRequiredCompletionSource
         let result = SignInResult(
             signInState: .newPasswordRequired,
             parameters: [
@@ -63,13 +67,16 @@ extension AWSMobileClient: UserPoolAuthHelperCallbacks {
         if let error = error {
             invokeSignInCallback(signResult: nil, error: AWSMobileClientError.makeMobileClientError(from: error))
         }
-        self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource = nil
+        self.userpoolOpsHelper?.newPasswordRequiredTaskCompletionSource = nil
     }
 
     func getCustomAuthenticationDetails(_ customAuthenticationInput: AWSCognitoIdentityCustomAuthenticationInput,
                                         customAuthCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails>) {
-
-        self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = customAuthCompletionSource
+        guard let userpoolOpsHelper = self.userpoolOpsHelper else {
+            invokeSignInCallback(signResult: nil, error: Self.missingUserpoolOpsHelperError())
+            return
+        }
+        userpoolOpsHelper.customAuthChallengeTaskCompletionSource = customAuthCompletionSource
 
         // getCustomAuthenticationDetails will be invoked in a signIn process or when the token expires.
         // If this get invoked when the token expires, we first inform the listener that the user got signedOut. This
@@ -95,12 +102,12 @@ extension AWSMobileClient: UserPoolAuthHelperCallbacks {
         if let error = error {
             invokeSignInCallback(signResult: nil, error: AWSMobileClientError.makeMobileClientError(from: error))
         }
-        self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = nil
+        self.userpoolOpsHelper?.customAuthChallengeTaskCompletionSource = nil
     }
 
     func getCode(_ authenticationInput: AWSCognitoIdentityMultifactorAuthenticationInput,
                  mfaCodeCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityMfaCodeDetails>) {
-        self.userpoolOpsHelper.mfaCodeCompletionSource = mfaCodeCompletionSource
+        self.userpoolOpsHelper?.mfaCodeCompletionSource = mfaCodeCompletionSource
         var codeDeliveryDetails: UserCodeDeliveryDetails? = nil
             switch(authenticationInput.deliveryMedium) {
             case .email:
@@ -121,7 +128,7 @@ extension AWSMobileClient: UserPoolAuthHelperCallbacks {
         if let error = error {
             invokeSignInCallback(signResult: nil, error: AWSMobileClientError.makeMobileClientError(from: error))
         }
-        self.userpoolOpsHelper.mfaCodeCompletionSource = nil
+        self.userpoolOpsHelper?.mfaCodeCompletionSource = nil
     }
 }
 
