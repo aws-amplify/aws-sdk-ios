@@ -14,13 +14,27 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <objc/runtime.h>
 #import "AWSMQTTSession.h"
 
 #import "MQTTDecoderTestHelpers.h"
 #import "TestDataWriter.h"
 #import "TestMQTTSessionDelegate.h"
 
-@interface MQTTSessionTests : XCTestCase
+@interface AWSMQTTSession (Testing)
+
+- (void)handlePublish:(AWSMQTTMessage*)msg;
+- (void)_unit_test_override_send:(AWSMQTTMessage*)msg;
+
+@end
+
+void unit_test_class_SwapMethods(Class, SEL left, SEL right);
+
+@interface MQTTSessionTests : XCTestCase <AWSMQTTSessionDelegate>
+
+@property (nonatomic, strong) AWSMQTTSession *systemUnderTest;
+@property (nonatomic, strong) NSMutableArray<NSString *> *interactions;
+@property (nonatomic, strong) NSMutableArray<NSArray<NSString *> *> *messageHandlerTopicMessagePairs;
 
 @end
 
@@ -30,6 +44,33 @@
 
 - (void)setUp {
     mqttPackets = [MQTTDecoderTestHelpers loadMQTTPacketsFromFile];
+
+    NSMutableArray *messageHandlerTopicMessagePairs = [NSMutableArray array];
+    self.interactions = [NSMutableArray array];
+    self.messageHandlerTopicMessagePairs = messageHandlerTopicMessagePairs;
+    self.systemUnderTest = [[AWSMQTTSession alloc] initWithClientId:[[NSUUID UUID] UUIDString]
+                                                           userName:[[NSUUID UUID] UUIDString]
+                                                           password:[[NSUUID UUID] UUIDString]
+                                                          keepAlive:1
+                                                       cleanSession:YES
+                                                          willTopic:nil
+                                                            willMsg:nil
+                                                            willQoS:0
+                                                     willRetainFlag:NO
+                                               publishRetryThrottle:10];
+    self.systemUnderTest.delegate = self;
+    self.systemUnderTest.messageHandler = ^(NSData *message, NSString *topic) {
+        NSString *messageString = [[NSString alloc] initWithData:message encoding:NSUTF8StringEncoding];
+        NSArray *pair = [NSArray arrayWithObjects:topic, messageString, nil];
+        [messageHandlerTopicMessagePairs addObject:pair];
+    };
+}
+
+- (void)tearDown {
+    self.interactions = nil;
+    self.messageHandlerTopicMessagePairs = nil;
+    self.systemUnderTest.messageHandler = nil;
+    self.systemUnderTest = nil;
 }
 
 - (void)testSubscriptionDelivery {
@@ -112,4 +153,160 @@
     [writerThread cancel];
 }
 
+- (void)testHandlePublishRegularMessageQoS {
+    // When QoS is 0, AWSMQTTSession is expecting data to be in the form:
+    //
+    // offset 0: high byte of topic length (int16)
+    // offset 1: low byte of topic length (int16)
+    // offset 2 ..< (2 + topic length): contents of the topic
+    // offset (2 + topic length) ..< length: data
+    const char encodedBytes[] = {
+        0, 5,
+        't', 'o', 'p', 'i', 'c',
+        'd', 'a', 't', 'a'
+    };
+    NSData *data = [NSData dataWithBytes:encodedBytes length:sizeof(encodedBytes)];
+    AWSMQTTMessage *message = [[AWSMQTTMessage alloc] initWithType:AWSMQTTPublish qos:0 data:data];
+    [_systemUnderTest handlePublish:message];
+
+    NSArray *expectedInteractions = @[
+        [NSString stringWithFormat:@"-[MQTTSessionTests session:newMessage:onTopic:] %@ topic", message.data]
+    ];
+    XCTAssertEqualObjects(self.interactions, expectedInteractions);
+
+    NSArray *expectedTopicMessagePairs = @[
+        [NSArray arrayWithObjects:@"topic", @"data", nil]
+    ];
+    XCTAssertEqualObjects(self.messageHandlerTopicMessagePairs, expectedTopicMessagePairs);
+}
+
+- (void)testHandlePublishWithPubAckQoS {
+    SEL originalSelector = @selector(send:);
+    SEL swizzledSelector = @selector(_unit_test_override_send:);
+    Class class = [_systemUnderTest class];
+    unit_test_class_SwapMethods(class, originalSelector, swizzledSelector);
+    @try {
+        // When QoS is 1, AWSMQTTSession is expecting data to be in the form:
+        //
+        // offset 0: high byte of topic length (int16)
+        // offset 1: low byte of topic length (int16)
+        // offset 2 ..< (2 + topic length): contents of the topic
+        // offset (2 + topic length) + 0: high byte of message id (char[2])
+        // offset (2 + topic length) + 1: low byte of message id (char[2])
+        // offset (2 + topic length) + 2 ..< length: data
+        const char encodedBytes[] = {
+            0, 5,
+            't', 'o', 'p', 'i', 'c',
+            'i', 'd',
+            'd', 'a', 't', 'a'
+        };
+        // This is basically a "puback" message
+        NSData *data = [NSData dataWithBytes:encodedBytes length:sizeof(encodedBytes)];
+        AWSMQTTMessage *message = [[AWSMQTTMessage alloc] initWithType:AWSMQTTPublish qos:1 data:data];
+        [_systemUnderTest handlePublish:message];
+
+        NSArray *expectedInteractions = @[
+            [NSString stringWithFormat:@"-[MQTTSessionTests session:newMessage:onTopic:] %@ topic", message.data],
+            @"-[MQTTSessionTests _unit_test_override_session:didSend:] 4 {length = 2, bytes = 0x6964}"
+        ];
+        XCTAssertEqualObjects(self.interactions, expectedInteractions);
+
+        NSArray *expectedTopicMessagePairs = @[
+            [NSArray arrayWithObjects:@"topic", @"data", nil]
+        ];
+        XCTAssertEqualObjects(self.messageHandlerTopicMessagePairs, expectedTopicMessagePairs);
+    } @finally {
+        unit_test_class_SwapMethods(class, swizzledSelector, originalSelector);
+    }
+}
+
+- (void)testHandlePublishWithPubRecQoS {
+    SEL originalSelector = @selector(send:);
+    SEL swizzledSelector = @selector(_unit_test_override_send:);
+    Class class = [_systemUnderTest class];
+    unit_test_class_SwapMethods(class, originalSelector, swizzledSelector);
+    @try {
+        // When QoS is not 0 or 1 (pubrec), AWSMQTTSession is expecting data to
+        // be in the form:
+        //
+        // offset 0: high byte of topic length (int16)
+        // offset 1: low byte of topic length (int16)
+        // offset 2 ..< (2 + topic length): contents of the topic
+        // offset (2 + topic length) + 0: high byte of message id (int16)
+        // offset (2 + topic length) + 1: low byte of message id (int16)
+        // offset (2 + topic length) + 2 ..< length: data
+        const char encodedBytes[] = {
+            0, 5,
+            't', 'o', 'p', 'i', 'c',
+            'i', 'd',
+            'd', 'a', 't', 'a'
+        };
+        // This is basically a "pubrec" message
+        NSData *data = [NSData dataWithBytes:encodedBytes length:sizeof(encodedBytes)];
+        AWSMQTTMessage *message = [[AWSMQTTMessage alloc] initWithType:AWSMQTTPublish qos:2 data:data];
+        [_systemUnderTest handlePublish:message];
+
+        NSArray *expectedInteractions = @[
+            @"-[MQTTSessionTests _unit_test_override_session:didSend:] 5 {length = 2, bytes = 0x6964}"
+        ];
+        XCTAssertEqualObjects(self.interactions, expectedInteractions);
+
+        NSArray *expectedTopicMessagePairs = @[
+        ];
+        XCTAssertEqualObjects(self.messageHandlerTopicMessagePairs, expectedTopicMessagePairs);
+    } @finally {
+        unit_test_class_SwapMethods(class, swizzledSelector, originalSelector);
+    }
+}
+
+#pragma mark - AWSMQTTSessionDelegate
+
+- (void)session:(AWSMQTTSession*)session handleEvent:(AWSMQTTSessionEvent)eventCode
+{
+    [self.interactions addObject:[NSString stringWithFormat:@"%s", __FUNCTION__]];
+}
+
+- (void)session:(AWSMQTTSession*)session newMessage:(AWSMQTTMessage*)message onTopic:(NSString*)topic
+{
+    [self.interactions addObject:[NSString stringWithFormat:@"%s %@ %@", __FUNCTION__, message.data, topic]];
+}
+
+- (void)session:(AWSMQTTSession*)session newAckForMessageId:(UInt16)msgId
+{
+    [self.interactions addObject:[NSString stringWithFormat:@"%s", __FUNCTION__]];
+}
+
+- (void)_unit_test_override_session:(AWSMQTTSession*)session didSend:(AWSMQTTMessage*)message
+{
+    [self.interactions addObject:[NSString stringWithFormat:@"%s %i %@", __FUNCTION__, message.type, message.data]];
+}
+
 @end
+
+@implementation AWSMQTTSession (UnitTesting)
+
+- (void)_unit_test_override_send:(AWSMQTTMessage*)msg
+{
+    [((MQTTSessionTests *)self.delegate) performSelector:@selector(_unit_test_override_session:didSend:)
+                                              withObject:self
+                                              withObject:msg];
+}
+
+@end
+
+void unit_test_class_SwapMethods(Class class, SEL original, SEL swizzled)
+{
+    Method originalMethod = class_getInstanceMethod(class, original);
+    Method swizzledMethod = class_getInstanceMethod(class, swizzled);
+    IMP originalImp = method_getImplementation(originalMethod);
+    IMP swizzledImp = method_getImplementation(swizzledMethod);
+
+    class_replaceMethod(class,
+                        swizzled,
+                        originalImp,
+                        method_getTypeEncoding(originalMethod));
+    class_replaceMethod(class,
+                        original,
+                        swizzledImp,
+                        method_getTypeEncoding(swizzledMethod));
+}
