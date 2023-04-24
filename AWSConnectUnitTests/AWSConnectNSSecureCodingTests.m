@@ -68,6 +68,8 @@
 - (void) test_AWSConnectCreateInstanceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateIntegrationAssociationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateIntegrationAssociationResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCreateParticipantRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCreateParticipantResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateQueueRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateQueueResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateQuickConnectRequest API_AVAILABLE(ios(11));
@@ -91,6 +93,7 @@
 - (void) test_AWSConnectCreateVocabularyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateVocabularyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCredentials API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCrossChannelBehavior API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCurrentMetric API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCurrentMetricData API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCurrentMetricResult API_AVAILABLE(ios(11));
@@ -293,8 +296,10 @@
 - (void) test_AWSConnectNumberReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectOutboundCallerConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantDetails API_AVAILABLE(ios(11));
+- (void) test_AWSConnectParticipantDetailsToAdd API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantTimerConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantTimerValue API_AVAILABLE(ios(11));
+- (void) test_AWSConnectParticipantTokenCredentials API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPersistentChat API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPhoneNumberQuickConnectConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPhoneNumberStatus API_AVAILABLE(ios(11));
@@ -660,6 +665,14 @@
     [self validateSecureCodingForClass:[AWSConnectCreateIntegrationAssociationResponse class]];
 }
 
+- (void) test_AWSConnectCreateParticipantRequest {
+    [self validateSecureCodingForClass:[AWSConnectCreateParticipantRequest class]];
+}
+
+- (void) test_AWSConnectCreateParticipantResponse {
+    [self validateSecureCodingForClass:[AWSConnectCreateParticipantResponse class]];
+}
+
 - (void) test_AWSConnectCreateQueueRequest {
     [self validateSecureCodingForClass:[AWSConnectCreateQueueRequest class]];
 }
@@ -750,6 +763,10 @@
 
 - (void) test_AWSConnectCredentials {
     [self validateSecureCodingForClass:[AWSConnectCredentials class]];
+}
+
+- (void) test_AWSConnectCrossChannelBehavior {
+    [self validateSecureCodingForClass:[AWSConnectCrossChannelBehavior class]];
 }
 
 - (void) test_AWSConnectCurrentMetric {
@@ -1560,12 +1577,20 @@
     [self validateSecureCodingForClass:[AWSConnectParticipantDetails class]];
 }
 
+- (void) test_AWSConnectParticipantDetailsToAdd {
+    [self validateSecureCodingForClass:[AWSConnectParticipantDetailsToAdd class]];
+}
+
 - (void) test_AWSConnectParticipantTimerConfiguration {
     [self validateSecureCodingForClass:[AWSConnectParticipantTimerConfiguration class]];
 }
 
 - (void) test_AWSConnectParticipantTimerValue {
     [self validateSecureCodingForClass:[AWSConnectParticipantTimerValue class]];
+}
+
+- (void) test_AWSConnectParticipantTokenCredentials {
+    [self validateSecureCodingForClass:[AWSConnectParticipantTokenCredentials class]];
 }
 
 - (void) test_AWSConnectPersistentChat {

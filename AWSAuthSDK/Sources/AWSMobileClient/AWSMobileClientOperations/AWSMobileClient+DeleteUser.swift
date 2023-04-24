@@ -22,9 +22,8 @@ extension AWSMobileClient {
     /// - Parameters:
     ///   - completionHandler: completion handler for success or error callback.
     public func deleteUser(completionHandler: @escaping ((Error?) -> Void)) {
-        guard let currentActiveUser = self.userpoolOpsHelper.currentActiveUser else {
-            let errorMessage = "Invalid CognitoUserPool configuration. This should not happen."
-            completionHandler(AWSMobileClientError.invalidConfiguration(message: errorMessage))
+        guard let currentActiveUser = self.userpoolOpsHelper?.currentActiveUser else {
+            completionHandler(Self.missingUserpoolOpsHelperError())
             return
         }
         self.getTokens { _, error in

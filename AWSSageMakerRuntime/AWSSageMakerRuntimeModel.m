@@ -47,6 +47,7 @@ NSString *const AWSSageMakerRuntimeErrorDomain = @"com.amazonaws.AWSSageMakerRun
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"failureLocation" : @"FailureLocation",
              @"inferenceId" : @"InferenceId",
              @"outputLocation" : @"OutputLocation",
              };
