@@ -636,6 +636,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"nodejs18.x"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs18X);
         }
+        if ([value caseInsensitiveCompare:@"python3.10"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython310);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -695,6 +698,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"provided.al2";
             case AWSLambdaRuntimeNodejs18X:
                 return @"nodejs18.x";
+            case AWSLambdaRuntimePython310:
+                return @"python3.10";
             default:
                 return nil;
         }
@@ -1649,6 +1654,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"nodejs18.x"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs18X);
         }
+        if ([value caseInsensitiveCompare:@"python3.10"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython310);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1708,6 +1716,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"provided.al2";
             case AWSLambdaRuntimeNodejs18X:
                 return @"nodejs18.x";
+            case AWSLambdaRuntimePython310:
+                return @"python3.10";
             default:
                 return nil;
         }
@@ -3302,6 +3312,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"nodejs18.x"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs18X);
         }
+        if ([value caseInsensitiveCompare:@"python3.10"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython310);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3361,6 +3374,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"provided.al2";
             case AWSLambdaRuntimeNodejs18X:
                 return @"nodejs18.x";
+            case AWSLambdaRuntimePython310:
+                return @"python3.10";
             default:
                 return nil;
         }
@@ -3510,6 +3525,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"nodejs18.x"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs18X);
         }
+        if ([value caseInsensitiveCompare:@"python3.10"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython310);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3569,6 +3587,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"provided.al2";
             case AWSLambdaRuntimeNodejs18X:
                 return @"nodejs18.x";
+            case AWSLambdaRuntimePython310:
+                return @"python3.10";
             default:
                 return nil;
         }
@@ -4688,6 +4708,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"nodejs18.x"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs18X);
         }
+        if ([value caseInsensitiveCompare:@"python3.10"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython310);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4747,6 +4770,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"provided.al2";
             case AWSLambdaRuntimeNodejs18X:
                 return @"nodejs18.x";
+            case AWSLambdaRuntimePython310:
+                return @"python3.10";
             default:
                 return nil;
         }
