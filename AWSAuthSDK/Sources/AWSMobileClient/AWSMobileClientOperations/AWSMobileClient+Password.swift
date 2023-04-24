@@ -79,7 +79,11 @@ extension AWSMobileClient {
                 completionHandler(error)
                 return
             }
-            self.userpoolOpsHelper.currentActiveUser!.changePassword(currentPassword, proposedPassword: proposedPassword).continueWith { (task) -> Any? in
+            guard let currentActiveUser = self.userpoolOpsHelper?.currentActiveUser else {
+                completionHandler(Self.missingCurrentActiveUser())
+                return
+            }
+            currentActiveUser.changePassword(currentPassword, proposedPassword: proposedPassword).continueWith { (task) -> Any? in
                 if let error = task.error {
                     completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
                 } else if let _ = task.result {

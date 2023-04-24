@@ -144,6 +144,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"Cancelled"] == NSOrderedSame) {
             return @(AWSAutoScalingScalingActivityStatusCodeCancelled);
         }
+        if ([value caseInsensitiveCompare:@"WaitingForConnectionDraining"] == NSOrderedSame) {
+            return @(AWSAutoScalingScalingActivityStatusCodeWaitingForConnectionDraining);
+        }
         return @(AWSAutoScalingScalingActivityStatusCodeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -171,6 +174,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"Failed";
             case AWSAutoScalingScalingActivityStatusCodeCancelled:
                 return @"Cancelled";
+            case AWSAutoScalingScalingActivityStatusCodeWaitingForConnectionDraining:
+                return @"WaitingForConnectionDraining";
             default:
                 return nil;
         }
@@ -4066,6 +4071,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"identifier" : @"Identifier",
+             @"types" : @"Type",
              };
 }
 
@@ -4079,8 +4085,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"identifier" : @"Identifier",
              @"state" : @"State",
              @"trafficSource" : @"TrafficSource",
+             @"types" : @"Type",
              };
 }
 

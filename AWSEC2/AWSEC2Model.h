@@ -1624,6 +1624,11 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeR7G_12xlarge,
     AWSEC2InstanceTypeR7G_16xlarge,
     AWSEC2InstanceTypeR7G_metal,
+    AWSEC2InstanceTypeC6In_metal,
+    AWSEC2InstanceTypeM6In_metal,
+    AWSEC2InstanceTypeM6Idn_metal,
+    AWSEC2InstanceTypeR6In_metal,
+    AWSEC2InstanceTypeR6Idn_metal,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {
@@ -29364,7 +29369,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The ID of the Capacity Reservation.</p>
+ <p>The ID of the Capacity Reservation. If you specify a Capacity Reservation that is shared with you, the operation returns only Capacity Reservation groups that you own.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable capacityReservationId;
 
@@ -32675,7 +32680,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2ElasticGpuAssociation *> * _Nullable elasticGpuAssociations;
 
 /**
- <p> The elastic inference accelerator associated with the instance.</p>
+ <p>The elastic inference accelerator associated with the instance.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2ElasticInferenceAcceleratorAssociation *> * _Nullable elasticInferenceAcceleratorAssociations;
 
@@ -47063,7 +47068,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2ElasticGpuSpecification *> * _Nullable elasticGpuSpecification;
 
 /**
- <p>An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.</p><p>You cannot specify accelerators from different generations in the same request.</p>
+ <p>An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.</p><p>You cannot specify accelerators from different generations in the same request.</p><note><p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSEC2ElasticInferenceAccelerator *> * _Nullable elasticInferenceAccelerators;
 

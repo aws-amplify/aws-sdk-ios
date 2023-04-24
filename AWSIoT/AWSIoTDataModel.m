@@ -73,6 +73,7 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
              @"payload" : @"payload",
              @"qos" : @"qos",
              @"topic" : @"topic",
+             @"userProperties" : @"userProperties",
              };
 }
 

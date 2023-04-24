@@ -26,7 +26,13 @@ public class DeviceOperations {
                 completionHandler(nil, error)
                 return
             }
-            self.mobileClient?.userpoolOpsHelper.currentActiveUser!.listDevices(Int32(limit), paginationToken: paginationToken).continueWith { (task) -> Any? in
+            guard let currentActiveUser = self.mobileClient?.userpoolOpsHelper?.currentActiveUser else {
+                let message = AWSMobileClientConstants.notSignedInMessage
+                let error = AWSMobileClientError.notSignedIn(message: message)
+                completionHandler(nil, error)
+                return
+            }
+            currentActiveUser.listDevices(Int32(limit), paginationToken: paginationToken).continueWith { (task) -> Any? in
                 if let error = task.error {
                     completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
                 } else if let result = task.result {
@@ -60,7 +66,13 @@ public class DeviceOperations {
                 completionHandler(nil, error)
                 return
             }
-            self.mobileClient!.userpoolOpsHelper.currentActiveUser!.updateDeviceStatus(deviceId, remembered: remembered).continueWith { (task) -> Any? in
+            guard let currentActiveUser = self.mobileClient?.userpoolOpsHelper?.currentActiveUser else {
+                let message = AWSMobileClientConstants.notSignedInMessage
+                let error = AWSMobileClientError.notSignedIn(message: message)
+                completionHandler(nil, error)
+                return
+            }
+            currentActiveUser.updateDeviceStatus(deviceId, remembered: remembered).continueWith { (task) -> Any? in
                 if let error = task.error {
                     completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
                 } else if let _ = task.result {
@@ -82,7 +94,13 @@ public class DeviceOperations {
                 completionHandler(nil, error)
                 return
             }
-            self.mobileClient!.userpoolOpsHelper.currentActiveUser!.updateDeviceStatus(remembered).continueWith { (task) -> Any? in
+            guard let currentActiveUser = self.mobileClient?.userpoolOpsHelper?.currentActiveUser else {
+                let message = AWSMobileClientConstants.notSignedInMessage
+                let error = AWSMobileClientError.notSignedIn(message: message)
+                completionHandler(nil, error)
+                return
+            }
+            currentActiveUser.updateDeviceStatus(remembered).continueWith { (task) -> Any? in
                 if let error = task.error {
                     completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
                 } else if let _ = task.result {
@@ -105,7 +123,13 @@ public class DeviceOperations {
                 completionHandler(nil, error)
                 return
             }
-            self.mobileClient!.userpoolOpsHelper.currentActiveUser!.getDevice(deviceId).continueWith { (task) -> Any? in
+            guard let currentActiveUser = self.mobileClient?.userpoolOpsHelper?.currentActiveUser else {
+                let message = AWSMobileClientConstants.notSignedInMessage
+                let error = AWSMobileClientError.notSignedIn(message: message)
+                completionHandler(nil, error)
+                return
+            }
+            currentActiveUser.getDevice(deviceId).continueWith { (task) -> Any? in
                 if let error = task.error {
                     completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
                 } else if let result = task.result {
@@ -126,7 +150,13 @@ public class DeviceOperations {
                 completionHandler(nil, error)
                 return
             }
-            self.mobileClient!.userpoolOpsHelper.currentActiveUser!.getDevice().continueWith { (task) -> Any? in
+            guard let currentActiveUser = self.mobileClient?.userpoolOpsHelper?.currentActiveUser else {
+                let message = AWSMobileClientConstants.notSignedInMessage
+                let error = AWSMobileClientError.notSignedIn(message: message)
+                completionHandler(nil, error)
+                return
+            }
+            currentActiveUser.getDevice().continueWith { (task) -> Any? in
                 if let error = task.error {
                     completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
                 } else if let result = task.result {
@@ -149,7 +179,13 @@ public class DeviceOperations {
                 completionHandler(error)
                 return
             }
-            self.mobileClient!.userpoolOpsHelper.currentActiveUser!.forgetDevice(deviceId).continueWith { (task) -> Any? in
+            guard let currentActiveUser = self.mobileClient?.userpoolOpsHelper?.currentActiveUser else {
+                let message = AWSMobileClientConstants.notSignedInMessage
+                let error = AWSMobileClientError.notSignedIn(message: message)
+                completionHandler(error)
+                return
+            }
+            currentActiveUser.forgetDevice(deviceId).continueWith { (task) -> Any? in
                 if let error = task.error {
                     completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
                 } else if let _ = task.result {
@@ -170,7 +206,11 @@ public class DeviceOperations {
                 completionHandler(error)
                 return
             }
-            self.mobileClient!.userpoolOpsHelper.currentActiveUser!.forgetDevice().continueWith { (task) -> Any? in
+            guard let currentActiveUser = self.mobileClient?.userpoolOpsHelper?.currentActiveUser else {
+                completionHandler(AWSMobileClient.missingCurrentActiveUser())
+                return
+            }
+            currentActiveUser.forgetDevice().continueWith { (task) -> Any? in
                 if let error = task.error {
                     completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
                 } else if let _ = task.result {

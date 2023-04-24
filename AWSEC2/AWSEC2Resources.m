@@ -29238,7 +29238,7 @@
       \"members\":{\
         \"CapacityReservationId\":{\
           \"shape\":\"CapacityReservationId\",\
-          \"documentation\":\"<p>The ID of the Capacity Reservation.</p>\"\
+          \"documentation\":\"<p>The ID of the Capacity Reservation. If you specify a Capacity Reservation that is shared with you, the operation returns only Capacity Reservation groups that you own.</p>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"String\",\
@@ -32611,7 +32611,7 @@
         },\
         \"ElasticInferenceAcceleratorAssociations\":{\
           \"shape\":\"ElasticInferenceAcceleratorAssociationList\",\
-          \"documentation\":\"<p> The elastic inference accelerator associated with the instance.</p>\",\
+          \"documentation\":\"<p>The elastic inference accelerator associated with the instance.</p>\",\
           \"locationName\":\"elasticInferenceAcceleratorAssociationSet\"\
         },\
         \"NetworkInterfaces\":{\
@@ -35033,7 +35033,12 @@
         \"r7g.8xlarge\",\
         \"r7g.12xlarge\",\
         \"r7g.16xlarge\",\
-        \"r7g.metal\"\
+        \"r7g.metal\",\
+        \"c6in.metal\",\
+        \"m6in.metal\",\
+        \"m6idn.metal\",\
+        \"r6in.metal\",\
+        \"r6idn.metal\"\
       ]\
     },\
     \"InstanceTypeHypervisor\":{\
@@ -48806,7 +48811,7 @@
         },\
         \"ElasticInferenceAccelerators\":{\
           \"shape\":\"ElasticInferenceAccelerators\",\
-          \"documentation\":\"<p>An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.</p> <p>You cannot specify accelerators from different generations in the same request.</p>\",\
+          \"documentation\":\"<p>An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.</p> <p>You cannot specify accelerators from different generations in the same request.</p> <note> <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.</p> </note>\",\
           \"locationName\":\"ElasticInferenceAccelerator\"\
         },\
         \"TagSpecifications\":{\

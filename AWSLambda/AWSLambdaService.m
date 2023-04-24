@@ -1138,6 +1138,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLambdaInvokeWithResponseStreamResponse *> *)invokeWithResponseStream:(AWSLambdaInvokeWithResponseStreamRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/2021-11-15/functions/{FunctionName}/response-streaming-invocations"
+                  targetPrefix:@""
+                 operationName:@"InvokeWithResponseStream"
+                   outputClass:[AWSLambdaInvokeWithResponseStreamResponse class]];
+}
+
+- (void)invokeWithResponseStream:(AWSLambdaInvokeWithResponseStreamRequest *)request
+     completionHandler:(void (^)(AWSLambdaInvokeWithResponseStreamResponse *response, NSError *error))completionHandler {
+    [[self invokeWithResponseStream:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaInvokeWithResponseStreamResponse *> * _Nonnull task) {
+        AWSLambdaInvokeWithResponseStreamResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLambdaListAliasesResponse *> *)listAliases:(AWSLambdaListAliasesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
