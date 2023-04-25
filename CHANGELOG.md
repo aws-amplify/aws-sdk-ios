@@ -1,31 +1,35 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
-  - AWSChimeSDKIdentity
-  - AWSChimeSDKMessaging
-  - AWSComprehend  
-  - AWSEC2  
-  - AWSSageMakerRuntime
-  - AWSTextract
-  
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
+### Bug Fixes
+
+- **AWSMobileClient**
+  - Handling AWSMobileClient state issues gracefully handled gracefully
+  
+- **AWSIot**
+  - Include the certificate tag in Keychain query to look up identity
+
 ### Misc. Updates
 
 - Model updates for the following services
+  - AWSAutoScaling
   - AWSComprehend
   - AWSConnect
   - AWSDynamoDB
   - AWSEC2  
   - AWSIoT
+  - AWSLambda
   - AWSLocation
   - AWSTranscribe
+  - AWSChimeSDKIdentity
+  - AWSChimeSDKMessaging
+  - AWSKinesisVideoWebRTCStorage
+  - AWSRekognition
+  - AWSSageMakerRuntime
+  - AWSTextract
+  - AWSConnectParticipant
+  - AWSIoTDataPlane
 
 ## 2.30.4
 

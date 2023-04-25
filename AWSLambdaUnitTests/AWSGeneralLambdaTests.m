@@ -1729,6 +1729,54 @@ static id mockNetworking = nil;
     [AWSLambda removeLambdaForKey:key];
 }
 
+- (void)testInvokeWithResponseStream {
+    NSString *key = @"testInvokeWithResponseStream";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] invokeWithResponseStream:[AWSLambdaInvokeWithResponseStreamRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testInvokeWithResponseStreamCompletionHandler {
+    NSString *key = @"testInvokeWithResponseStream";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLambda LambdaForKey:key] invokeWithResponseStream:[AWSLambdaInvokeWithResponseStreamRequest new] completionHandler:^(AWSLambdaInvokeWithResponseStreamResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
 - (void)testListAliases {
     NSString *key = @"testListAliases";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];

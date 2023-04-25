@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -64,6 +64,30 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
              @"numberOfChannels" : @"NumberOfChannels",
              @"sampleRate" : @"SampleRate",
              };
+}
+
+@end
+
+@implementation AWSRekognitionAuditImage
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"boundingBox" : @"BoundingBox",
+             @"bytes" : @"Bytes",
+             @"s3Object" : @"S3Object",
+             };
+}
+
++ (NSValueTransformer *)boundingBoxJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionBoundingBox class]];
+}
+
++ (NSValueTransformer *)s3ObjectJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionS3Object class]];
 }
 
 @end
@@ -611,6 +635,59 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"datasetArn" : @"DatasetArn",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionCreateFaceLivenessSessionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientRequestToken" : @"ClientRequestToken",
+             @"kmsKeyId" : @"KmsKeyId",
+             @"settings" : @"Settings",
+             };
+}
+
++ (NSValueTransformer *)settingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionCreateFaceLivenessSessionRequestSettings class]];
+}
+
+@end
+
+@implementation AWSRekognitionCreateFaceLivenessSessionRequestSettings
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"auditImagesLimit" : @"AuditImagesLimit",
+             @"outputConfig" : @"OutputConfig",
+             };
+}
+
++ (NSValueTransformer *)outputConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionLivenessOutputConfig class]];
+}
+
+@end
+
+@implementation AWSRekognitionCreateFaceLivenessSessionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"sessionId" : @"SessionId",
              };
 }
 
@@ -2899,6 +2976,82 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionGetFaceLivenessSessionResultsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"sessionId" : @"SessionId",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionGetFaceLivenessSessionResultsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"auditImages" : @"AuditImages",
+             @"confidence" : @"Confidence",
+             @"referenceImage" : @"ReferenceImage",
+             @"sessionId" : @"SessionId",
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)auditImagesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionAuditImage class]];
+}
+
++ (NSValueTransformer *)referenceImageJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionAuditImage class]];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CREATED"] == NSOrderedSame) {
+            return @(AWSRekognitionLivenessSessionStatusCreated);
+        }
+        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSRekognitionLivenessSessionStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"SUCCEEDED"] == NSOrderedSame) {
+            return @(AWSRekognitionLivenessSessionStatusSucceeded);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSRekognitionLivenessSessionStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"EXPIRED"] == NSOrderedSame) {
+            return @(AWSRekognitionLivenessSessionStatusExpired);
+        }
+        return @(AWSRekognitionLivenessSessionStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSRekognitionLivenessSessionStatusCreated:
+                return @"CREATED";
+            case AWSRekognitionLivenessSessionStatusInProgress:
+                return @"IN_PROGRESS";
+            case AWSRekognitionLivenessSessionStatusSucceeded:
+                return @"SUCCEEDED";
+            case AWSRekognitionLivenessSessionStatusFailed:
+                return @"FAILED";
+            case AWSRekognitionLivenessSessionStatusExpired:
+                return @"EXPIRED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSRekognitionGetFaceSearchRequest
 
 + (BOOL)supportsSecureCoding {
@@ -4177,6 +4330,21 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"tags" : @"Tags",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionLivenessOutputConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"s3Bucket" : @"S3Bucket",
+             @"s3KeyPrefix" : @"S3KeyPrefix",
              };
 }
 

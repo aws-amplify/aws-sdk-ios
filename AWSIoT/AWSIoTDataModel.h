@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -128,6 +128,11 @@ typedef NS_ENUM(NSInteger, AWSIoTDataPayloadFormatIndicator) {
  <p>The topic name to which the retained message was published.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable topic;
+
+/**
+ <p>A base64-encoded JSON string that includes an array of JSON objects, or null if the retained message doesn't include any user properties.</p><p>The following example <code>userProperties</code> parameter is a JSON string that represents two user properties. Note that it will be base64-encoded:</p><p><code>[{"deviceName": "alpha"}, {"deviceCnt": "45"}]</code></p>
+ */
+@property (nonatomic, strong) NSData * _Nullable userProperties;
 
 @end
 

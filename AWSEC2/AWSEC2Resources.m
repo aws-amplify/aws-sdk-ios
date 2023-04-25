@@ -406,7 +406,7 @@
       },\
       \"input\":{\"shape\":\"AttachVerifiedAccessTrustProviderRequest\"},\
       \"output\":{\"shape\":\"AttachVerifiedAccessTrustProviderResult\"},\
-      \"documentation\":\"<p>A trust provider is a third-party entity that creates, maintains, and manages identity information for users and devices. One or more trust providers can be attached to an Amazon Web Services Verified Access instance.</p>\"\
+      \"documentation\":\"<p>Attaches the specified Amazon Web Services Verified Access trust provider to the specified Amazon Web Services Verified Access instance.</p>\"\
     },\
     \"AttachVolume\":{\
       \"name\":\"AttachVolume\",\
@@ -1302,7 +1302,7 @@
       },\
       \"input\":{\"shape\":\"CreateVerifiedAccessGroupRequest\"},\
       \"output\":{\"shape\":\"CreateVerifiedAccessGroupResult\"},\
-      \"documentation\":\"<p>An Amazon Web Services Verified Access group is a collection of Amazon Web Services Verified Access endpoints who's associated applications have similar security requirements. Each instance within an Amazon Web Services Verified Access group shares an Amazon Web Services Verified Access policy. For example, you can group all Amazon Web Services Verified Access instances associated with âsalesâ applications together and use one common Amazon Web Services Verified Access policy.</p>\"\
+      \"documentation\":\"<p>An Amazon Web Services Verified Access group is a collection of Amazon Web Services Verified Access endpoints who's associated applications have similar security requirements. Each instance within a Verified Access group shares an Verified Access policy. For example, you can group all Verified Access instances associated with \\\"sales\\\" applications together and use one common Verified Access policy.</p>\"\
     },\
     \"CreateVerifiedAccessInstance\":{\
       \"name\":\"CreateVerifiedAccessInstance\",\
@@ -1322,7 +1322,7 @@
       },\
       \"input\":{\"shape\":\"CreateVerifiedAccessTrustProviderRequest\"},\
       \"output\":{\"shape\":\"CreateVerifiedAccessTrustProviderResult\"},\
-      \"documentation\":\"<p>A trust provider is a third-party entity that creates, maintains, and manages identity information for users and devices. When an application request is made, the identity information sent by the trust provider will be evaluated by Amazon Web Services Verified Access, before allowing or denying the application request.</p>\"\
+      \"documentation\":\"<p>A trust provider is a third-party entity that creates, maintains, and manages identity information for users and devices. When an application request is made, the identity information sent by the trust provider is evaluated by Verified Access before allowing or denying the application request.</p>\"\
     },\
     \"CreateVolume\":{\
       \"name\":\"CreateVolume\",\
@@ -3420,7 +3420,7 @@
       },\
       \"input\":{\"shape\":\"DescribeVerifiedAccessEndpointsRequest\"},\
       \"output\":{\"shape\":\"DescribeVerifiedAccessEndpointsResult\"},\
-      \"documentation\":\"<p>Describe Amazon Web Services Verified Access endpoints.</p>\"\
+      \"documentation\":\"<p>Describes the specified Amazon Web Services Verified Access endpoints.</p>\"\
     },\
     \"DescribeVerifiedAccessGroups\":{\
       \"name\":\"DescribeVerifiedAccessGroups\",\
@@ -3430,7 +3430,7 @@
       },\
       \"input\":{\"shape\":\"DescribeVerifiedAccessGroupsRequest\"},\
       \"output\":{\"shape\":\"DescribeVerifiedAccessGroupsResult\"},\
-      \"documentation\":\"<p>Describe details of existing Verified Access groups.</p>\"\
+      \"documentation\":\"<p>Describes the specified Verified Access groups.</p>\"\
     },\
     \"DescribeVerifiedAccessInstanceLoggingConfigurations\":{\
       \"name\":\"DescribeVerifiedAccessInstanceLoggingConfigurations\",\
@@ -3440,7 +3440,7 @@
       },\
       \"input\":{\"shape\":\"DescribeVerifiedAccessInstanceLoggingConfigurationsRequest\"},\
       \"output\":{\"shape\":\"DescribeVerifiedAccessInstanceLoggingConfigurationsResult\"},\
-      \"documentation\":\"<p>Describes the current logging configuration for the Amazon Web Services Verified Access instances.</p>\"\
+      \"documentation\":\"<p>Describes the specified Amazon Web Services Verified Access instances.</p>\"\
     },\
     \"DescribeVerifiedAccessInstances\":{\
       \"name\":\"DescribeVerifiedAccessInstances\",\
@@ -3450,7 +3450,7 @@
       },\
       \"input\":{\"shape\":\"DescribeVerifiedAccessInstancesRequest\"},\
       \"output\":{\"shape\":\"DescribeVerifiedAccessInstancesResult\"},\
-      \"documentation\":\"<p>Describe Verified Access instances.</p>\"\
+      \"documentation\":\"<p>Describes the specified Amazon Web Services Verified Access instances.</p>\"\
     },\
     \"DescribeVerifiedAccessTrustProviders\":{\
       \"name\":\"DescribeVerifiedAccessTrustProviders\",\
@@ -3460,7 +3460,7 @@
       },\
       \"input\":{\"shape\":\"DescribeVerifiedAccessTrustProvidersRequest\"},\
       \"output\":{\"shape\":\"DescribeVerifiedAccessTrustProvidersResult\"},\
-      \"documentation\":\"<p>Describe details of existing Verified Access trust providers.</p>\"\
+      \"documentation\":\"<p>Describes the specified Amazon Web Services Verified Access trust providers.</p>\"\
     },\
     \"DescribeVolumeAttribute\":{\
       \"name\":\"DescribeVolumeAttribute\",\
@@ -3668,7 +3668,7 @@
       },\
       \"input\":{\"shape\":\"DetachVerifiedAccessTrustProviderRequest\"},\
       \"output\":{\"shape\":\"DetachVerifiedAccessTrustProviderResult\"},\
-      \"documentation\":\"<p>Detach a trust provider from an Amazon Web Services Verified Access instance.</p>\"\
+      \"documentation\":\"<p>Detaches the specified Amazon Web Services Verified Access trust provider from the specified Amazon Web Services Verified Access instance.</p>\"\
     },\
     \"DetachVolume\":{\
       \"name\":\"DetachVolume\",\
@@ -4544,6 +4544,16 @@
       \"output\":{\"shape\":\"GetVpnConnectionDeviceTypesResult\"},\
       \"documentation\":\"<p>Obtain a list of customer gateway devices for which sample configuration files can be provided. The request has no additional parameters. You can also see the list of device types with sample configuration files available under <a href=\\\"https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html\\\">Your customer gateway device</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>\"\
     },\
+    \"GetVpnTunnelReplacementStatus\":{\
+      \"name\":\"GetVpnTunnelReplacementStatus\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"GetVpnTunnelReplacementStatusRequest\"},\
+      \"output\":{\"shape\":\"GetVpnTunnelReplacementStatusResult\"},\
+      \"documentation\":\"<p>Get details of available tunnel endpoint maintenance.</p>\"\
+    },\
     \"ImportClientVpnClientCertificateRevocationList\":{\
       \"name\":\"ImportClientVpnClientCertificateRevocationList\",\
       \"http\":{\
@@ -5055,7 +5065,7 @@
       },\
       \"input\":{\"shape\":\"ModifyVerifiedAccessEndpointRequest\"},\
       \"output\":{\"shape\":\"ModifyVerifiedAccessEndpointResult\"},\
-      \"documentation\":\"<p>Modifies the configuration of an Amazon Web Services Verified Access endpoint.</p>\"\
+      \"documentation\":\"<p>Modifies the configuration of the specified Amazon Web Services Verified Access endpoint.</p>\"\
     },\
     \"ModifyVerifiedAccessEndpointPolicy\":{\
       \"name\":\"ModifyVerifiedAccessEndpointPolicy\",\
@@ -5065,7 +5075,7 @@
       },\
       \"input\":{\"shape\":\"ModifyVerifiedAccessEndpointPolicyRequest\"},\
       \"output\":{\"shape\":\"ModifyVerifiedAccessEndpointPolicyResult\"},\
-      \"documentation\":\"<p>Modifies the specified Verified Access endpoint policy.</p>\"\
+      \"documentation\":\"<p>Modifies the specified Amazon Web Services Verified Access endpoint policy.</p>\"\
     },\
     \"ModifyVerifiedAccessGroup\":{\
       \"name\":\"ModifyVerifiedAccessGroup\",\
@@ -5075,7 +5085,7 @@
       },\
       \"input\":{\"shape\":\"ModifyVerifiedAccessGroupRequest\"},\
       \"output\":{\"shape\":\"ModifyVerifiedAccessGroupResult\"},\
-      \"documentation\":\"<p>Modifies the specified Verified Access group configuration.</p>\"\
+      \"documentation\":\"<p>Modifies the specified Amazon Web Services Verified Access group configuration.</p>\"\
     },\
     \"ModifyVerifiedAccessGroupPolicy\":{\
       \"name\":\"ModifyVerifiedAccessGroupPolicy\",\
@@ -5085,7 +5095,7 @@
       },\
       \"input\":{\"shape\":\"ModifyVerifiedAccessGroupPolicyRequest\"},\
       \"output\":{\"shape\":\"ModifyVerifiedAccessGroupPolicyResult\"},\
-      \"documentation\":\"<p>Modifies the specified Verified Access group policy.</p>\"\
+      \"documentation\":\"<p>Modifies the specified Amazon Web Services Verified Access group policy.</p>\"\
     },\
     \"ModifyVerifiedAccessInstance\":{\
       \"name\":\"ModifyVerifiedAccessInstance\",\
@@ -5095,7 +5105,7 @@
       },\
       \"input\":{\"shape\":\"ModifyVerifiedAccessInstanceRequest\"},\
       \"output\":{\"shape\":\"ModifyVerifiedAccessInstanceResult\"},\
-      \"documentation\":\"<p>Modifies the configuration of the specified Verified Access instance.</p>\"\
+      \"documentation\":\"<p>Modifies the configuration of the specified Amazon Web Services Verified Access instance.</p>\"\
     },\
     \"ModifyVerifiedAccessInstanceLoggingConfiguration\":{\
       \"name\":\"ModifyVerifiedAccessInstanceLoggingConfiguration\",\
@@ -5530,6 +5540,16 @@
       \"input\":{\"shape\":\"ReplaceTransitGatewayRouteRequest\"},\
       \"output\":{\"shape\":\"ReplaceTransitGatewayRouteResult\"},\
       \"documentation\":\"<p>Replaces the specified route in the specified transit gateway route table.</p>\"\
+    },\
+    \"ReplaceVpnTunnel\":{\
+      \"name\":\"ReplaceVpnTunnel\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ReplaceVpnTunnelRequest\"},\
+      \"output\":{\"shape\":\"ReplaceVpnTunnelResult\"},\
+      \"documentation\":\"<p>Trigger replacement of specified VPN tunnel.</p>\"\
     },\
     \"ReportInstanceStatus\":{\
       \"name\":\"ReportInstanceStatus\",\
@@ -8399,11 +8419,11 @@
       \"members\":{\
         \"VerifiedAccessInstanceId\":{\
           \"shape\":\"VerifiedAccessInstanceId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access instance.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access instance.</p>\"\
         },\
         \"VerifiedAccessTrustProviderId\":{\
           \"shape\":\"VerifiedAccessTrustProviderId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access trust provider.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access trust provider.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"String\",\
@@ -8421,12 +8441,12 @@
       \"members\":{\
         \"VerifiedAccessTrustProvider\":{\
           \"shape\":\"VerifiedAccessTrustProvider\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access trust provider.</p>\",\
+          \"documentation\":\"<p>The ID of the Verified Access trust provider.</p>\",\
           \"locationName\":\"verifiedAccessTrustProvider\"\
         },\
         \"VerifiedAccessInstance\":{\
           \"shape\":\"VerifiedAccessInstance\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access instance.</p>\",\
+          \"documentation\":\"<p>The ID of the Verified Access instance.</p>\",\
           \"locationName\":\"verifiedAccessInstance\"\
         }\
       }\
@@ -8886,6 +8906,7 @@
         \"locationName\":\"item\"\
       }\
     },\
+    \"AvailabilityZoneName\":{\"type\":\"string\"},\
     \"AvailabilityZoneOptInStatus\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -10390,6 +10411,10 @@
         }\
       },\
       \"documentation\":\"<p>Current state of options for customizable text banner that will be displayed on Amazon Web Services provided clients when a VPN session is established.</p>\"\
+    },\
+    \"ClientSecretType\":{\
+      \"type\":\"string\",\
+      \"sensitive\":true\
     },\
     \"ClientVpnAssociationId\":{\"type\":\"string\"},\
     \"ClientVpnAuthentication\":{\
@@ -14793,7 +14818,7 @@
           \"documentation\":\"<p>The IP port number.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Options for a network interface-type endpoint.</p>\"\
+      \"documentation\":\"<p>Describes the network interface options when creating an Amazon Web Services Verified Access endpoint using the <code>network-interface</code> type.</p>\"\
     },\
     \"CreateVerifiedAccessEndpointLoadBalancerOptions\":{\
       \"type\":\"structure\",\
@@ -14816,7 +14841,7 @@
           \"locationName\":\"SubnetId\"\
         }\
       },\
-      \"documentation\":\"<p>Describes a load balancer when creating an Amazon Web Services Verified Access endpoint using the <code>load-balancer</code> type.</p>\"\
+      \"documentation\":\"<p>Describes the load balancer options when creating an Amazon Web Services Verified Access endpoint using the <code>load-balancer</code> type.</p>\"\
     },\
     \"CreateVerifiedAccessEndpointRequest\":{\
       \"type\":\"structure\",\
@@ -14835,11 +14860,11 @@
         },\
         \"EndpointType\":{\
           \"shape\":\"VerifiedAccessEndpointType\",\
-          \"documentation\":\"<p>The type of Amazon Web Services Verified Access endpoint to create.</p>\"\
+          \"documentation\":\"<p>The type of Verified Access endpoint to create.</p>\"\
         },\
         \"AttachmentType\":{\
           \"shape\":\"VerifiedAccessEndpointAttachmentType\",\
-          \"documentation\":\"<p>The Amazon Web Services network component Verified Access attaches to.</p>\"\
+          \"documentation\":\"<p>The type of attachment.</p>\"\
         },\
         \"DomainCertificateArn\":{\
           \"shape\":\"CertificateArn\",\
@@ -14851,32 +14876,32 @@
         },\
         \"EndpointDomainPrefix\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>A custom identifier that gets prepended to a DNS name that is generated for the endpoint.</p>\"\
+          \"documentation\":\"<p>A custom identifier that is prepended to the DNS name that is generated for the endpoint.</p>\"\
         },\
         \"SecurityGroupIds\":{\
           \"shape\":\"SecurityGroupIdList\",\
-          \"documentation\":\"<p>The Amazon EC2 security groups to associate with the Amazon Web Services Verified Access endpoint.</p>\",\
+          \"documentation\":\"<p>The IDs of the security groups to associate with the Verified Access endpoint.</p>\",\
           \"locationName\":\"SecurityGroupId\"\
         },\
         \"LoadBalancerOptions\":{\
           \"shape\":\"CreateVerifiedAccessEndpointLoadBalancerOptions\",\
-          \"documentation\":\"<p>The load balancer details if creating the Amazon Web Services Verified Access endpoint as <code>load-balancer</code>type.</p>\"\
+          \"documentation\":\"<p>The load balancer details. This parameter is required if the endpoint type is <code>load-balancer</code>.</p>\"\
         },\
         \"NetworkInterfaceOptions\":{\
           \"shape\":\"CreateVerifiedAccessEndpointEniOptions\",\
-          \"documentation\":\"<p>The network interface details if creating the Amazon Web Services Verified Access endpoint as <code>network-interface</code>type.</p>\"\
+          \"documentation\":\"<p>The network interface details. This parameter is required if the endpoint type is <code>network-interface</code>.</p>\"\
         },\
         \"Description\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>A description for the Amazon Web Services Verified Access endpoint.</p>\"\
+          \"documentation\":\"<p>A description for the Verified Access endpoint.</p>\"\
         },\
         \"PolicyDocument\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The Amazon Web Services Verified Access policy document.</p>\"\
+          \"documentation\":\"<p>The Verified Access policy document.</p>\"\
         },\
         \"TagSpecifications\":{\
           \"shape\":\"TagSpecificationList\",\
-          \"documentation\":\"<p>The tags to assign to the Amazon Web Services Verified Access endpoint.</p>\",\
+          \"documentation\":\"<p>The tags to assign to the Verified Access endpoint.</p>\",\
           \"locationName\":\"TagSpecification\"\
         },\
         \"ClientToken\":{\
@@ -14895,7 +14920,7 @@
       \"members\":{\
         \"VerifiedAccessEndpoint\":{\
           \"shape\":\"VerifiedAccessEndpoint\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access endpoint.</p>\",\
+          \"documentation\":\"<p>The ID of the Verified Access endpoint.</p>\",\
           \"locationName\":\"verifiedAccessEndpoint\"\
         }\
       }\
@@ -14913,19 +14938,19 @@
       \"members\":{\
         \"VerifiedAccessInstanceId\":{\
           \"shape\":\"VerifiedAccessInstanceId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access instance.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access instance.</p>\"\
         },\
         \"Description\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>A description for the Amazon Web Services Verified Access group.</p>\"\
+          \"documentation\":\"<p>A description for the Verified Access group.</p>\"\
         },\
         \"PolicyDocument\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The Amazon Web Services Verified Access policy document.</p>\"\
+          \"documentation\":\"<p>The Verified Access policy document.</p>\"\
         },\
         \"TagSpecifications\":{\
           \"shape\":\"TagSpecificationList\",\
-          \"documentation\":\"<p>The tags to assign to the Amazon Web Services Verified Access group.</p>\",\
+          \"documentation\":\"<p>The tags to assign to the Verified Access group.</p>\",\
           \"locationName\":\"TagSpecification\"\
         },\
         \"ClientToken\":{\
@@ -14954,11 +14979,11 @@
       \"members\":{\
         \"Description\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>A description for the Amazon Web Services Verified Access instance.</p>\"\
+          \"documentation\":\"<p>A description for the Verified Access instance.</p>\"\
         },\
         \"TagSpecifications\":{\
           \"shape\":\"TagSpecificationList\",\
-          \"documentation\":\"<p>The tags to assign to the Amazon Web Services Verified Access instance.</p>\",\
+          \"documentation\":\"<p>The tags to assign to the Verified Access instance.</p>\",\
           \"locationName\":\"TagSpecification\"\
         },\
         \"ClientToken\":{\
@@ -14977,7 +15002,7 @@
       \"members\":{\
         \"VerifiedAccessInstance\":{\
           \"shape\":\"VerifiedAccessInstance\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access instance.</p>\",\
+          \"documentation\":\"<p>The ID of the Verified Access instance.</p>\",\
           \"locationName\":\"verifiedAccessInstance\"\
         }\
       }\
@@ -14990,7 +15015,7 @@
           \"documentation\":\"<p>The ID of the tenant application with the device-identity provider.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Options for a device-identity type trust provider.</p>\"\
+      \"documentation\":\"<p>Describes the options when creating an Amazon Web Services Verified Access trust provider using the <code>device</code> type.</p>\"\
     },\
     \"CreateVerifiedAccessTrustProviderOidcOptions\":{\
       \"type\":\"structure\",\
@@ -15016,7 +15041,7 @@
           \"documentation\":\"<p>The client identifier.</p>\"\
         },\
         \"ClientSecret\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"ClientSecretType\",\
           \"documentation\":\"<p>The client secret.</p>\"\
         },\
         \"Scope\":{\
@@ -15024,7 +15049,7 @@
           \"documentation\":\"<p>OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to a user's details. Each scope returns a specific set of user attributes.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Options for an OIDC-based, user-identity type trust provider.</p>\"\
+      \"documentation\":\"<p>Describes the options when creating an Amazon Web Services Verified Access trust provider using the <code>user</code> type.</p>\"\
     },\
     \"CreateVerifiedAccessTrustProviderRequest\":{\
       \"type\":\"structure\",\
@@ -15035,23 +15060,23 @@
       \"members\":{\
         \"TrustProviderType\":{\
           \"shape\":\"TrustProviderType\",\
-          \"documentation\":\"<p>The type of trust provider can be either user or device-based.</p>\"\
+          \"documentation\":\"<p>The type of trust provider.</p>\"\
         },\
         \"UserTrustProviderType\":{\
           \"shape\":\"UserTrustProviderType\",\
-          \"documentation\":\"<p>The type of user-based trust provider.</p>\"\
+          \"documentation\":\"<p>The type of user-based trust provider. This parameter is required when the provider type is <code>user</code>.</p>\"\
         },\
         \"DeviceTrustProviderType\":{\
           \"shape\":\"DeviceTrustProviderType\",\
-          \"documentation\":\"<p>The type of device-based trust provider.</p>\"\
+          \"documentation\":\"<p>The type of device-based trust provider. This parameter is required when the provider type is <code>device</code>.</p>\"\
         },\
         \"OidcOptions\":{\
           \"shape\":\"CreateVerifiedAccessTrustProviderOidcOptions\",\
-          \"documentation\":\"<p>The OpenID Connect details for an <code>oidc</code>-type, user-identity based trust provider.</p>\"\
+          \"documentation\":\"<p>The options for a OpenID Connect-compatible user-identity trust provider. This parameter is required when the provider type is <code>user</code>.</p>\"\
         },\
         \"DeviceOptions\":{\
           \"shape\":\"CreateVerifiedAccessTrustProviderDeviceOptions\",\
-          \"documentation\":\"<p>The options for device identity based trust providers.</p>\"\
+          \"documentation\":\"<p>The options for a device-based trust provider. This parameter is required when the provider type is <code>device</code>.</p>\"\
         },\
         \"PolicyReferenceName\":{\
           \"shape\":\"String\",\
@@ -15059,11 +15084,11 @@
         },\
         \"Description\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>A description for the Amazon Web Services Verified Access trust provider.</p>\"\
+          \"documentation\":\"<p>A description for the Verified Access trust provider.</p>\"\
         },\
         \"TagSpecifications\":{\
           \"shape\":\"TagSpecificationList\",\
-          \"documentation\":\"<p>The tags to assign to the Amazon Web Services Verified Access trust provider.</p>\",\
+          \"documentation\":\"<p>The tags to assign to the Verified Access trust provider.</p>\",\
           \"locationName\":\"TagSpecification\"\
         },\
         \"ClientToken\":{\
@@ -15082,7 +15107,7 @@
       \"members\":{\
         \"VerifiedAccessTrustProvider\":{\
           \"shape\":\"VerifiedAccessTrustProvider\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access trust provider.</p>\",\
+          \"documentation\":\"<p>The ID of the Verified Access trust provider.</p>\",\
           \"locationName\":\"verifiedAccessTrustProvider\"\
         }\
       }\
@@ -15129,7 +15154,7 @@
       \"required\":[\"AvailabilityZone\"],\
       \"members\":{\
         \"AvailabilityZone\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"AvailabilityZoneName\",\
           \"documentation\":\"<p>The Availability Zone in which to create the volume.</p>\"\
         },\
         \"Encrypted\":{\
@@ -17429,7 +17454,7 @@
       \"members\":{\
         \"VerifiedAccessEndpointId\":{\
           \"shape\":\"VerifiedAccessEndpointId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access endpoint.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access endpoint.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"String\",\
@@ -17447,7 +17472,7 @@
       \"members\":{\
         \"VerifiedAccessEndpoint\":{\
           \"shape\":\"VerifiedAccessEndpoint\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access endpoint.</p>\",\
+          \"documentation\":\"<p>The ID of the Verified Access endpoint.</p>\",\
           \"locationName\":\"verifiedAccessEndpoint\"\
         }\
       }\
@@ -17458,7 +17483,7 @@
       \"members\":{\
         \"VerifiedAccessGroupId\":{\
           \"shape\":\"VerifiedAccessGroupId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access group.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access group.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"String\",\
@@ -17476,7 +17501,7 @@
       \"members\":{\
         \"VerifiedAccessGroup\":{\
           \"shape\":\"VerifiedAccessGroup\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access group.</p>\",\
+          \"documentation\":\"<p>The ID of the Verified Access group.</p>\",\
           \"locationName\":\"verifiedAccessGroup\"\
         }\
       }\
@@ -17487,7 +17512,7 @@
       \"members\":{\
         \"VerifiedAccessInstanceId\":{\
           \"shape\":\"VerifiedAccessInstanceId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access instance.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access instance.</p>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -17505,7 +17530,7 @@
       \"members\":{\
         \"VerifiedAccessInstance\":{\
           \"shape\":\"VerifiedAccessInstance\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access instance.</p>\",\
+          \"documentation\":\"<p>The ID of the Verified Access instance.</p>\",\
           \"locationName\":\"verifiedAccessInstance\"\
         }\
       }\
@@ -17516,7 +17541,7 @@
       \"members\":{\
         \"VerifiedAccessTrustProviderId\":{\
           \"shape\":\"VerifiedAccessTrustProviderId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access trust provider.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access trust provider.</p>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -17534,7 +17559,7 @@
       \"members\":{\
         \"VerifiedAccessTrustProvider\":{\
           \"shape\":\"VerifiedAccessTrustProvider\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access trust provider.</p>\",\
+          \"documentation\":\"<p>The ID of the Verified Access trust provider.</p>\",\
           \"locationName\":\"verifiedAccessTrustProvider\"\
         }\
       }\
@@ -23403,16 +23428,16 @@
       \"members\":{\
         \"VerifiedAccessEndpointIds\":{\
           \"shape\":\"VerifiedAccessEndpointIdList\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access endpoint.</p>\",\
+          \"documentation\":\"<p>The ID of the Verified Access endpoint.</p>\",\
           \"locationName\":\"VerifiedAccessEndpointId\"\
         },\
         \"VerifiedAccessInstanceId\":{\
           \"shape\":\"VerifiedAccessInstanceId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access instance.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access instance.</p>\"\
         },\
         \"VerifiedAccessGroupId\":{\
           \"shape\":\"VerifiedAccessGroupId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access group.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access group.</p>\"\
         },\
         \"MaxResults\":{\
           \"shape\":\"DescribeVerifiedAccessEndpointsMaxResults\",\
@@ -23438,7 +23463,7 @@
       \"members\":{\
         \"VerifiedAccessEndpoints\":{\
           \"shape\":\"VerifiedAccessEndpointList\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access endpoint.</p>\",\
+          \"documentation\":\"<p>The ID of the Verified Access endpoint.</p>\",\
           \"locationName\":\"verifiedAccessEndpointSet\"\
         },\
         \"NextToken\":{\
@@ -23458,12 +23483,12 @@
       \"members\":{\
         \"VerifiedAccessGroupIds\":{\
           \"shape\":\"VerifiedAccessGroupIdList\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access groups.</p>\",\
+          \"documentation\":\"<p>The ID of the Verified Access groups.</p>\",\
           \"locationName\":\"VerifiedAccessGroupId\"\
         },\
         \"VerifiedAccessInstanceId\":{\
           \"shape\":\"VerifiedAccessInstanceId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access instance.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access instance.</p>\"\
         },\
         \"MaxResults\":{\
           \"shape\":\"DescribeVerifiedAccessGroupMaxResults\",\
@@ -23509,7 +23534,7 @@
       \"members\":{\
         \"VerifiedAccessInstanceIds\":{\
           \"shape\":\"VerifiedAccessInstanceIdList\",\
-          \"documentation\":\"<p>The IDs of the Amazon Web Services Verified Access instances.</p>\",\
+          \"documentation\":\"<p>The IDs of the Verified Access instances.</p>\",\
           \"locationName\":\"VerifiedAccessInstanceId\"\
         },\
         \"MaxResults\":{\
@@ -23536,7 +23561,7 @@
       \"members\":{\
         \"LoggingConfigurations\":{\
           \"shape\":\"VerifiedAccessInstanceLoggingConfigurationList\",\
-          \"documentation\":\"<p>The current logging configuration for the Amazon Web Services Verified Access instances.</p>\",\
+          \"documentation\":\"<p>The current logging configuration for the Verified Access instances.</p>\",\
           \"locationName\":\"loggingConfigurationSet\"\
         },\
         \"NextToken\":{\
@@ -23556,7 +23581,7 @@
       \"members\":{\
         \"VerifiedAccessInstanceIds\":{\
           \"shape\":\"VerifiedAccessInstanceIdList\",\
-          \"documentation\":\"<p>The IDs of the Amazon Web Services Verified Access instances.</p>\",\
+          \"documentation\":\"<p>The IDs of the Verified Access instances.</p>\",\
           \"locationName\":\"VerifiedAccessInstanceId\"\
         },\
         \"MaxResults\":{\
@@ -23583,7 +23608,7 @@
       \"members\":{\
         \"VerifiedAccessInstances\":{\
           \"shape\":\"VerifiedAccessInstanceList\",\
-          \"documentation\":\"<p>The IDs of the Amazon Web Services Verified Access instances.</p>\",\
+          \"documentation\":\"<p>The IDs of the Verified Access instances.</p>\",\
           \"locationName\":\"verifiedAccessInstanceSet\"\
         },\
         \"NextToken\":{\
@@ -23603,7 +23628,7 @@
       \"members\":{\
         \"VerifiedAccessTrustProviderIds\":{\
           \"shape\":\"VerifiedAccessTrustProviderIdList\",\
-          \"documentation\":\"<p>The IDs of the Amazon Web Services Verified Access trust providers.</p>\",\
+          \"documentation\":\"<p>The IDs of the Verified Access trust providers.</p>\",\
           \"locationName\":\"VerifiedAccessTrustProviderId\"\
         },\
         \"MaxResults\":{\
@@ -23630,7 +23655,7 @@
       \"members\":{\
         \"VerifiedAccessTrustProviders\":{\
           \"shape\":\"VerifiedAccessTrustProviderList\",\
-          \"documentation\":\"<p>The IDs of the Amazon Web Services Verified Access trust providers.</p>\",\
+          \"documentation\":\"<p>The IDs of the Verified Access trust providers.</p>\",\
           \"locationName\":\"verifiedAccessTrustProviderSet\"\
         },\
         \"NextToken\":{\
@@ -24479,11 +24504,11 @@
       \"members\":{\
         \"VerifiedAccessInstanceId\":{\
           \"shape\":\"VerifiedAccessInstanceId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access instance.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access instance.</p>\"\
         },\
         \"VerifiedAccessTrustProviderId\":{\
           \"shape\":\"VerifiedAccessTrustProviderId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access trust provider.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access trust provider.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"String\",\
@@ -24501,12 +24526,12 @@
       \"members\":{\
         \"VerifiedAccessTrustProvider\":{\
           \"shape\":\"VerifiedAccessTrustProvider\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access trust provider.</p>\",\
+          \"documentation\":\"<p>The ID of the Verified Access trust provider.</p>\",\
           \"locationName\":\"verifiedAccessTrustProvider\"\
         },\
         \"VerifiedAccessInstance\":{\
           \"shape\":\"VerifiedAccessInstance\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access instance.</p>\",\
+          \"documentation\":\"<p>The ID of the Verified Access instance.</p>\",\
           \"locationName\":\"verifiedAccessInstance\"\
         }\
       }\
@@ -24570,7 +24595,7 @@
           \"locationName\":\"tenantId\"\
         }\
       },\
-      \"documentation\":\"<p>Options for an Amazon Web Services Verified Access device-identity based trust provider.</p>\"\
+      \"documentation\":\"<p>Describes the options for an Amazon Web Services Verified Access device-identity based trust provider.</p>\"\
     },\
     \"DeviceTrustProviderType\":{\
       \"type\":\"string\",\
@@ -25597,7 +25622,7 @@
           \"locationName\":\"format\"\
         },\
         \"ImportManifestUrl\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"ImportManifestUrl\",\
           \"documentation\":\"<p>A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the \\\"Query String Request Authentication Alternative\\\" section of the <a href=\\\"https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html\\\">Authenticating REST Requests</a> topic in the <i>Amazon Simple Storage Service Developer Guide</i>.</p> <p>For information about the import manifest referenced by this API action, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html\\\">VM Import Manifest</a>.</p>\",\
           \"locationName\":\"importManifestUrl\"\
         },\
@@ -29217,7 +29242,7 @@
       \"members\":{\
         \"CapacityReservationId\":{\
           \"shape\":\"CapacityReservationId\",\
-          \"documentation\":\"<p>The ID of the Capacity Reservation.</p>\"\
+          \"documentation\":\"<p>The ID of the Capacity Reservation. If you specify a Capacity Reservation that is shared with you, the operation returns only Capacity Reservation groups that you own.</p>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"String\",\
@@ -30394,7 +30419,7 @@
       \"members\":{\
         \"VerifiedAccessEndpointId\":{\
           \"shape\":\"VerifiedAccessEndpointId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access endpoint.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access endpoint.</p>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -30412,7 +30437,7 @@
         },\
         \"PolicyDocument\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The Amazon Web Services Verified Access policy document.</p>\",\
+          \"documentation\":\"<p>The Verified Access policy document.</p>\",\
           \"locationName\":\"policyDocument\"\
         }\
       }\
@@ -30423,7 +30448,7 @@
       \"members\":{\
         \"VerifiedAccessGroupId\":{\
           \"shape\":\"VerifiedAccessGroupId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access group.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access group.</p>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -30441,7 +30466,7 @@
         },\
         \"PolicyDocument\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The Amazon Web Services Verified Access policy document.</p>\",\
+          \"documentation\":\"<p>The Verified Access policy document.</p>\",\
           \"locationName\":\"policyDocument\"\
         }\
       }\
@@ -30510,6 +30535,62 @@
           \"shape\":\"NextToken\",\
           \"documentation\":\"<p>The <code>NextToken</code> value to include in a future <code>GetVpnConnectionDeviceTypes</code> request. When the results of a <code>GetVpnConnectionDeviceTypes</code> request exceed <code>MaxResults</code>, this value can be used to retrieve the next page of results. This value is null when there are no more results to return.</p>\",\
           \"locationName\":\"nextToken\"\
+        }\
+      }\
+    },\
+    \"GetVpnTunnelReplacementStatusRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"VpnConnectionId\",\
+        \"VpnTunnelOutsideIpAddress\"\
+      ],\
+      \"members\":{\
+        \"VpnConnectionId\":{\
+          \"shape\":\"VpnConnectionId\",\
+          \"documentation\":\"<p>The ID of the Site-to-Site VPN connection. </p>\"\
+        },\
+        \"VpnTunnelOutsideIpAddress\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The external IP address of the VPN tunnel.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"GetVpnTunnelReplacementStatusResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"VpnConnectionId\":{\
+          \"shape\":\"VpnConnectionId\",\
+          \"documentation\":\"<p>The ID of the Site-to-Site VPN connection. </p>\",\
+          \"locationName\":\"vpnConnectionId\"\
+        },\
+        \"TransitGatewayId\":{\
+          \"shape\":\"TransitGatewayId\",\
+          \"documentation\":\"<p>The ID of the transit gateway associated with the VPN connection.</p>\",\
+          \"locationName\":\"transitGatewayId\"\
+        },\
+        \"CustomerGatewayId\":{\
+          \"shape\":\"CustomerGatewayId\",\
+          \"documentation\":\"<p>The ID of the customer gateway.</p>\",\
+          \"locationName\":\"customerGatewayId\"\
+        },\
+        \"VpnGatewayId\":{\
+          \"shape\":\"VpnGatewayId\",\
+          \"documentation\":\"<p>The ID of the virtual private gateway.</p>\",\
+          \"locationName\":\"vpnGatewayId\"\
+        },\
+        \"VpnTunnelOutsideIpAddress\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The external IP address of the VPN tunnel.</p>\",\
+          \"locationName\":\"vpnTunnelOutsideIpAddress\"\
+        },\
+        \"MaintenanceDetails\":{\
+          \"shape\":\"MaintenanceDetails\",\
+          \"documentation\":\"<p>Get details of pending tunnel endpoint maintenance.</p>\",\
+          \"locationName\":\"maintenanceDetails\"\
         }\
       }\
     },\
@@ -32534,7 +32615,7 @@
         },\
         \"ElasticInferenceAcceleratorAssociations\":{\
           \"shape\":\"ElasticInferenceAcceleratorAssociationList\",\
-          \"documentation\":\"<p> The elastic inference accelerator associated with the instance.</p>\",\
+          \"documentation\":\"<p>The elastic inference accelerator associated with the instance.</p>\",\
           \"locationName\":\"elasticInferenceAcceleratorAssociationSet\"\
         },\
         \"NetworkInterfaces\":{\
@@ -34956,7 +35037,12 @@
         \"r7g.8xlarge\",\
         \"r7g.12xlarge\",\
         \"r7g.16xlarge\",\
-        \"r7g.metal\"\
+        \"r7g.metal\",\
+        \"c6in.metal\",\
+        \"m6in.metal\",\
+        \"m6idn.metal\",\
+        \"r6in.metal\",\
+        \"r6idn.metal\"\
       ]\
     },\
     \"InstanceTypeHypervisor\":{\
@@ -38845,6 +38931,27 @@
       ]\
     },\
     \"Long\":{\"type\":\"long\"},\
+    \"MaintenanceDetails\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PendingMaintenance\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Verify existence of a pending maintenance.</p>\",\
+          \"locationName\":\"pendingMaintenance\"\
+        },\
+        \"MaintenanceAutoAppliedAfter\":{\
+          \"shape\":\"MillisecondDateTime\",\
+          \"documentation\":\"<p>The timestamp after which Amazon Web Services will automatically apply maintenance.</p>\",\
+          \"locationName\":\"maintenanceAutoAppliedAfter\"\
+        },\
+        \"LastMaintenanceApplied\":{\
+          \"shape\":\"MillisecondDateTime\",\
+          \"documentation\":\"<p>Timestamp of last applied maintenance.</p>\",\
+          \"locationName\":\"lastMaintenanceApplied\"\
+        }\
+      },\
+      \"documentation\":\"<p>Details for Site-to-Site VPN tunnel endpoint maintenance events.</p>\"\
+    },\
     \"ManagedPrefixList\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -40913,7 +41020,7 @@
           \"documentation\":\"<p>The IP port number.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Options for a network-interface type Verified Access endpoint.</p>\"\
+      \"documentation\":\"<p>Describes the options when modifying a Verified Access endpoint with the <code>network-interface</code> type.</p>\"\
     },\
     \"ModifyVerifiedAccessEndpointLoadBalancerOptions\":{\
       \"type\":\"structure\",\
@@ -40943,7 +41050,7 @@
       \"members\":{\
         \"VerifiedAccessEndpointId\":{\
           \"shape\":\"VerifiedAccessEndpointId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access endpoint.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access endpoint.</p>\"\
         },\
         \"PolicyEnabled\":{\
           \"shape\":\"Boolean\",\
@@ -40951,7 +41058,7 @@
         },\
         \"PolicyDocument\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The Amazon Web Services Verified Access policy document.</p>\"\
+          \"documentation\":\"<p>The Verified Access policy document.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"String\",\
@@ -40974,7 +41081,7 @@
         },\
         \"PolicyDocument\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The Amazon Web Services Verified Access policy document.</p>\",\
+          \"documentation\":\"<p>The Verified Access policy document.</p>\",\
           \"locationName\":\"policyDocument\"\
         }\
       }\
@@ -40985,15 +41092,15 @@
       \"members\":{\
         \"VerifiedAccessEndpointId\":{\
           \"shape\":\"VerifiedAccessEndpointId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access endpoint.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access endpoint.</p>\"\
         },\
         \"VerifiedAccessGroupId\":{\
           \"shape\":\"VerifiedAccessGroupId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access group.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access group.</p>\"\
         },\
         \"LoadBalancerOptions\":{\
           \"shape\":\"ModifyVerifiedAccessEndpointLoadBalancerOptions\",\
-          \"documentation\":\"<p>The load balancer details if creating the Amazon Web Services Verified Access endpoint as <code>load-balancer</code>type.</p>\"\
+          \"documentation\":\"<p>The load balancer details if creating the Verified Access endpoint as <code>load-balancer</code>type.</p>\"\
         },\
         \"NetworkInterfaceOptions\":{\
           \"shape\":\"ModifyVerifiedAccessEndpointEniOptions\",\
@@ -41001,7 +41108,7 @@
         },\
         \"Description\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>A description for the Amazon Web Services Verified Access endpoint.</p>\"\
+          \"documentation\":\"<p>A description for the Verified Access endpoint.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"String\",\
@@ -41019,7 +41126,7 @@
       \"members\":{\
         \"VerifiedAccessEndpoint\":{\
           \"shape\":\"VerifiedAccessEndpoint\",\
-          \"documentation\":\"<p>The Amazon Web Services Verified Access endpoint details.</p>\",\
+          \"documentation\":\"<p>The Verified Access endpoint details.</p>\",\
           \"locationName\":\"verifiedAccessEndpoint\"\
         }\
       }\
@@ -41040,7 +41147,7 @@
       \"members\":{\
         \"VerifiedAccessGroupId\":{\
           \"shape\":\"VerifiedAccessGroupId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access group.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access group.</p>\"\
         },\
         \"PolicyEnabled\":{\
           \"shape\":\"Boolean\",\
@@ -41048,7 +41155,7 @@
         },\
         \"PolicyDocument\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The Amazon Web Services Verified Access policy document.</p>\"\
+          \"documentation\":\"<p>The Verified Access policy document.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"String\",\
@@ -41071,7 +41178,7 @@
         },\
         \"PolicyDocument\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The Amazon Web Services Verified Access policy document.</p>\",\
+          \"documentation\":\"<p>The Verified Access policy document.</p>\",\
           \"locationName\":\"policyDocument\"\
         }\
       }\
@@ -41082,15 +41189,15 @@
       \"members\":{\
         \"VerifiedAccessGroupId\":{\
           \"shape\":\"VerifiedAccessGroupId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access group.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access group.</p>\"\
         },\
         \"VerifiedAccessInstanceId\":{\
           \"shape\":\"VerifiedAccessInstanceId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access instance.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access instance.</p>\"\
         },\
         \"Description\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>A description for the Amazon Web Services Verified Access group.</p>\"\
+          \"documentation\":\"<p>A description for the Verified Access group.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"String\",\
@@ -41108,7 +41215,7 @@
       \"members\":{\
         \"VerifiedAccessGroup\":{\
           \"shape\":\"VerifiedAccessGroup\",\
-          \"documentation\":\"<p>Details of Amazon Web Services Verified Access group.</p>\",\
+          \"documentation\":\"<p>Details of Verified Access group.</p>\",\
           \"locationName\":\"verifiedAccessGroup\"\
         }\
       }\
@@ -41122,11 +41229,11 @@
       \"members\":{\
         \"VerifiedAccessInstanceId\":{\
           \"shape\":\"VerifiedAccessInstanceId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access instance.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access instance.</p>\"\
         },\
         \"AccessLogs\":{\
           \"shape\":\"VerifiedAccessLogOptions\",\
-          \"documentation\":\"<p>The configuration options for Amazon Web Services Verified Access instances.</p>\"\
+          \"documentation\":\"<p>The configuration options for Verified Access instances.</p>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -41144,7 +41251,7 @@
       \"members\":{\
         \"LoggingConfiguration\":{\
           \"shape\":\"VerifiedAccessInstanceLoggingConfiguration\",\
-          \"documentation\":\"<p>The logging configuration for Amazon Web Services Verified Access instance.</p>\",\
+          \"documentation\":\"<p>The logging configuration for the Verified Access instance.</p>\",\
           \"locationName\":\"loggingConfiguration\"\
         }\
       }\
@@ -41155,11 +41262,11 @@
       \"members\":{\
         \"VerifiedAccessInstanceId\":{\
           \"shape\":\"VerifiedAccessInstanceId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access instance.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access instance.</p>\"\
         },\
         \"Description\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>A description for the Amazon Web Services Verified Access instance.</p>\"\
+          \"documentation\":\"<p>A description for the Verified Access instance.</p>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -41177,7 +41284,7 @@
       \"members\":{\
         \"VerifiedAccessInstance\":{\
           \"shape\":\"VerifiedAccessInstance\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access instance.</p>\",\
+          \"documentation\":\"<p>The ID of the Verified Access instance.</p>\",\
           \"locationName\":\"verifiedAccessInstance\"\
         }\
       }\
@@ -41185,12 +41292,36 @@
     \"ModifyVerifiedAccessTrustProviderOidcOptions\":{\
       \"type\":\"structure\",\
       \"members\":{\
+        \"Issuer\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The OIDC issuer.</p>\"\
+        },\
+        \"AuthorizationEndpoint\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The OIDC authorization endpoint.</p>\"\
+        },\
+        \"TokenEndpoint\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The OIDC token endpoint.</p>\"\
+        },\
+        \"UserInfoEndpoint\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The OIDC user info endpoint.</p>\"\
+        },\
+        \"ClientId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The client identifier.</p>\"\
+        },\
+        \"ClientSecret\":{\
+          \"shape\":\"ClientSecretType\",\
+          \"documentation\":\"<p>The client secret.</p>\"\
+        },\
         \"Scope\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to a user's details. Each scope returns a specific set of user attributes.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>OpenID Connect options for an <code>oidc</code>-type, user-identity based trust provider.</p>\"\
+      \"documentation\":\"<p>Options for an OpenID Connect-compatible user-identity trust provider.</p>\"\
     },\
     \"ModifyVerifiedAccessTrustProviderRequest\":{\
       \"type\":\"structure\",\
@@ -41198,15 +41329,15 @@
       \"members\":{\
         \"VerifiedAccessTrustProviderId\":{\
           \"shape\":\"VerifiedAccessTrustProviderId\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access trust provider.</p>\"\
+          \"documentation\":\"<p>The ID of the Verified Access trust provider.</p>\"\
         },\
         \"OidcOptions\":{\
           \"shape\":\"ModifyVerifiedAccessTrustProviderOidcOptions\",\
-          \"documentation\":\"<p>The OpenID Connect details for an <code>oidc</code>-type, user-identity based trust provider.</p>\"\
+          \"documentation\":\"<p>The options for an OpenID Connect-compatible user-identity trust provider.</p>\"\
         },\
         \"Description\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>A description for the Amazon Web Services Verified Access trust provider.</p>\"\
+          \"documentation\":\"<p>A description for the Verified Access trust provider.</p>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -41224,7 +41355,7 @@
       \"members\":{\
         \"VerifiedAccessTrustProvider\":{\
           \"shape\":\"VerifiedAccessTrustProvider\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services Verified Access trust provider.</p>\",\
+          \"documentation\":\"<p>The ID of the Verified Access trust provider.</p>\",\
           \"locationName\":\"verifiedAccessTrustProvider\"\
         }\
       }\
@@ -41753,6 +41884,10 @@
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"SkipTunnelReplacement\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Choose whether or not to trigger immediate tunnel replacement.</p> <p>Valid values: <code>True</code> | <code>False</code> </p>\"\
         }\
       }\
     },\
@@ -41851,6 +41986,10 @@
         \"LogOptions\":{\
           \"shape\":\"VpnTunnelLogOptionsSpecification\",\
           \"documentation\":\"<p>Options for logging VPN tunnel activity.</p>\"\
+        },\
+        \"EnableTunnelLifecycleControl\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Turn on or off tunnel endpoint lifecycle control feature.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The Amazon Web Services Site-to-Site VPN tunnel options to modify.</p>\"\
@@ -43317,7 +43456,7 @@
           \"locationName\":\"clientId\"\
         },\
         \"ClientSecret\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"ClientSecretType\",\
           \"documentation\":\"<p>The client secret.</p>\",\
           \"locationName\":\"clientSecret\"\
         },\
@@ -43327,7 +43466,7 @@
           \"locationName\":\"scope\"\
         }\
       },\
-      \"documentation\":\"<p>Options for OIDC-based, user-identity type trust provider.</p>\"\
+      \"documentation\":\"<p>Describes the options for an OpenID Connect-compatible user-identity trust provider.</p>\"\
     },\
     \"OnDemandAllocationStrategy\":{\
       \"type\":\"string\",\
@@ -46249,6 +46388,41 @@
         }\
       }\
     },\
+    \"ReplaceVpnTunnelRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"VpnConnectionId\",\
+        \"VpnTunnelOutsideIpAddress\"\
+      ],\
+      \"members\":{\
+        \"VpnConnectionId\":{\
+          \"shape\":\"VpnConnectionId\",\
+          \"documentation\":\"<p>The ID of the Site-to-Site VPN connection. </p>\"\
+        },\
+        \"VpnTunnelOutsideIpAddress\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The external IP address of the VPN tunnel.</p>\"\
+        },\
+        \"ApplyPendingMaintenance\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Trigger pending tunnel endpoint maintenance.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"ReplaceVpnTunnelResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Return\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Confirmation of replace tunnel operation.</p>\",\
+          \"locationName\":\"return\"\
+        }\
+      }\
+    },\
     \"ReplacementStrategy\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -48665,7 +48839,7 @@
         },\
         \"ElasticInferenceAccelerators\":{\
           \"shape\":\"ElasticInferenceAccelerators\",\
-          \"documentation\":\"<p>An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.</p> <p>You cannot specify accelerators from different generations in the same request.</p>\",\
+          \"documentation\":\"<p>An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.</p> <p>You cannot specify accelerators from different generations in the same request.</p> <note> <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.</p> </note>\",\
           \"locationName\":\"ElasticInferenceAccelerator\"\
         },\
         \"TagSpecifications\":{\
@@ -54727,6 +54901,11 @@
           \"shape\":\"VpnTunnelLogOptions\",\
           \"documentation\":\"<p>Options for logging VPN tunnel activity.</p>\",\
           \"locationName\":\"logOptions\"\
+        },\
+        \"EnableTunnelLifecycleControl\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Status of tunnel endpoint lifecycle control feature.</p>\",\
+          \"locationName\":\"enableTunnelLifecycleControl\"\
         }\
       },\
       \"documentation\":\"<p>The VPN tunnel options.</p>\"\
@@ -55844,12 +56023,12 @@
         },\
         \"OidcOptions\":{\
           \"shape\":\"OidcOptions\",\
-          \"documentation\":\"<p>The OpenID Connect details for an <code>oidc</code>-type, user-identity based trust provider.</p>\",\
+          \"documentation\":\"<p>The options for an OpenID Connect-compatible user-identity trust provider.</p>\",\
           \"locationName\":\"oidcOptions\"\
         },\
         \"DeviceOptions\":{\
           \"shape\":\"DeviceOptions\",\
-          \"documentation\":\"<p>The options for device-identity type trust provider.</p>\",\
+          \"documentation\":\"<p>The options for device-identity trust provider.</p>\",\
           \"locationName\":\"deviceOptions\"\
         },\
         \"PolicyReferenceName\":{\
@@ -57565,6 +57744,10 @@
         \"LogOptions\":{\
           \"shape\":\"VpnTunnelLogOptionsSpecification\",\
           \"documentation\":\"<p>Options for logging VPN tunnel activity.</p>\"\
+        },\
+        \"EnableTunnelLifecycleControl\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Turn on or off tunnel endpoint lifecycle control feature.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The tunnel options for a single VPN tunnel.</p>\"\
