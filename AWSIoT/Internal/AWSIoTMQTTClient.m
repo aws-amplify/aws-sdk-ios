@@ -112,7 +112,7 @@
         _timerSemaphore = dispatch_semaphore_create(1);
         _timerQueue = dispatch_queue_create("com.amazon.aws.iot.timer-queue", DISPATCH_QUEUE_SERIAL);
         _streamsThread = nil;
-        _ackCallbackDictionary = dispatch_queue_create("com.zmazon.aws.iot.topic-access-queue", DISPATCH_QUEUE_SERIAL);
+        _ackCallbackDictAccessQueue = dispatch_queue_create("com.zmazon.aws.iot.topic-access-queue", DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }
