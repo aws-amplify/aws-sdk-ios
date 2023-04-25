@@ -82,6 +82,7 @@
 
 @property (strong,atomic) dispatch_semaphore_t timerSemaphore;
 @property (strong,atomic) dispatch_queue_t timerQueue;
+@property (strong,nonatomic) dispatch_queue_t ackCallbackDictAccessQueue;
 
 @end
 
@@ -111,6 +112,7 @@
         _timerSemaphore = dispatch_semaphore_create(1);
         _timerQueue = dispatch_queue_create("com.amazon.aws.iot.timer-queue", DISPATCH_QUEUE_SERIAL);
         _streamsThread = nil;
+        _ackCallbackDictionary = dispatch_queue_create("com.zmazon.aws.iot.topic-access-queue", DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }
@@ -871,15 +873,23 @@
     } else if (qos == AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce) {
         [self.session publishDataAtLeastOnce:data onTopic:topic retain:retain onMessageIdResolved:^(UInt16 msgId) {
             if (ackCallback) {
-                [self.ackCallbackDictionary setObject:ackCallback
-                                               forKey:[NSNumber numberWithInt:msgId]];
+                dispatch_barrier_async(self.ackCallbackDictAccessQueue, ^{
+                    [self.ackCallbackDictionary setObject:ackCallback
+                                                   forKey:[NSNumber numberWithInt:msgId]];
+                });
+//                [self.ackCallbackDictionary setObject:ackCallback
+//                                               forKey:[NSNumber numberWithInt:msgId]];
             }
         }];
     } else if (qos == AWSIoTMQTTQoSMessageDeliveryAttemptedExactlyOnce) {
         [self.session publishDataExactlyOnce:data onTopic:topic retain:retain onMessageIdResolved:^(UInt16 msgId) {
             if (ackCallback) {
-                [self.ackCallbackDictionary setObject:ackCallback
-                                               forKey:[NSNumber numberWithInt:msgId]];
+                dispatch_barrier_async(self.ackCallbackDictAccessQueue, ^{
+                    [self.ackCallbackDictionary setObject:ackCallback
+                                                   forKey:[NSNumber numberWithInt:msgId]];
+                });
+//                [self.ackCallbackDictionary setObject:ackCallback
+//                                               forKey:[NSNumber numberWithInt:msgId]];
             }
         }];
     }
@@ -988,8 +998,12 @@
     UInt16 messageId = [self.session subscribeToTopic:topicModel.topic atLevel:topicModel.qos];
     AWSDDLogVerbose(@"Now subscribing w/ messageId: %d", messageId);
     if (ackCallback) {
-        [self.ackCallbackDictionary setObject:ackCallback
-                                       forKey:[NSNumber numberWithInt:messageId]];
+        dispatch_barrier_async(self.ackCallbackDictAccessQueue, ^{
+            [self.ackCallbackDictionary setObject:ackCallback
+                                           forKey:[NSNumber numberWithInt:messageId]];
+        });
+//        [self.ackCallbackDictionary setObject:ackCallback
+//                                       forKey:[NSNumber numberWithInt:messageId]];
     }
 }
 
@@ -1008,8 +1022,12 @@
     UInt16 messageId = [self.session unsubscribeTopic:topic];
     [self.topicListeners removeObjectForKey:topic];
     if (ackCallback) {
-        [self.ackCallbackDictionary setObject:ackCallback
-                                       forKey:[NSNumber numberWithInt:messageId]];
+        dispatch_barrier_async(self.ackCallbackDictAccessQueue, ^{
+            [self.ackCallbackDictionary setObject:ackCallback
+                                           forKey:[NSNumber numberWithInt:messageId]];
+        });
+//        [self.ackCallbackDictionary setObject:ackCallback
+//                                       forKey:[NSNumber numberWithInt:messageId]];
     }
 }
 
@@ -1200,14 +1218,21 @@
 - (void)session:(AWSMQTTSession*)session newAckForMessageId:(UInt16)msgId {
     AWSDDLogVerbose(@"MQTTSessionDelegate new ack for msgId: %d", msgId);
     NSNumber *msgIdNumber = [NSNumber numberWithInt:msgId];
-    AWSIoTMQTTAckBlock callback = [[self ackCallbackDictionary] objectForKey:msgIdNumber];
+    __block AWSIoTMQTTAckBlock callback;
+    dispatch_sync(self.ackCallbackDictAccessQueue, ^{
+        callback = [[self ackCallbackDictionary] objectForKey:msgIdNumber];
+    });
+//    AWSIoTMQTTAckBlock callback = [[self ackCallbackDictionary] objectForKey:msgIdNumber];
     
     if(callback) {
         // Give callback to the client on a background thread
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
             callback();
         });
-        [[self ackCallbackDictionary] removeObjectForKey:msgIdNumber];
+        dispatch_barrier_async(self.ackCallbackDictAccessQueue, ^{
+            [[self ackCallbackDictionary] removeObjectForKey:msgIdNumber];
+        });
+//        [[self ackCallbackDictionary] removeObjectForKey:msgIdNumber];
     }
 }
 

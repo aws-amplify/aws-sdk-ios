@@ -513,7 +513,7 @@
                                             encoding:NSUTF8StringEncoding];
     NSRange range = NSMakeRange(2 + topicLength, [data length] - topicLength - 2);
     data = [data subdataWithRange:range];
-    msg.data = data;
+//    msg.data = data;
     if ([msg qos] == 0) {
         [_delegate session:self newMessage:msg onTopic:topic];
         if(_messageHandler){
@@ -530,7 +530,7 @@
             return;
         }
         data = [data subdataWithRange:NSMakeRange(2, [data length] - 2)];
-        msg.data = data;
+//        msg.data = data;
         if ([msg qos] == 1) {
             [_delegate session:self newMessage:msg onTopic:topic];
             if(_messageHandler){
