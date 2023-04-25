@@ -247,6 +247,7 @@
       \"errors\":[\
         {\"shape\":\"BadRequestException\"},\
         {\"shape\":\"ForbiddenException\"},\
+        {\"shape\":\"ConflictException\"},\
         {\"shape\":\"UnauthorizedClientException\"},\
         {\"shape\":\"ThrottledClientException\"},\
         {\"shape\":\"ServiceUnavailableException\"},\
@@ -355,23 +356,7 @@
       },\
       \"input\":{\"shape\":\"DeleteMessagingStreamingConfigurationsRequest\"},\
       \"errors\":[\
-        {\"shape\":\"ForbiddenException\"},\
-        {\"shape\":\"UnauthorizedClientException\"},\
-        {\"shape\":\"ThrottledClientException\"},\
-        {\"shape\":\"ServiceUnavailableException\"},\
-        {\"shape\":\"ServiceFailureException\"}\
-      ],\
-      \"documentation\":\"<p>Deletes the streaming configurations for an <code>AppInstance</code>. For more information, see <a href=\\\"https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html\\\">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>\"\
-    },\
-    \"DeleteMessagingStreamingConfigurations\":{\
-      \"name\":\"DeleteMessagingStreamingConfigurations\",\
-      \"http\":{\
-        \"method\":\"DELETE\",\
-        \"requestUri\":\"/app-instances/{appInstanceArn}/streaming-configurations\",\
-        \"responseCode\":204\
-      },\
-      \"input\":{\"shape\":\"DeleteMessagingStreamingConfigurationsRequest\"},\
-      \"errors\":[\
+        {\"shape\":\"BadRequestException\"},\
         {\"shape\":\"ForbiddenException\"},\
         {\"shape\":\"UnauthorizedClientException\"},\
         {\"shape\":\"ThrottledClientException\"},\
@@ -880,27 +865,6 @@
         {\"shape\":\"ServiceFailureException\"}\
       ],\
       \"documentation\":\"<p>Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppIntanceBot</code> for the specified channel. The user or bot must be a member of the channel. Only the user or bot who owns the membership can set preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't set preferences for other users or users. Banned users or bots can't set membership preferences for the channel from which they are banned.</p> <note> <p>The x-amz-chime-bearer request header is mandatory. Use the ARN of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> </note>\"\
-    },\
-    \"PutMessagingStreamingConfigurations\":{\
-      \"name\":\"PutMessagingStreamingConfigurations\",\
-      \"http\":{\
-        \"method\":\"PUT\",\
-        \"requestUri\":\"/app-instances/{appInstanceArn}/streaming-configurations\",\
-        \"responseCode\":200\
-      },\
-      \"input\":{\"shape\":\"PutMessagingStreamingConfigurationsRequest\"},\
-      \"output\":{\"shape\":\"PutMessagingStreamingConfigurationsResponse\"},\
-      \"errors\":[\
-        {\"shape\":\"NotFoundException\"},\
-        {\"shape\":\"BadRequestException\"},\
-        {\"shape\":\"ForbiddenException\"},\
-        {\"shape\":\"UnauthorizedClientException\"},\
-        {\"shape\":\"ThrottledClientException\"},\
-        {\"shape\":\"ConflictException\"},\
-        {\"shape\":\"ServiceUnavailableException\"},\
-        {\"shape\":\"ServiceFailureException\"}\
-      ],\
-      \"documentation\":\"<p>Sets the data streaming configuration for an <code>AppInstance</code>. For more information, see <a href=\\\"https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html\\\">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>\"\
     },\
     \"PutMessagingStreamingConfigurations\":{\
       \"name\":\"PutMessagingStreamingConfigurations\",\
@@ -1977,7 +1941,8 @@
         },\
         \"ClientRequestToken\":{\
           \"shape\":\"ClientRequestToken\",\
-          \"documentation\":\"<p>The client token for the request. An Idempotency token.</p>\"\
+          \"documentation\":\"<p>The client token for the request. An Idempotency token.</p>\",\
+          \"idempotencyToken\":true\
         }\
       }\
     },\
@@ -2310,12 +2275,6 @@
           \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
-        },\
-        \"SubChannelId\":{\
-          \"shape\":\"SubChannelId\",\
-          \"documentation\":\"<p>The ID of the SubChannel in the request.</p>\",\
-          \"location\":\"querystring\",\
-          \"locationName\":\"sub-channel-id\"\
         }\
       }\
     },\
@@ -4303,10 +4262,6 @@
           \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-chime-bearer\"\
-        },\
-        \"SubChannelId\":{\
-          \"shape\":\"SubChannelId\",\
-          \"documentation\":\"<p>The ID of the SubChannel in the request.</p>\"\
         }\
       }\
     },\
@@ -4316,10 +4271,6 @@
         \"ChannelArn\":{\
           \"shape\":\"ChimeArn\",\
           \"documentation\":\"<p>The ARN of the channel.</p>\"\
-        },\
-        \"SubChannelId\":{\
-          \"shape\":\"SubChannelId\",\
-          \"documentation\":\"<p>The ID of the SubChannel in the response.</p>\"\
         }\
       }\
     },\
