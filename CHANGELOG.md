@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.31.0
+
 ### Bug Fixes
 
 - **AWSMobileClient**
