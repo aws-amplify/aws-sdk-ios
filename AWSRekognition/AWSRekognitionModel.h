@@ -72,6 +72,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionContentClassifier) {
     AWSRekognitionContentClassifierFreeOfAdultContent,
 };
 
+typedef NS_ENUM(NSInteger, AWSRekognitionContentModerationAggregateBy) {
+    AWSRekognitionContentModerationAggregateByUnknown,
+    AWSRekognitionContentModerationAggregateByTimestamps,
+    AWSRekognitionContentModerationAggregateBySegments,
+};
+
 typedef NS_ENUM(NSInteger, AWSRekognitionContentModerationSortBy) {
     AWSRekognitionContentModerationSortByUnknown,
     AWSRekognitionContentModerationSortByName,
@@ -431,6 +437,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionGetCelebrityRecognitionRequest;
 @class AWSRekognitionGetCelebrityRecognitionResponse;
 @class AWSRekognitionGetContentModerationRequest;
+@class AWSRekognitionGetContentModerationRequestMetadata;
 @class AWSRekognitionGetContentModerationResponse;
 @class AWSRekognitionGetFaceDetectionRequest;
 @class AWSRekognitionGetFaceDetectionResponse;
@@ -439,6 +446,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionGetFaceSearchRequest;
 @class AWSRekognitionGetFaceSearchResponse;
 @class AWSRekognitionGetLabelDetectionRequest;
+@class AWSRekognitionGetLabelDetectionRequestMetadata;
 @class AWSRekognitionGetLabelDetectionResponse;
 @class AWSRekognitionGetPersonTrackingRequest;
 @class AWSRekognitionGetPersonTrackingResponse;
@@ -1001,9 +1009,24 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ <p> The time duration of a segment in milliseconds, I.e. time elapsed from StartTimestampMillis to EndTimestampMillis. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable durationMillis;
+
+/**
+ <p> The time in milliseconds defining the end of the timeline segment containing a continuously detected moderation label. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable endTimestampMillis;
+
+/**
  <p>The content moderation label detected by in the stored video.</p>
  */
 @property (nonatomic, strong) AWSRekognitionModerationLabel * _Nullable moderationLabel;
+
+/**
+ <p>The time in milliseconds defining the start of the timeline segment containing a continuously detected moderation label.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable startTimestampMillis;
 
 /**
  <p>Time, in milliseconds from the beginning of the video, that the content moderation label was detected. Note that <code>Timestamp</code> is not guaranteed to be accurate to the individual frame where the moderated content first appears.</p>
@@ -2923,9 +2946,19 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSArray<AWSRekognitionCelebrityRecognition *> * _Nullable celebrities;
 
 /**
+ <p>Job identifier for the celebrity recognition operation for which you want to obtain results. The job identifer is returned by an initial call to StartCelebrityRecognition.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
  <p>The current status of the celebrity recognition job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
+
+/**
+ <p>A job identifier specified in the call to StartCelebrityRecognition and returned in the job completion notification sent to your Amazon Simple Notification Service topic.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
  <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of celebrities.</p>
@@ -2936,6 +2969,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+/**
+ <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionVideo * _Nullable video;
 
 /**
  <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition Video operation.</p>
@@ -2949,6 +2987,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  */
 @interface AWSRekognitionGetContentModerationRequest : AWSRequest
 
+
+/**
+ <p>Defines how to aggregate results of the StartContentModeration request. Default aggregation option is TIMESTAMPS. SEGMENTS mode aggregates moderation labels over time.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionContentModerationAggregateBy aggregateBy;
 
 /**
  <p>The identifier for the inappropriate, unwanted, or offensive content moderation job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetContentModeration</code>.</p>
@@ -2973,15 +3016,48 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ <p>Contains metadata about a content moderation request, including the SortBy and AggregateBy options.</p>
+ */
+@interface AWSRekognitionGetContentModerationRequestMetadata : AWSModel
+
+
+/**
+ <p>The aggregation method chosen for a GetContentModeration request.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionContentModerationAggregateBy aggregateBy;
+
+/**
+ <p>The sorting method chosen for a GetContentModeration request.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionContentModerationSortBy sortBy;
+
+@end
+
+/**
  
  */
 @interface AWSRekognitionGetContentModerationResponse : AWSModel
 
 
 /**
+ <p>Information about the paramters used when getting a response. Includes information on aggregation and sorting methods.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionGetContentModerationRequestMetadata * _Nullable getRequestMetadata;
+
+/**
+ <p>Job identifier for the content moderation operation for which you want to obtain results. The job identifer is returned by an initial call to StartContentModeration.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
  <p>The current status of the content moderation analysis job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
+
+/**
+ <p>A job identifier specified in the call to StartContentModeration and returned in the job completion notification sent to your Amazon Simple Notification Service topic.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
  <p>The detected inappropriate, unwanted, or offensive content moderation labels and the time(s) they were detected.</p>
@@ -3002,6 +3078,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+/**
+ <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionVideo * _Nullable video;
 
 /**
  <p>Information about a video that Amazon Rekognition analyzed. <code>Videometadata</code> is returned in every page of paginated responses from <code>GetContentModeration</code>. </p>
@@ -3045,9 +3126,19 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSArray<AWSRekognitionFaceDetection *> * _Nullable faces;
 
 /**
+ <p>Job identifier for the face detection operation for which you want to obtain results. The job identifer is returned by an initial call to StartFaceDetection.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
  <p>The current status of the face detection job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
+
+/**
+ <p>A job identifier specified in the call to StartFaceDetection and returned in the job completion notification sent to your Amazon Simple Notification Service topic.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
  <p>If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces. </p>
@@ -3058,6 +3149,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+/**
+ <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionVideo * _Nullable video;
 
 /**
  <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition video operation.</p>
@@ -3147,9 +3243,19 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ <p>Job identifier for the face search operation for which you want to obtain results. The job identifer is returned by an initial call to StartFaceSearch.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
  <p>The current status of the face search job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
+
+/**
+ <p>A job identifier specified in the call to StartFaceSearch and returned in the job completion notification sent to your Amazon Simple Notification Service topic.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
  <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of search results. </p>
@@ -3165,6 +3271,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+/**
+ <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionVideo * _Nullable video;
 
 /**
  <p>Information about a video that Amazon Rekognition analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition Video operation. </p>
@@ -3207,15 +3318,48 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ <p>Contains metadata about a label detection request, including the SortBy and AggregateBy options.</p>
+ */
+@interface AWSRekognitionGetLabelDetectionRequestMetadata : AWSModel
+
+
+/**
+ <p>The aggregation method chosen for a GetLabelDetection request.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionLabelDetectionAggregateBy aggregateBy;
+
+/**
+ <p>The sorting method chosen for a GetLabelDetection request.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionLabelDetectionSortBy sortBy;
+
+@end
+
+/**
  
  */
 @interface AWSRekognitionGetLabelDetectionResponse : AWSModel
 
 
 /**
+ <p>Information about the paramters used when getting a response. Includes information on aggregation and sorting methods.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionGetLabelDetectionRequestMetadata * _Nullable getRequestMetadata;
+
+/**
+ <p>Job identifier for the label detection operation for which you want to obtain results. The job identifer is returned by an initial call to StartLabelDetection.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
  <p>The current status of the label detection job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
+
+/**
+ <p>A job identifier specified in the call to StartLabelDetection and returned in the job completion notification sent to your Amazon Simple Notification Service topic.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
  <p>Version number of the label detection model that was used to detect labels.</p>
@@ -3236,6 +3380,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+/**
+ <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionVideo * _Nullable video;
 
 /**
  <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition video operation.</p>
@@ -3279,9 +3428,19 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ <p>Job identifier for the person tracking operation for which you want to obtain results. The job identifer is returned by an initial call to StartPersonTracking.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
  <p>The current status of the person tracking job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
+
+/**
+ <p>A job identifier specified in the call to StartCelebrityRecognition and returned in the job completion notification sent to your Amazon Simple Notification Service topic.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
  <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of persons. </p>
@@ -3297,6 +3456,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+/**
+ <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionVideo * _Nullable video;
 
 /**
  <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition Video operation.</p>
@@ -3340,9 +3504,19 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSArray<AWSRekognitionAudioMetadata *> * _Nullable audioMetadata;
 
 /**
+ <p>Job identifier for the segment detection operation for which you want to obtain results. The job identifer is returned by an initial call to StartSegmentDetection.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
  <p>Current status of the segment detection job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
+
+/**
+ <p>A job identifier specified in the call to StartSegmentDetection and returned in the job completion notification sent to your Amazon Simple Notification Service topic.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
  <p>If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of text.</p>
@@ -3363,6 +3537,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+/**
+ <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionVideo * _Nullable video;
 
 /**
  <p>Currently, Amazon Rekognition Video returns a single object in the <code>VideoMetadata</code> array. The object contains information about the video stream in the input file that Amazon Rekognition Video chose to analyze. The <code>VideoMetadata</code> object includes the video codec, video format and other information. Video metadata is returned in each page of information returned by <code>GetSegmentDetection</code>.</p>
@@ -3401,9 +3580,19 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ <p>Job identifier for the text detection operation for which you want to obtain results. The job identifer is returned by an initial call to StartTextDetection.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
  <p>Current status of the text detection job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
+
+/**
+ <p>A job identifier specified in the call to StartTextDetection and returned in the job completion notification sent to your Amazon Simple Notification Service topic.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
  <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of text.</p>
@@ -3424,6 +3613,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Version number of the text detection model that was used to detect text.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable textModelVersion;
+
+/**
+ <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionVideo * _Nullable video;
 
 /**
  <p>Information about a video that Amazon Rekognition analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition video operation.</p>
