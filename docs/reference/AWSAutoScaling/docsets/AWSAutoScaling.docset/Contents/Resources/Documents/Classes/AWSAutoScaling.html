@@ -17,7 +17,7 @@
     <a title="AWSAutoScaling Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSAutoScaling 2.30.4 Docs</a> (81% documented)</p>
+        <p><a href="../index.html">AWSAutoScaling 2.31.0 Docs</a> (81% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSAutoScaling.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -1150,7 +1150,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">attachInstances</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingAttachInstancesQuery.html">AWSAutoScalingAttachInstancesQuery</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">attachInstances</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingAttachInstancesQuery.html">AWSAutoScalingAttachInstancesQuery</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -1202,7 +1202,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Attaches one or more target groups to the specified Auto Scaling group.</p><p>This operation is used with the following load balancer types: </p><ul><li><p>Application Load Balancer - Operates at the application layer (layer 7) and supports HTTP and HTTPS. </p></li><li><p>Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP, TLS, and UDP. </p></li><li><p>Gateway Load Balancer - Operates at the network layer (layer 3).</p></li></ul><p>To describe the target groups for an Auto Scaling group, call the <a>DescribeLoadBalancerTargetGroups</a> API. To detach the target group from the Auto Scaling group, call the <a>DetachLoadBalancerTargetGroups</a> API.</p><p>This operation is additive and does not detach existing target groups or Classic Load Balancers from the Auto Scaling group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+                        <p><note><p>This API operation is superseded by <a>AttachTrafficSources</a>, which can attach multiple traffic sources types. We recommend using <code>AttachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>AttachLoadBalancerTargetGroups</code>. You can use both the original <code>AttachLoadBalancerTargetGroups</code> API operation and <code>AttachTrafficSources</code> on the same Auto Scaling group.</p></note><p>Attaches one or more target groups to the specified Auto Scaling group.</p><p>This operation is used with the following load balancer types: </p><ul><li><p>Application Load Balancer - Operates at the application layer (layer 7) and supports HTTP and HTTPS. </p></li><li><p>Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP, TLS, and UDP. </p></li><li><p>Gateway Load Balancer - Operates at the network layer (layer 3).</p></li></ul><p>To describe the target groups for an Auto Scaling group, call the <a>DescribeLoadBalancerTargetGroups</a> API. To detach the target group from the Auto Scaling group, call the <a>DetachLoadBalancerTargetGroups</a> API.</p><p>This operation is additive and does not detach existing target groups or Classic Load Balancers from the Auto Scaling group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingAttachLoadBalancerTargetGroupsType</p>
@@ -1267,7 +1267,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Attaches one or more target groups to the specified Auto Scaling group.</p><p>This operation is used with the following load balancer types: </p><ul><li><p>Application Load Balancer - Operates at the application layer (layer 7) and supports HTTP and HTTPS. </p></li><li><p>Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP, TLS, and UDP. </p></li><li><p>Gateway Load Balancer - Operates at the network layer (layer 3).</p></li></ul><p>To describe the target groups for an Auto Scaling group, call the <a>DescribeLoadBalancerTargetGroups</a> API. To detach the target group from the Auto Scaling group, call the <a>DetachLoadBalancerTargetGroups</a> API.</p><p>This operation is additive and does not detach existing target groups or Classic Load Balancers from the Auto Scaling group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+                        <p><note><p>This API operation is superseded by <a>AttachTrafficSources</a>, which can attach multiple traffic sources types. We recommend using <code>AttachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>AttachLoadBalancerTargetGroups</code>. You can use both the original <code>AttachLoadBalancerTargetGroups</code> API operation and <code>AttachTrafficSources</code> on the same Auto Scaling group.</p></note><p>Attaches one or more target groups to the specified Auto Scaling group.</p><p>This operation is used with the following load balancer types: </p><ul><li><p>Application Load Balancer - Operates at the application layer (layer 7) and supports HTTP and HTTPS. </p></li><li><p>Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP, TLS, and UDP. </p></li><li><p>Gateway Load Balancer - Operates at the network layer (layer 3).</p></li></ul><p>To describe the target groups for an Auto Scaling group, call the <a>DescribeLoadBalancerTargetGroups</a> API. To detach the target group from the Auto Scaling group, call the <a>DetachLoadBalancerTargetGroups</a> API.</p><p>This operation is additive and does not detach existing target groups or Classic Load Balancers from the Auto Scaling group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingAttachLoadBalancerTargetGroupsType</p>
@@ -1295,7 +1295,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">attachLoadBalancerTargetGroups</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingAttachLoadBalancerTargetGroupsType.html">AWSAutoScalingAttachLoadBalancerTargetGroupsType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingAttachLoadBalancerTargetGroupsResultType">AWSAutoScalingAttachLoadBalancerTargetGroupsResultType</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">attachLoadBalancerTargetGroups</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingAttachLoadBalancerTargetGroupsType.html">AWSAutoScalingAttachLoadBalancerTargetGroupsType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingAttachLoadBalancerTargetGroupsResultType">AWSAutoScalingAttachLoadBalancerTargetGroupsResultType</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1348,7 +1348,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><note><p>To attach an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer, use the <a>AttachLoadBalancerTargetGroups</a> API operation instead.</p></note><p>Attaches one or more Classic Load Balancers to the specified Auto Scaling group. Amazon EC2 Auto Scaling registers the running instances with these Classic Load Balancers.</p><p>To describe the load balancers for an Auto Scaling group, call the <a>DescribeLoadBalancers</a> API. To detach a load balancer from the Auto Scaling group, call the <a>DetachLoadBalancers</a> API.</p><p>This operation is additive and does not detach existing Classic Load Balancers or target groups from the Auto Scaling group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p></p>
+                        <p><note><p>This API operation is superseded by <a>AttachTrafficSources</a>, which can attach multiple traffic sources types. We recommend using <code>AttachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>AttachLoadBalancers</code>. You can use both the original <code>AttachLoadBalancers</code> API operation and <code>AttachTrafficSources</code> on the same Auto Scaling group.</p></note><p>Attaches one or more Classic Load Balancers to the specified Auto Scaling group. Amazon EC2 Auto Scaling registers the running instances with these Classic Load Balancers.</p><p>To describe the load balancers for an Auto Scaling group, call the <a>DescribeLoadBalancers</a> API. To detach a load balancer from the Auto Scaling group, call the <a>DetachLoadBalancers</a> API.</p><p>This operation is additive and does not detach existing Classic Load Balancers or target groups from the Auto Scaling group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingAttachLoadBalancersType</p>
@@ -1413,7 +1413,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><note><p>To attach an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer, use the <a>AttachLoadBalancerTargetGroups</a> API operation instead.</p></note><p>Attaches one or more Classic Load Balancers to the specified Auto Scaling group. Amazon EC2 Auto Scaling registers the running instances with these Classic Load Balancers.</p><p>To describe the load balancers for an Auto Scaling group, call the <a>DescribeLoadBalancers</a> API. To detach a load balancer from the Auto Scaling group, call the <a>DetachLoadBalancers</a> API.</p><p>This operation is additive and does not detach existing Classic Load Balancers or target groups from the Auto Scaling group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p></p>
+                        <p><note><p>This API operation is superseded by <a>AttachTrafficSources</a>, which can attach multiple traffic sources types. We recommend using <code>AttachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>AttachLoadBalancers</code>. You can use both the original <code>AttachLoadBalancers</code> API operation and <code>AttachTrafficSources</code> on the same Auto Scaling group.</p></note><p>Attaches one or more Classic Load Balancers to the specified Auto Scaling group. Amazon EC2 Auto Scaling registers the running instances with these Classic Load Balancers.</p><p>To describe the load balancers for an Auto Scaling group, call the <a>DescribeLoadBalancers</a> API. To detach a load balancer from the Auto Scaling group, call the <a>DetachLoadBalancers</a> API.</p><p>This operation is additive and does not detach existing Classic Load Balancers or target groups from the Auto Scaling group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingAttachLoadBalancersType</p>
@@ -1439,7 +1439,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">attachLoadBalancers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingAttachLoadBalancersType.html">AWSAutoScalingAttachLoadBalancersType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingAttachLoadBalancersResultType">AWSAutoScalingAttachLoadBalancersResultType</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">attachLoadBalancers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingAttachLoadBalancersType.html">AWSAutoScalingAttachLoadBalancersType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingAttachLoadBalancersResultType">AWSAutoScalingAttachLoadBalancersResultType</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1492,7 +1492,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change. Do not use this API for production workloads. This API is also subject to change.</b></p><p>Attaches one or more traffic sources to the specified Auto Scaling group.</p><p>To describe the traffic sources for an Auto Scaling group, call the <a>DescribeTrafficSources</a> API. To detach a traffic source from the Auto Scaling group, call the <a>DetachTrafficSources</a> API.</p><p>This operation is additive and does not detach existing traffic sources from the Auto Scaling group.</p>
+                        <p>Attaches one or more traffic sources to the specified Auto Scaling group.</p><p>You can use any of the following as traffic sources for an Auto Scaling group:</p><ul><li><p>Application Load Balancer</p></li><li><p>Classic Load Balancer</p></li><li><p>Gateway Load Balancer</p></li><li><p>Network Load Balancer</p></li><li><p>VPC Lattice</p></li></ul><p>This operation is additive and does not detach existing traffic sources from the Auto Scaling group. </p><p>After the operation completes, use the <a>DescribeTrafficSources</a> API to return details about the state of the attachments between traffic sources and your Auto Scaling group. To detach a traffic source from the Auto Scaling group, call the <a>DetachTrafficSources</a> API.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingAttachTrafficSourcesType</p>
@@ -1557,7 +1557,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change. Do not use this API for production workloads. This API is also subject to change.</b></p><p>Attaches one or more traffic sources to the specified Auto Scaling group.</p><p>To describe the traffic sources for an Auto Scaling group, call the <a>DescribeTrafficSources</a> API. To detach a traffic source from the Auto Scaling group, call the <a>DetachTrafficSources</a> API.</p><p>This operation is additive and does not detach existing traffic sources from the Auto Scaling group.</p>
+                        <p>Attaches one or more traffic sources to the specified Auto Scaling group.</p><p>You can use any of the following as traffic sources for an Auto Scaling group:</p><ul><li><p>Application Load Balancer</p></li><li><p>Classic Load Balancer</p></li><li><p>Gateway Load Balancer</p></li><li><p>Network Load Balancer</p></li><li><p>VPC Lattice</p></li></ul><p>This operation is additive and does not detach existing traffic sources from the Auto Scaling group. </p><p>After the operation completes, use the <a>DescribeTrafficSources</a> API to return details about the state of the attachments between traffic sources and your Auto Scaling group. To detach a traffic source from the Auto Scaling group, call the <a>DetachTrafficSources</a> API.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingAttachTrafficSourcesType</p>
@@ -1583,7 +1583,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">attachTrafficSources</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingAttachTrafficSourcesType.html">AWSAutoScalingAttachTrafficSourcesType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingAttachTrafficSourcesResultType">AWSAutoScalingAttachTrafficSourcesResultType</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">attachTrafficSources</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingAttachTrafficSourcesType.html">AWSAutoScalingAttachTrafficSourcesType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingAttachTrafficSourcesResultType">AWSAutoScalingAttachTrafficSourcesResultType</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1728,7 +1728,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchDeleteScheduledAction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingBatchDeleteScheduledActionType.html">AWSAutoScalingBatchDeleteScheduledActionType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingBatchDeleteScheduledActionAnswer.html">AWSAutoScalingBatchDeleteScheduledActionAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchDeleteScheduledAction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingBatchDeleteScheduledActionType.html">AWSAutoScalingBatchDeleteScheduledActionType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingBatchDeleteScheduledActionAnswer.html">AWSAutoScalingBatchDeleteScheduledActionAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1874,7 +1874,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchPutScheduledUpdateGroupAction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingBatchPutScheduledUpdateGroupActionType.html">AWSAutoScalingBatchPutScheduledUpdateGroupActionType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingBatchPutScheduledUpdateGroupActionAnswer.html">AWSAutoScalingBatchPutScheduledUpdateGroupActionAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchPutScheduledUpdateGroupAction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingBatchPutScheduledUpdateGroupActionType.html">AWSAutoScalingBatchPutScheduledUpdateGroupActionType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingBatchPutScheduledUpdateGroupActionAnswer.html">AWSAutoScalingBatchPutScheduledUpdateGroupActionAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2018,7 +2018,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">cancelInstanceRefresh</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingCancelInstanceRefreshType.html">AWSAutoScalingCancelInstanceRefreshType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingCancelInstanceRefreshAnswer.html">AWSAutoScalingCancelInstanceRefreshAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">cancelInstanceRefresh</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingCancelInstanceRefreshType.html">AWSAutoScalingCancelInstanceRefreshType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingCancelInstanceRefreshAnswer.html">AWSAutoScalingCancelInstanceRefreshAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2162,7 +2162,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">completeLifecycleAction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingCompleteLifecycleActionType.html">AWSAutoScalingCompleteLifecycleActionType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingCompleteLifecycleActionAnswer">AWSAutoScalingCompleteLifecycleActionAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">completeLifecycleAction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingCompleteLifecycleActionType.html">AWSAutoScalingCompleteLifecycleActionType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingCompleteLifecycleActionAnswer">AWSAutoScalingCompleteLifecycleActionAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2296,7 +2296,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createAutoScalingGroup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingCreateAutoScalingGroupType.html">AWSAutoScalingCreateAutoScalingGroupType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createAutoScalingGroup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingCreateAutoScalingGroupType.html">AWSAutoScalingCreateAutoScalingGroupType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -2429,7 +2429,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createLaunchConfiguration</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingCreateLaunchConfigurationType.html">AWSAutoScalingCreateLaunchConfigurationType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createLaunchConfiguration</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingCreateLaunchConfigurationType.html">AWSAutoScalingCreateLaunchConfigurationType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -2561,7 +2561,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createOrUpdateTags</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingCreateOrUpdateTagsType.html">AWSAutoScalingCreateOrUpdateTagsType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createOrUpdateTags</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingCreateOrUpdateTagsType.html">AWSAutoScalingCreateOrUpdateTagsType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -2694,7 +2694,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">delete</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDeleteAutoScalingGroupType.html">AWSAutoScalingDeleteAutoScalingGroupType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">delete</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDeleteAutoScalingGroupType.html">AWSAutoScalingDeleteAutoScalingGroupType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -2827,7 +2827,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteLaunchConfiguration</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingLaunchConfigurationNameType.html">AWSAutoScalingLaunchConfigurationNameType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteLaunchConfiguration</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingLaunchConfigurationNameType.html">AWSAutoScalingLaunchConfigurationNameType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -2969,7 +2969,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteLifecycleHook</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDeleteLifecycleHookType.html">AWSAutoScalingDeleteLifecycleHookType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingDeleteLifecycleHookAnswer">AWSAutoScalingDeleteLifecycleHookAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteLifecycleHook</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDeleteLifecycleHookType.html">AWSAutoScalingDeleteLifecycleHookType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingDeleteLifecycleHookAnswer">AWSAutoScalingDeleteLifecycleHookAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3103,7 +3103,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteNotificationConfiguration</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDeleteNotificationConfigurationType.html">AWSAutoScalingDeleteNotificationConfigurationType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteNotificationConfiguration</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDeleteNotificationConfigurationType.html">AWSAutoScalingDeleteNotificationConfigurationType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -3233,7 +3233,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deletePolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDeletePolicyType.html">AWSAutoScalingDeletePolicyType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deletePolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDeletePolicyType.html">AWSAutoScalingDeletePolicyType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -3366,7 +3366,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteScheduledAction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDeleteScheduledActionType.html">AWSAutoScalingDeleteScheduledActionType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteScheduledAction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDeleteScheduledActionType.html">AWSAutoScalingDeleteScheduledActionType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -3496,7 +3496,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteTags</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDeleteTagsType.html">AWSAutoScalingDeleteTagsType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteTags</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDeleteTagsType.html">AWSAutoScalingDeleteTagsType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -3636,7 +3636,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteWarmPool</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDeleteWarmPoolType.html">AWSAutoScalingDeleteWarmPoolType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingDeleteWarmPoolAnswer">AWSAutoScalingDeleteWarmPoolAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteWarmPool</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDeleteWarmPoolType.html">AWSAutoScalingDeleteWarmPoolType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingDeleteWarmPoolAnswer">AWSAutoScalingDeleteWarmPoolAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3778,7 +3778,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeAccountLimits</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeAccountLimitsAnswer.html">AWSAutoScalingDescribeAccountLimitsAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeAccountLimits</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeAccountLimitsAnswer.html">AWSAutoScalingDescribeAccountLimitsAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3920,7 +3920,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeAdjustmentTypes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeAdjustmentTypesAnswer.html">AWSAutoScalingDescribeAdjustmentTypesAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeAdjustmentTypes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeAdjustmentTypesAnswer.html">AWSAutoScalingDescribeAdjustmentTypesAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4064,7 +4064,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeGroups</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingAutoScalingGroupNamesType.html">AWSAutoScalingAutoScalingGroupNamesType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingAutoScalingGroupsType.html">AWSAutoScalingAutoScalingGroupsType</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeGroups</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingAutoScalingGroupNamesType.html">AWSAutoScalingAutoScalingGroupNamesType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingAutoScalingGroupsType.html">AWSAutoScalingAutoScalingGroupsType</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4208,7 +4208,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describe</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeAutoScalingInstancesType.html">AWSAutoScalingDescribeAutoScalingInstancesType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingAutoScalingInstancesType.html">AWSAutoScalingAutoScalingInstancesType</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describe</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeAutoScalingInstancesType.html">AWSAutoScalingDescribeAutoScalingInstancesType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingAutoScalingInstancesType.html">AWSAutoScalingAutoScalingInstancesType</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4352,7 +4352,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeNotificationTypes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer.html">AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeNotificationTypes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer.html">AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4497,7 +4497,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeInstanceRefreshes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeInstanceRefreshesType.html">AWSAutoScalingDescribeInstanceRefreshesType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeInstanceRefreshesAnswer.html">AWSAutoScalingDescribeInstanceRefreshesAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeInstanceRefreshes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeInstanceRefreshesType.html">AWSAutoScalingDescribeInstanceRefreshesType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeInstanceRefreshesAnswer.html">AWSAutoScalingDescribeInstanceRefreshesAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4641,7 +4641,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeLaunchConfigurations</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingLaunchConfigurationNamesType.html">AWSAutoScalingLaunchConfigurationNamesType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingLaunchConfigurationsType.html">AWSAutoScalingLaunchConfigurationsType</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeLaunchConfigurations</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingLaunchConfigurationNamesType.html">AWSAutoScalingLaunchConfigurationNamesType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingLaunchConfigurationsType.html">AWSAutoScalingLaunchConfigurationsType</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4784,7 +4784,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeLifecycleHookTypes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeLifecycleHookTypesAnswer.html">AWSAutoScalingDescribeLifecycleHookTypesAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeLifecycleHookTypes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeLifecycleHookTypesAnswer.html">AWSAutoScalingDescribeLifecycleHookTypesAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4928,7 +4928,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeLifecycleHooks</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeLifecycleHooksType.html">AWSAutoScalingDescribeLifecycleHooksType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeLifecycleHooksAnswer.html">AWSAutoScalingDescribeLifecycleHooksAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeLifecycleHooks</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeLifecycleHooksType.html">AWSAutoScalingDescribeLifecycleHooksType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeLifecycleHooksAnswer.html">AWSAutoScalingDescribeLifecycleHooksAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4981,7 +4981,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p><p>To determine the attachment status of the target group, use the <code>State</code> element in the response. When you attach a target group to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the target group. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the target group is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the target group doesn&rsquo;t enter the <code>InService</code> state. </p><p>Target groups also have an <code>InService</code> state if you attach them in the <a>CreateAutoScalingGroup</a> API call. If your target group state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a> and take any corrective actions necessary.</p><p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p><note><p>You can use this operation to describe target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a>AttachTrafficSources</a>.</p></note></p>
+                        <p><note><p>This API operation is superseded by <a>DescribeTrafficSources</a>, which can describe multiple traffic sources types. We recommend using <code>DetachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DescribeLoadBalancerTargetGroups</code>. You can use both the original <code>DescribeLoadBalancerTargetGroups</code> API operation and <code>DescribeTrafficSources</code> on the same Auto Scaling group.</p></note><p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p><p>To determine the attachment status of the target group, use the <code>State</code> element in the response. When you attach a target group to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the target group. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the target group is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the target group doesn&rsquo;t enter the <code>InService</code> state. </p><p>Target groups also have an <code>InService</code> state if you attach them in the <a>CreateAutoScalingGroup</a> API call. If your target group state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a> and take any corrective actions necessary.</p><p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p><note><p>You can use this operation to describe target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a>AttachTrafficSources</a>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingDescribeLoadBalancerTargetGroupsRequest</p>
@@ -5046,7 +5046,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p><p>To determine the attachment status of the target group, use the <code>State</code> element in the response. When you attach a target group to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the target group. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the target group is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the target group doesn&rsquo;t enter the <code>InService</code> state. </p><p>Target groups also have an <code>InService</code> state if you attach them in the <a>CreateAutoScalingGroup</a> API call. If your target group state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a> and take any corrective actions necessary.</p><p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p><note><p>You can use this operation to describe target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a>AttachTrafficSources</a>.</p></note></p>
+                        <p><note><p>This API operation is superseded by <a>DescribeTrafficSources</a>, which can describe multiple traffic sources types. We recommend using <code>DetachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DescribeLoadBalancerTargetGroups</code>. You can use both the original <code>DescribeLoadBalancerTargetGroups</code> API operation and <code>DescribeTrafficSources</code> on the same Auto Scaling group.</p></note><p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p><p>To determine the attachment status of the target group, use the <code>State</code> element in the response. When you attach a target group to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the target group. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the target group is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the target group doesn&rsquo;t enter the <code>InService</code> state. </p><p>Target groups also have an <code>InService</code> state if you attach them in the <a>CreateAutoScalingGroup</a> API call. If your target group state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a> and take any corrective actions necessary.</p><p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p><note><p>You can use this operation to describe target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a>AttachTrafficSources</a>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingDescribeLoadBalancerTargetGroupsRequest</p>
@@ -5074,7 +5074,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeLoadBalancerTargetGroups</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeLoadBalancerTargetGroupsRequest.html">AWSAutoScalingDescribeLoadBalancerTargetGroupsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeLoadBalancerTargetGroupsResponse.html">AWSAutoScalingDescribeLoadBalancerTargetGroupsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeLoadBalancerTargetGroups</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeLoadBalancerTargetGroupsRequest.html">AWSAutoScalingDescribeLoadBalancerTargetGroupsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeLoadBalancerTargetGroupsResponse.html">AWSAutoScalingDescribeLoadBalancerTargetGroupsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5127,7 +5127,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets information about the load balancers for the specified Auto Scaling group.</p><p>This operation describes only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancer, use the <a>DescribeLoadBalancerTargetGroups</a> API instead.</p><p>To determine the attachment status of the load balancer, use the <code>State</code> element in the response. When you attach a load balancer to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the load balancer. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the load balancer is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the load balancer doesn&rsquo;t enter the <code>InService</code> state. </p><p>Load balancers also have an <code>InService</code> state if you attach them in the <a>CreateAutoScalingGroup</a> API call. If your load balancer state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a> and take any corrective actions necessary.</p><p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+                        <p><note><p>This API operation is superseded by <a>DescribeTrafficSources</a>, which can describe multiple traffic sources types. We recommend using <code>DescribeTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DescribeLoadBalancers</code>. You can use both the original <code>DescribeLoadBalancers</code> API operation and <code>DescribeTrafficSources</code> on the same Auto Scaling group.</p></note><p>Gets information about the load balancers for the specified Auto Scaling group.</p><p>This operation describes only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a>DescribeLoadBalancerTargetGroups</a> API instead.</p><p>To determine the attachment status of the load balancer, use the <code>State</code> element in the response. When you attach a load balancer to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the load balancer. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the load balancer is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the load balancer doesn&rsquo;t enter the <code>InService</code> state. </p><p>Load balancers also have an <code>InService</code> state if you attach them in the <a>CreateAutoScalingGroup</a> API call. If your load balancer state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a> and take any corrective actions necessary.</p><p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingDescribeLoadBalancersRequest</p>
@@ -5192,7 +5192,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets information about the load balancers for the specified Auto Scaling group.</p><p>This operation describes only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancer, use the <a>DescribeLoadBalancerTargetGroups</a> API instead.</p><p>To determine the attachment status of the load balancer, use the <code>State</code> element in the response. When you attach a load balancer to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the load balancer. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the load balancer is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the load balancer doesn&rsquo;t enter the <code>InService</code> state. </p><p>Load balancers also have an <code>InService</code> state if you attach them in the <a>CreateAutoScalingGroup</a> API call. If your load balancer state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a> and take any corrective actions necessary.</p><p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+                        <p><note><p>This API operation is superseded by <a>DescribeTrafficSources</a>, which can describe multiple traffic sources types. We recommend using <code>DescribeTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DescribeLoadBalancers</code>. You can use both the original <code>DescribeLoadBalancers</code> API operation and <code>DescribeTrafficSources</code> on the same Auto Scaling group.</p></note><p>Gets information about the load balancers for the specified Auto Scaling group.</p><p>This operation describes only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a>DescribeLoadBalancerTargetGroups</a> API instead.</p><p>To determine the attachment status of the load balancer, use the <code>State</code> element in the response. When you attach a load balancer to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the load balancer. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the load balancer is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the load balancer doesn&rsquo;t enter the <code>InService</code> state. </p><p>Load balancers also have an <code>InService</code> state if you attach them in the <a>CreateAutoScalingGroup</a> API call. If your load balancer state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a> and take any corrective actions necessary.</p><p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingDescribeLoadBalancersRequest</p>
@@ -5218,7 +5218,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeLoadBalancers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeLoadBalancersRequest.html">AWSAutoScalingDescribeLoadBalancersRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeLoadBalancersResponse.html">AWSAutoScalingDescribeLoadBalancersResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeLoadBalancers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeLoadBalancersRequest.html">AWSAutoScalingDescribeLoadBalancersRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeLoadBalancersResponse.html">AWSAutoScalingDescribeLoadBalancersResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5361,7 +5361,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeMetricCollectionTypes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeMetricCollectionTypesAnswer.html">AWSAutoScalingDescribeMetricCollectionTypesAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeMetricCollectionTypes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeMetricCollectionTypesAnswer.html">AWSAutoScalingDescribeMetricCollectionTypesAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5507,7 +5507,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeNotificationConfigurations</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeNotificationConfigurationsType.html">AWSAutoScalingDescribeNotificationConfigurationsType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeNotificationConfigurationsAnswer.html">AWSAutoScalingDescribeNotificationConfigurationsAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeNotificationConfigurations</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeNotificationConfigurationsType.html">AWSAutoScalingDescribeNotificationConfigurationsType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeNotificationConfigurationsAnswer.html">AWSAutoScalingDescribeNotificationConfigurationsAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5648,7 +5648,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describePolicies</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribePoliciesType.html">AWSAutoScalingDescribePoliciesType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingPoliciesType.html">AWSAutoScalingPoliciesType</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describePolicies</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribePoliciesType.html">AWSAutoScalingDescribePoliciesType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingPoliciesType.html">AWSAutoScalingPoliciesType</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5791,7 +5791,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describe</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeScalingActivitiesType.html">AWSAutoScalingDescribeScalingActivitiesType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingActivitiesType.html">AWSAutoScalingActivitiesType</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describe</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeScalingActivitiesType.html">AWSAutoScalingDescribeScalingActivitiesType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingActivitiesType.html">AWSAutoScalingActivitiesType</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5932,7 +5932,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeProcessTypes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingProcessesType.html">AWSAutoScalingProcessesType</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeProcessTypes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingProcessesType.html">AWSAutoScalingProcessesType</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6076,7 +6076,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeScheduledActions</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeScheduledActionsType.html">AWSAutoScalingDescribeScheduledActionsType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingScheduledActionsType.html">AWSAutoScalingScheduledActionsType</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeScheduledActions</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeScheduledActionsType.html">AWSAutoScalingDescribeScheduledActionsType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingScheduledActionsType.html">AWSAutoScalingScheduledActionsType</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6216,7 +6216,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTags</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeTagsType.html">AWSAutoScalingDescribeTagsType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingTagsType.html">AWSAutoScalingTagsType</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTags</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeTagsType.html">AWSAutoScalingDescribeTagsType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingTagsType.html">AWSAutoScalingTagsType</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6359,7 +6359,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTerminationPolicyTypes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeTerminationPolicyTypesAnswer.html">AWSAutoScalingDescribeTerminationPolicyTypesAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTerminationPolicyTypes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeTerminationPolicyTypesAnswer.html">AWSAutoScalingDescribeTerminationPolicyTypesAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6412,7 +6412,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change. Do not use this API for production workloads. This API is also subject to change.</b></p><p>Gets information about the traffic sources for the specified Auto Scaling group.</p>
+                        <p>Gets information about the traffic sources for the specified Auto Scaling group.</p><p>You can optionally provide a traffic source type. If you provide a traffic source type, then the results only include that traffic source type.</p><p>If you do not provide a traffic source type, then the results include all the traffic sources for the specified Auto Scaling group. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingDescribeTrafficSourcesRequest</p>
@@ -6477,7 +6477,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change. Do not use this API for production workloads. This API is also subject to change.</b></p><p>Gets information about the traffic sources for the specified Auto Scaling group.</p>
+                        <p>Gets information about the traffic sources for the specified Auto Scaling group.</p><p>You can optionally provide a traffic source type. If you provide a traffic source type, then the results only include that traffic source type.</p><p>If you do not provide a traffic source type, then the results include all the traffic sources for the specified Auto Scaling group. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingDescribeTrafficSourcesRequest</p>
@@ -6503,7 +6503,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTrafficSources</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeTrafficSourcesRequest.html">AWSAutoScalingDescribeTrafficSourcesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeTrafficSourcesResponse.html">AWSAutoScalingDescribeTrafficSourcesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTrafficSources</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeTrafficSourcesRequest.html">AWSAutoScalingDescribeTrafficSourcesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeTrafficSourcesResponse.html">AWSAutoScalingDescribeTrafficSourcesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6644,7 +6644,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeWarmPool</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeWarmPoolType.html">AWSAutoScalingDescribeWarmPoolType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeWarmPoolAnswer.html">AWSAutoScalingDescribeWarmPoolAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeWarmPool</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeWarmPoolType.html">AWSAutoScalingDescribeWarmPoolType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeWarmPoolAnswer.html">AWSAutoScalingDescribeWarmPoolAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6785,7 +6785,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detachInstances</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDetachInstancesQuery.html">AWSAutoScalingDetachInstancesQuery</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDetachInstancesAnswer.html">AWSAutoScalingDetachInstancesAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detachInstances</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDetachInstancesQuery.html">AWSAutoScalingDetachInstancesQuery</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDetachInstancesAnswer.html">AWSAutoScalingDetachInstancesAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6838,7 +6838,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Detaches one or more target groups from the specified Auto Scaling group.</p><p>When you detach a target group, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call. The instances remain running.</p><note><p>You can use this operation to detach target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a>AttachTrafficSources</a>.</p></note></p>
+                        <p><note><p>This API operation is superseded by <a>DetachTrafficSources</a>, which can detach multiple traffic sources types. We recommend using <code>DetachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DetachLoadBalancerTargetGroups</code>. You can use both the original <code>DetachLoadBalancerTargetGroups</code> API operation and <code>DetachTrafficSources</code> on the same Auto Scaling group.</p></note><p>Detaches one or more target groups from the specified Auto Scaling group.</p><p>When you detach a target group, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call. The instances remain running.</p><note><p>You can use this operation to detach target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a>AttachTrafficSources</a>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingDetachLoadBalancerTargetGroupsType</p>
@@ -6903,7 +6903,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Detaches one or more target groups from the specified Auto Scaling group.</p><p>When you detach a target group, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call. The instances remain running.</p><note><p>You can use this operation to detach target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a>AttachTrafficSources</a>.</p></note></p>
+                        <p><note><p>This API operation is superseded by <a>DetachTrafficSources</a>, which can detach multiple traffic sources types. We recommend using <code>DetachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DetachLoadBalancerTargetGroups</code>. You can use both the original <code>DetachLoadBalancerTargetGroups</code> API operation and <code>DetachTrafficSources</code> on the same Auto Scaling group.</p></note><p>Detaches one or more target groups from the specified Auto Scaling group.</p><p>When you detach a target group, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call. The instances remain running.</p><note><p>You can use this operation to detach target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a>AttachTrafficSources</a>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingDetachLoadBalancerTargetGroupsType</p>
@@ -6931,7 +6931,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detachLoadBalancerTargetGroups</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDetachLoadBalancerTargetGroupsType.html">AWSAutoScalingDetachLoadBalancerTargetGroupsType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingDetachLoadBalancerTargetGroupsResultType">AWSAutoScalingDetachLoadBalancerTargetGroupsResultType</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detachLoadBalancerTargetGroups</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDetachLoadBalancerTargetGroupsType.html">AWSAutoScalingDetachLoadBalancerTargetGroupsType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingDetachLoadBalancerTargetGroupsResultType">AWSAutoScalingDetachLoadBalancerTargetGroupsResultType</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6984,7 +6984,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p><p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancer, use the <a>DetachLoadBalancerTargetGroups</a> API instead.</p><p>When you detach a load balancer, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using the <a>DescribeLoadBalancers</a> API call. The instances remain running.</p>
+                        <p><note><p>This API operation is superseded by <a>DetachTrafficSources</a>, which can detach multiple traffic sources types. We recommend using <code>DetachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DetachLoadBalancers</code>. You can use both the original <code>DetachLoadBalancers</code> API operation and <code>DetachTrafficSources</code> on the same Auto Scaling group.</p></note><p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p><p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a>DetachLoadBalancerTargetGroups</a> API instead.</p><p>When you detach a load balancer, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using the <a>DescribeLoadBalancers</a> API call. The instances remain running.</p></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingDetachLoadBalancersType</p>
@@ -7049,7 +7049,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p><p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancer, use the <a>DetachLoadBalancerTargetGroups</a> API instead.</p><p>When you detach a load balancer, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using the <a>DescribeLoadBalancers</a> API call. The instances remain running.</p>
+                        <p><note><p>This API operation is superseded by <a>DetachTrafficSources</a>, which can detach multiple traffic sources types. We recommend using <code>DetachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DetachLoadBalancers</code>. You can use both the original <code>DetachLoadBalancers</code> API operation and <code>DetachTrafficSources</code> on the same Auto Scaling group.</p></note><p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p><p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a>DetachLoadBalancerTargetGroups</a> API instead.</p><p>When you detach a load balancer, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using the <a>DescribeLoadBalancers</a> API call. The instances remain running.</p></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingDetachLoadBalancersType</p>
@@ -7075,7 +7075,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detachLoadBalancers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDetachLoadBalancersType.html">AWSAutoScalingDetachLoadBalancersType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingDetachLoadBalancersResultType">AWSAutoScalingDetachLoadBalancersResultType</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detachLoadBalancers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDetachLoadBalancersType.html">AWSAutoScalingDetachLoadBalancersType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingDetachLoadBalancersResultType">AWSAutoScalingDetachLoadBalancersResultType</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7128,7 +7128,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change. Do not use this API for production workloads. This API is also subject to change.</b></p><p>Detaches one or more traffic sources from the specified Auto Scaling group.</p>
+                        <p>Detaches one or more traffic sources from the specified Auto Scaling group.</p><p>When you detach a taffic, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the traffic source using the <a>DescribeTrafficSources</a> API call. The instances continue to run.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingDetachTrafficSourcesType</p>
@@ -7193,7 +7193,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change. Do not use this API for production workloads. This API is also subject to change.</b></p><p>Detaches one or more traffic sources from the specified Auto Scaling group.</p>
+                        <p>Detaches one or more traffic sources from the specified Auto Scaling group.</p><p>When you detach a taffic, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the traffic source using the <a>DescribeTrafficSources</a> API call. The instances continue to run.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingDetachTrafficSourcesType</p>
@@ -7219,7 +7219,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detachTrafficSources</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDetachTrafficSourcesType.html">AWSAutoScalingDetachTrafficSourcesType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingDetachTrafficSourcesResultType">AWSAutoScalingDetachTrafficSourcesResultType</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detachTrafficSources</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDetachTrafficSourcesType.html">AWSAutoScalingDetachTrafficSourcesType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingDetachTrafficSourcesResultType">AWSAutoScalingDetachTrafficSourcesResultType</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7353,7 +7353,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disableMetricsCollection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDisableMetricsCollectionQuery.html">AWSAutoScalingDisableMetricsCollectionQuery</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disableMetricsCollection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDisableMetricsCollectionQuery.html">AWSAutoScalingDisableMetricsCollectionQuery</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -7486,7 +7486,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">enableMetricsCollection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingEnableMetricsCollectionQuery.html">AWSAutoScalingEnableMetricsCollectionQuery</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">enableMetricsCollection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingEnableMetricsCollectionQuery.html">AWSAutoScalingEnableMetricsCollectionQuery</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -7626,7 +7626,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">enterStandby</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingEnterStandbyQuery.html">AWSAutoScalingEnterStandbyQuery</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingEnterStandbyAnswer.html">AWSAutoScalingEnterStandbyAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">enterStandby</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingEnterStandbyQuery.html">AWSAutoScalingEnterStandbyQuery</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingEnterStandbyAnswer.html">AWSAutoScalingEnterStandbyAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7757,7 +7757,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">executePolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingExecutePolicyType.html">AWSAutoScalingExecutePolicyType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">executePolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingExecutePolicyType.html">AWSAutoScalingExecutePolicyType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -7897,7 +7897,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">exitStandby</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingExitStandbyQuery.html">AWSAutoScalingExitStandbyQuery</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingExitStandbyAnswer.html">AWSAutoScalingExitStandbyAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">exitStandby</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingExitStandbyQuery.html">AWSAutoScalingExitStandbyQuery</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingExitStandbyAnswer.html">AWSAutoScalingExitStandbyAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8042,7 +8042,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">predictiveScalingForecast</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingGetPredictiveScalingForecastType.html">AWSAutoScalingGetPredictiveScalingForecastType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingGetPredictiveScalingForecastAnswer.html">AWSAutoScalingGetPredictiveScalingForecastAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">predictiveScalingForecast</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingGetPredictiveScalingForecastType.html">AWSAutoScalingGetPredictiveScalingForecastType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingGetPredictiveScalingForecastAnswer.html">AWSAutoScalingGetPredictiveScalingForecastAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8183,7 +8183,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putLifecycleHook</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingPutLifecycleHookType.html">AWSAutoScalingPutLifecycleHookType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingPutLifecycleHookAnswer">AWSAutoScalingPutLifecycleHookAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putLifecycleHook</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingPutLifecycleHookType.html">AWSAutoScalingPutLifecycleHookType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingPutLifecycleHookAnswer">AWSAutoScalingPutLifecycleHookAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8317,7 +8317,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putNotificationConfiguration</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingPutNotificationConfigurationType.html">AWSAutoScalingPutNotificationConfigurationType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putNotificationConfiguration</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingPutNotificationConfigurationType.html">AWSAutoScalingPutNotificationConfigurationType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -8457,7 +8457,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">put</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingPutScalingPolicyType.html">AWSAutoScalingPutScalingPolicyType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingPolicyARNType.html">AWSAutoScalingPolicyARNType</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">put</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingPutScalingPolicyType.html">AWSAutoScalingPutScalingPolicyType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingPolicyARNType.html">AWSAutoScalingPolicyARNType</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8591,7 +8591,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putScheduledUpdateGroupAction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingPutScheduledUpdateGroupActionType.html">AWSAutoScalingPutScheduledUpdateGroupActionType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putScheduledUpdateGroupAction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingPutScheduledUpdateGroupActionType.html">AWSAutoScalingPutScheduledUpdateGroupActionType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -8731,7 +8731,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putWarmPool</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingPutWarmPoolType.html">AWSAutoScalingPutWarmPoolType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingPutWarmPoolAnswer">AWSAutoScalingPutWarmPoolAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putWarmPool</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingPutWarmPoolType.html">AWSAutoScalingPutWarmPoolType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingPutWarmPoolAnswer">AWSAutoScalingPutWarmPoolAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8876,7 +8876,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">recordLifecycleActionHeartbeat</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingRecordLifecycleActionHeartbeatType.html">AWSAutoScalingRecordLifecycleActionHeartbeatType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingRecordLifecycleActionHeartbeatAnswer">AWSAutoScalingRecordLifecycleActionHeartbeatAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">recordLifecycleActionHeartbeat</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingRecordLifecycleActionHeartbeatType.html">AWSAutoScalingRecordLifecycleActionHeartbeatType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingRecordLifecycleActionHeartbeatAnswer">AWSAutoScalingRecordLifecycleActionHeartbeatAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9008,7 +9008,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">resumeProcesses</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingScalingProcessQuery.html">AWSAutoScalingScalingProcessQuery</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">resumeProcesses</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingScalingProcessQuery.html">AWSAutoScalingScalingProcessQuery</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -9151,7 +9151,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">rollbackInstanceRefresh</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingRollbackInstanceRefreshType.html">AWSAutoScalingRollbackInstanceRefreshType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingRollbackInstanceRefreshAnswer.html">AWSAutoScalingRollbackInstanceRefreshAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">rollbackInstanceRefresh</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingRollbackInstanceRefreshType.html">AWSAutoScalingRollbackInstanceRefreshType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingRollbackInstanceRefreshAnswer.html">AWSAutoScalingRollbackInstanceRefreshAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9284,7 +9284,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setDesiredCapacity</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingSetDesiredCapacityType.html">AWSAutoScalingSetDesiredCapacityType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setDesiredCapacity</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingSetDesiredCapacityType.html">AWSAutoScalingSetDesiredCapacityType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -9415,7 +9415,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setInstanceHealth</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingSetInstanceHealthQuery.html">AWSAutoScalingSetInstanceHealthQuery</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setInstanceHealth</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingSetInstanceHealthQuery.html">AWSAutoScalingSetInstanceHealthQuery</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -9558,7 +9558,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setInstanceProtection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingSetInstanceProtectionQuery.html">AWSAutoScalingSetInstanceProtectionQuery</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingSetInstanceProtectionAnswer">AWSAutoScalingSetInstanceProtectionAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setInstanceProtection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingSetInstanceProtectionQuery.html">AWSAutoScalingSetInstanceProtectionQuery</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingSetInstanceProtectionAnswer">AWSAutoScalingSetInstanceProtectionAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9702,7 +9702,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startInstanceRefresh</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingStartInstanceRefreshType.html">AWSAutoScalingStartInstanceRefreshType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingStartInstanceRefreshAnswer.html">AWSAutoScalingStartInstanceRefreshAnswer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startInstanceRefresh</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingStartInstanceRefreshType.html">AWSAutoScalingStartInstanceRefreshType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingStartInstanceRefreshAnswer.html">AWSAutoScalingStartInstanceRefreshAnswer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9834,7 +9834,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">suspendProcesses</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingScalingProcessQuery.html">AWSAutoScalingScalingProcessQuery</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">suspendProcesses</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingScalingProcessQuery.html">AWSAutoScalingScalingProcessQuery</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -9978,7 +9978,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">terminateInstance</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingTerminateInstanceInAutoScalingGroupType.html">AWSAutoScalingTerminateInstanceInAutoScalingGroupType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingActivityType.html">AWSAutoScalingActivityType</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">terminateInstance</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingTerminateInstanceInAutoScalingGroupType.html">AWSAutoScalingTerminateInstanceInAutoScalingGroupType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingActivityType.html">AWSAutoScalingActivityType</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10112,7 +10112,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingUpdateAutoScalingGroupType.html">AWSAutoScalingUpdateAutoScalingGroupType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingUpdateAutoScalingGroupType.html">AWSAutoScalingUpdateAutoScalingGroupType</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -10156,8 +10156,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-03-03)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-01)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>

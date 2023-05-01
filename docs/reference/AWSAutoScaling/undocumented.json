@@ -1,1489 +1,1496 @@
 {
   "warnings": [
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScaling.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScaling.h",
       "line": 28,
       "symbol": "AWSAutoScalingVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScaling.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScaling.h",
       "line": 39,
       "symbol": "AWSAutoScalingVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 22,
       "symbol": "AWSAutoScalingErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 24,
       "symbol": "AWSAutoScalingErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 24,
       "symbol": "AWSAutoScalingErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 25,
       "symbol": "AWSAutoScalingErrorType.AWSAutoScalingErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 26,
       "symbol": "AWSAutoScalingErrorType.AWSAutoScalingErrorActiveInstanceRefreshNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 27,
       "symbol": "AWSAutoScalingErrorType.AWSAutoScalingErrorAlreadyExists",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 28,
       "symbol": "AWSAutoScalingErrorType.AWSAutoScalingErrorInstanceRefreshInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 29,
       "symbol": "AWSAutoScalingErrorType.AWSAutoScalingErrorInvalidNextToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 30,
       "symbol": "AWSAutoScalingErrorType.AWSAutoScalingErrorIrreversibleInstanceRefresh",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 31,
       "symbol": "AWSAutoScalingErrorType.AWSAutoScalingErrorLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 32,
       "symbol": "AWSAutoScalingErrorType.AWSAutoScalingErrorResourceContention",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 33,
       "symbol": "AWSAutoScalingErrorType.AWSAutoScalingErrorResourceInUse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 34,
       "symbol": "AWSAutoScalingErrorType.AWSAutoScalingErrorScalingActivityInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 35,
       "symbol": "AWSAutoScalingErrorType.AWSAutoScalingErrorServiceLinkedRoleFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 38,
       "symbol": "AWSAutoScalingAcceleratorManufacturer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 38,
       "symbol": "AWSAutoScalingAcceleratorManufacturer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 39,
       "symbol": "AWSAutoScalingAcceleratorManufacturer.AWSAutoScalingAcceleratorManufacturerUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 40,
       "symbol": "AWSAutoScalingAcceleratorManufacturer.AWSAutoScalingAcceleratorManufacturerNvidia",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 41,
       "symbol": "AWSAutoScalingAcceleratorManufacturer.AWSAutoScalingAcceleratorManufacturerAmd",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 42,
       "symbol": "AWSAutoScalingAcceleratorManufacturer.AWSAutoScalingAcceleratorManufacturerAmazonWebServices",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 43,
       "symbol": "AWSAutoScalingAcceleratorManufacturer.AWSAutoScalingAcceleratorManufacturerXilinx",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 46,
       "symbol": "AWSAutoScalingAcceleratorName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 46,
       "symbol": "AWSAutoScalingAcceleratorName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 47,
       "symbol": "AWSAutoScalingAcceleratorName.AWSAutoScalingAcceleratorNameUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 48,
       "symbol": "AWSAutoScalingAcceleratorName.AWSAutoScalingAcceleratorNameA100",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 49,
       "symbol": "AWSAutoScalingAcceleratorName.AWSAutoScalingAcceleratorNameV100",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 50,
       "symbol": "AWSAutoScalingAcceleratorName.AWSAutoScalingAcceleratorNameK80",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 51,
       "symbol": "AWSAutoScalingAcceleratorName.AWSAutoScalingAcceleratorNameT4",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 52,
       "symbol": "AWSAutoScalingAcceleratorName.AWSAutoScalingAcceleratorNameM60",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 53,
       "symbol": "AWSAutoScalingAcceleratorName.AWSAutoScalingAcceleratorNameRadeonProV520",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 54,
       "symbol": "AWSAutoScalingAcceleratorName.AWSAutoScalingAcceleratorNameVu9p",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 57,
       "symbol": "AWSAutoScalingAcceleratorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 57,
       "symbol": "AWSAutoScalingAcceleratorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 58,
       "symbol": "AWSAutoScalingAcceleratorType.AWSAutoScalingAcceleratorTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 59,
       "symbol": "AWSAutoScalingAcceleratorType.AWSAutoScalingAcceleratorTypeGpu",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 60,
       "symbol": "AWSAutoScalingAcceleratorType.AWSAutoScalingAcceleratorTypeFpga",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 61,
       "symbol": "AWSAutoScalingAcceleratorType.AWSAutoScalingAcceleratorTypeInference",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 64,
       "symbol": "AWSAutoScalingBareMetal",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 64,
       "symbol": "AWSAutoScalingBareMetal",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 65,
       "symbol": "AWSAutoScalingBareMetal.AWSAutoScalingBareMetalUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 66,
       "symbol": "AWSAutoScalingBareMetal.AWSAutoScalingBareMetalIncluded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 67,
       "symbol": "AWSAutoScalingBareMetal.AWSAutoScalingBareMetalExcluded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 68,
       "symbol": "AWSAutoScalingBareMetal.AWSAutoScalingBareMetalRequired",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 71,
       "symbol": "AWSAutoScalingBurstablePerformance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 71,
       "symbol": "AWSAutoScalingBurstablePerformance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 72,
       "symbol": "AWSAutoScalingBurstablePerformance.AWSAutoScalingBurstablePerformanceUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 73,
       "symbol": "AWSAutoScalingBurstablePerformance.AWSAutoScalingBurstablePerformanceIncluded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 74,
       "symbol": "AWSAutoScalingBurstablePerformance.AWSAutoScalingBurstablePerformanceExcluded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 75,
       "symbol": "AWSAutoScalingBurstablePerformance.AWSAutoScalingBurstablePerformanceRequired",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 78,
       "symbol": "AWSAutoScalingCpuManufacturer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 78,
       "symbol": "AWSAutoScalingCpuManufacturer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 79,
       "symbol": "AWSAutoScalingCpuManufacturer.AWSAutoScalingCpuManufacturerUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 80,
       "symbol": "AWSAutoScalingCpuManufacturer.AWSAutoScalingCpuManufacturerIntel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 81,
       "symbol": "AWSAutoScalingCpuManufacturer.AWSAutoScalingCpuManufacturerAmd",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 82,
       "symbol": "AWSAutoScalingCpuManufacturer.AWSAutoScalingCpuManufacturerAmazonWebServices",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 85,
       "symbol": "AWSAutoScalingInstanceGeneration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 85,
       "symbol": "AWSAutoScalingInstanceGeneration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 86,
       "symbol": "AWSAutoScalingInstanceGeneration.AWSAutoScalingInstanceGenerationUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 87,
       "symbol": "AWSAutoScalingInstanceGeneration.AWSAutoScalingInstanceGenerationCurrent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 88,
       "symbol": "AWSAutoScalingInstanceGeneration.AWSAutoScalingInstanceGenerationPrevious",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 91,
       "symbol": "AWSAutoScalingInstanceMetadataEndpointState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 91,
       "symbol": "AWSAutoScalingInstanceMetadataEndpointState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 92,
       "symbol": "AWSAutoScalingInstanceMetadataEndpointState.AWSAutoScalingInstanceMetadataEndpointStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 93,
       "symbol": "AWSAutoScalingInstanceMetadataEndpointState.AWSAutoScalingInstanceMetadataEndpointStateDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 94,
       "symbol": "AWSAutoScalingInstanceMetadataEndpointState.AWSAutoScalingInstanceMetadataEndpointStateEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 97,
       "symbol": "AWSAutoScalingInstanceMetadataHttpTokensState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 97,
       "symbol": "AWSAutoScalingInstanceMetadataHttpTokensState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 98,
       "symbol": "AWSAutoScalingInstanceMetadataHttpTokensState.AWSAutoScalingInstanceMetadataHttpTokensStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 99,
       "symbol": "AWSAutoScalingInstanceMetadataHttpTokensState.AWSAutoScalingInstanceMetadataHttpTokensStateOptional",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 100,
       "symbol": "AWSAutoScalingInstanceMetadataHttpTokensState.AWSAutoScalingInstanceMetadataHttpTokensStateRequired",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 103,
       "symbol": "AWSAutoScalingInstanceRefreshStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 103,
       "symbol": "AWSAutoScalingInstanceRefreshStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 104,
       "symbol": "AWSAutoScalingInstanceRefreshStatus.AWSAutoScalingInstanceRefreshStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 105,
       "symbol": "AWSAutoScalingInstanceRefreshStatus.AWSAutoScalingInstanceRefreshStatusPending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 106,
       "symbol": "AWSAutoScalingInstanceRefreshStatus.AWSAutoScalingInstanceRefreshStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 107,
       "symbol": "AWSAutoScalingInstanceRefreshStatus.AWSAutoScalingInstanceRefreshStatusSuccessful",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 108,
       "symbol": "AWSAutoScalingInstanceRefreshStatus.AWSAutoScalingInstanceRefreshStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 109,
       "symbol": "AWSAutoScalingInstanceRefreshStatus.AWSAutoScalingInstanceRefreshStatusCancelling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 110,
       "symbol": "AWSAutoScalingInstanceRefreshStatus.AWSAutoScalingInstanceRefreshStatusCancelled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 111,
       "symbol": "AWSAutoScalingInstanceRefreshStatus.AWSAutoScalingInstanceRefreshStatusRollbackInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 112,
       "symbol": "AWSAutoScalingInstanceRefreshStatus.AWSAutoScalingInstanceRefreshStatusRollbackFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 113,
       "symbol": "AWSAutoScalingInstanceRefreshStatus.AWSAutoScalingInstanceRefreshStatusRollbackSuccessful",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 116,
       "symbol": "AWSAutoScalingLifecycleState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 116,
       "symbol": "AWSAutoScalingLifecycleState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 117,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 118,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStatePending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 119,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStatePendingWait",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 120,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStatePendingProceed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 121,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStateQuarantined",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 122,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStateInService",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 123,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStateTerminating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 124,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStateTerminatingWait",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 125,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStateTerminatingProceed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 126,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStateTerminated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 127,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStateDetaching",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 128,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStateDetached",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 129,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStateEnteringStandby",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 130,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStateStandby",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 131,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStateWarmedPending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 132,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStateWarmedPendingWait",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 133,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStateWarmedPendingProceed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 134,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStateWarmedTerminating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 135,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStateWarmedTerminatingWait",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 136,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStateWarmedTerminatingProceed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 137,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStateWarmedTerminated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 138,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStateWarmedStopped",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 139,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStateWarmedRunning",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 140,
       "symbol": "AWSAutoScalingLifecycleState.AWSAutoScalingLifecycleStateWarmedHibernated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 143,
       "symbol": "AWSAutoScalingLocalStorage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 143,
       "symbol": "AWSAutoScalingLocalStorage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 144,
       "symbol": "AWSAutoScalingLocalStorage.AWSAutoScalingLocalStorageUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 145,
       "symbol": "AWSAutoScalingLocalStorage.AWSAutoScalingLocalStorageIncluded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 146,
       "symbol": "AWSAutoScalingLocalStorage.AWSAutoScalingLocalStorageExcluded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 147,
       "symbol": "AWSAutoScalingLocalStorage.AWSAutoScalingLocalStorageRequired",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 150,
       "symbol": "AWSAutoScalingLocalStorageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 150,
       "symbol": "AWSAutoScalingLocalStorageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 151,
       "symbol": "AWSAutoScalingLocalStorageType.AWSAutoScalingLocalStorageTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 152,
       "symbol": "AWSAutoScalingLocalStorageType.AWSAutoScalingLocalStorageTypeHdd",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 153,
       "symbol": "AWSAutoScalingLocalStorageType.AWSAutoScalingLocalStorageTypeSsd",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 156,
       "symbol": "AWSAutoScalingMetricStatistic",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 156,
       "symbol": "AWSAutoScalingMetricStatistic",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 157,
       "symbol": "AWSAutoScalingMetricStatistic.AWSAutoScalingMetricStatisticUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 158,
       "symbol": "AWSAutoScalingMetricStatistic.AWSAutoScalingMetricStatisticAverage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 159,
       "symbol": "AWSAutoScalingMetricStatistic.AWSAutoScalingMetricStatisticMinimum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 160,
       "symbol": "AWSAutoScalingMetricStatistic.AWSAutoScalingMetricStatisticMaximum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 161,
       "symbol": "AWSAutoScalingMetricStatistic.AWSAutoScalingMetricStatisticSampleCount",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 162,
       "symbol": "AWSAutoScalingMetricStatistic.AWSAutoScalingMetricStatisticSum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 165,
       "symbol": "AWSAutoScalingMetricType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 165,
       "symbol": "AWSAutoScalingMetricType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 166,
       "symbol": "AWSAutoScalingMetricType.AWSAutoScalingMetricTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 167,
       "symbol": "AWSAutoScalingMetricType.AWSAutoScalingMetricTypeASGAverageCPUUtilization",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 168,
       "symbol": "AWSAutoScalingMetricType.AWSAutoScalingMetricTypeASGAverageNetworkIn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 169,
       "symbol": "AWSAutoScalingMetricType.AWSAutoScalingMetricTypeASGAverageNetworkOut",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 170,
       "symbol": "AWSAutoScalingMetricType.AWSAutoScalingMetricTypeALBRequestCountPerTarget",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 173,
       "symbol": "AWSAutoScalingPredefinedLoadMetricType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 173,
       "symbol": "AWSAutoScalingPredefinedLoadMetricType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 174,
       "symbol": "AWSAutoScalingPredefinedLoadMetricType.AWSAutoScalingPredefinedLoadMetricTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 175,
       "symbol": "AWSAutoScalingPredefinedLoadMetricType.AWSAutoScalingPredefinedLoadMetricTypeASGTotalCPUUtilization",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 176,
       "symbol": "AWSAutoScalingPredefinedLoadMetricType.AWSAutoScalingPredefinedLoadMetricTypeASGTotalNetworkIn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 177,
       "symbol": "AWSAutoScalingPredefinedLoadMetricType.AWSAutoScalingPredefinedLoadMetricTypeASGTotalNetworkOut",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 178,
       "symbol": "AWSAutoScalingPredefinedLoadMetricType.AWSAutoScalingPredefinedLoadMetricTypeALBTargetGroupRequestCount",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 181,
       "symbol": "AWSAutoScalingPredefinedMetricPairType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 181,
       "symbol": "AWSAutoScalingPredefinedMetricPairType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 182,
       "symbol": "AWSAutoScalingPredefinedMetricPairType.AWSAutoScalingPredefinedMetricPairTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 183,
       "symbol": "AWSAutoScalingPredefinedMetricPairType.AWSAutoScalingPredefinedMetricPairTypeASGCPUUtilization",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 184,
       "symbol": "AWSAutoScalingPredefinedMetricPairType.AWSAutoScalingPredefinedMetricPairTypeASGNetworkIn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 185,
       "symbol": "AWSAutoScalingPredefinedMetricPairType.AWSAutoScalingPredefinedMetricPairTypeASGNetworkOut",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 186,
       "symbol": "AWSAutoScalingPredefinedMetricPairType.AWSAutoScalingPredefinedMetricPairTypeALBRequestCount",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 189,
       "symbol": "AWSAutoScalingPredefinedScalingMetricType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 189,
       "symbol": "AWSAutoScalingPredefinedScalingMetricType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 190,
       "symbol": "AWSAutoScalingPredefinedScalingMetricType.AWSAutoScalingPredefinedScalingMetricTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 191,
       "symbol": "AWSAutoScalingPredefinedScalingMetricType.AWSAutoScalingPredefinedScalingMetricTypeASGAverageCPUUtilization",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 192,
       "symbol": "AWSAutoScalingPredefinedScalingMetricType.AWSAutoScalingPredefinedScalingMetricTypeASGAverageNetworkIn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 193,
       "symbol": "AWSAutoScalingPredefinedScalingMetricType.AWSAutoScalingPredefinedScalingMetricTypeASGAverageNetworkOut",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 194,
       "symbol": "AWSAutoScalingPredefinedScalingMetricType.AWSAutoScalingPredefinedScalingMetricTypeALBRequestCountPerTarget",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 197,
       "symbol": "AWSAutoScalingPredictiveScalingMaxCapacityBreachBehavior",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 197,
       "symbol": "AWSAutoScalingPredictiveScalingMaxCapacityBreachBehavior",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 198,
       "symbol": "AWSAutoScalingPredictiveScalingMaxCapacityBreachBehavior.AWSAutoScalingPredictiveScalingMaxCapacityBreachBehaviorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 199,
       "symbol": "AWSAutoScalingPredictiveScalingMaxCapacityBreachBehavior.AWSAutoScalingPredictiveScalingMaxCapacityBreachBehaviorHonorMaxCapacity",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 200,
       "symbol": "AWSAutoScalingPredictiveScalingMaxCapacityBreachBehavior.AWSAutoScalingPredictiveScalingMaxCapacityBreachBehaviorIncreaseMaxCapacity",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 203,
       "symbol": "AWSAutoScalingPredictiveScalingMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 203,
       "symbol": "AWSAutoScalingPredictiveScalingMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 204,
       "symbol": "AWSAutoScalingPredictiveScalingMode.AWSAutoScalingPredictiveScalingModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 205,
       "symbol": "AWSAutoScalingPredictiveScalingMode.AWSAutoScalingPredictiveScalingModeForecastAndScale",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 206,
       "symbol": "AWSAutoScalingPredictiveScalingMode.AWSAutoScalingPredictiveScalingModeForecastOnly",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 209,
       "symbol": "AWSAutoScalingRefreshStrategy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 209,
       "symbol": "AWSAutoScalingRefreshStrategy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 210,
       "symbol": "AWSAutoScalingRefreshStrategy.AWSAutoScalingRefreshStrategyUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 211,
       "symbol": "AWSAutoScalingRefreshStrategy.AWSAutoScalingRefreshStrategyRolling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 214,
       "symbol": "AWSAutoScalingScaleInProtectedInstances",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 214,
       "symbol": "AWSAutoScalingScaleInProtectedInstances",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 215,
       "symbol": "AWSAutoScalingScaleInProtectedInstances.AWSAutoScalingScaleInProtectedInstancesUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 216,
       "symbol": "AWSAutoScalingScaleInProtectedInstances.AWSAutoScalingScaleInProtectedInstancesRefresh",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 217,
       "symbol": "AWSAutoScalingScaleInProtectedInstances.AWSAutoScalingScaleInProtectedInstancesIgnore",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 218,
       "symbol": "AWSAutoScalingScaleInProtectedInstances.AWSAutoScalingScaleInProtectedInstancesWait",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 221,
       "symbol": "AWSAutoScalingScalingActivityStatusCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 221,
       "symbol": "AWSAutoScalingScalingActivityStatusCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 222,
       "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 223,
       "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodePendingSpotBidPlacement",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 224,
       "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeWaitingForSpotInstanceRequestId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 225,
       "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeWaitingForSpotInstanceId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 226,
       "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeWaitingForInstanceId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 227,
       "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodePreInService",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 228,
       "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 229,
       "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeWaitingForELBConnectionDraining",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 230,
       "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeMidLifecycleAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 231,
       "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeWaitingForInstanceWarmup",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 232,
       "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeSuccessful",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 233,
       "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 234,
       "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeCancelled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 237,
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 235,
+      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeWaitingForConnectionDraining",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 238,
       "symbol": "AWSAutoScalingStandbyInstances",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 237,
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 238,
       "symbol": "AWSAutoScalingStandbyInstances",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 238,
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 239,
       "symbol": "AWSAutoScalingStandbyInstances.AWSAutoScalingStandbyInstancesUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 239,
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 240,
       "symbol": "AWSAutoScalingStandbyInstances.AWSAutoScalingStandbyInstancesTerminate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 240,
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 241,
       "symbol": "AWSAutoScalingStandbyInstances.AWSAutoScalingStandbyInstancesIgnore",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 241,
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 242,
       "symbol": "AWSAutoScalingStandbyInstances.AWSAutoScalingStandbyInstancesWait",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 244,
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 245,
       "symbol": "AWSAutoScalingWarmPoolState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 244,
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 245,
       "symbol": "AWSAutoScalingWarmPoolState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 245,
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 246,
       "symbol": "AWSAutoScalingWarmPoolState.AWSAutoScalingWarmPoolStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 246,
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 247,
       "symbol": "AWSAutoScalingWarmPoolState.AWSAutoScalingWarmPoolStateStopped",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 247,
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 248,
       "symbol": "AWSAutoScalingWarmPoolState.AWSAutoScalingWarmPoolStateRunning",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 248,
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 249,
       "symbol": "AWSAutoScalingWarmPoolState.AWSAutoScalingWarmPoolStateHibernated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 251,
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 252,
       "symbol": "AWSAutoScalingWarmPoolStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 251,
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 252,
       "symbol": "AWSAutoScalingWarmPoolStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 252,
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 253,
       "symbol": "AWSAutoScalingWarmPoolStatus.AWSAutoScalingWarmPoolStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 253,
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 254,
       "symbol": "AWSAutoScalingWarmPoolStatus.AWSAutoScalingWarmPoolStatusPendingDelete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingResources.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingResources.h",
       "line": 18,
       "symbol": "AWSAutoScalingResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingResources.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingResources.h",
       "line": 20,
       "symbol": "AWSAutoScalingResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingResources.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingResources.h",
       "line": 22,
       "symbol": "AWSAutoScalingResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingService.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAutoScaling/AWSAutoScalingService.h",
       "line": 24,
       "symbol": "AWSAutoScalingSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/distiller/project"
+  "source_directory": "/Users/royji/work/iOS/aws-sdk-ios"
 }
