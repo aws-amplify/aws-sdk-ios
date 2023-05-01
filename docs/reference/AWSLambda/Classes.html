@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSLambda 2.30.4 Docs</a> (76% documented)</p>
+        <p><a href="index.html">AWSLambda 2.31.0 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLambda.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -288,6 +288,21 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSLambdaInvokeAsyncResponse.html">AWSLambdaInvokeAsyncResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLambdaInvokeResponseStreamUpdate.html">AWSLambdaInvokeResponseStreamUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLambdaInvokeWithResponseStreamCompleteEvent.html">AWSLambdaInvokeWithResponseStreamCompleteEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLambdaInvokeWithResponseStreamRequest.html">AWSLambdaInvokeWithResponseStreamRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLambdaInvokeWithResponseStreamResponse.html">AWSLambdaInvokeWithResponseStreamResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLambdaInvokeWithResponseStreamResponseEvent.html">AWSLambdaInvokeWithResponseStreamResponseEvent</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSLambdaInvoker.html">AWSLambdaInvoker</a>
@@ -573,6 +588,9 @@
                 <a href="Enums/AWSLambdaInvocationType.html">AWSLambdaInvocationType</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSLambdaInvokeMode.html">AWSLambdaInvokeMode</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSLambdaInvokerErrorType.html">AWSLambdaInvokerErrorType</a>
               </li>
               <li class="nav-group-task">
@@ -589,6 +607,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSLambdaProvisionedConcurrencyStatusEnum.html">AWSLambdaProvisionedConcurrencyStatusEnum</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSLambdaResponseStreamingInvocationType.html">AWSLambdaResponseStreamingInvocationType</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSLambdaRuntime.html">AWSLambdaRuntime</a>
@@ -3591,6 +3612,169 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSLambdaInvokeResponseStreamUpdate"></a>
+                    <a name="//apple_ref/objc/Class/AWSLambdaInvokeResponseStreamUpdate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaInvokeResponseStreamUpdate">AWSLambdaInvokeResponseStreamUpdate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A chunk of the streamed response payload.</p>
+
+                        <a href="Classes/AWSLambdaInvokeResponseStreamUpdate.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLambdaInvokeResponseStreamUpdate</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLambdaInvokeResponseStreamUpdate</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaInvokeWithResponseStreamCompleteEvent"></a>
+                    <a name="//apple_ref/objc/Class/AWSLambdaInvokeWithResponseStreamCompleteEvent" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaInvokeWithResponseStreamCompleteEvent">AWSLambdaInvokeWithResponseStreamCompleteEvent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A response confirming that the event stream is complete.</p>
+
+                        <a href="Classes/AWSLambdaInvokeWithResponseStreamCompleteEvent.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLambdaInvokeWithResponseStreamCompleteEvent</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLambdaInvokeWithResponseStreamCompleteEvent</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaInvokeWithResponseStreamRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSLambdaInvokeWithResponseStreamRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaInvokeWithResponseStreamRequest">AWSLambdaInvokeWithResponseStreamRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSLambdaInvokeWithResponseStreamRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLambdaInvokeWithResponseStreamRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLambdaInvokeWithResponseStreamRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaInvokeWithResponseStreamResponse"></a>
+                    <a name="//apple_ref/objc/Class/AWSLambdaInvokeWithResponseStreamResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaInvokeWithResponseStreamResponse">AWSLambdaInvokeWithResponseStreamResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSLambdaInvokeWithResponseStreamResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLambdaInvokeWithResponseStreamResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLambdaInvokeWithResponseStreamResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaInvokeWithResponseStreamResponseEvent"></a>
+                    <a name="//apple_ref/objc/Class/AWSLambdaInvokeWithResponseStreamResponseEvent" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaInvokeWithResponseStreamResponseEvent">AWSLambdaInvokeWithResponseStreamResponseEvent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An object that includes a chunk of the response payload. When the stream has ended, Lambda includes a <code>InvokeComplete</code> object.</p>
+
+                        <a href="Classes/AWSLambdaInvokeWithResponseStreamResponseEvent.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLambdaInvokeWithResponseStreamResponseEvent</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLambdaInvokeWithResponseStreamResponseEvent</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSLambdaLayer"></a>
                     <a name="//apple_ref/objc/Class/AWSLambdaLayer" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSLambdaLayer">AWSLambdaLayer</a>
@@ -5862,8 +6046,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-03-03)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-01)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>

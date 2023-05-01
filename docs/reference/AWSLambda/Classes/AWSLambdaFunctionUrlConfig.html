@@ -17,7 +17,7 @@
     <a title="AWSLambdaFunctionUrlConfig Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLambda 2.30.4 Docs</a> (76% documented)</p>
+        <p><a href="../index.html">AWSLambda 2.31.0 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLambda.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -288,6 +288,21 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLambdaInvokeAsyncResponse.html">AWSLambdaInvokeAsyncResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaInvokeResponseStreamUpdate.html">AWSLambdaInvokeResponseStreamUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaInvokeWithResponseStreamCompleteEvent.html">AWSLambdaInvokeWithResponseStreamCompleteEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaInvokeWithResponseStreamRequest.html">AWSLambdaInvokeWithResponseStreamRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaInvokeWithResponseStreamResponse.html">AWSLambdaInvokeWithResponseStreamResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaInvokeWithResponseStreamResponseEvent.html">AWSLambdaInvokeWithResponseStreamResponseEvent</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLambdaInvoker.html">AWSLambdaInvoker</a>
@@ -573,6 +588,9 @@
                 <a href="../Enums/AWSLambdaInvocationType.html">AWSLambdaInvocationType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaInvokeMode.html">AWSLambdaInvokeMode</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSLambdaInvokerErrorType.html">AWSLambdaInvokerErrorType</a>
               </li>
               <li class="nav-group-task">
@@ -589,6 +607,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSLambdaProvisionedConcurrencyStatusEnum.html">AWSLambdaProvisionedConcurrencyStatusEnum</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaResponseStreamingInvocationType.html">AWSLambdaResponseStreamingInvocationType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSLambdaRuntime.html">AWSLambdaRuntime</a>
@@ -808,6 +829,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSLambdaFunctionUrlConfig(py)invokeMode"></a>
+                    <a name="//apple_ref/objc/Property/invokeMode" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaFunctionUrlConfig(py)invokeMode">invokeMode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>Use one of the following options:</p><ul><li><p><code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p></li><li><p><code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 20 MB, however, you can <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">request a quota increase</a>.</p></li></ul></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSLambdaInvokeMode.html">AWSLambdaInvokeMode</a></span> <span class="n">invokeMode</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">invokeMode</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSLambdaInvokeMode.html">AWSLambdaInvokeMode</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSLambdaFunctionUrlConfig(py)lastModifiedTime"></a>
                     <a name="//apple_ref/objc/Property/lastModifiedTime" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSLambdaFunctionUrlConfig(py)lastModifiedTime">lastModifiedTime</a>
@@ -842,8 +895,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-03-03)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-01)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>
