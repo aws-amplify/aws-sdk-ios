@@ -17,7 +17,7 @@
     <a title="AWSIoTData Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSIoT 2.30.4 Docs</a> (84% documented)</p>
+        <p><a href="../index.html">AWSIoT 2.31.0 Docs</a> (84% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSIoT.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -1499,6 +1499,9 @@
                 <a href="../Classes/AWSIoTMachineLearningDetectionConfig.html">AWSIoTMachineLearningDetectionConfig</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSIoTMaintenanceWindow.html">AWSIoTMaintenanceWindow</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSIoTManagedJobTemplateSummary.html">AWSIoTManagedJobTemplateSummary</a>
               </li>
               <li class="nav-group-task">
@@ -1674,6 +1677,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTScheduledAuditMetadata.html">AWSIoTScheduledAuditMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTScheduledJobRollout.html">AWSIoTScheduledJobRollout</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTSchedulingConfig.html">AWSIoTSchedulingConfig</a>
@@ -1854,6 +1860,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTTimestreamTimestamp.html">AWSIoTTimestreamTimestamp</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTTlsConfig.html">AWSIoTTlsConfig</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTTlsContext.html">AWSIoTTlsContext</a>
@@ -2823,7 +2832,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteThingShadow</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTDataDeleteThingShadowRequest.html">AWSIoTDataDeleteThingShadowRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSIoTDataDeleteThingShadowResponse.html">AWSIoTDataDeleteThingShadowResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteThingShadow</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTDataDeleteThingShadowRequest.html">AWSIoTDataDeleteThingShadowRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSIoTDataDeleteThingShadowResponse.html">AWSIoTDataDeleteThingShadowResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2876,7 +2885,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the details of a single retained message for the specified topic.</p><p>This action returns the message payload of the retained message, which can incur messaging costs. To list only the topic names of the retained messages, call <a href="/iot/latest/developerguide/API_iotdata_ListRetainedMessages.html">ListRetainedMessages</a>.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions">GetRetainedMessage</a> action.</p><p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">Amazon Web Services IoT Core pricing - Messaging</a>.</p>
+                        <p>Gets the details of a single retained message for the specified topic.</p><p>This action returns the message payload of the retained message, which can incur messaging costs. To list only the topic names of the retained messages, call <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_ListRetainedMessages.html">ListRetainedMessages</a>.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions">GetRetainedMessage</a> action.</p><p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">Amazon Web Services IoT Core pricing - Messaging</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTDataGetRetainedMessageRequest</p>
@@ -2940,7 +2949,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the details of a single retained message for the specified topic.</p><p>This action returns the message payload of the retained message, which can incur messaging costs. To list only the topic names of the retained messages, call <a href="/iot/latest/developerguide/API_iotdata_ListRetainedMessages.html">ListRetainedMessages</a>.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions">GetRetainedMessage</a> action.</p><p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">Amazon Web Services IoT Core pricing - Messaging</a>.</p>
+                        <p>Gets the details of a single retained message for the specified topic.</p><p>This action returns the message payload of the retained message, which can incur messaging costs. To list only the topic names of the retained messages, call <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_ListRetainedMessages.html">ListRetainedMessages</a>.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions">GetRetainedMessage</a> action.</p><p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">Amazon Web Services IoT Core pricing - Messaging</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTDataGetRetainedMessageRequest</p>
@@ -2965,7 +2974,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">retainedMessage</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTDataGetRetainedMessageRequest.html">AWSIoTDataGetRetainedMessageRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSIoTDataGetRetainedMessageResponse.html">AWSIoTDataGetRetainedMessageResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">retainedMessage</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTDataGetRetainedMessageRequest.html">AWSIoTDataGetRetainedMessageRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSIoTDataGetRetainedMessageResponse.html">AWSIoTDataGetRetainedMessageResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3106,7 +3115,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">thingShadow</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTDataGetThingShadowRequest.html">AWSIoTDataGetThingShadowRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSIoTDataGetThingShadowResponse.html">AWSIoTDataGetThingShadowResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">thingShadow</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTDataGetThingShadowRequest.html">AWSIoTDataGetThingShadowRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSIoTDataGetThingShadowResponse.html">AWSIoTDataGetThingShadowResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3250,7 +3259,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listNamedShadows</span><span class="p">(</span><span class="n">forThing</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTDataListNamedShadowsForThingRequest.html">AWSIoTDataListNamedShadowsForThingRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSIoTDataListNamedShadowsForThingResponse.html">AWSIoTDataListNamedShadowsForThingResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listNamedShadows</span><span class="p">(</span><span class="n">forThing</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTDataListNamedShadowsForThingRequest.html">AWSIoTDataListNamedShadowsForThingRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSIoTDataListNamedShadowsForThingResponse.html">AWSIoTDataListNamedShadowsForThingResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3303,7 +3312,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists summary information about the retained messages stored for the account.</p><p>This action returns only the topic names of the retained messages. It doesn&rsquo;t return any message payloads. Although this action doesn&rsquo;t return a message payload, it can still incur messaging costs.</p><p>To get the message payload of a retained message, call <a href="https://docs.aws.amazon.com/iot/latest/developerguide/API_iotdata_GetRetainedMessage.html">GetRetainedMessage</a> with the topic name of the retained message.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions">ListRetainedMessages</a> action.</p><p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">Amazon Web Services IoT Core pricing - Messaging</a>.</p>
+                        <p>Lists summary information about the retained messages stored for the account.</p><p>This action returns only the topic names of the retained messages. It doesn&rsquo;t return any message payloads. Although this action doesn&rsquo;t return a message payload, it can still incur messaging costs.</p><p>To get the message payload of a retained message, call <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_GetRetainedMessage.html">GetRetainedMessage</a> with the topic name of the retained message.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions">ListRetainedMessages</a> action.</p><p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">Amazon Web Services IoT Core pricing - Messaging</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTDataListRetainedMessagesRequest</p>
@@ -3368,7 +3377,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists summary information about the retained messages stored for the account.</p><p>This action returns only the topic names of the retained messages. It doesn&rsquo;t return any message payloads. Although this action doesn&rsquo;t return a message payload, it can still incur messaging costs.</p><p>To get the message payload of a retained message, call <a href="https://docs.aws.amazon.com/iot/latest/developerguide/API_iotdata_GetRetainedMessage.html">GetRetainedMessage</a> with the topic name of the retained message.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions">ListRetainedMessages</a> action.</p><p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">Amazon Web Services IoT Core pricing - Messaging</a>.</p>
+                        <p>Lists summary information about the retained messages stored for the account.</p><p>This action returns only the topic names of the retained messages. It doesn&rsquo;t return any message payloads. Although this action doesn&rsquo;t return a message payload, it can still incur messaging costs.</p><p>To get the message payload of a retained message, call <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_GetRetainedMessage.html">GetRetainedMessage</a> with the topic name of the retained message.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions">ListRetainedMessages</a> action.</p><p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">Amazon Web Services IoT Core pricing - Messaging</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTDataListRetainedMessagesRequest</p>
@@ -3394,7 +3403,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listRetainedMessages</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTDataListRetainedMessagesRequest.html">AWSIoTDataListRetainedMessagesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSIoTDataListRetainedMessagesResponse.html">AWSIoTDataListRetainedMessagesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listRetainedMessages</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTDataListRetainedMessagesRequest.html">AWSIoTDataListRetainedMessagesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSIoTDataListRetainedMessagesResponse.html">AWSIoTDataListRetainedMessagesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3525,7 +3534,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">publish</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTDataPublishRequest.html">AWSIoTDataPublishRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">publish</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTDataPublishRequest.html">AWSIoTDataPublishRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -3665,7 +3674,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateThingShadow</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTDataUpdateThingShadowRequest.html">AWSIoTDataUpdateThingShadowRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSIoTDataUpdateThingShadowResponse.html">AWSIoTDataUpdateThingShadowResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateThingShadow</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTDataUpdateThingShadowRequest.html">AWSIoTDataUpdateThingShadowRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSIoTDataUpdateThingShadowResponse.html">AWSIoTDataUpdateThingShadowResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3710,8 +3719,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-03-03)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-01)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>
