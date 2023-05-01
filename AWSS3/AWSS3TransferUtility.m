@@ -957,8 +957,13 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
         request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
         request.HTTPMethod = @"PUT";
-        request.networkServiceType = NSURLNetworkServiceTypeResponsiveData;
-        
+
+        if (@available(iOS 12.0, *)) {
+            // `NSURLRequest.h` doesn't include an `API_AVAILABLE` for this case,
+            // however the docs state iOS 12.0 +
+            // https://developer.apple.com/documentation/foundation/nsurlrequestnetworkservicetype/nsurlnetworkservicetyperesponsivedata
+            request.networkServiceType = NSURLNetworkServiceTypeResponsiveData;
+        }
         [request setValue:self.configuration.userAgent forHTTPHeaderField:@"User-Agent"];
         
         for (NSString *key in transferUtilityUploadTask.expression.requestHeaders) {
