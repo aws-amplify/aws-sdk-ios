@@ -17,7 +17,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSTextract 2.30.4 Docs</a> (77% documented)</p>
+        <p><a href="index.html">AWSTextract 2.31.0 Docs</a> (75% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTextract.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -358,7 +358,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractErrorType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractErrorType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -400,12 +400,14 @@
     <span class="n">AWSTextractBlockTypeQuery</span><span class="p">,</span>
     <span class="n">AWSTextractBlockTypeQueryResult</span><span class="p">,</span>
     <span class="n">AWSTextractBlockTypeSignature</span><span class="p">,</span>
+    <span class="n">AWSTextractBlockTypeTableTitle</span><span class="p">,</span>
+    <span class="n">AWSTextractBlockTypeTableFooter</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractBlockType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractBlockType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -442,7 +444,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractContentClassifier</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractContentClassifier</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -475,12 +477,18 @@
     <span class="n">AWSTextractEntityTypeKey</span><span class="p">,</span>
     <span class="n">AWSTextractEntityTypeValue</span><span class="p">,</span>
     <span class="n">AWSTextractEntityTypeColumnHeader</span><span class="p">,</span>
+    <span class="n">AWSTextractEntityTypeTableTitle</span><span class="p">,</span>
+    <span class="n">AWSTextractEntityTypeTableFooter</span><span class="p">,</span>
+    <span class="n">AWSTextractEntityTypeTableSectionTitle</span><span class="p">,</span>
+    <span class="n">AWSTextractEntityTypeTableSummary</span><span class="p">,</span>
+    <span class="n">AWSTextractEntityTypeStructuredTable</span><span class="p">,</span>
+    <span class="n">AWSTextractEntityTypeSemiStructuredTable</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractEntityType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractEntityType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -519,7 +527,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractFeatureType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractFeatureType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -558,7 +566,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractJobStatus</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractJobStatus</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -594,12 +602,15 @@
     <span class="n">AWSTextractRelationshipTypeMergedCell</span><span class="p">,</span>
     <span class="n">AWSTextractRelationshipTypeTitle</span><span class="p">,</span>
     <span class="n">AWSTextractRelationshipTypeAnswer</span><span class="p">,</span>
+    <span class="n">AWSTextractRelationshipTypeTable</span><span class="p">,</span>
+    <span class="n">AWSTextractRelationshipTypeTableTitle</span><span class="p">,</span>
+    <span class="n">AWSTextractRelationshipTypeTableFooter</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractRelationshipType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractRelationshipType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -636,7 +647,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractSelectionStatus</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractSelectionStatus</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -673,7 +684,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractTextType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractTextType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -709,7 +720,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractValueType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractValueType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -721,8 +732,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-03-03)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-01)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>
