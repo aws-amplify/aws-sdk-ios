@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSKinesisVideoWebRTCStorage  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a title="AWSKinesisVideoWebRTCStorage  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">AWSKinesisVideoWebRTCStorage 2.31.0 Docs</a> (51% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKinesisVideoWebRTCStorage.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
+        <div class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">AWSKinesisVideoWebRTCStorage Reference</a>
+        <img id="carat" src="img/carat.png" alt=""/>
+        AWSKinesisVideoWebRTCStorage  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/AWSKinesisVideoWebRTCStorage.html">AWSKinesisVideoWebRTCStorage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSKinesisVideoWebRTCStorageJoinStorageSessionAsViewerInput.html">AWSKinesisVideoWebRTCStorageJoinStorageSessionAsViewerInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSKinesisVideoWebRTCStorageJoinStorageSessionInput.html">AWSKinesisVideoWebRTCStorageJoinStorageSessionInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSKinesisVideoWebRTCStorageResources.html">AWSKinesisVideoWebRTCStorageResources</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Constants.html#/c:@AWSKinesisVideoWebRTCStorageErrorDomain">AWSKinesisVideoWebRTCStorageErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Constants.html#/c:@AWSKinesisVideoWebRTCStorageSDKVersion">AWSKinesisVideoWebRTCStorageSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Constants.html#/c:@AWSKinesisVideoWebRTCStorageVersionNumber">AWSKinesisVideoWebRTCStorageVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Constants.html#/c:@AWSKinesisVideoWebRTCStorageVersionString">AWSKinesisVideoWebRTCStorageVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/AWSKinesisVideoWebRTCStorageErrorType.html">AWSKinesisVideoWebRTCStorageErrorType</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='aws-sdk-for-ios' class='heading'>AWS SDK for iOS</h1>
+
+<p><a href="../../releases"><img src="https://img.shields.io/github/release/aws/aws-sdk-ios.svg" alt="Release"></a>
+<a href="https://cocoapods.org/pods/AWSCore"><img src="https://img.shields.io/cocoapods/v/AWSCore.svg" alt="CocoaPods"></a>
+<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible"></a>
+<a href="https://circleci.com/gh/aws-amplify/aws-sdk-ios"><img src="https://circleci.com/gh/aws-amplify/aws-sdk-ios.svg?style=svg" alt="CircleCI"></a>
+<a href="https://discord.gg/jWVbPfC"><img src="https://img.shields.io/discord/308323056592486420?logo=discord" alt="Discord"></a> </p>
+
+<p>The AWS SDK for iOS provides a library and documentation for developers to build connected mobile applications using AWS.</p>
+<h3 id='features-apis' class='heading'>Features / APIs</h3>
+
+<ul>
+<li><a href="https://aws-amplify.github.io/docs/ios/authentication"><strong>Authentication</strong></a>: APIs and building blocks for developers who want to create user authentication experiences.<br></li>
+<li><a href="https://aws-amplify.github.io/docs/ios/analytics"><strong>Analytics</strong></a>: Easily collect analytics data for your app. Analytics data includes user sessions and other custom events that you want to track in your app.<br></li>
+<li><a href="https://aws-amplify.github.io/docs/ios/api"><strong>API</strong></a>: Provides a simple solution when making HTTP requests. It provides an automatic, lightweight signing process which complies with AWS Signature Version 4.</li>
+<li><a href="https://aws-amplify.github.io/docs/ios/storage"><strong>Storage</strong></a>: Provides a simple mechanism for managing user content for your app in public, protected or private storage buckets.<br></li>
+<li><a href="https://aws-amplify.github.io/docs/ios/push-notifications"><strong>Push Notifications</strong></a>: Allows you to integrate push notifications in your app with Amazon Pinpoint targeting and campaign management support.</li>
+<li><a href="https://aws-amplify.github.io/docs/ios/pubsub"><strong>PubSub</strong></a>: Provides connectivity with cloud-based message-oriented middleware.<br></li>
+<li><a href="https://aws-amplify.github.io/docs/ios/manualsetup"><strong>Generated AWS Service Interfaces</strong></a>: Provides direct interaction with any AWS service.</li>
+</ul>
+<h4 id='visit-our-a-href-https-aws-amplify-github-io-web-site-a-to-learn-more-about-amplify-framework' class='heading'>Visit our <a href="https://aws-amplify.github.io">Web Site</a> to learn more about Amplify Framework.</h4>
+
+<ul>
+<li><a href="https://aws-amplify.github.io/docs">Documentation</a></li>
+<li><a href="#setup">Setup</a></li>
+<li><a href="https://github.com/awslabs/aws-sdk-ios-samples">Examples</a></li>
+</ul>
+<h2 id='setup' class='heading'>Setup</h2>
+
+<p>To get started with the AWS SDK for iOS, check out the <a href="https://aws-amplify.github.io/docs/ios/start">Developer Guide for iOS</a>. You can set up the SDK and start building a new project, or you integrate the SDK in an existing project. You can also run the samples to get a sense of how the SDK works.</p>
+
+<p>To use the AWS SDK for iOS, you will need the following installed on your development machine:</p>
+
+<ul>
+<li>Xcode 11.0 or later</li>
+<li>iOS 9 or later</li>
+</ul>
+<h2 id='include-the-sdk-for-ios-in-an-existing-application' class='heading'>Include the SDK for iOS in an Existing Application</h2>
+
+<p>We have a couple <a href="https://github.com/awslabs/aws-sdk-ios-samples">samples</a> applications which showcase how to use the AWS SDK for iOS.  Please note that the code in these sample applications is not of production quality, and should be considered as exactly what we called them: samples.</p>
+
+<p>There are several ways to integrate the AWS Mobile SDK for iOS into your own project:</p>
+
+<ul>
+<li><a href="https://swift.org/package-manager/">Swift Package Manager</a></li>
+<li><a href="https://cocoapods.org/">CocoaPods</a></li>
+<li><a href="https://github.com/Carthage/Carthage">Carthage</a></li>
+<li><a href="https://aws.amazon.com/mobile/sdk/">Dynamic Frameworks</a></li>
+</ul>
+
+<p>You should use ONE and only one of these ways to import the AWS Mobile SDK. Importing the SDK in multiple ways loads duplicate copies of the SDK into the project and causes compiler/linker errors.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>If you are using XCFrameworks (i.e., either Swift Package Manager, Carthage, or Dynamic Frameworks), some modules are named with the <code>XCF</code> suffix to work around a <a href="https://bugs.swift.org/browse/SR-11704">Swift issue</a>. <code>AWSMobileClient</code> is named as <code>AWSMobileClientXCF</code> and <code>AWSLocation</code> is named as <code>AWSLocationXCF</code>. To use the <code>AWSMobileClient</code> or <code>AWSLocation</code> SDKs, import them as:</p>
+
+</div>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">AWSMobileClientXCF</span>
+<span class="kd">import</span> <span class="kt">AWSLocationXCF</span>
+</code></pre>
+
+<p>and use it your app code without the <code>XCF</code> suffix.</p>
+<pre class="highlight swift"><code><span class="kt">AWSMobileClient</span><span class="o">.</span><span class="nf">default</span><span class="p">()</span><span class="o">.</span><span class="nf">initialize</span><span class="p">()</span> 
+<span class="k">let</span> <span class="nv">locationClient</span> <span class="o">=</span> <span class="kt">AWSLocation</span><span class="o">.</span><span class="nf">default</span><span class="p">()</span>
+</code></pre>
+<h3 id='swift-package-manager' class='heading'>Swift Package Manager</h3>
+
+<ol>
+<li><p>Swift Package Manager is distributed with Xcode. To start adding the AWS SDK to your iOS project, open your project in Xcode and select <strong>File &gt; Swift Packages &gt; Add Package Dependency</strong>.</p>
+
+<p><img src="readme-images/spm-setup-01-add-package-dependency.png" alt="Add package dependency"></p></li>
+<li><p>Enter the URL for the AWS SDK for iOS Swift Package Manager GitHub repo (<code>https://github.com/aws-amplify/aws-sdk-ios-spm</code>) into the search bar and click <strong>Next</strong>.</p>
+
+<p><img src="readme-images/spm-setup-02-search-amplify-repo.png" alt="Search for repo"></p>
+
+<p><strong>NOTE:</strong> This URL is <em>not</em> the main URL of the SDK. We maintain the Swift Package Manager manifest (<code>Package.swift</code>) file for this library in a separate repo so that apps that use the SDK do not have to download the entire source repository in order to consume the binary targets.</p></li>
+<li><p>You&rsquo;ll see the repository rules for which version of the SDK you want Swift Package Manager to install. Choose the first rule, <strong>Version</strong>, and select <strong>Up to Next Minor</strong> as it will use the latest compatible version of the dependency that can be detected from the <code>main</code> branch, then click <strong>Next</strong>.</p>
+
+<p><img src="readme-images/spm-setup-03-dependency-version-options.png" alt="Dependency version options"></p>
+
+<p><strong>NOTE:</strong> The AWS Mobile SDK for iOS does <a href="https://docs.amplify.aws/sdk/configuration/setup-options/q/platform/ios#aws-sdk-version-vs-semantic-versioning">not use Semantic Versioning</a>, and may introduce breaking API changes on minor version releases. We recommend setting your <strong>Version</strong> rule to <strong>Up to Next Minor</strong> and evaluating minor version releases to ensure they are compatible with your app.</p></li>
+<li><p>Choose which of the libraries you want added to your project. Always select the <strong>AWSCore</strong> SDK. The remaining SDKs to install will vary based on which SDK you&rsquo;re trying to install. Most SDKs rely only on <strong>AWSCore</strong>, but for a full dependency list, see the <a href="README-spm-support.md">README-spm-support file</a>.</p>
+
+<p><em>Note: AWSLex is not currently supported for the <code>arm64</code> architecture through Swift Package Manager due to conflicts with a packaged binary dependency.</em></p>
+
+<p><img src="readme-images/spm-setup-04-select-dependencies.png" alt="Select dependencies"></p>
+
+<p>Select all that are appropriate, then click <strong>Finish</strong>.</p>
+
+<p>You can always go back and modify which SPM packages are included in your project by opening the Swift Packages tab for your project: Click on the Project file in the Xcode navigator, then click on your project&rsquo;s icon, then select the <strong>Swift Packages</strong> tab.</p></li>
+</ol>
+<h3 id='cocoapods' class='heading'>CocoaPods</h3>
+
+<ol>
+<li><p>The AWS Mobile SDK for iOS is available through <a href="http://cocoapods.org">CocoaPods</a>. If you have not installed CocoaPods, install CocoaPods by running the command:</p>
+<pre class="highlight plaintext"><code>$ gem install cocoapods
+$ pod setup
+</code></pre>
+
+<p>Depending on your system settings, you may have to use <code>sudo</code> for installing <code>cocoapods</code> as follows:</p>
+<pre class="highlight plaintext"><code>$ sudo gem install cocoapods
+$ pod setup
+</code></pre></li>
+<li><p>In your project directory (the directory where your <code>*.xcodeproj</code> file is), run the following to create a <code>Podfile</code> in your project.</p>
+<pre class="highlight plaintext"><code>$ pod init
+</code></pre></li>
+<li><p>Edit the podfile to include the pods you want to integrate into your project.  For example, if you need auth, you can use AWSMobileClient, and if you need analytics, you add AWSPinpoint.  As a result, your podfile might look something like this:</p>
+<pre class="highlight plaintext"><code>target 'YourTarget' do
+pod 'AWSMobileClient'
+pod 'AWSPinpoint'
+end
+</code></pre></li>
+</ol>
+
+<p>For a complete list of our pods, check out the .podspec files in the root directory of this project.</p>
+
+<ol>
+<li><p>Then run the following command:</p>
+<pre class="highlight plaintext"><code>$ pod install --repo-update
+</code></pre></li>
+<li><p>To open your project, open the newly generated <code>*.xcworkspace</code> file in your project&rsquo;s directory with XCode.  You can do this by issuing the following command in your project folder:</p>
+<pre class="highlight plaintext"><code>$ xed .
+</code></pre>
+
+<p><strong>Note</strong>: Do <strong>NOT</strong> use <code>*.xcodeproj</code>. If you open up a project file instead of a workspace, you may receive the following error:</p>
+<pre class="highlight plaintext"><code>ld: library not found for -lPods-AWSCore
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+</code></pre></li>
+</ol>
+<h3 id='carthage' class='heading'>Carthage</h3>
+<h4 id='xcframeworks-recommended' class='heading'>XCFrameworks (recommended)</h4>
+
+<p>Carthage supports XCFrameworks in Xcode 12 or above. Follow the steps below to consume the AWS SDK for iOS using XCFrameworks:</p>
+
+<ol>
+<li><p>Install Carthage 0.37.0 or greater.</p></li>
+<li><p>Add the following to your <code>Cartfile</code>:</p>
+<pre class="highlight plaintext"><code>github "aws-amplify/aws-sdk-ios"
+</code></pre></li>
+<li><p>Then run the following command:</p>
+<pre class="highlight plaintext"><code>$ carthage update --use-xcframeworks --no-use-binaries
+</code></pre></li>
+</ol>
+
+<blockquote>
+<p>As of Carthage 0.37.0, prebuilt binaries using XCFrameworks are not supported, as mentioned in the Carthage release notes - <a href="https://github.com/Carthage/Carthage/releases/tag/0.37.0">https://github.com/Carthage/Carthage/releases/tag/0.37.0</a></p>
+</blockquote>
+
+<ol>
+<li>On your application targets’ General settings tab, in the Embedded Binaries section, drag and drop each xcframework you want to use from the Carthage/Build folder on disk.</li>
+</ol>
+<h4 id='frameworks-with-quot-fat-libraries-quot-not-recommended' class='heading'>Frameworks with &ldquo;fat libraries&rdquo; (not recommended)</h4>
+
+<p>To build platform-specific framework bundles with multiple architectures in the binary, (Xcode 11 and below)</p>
+
+<ol>
+<li><p>Install the latest version of <a href="https://github.com/Carthage/Carthage#installing-carthage">Carthage</a>.</p></li>
+<li><p>Add the following to your <code>Cartfile</code>:</p>
+<pre class="highlight plaintext"><code>github "aws-amplify/aws-sdk-ios"
+</code></pre></li>
+<li><p>Then run the following command:</p>
+<pre class="highlight plaintext"><code>$ carthage update
+</code></pre></li>
+<li><p>With your project open in Xcode, select your <strong>Target</strong>. Under <strong>General</strong> tab, find <strong>Frameworks, Libraries, and Embedded Content</strong> and then click the <strong>+</strong> button.</p></li>
+<li><p>Click the <strong>Add Other&hellip;</strong> button, then &ldquo;Add Files&hellip;&rdquo; in the popup menu, then navigate to the <code>AWS&lt;#ServiceName#&gt;.framework</code> files under <code>Carthage</code> &gt; <code>Build</code> &gt; <code>iOS</code> and select them. Do not check the <strong>Destination: Copy items if needed</strong> checkbox if prompted.  Add the frameworks that you need for you specific use case.  For example, if you are using AWSMobileClient and AWSPinpoint, you will want to add the following frameworks:</p></li>
+</ol>
+<pre class="highlight plaintext"><code>* `AWSAuthCore.framework`
+* `AWSCognitoIdentityProvider.framework`
+* `AWSCognitoIdentityProviderASF.framework`
+* `AWSCore.framework`
+* `AWSMobileClient.framework`
+* `AWSPinpoint.framework`
+</code></pre>
+
+<ol>
+<li><p>Under the <strong>Build Phases</strong> tab in your <strong>Target</strong>, click the <strong>+</strong> button on the top left and then select <strong>New Run Script Phase</strong>. Then setup the build phase as follows. Make sure this phase is below the <code>Embed Frameworks</code> phase.</p>
+<pre class="highlight plaintext"><code>Shell /bin/sh
+
+bash "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework/strip-frameworks.sh"
+
+Show environment variables in build log: Checked
+Run script only when installing: Not checked
+
+Input Files: Empty
+Output Files: Empty
+</code></pre></li>
+</ol>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>Currently, the AWS SDK for iOS builds the Carthage binaries using the latest released version of Xcode. To consume the pre-built binaries your Xcode version needs to be the same, else you have to build the frameworks on your machine by passing <code>--no-use-binaries</code> flag to <code>carthage update</code> command.</p>
+
+</div>
+<h3 id='frameworks' class='heading'>Frameworks</h3>
+<h4 id='xcframework-setup' class='heading'>XCFramework setup</h4>
+
+<p>Starting AWS SDK iOS version 2.22.1, SDK binaries are released as XCFrameworks. Follow the steps below to install XCFramework.</p>
+
+<ol>
+<li><p>Download the <a href="https://releases.amplify.aws/aws-sdk-ios/latest/aws-ios-sdk.zip">latest SDK</a>. Older SDK versions can be downloaded from <code>https://releases.amplify.aws/aws-sdk-ios/aws-ios-sdk-#.#.#.zip</code>, where <code>#.#.#</code> represents the version number. So for version 2.23.3, the download link is <a href="https://releases.amplify.aws/aws-sdk-ios/aws-ios-sdk-2.23.3.zip">https://releases.amplify.aws/aws-sdk-ios/aws-ios-sdk-2.23.3.zip</a>.</p>
+
+<blockquote>
+<p>Note1: If you are using version &lt; 2.22.1 please refer to the &ldquo;Legacy framework setup&rdquo; section below.
+Note2: To download version &lt; 2.23.3 use this link <code>https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-#.#.#.zip</code></p>
+</blockquote></li>
+<li><p>Uncompress the ZIP file</p></li>
+<li><p>On your application targets’ General settings tab, in the Embedded Binaries section, drag and drop each xcframework you want to use from the downloaded folder.</p></li>
+</ol>
+<h4 id='legacy-framework-setup' class='heading'>Legacy framework setup</h4>
+
+<ol>
+<li><p>Download the required SDK using <code>https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-#.#.#.zip</code>, where <code>#.#.#</code> represents the version number. So for version 2.10.2, the download link is <a href="https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.10.2.zip">https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.10.2.zip</a>.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>If you are using version &gt; 2.22.0 please refer to the &ldquo;XCFramework setup&rdquo; section above. </p>
+
+</div></li>
+<li><p>With your project open in Xcode, select your <strong>Target</strong>. Under <strong>General</strong> tab, find <strong>Embedded Binaries</strong> and then click the <strong>+</strong> button.</p></li>
+<li><p>Click the <strong>Add Other&hellip;</strong> button, navigate to the <code>AWS&lt;#ServiceName#&gt;.framework</code> files and select them. Check the <strong>Destination: Copy items if needed</strong> checkbox when prompted.  Add the frameworks that you need for you specific use case.  For example, if you are using AWSMobileClient and AWSPinpoint, you will want to add the following frameworks:</p></li>
+</ol>
+<pre class="highlight plaintext"><code>* `AWSAuthCore.framework`
+* `AWSCognitoIdentityProvider.framework`
+* `AWSCognitoIdentityProviderASF.framework`
+* `AWSCore.framework`
+* `AWSMobileClient.framework`
+* `AWSPinpoint.framework`
+</code></pre>
+
+<ol>
+<li><p>Under the <strong>Build Phases</strong> tab in your <strong>Target</strong>, click the <strong>+</strong> button on the top left and then select <strong>New Run Script Phase</strong>. Then setup the build phase as follows. Make sure this phase is below the <code>Embed Frameworks</code> phase.</p>
+<pre class="highlight plaintext"><code>Shell /bin/sh
+
+bash "${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework/strip-frameworks.sh"
+
+Show environment variables in build log: Checked
+Run script only when installing: Not checked
+
+Input Files: Empty
+Output Files: Empty
+</code></pre></li>
+</ol>
+<h2 id='update-the-sdk-to-a-newer-version' class='heading'>Update the SDK to a Newer Version</h2>
+
+<p>When we release a new version of the SDK, you can pick up the changes as described below.</p>
+<h3 id='cocoapods' class='heading'>CocoaPods</h3>
+
+<ol>
+<li><p>Run the following command in your project directory. CocoaPods automatically picks up the new changes.</p>
+<pre class="highlight plaintext"><code>$ pod update
+</code></pre>
+
+<p><strong>Note</strong>: If your pod is having an issue, you can delete <code>Podfile.lock</code> and <code>Pods/</code> then run <code>pod install</code> to cleanly install the SDK.</p>
+
+<p><img src="readme-images/cocoapods-setup-03.png?raw=true" alt="image"></p></li>
+</ol>
+<h3 id='carthage' class='heading'>Carthage</h3>
+
+<ol>
+<li><p>Run the following command in your project directory. Carthage automatically picks up the new changes.</p>
+<pre class="highlight plaintext"><code>$ carthage update
+</code></pre></li>
+</ol>
+<h3 id='frameworks' class='heading'>Frameworks</h3>
+
+<ol>
+<li><p>In Xcode&rsquo;s <strong>Project Navigator</strong>, type &ldquo;AWS&rdquo; to find the AWS Frameworks or XCFrameworks that you manually added to your project. Select all of the AWS Frameworks and hit <strong>Delete</strong> on your keyboard. Then select <strong>Move to Trash</strong>. </p></li>
+<li><p>Follow the installation process above to include the new version of the SDK.</p></li>
+</ol>
+<h2 id='getting-started-with-swift' class='heading'>Getting Started with Swift</h2>
+
+<ol>
+<li><p>Import the AWSCore header in the application delegate.</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">AWSCore</span>
+</code></pre></li>
+<li><p>Create a default service configuration by adding the following code snippet in the <code>application:didFinishLaunchingWithOptions:</code> application delegate method.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">credentialsProvider</span> <span class="o">=</span> <span class="kt">AWSCognitoCredentialsProvider</span><span class="p">(</span>
+    <span class="nv">regionType</span><span class="p">:</span> <span class="kt">CognitoRegionType</span><span class="p">,</span>
+    <span class="nv">identityPoolId</span><span class="p">:</span> <span class="kt">CognitoIdentityPoolId</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">configuration</span> <span class="o">=</span> <span class="kt">AWSServiceConfiguration</span><span class="p">(</span>
+    <span class="nv">region</span><span class="p">:</span> <span class="kt">DefaultServiceRegionType</span><span class="p">,</span>
+    <span class="nv">credentialsProvider</span><span class="p">:</span> <span class="n">credentialsProvider</span><span class="p">)</span>
+<span class="kt">AWSServiceManager</span><span class="o">.</span><span class="nf">default</span><span class="p">()</span><span class="o">.</span><span class="n">defaultServiceConfiguration</span> <span class="o">=</span> <span class="n">configuration</span>
+</code></pre></li>
+<li><p>In Swift file you want to use the SDK, import the appropriate headers for the services you are using. The header file import convention is <code>import AWSServiceName</code>, as in the following examples:</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">AWSS3</span>
+<span class="kd">import</span> <span class="kt">AWSDynamoDB</span>
+<span class="kd">import</span> <span class="kt">AWSSQS</span>
+<span class="kd">import</span> <span class="kt">AWSSNS</span>
+</code></pre></li>
+<li><p>Make a call to the AWS services.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">dynamoDB</span> <span class="o">=</span> <span class="kt">AWSDynamoDB</span><span class="o">.</span><span class="nf">default</span><span class="p">()</span>
+<span class="k">let</span> <span class="nv">listTableInput</span> <span class="o">=</span> <span class="kt">AWSDynamoDBListTablesInput</span><span class="p">()</span>
+<span class="n">dynamoDB</span><span class="o">.</span><span class="nf">listTables</span><span class="p">(</span><span class="n">listTableInput</span><span class="o">!</span><span class="p">)</span><span class="o">.</span><span class="n">continueWith</span> <span class="p">{</span> <span class="p">(</span><span class="nv">task</span><span class="p">:</span><span class="kt">AWSTask</span><span class="o">&lt;</span><span class="kt">AWSDynamoDBListTablesOutput</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="p">?</span> <span class="k">in</span>
+    <span class="k">if</span> <span class="k">let</span> <span class="nv">error</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">error</span> <span class="k">as?</span> <span class="kt">NSError</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"Error occurred: </span><span class="se">\(</span><span class="n">error</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">nil</span>
+    <span class="p">}</span>
+
+    <span class="k">let</span> <span class="nv">listTablesOutput</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">result</span>
+
+    <span class="k">for</span> <span class="n">tableName</span> <span class="k">in</span> <span class="n">listTablesOutput</span><span class="o">!.</span><span class="n">tableNames</span><span class="o">!</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">tableName</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="kc">nil</span>
+<span class="p">}</span>
+</code></pre></li>
+</ol>
+
+<p><strong>Note</strong>: Most of the service client classes have a singleton method to get a default client. The naming convention is <code>+ defaultSERVICENAME</code> (e.g. <code>+ defaultDynamoDB</code> in the above code snippet). This singleton method creates a service client with <code>defaultServiceConfiguration</code>, which you set up in step 5, and maintains a strong reference to the client.</p>
+<h2 id='getting-started-with-objective-c' class='heading'>Getting Started with Objective-C</h2>
+
+<ol>
+<li><p>Import the AWSCore header in the application delegate.</p>
+<pre class="highlight plaintext"><code>@import AWSCore;
+</code></pre></li>
+<li><p>Create a default service configuration by adding the following code snippet in the <code>application:didFinishLaunchingWithOptions:</code> application delegate method.</p>
+<pre class="highlight plaintext"><code>AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:CognitoRegionType
+                                                                                                identityPoolId:CognitoIdentityPoolId];
+AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:DefaultServiceRegionType
+                                                                     credentialsProvider:credentialsProvider];
+AWSServiceManager.defaultServiceManager.defaultServiceConfiguration = configuration;
+</code></pre></li>
+<li><p>Import the appropriate headers for the services you are using. The header file import convention is <code>@import AWSServiceName;</code>, as in the following examples:</p>
+<pre class="highlight plaintext"><code>@import AWSS3;
+@import AWSDynamoDB;
+@import AWSSQS;
+@import AWSSNS;
+</code></pre></li>
+<li><p>Make a call to the AWS services.</p>
+<pre class="highlight plaintext"><code>AWSSNS *sns = [AWSSNS defaultSNS];
+AWSSNSListTopicsInput *listTopicsInput = [AWSSNSListTopicsInput new];
+[[sns listTopics:listTopicsInput] continueWithBlock:^id(AWSTask *task) {
+    // Do something with the response
+    return nil;
+}];
+</code></pre></li>
+</ol>
+
+<p><strong>Note</strong>: Most of the service client classes have a singleton method to get a default client. The naming convention is <code>+ defaultSERVICENAME</code> (e.g. <code>+ defaultS3SNS</code> in the above code snippet). This singleton method creates a service client with <code>defaultServiceConfiguration</code>, which you set up in step 5, and maintains a strong reference to the client.</p>
+<h2 id='working-with-awstask' class='heading'>Working with AWSTask</h2>
+
+<p>The SDK returns <code>AWSTask</code> objects when operating on asynchronous operations to avoid blocking the UI thread.</p>
+
+<p>The AWSTask class is a renamed version of BFTask from the Bolts framework. For complete documentation on Bolts, see the <a href="https://github.com/BoltsFramework/Bolts-ObjC">Bolts-iOS repo</a></p>
+<h2 id='logging' class='heading'>Logging</h2>
+
+<p>As of version 2.5.4 of this SDK, logging utilizes <a href="https://github.com/CocoaLumberjack/CocoaLumberjack">CocoaLumberjack</a>, a flexible, fast, open source logging framework. It supports many capabilities including the ability to set logging level per output target, for instance, concise messages logged to the console and verbose messages to a log file.</p>
+
+<p>CocoaLumberjack logging levels are additive such that when the level is set to verbose, all messages from the levels below verbose are logged. It is also possible to set custom logging to meet your needs. For more information, see <a href="https://github.com/CocoaLumberjack/CocoaLumberjack/blob/master/Documentation/CustomLogLevels.md">CocoaLumberjack</a></p>
+<h3 id='changing-log-levels' class='heading'>Changing Log Levels</h3>
+
+<p><strong>Swift</strong></p>
+<pre class="highlight swift"><code><span class="kt">AWSDDLog</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="n">logLevel</span> <span class="o">=</span> <span class="o">.</span><span class="n">verbose</span>
+</code></pre>
+
+<p>The following logging level options are available:</p>
+
+<ul>
+<li><code>.off</code></li>
+<li><code>.error</code></li>
+<li><code>.warning</code></li>
+<li><code>.info</code></li>
+<li><code>.debug</code></li>
+<li><code>.verbose</code></li>
+</ul>
+
+<p><strong>Objective-C</strong></p>
+<pre class="highlight plaintext"><code>[AWSDDLog sharedInstance].logLevel = AWSDDLogLevelVerbose;
+</code></pre>
+
+<p>The following logging level options are available:</p>
+
+<ul>
+<li><code>AWSDDLogLevelOff</code></li>
+<li><code>AWSDDLogLevelError</code></li>
+<li><code>AWSDDLogLevelWarning</code></li>
+<li><code>AWSDDLogLevelInfo</code></li>
+<li><code>AWSDDLogLevelDebug</code></li>
+<li><code>AWSDDLogLevelVerbose</code></li>
+</ul>
+
+<p>We recommend setting the log level to <code>Off</code> before publishing to the Apple App Store.</p>
+<h3 id='targeting-log-output' class='heading'>Targeting Log Output</h3>
+
+<p>CocoaLumberjack can direct logs to file or used as a framework that integrates with the Xcode console.</p>
+
+<p>To initialize logging to files, use the following code:</p>
+
+<p><strong>Swift</strong></p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">fileLogger</span><span class="p">:</span> <span class="kt">AWSDDFileLogger</span> <span class="o">=</span> <span class="kt">AWSDDFileLogger</span><span class="p">()</span> <span class="c1">// File Logger</span>
+<span class="n">fileLogger</span><span class="o">.</span><span class="n">rollingFrequency</span> <span class="o">=</span> <span class="kt">TimeInterval</span><span class="p">(</span><span class="mf">60*60*</span><span class="mi">24</span><span class="p">)</span>  <span class="c1">// 24 hours</span>
+<span class="n">fileLogger</span><span class="o">.</span><span class="n">logFileManager</span><span class="o">.</span><span class="n">maximumNumberOfLogFiles</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="kt">AWSDDLog</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="n">fileLogger</span><span class="p">)</span>
+</code></pre>
+
+<p><strong>Objective-C</strong></p>
+<pre class="highlight plaintext"><code>AWSDDFileLogger *fileLogger = [[AWSDDFileLogger alloc] init]; // File Logger
+fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
+fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
+[AWSDDLog addLogger:fileLogger];
+</code></pre>
+
+<p>To initialize logging to your Xcode console, use the following code:</p>
+
+<p><strong>Swift</strong></p>
+<pre class="highlight swift"><code><span class="kt">AWSDDLog</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">AWSDDTTYLogger</span><span class="o">.</span><span class="n">sharedInstance</span><span class="p">)</span> <span class="c1">// TTY = Xcode console</span>
+</code></pre>
+
+<p><strong>Objective-C</strong></p>
+<pre class="highlight plaintext"><code>[AWSDDLog addLogger:[AWSDDTTYLogger sharedInstance]]; // TTY = Xcode console
+</code></pre>
+<h2 id='open-source-contributions' class='heading'>Open Source Contributions</h2>
+
+<p>We welcome any and all contributions from the community! Make sure you read through our contribution guide <a href="./CONTRIBUTING.md">here</a> before submitting any PR&rsquo;s. Thanks! &lt;3</p>
+<h2 id='talk-to-us' class='heading'>Talk to Us</h2>
+
+<p>Visit our GitHub <a href="https://github.com/aws-amplify/aws-sdk-ios/issues">Issues</a> to leave feedback and to connect with other users of the SDK.</p>
+<h2 id='author' class='heading'>Author</h2>
+
+<p>Amazon Web Services</p>
+<h2 id='license' class='heading'>License</h2>
+
+<p>See the <strong>LICENSE</strong> file for more info.</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-01)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>
