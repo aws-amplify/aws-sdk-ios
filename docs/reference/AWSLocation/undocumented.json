@@ -1,621 +1,621 @@
 {
   "warnings": [
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocation.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocation.h",
       "line": 28,
       "symbol": "AWSLocationVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocation.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocation.h",
       "line": 39,
       "symbol": "AWSLocationVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 22,
       "symbol": "AWSLocationErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 24,
       "symbol": "AWSLocationErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 24,
       "symbol": "AWSLocationErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 25,
       "symbol": "AWSLocationErrorType.AWSLocationErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 26,
       "symbol": "AWSLocationErrorType.AWSLocationErrorAccessDenied",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 27,
       "symbol": "AWSLocationErrorType.AWSLocationErrorConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 28,
       "symbol": "AWSLocationErrorType.AWSLocationErrorInternalServer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 29,
       "symbol": "AWSLocationErrorType.AWSLocationErrorResourceNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 30,
       "symbol": "AWSLocationErrorType.AWSLocationErrorServiceQuotaExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 31,
       "symbol": "AWSLocationErrorType.AWSLocationErrorThrottling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 32,
       "symbol": "AWSLocationErrorType.AWSLocationErrorValidation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 35,
       "symbol": "AWSLocationBatchItemErrorCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 35,
       "symbol": "AWSLocationBatchItemErrorCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 36,
       "symbol": "AWSLocationBatchItemErrorCode.AWSLocationBatchItemErrorCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 37,
       "symbol": "AWSLocationBatchItemErrorCode.AWSLocationBatchItemErrorCodeAccessDeniedError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 38,
       "symbol": "AWSLocationBatchItemErrorCode.AWSLocationBatchItemErrorCodeConflictError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 39,
       "symbol": "AWSLocationBatchItemErrorCode.AWSLocationBatchItemErrorCodeInternalServerError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 40,
       "symbol": "AWSLocationBatchItemErrorCode.AWSLocationBatchItemErrorCodeResourceNotFoundError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 41,
       "symbol": "AWSLocationBatchItemErrorCode.AWSLocationBatchItemErrorCodeThrottlingError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 42,
       "symbol": "AWSLocationBatchItemErrorCode.AWSLocationBatchItemErrorCodeValidationError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 45,
       "symbol": "AWSLocationDimensionUnit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 45,
       "symbol": "AWSLocationDimensionUnit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 46,
       "symbol": "AWSLocationDimensionUnit.AWSLocationDimensionUnitUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 47,
       "symbol": "AWSLocationDimensionUnit.AWSLocationDimensionUnitMeters",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 48,
       "symbol": "AWSLocationDimensionUnit.AWSLocationDimensionUnitFeet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 51,
       "symbol": "AWSLocationDistanceUnit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 51,
       "symbol": "AWSLocationDistanceUnit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 52,
       "symbol": "AWSLocationDistanceUnit.AWSLocationDistanceUnitUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 53,
       "symbol": "AWSLocationDistanceUnit.AWSLocationDistanceUnitKilometers",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 54,
       "symbol": "AWSLocationDistanceUnit.AWSLocationDistanceUnitMiles",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 57,
       "symbol": "AWSLocationIntendedUse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 57,
       "symbol": "AWSLocationIntendedUse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 58,
       "symbol": "AWSLocationIntendedUse.AWSLocationIntendedUseUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 59,
       "symbol": "AWSLocationIntendedUse.AWSLocationIntendedUseSingleUse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 60,
       "symbol": "AWSLocationIntendedUse.AWSLocationIntendedUseStorage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 63,
       "symbol": "AWSLocationPositionFiltering",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 63,
       "symbol": "AWSLocationPositionFiltering",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 64,
       "symbol": "AWSLocationPositionFiltering.AWSLocationPositionFilteringUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 65,
       "symbol": "AWSLocationPositionFiltering.AWSLocationPositionFilteringTimeBased",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 66,
       "symbol": "AWSLocationPositionFiltering.AWSLocationPositionFilteringDistanceBased",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 67,
       "symbol": "AWSLocationPositionFiltering.AWSLocationPositionFilteringAccuracyBased",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 70,
       "symbol": "AWSLocationPricingPlan",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 70,
       "symbol": "AWSLocationPricingPlan",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 71,
       "symbol": "AWSLocationPricingPlan.AWSLocationPricingPlanUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 72,
       "symbol": "AWSLocationPricingPlan.AWSLocationPricingPlanRequestBasedUsage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 73,
       "symbol": "AWSLocationPricingPlan.AWSLocationPricingPlanMobileAssetTracking",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 74,
       "symbol": "AWSLocationPricingPlan.AWSLocationPricingPlanMobileAssetManagement",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 77,
       "symbol": "AWSLocationRouteMatrixErrorCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 77,
       "symbol": "AWSLocationRouteMatrixErrorCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 78,
       "symbol": "AWSLocationRouteMatrixErrorCode.AWSLocationRouteMatrixErrorCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 79,
       "symbol": "AWSLocationRouteMatrixErrorCode.AWSLocationRouteMatrixErrorCodeRouteNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 80,
       "symbol": "AWSLocationRouteMatrixErrorCode.AWSLocationRouteMatrixErrorCodeRouteTooLong",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 81,
       "symbol": "AWSLocationRouteMatrixErrorCode.AWSLocationRouteMatrixErrorCodePositionsNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 82,
       "symbol": "AWSLocationRouteMatrixErrorCode.AWSLocationRouteMatrixErrorCodeDestinationPositionNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 83,
       "symbol": "AWSLocationRouteMatrixErrorCode.AWSLocationRouteMatrixErrorCodeDeparturePositionNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 84,
       "symbol": "AWSLocationRouteMatrixErrorCode.AWSLocationRouteMatrixErrorCodeOtherValidationError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 87,
       "symbol": "AWSLocationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 87,
       "symbol": "AWSLocationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 88,
       "symbol": "AWSLocationStatus.AWSLocationStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 89,
       "symbol": "AWSLocationStatus.AWSLocationStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 90,
       "symbol": "AWSLocationStatus.AWSLocationStatusExpired",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 93,
       "symbol": "AWSLocationTravelMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 93,
       "symbol": "AWSLocationTravelMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 94,
       "symbol": "AWSLocationTravelMode.AWSLocationTravelModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 95,
       "symbol": "AWSLocationTravelMode.AWSLocationTravelModeCar",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 96,
       "symbol": "AWSLocationTravelMode.AWSLocationTravelModeTruck",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 97,
       "symbol": "AWSLocationTravelMode.AWSLocationTravelModeWalking",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 98,
       "symbol": "AWSLocationTravelMode.AWSLocationTravelModeBicycle",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 99,
       "symbol": "AWSLocationTravelMode.AWSLocationTravelModeMotorcycle",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 102,
       "symbol": "AWSLocationValidationExceptionReason",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 102,
       "symbol": "AWSLocationValidationExceptionReason",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 103,
       "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 104,
       "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonUnknownOperation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 105,
       "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonMissing",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 106,
       "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonCannotParse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 107,
       "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonFieldValidationFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 108,
       "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonOther",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 111,
       "symbol": "AWSLocationVehicleWeightUnit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 111,
       "symbol": "AWSLocationVehicleWeightUnit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 112,
       "symbol": "AWSLocationVehicleWeightUnit.AWSLocationVehicleWeightUnitUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 113,
       "symbol": "AWSLocationVehicleWeightUnit.AWSLocationVehicleWeightUnitKilograms",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 114,
       "symbol": "AWSLocationVehicleWeightUnit.AWSLocationVehicleWeightUnitPounds",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationResources.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationResources.h",
       "line": 18,
       "symbol": "AWSLocationResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationResources.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationResources.h",
       "line": 20,
       "symbol": "AWSLocationResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationResources.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationResources.h",
       "line": 22,
       "symbol": "AWSLocationResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationService.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSLocation/AWSLocationService.h",
       "line": 24,
       "symbol": "AWSLocationSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/distiller/project"
+  "source_directory": "/Users/royji/work/iOS/aws-sdk-ios"
 }
