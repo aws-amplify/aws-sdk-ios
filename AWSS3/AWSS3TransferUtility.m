@@ -957,6 +957,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
         request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
         request.HTTPMethod = @"PUT";
+        request.networkServiceType = NSURLNetworkServiceTypeResponsiveData;
         
         [request setValue:self.configuration.userAgent forHTTPHeaderField:@"User-Agent"];
         
