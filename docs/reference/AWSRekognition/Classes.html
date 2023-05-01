@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSRekognition 2.30.4 Docs</a> (79% documented)</p>
+        <p><a href="index.html">AWSRekognition 2.31.0 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSRekognition.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -51,6 +51,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionAudioMetadata.html">AWSRekognitionAudioMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionAuditImage.html">AWSRekognitionAuditImage</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionBeard.html">AWSRekognitionBeard</a>
@@ -108,6 +111,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionCreateDatasetResponse.html">AWSRekognitionCreateDatasetResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionCreateFaceLivenessSessionRequest.html">AWSRekognitionCreateFaceLivenessSessionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionCreateFaceLivenessSessionRequestSettings.html">AWSRekognitionCreateFaceLivenessSessionRequestSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionCreateFaceLivenessSessionResponse.html">AWSRekognitionCreateFaceLivenessSessionResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionCreateProjectRequest.html">AWSRekognitionCreateProjectRequest</a>
@@ -362,6 +374,12 @@
                 <a href="Classes/AWSRekognitionGetFaceDetectionResponse.html">AWSRekognitionGetFaceDetectionResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionGetFaceLivenessSessionResultsRequest.html">AWSRekognitionGetFaceLivenessSessionResultsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionGetFaceLivenessSessionResultsResponse.html">AWSRekognitionGetFaceLivenessSessionResultsResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionGetFaceSearchRequest.html">AWSRekognitionGetFaceSearchRequest</a>
               </li>
               <li class="nav-group-task">
@@ -489,6 +507,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionListTagsForResourceResponse.html">AWSRekognitionListTagsForResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionLivenessOutputConfig.html">AWSRekognitionLivenessOutputConfig</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionModerationLabel.html">AWSRekognitionModerationLabel</a>
@@ -852,6 +873,9 @@
                 <a href="Enums/AWSRekognitionLandmarkType.html">AWSRekognitionLandmarkType</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSRekognitionLivenessSessionStatus.html">AWSRekognitionLivenessSessionStatus</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSRekognitionOrientationCorrection.html">AWSRekognitionOrientationCorrection</a>
               </li>
               <li class="nav-group-task">
@@ -1000,6 +1024,39 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionAudioMetadata</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionAuditImage"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionAuditImage" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionAuditImage">AWSRekognitionAuditImage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An image that is picked from the Face Liveness video and returned for audit trail purposes, returned as Base64-encoded bytes.</p>
+
+                        <a href="Classes/AWSRekognitionAuditImage.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionAuditImage</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionAuditImage</span></code></pre>
 
                         </div>
                       </div>
@@ -1687,6 +1744,103 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionCreateDatasetResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionCreateFaceLivenessSessionRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionCreateFaceLivenessSessionRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionCreateFaceLivenessSessionRequest">AWSRekognitionCreateFaceLivenessSessionRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSRekognitionCreateFaceLivenessSessionRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionCreateFaceLivenessSessionRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionCreateFaceLivenessSessionRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionCreateFaceLivenessSessionRequestSettings"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionCreateFaceLivenessSessionRequestSettings" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionCreateFaceLivenessSessionRequestSettings">AWSRekognitionCreateFaceLivenessSessionRequestSettings</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A session settings object. It contains settings for the operation to be performed. It accepts arguments for OutputConfig and AuditImagesLimit.</p>
+
+                        <a href="Classes/AWSRekognitionCreateFaceLivenessSessionRequestSettings.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionCreateFaceLivenessSessionRequestSettings</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionCreateFaceLivenessSessionRequestSettings</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionCreateFaceLivenessSessionResponse"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionCreateFaceLivenessSessionResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionCreateFaceLivenessSessionResponse">AWSRekognitionCreateFaceLivenessSessionResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSRekognitionCreateFaceLivenessSessionResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionCreateFaceLivenessSessionResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionCreateFaceLivenessSessionResponse</span></code></pre>
 
                         </div>
                       </div>
@@ -4104,7 +4258,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Contains filters for the object labels returned by DetectLabels. Filters can be inclusive, exclusive, or a combination of both and can be applied to individual l abels or entire label categories.</p>
+                        <p>Contains filters for the object labels returned by DetectLabels. Filters can be inclusive, exclusive, or a combination of both and can be applied to individual labels or entire label categories. To see a list of label categories, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels.html">Detecting Labels</a>.</p>
 
                         <a href="Classes/AWSRekognitionGeneralLabelsSettings.html" class="slightly-smaller">See more</a>
                       </div>
@@ -4407,6 +4561,70 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionGetFaceDetectionResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionGetFaceLivenessSessionResultsRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionGetFaceLivenessSessionResultsRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionGetFaceLivenessSessionResultsRequest">AWSRekognitionGetFaceLivenessSessionResultsRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSRekognitionGetFaceLivenessSessionResultsRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionGetFaceLivenessSessionResultsRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionGetFaceLivenessSessionResultsRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionGetFaceLivenessSessionResultsResponse"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionGetFaceLivenessSessionResultsResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionGetFaceLivenessSessionResultsResponse">AWSRekognitionGetFaceLivenessSessionResultsResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSRekognitionGetFaceLivenessSessionResultsResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionGetFaceLivenessSessionResultsResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionGetFaceLivenessSessionResultsResponse</span></code></pre>
 
                         </div>
                       </div>
@@ -5802,6 +6020,41 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionListTagsForResourceResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionLivenessOutputConfig"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionLivenessOutputConfig" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionLivenessOutputConfig">AWSRekognitionLivenessOutputConfig</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains settings that specify the location of an Amazon S3 bucket used to store the output of a Face Liveness session. Note that the S3 bucket must be located in the caller&rsquo;s AWS account and in the same region as the Face Liveness end-point. Additionally, the Amazon S3 object keys are auto-generated by the Face Liveness system. </p>
+
+<p>Required parameters: [S3Bucket]</p>
+
+                        <a href="Classes/AWSRekognitionLivenessOutputConfig.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionLivenessOutputConfig</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionLivenessOutputConfig</span></code></pre>
 
                         </div>
                       </div>
@@ -8851,8 +9104,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-03-03)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-01)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>

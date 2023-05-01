@@ -17,7 +17,7 @@
     <a title="AWSRekognition Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSRekognition 2.30.4 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSRekognition 2.31.0 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSRekognition.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -51,6 +51,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionAudioMetadata.html">AWSRekognitionAudioMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionAuditImage.html">AWSRekognitionAuditImage</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionBeard.html">AWSRekognitionBeard</a>
@@ -108,6 +111,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionCreateDatasetResponse.html">AWSRekognitionCreateDatasetResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCreateFaceLivenessSessionRequest.html">AWSRekognitionCreateFaceLivenessSessionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCreateFaceLivenessSessionRequestSettings.html">AWSRekognitionCreateFaceLivenessSessionRequestSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCreateFaceLivenessSessionResponse.html">AWSRekognitionCreateFaceLivenessSessionResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionCreateProjectRequest.html">AWSRekognitionCreateProjectRequest</a>
@@ -362,6 +374,12 @@
                 <a href="../Classes/AWSRekognitionGetFaceDetectionResponse.html">AWSRekognitionGetFaceDetectionResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetFaceLivenessSessionResultsRequest.html">AWSRekognitionGetFaceLivenessSessionResultsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetFaceLivenessSessionResultsResponse.html">AWSRekognitionGetFaceLivenessSessionResultsResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionGetFaceSearchRequest.html">AWSRekognitionGetFaceSearchRequest</a>
               </li>
               <li class="nav-group-task">
@@ -489,6 +507,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionListTagsForResourceResponse.html">AWSRekognitionListTagsForResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionLivenessOutputConfig.html">AWSRekognitionLivenessOutputConfig</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionModerationLabel.html">AWSRekognitionModerationLabel</a>
@@ -850,6 +871,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSRekognitionLandmarkType.html">AWSRekognitionLandmarkType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionLivenessSessionStatus.html">AWSRekognitionLivenessSessionStatus</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSRekognitionOrientationCorrection.html">AWSRekognitionOrientationCorrection</a>
@@ -1375,7 +1399,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">compareFaces</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionCompareFacesRequest.html">AWSRekognitionCompareFacesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionCompareFacesResponse.html">AWSRekognitionCompareFacesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">compareFaces</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionCompareFacesRequest.html">AWSRekognitionCompareFacesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionCompareFacesResponse.html">AWSRekognitionCompareFacesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1428,7 +1452,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Copies a version of an Amazon Rekognition Custom Labels model from a source project to a destination project. The source and destination projects can be in different AWS accounts but must be in the same AWS Region. You can&rsquo;t copy a model to another AWS service. </p><p>To copy a model version to a different AWS account, you need to create a resource-based policy known as a <i>project policy</i>. You attach the project policy to the source project by calling <a>PutProjectPolicy</a>. The project policy gives permission to copy the model version from a trusting AWS account to a trusted account.</p><p>For more information creating and attaching a project policy, see Attaching a project policy (SDK) in the <i>Amazon Rekognition Custom Labels Developer Guide</i>. </p><p>If you are copying a model version to a project in the same AWS account, you don&rsquo;t need to create a project policy.</p><note><p>To copy a model, the destination project, source project, and source model version must already exist.</p></note><p>Copying a model version takes a while to complete. To get the current status, call <a>DescribeProjectVersions</a> and check the value of <code>Status</code> in the <a>ProjectVersionDescription</a> object. The copy operation has finished when the value of <code>Status</code> is <code>COPYING_COMPLETED</code>.</p>
+                        <p>Copies a version of an Amazon Rekognition Custom Labels model from a source project to a destination project. The source and destination projects can be in different AWS accounts but must be in the same AWS Region. You can&rsquo;t copy a model to another AWS service. </p><p>To copy a model version to a different AWS account, you need to create a resource-based policy known as a <i>project policy</i>. You attach the project policy to the source project by calling <a>PutProjectPolicy</a>. The project policy gives permission to copy the model version from a trusting AWS account to a trusted account.</p><p>For more information creating and attaching a project policy, see Attaching a project policy (SDK) in the <i>Amazon Rekognition Custom Labels Developer Guide</i>. </p><p>If you are copying a model version to a project in the same AWS account, you don&rsquo;t need to create a project policy.</p><note><p>To copy a model, the destination project, source project, and source model version must already exist.</p></note><p>Copying a model version takes a while to complete. To get the current status, call <a>DescribeProjectVersions</a> and check the value of <code>Status</code> in the <a>ProjectVersionDescription</a> object. The copy operation has finished when the value of <code>Status</code> is <code>COPYING_COMPLETED</code>.</p><p>This operation requires permissions to perform the <code>rekognition:CopyProjectVersion</code> action.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSRekognitionReplicateProjectVersionRequest</p>
@@ -1493,7 +1517,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Copies a version of an Amazon Rekognition Custom Labels model from a source project to a destination project. The source and destination projects can be in different AWS accounts but must be in the same AWS Region. You can&rsquo;t copy a model to another AWS service. </p><p>To copy a model version to a different AWS account, you need to create a resource-based policy known as a <i>project policy</i>. You attach the project policy to the source project by calling <a>PutProjectPolicy</a>. The project policy gives permission to copy the model version from a trusting AWS account to a trusted account.</p><p>For more information creating and attaching a project policy, see Attaching a project policy (SDK) in the <i>Amazon Rekognition Custom Labels Developer Guide</i>. </p><p>If you are copying a model version to a project in the same AWS account, you don&rsquo;t need to create a project policy.</p><note><p>To copy a model, the destination project, source project, and source model version must already exist.</p></note><p>Copying a model version takes a while to complete. To get the current status, call <a>DescribeProjectVersions</a> and check the value of <code>Status</code> in the <a>ProjectVersionDescription</a> object. The copy operation has finished when the value of <code>Status</code> is <code>COPYING_COMPLETED</code>.</p>
+                        <p>Copies a version of an Amazon Rekognition Custom Labels model from a source project to a destination project. The source and destination projects can be in different AWS accounts but must be in the same AWS Region. You can&rsquo;t copy a model to another AWS service. </p><p>To copy a model version to a different AWS account, you need to create a resource-based policy known as a <i>project policy</i>. You attach the project policy to the source project by calling <a>PutProjectPolicy</a>. The project policy gives permission to copy the model version from a trusting AWS account to a trusted account.</p><p>For more information creating and attaching a project policy, see Attaching a project policy (SDK) in the <i>Amazon Rekognition Custom Labels Developer Guide</i>. </p><p>If you are copying a model version to a project in the same AWS account, you don&rsquo;t need to create a project policy.</p><note><p>To copy a model, the destination project, source project, and source model version must already exist.</p></note><p>Copying a model version takes a while to complete. To get the current status, call <a>DescribeProjectVersions</a> and check the value of <code>Status</code> in the <a>ProjectVersionDescription</a> object. The copy operation has finished when the value of <code>Status</code> is <code>COPYING_COMPLETED</code>.</p><p>This operation requires permissions to perform the <code>rekognition:CopyProjectVersion</code> action.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSRekognitionReplicateProjectVersionRequest</p>
@@ -1519,7 +1543,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">replicateProjectVersion</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionReplicateProjectVersionRequest.html">AWSRekognitionReplicateProjectVersionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionReplicateProjectVersionResponse.html">AWSRekognitionReplicateProjectVersionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">replicateProjectVersion</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionReplicateProjectVersionRequest.html">AWSRekognitionReplicateProjectVersionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionReplicateProjectVersionResponse.html">AWSRekognitionReplicateProjectVersionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1661,7 +1685,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createCollection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateCollectionRequest.html">AWSRekognitionCreateCollectionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateCollectionResponse.html">AWSRekognitionCreateCollectionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createCollection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateCollectionRequest.html">AWSRekognitionCreateCollectionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateCollectionResponse.html">AWSRekognitionCreateCollectionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1802,7 +1826,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createDataset</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateDatasetRequest.html">AWSRekognitionCreateDatasetRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateDatasetResponse.html">AWSRekognitionCreateDatasetResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createDataset</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateDatasetRequest.html">AWSRekognitionCreateDatasetRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateDatasetResponse.html">AWSRekognitionCreateDatasetResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1833,6 +1857,151 @@
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSRekognitionErrorDomain">AWSRekognitionErrorDomain</a></code> domain and the following error code: <code>AWSRekognitionErrorInternalServer</code>, <code>AWSRekognitionErrorThrottling</code>, <code>AWSRekognitionErrorProvisionedThroughputExceeded</code>, <code>AWSRekognitionErrorInvalidParameter</code>, <code>AWSRekognitionErrorAccessDenied</code>, <code>AWSRekognitionErrorLimitExceeded</code>, <code>AWSRekognitionErrorInvalidS3Object</code>, <code>AWSRekognitionErrorResourceAlreadyExists</code>, <code>AWSRekognitionErrorResourceNotFound</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognition(im)createFaceLivenessSession:"></a>
+                    <a name="//apple_ref/objc/Method/-createFaceLivenessSession:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognition(im)createFaceLivenessSession:">-createFaceLivenessSession:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This API operation initiates a Face Liveness session. It returns a <code>SessionId</code>, which you can use to start streaming Face Liveness video and get the results for a Face Liveness session. You can use the <code>OutputConfig</code> option in the Settings parameter to provide an Amazon S3 bucket location. The Amazon S3 bucket stores reference images and audit images. You can use <code>AuditImagesLimit</code> to limit the number of audit images returned. This number is between 0 and 4. By default, it is set to 0. The limit is best effort and based on the duration of the selfie-video. </p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSRekognitionCreateFaceLivenessSessionRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSRekognitionCreateFaceLivenessSessionResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">createFaceLivenessSession</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSRekognitionCreateFaceLivenessSessionRequest.html">AWSRekognitionCreateFaceLivenessSessionRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createFaceLivenessSession</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateFaceLivenessSessionRequest.html">AWSRekognitionCreateFaceLivenessSessionRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the CreateFaceLivenessSession service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSRekognitionCreateFaceLivenessSessionResponse.html">AWSRekognitionCreateFaceLivenessSessionResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSRekognitionErrorDomain">AWSRekognitionErrorDomain</a></code> domain and the following error code: <code>AWSRekognitionErrorAccessDenied</code>, <code>AWSRekognitionErrorInternalServer</code>, <code>AWSRekognitionErrorInvalidParameter</code>, <code>AWSRekognitionErrorThrottling</code>, <code>AWSRekognitionErrorProvisionedThroughputExceeded</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognition(im)createFaceLivenessSession:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-createFaceLivenessSession:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognition(im)createFaceLivenessSession:completionHandler:">-createFaceLivenessSession:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This API operation initiates a Face Liveness session. It returns a <code>SessionId</code>, which you can use to start streaming Face Liveness video and get the results for a Face Liveness session. You can use the <code>OutputConfig</code> option in the Settings parameter to provide an Amazon S3 bucket location. The Amazon S3 bucket stores reference images and audit images. You can use <code>AuditImagesLimit</code> to limit the number of audit images returned. This number is between 0 and 4. By default, it is set to 0. The limit is best effort and based on the duration of the selfie-video. </p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSRekognitionCreateFaceLivenessSessionRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSRekognitionCreateFaceLivenessSessionResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="nf">createFaceLivenessSession</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSRekognitionCreateFaceLivenessSessionRequest.html">AWSRekognitionCreateFaceLivenessSessionRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+            <span class="nf">completionHandler</span><span class="p">:</span>
+                <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                    <span class="n"><a href="../Classes/AWSRekognitionCreateFaceLivenessSessionResponse.html">AWSRekognitionCreateFaceLivenessSessionResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                    <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createFaceLivenessSession</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateFaceLivenessSessionRequest.html">AWSRekognitionCreateFaceLivenessSessionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateFaceLivenessSessionResponse.html">AWSRekognitionCreateFaceLivenessSessionResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the CreateFaceLivenessSession service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSRekognitionErrorDomain">AWSRekognitionErrorDomain</a></code> domain and the following error code: <code>AWSRekognitionErrorAccessDenied</code>, <code>AWSRekognitionErrorInternalServer</code>, <code>AWSRekognitionErrorInvalidParameter</code>, <code>AWSRekognitionErrorThrottling</code>, <code>AWSRekognitionErrorProvisionedThroughputExceeded</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1943,7 +2112,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createProject</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateProjectRequest.html">AWSRekognitionCreateProjectRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateProjectResponse.html">AWSRekognitionCreateProjectResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createProject</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateProjectRequest.html">AWSRekognitionCreateProjectRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateProjectResponse.html">AWSRekognitionCreateProjectResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2087,7 +2256,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createProjectVersion</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateProjectVersionRequest.html">AWSRekognitionCreateProjectVersionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateProjectVersionResponse.html">AWSRekognitionCreateProjectVersionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createProjectVersion</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateProjectVersionRequest.html">AWSRekognitionCreateProjectVersionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateProjectVersionResponse.html">AWSRekognitionCreateProjectVersionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2140,7 +2309,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates an Amazon Rekognition stream processor that you can use to detect and recognize faces or to detect labels in a streaming video.</p><p>Amazon Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams. There are two different settings for stream processors in Amazon Rekognition: detecting faces and detecting labels.</p><ul><li><p>If you are creating a stream processor for detecting faces, you provide as input a Kinesis video stream (<code>Input</code>) and a Kinesis data stream (<code>Output</code>) stream. You also specify the face recognition criteria in <code>Settings</code>. For example, the collection containing faces that you want to recognize. After you have finished analyzing a streaming video, use <a>StopStreamProcessor</a> to stop processing.</p></li><li><p>If you are creating a stream processor to detect labels, you provide as input a Kinesis video stream (<code>Input</code>), Amazon S3 bucket information (<code>Output</code>), and an Amazon SNS topic ARN (<code>NotificationChannel</code>). You can also provide a KMS key ID to encrypt the data sent to your Amazon S3 bucket. You specify what you want to detect in <code>ConnectedHomeSettings</code>, such as people, packages and people, or pets, people, and packages. You can also specify where in the frame you want Amazon Rekognition to monitor with <code>RegionsOfInterest</code>. When you run the <a>StartStreamProcessor</a> operation on a label detection stream processor, you input start and stop information to determine the length of the processing time.</p></li></ul><p> Use <code>Name</code> to assign an identifier for the stream processor. You use <code>Name</code> to manage the stream processor. For example, you can start processing the source video by calling <a>StartStreamProcessor</a> with the <code>Name</code> field. </p><p>This operation requires permissions to perform the <code>rekognition:CreateStreamProcessor</code> action. If you want to tag your stream processor, you also require permission to perform the <code>rekognition:TagResource</code> operation.</p>
+                        <p>Creates an Amazon Rekognition stream processor that you can use to detect and recognize faces or to detect labels in a streaming video.</p><p>Amazon Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams. There are two different settings for stream processors in Amazon Rekognition: detecting faces and detecting labels.</p><ul><li><p>If you are creating a stream processor for detecting faces, you provide as input a Kinesis video stream (<code>Input</code>) and a Kinesis data stream (<code>Output</code>) stream for receiving the output. You must use the <code>FaceSearch</code> option in <code>Settings</code>, specifying the collection that contains the faces you want to recognize. After you have finished analyzing a streaming video, use <a>StopStreamProcessor</a> to stop processing.</p></li><li><p>If you are creating a stream processor to detect labels, you provide as input a Kinesis video stream (<code>Input</code>), Amazon S3 bucket information (<code>Output</code>), and an Amazon SNS topic ARN (<code>NotificationChannel</code>). You can also provide a KMS key ID to encrypt the data sent to your Amazon S3 bucket. You specify what you want to detect by using the <code>ConnectedHome</code> option in settings, and selecting one of the following: <code>PERSON</code>, <code>PET</code>, <code>PACKAGE</code>, <code>ALL</code> You can also specify where in the frame you want Amazon Rekognition to monitor with <code>RegionsOfInterest</code>. When you run the <a>StartStreamProcessor</a> operation on a label detection stream processor, you input start and stop information to determine the length of the processing time.</p></li></ul><p> Use <code>Name</code> to assign an identifier for the stream processor. You use <code>Name</code> to manage the stream processor. For example, you can start processing the source video by calling <a>StartStreamProcessor</a> with the <code>Name</code> field. </p><p>This operation requires permissions to perform the <code>rekognition:CreateStreamProcessor</code> action. If you want to tag your stream processor, you also require permission to perform the <code>rekognition:TagResource</code> operation.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSRekognitionCreateStreamProcessorRequest</p>
@@ -2205,7 +2374,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates an Amazon Rekognition stream processor that you can use to detect and recognize faces or to detect labels in a streaming video.</p><p>Amazon Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams. There are two different settings for stream processors in Amazon Rekognition: detecting faces and detecting labels.</p><ul><li><p>If you are creating a stream processor for detecting faces, you provide as input a Kinesis video stream (<code>Input</code>) and a Kinesis data stream (<code>Output</code>) stream. You also specify the face recognition criteria in <code>Settings</code>. For example, the collection containing faces that you want to recognize. After you have finished analyzing a streaming video, use <a>StopStreamProcessor</a> to stop processing.</p></li><li><p>If you are creating a stream processor to detect labels, you provide as input a Kinesis video stream (<code>Input</code>), Amazon S3 bucket information (<code>Output</code>), and an Amazon SNS topic ARN (<code>NotificationChannel</code>). You can also provide a KMS key ID to encrypt the data sent to your Amazon S3 bucket. You specify what you want to detect in <code>ConnectedHomeSettings</code>, such as people, packages and people, or pets, people, and packages. You can also specify where in the frame you want Amazon Rekognition to monitor with <code>RegionsOfInterest</code>. When you run the <a>StartStreamProcessor</a> operation on a label detection stream processor, you input start and stop information to determine the length of the processing time.</p></li></ul><p> Use <code>Name</code> to assign an identifier for the stream processor. You use <code>Name</code> to manage the stream processor. For example, you can start processing the source video by calling <a>StartStreamProcessor</a> with the <code>Name</code> field. </p><p>This operation requires permissions to perform the <code>rekognition:CreateStreamProcessor</code> action. If you want to tag your stream processor, you also require permission to perform the <code>rekognition:TagResource</code> operation.</p>
+                        <p>Creates an Amazon Rekognition stream processor that you can use to detect and recognize faces or to detect labels in a streaming video.</p><p>Amazon Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams. There are two different settings for stream processors in Amazon Rekognition: detecting faces and detecting labels.</p><ul><li><p>If you are creating a stream processor for detecting faces, you provide as input a Kinesis video stream (<code>Input</code>) and a Kinesis data stream (<code>Output</code>) stream for receiving the output. You must use the <code>FaceSearch</code> option in <code>Settings</code>, specifying the collection that contains the faces you want to recognize. After you have finished analyzing a streaming video, use <a>StopStreamProcessor</a> to stop processing.</p></li><li><p>If you are creating a stream processor to detect labels, you provide as input a Kinesis video stream (<code>Input</code>), Amazon S3 bucket information (<code>Output</code>), and an Amazon SNS topic ARN (<code>NotificationChannel</code>). You can also provide a KMS key ID to encrypt the data sent to your Amazon S3 bucket. You specify what you want to detect by using the <code>ConnectedHome</code> option in settings, and selecting one of the following: <code>PERSON</code>, <code>PET</code>, <code>PACKAGE</code>, <code>ALL</code> You can also specify where in the frame you want Amazon Rekognition to monitor with <code>RegionsOfInterest</code>. When you run the <a>StartStreamProcessor</a> operation on a label detection stream processor, you input start and stop information to determine the length of the processing time.</p></li></ul><p> Use <code>Name</code> to assign an identifier for the stream processor. You use <code>Name</code> to manage the stream processor. For example, you can start processing the source video by calling <a>StartStreamProcessor</a> with the <code>Name</code> field. </p><p>This operation requires permissions to perform the <code>rekognition:CreateStreamProcessor</code> action. If you want to tag your stream processor, you also require permission to perform the <code>rekognition:TagResource</code> operation.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSRekognitionCreateStreamProcessorRequest</p>
@@ -2231,7 +2400,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createStreamProcessor</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateStreamProcessorRequest.html">AWSRekognitionCreateStreamProcessorRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateStreamProcessorResponse.html">AWSRekognitionCreateStreamProcessorResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createStreamProcessor</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateStreamProcessorRequest.html">AWSRekognitionCreateStreamProcessorRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionCreateStreamProcessorResponse.html">AWSRekognitionCreateStreamProcessorResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2373,7 +2542,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteCollection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteCollectionRequest.html">AWSRekognitionDeleteCollectionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteCollectionResponse.html">AWSRekognitionDeleteCollectionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteCollection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteCollectionRequest.html">AWSRekognitionDeleteCollectionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteCollectionResponse.html">AWSRekognitionDeleteCollectionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2514,7 +2683,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteDataset</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteDatasetRequest.html">AWSRekognitionDeleteDatasetRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSRekognitionDeleteDatasetResponse">AWSRekognitionDeleteDatasetResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteDataset</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteDatasetRequest.html">AWSRekognitionDeleteDatasetRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSRekognitionDeleteDatasetResponse">AWSRekognitionDeleteDatasetResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2655,7 +2824,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteFaces</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteFacesRequest.html">AWSRekognitionDeleteFacesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteFacesResponse.html">AWSRekognitionDeleteFacesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteFaces</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteFacesRequest.html">AWSRekognitionDeleteFacesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteFacesResponse.html">AWSRekognitionDeleteFacesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2796,7 +2965,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteProject</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteProjectRequest.html">AWSRekognitionDeleteProjectRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteProjectResponse.html">AWSRekognitionDeleteProjectResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteProject</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteProjectRequest.html">AWSRekognitionDeleteProjectRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteProjectResponse.html">AWSRekognitionDeleteProjectResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2849,7 +3018,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Deletes an existing project policy.</p><p>To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>. To attach a project policy to a project, call <a>PutProjectPolicy</a>.</p>
+                        <p>Deletes an existing project policy.</p><p>To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>. To attach a project policy to a project, call <a>PutProjectPolicy</a>.</p><p>This operation requires permissions to perform the <code>rekognition:DeleteProjectPolicy</code> action.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSRekognitionDeleteProjectPolicyRequest</p>
@@ -2914,7 +3083,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Deletes an existing project policy.</p><p>To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>. To attach a project policy to a project, call <a>PutProjectPolicy</a>.</p>
+                        <p>Deletes an existing project policy.</p><p>To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>. To attach a project policy to a project, call <a>PutProjectPolicy</a>.</p><p>This operation requires permissions to perform the <code>rekognition:DeleteProjectPolicy</code> action.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSRekognitionDeleteProjectPolicyRequest</p>
@@ -2940,7 +3109,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteProjectPolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteProjectPolicyRequest.html">AWSRekognitionDeleteProjectPolicyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSRekognitionDeleteProjectPolicyResponse">AWSRekognitionDeleteProjectPolicyResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteProjectPolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteProjectPolicyRequest.html">AWSRekognitionDeleteProjectPolicyRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSRekognitionDeleteProjectPolicyResponse">AWSRekognitionDeleteProjectPolicyResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3084,7 +3253,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteProjectVersion</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteProjectVersionRequest.html">AWSRekognitionDeleteProjectVersionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteProjectVersionResponse.html">AWSRekognitionDeleteProjectVersionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteProjectVersion</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteProjectVersionRequest.html">AWSRekognitionDeleteProjectVersionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteProjectVersionResponse.html">AWSRekognitionDeleteProjectVersionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3228,7 +3397,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteStreamProcessor</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteStreamProcessorRequest.html">AWSRekognitionDeleteStreamProcessorRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSRekognitionDeleteStreamProcessorResponse">AWSRekognitionDeleteStreamProcessorResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteStreamProcessor</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDeleteStreamProcessorRequest.html">AWSRekognitionDeleteStreamProcessorRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSRekognitionDeleteStreamProcessorResponse">AWSRekognitionDeleteStreamProcessorResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3372,7 +3541,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeCollection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDescribeCollectionRequest.html">AWSRekognitionDescribeCollectionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDescribeCollectionResponse.html">AWSRekognitionDescribeCollectionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeCollection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDescribeCollectionRequest.html">AWSRekognitionDescribeCollectionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDescribeCollectionResponse.html">AWSRekognitionDescribeCollectionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3513,7 +3682,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeDataset</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDescribeDatasetRequest.html">AWSRekognitionDescribeDatasetRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDescribeDatasetResponse.html">AWSRekognitionDescribeDatasetResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeDataset</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDescribeDatasetRequest.html">AWSRekognitionDescribeDatasetRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDescribeDatasetResponse.html">AWSRekognitionDescribeDatasetResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3657,7 +3826,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeProjectVersions</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDescribeProjectVersionsRequest.html">AWSRekognitionDescribeProjectVersionsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDescribeProjectVersionsResponse.html">AWSRekognitionDescribeProjectVersionsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeProjectVersions</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDescribeProjectVersionsRequest.html">AWSRekognitionDescribeProjectVersionsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDescribeProjectVersionsResponse.html">AWSRekognitionDescribeProjectVersionsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3799,7 +3968,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeProjects</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDescribeProjectsRequest.html">AWSRekognitionDescribeProjectsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDescribeProjectsResponse.html">AWSRekognitionDescribeProjectsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeProjects</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDescribeProjectsRequest.html">AWSRekognitionDescribeProjectsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDescribeProjectsResponse.html">AWSRekognitionDescribeProjectsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3943,7 +4112,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeStreamProcessor</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDescribeStreamProcessorRequest.html">AWSRekognitionDescribeStreamProcessorRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDescribeStreamProcessorResponse.html">AWSRekognitionDescribeStreamProcessorResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeStreamProcessor</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDescribeStreamProcessorRequest.html">AWSRekognitionDescribeStreamProcessorRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDescribeStreamProcessorResponse.html">AWSRekognitionDescribeStreamProcessorResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4087,7 +4256,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectCustomLabels</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectCustomLabelsRequest.html">AWSRekognitionDetectCustomLabelsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectCustomLabelsResponse.html">AWSRekognitionDetectCustomLabelsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectCustomLabels</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectCustomLabelsRequest.html">AWSRekognitionDetectCustomLabelsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectCustomLabelsResponse.html">AWSRekognitionDetectCustomLabelsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4228,7 +4397,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectFaces</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectFacesRequest.html">AWSRekognitionDetectFacesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectFacesResponse.html">AWSRekognitionDetectFacesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectFaces</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectFacesRequest.html">AWSRekognitionDetectFacesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectFacesResponse.html">AWSRekognitionDetectFacesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4281,7 +4450,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Detects instances of real-world entities within an image (JPEG or PNG) provided as input. This includes objects like flower, tree, and table; events like wedding, graduation, and birthday party; and concepts like landscape, evening, and nature. </p><p>For an example, see Analyzing images stored in an Amazon S3 bucket in the Amazon Rekognition Developer Guide.</p><p>You pass the input image as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file. </p><p><b>Optional Parameters</b></p><p>You can specify one or both of the <code>GENERAL_LABELS</code> and <code>IMAGE_PROPERTIES</code> feature types when calling the DetectLabels API. Including <code>GENERAL_LABELS</code> will ensure the response includes the labels detected in the input image, while including <code>IMAGE_PROPERTIES </code>will ensure the response includes information about the image quality and color.</p><p>When using <code>GENERAL_LABELS</code> and/or <code>IMAGE_PROPERTIES</code> you can provide filtering criteria to the Settings parameter. You can filter with sets of individual labels or with label categories. You can specify inclusive filters, exclusive filters, or a combination of inclusive and exclusive filters. For more information on filtering see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels-detect-labels-image.html">Detecting Labels in an Image</a>.</p><p>You can specify <code>MinConfidence</code> to control the confidence threshold for the labels returned. The default is 55%. You can also add the <code>MaxLabels</code> parameter to limit the number of labels returned. The default and upper limit is 1000 labels.</p><p><b>Response Elements</b></p><p> For each object, scene, and concept the API returns one or more labels. The API returns the following types of information regarding labels:</p><ul><li><p> Name - The name of the detected label. </p></li><li><p> Confidence - The level of confidence in the label assigned to a detected object. </p></li><li><p> Parents - The ancestor labels for a detected label. DetectLabels returns a hierarchical taxonomy of detected labels. For example, a detected car might be assigned the label car. The label car has two parent labels: Vehicle (its parent) and Transportation (its grandparent). The response includes the all ancestors for a label, where every ancestor is a unique label. In the previous example, Car, Vehicle, and Transportation are returned as unique labels in the response. </p></li><li><p> Aliases - Possible Aliases for the label. </p></li><li><p> Categories - The label categories that the detected label belongs to. </p></li><li><p> BoundingBox — Bounding boxes are described for all instances of detected common object labels, returned in an array of Instance objects. An Instance object contains a BoundingBox object, describing the location of the label on the input image. It also includes the confidence for the accuracy of the detected bounding box. </p></li></ul><p> The API returns the following information regarding the image, as part of the ImageProperties structure:</p><ul><li><p>Quality - Information about the Sharpness, Brightness, and Contrast of the input image, scored between 0 to 100. Image quality is returned for the entire image, as well as the background and the foreground. </p></li><li><p>Dominant Color - An array of the dominant colors in the image. </p></li><li><p>Foreground - Information about the sharpness, brightness, and dominant colors of the input image’s foreground. </p></li><li><p>Background - Information about the sharpness, brightness, and dominant colors of the input image’s background.</p></li></ul><p>The list of returned labels will include at least one label for every detected object, along with information about that label. In the following example, suppose the input image has a lighthouse, the sea, and a rock. The response includes all three labels, one for each object, as well as the confidence in the label:</p><p><code>{Name: lighthouse, Confidence: 98.4629}</code></p><p><code>{Name: rock,Confidence: 79.2097}</code></p><p><code> {Name: sea,Confidence: 75.061}</code></p><p>The list of labels can include multiple labels for the same object. For example, if the input image shows a flower (for example, a tulip), the operation might return the following three labels. </p><p><code>{Name: flower,Confidence: 99.0562}</code></p><p><code>{Name: plant,Confidence: 99.0562}</code></p><p><code>{Name: tulip,Confidence: 99.0562}</code></p><p>In this example, the detection algorithm more precisely identifies the flower as a tulip.</p><note><p>If the object detected is a person, the operation doesn&rsquo;t provide the same facial details that the <a>DetectFaces</a> operation provides.</p></note><p>This is a stateless API operation. That is, the operation does not persist any data.</p><p>This operation requires permissions to perform the <code>rekognition:DetectLabels</code> action. </p>
+                        <p>Detects instances of real-world entities within an image (JPEG or PNG) provided as input. This includes objects like flower, tree, and table; events like wedding, graduation, and birthday party; and concepts like landscape, evening, and nature. </p><p>For an example, see Analyzing images stored in an Amazon S3 bucket in the Amazon Rekognition Developer Guide.</p><p>You pass the input image as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file. </p><p><b>Optional Parameters</b></p><p>You can specify one or both of the <code>GENERAL_LABELS</code> and <code>IMAGE_PROPERTIES</code> feature types when calling the DetectLabels API. Including <code>GENERAL_LABELS</code> will ensure the response includes the labels detected in the input image, while including <code>IMAGE_PROPERTIES </code>will ensure the response includes information about the image quality and color.</p><p>When using <code>GENERAL_LABELS</code> and/or <code>IMAGE_PROPERTIES</code> you can provide filtering criteria to the Settings parameter. You can filter with sets of individual labels or with label categories. You can specify inclusive filters, exclusive filters, or a combination of inclusive and exclusive filters. For more information on filtering see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels-detect-labels-image.html">Detecting Labels in an Image</a>.</p><p>You can specify <code>MinConfidence</code> to control the confidence threshold for the labels returned. The default is 55%. You can also add the <code>MaxLabels</code> parameter to limit the number of labels returned. The default and upper limit is 1000 labels.</p><p><b>Response Elements</b></p><p> For each object, scene, and concept the API returns one or more labels. The API returns the following types of information about labels:</p><ul><li><p> Name - The name of the detected label. </p></li><li><p> Confidence - The level of confidence in the label assigned to a detected object. </p></li><li><p> Parents - The ancestor labels for a detected label. DetectLabels returns a hierarchical taxonomy of detected labels. For example, a detected car might be assigned the label car. The label car has two parent labels: Vehicle (its parent) and Transportation (its grandparent). The response includes the all ancestors for a label, where every ancestor is a unique label. In the previous example, Car, Vehicle, and Transportation are returned as unique labels in the response. </p></li><li><p> Aliases - Possible Aliases for the label. </p></li><li><p> Categories - The label categories that the detected label belongs to. </p></li><li><p> BoundingBox — Bounding boxes are described for all instances of detected common object labels, returned in an array of Instance objects. An Instance object contains a BoundingBox object, describing the location of the label on the input image. It also includes the confidence for the accuracy of the detected bounding box. </p></li></ul><p> The API returns the following information regarding the image, as part of the ImageProperties structure:</p><ul><li><p>Quality - Information about the Sharpness, Brightness, and Contrast of the input image, scored between 0 to 100. Image quality is returned for the entire image, as well as the background and the foreground. </p></li><li><p>Dominant Color - An array of the dominant colors in the image. </p></li><li><p>Foreground - Information about the sharpness, brightness, and dominant colors of the input image’s foreground. </p></li><li><p>Background - Information about the sharpness, brightness, and dominant colors of the input image’s background.</p></li></ul><p>The list of returned labels will include at least one label for every detected object, along with information about that label. In the following example, suppose the input image has a lighthouse, the sea, and a rock. The response includes all three labels, one for each object, as well as the confidence in the label:</p><p><code>{Name: lighthouse, Confidence: 98.4629}</code></p><p><code>{Name: rock,Confidence: 79.2097}</code></p><p><code> {Name: sea,Confidence: 75.061}</code></p><p>The list of labels can include multiple labels for the same object. For example, if the input image shows a flower (for example, a tulip), the operation might return the following three labels. </p><p><code>{Name: flower,Confidence: 99.0562}</code></p><p><code>{Name: plant,Confidence: 99.0562}</code></p><p><code>{Name: tulip,Confidence: 99.0562}</code></p><p>In this example, the detection algorithm more precisely identifies the flower as a tulip.</p><note><p>If the object detected is a person, the operation doesn&rsquo;t provide the same facial details that the <a>DetectFaces</a> operation provides.</p></note><p>This is a stateless API operation that doesn&rsquo;t return any data.</p><p>This operation requires permissions to perform the <code>rekognition:DetectLabels</code> action. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSRekognitionDetectLabelsRequest</p>
@@ -4345,7 +4514,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Detects instances of real-world entities within an image (JPEG or PNG) provided as input. This includes objects like flower, tree, and table; events like wedding, graduation, and birthday party; and concepts like landscape, evening, and nature. </p><p>For an example, see Analyzing images stored in an Amazon S3 bucket in the Amazon Rekognition Developer Guide.</p><p>You pass the input image as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file. </p><p><b>Optional Parameters</b></p><p>You can specify one or both of the <code>GENERAL_LABELS</code> and <code>IMAGE_PROPERTIES</code> feature types when calling the DetectLabels API. Including <code>GENERAL_LABELS</code> will ensure the response includes the labels detected in the input image, while including <code>IMAGE_PROPERTIES </code>will ensure the response includes information about the image quality and color.</p><p>When using <code>GENERAL_LABELS</code> and/or <code>IMAGE_PROPERTIES</code> you can provide filtering criteria to the Settings parameter. You can filter with sets of individual labels or with label categories. You can specify inclusive filters, exclusive filters, or a combination of inclusive and exclusive filters. For more information on filtering see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels-detect-labels-image.html">Detecting Labels in an Image</a>.</p><p>You can specify <code>MinConfidence</code> to control the confidence threshold for the labels returned. The default is 55%. You can also add the <code>MaxLabels</code> parameter to limit the number of labels returned. The default and upper limit is 1000 labels.</p><p><b>Response Elements</b></p><p> For each object, scene, and concept the API returns one or more labels. The API returns the following types of information regarding labels:</p><ul><li><p> Name - The name of the detected label. </p></li><li><p> Confidence - The level of confidence in the label assigned to a detected object. </p></li><li><p> Parents - The ancestor labels for a detected label. DetectLabels returns a hierarchical taxonomy of detected labels. For example, a detected car might be assigned the label car. The label car has two parent labels: Vehicle (its parent) and Transportation (its grandparent). The response includes the all ancestors for a label, where every ancestor is a unique label. In the previous example, Car, Vehicle, and Transportation are returned as unique labels in the response. </p></li><li><p> Aliases - Possible Aliases for the label. </p></li><li><p> Categories - The label categories that the detected label belongs to. </p></li><li><p> BoundingBox — Bounding boxes are described for all instances of detected common object labels, returned in an array of Instance objects. An Instance object contains a BoundingBox object, describing the location of the label on the input image. It also includes the confidence for the accuracy of the detected bounding box. </p></li></ul><p> The API returns the following information regarding the image, as part of the ImageProperties structure:</p><ul><li><p>Quality - Information about the Sharpness, Brightness, and Contrast of the input image, scored between 0 to 100. Image quality is returned for the entire image, as well as the background and the foreground. </p></li><li><p>Dominant Color - An array of the dominant colors in the image. </p></li><li><p>Foreground - Information about the sharpness, brightness, and dominant colors of the input image’s foreground. </p></li><li><p>Background - Information about the sharpness, brightness, and dominant colors of the input image’s background.</p></li></ul><p>The list of returned labels will include at least one label for every detected object, along with information about that label. In the following example, suppose the input image has a lighthouse, the sea, and a rock. The response includes all three labels, one for each object, as well as the confidence in the label:</p><p><code>{Name: lighthouse, Confidence: 98.4629}</code></p><p><code>{Name: rock,Confidence: 79.2097}</code></p><p><code> {Name: sea,Confidence: 75.061}</code></p><p>The list of labels can include multiple labels for the same object. For example, if the input image shows a flower (for example, a tulip), the operation might return the following three labels. </p><p><code>{Name: flower,Confidence: 99.0562}</code></p><p><code>{Name: plant,Confidence: 99.0562}</code></p><p><code>{Name: tulip,Confidence: 99.0562}</code></p><p>In this example, the detection algorithm more precisely identifies the flower as a tulip.</p><note><p>If the object detected is a person, the operation doesn&rsquo;t provide the same facial details that the <a>DetectFaces</a> operation provides.</p></note><p>This is a stateless API operation. That is, the operation does not persist any data.</p><p>This operation requires permissions to perform the <code>rekognition:DetectLabels</code> action. </p>
+                        <p>Detects instances of real-world entities within an image (JPEG or PNG) provided as input. This includes objects like flower, tree, and table; events like wedding, graduation, and birthday party; and concepts like landscape, evening, and nature. </p><p>For an example, see Analyzing images stored in an Amazon S3 bucket in the Amazon Rekognition Developer Guide.</p><p>You pass the input image as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file. </p><p><b>Optional Parameters</b></p><p>You can specify one or both of the <code>GENERAL_LABELS</code> and <code>IMAGE_PROPERTIES</code> feature types when calling the DetectLabels API. Including <code>GENERAL_LABELS</code> will ensure the response includes the labels detected in the input image, while including <code>IMAGE_PROPERTIES </code>will ensure the response includes information about the image quality and color.</p><p>When using <code>GENERAL_LABELS</code> and/or <code>IMAGE_PROPERTIES</code> you can provide filtering criteria to the Settings parameter. You can filter with sets of individual labels or with label categories. You can specify inclusive filters, exclusive filters, or a combination of inclusive and exclusive filters. For more information on filtering see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels-detect-labels-image.html">Detecting Labels in an Image</a>.</p><p>You can specify <code>MinConfidence</code> to control the confidence threshold for the labels returned. The default is 55%. You can also add the <code>MaxLabels</code> parameter to limit the number of labels returned. The default and upper limit is 1000 labels.</p><p><b>Response Elements</b></p><p> For each object, scene, and concept the API returns one or more labels. The API returns the following types of information about labels:</p><ul><li><p> Name - The name of the detected label. </p></li><li><p> Confidence - The level of confidence in the label assigned to a detected object. </p></li><li><p> Parents - The ancestor labels for a detected label. DetectLabels returns a hierarchical taxonomy of detected labels. For example, a detected car might be assigned the label car. The label car has two parent labels: Vehicle (its parent) and Transportation (its grandparent). The response includes the all ancestors for a label, where every ancestor is a unique label. In the previous example, Car, Vehicle, and Transportation are returned as unique labels in the response. </p></li><li><p> Aliases - Possible Aliases for the label. </p></li><li><p> Categories - The label categories that the detected label belongs to. </p></li><li><p> BoundingBox — Bounding boxes are described for all instances of detected common object labels, returned in an array of Instance objects. An Instance object contains a BoundingBox object, describing the location of the label on the input image. It also includes the confidence for the accuracy of the detected bounding box. </p></li></ul><p> The API returns the following information regarding the image, as part of the ImageProperties structure:</p><ul><li><p>Quality - Information about the Sharpness, Brightness, and Contrast of the input image, scored between 0 to 100. Image quality is returned for the entire image, as well as the background and the foreground. </p></li><li><p>Dominant Color - An array of the dominant colors in the image. </p></li><li><p>Foreground - Information about the sharpness, brightness, and dominant colors of the input image’s foreground. </p></li><li><p>Background - Information about the sharpness, brightness, and dominant colors of the input image’s background.</p></li></ul><p>The list of returned labels will include at least one label for every detected object, along with information about that label. In the following example, suppose the input image has a lighthouse, the sea, and a rock. The response includes all three labels, one for each object, as well as the confidence in the label:</p><p><code>{Name: lighthouse, Confidence: 98.4629}</code></p><p><code>{Name: rock,Confidence: 79.2097}</code></p><p><code> {Name: sea,Confidence: 75.061}</code></p><p>The list of labels can include multiple labels for the same object. For example, if the input image shows a flower (for example, a tulip), the operation might return the following three labels. </p><p><code>{Name: flower,Confidence: 99.0562}</code></p><p><code>{Name: plant,Confidence: 99.0562}</code></p><p><code>{Name: tulip,Confidence: 99.0562}</code></p><p>In this example, the detection algorithm more precisely identifies the flower as a tulip.</p><note><p>If the object detected is a person, the operation doesn&rsquo;t provide the same facial details that the <a>DetectFaces</a> operation provides.</p></note><p>This is a stateless API operation that doesn&rsquo;t return any data.</p><p>This operation requires permissions to perform the <code>rekognition:DetectLabels</code> action. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSRekognitionDetectLabelsRequest</p>
@@ -4369,7 +4538,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectLabels</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectLabelsRequest.html">AWSRekognitionDetectLabelsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectLabelsResponse.html">AWSRekognitionDetectLabelsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectLabels</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectLabelsRequest.html">AWSRekognitionDetectLabelsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectLabelsResponse.html">AWSRekognitionDetectLabelsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4513,7 +4682,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectModerationLabels</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectModerationLabelsRequest.html">AWSRekognitionDetectModerationLabelsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectModerationLabelsResponse.html">AWSRekognitionDetectModerationLabelsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectModerationLabels</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectModerationLabelsRequest.html">AWSRekognitionDetectModerationLabelsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectModerationLabelsResponse.html">AWSRekognitionDetectModerationLabelsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4658,7 +4827,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectProtectiveEquipment</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectProtectiveEquipmentRequest.html">AWSRekognitionDetectProtectiveEquipmentRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectProtectiveEquipmentResponse.html">AWSRekognitionDetectProtectiveEquipmentResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectProtectiveEquipment</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectProtectiveEquipmentRequest.html">AWSRekognitionDetectProtectiveEquipmentRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectProtectiveEquipmentResponse.html">AWSRekognitionDetectProtectiveEquipmentResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4799,7 +4968,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectText</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectTextRequest.html">AWSRekognitionDetectTextRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectTextResponse.html">AWSRekognitionDetectTextResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectText</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectTextRequest.html">AWSRekognitionDetectTextRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectTextResponse.html">AWSRekognitionDetectTextResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4944,7 +5113,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">distributeDatasetEntries</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDistributeDatasetEntriesRequest.html">AWSRekognitionDistributeDatasetEntriesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSRekognitionDistributeDatasetEntriesResponse">AWSRekognitionDistributeDatasetEntriesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">distributeDatasetEntries</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDistributeDatasetEntriesRequest.html">AWSRekognitionDistributeDatasetEntriesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSRekognitionDistributeDatasetEntriesResponse">AWSRekognitionDistributeDatasetEntriesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5086,7 +5255,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">celebrityInfo</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionGetCelebrityInfoRequest.html">AWSRekognitionGetCelebrityInfoRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionGetCelebrityInfoResponse.html">AWSRekognitionGetCelebrityInfoResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">celebrityInfo</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionGetCelebrityInfoRequest.html">AWSRekognitionGetCelebrityInfoRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionGetCelebrityInfoResponse.html">AWSRekognitionGetCelebrityInfoResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5230,7 +5399,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">celebrityRecognition</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionGetCelebrityRecognitionRequest.html">AWSRekognitionGetCelebrityRecognitionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionGetCelebrityRecognitionResponse.html">AWSRekognitionGetCelebrityRecognitionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">celebrityRecognition</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionGetCelebrityRecognitionRequest.html">AWSRekognitionGetCelebrityRecognitionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionGetCelebrityRecognitionResponse.html">AWSRekognitionGetCelebrityRecognitionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5374,7 +5543,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">contentModeration</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionGetContentModerationRequest.html">AWSRekognitionGetContentModerationRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionGetContentModerationResponse.html">AWSRekognitionGetContentModerationResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">contentModeration</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionGetContentModerationRequest.html">AWSRekognitionGetContentModerationRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionGetContentModerationResponse.html">AWSRekognitionGetContentModerationResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5516,7 +5685,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">faceDetection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionGetFaceDetectionRequest.html">AWSRekognitionGetFaceDetectionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionGetFaceDetectionResponse.html">AWSRekognitionGetFaceDetectionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">faceDetection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionGetFaceDetectionRequest.html">AWSRekognitionGetFaceDetectionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionGetFaceDetectionResponse.html">AWSRekognitionGetFaceDetectionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5547,6 +5716,152 @@
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSRekognitionErrorDomain">AWSRekognitionErrorDomain</a></code> domain and the following error code: <code>AWSRekognitionErrorAccessDenied</code>, <code>AWSRekognitionErrorInternalServer</code>, <code>AWSRekognitionErrorInvalidParameter</code>, <code>AWSRekognitionErrorInvalidPaginationToken</code>, <code>AWSRekognitionErrorProvisionedThroughputExceeded</code>, <code>AWSRekognitionErrorResourceNotFound</code>, <code>AWSRekognitionErrorThrottling</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognition(im)getFaceLivenessSessionResults:"></a>
+                    <a name="//apple_ref/objc/Method/-getFaceLivenessSessionResults:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognition(im)getFaceLivenessSessionResults:">-getFaceLivenessSessionResults:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves the results of a specific Face Liveness session. It requires the <code>sessionId</code> as input, which was created using <code>CreateFaceLivenessSession</code>. Returns the corresponding Face Liveness confidence score, a reference image that includes a face bounding box, and audit images that also contain face bounding boxes. The Face Liveness confidence score ranges from 0 to 100. The reference image can optionally be returned.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSRekognitionGetFaceLivenessSessionResultsRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSRekognitionGetFaceLivenessSessionResultsResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">getFaceLivenessSessionResults</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSRekognitionGetFaceLivenessSessionResultsRequest.html">AWSRekognitionGetFaceLivenessSessionResultsRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getFaceLivenessSessionResults</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionGetFaceLivenessSessionResultsRequest.html">AWSRekognitionGetFaceLivenessSessionResultsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the GetFaceLivenessSessionResults service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSRekognitionGetFaceLivenessSessionResultsResponse.html">AWSRekognitionGetFaceLivenessSessionResultsResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSRekognitionErrorDomain">AWSRekognitionErrorDomain</a></code> domain and the following error code: <code>AWSRekognitionErrorAccessDenied</code>, <code>AWSRekognitionErrorInternalServer</code>, <code>AWSRekognitionErrorInvalidParameter</code>, <code>AWSRekognitionErrorSessionNotFound</code>, <code>AWSRekognitionErrorThrottling</code>, <code>AWSRekognitionErrorProvisionedThroughputExceeded</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognition(im)getFaceLivenessSessionResults:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-getFaceLivenessSessionResults:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognition(im)getFaceLivenessSessionResults:completionHandler:">-getFaceLivenessSessionResults:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves the results of a specific Face Liveness session. It requires the <code>sessionId</code> as input, which was created using <code>CreateFaceLivenessSession</code>. Returns the corresponding Face Liveness confidence score, a reference image that includes a face bounding box, and audit images that also contain face bounding boxes. The Face Liveness confidence score ranges from 0 to 100. The reference image can optionally be returned.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSRekognitionGetFaceLivenessSessionResultsRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSRekognitionGetFaceLivenessSessionResultsResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getFaceLivenessSessionResults</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSRekognitionGetFaceLivenessSessionResultsRequest.html">AWSRekognitionGetFaceLivenessSessionResultsRequest</a></span> <span class="o">*</span><span class="p">)</span>
+                <span class="n">request</span>
+                    <span class="n">completionHandler</span><span class="o">:</span>
+                        <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                            <span class="n"><a href="../Classes/AWSRekognitionGetFaceLivenessSessionResultsResponse.html">AWSRekognitionGetFaceLivenessSessionResultsResponse</a></span>
+                                <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                            <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">faceLivenessSessionResults</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionGetFaceLivenessSessionResultsRequest.html">AWSRekognitionGetFaceLivenessSessionResultsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionGetFaceLivenessSessionResultsResponse.html">AWSRekognitionGetFaceLivenessSessionResultsResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the GetFaceLivenessSessionResults service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSRekognitionErrorDomain">AWSRekognitionErrorDomain</a></code> domain and the following error code: <code>AWSRekognitionErrorAccessDenied</code>, <code>AWSRekognitionErrorInternalServer</code>, <code>AWSRekognitionErrorInvalidParameter</code>, <code>AWSRekognitionErrorSessionNotFound</code>, <code>AWSRekognitionErrorThrottling</code>, <code>AWSRekognitionErrorProvisionedThroughputExceeded</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -5657,7 +5972,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">faceSearch</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionGetFaceSearchRequest.html">AWSRekognitionGetFaceSearchRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionGetFaceSearchResponse.html">AWSRekognitionGetFaceSearchResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">faceSearch</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionGetFaceSearchRequest.html">AWSRekognitionGetFaceSearchRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionGetFaceSearchResponse.html">AWSRekognitionGetFaceSearchResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5800,7 +6115,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">labelDetection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionGetLabelDetectionRequest.html">AWSRekognitionGetLabelDetectionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionGetLabelDetectionResponse.html">AWSRekognitionGetLabelDetectionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">labelDetection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionGetLabelDetectionRequest.html">AWSRekognitionGetLabelDetectionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionGetLabelDetectionResponse.html">AWSRekognitionGetLabelDetectionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5943,7 +6258,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">personTracking</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionGetPersonTrackingRequest.html">AWSRekognitionGetPersonTrackingRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionGetPersonTrackingResponse.html">AWSRekognitionGetPersonTrackingResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">personTracking</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionGetPersonTrackingRequest.html">AWSRekognitionGetPersonTrackingRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionGetPersonTrackingResponse.html">AWSRekognitionGetPersonTrackingResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6087,7 +6402,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">segmentDetection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionGetSegmentDetectionRequest.html">AWSRekognitionGetSegmentDetectionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionGetSegmentDetectionResponse.html">AWSRekognitionGetSegmentDetectionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">segmentDetection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionGetSegmentDetectionRequest.html">AWSRekognitionGetSegmentDetectionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionGetSegmentDetectionResponse.html">AWSRekognitionGetSegmentDetectionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6229,7 +6544,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">textDetection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionGetTextDetectionRequest.html">AWSRekognitionGetTextDetectionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionGetTextDetectionResponse.html">AWSRekognitionGetTextDetectionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">textDetection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionGetTextDetectionRequest.html">AWSRekognitionGetTextDetectionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionGetTextDetectionResponse.html">AWSRekognitionGetTextDetectionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6370,7 +6685,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">indexFaces</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionIndexFacesRequest.html">AWSRekognitionIndexFacesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionIndexFacesResponse.html">AWSRekognitionIndexFacesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">indexFaces</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionIndexFacesRequest.html">AWSRekognitionIndexFacesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionIndexFacesResponse.html">AWSRekognitionIndexFacesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6511,7 +6826,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listCollections</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionListCollectionsRequest.html">AWSRekognitionListCollectionsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionListCollectionsResponse.html">AWSRekognitionListCollectionsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listCollections</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionListCollectionsRequest.html">AWSRekognitionListCollectionsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionListCollectionsResponse.html">AWSRekognitionListCollectionsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6655,7 +6970,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listDatasetEntries</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionListDatasetEntriesRequest.html">AWSRekognitionListDatasetEntriesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionListDatasetEntriesResponse.html">AWSRekognitionListDatasetEntriesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listDatasetEntries</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionListDatasetEntriesRequest.html">AWSRekognitionListDatasetEntriesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionListDatasetEntriesResponse.html">AWSRekognitionListDatasetEntriesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6798,7 +7113,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listDatasetLabels</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionListDatasetLabelsRequest.html">AWSRekognitionListDatasetLabelsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionListDatasetLabelsResponse.html">AWSRekognitionListDatasetLabelsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listDatasetLabels</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionListDatasetLabelsRequest.html">AWSRekognitionListDatasetLabelsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionListDatasetLabelsResponse.html">AWSRekognitionListDatasetLabelsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6939,7 +7254,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listFaces</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionListFacesRequest.html">AWSRekognitionListFacesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionListFacesResponse.html">AWSRekognitionListFacesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listFaces</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionListFacesRequest.html">AWSRekognitionListFacesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionListFacesResponse.html">AWSRekognitionListFacesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6992,7 +7307,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets a list of the project policies attached to a project.</p><p>To attach a project policy to a project, call <a>PutProjectPolicy</a>. To remove a project policy from a project, call <a>DeleteProjectPolicy</a>.</p>
+                        <p>Gets a list of the project policies attached to a project.</p><p>To attach a project policy to a project, call <a>PutProjectPolicy</a>. To remove a project policy from a project, call <a>DeleteProjectPolicy</a>.</p><p>This operation requires permissions to perform the <code>rekognition:ListProjectPolicies</code> action.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSRekognitionListProjectPoliciesRequest</p>
@@ -7057,7 +7372,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets a list of the project policies attached to a project.</p><p>To attach a project policy to a project, call <a>PutProjectPolicy</a>. To remove a project policy from a project, call <a>DeleteProjectPolicy</a>.</p>
+                        <p>Gets a list of the project policies attached to a project.</p><p>To attach a project policy to a project, call <a>PutProjectPolicy</a>. To remove a project policy from a project, call <a>DeleteProjectPolicy</a>.</p><p>This operation requires permissions to perform the <code>rekognition:ListProjectPolicies</code> action.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSRekognitionListProjectPoliciesRequest</p>
@@ -7083,7 +7398,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listProjectPolicies</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionListProjectPoliciesRequest.html">AWSRekognitionListProjectPoliciesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionListProjectPoliciesResponse.html">AWSRekognitionListProjectPoliciesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listProjectPolicies</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionListProjectPoliciesRequest.html">AWSRekognitionListProjectPoliciesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionListProjectPoliciesResponse.html">AWSRekognitionListProjectPoliciesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7227,7 +7542,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listStreamProcessors</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionListStreamProcessorsRequest.html">AWSRekognitionListStreamProcessorsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionListStreamProcessorsResponse.html">AWSRekognitionListStreamProcessorsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listStreamProcessors</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionListStreamProcessorsRequest.html">AWSRekognitionListStreamProcessorsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionListStreamProcessorsResponse.html">AWSRekognitionListStreamProcessorsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7371,7 +7686,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTags</span><span class="p">(</span><span class="n">forResource</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionListTagsForResourceRequest.html">AWSRekognitionListTagsForResourceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionListTagsForResourceResponse.html">AWSRekognitionListTagsForResourceResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTags</span><span class="p">(</span><span class="n">forResource</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionListTagsForResourceRequest.html">AWSRekognitionListTagsForResourceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionListTagsForResourceResponse.html">AWSRekognitionListTagsForResourceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7424,7 +7739,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Attaches a project policy to a Amazon Rekognition Custom Labels project in a trusting AWS account. A project policy specifies that a trusted AWS account can copy a model version from a trusting AWS account to a project in the trusted AWS account. To copy a model version you use the <a>CopyProjectVersion</a> operation.</p><p>For more information about the format of a project policy document, see Attaching a project policy (SDK) in the <i>Amazon Rekognition Custom Labels Developer Guide</i>. </p><p>The response from <code>PutProjectPolicy</code> is a revision ID for the project policy. You can attach multiple project policies to a project. You can also update an existing project policy by specifying the policy revision ID of the existing policy.</p><p>To remove a project policy from a project, call <a>DeleteProjectPolicy</a>. To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>. </p><p>You copy a model version by calling <a>CopyProjectVersion</a>.</p>
+                        <p>Attaches a project policy to a Amazon Rekognition Custom Labels project in a trusting AWS account. A project policy specifies that a trusted AWS account can copy a model version from a trusting AWS account to a project in the trusted AWS account. To copy a model version you use the <a>CopyProjectVersion</a> operation.</p><p>For more information about the format of a project policy document, see Attaching a project policy (SDK) in the <i>Amazon Rekognition Custom Labels Developer Guide</i>. </p><p>The response from <code>PutProjectPolicy</code> is a revision ID for the project policy. You can attach multiple project policies to a project. You can also update an existing project policy by specifying the policy revision ID of the existing policy.</p><p>To remove a project policy from a project, call <a>DeleteProjectPolicy</a>. To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>. </p><p>You copy a model version by calling <a>CopyProjectVersion</a>.</p><p>This operation requires permissions to perform the <code>rekognition:PutProjectPolicy</code> action.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSRekognitionPutProjectPolicyRequest</p>
@@ -7488,7 +7803,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Attaches a project policy to a Amazon Rekognition Custom Labels project in a trusting AWS account. A project policy specifies that a trusted AWS account can copy a model version from a trusting AWS account to a project in the trusted AWS account. To copy a model version you use the <a>CopyProjectVersion</a> operation.</p><p>For more information about the format of a project policy document, see Attaching a project policy (SDK) in the <i>Amazon Rekognition Custom Labels Developer Guide</i>. </p><p>The response from <code>PutProjectPolicy</code> is a revision ID for the project policy. You can attach multiple project policies to a project. You can also update an existing project policy by specifying the policy revision ID of the existing policy.</p><p>To remove a project policy from a project, call <a>DeleteProjectPolicy</a>. To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>. </p><p>You copy a model version by calling <a>CopyProjectVersion</a>.</p>
+                        <p>Attaches a project policy to a Amazon Rekognition Custom Labels project in a trusting AWS account. A project policy specifies that a trusted AWS account can copy a model version from a trusting AWS account to a project in the trusted AWS account. To copy a model version you use the <a>CopyProjectVersion</a> operation.</p><p>For more information about the format of a project policy document, see Attaching a project policy (SDK) in the <i>Amazon Rekognition Custom Labels Developer Guide</i>. </p><p>The response from <code>PutProjectPolicy</code> is a revision ID for the project policy. You can attach multiple project policies to a project. You can also update an existing project policy by specifying the policy revision ID of the existing policy.</p><p>To remove a project policy from a project, call <a>DeleteProjectPolicy</a>. To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>. </p><p>You copy a model version by calling <a>CopyProjectVersion</a>.</p><p>This operation requires permissions to perform the <code>rekognition:PutProjectPolicy</code> action.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSRekognitionPutProjectPolicyRequest</p>
@@ -7513,7 +7828,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putProjectPolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionPutProjectPolicyRequest.html">AWSRekognitionPutProjectPolicyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionPutProjectPolicyResponse.html">AWSRekognitionPutProjectPolicyResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putProjectPolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionPutProjectPolicyRequest.html">AWSRekognitionPutProjectPolicyRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionPutProjectPolicyResponse.html">AWSRekognitionPutProjectPolicyResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7657,7 +7972,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">recognizeCelebrities</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionRecognizeCelebritiesRequest.html">AWSRekognitionRecognizeCelebritiesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionRecognizeCelebritiesResponse.html">AWSRekognitionRecognizeCelebritiesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">recognizeCelebrities</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionRecognizeCelebritiesRequest.html">AWSRekognitionRecognizeCelebritiesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionRecognizeCelebritiesResponse.html">AWSRekognitionRecognizeCelebritiesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7798,7 +8113,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">searchFaces</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionSearchFacesRequest.html">AWSRekognitionSearchFacesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionSearchFacesResponse.html">AWSRekognitionSearchFacesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">searchFaces</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionSearchFacesRequest.html">AWSRekognitionSearchFacesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionSearchFacesResponse.html">AWSRekognitionSearchFacesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7942,7 +8257,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">searchFaces</span><span class="p">(</span><span class="n">byImage</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionSearchFacesByImageRequest.html">AWSRekognitionSearchFacesByImageRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionSearchFacesByImageResponse.html">AWSRekognitionSearchFacesByImageResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">searchFaces</span><span class="p">(</span><span class="n">byImage</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionSearchFacesByImageRequest.html">AWSRekognitionSearchFacesByImageRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionSearchFacesByImageResponse.html">AWSRekognitionSearchFacesByImageResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8087,7 +8402,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startCelebrityRecognition</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStartCelebrityRecognitionRequest.html">AWSRekognitionStartCelebrityRecognitionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStartCelebrityRecognitionResponse.html">AWSRekognitionStartCelebrityRecognitionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startCelebrityRecognition</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStartCelebrityRecognitionRequest.html">AWSRekognitionStartCelebrityRecognitionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStartCelebrityRecognitionResponse.html">AWSRekognitionStartCelebrityRecognitionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8231,7 +8546,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startContentModeration</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStartContentModerationRequest.html">AWSRekognitionStartContentModerationRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStartContentModerationResponse.html">AWSRekognitionStartContentModerationResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startContentModeration</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStartContentModerationRequest.html">AWSRekognitionStartContentModerationRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStartContentModerationResponse.html">AWSRekognitionStartContentModerationResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8375,7 +8690,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startFaceDetection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStartFaceDetectionRequest.html">AWSRekognitionStartFaceDetectionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStartFaceDetectionResponse.html">AWSRekognitionStartFaceDetectionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startFaceDetection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStartFaceDetectionRequest.html">AWSRekognitionStartFaceDetectionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStartFaceDetectionResponse.html">AWSRekognitionStartFaceDetectionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8516,7 +8831,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startFaceSearch</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStartFaceSearchRequest.html">AWSRekognitionStartFaceSearchRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStartFaceSearchResponse.html">AWSRekognitionStartFaceSearchResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startFaceSearch</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStartFaceSearchRequest.html">AWSRekognitionStartFaceSearchRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStartFaceSearchResponse.html">AWSRekognitionStartFaceSearchResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8660,7 +8975,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startLabelDetection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStartLabelDetectionRequest.html">AWSRekognitionStartLabelDetectionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStartLabelDetectionResponse.html">AWSRekognitionStartLabelDetectionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startLabelDetection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStartLabelDetectionRequest.html">AWSRekognitionStartLabelDetectionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStartLabelDetectionResponse.html">AWSRekognitionStartLabelDetectionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8804,7 +9119,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startPersonTracking</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStartPersonTrackingRequest.html">AWSRekognitionStartPersonTrackingRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStartPersonTrackingResponse.html">AWSRekognitionStartPersonTrackingResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startPersonTracking</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStartPersonTrackingRequest.html">AWSRekognitionStartPersonTrackingRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStartPersonTrackingResponse.html">AWSRekognitionStartPersonTrackingResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8948,7 +9263,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startProjectVersion</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStartProjectVersionRequest.html">AWSRekognitionStartProjectVersionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStartProjectVersionResponse.html">AWSRekognitionStartProjectVersionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startProjectVersion</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStartProjectVersionRequest.html">AWSRekognitionStartProjectVersionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStartProjectVersionResponse.html">AWSRekognitionStartProjectVersionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9092,7 +9407,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startSegmentDetection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStartSegmentDetectionRequest.html">AWSRekognitionStartSegmentDetectionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStartSegmentDetectionResponse.html">AWSRekognitionStartSegmentDetectionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startSegmentDetection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStartSegmentDetectionRequest.html">AWSRekognitionStartSegmentDetectionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStartSegmentDetectionResponse.html">AWSRekognitionStartSegmentDetectionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9236,7 +9551,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startStreamProcessor</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStartStreamProcessorRequest.html">AWSRekognitionStartStreamProcessorRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStartStreamProcessorResponse.html">AWSRekognitionStartStreamProcessorResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startStreamProcessor</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStartStreamProcessorRequest.html">AWSRekognitionStartStreamProcessorRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStartStreamProcessorResponse.html">AWSRekognitionStartStreamProcessorResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9380,7 +9695,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startTextDetection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStartTextDetectionRequest.html">AWSRekognitionStartTextDetectionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStartTextDetectionResponse.html">AWSRekognitionStartTextDetectionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startTextDetection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStartTextDetectionRequest.html">AWSRekognitionStartTextDetectionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStartTextDetectionResponse.html">AWSRekognitionStartTextDetectionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9433,7 +9748,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Stops a running model. The operation might take a while to complete. To check the current status, call <a>DescribeProjectVersions</a>. </p>
+                        <p>Stops a running model. The operation might take a while to complete. To check the current status, call <a>DescribeProjectVersions</a>. </p><p>This operation requires permissions to perform the <code>rekognition:StopProjectVersion</code> action.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSRekognitionStopProjectVersionRequest</p>
@@ -9498,7 +9813,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Stops a running model. The operation might take a while to complete. To check the current status, call <a>DescribeProjectVersions</a>. </p>
+                        <p>Stops a running model. The operation might take a while to complete. To check the current status, call <a>DescribeProjectVersions</a>. </p><p>This operation requires permissions to perform the <code>rekognition:StopProjectVersion</code> action.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSRekognitionStopProjectVersionRequest</p>
@@ -9524,7 +9839,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopProjectVersion</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStopProjectVersionRequest.html">AWSRekognitionStopProjectVersionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStopProjectVersionResponse.html">AWSRekognitionStopProjectVersionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopProjectVersion</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStopProjectVersionRequest.html">AWSRekognitionStopProjectVersionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSRekognitionStopProjectVersionResponse.html">AWSRekognitionStopProjectVersionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9668,7 +9983,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopStreamProcessor</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStopStreamProcessorRequest.html">AWSRekognitionStopStreamProcessorRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSRekognitionStopStreamProcessorResponse">AWSRekognitionStopStreamProcessorResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopStreamProcessor</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionStopStreamProcessorRequest.html">AWSRekognitionStopStreamProcessorRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSRekognitionStopStreamProcessorResponse">AWSRekognitionStopStreamProcessorResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9809,7 +10124,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionTagResourceRequest.html">AWSRekognitionTagResourceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSRekognitionTagResourceResponse">AWSRekognitionTagResourceResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionTagResourceRequest.html">AWSRekognitionTagResourceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSRekognitionTagResourceResponse">AWSRekognitionTagResourceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9950,7 +10265,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">untagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionUntagResourceRequest.html">AWSRekognitionUntagResourceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSRekognitionUntagResourceResponse">AWSRekognitionUntagResourceResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">untagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionUntagResourceRequest.html">AWSRekognitionUntagResourceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSRekognitionUntagResourceResponse">AWSRekognitionUntagResourceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10094,7 +10409,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateDatasetEntries</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionUpdateDatasetEntriesRequest.html">AWSRekognitionUpdateDatasetEntriesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSRekognitionUpdateDatasetEntriesResponse">AWSRekognitionUpdateDatasetEntriesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateDatasetEntries</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionUpdateDatasetEntriesRequest.html">AWSRekognitionUpdateDatasetEntriesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSRekognitionUpdateDatasetEntriesResponse">AWSRekognitionUpdateDatasetEntriesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10194,7 +10509,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSRekognitionUpdateStreamProcessorResponse">AWSRekognitionUpdateStreamProcessorResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSRekognitionErrorDomain">AWSRekognitionErrorDomain</a></code> domain and the following error code: <code>AWSRekognitionErrorAccessDenied</code>, <code>AWSRekognitionErrorInternalServer</code>, <code>AWSRekognitionErrorThrottling</code>, <code>AWSRekognitionErrorInvalidParameter</code>, <code>AWSRekognitionErrorResourceNotFound</code>, <code>AWSRekognitionErrorProvisionedThroughputExceeded</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSRekognitionUpdateStreamProcessorResponse">AWSRekognitionUpdateStreamProcessorResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSRekognitionErrorDomain">AWSRekognitionErrorDomain</a></code> domain and the following error code: <code>AWSRekognitionErrorAccessDenied</code>, <code>AWSRekognitionErrorInternalServer</code>, <code>AWSRekognitionErrorThrottling</code>, <code>AWSRekognitionErrorInvalidParameter</code>, <code>AWSRekognitionErrorResourceNotFound</code>, <code>AWSRekognitionErrorProvisionedThroughputExceeded</code>, <code>AWSRekognitionErrorResourceInUse</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -10238,7 +10553,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateStreamProcessor</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionUpdateStreamProcessorRequest.html">AWSRekognitionUpdateStreamProcessorRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSRekognitionUpdateStreamProcessorResponse">AWSRekognitionUpdateStreamProcessorResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateStreamProcessor</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionUpdateStreamProcessorRequest.html">AWSRekognitionUpdateStreamProcessorRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSRekognitionUpdateStreamProcessorResponse">AWSRekognitionUpdateStreamProcessorResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10268,7 +10583,7 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSRekognitionErrorDomain">AWSRekognitionErrorDomain</a></code> domain and the following error code: <code>AWSRekognitionErrorAccessDenied</code>, <code>AWSRekognitionErrorInternalServer</code>, <code>AWSRekognitionErrorThrottling</code>, <code>AWSRekognitionErrorInvalidParameter</code>, <code>AWSRekognitionErrorResourceNotFound</code>, <code>AWSRekognitionErrorProvisionedThroughputExceeded</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSRekognitionErrorDomain">AWSRekognitionErrorDomain</a></code> domain and the following error code: <code>AWSRekognitionErrorAccessDenied</code>, <code>AWSRekognitionErrorInternalServer</code>, <code>AWSRekognitionErrorThrottling</code>, <code>AWSRekognitionErrorInvalidParameter</code>, <code>AWSRekognitionErrorResourceNotFound</code>, <code>AWSRekognitionErrorProvisionedThroughputExceeded</code>, <code>AWSRekognitionErrorResourceInUse</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -10283,8 +10598,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-03-03)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-01)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>
