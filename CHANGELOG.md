@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.31.1
+
 ### Bug Fixes
 - **AWSS3**
   - Increase speed of foreground uploads by specifying `NetworkServiceType`   
