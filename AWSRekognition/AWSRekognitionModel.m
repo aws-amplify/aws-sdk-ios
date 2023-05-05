@@ -2475,6 +2475,7 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
              @"emotions" : @"Emotions",
              @"eyeglasses" : @"Eyeglasses",
              @"eyesOpen" : @"EyesOpen",
+             @"faceOccluded" : @"FaceOccluded",
              @"gender" : @"Gender",
              @"landmarks" : @"Landmarks",
              @"mouthOpen" : @"MouthOpen",
@@ -2508,6 +2509,10 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSValueTransformer *)eyesOpenJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionEyeOpen class]];
+}
+
++ (NSValueTransformer *)faceOccludedJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionFaceOccluded class]];
 }
 
 + (NSValueTransformer *)genderJSONTransformer {
@@ -2578,6 +2583,21 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSValueTransformer *)faceJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionFace class]];
+}
+
+@end
+
+@implementation AWSRekognitionFaceOccluded
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"confidence" : @"Confidence",
+             @"value" : @"Value",
+             };
 }
 
 @end

@@ -118,6 +118,7 @@
 - (void) test_AWSRekognitionFaceDetail API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionFaceDetection API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionFaceMatch API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionFaceOccluded API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionFaceRecord API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionFaceSearchSettings API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGender API_AVAILABLE(ios(11));
@@ -669,6 +670,10 @@
 
 - (void) test_AWSRekognitionFaceMatch {
     [self validateSecureCodingForClass:[AWSRekognitionFaceMatch class]];
+}
+
+- (void) test_AWSRekognitionFaceOccluded {
+    [self validateSecureCodingForClass:[AWSRekognitionFaceOccluded class]];
 }
 
 - (void) test_AWSRekognitionFaceRecord {
