@@ -92,6 +92,7 @@
 - (void) test_AWSKMSPutKeyPolicyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSKMSReEncryptRequest API_AVAILABLE(ios(11));
 - (void) test_AWSKMSReEncryptResponse API_AVAILABLE(ios(11));
+- (void) test_AWSKMSRecipientInfo API_AVAILABLE(ios(11));
 - (void) test_AWSKMSReplicateKeyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSKMSReplicateKeyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSKMSRetireGrantRequest API_AVAILABLE(ios(11));
@@ -410,6 +411,10 @@
 
 - (void) test_AWSKMSReEncryptResponse {
     [self validateSecureCodingForClass:[AWSKMSReEncryptResponse class]];
+}
+
+- (void) test_AWSKMSRecipientInfo {
+    [self validateSecureCodingForClass:[AWSKMSRecipientInfo class]];
 }
 
 - (void) test_AWSKMSReplicateKeyRequest {
