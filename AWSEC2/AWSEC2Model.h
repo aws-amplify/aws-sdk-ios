@@ -1635,6 +1635,11 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeM6Idn_metal,
     AWSEC2InstanceTypeR6In_metal,
     AWSEC2InstanceTypeR6Idn_metal,
+    AWSEC2InstanceTypeINF2_xlarge,
+    AWSEC2InstanceTypeINF2_8xlarge,
+    AWSEC2InstanceTypeINF2_24xlarge,
+    AWSEC2InstanceTypeINF2_48xlarge,
+    AWSEC2InstanceTypeTRN1n_32xlarge,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {
