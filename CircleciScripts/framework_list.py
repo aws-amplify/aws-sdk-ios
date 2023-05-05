@@ -38,6 +38,7 @@ grouped_frameworks = [
         "AWSKinesisVideo",
         "AWSKinesisVideoArchivedMedia",
         "AWSKinesisVideoSignaling",
+        "AWSKinesisVideoWebRTCStorage",
         "AWSLambda",
         "AWSLex",
         "AWSLocation",
