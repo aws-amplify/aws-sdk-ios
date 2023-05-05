@@ -209,6 +209,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimeProvidedAl2,
     AWSLambdaRuntimeNodejs18X,
     AWSLambdaRuntimePython310,
+    AWSLambdaRuntimeJava17,
 };
 
 typedef NS_ENUM(NSInteger, AWSLambdaSnapStartApplyOn) {
