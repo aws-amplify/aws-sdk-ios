@@ -699,6 +699,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
              @"encryptionContext" : @"EncryptionContext",
              @"grantTokens" : @"GrantTokens",
              @"keyId" : @"KeyId",
+             @"recipient" : @"Recipient",
              };
 }
 
@@ -733,6 +734,10 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
     }];
 }
 
++ (NSValueTransformer *)recipientJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSKMSRecipientInfo class]];
+}
+
 @end
 
 @implementation AWSKMSDecryptResponse
@@ -743,6 +748,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"ciphertextForRecipient" : @"CiphertextForRecipient",
              @"encryptionAlgorithm" : @"EncryptionAlgorithm",
              @"keyId" : @"KeyId",
              @"plaintext" : @"Plaintext",
@@ -1088,6 +1094,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
              @"grantTokens" : @"GrantTokens",
              @"keyId" : @"KeyId",
              @"keyPairSpec" : @"KeyPairSpec",
+             @"recipient" : @"Recipient",
              };
 }
 
@@ -1142,6 +1149,10 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
     }];
 }
 
++ (NSValueTransformer *)recipientJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSKMSRecipientInfo class]];
+}
+
 @end
 
 @implementation AWSKMSGenerateDataKeyPairResponse
@@ -1152,6 +1163,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"ciphertextForRecipient" : @"CiphertextForRecipient",
              @"keyId" : @"KeyId",
              @"keyPairSpec" : @"KeyPairSpec",
              @"privateKeyCiphertextBlob" : @"PrivateKeyCiphertextBlob",
@@ -1362,6 +1374,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
              @"keyId" : @"KeyId",
              @"keySpec" : @"KeySpec",
              @"numberOfBytes" : @"NumberOfBytes",
+             @"recipient" : @"Recipient",
              };
 }
 
@@ -1386,6 +1399,10 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
     }];
 }
 
++ (NSValueTransformer *)recipientJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSKMSRecipientInfo class]];
+}
+
 @end
 
 @implementation AWSKMSGenerateDataKeyResponse
@@ -1397,6 +1414,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ciphertextBlob" : @"CiphertextBlob",
+             @"ciphertextForRecipient" : @"CiphertextForRecipient",
              @"keyId" : @"KeyId",
              @"plaintext" : @"Plaintext",
              };
@@ -1563,7 +1581,12 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 	return @{
              @"customKeyStoreId" : @"CustomKeyStoreId",
              @"numberOfBytes" : @"NumberOfBytes",
+             @"recipient" : @"Recipient",
              };
+}
+
++ (NSValueTransformer *)recipientJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSKMSRecipientInfo class]];
 }
 
 @end
@@ -1576,6 +1599,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"ciphertextForRecipient" : @"CiphertextForRecipient",
              @"plaintext" : @"Plaintext",
              };
 }
@@ -2850,6 +2874,37 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"RSAES_OAEP_SHA_256";
             case AWSKMSEncryptionAlgorithmSpecSm2pke:
                 return @"SM2PKE";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSKMSRecipientInfo
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attestationDocument" : @"AttestationDocument",
+             @"keyEncryptionAlgorithm" : @"KeyEncryptionAlgorithm",
+             };
+}
+
++ (NSValueTransformer *)keyEncryptionAlgorithmJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"RSAES_OAEP_SHA_256"] == NSOrderedSame) {
+            return @(AWSKMSKeyEncryptionMechanismRsaesOaepSha256);
+        }
+        return @(AWSKMSKeyEncryptionMechanismUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSKMSKeyEncryptionMechanismRsaesOaepSha256:
+                return @"RSAES_OAEP_SHA_256";
             default:
                 return nil;
         }
