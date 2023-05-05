@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -243,6 +243,12 @@
 - (void) test_AWSPinpointTargetingGetJourneyExecutionMetricsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingGetJourneyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingGetJourneyResponse API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingGetJourneyRunExecutionMetricsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingGetJourneyRunExecutionMetricsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingGetJourneyRunsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingGetJourneyRunsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingGetPushTemplateRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingGetPushTemplateResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingGetRecommenderConfigurationRequest API_AVAILABLE(ios(11));
@@ -296,6 +302,10 @@
 - (void) test_AWSPinpointTargetingJourneyPushMessage API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingJourneyChannelSettings API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingJourneyResponse API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingJourneyRunExecutionActivityMetricsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingJourneyRunExecutionMetricsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingJourneyRunResponse API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingJourneyRunsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingJourneySMSMessage API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingJourneySchedule API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingJourneyStateRequest API_AVAILABLE(ios(11));
@@ -1358,6 +1368,30 @@
     [self validateSecureCodingForClass:[AWSPinpointTargetingGetJourneyResponse class]];
 }
 
+- (void) test_AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsRequest {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsRequest class]];
+}
+
+- (void) test_AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsResponse {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsResponse class]];
+}
+
+- (void) test_AWSPinpointTargetingGetJourneyRunExecutionMetricsRequest {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingGetJourneyRunExecutionMetricsRequest class]];
+}
+
+- (void) test_AWSPinpointTargetingGetJourneyRunExecutionMetricsResponse {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingGetJourneyRunExecutionMetricsResponse class]];
+}
+
+- (void) test_AWSPinpointTargetingGetJourneyRunsRequest {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingGetJourneyRunsRequest class]];
+}
+
+- (void) test_AWSPinpointTargetingGetJourneyRunsResponse {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingGetJourneyRunsResponse class]];
+}
+
 - (void) test_AWSPinpointTargetingGetPushTemplateRequest {
     [self validateSecureCodingForClass:[AWSPinpointTargetingGetPushTemplateRequest class]];
 }
@@ -1568,6 +1602,22 @@
 
 - (void) test_AWSPinpointTargetingJourneyResponse {
     [self validateSecureCodingForClass:[AWSPinpointTargetingJourneyResponse class]];
+}
+
+- (void) test_AWSPinpointTargetingJourneyRunExecutionActivityMetricsResponse {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingJourneyRunExecutionActivityMetricsResponse class]];
+}
+
+- (void) test_AWSPinpointTargetingJourneyRunExecutionMetricsResponse {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingJourneyRunExecutionMetricsResponse class]];
+}
+
+- (void) test_AWSPinpointTargetingJourneyRunResponse {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingJourneyRunResponse class]];
+}
+
+- (void) test_AWSPinpointTargetingJourneyRunsResponse {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingJourneyRunsResponse class]];
 }
 
 - (void) test_AWSPinpointTargetingJourneySMSMessage {
