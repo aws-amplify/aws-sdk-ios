@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -1848,6 +1848,81 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
  @see AWSPinpointTargetingGetJourneyExecutionMetricsResponse
  */
 - (void)getJourneyExecutionMetrics:(AWSPinpointTargetingGetJourneyExecutionMetricsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetJourneyExecutionMetricsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Retrieves (queries) pre-aggregated data for a standard run execution metric that applies to a journey activity.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetJourneyRunExecutionActivityMetrics service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: `AWSPinpointTargetingErrorBadRequest`, `AWSPinpointTargetingErrorInternalServerError`, `AWSPinpointTargetingErrorPayloadTooLarge`, `AWSPinpointTargetingErrorForbidden`, `AWSPinpointTargetingErrorNotFound`, `AWSPinpointTargetingErrorMethodNotAllowed`, `AWSPinpointTargetingErrorTooManyRequests`.
+ 
+ @see AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsRequest
+ @see AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsResponse
+ */
+- (AWSTask<AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsResponse *> *)getJourneyRunExecutionActivityMetrics:(AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsRequest *)request;
+
+/**
+ <p>Retrieves (queries) pre-aggregated data for a standard run execution metric that applies to a journey activity.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetJourneyRunExecutionActivityMetrics service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: `AWSPinpointTargetingErrorBadRequest`, `AWSPinpointTargetingErrorInternalServerError`, `AWSPinpointTargetingErrorPayloadTooLarge`, `AWSPinpointTargetingErrorForbidden`, `AWSPinpointTargetingErrorNotFound`, `AWSPinpointTargetingErrorMethodNotAllowed`, `AWSPinpointTargetingErrorTooManyRequests`.
+ 
+ @see AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsRequest
+ @see AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsResponse
+ */
+- (void)getJourneyRunExecutionActivityMetrics:(AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Retrieves (queries) pre-aggregated data for a standard run execution metric that applies to a journey.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetJourneyRunExecutionMetrics service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSPinpointTargetingGetJourneyRunExecutionMetricsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: `AWSPinpointTargetingErrorBadRequest`, `AWSPinpointTargetingErrorInternalServerError`, `AWSPinpointTargetingErrorPayloadTooLarge`, `AWSPinpointTargetingErrorForbidden`, `AWSPinpointTargetingErrorNotFound`, `AWSPinpointTargetingErrorMethodNotAllowed`, `AWSPinpointTargetingErrorTooManyRequests`.
+ 
+ @see AWSPinpointTargetingGetJourneyRunExecutionMetricsRequest
+ @see AWSPinpointTargetingGetJourneyRunExecutionMetricsResponse
+ */
+- (AWSTask<AWSPinpointTargetingGetJourneyRunExecutionMetricsResponse *> *)getJourneyRunExecutionMetrics:(AWSPinpointTargetingGetJourneyRunExecutionMetricsRequest *)request;
+
+/**
+ <p>Retrieves (queries) pre-aggregated data for a standard run execution metric that applies to a journey.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetJourneyRunExecutionMetrics service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: `AWSPinpointTargetingErrorBadRequest`, `AWSPinpointTargetingErrorInternalServerError`, `AWSPinpointTargetingErrorPayloadTooLarge`, `AWSPinpointTargetingErrorForbidden`, `AWSPinpointTargetingErrorNotFound`, `AWSPinpointTargetingErrorMethodNotAllowed`, `AWSPinpointTargetingErrorTooManyRequests`.
+ 
+ @see AWSPinpointTargetingGetJourneyRunExecutionMetricsRequest
+ @see AWSPinpointTargetingGetJourneyRunExecutionMetricsResponse
+ */
+- (void)getJourneyRunExecutionMetrics:(AWSPinpointTargetingGetJourneyRunExecutionMetricsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetJourneyRunExecutionMetricsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Provides information about the runs of a journey.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetJourneyRuns service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSPinpointTargetingGetJourneyRunsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: `AWSPinpointTargetingErrorBadRequest`, `AWSPinpointTargetingErrorInternalServerError`, `AWSPinpointTargetingErrorPayloadTooLarge`, `AWSPinpointTargetingErrorForbidden`, `AWSPinpointTargetingErrorNotFound`, `AWSPinpointTargetingErrorMethodNotAllowed`, `AWSPinpointTargetingErrorTooManyRequests`.
+ 
+ @see AWSPinpointTargetingGetJourneyRunsRequest
+ @see AWSPinpointTargetingGetJourneyRunsResponse
+ */
+- (AWSTask<AWSPinpointTargetingGetJourneyRunsResponse *> *)getJourneyRuns:(AWSPinpointTargetingGetJourneyRunsRequest *)request;
+
+/**
+ <p>Provides information about the runs of a journey.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetJourneyRuns service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: `AWSPinpointTargetingErrorBadRequest`, `AWSPinpointTargetingErrorInternalServerError`, `AWSPinpointTargetingErrorPayloadTooLarge`, `AWSPinpointTargetingErrorForbidden`, `AWSPinpointTargetingErrorNotFound`, `AWSPinpointTargetingErrorMethodNotAllowed`, `AWSPinpointTargetingErrorTooManyRequests`.
+ 
+ @see AWSPinpointTargetingGetJourneyRunsRequest
+ @see AWSPinpointTargetingGetJourneyRunsResponse
+ */
+- (void)getJourneyRuns:(AWSPinpointTargetingGetJourneyRunsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetJourneyRunsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Retrieves the content and settings of a message template for messages that are sent through a push notification channel.</p>
