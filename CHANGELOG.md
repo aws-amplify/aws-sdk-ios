@@ -2,7 +2,18 @@
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSSQS
+  - AWSEC2
+  - **Breaking Changes** to AWSChimeSDKMessaging
+  - AWSConnect
+  - AWSPinpoint
+  - AWSLambda
+  - AWSRekognition
+  - AWSIoT
+  - AWSKMS
 
 ## 2.31.1
 
