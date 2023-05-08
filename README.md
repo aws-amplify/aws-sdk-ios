@@ -14,7 +14,7 @@ Note: v2 of Amplify Library for Swift (currently GA) is built on top of the [AWS
 
 You can head to [the Amplify Library for Swift documentation](https://docs.amplify.aws/lib/auth/getting-started/q/platform/ios/) to learn more about all the features. You can also use AWS Amplify with [your existing AWS cloud resources](https://docs.amplify.aws/lib/project-setup/use-existing-resources/q/platform/ios/). If you are unable to find features you are looking for in Amplify please open an issue in [the Amplify Library for Swift GitHub repo](https://github.com/aws-amplify/amplify-swift/issues/new/choose) and we will be happy to consider you request.
 
-If you still wish to use the AWS SDK for iOS directly, please follow the setup instructions below or refer to sample apps in [the AWS SDK for iOS Samples repo](https://github.com/awslabs/aws-sdk-ios-samples).
+If you still wish to use the AWS SDK for iOS directly you can refer to [the AWS SDK Documentation here](https://docs.amplify.aws/sdk/q/platform/ios/) and follow the setup instructions below. You can also look at sample apps in [the AWS SDK for iOS Samples repo](https://github.com/awslabs/aws-sdk-ios-samples).
 
 ## Setup
 
