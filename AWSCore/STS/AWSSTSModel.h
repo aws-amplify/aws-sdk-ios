@@ -211,7 +211,7 @@ typedef NS_ENUM(NSInteger, AWSSTSErrorType) {
 @property (nonatomic, strong) NSString * _Nullable issuer;
 
 /**
- <p>A hash value based on the concatenation of the following:</p><ul><li><p>The <code>Issuer</code> response value.</p></li><li><p>The Amazon Web Services account ID.</p></li><li><p>The friendly name (the last part of the ARN) of the SAML provider in IAM.</p></li></ul><p>The combination of <code>NameQualifier</code> and <code>Subject</code> can be used to uniquely identify a federated user.</p><p>The following pseudocode shows how the hash value is calculated:</p><p><code>BASE64 ( SHA1 ( "https://example.com/saml" + "123456789012" + "/MySAMLIdP" ) )</code></p>
+ <p>A hash value based on the concatenation of the following:</p><ul><li><p>The <code>Issuer</code> response value.</p></li><li><p>The Amazon Web Services account ID.</p></li><li><p>The friendly name (the last part of the ARN) of the SAML provider in IAM.</p></li></ul><p>The combination of <code>NameQualifier</code> and <code>Subject</code> can be used to uniquely identify a user.</p><p>The following pseudocode shows how the hash value is calculated:</p><p><code>BASE64 ( SHA1 ( "https://example.com/saml" + "123456789012" + "/MySAMLIdP" ) )</code></p>
  */
 @property (nonatomic, strong) NSString * _Nullable nameQualifier;
 
@@ -480,7 +480,7 @@ typedef NS_ENUM(NSInteger, AWSSTSErrorType) {
 
 
 /**
- <p>The duration, in seconds, that the session should last. Acceptable durations for federation sessions range from 900 seconds (15 minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours) as the default. Sessions obtained using Amazon Web Services account root user credentials are restricted to a maximum of 3,600 seconds (one hour). If the specified duration is longer than one hour, the session obtained by using root user credentials defaults to one hour.</p>
+ <p>The duration, in seconds, that the session should last. Acceptable durations for federation sessions range from 900 seconds (15 minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours) as the default. Sessions obtained using root user credentials are restricted to a maximum of 3,600 seconds (one hour). If the specified duration is longer than one hour, the session obtained by using root user credentials defaults to one hour.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable durationSeconds;
 
