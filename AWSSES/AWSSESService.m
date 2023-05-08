@@ -25,7 +25,7 @@
 #import "AWSSESResources.h"
 
 static NSString *const AWSInfoSES = @"SES";
-NSString *const AWSSESSDKVersion = @"2.31.1";
+NSString *const AWSSESSDKVersion = @"2.32.0";
 
 
 @interface AWSSESResponseSerializer : AWSXMLResponseSerializer
