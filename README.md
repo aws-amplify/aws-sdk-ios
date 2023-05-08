@@ -10,19 +10,9 @@ The AWS SDK for iOS provides a library and documentation for developers to build
 
 We recommend using the latest v2 version of AWS Amplify Library for Swift to quickly implement common app use cases like Authentication, Storage, Push Notifications and more that follow patterns idiomatic to Swift like async/await. 
 
-Note: v2 of Amplify Library for Swift (currently GA) is built on top of the [AWS SDK for Swift](https://github.com/awslabs/aws-sdk-swift) and _only_ provides access to the AWS SDK for Swift which is currently in developer preview. You can access this underlying SDK via the Escape Hatch from AWS Amplify. If you are missing features from Amplify please open an issue in [the Amplify Library for Swift GitHub repo](https://github.com/aws-amplify/amplify-swift/issues/new/choose) and we will be happy to consider you request.
+Note: v2 of Amplify Library for Swift (currently GA) is built on top of the [AWS SDK for Swift](https://github.com/awslabs/aws-sdk-swift) and _only_ provides access to the AWS SDK for Swift which is currently in developer preview. You can access this underlying SDK via the Escape Hatch from AWS Amplify. 
 
-You can click into documentation for the different features that Amplify supports below or head to [the Amplify Library for Swift documentation](https://docs.amplify.aws/lib/auth/getting-started/q/platform/ios/) to learn more about all the features. You can also use AWS Amplify with [your existing AWS cloud resources](https://docs.amplify.aws/lib/project-setup/use-existing-resources/q/platform/ios/).
-
-### AWS Amplify Features / APIs
-
-- [__Authentication__](https://docs.amplify.aws/lib/auth/getting-started/q/platform/ios/): APIs and building blocks for developers who want to create user authentication experiences.  
-- [__Analytics__](https://docs.amplify.aws/lib/analytics/getting-started/q/platform/ios/): Easily collect analytics data for your app. Analytics data includes user sessions and other custom events that you want to track in your app.  
-- [__API (GraphQL)__](https://docs.amplify.aws/lib/graphqlapi/getting-started/q/platform/ios/): Provides an interface for retrieving and persisting your model data. The API category comes with default built-in support for AWS AppSync and provides an automatic, lightweight signing process which complies with AWS Signature Version 4.
-- [__DataStore__](https://docs.amplify.aws/lib/datastore/getting-started/q/platform/ios/): Provides a programming model for leveraging shared and distributed data without writing additional code for offline and online scenarios, which makes working with distributed, cross-user data just as simple as working with local-only data.
-- [__Storage__](https://docs.amplify.aws/lib/storage/getting-started/q/platform/ios/): Provides a simple mechanism for managing user content for your app in public, protected or private storage buckets.  
-- [__Push Notifications__](https://docs.amplify.aws/lib/push-notifications/getting-started/q/platform/ios/): Allows you to integrate push notifications in your app with Amazon Pinpoint targeting and campaign management support.
-- [__Geo__](https://docs.amplify.aws/lib/geo/getting-started/q/platform/ios/): Provides APIs and map UI components for mobile app development such that you can add maps to your app in just a few lines of code. Amplify Geo APIs are powered by Amazon Location Service and the map UI components from MapLibre are already integrated with the Geo APIs.
+You can head to [the Amplify Library for Swift documentation](https://docs.amplify.aws/lib/auth/getting-started/q/platform/ios/) to learn more about all the features. You can also use AWS Amplify with [your existing AWS cloud resources](https://docs.amplify.aws/lib/project-setup/use-existing-resources/q/platform/ios/). If you are unable to find features you are looking for in Amplify please open an issue in [the Amplify Library for Swift GitHub repo](https://github.com/aws-amplify/amplify-swift/issues/new/choose) and we will be happy to consider you request.
 
 If you still wish to use the AWS SDK for iOS directly, please follow the setup instructions below or refer to sample apps in [the AWS SDK for iOS Samples repo](https://github.com/awslabs/aws-sdk-ios-samples).
 
