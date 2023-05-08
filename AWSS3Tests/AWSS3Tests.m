@@ -378,6 +378,9 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 
 
 - (void)testPutBucketWithGrants {
+
+    XCTSkipIf(TRUE, "Disabled test because of an update that was made to service API. The test would be enabled in the future.");
+
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);
 
