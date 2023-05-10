@@ -294,6 +294,7 @@ static NSString *const AWSServiceNameKinesis = @"kinesis";
 static NSString *const AWSServiceNameKinesisVideo = @"kinesisvideo";
 static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo";
 static NSString *const AWSServiceNameKinesisVideoSignaling = @"kinesisvideo";
+static NSString *const AWSServiceNameKinesisVideoWebRTCStorage = @"kinesisvideo";
 static NSString *const AWSServiceNameLambda = @"lambda";
 static NSString *const AWSServiceNameLexRuntime = @"runtime.lex";
 static NSString *const AWSServiceNameLogs = @"logs";
@@ -556,6 +557,8 @@ static NSString *const AWSServiceNameChimeSDKIdentity = @"chime";
             return AWSServiceNameKinesisVideoArchivedMedia;
         case AWSServiceKinesisVideoSignaling:
             return AWSServiceNameKinesisVideoSignaling;
+        case AWSServiceKinesisVideoWebRTCStorage:
+            return AWSServiceNameKinesisVideoWebRTCStorage;
         case AWSServiceLambda:
             return AWSServiceNameLambda;
         case AWSServiceLexRuntime:

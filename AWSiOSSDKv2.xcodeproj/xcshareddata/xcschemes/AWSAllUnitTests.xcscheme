@@ -20,6 +20,20 @@
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "48885FCA2A0C1FB30012EEB7"
+               BuildableName = "AWSKinesisVideoWebRTCStorageUnitTests.xctest"
+               BlueprintName = "AWSKinesisVideoWebRTCStorageUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -375,6 +389,16 @@
                BlueprintIdentifier = "9A7ACC4D20B0FF1000DDBEC1"
                BuildableName = "AWSTranslateUnitTests.xctest"
                BlueprintName = "AWSTranslateUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "48885FCA2A0C1FB30012EEB7"
+               BuildableName = "AWSKinesisVideoWebRTCStorageUnitTests.xctest"
+               BlueprintName = "AWSKinesisVideoWebRTCStorageUnitTests"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </TestableReference>
