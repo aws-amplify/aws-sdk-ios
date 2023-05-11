@@ -575,6 +575,7 @@
 		48885FDD2A0C20170012EEB7 /* AWSKinesisVideoWebRTCStorageResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 48885FB22A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageResources.m */; };
 		48885FDE2A0C20170012EEB7 /* AWSKinesisVideoWebRTCStorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 48885FB32A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageService.m */; };
 		48885FDF2A0C20D50012EEB7 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
+		48E234A12A0CA1CB00E46DFB /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		5C1590172755727C00F88085 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
 		5C1978DD2702364800F9C11E /* AWSLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1978DC2702364800F9C11E /* AWSLocationTests.swift */; };
 		5C71F33F295672B8001183A4 /* guten_tag.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5C71F33E295672B8001183A4 /* guten_tag.wav */; };
@@ -1673,13 +1674,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 48885FBB2A0C1F440012EEB7;
 			remoteInfo = AWSKinesisVideoWebRTCStorage;
-		};
-		48885FE42A0C7FD20012EEB7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 181154751E201403008F184C;
-			remoteInfo = AWSAllTestsHost;
 		};
 		5C1590192755727C00F88085 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -4349,10 +4343,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				482E77B82A0C9C5D00308343 /* libOCMock.a in Frameworks */,
 				482E77B72A0C9BDE00308343 /* AWSNSSecureCodingTestBase.framework in Frameworks */,
 				482E77B62A0C9BD600308343 /* AWSTestResources.framework in Frameworks */,
 				482E77B52A0C9BB600308343 /* AWSCore.framework in Frameworks */,
+				482E77B82A0C9C5D00308343 /* libOCMock.a in Frameworks */,
 				48885FCF2A0C1FB30012EEB7 /* AWSKinesisVideoWebRTCStorage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -9217,7 +9211,6 @@
 			);
 			dependencies = (
 				48885FD12A0C1FB30012EEB7 /* PBXTargetDependency */,
-				48885FE52A0C7FD20012EEB7 /* PBXTargetDependency */,
 			);
 			name = AWSKinesisVideoWebRTCStorageUnitTests;
 			productName = AWSKinesisVideoWebRTCStorageUnitTests;
@@ -12610,6 +12603,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48E234A12A0CA1CB00E46DFB /* AWSTestUtility.m in Sources */,
 				48885FD52A0C1FFF0012EEB7 /* AWSGeneralKinesisVideoWebRTCStorageTests.m in Sources */,
 				48885FD62A0C1FFF0012EEB7 /* AWSKinesisVideoWebRTCStorageNSSecureCodingTests.m in Sources */,
 			);
@@ -13695,11 +13689,6 @@
 			isa = PBXTargetDependency;
 			target = 48885FBB2A0C1F440012EEB7 /* AWSKinesisVideoWebRTCStorage */;
 			targetProxy = 48885FD02A0C1FB30012EEB7 /* PBXContainerItemProxy */;
-		};
-		48885FE52A0C7FD20012EEB7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 181154751E201403008F184C /* AWSAllTestsHost */;
-			targetProxy = 48885FE42A0C7FD20012EEB7 /* PBXContainerItemProxy */;
 		};
 		5C15901A2755727C00F88085 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -16372,6 +16361,7 @@
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSKinesisVideoWebRTCStorageUnitTests.AWSKinesisVideoWebRTCStorageUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -16404,6 +16394,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSKinesisVideoWebRTCStorageUnitTests.AWSKinesisVideoWebRTCStorageUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
