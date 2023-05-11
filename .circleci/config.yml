@@ -951,6 +951,16 @@ workflows:
               ignore: bump_sdk_version
 
       - unit_test:
+          scheme: AWSKinesisVideoWebRTCStorage
+          name: unit_test_AWSKinesisVideoWebRTCStorage
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
           scheme: AWSLambda
           name: unit_test_AWSLambda
           requires:

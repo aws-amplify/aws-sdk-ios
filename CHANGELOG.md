@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### New features
+- **AWSKinesisVideoWebRTCStorage**
+  - Adding new framework for Kinesis Video WebRTC Storage
+
 ### Misc. Updates
 
 - Model updates for the following services
