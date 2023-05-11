@@ -10806,7 +10806,6 @@
 						CreatedOnToolsVersion = 14.3;
 						DevelopmentTeam = 94KV3E626L;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 181154751E201403008F184C;
 					};
 					9A7ACC1F20B0E85000DDBEC1 = {
 						CreatedOnToolsVersion = 9.2;
@@ -16368,7 +16367,6 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AWSAllTestsHost.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AWSAllTestsHost";
 			};
 			name = Debug;
 		};
@@ -16395,7 +16393,6 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AWSAllTestsHost.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AWSAllTestsHost";
 			};
 			name = Release;
 		};
