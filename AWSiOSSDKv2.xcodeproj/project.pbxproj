@@ -558,6 +558,10 @@
 		21C913272667CD4B00233AF9 /* AWSServiceConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C913262667CD4B00233AF9 /* AWSServiceConfigurationTests.swift */; };
 		21C9132A2667D70F00233AF9 /* MockCredentialsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C913292667D70F00233AF9 /* MockCredentialsProvider.swift */; };
 		21E97D472558DBFF004C98D6 /* AsynchronousOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E97D462558DBFF004C98D6 /* AsynchronousOperation.swift */; };
+		482E77B52A0C9BB600308343 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
+		482E77B62A0C9BD600308343 /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */; };
+		482E77B72A0C9BDE00308343 /* AWSNSSecureCodingTestBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1C57E42539E80C00DBC24C /* AWSNSSecureCodingTestBase.framework */; };
+		482E77B82A0C9C5D00308343 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
 		48885FC22A0C1F450012EEB7 /* AWSKinesisVideoWebRTCStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48885FBC2A0C1F440012EEB7 /* AWSKinesisVideoWebRTCStorage.framework */; };
 		48885FC32A0C1F450012EEB7 /* AWSKinesisVideoWebRTCStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 48885FBC2A0C1F440012EEB7 /* AWSKinesisVideoWebRTCStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		48885FCF2A0C1FB30012EEB7 /* AWSKinesisVideoWebRTCStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48885FBC2A0C1F440012EEB7 /* AWSKinesisVideoWebRTCStorage.framework */; };
@@ -4345,6 +4349,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				482E77B82A0C9C5D00308343 /* libOCMock.a in Frameworks */,
+				482E77B72A0C9BDE00308343 /* AWSNSSecureCodingTestBase.framework in Frameworks */,
+				482E77B62A0C9BD600308343 /* AWSTestResources.framework in Frameworks */,
+				482E77B52A0C9BB600308343 /* AWSCore.framework in Frameworks */,
 				48885FCF2A0C1FB30012EEB7 /* AWSKinesisVideoWebRTCStorage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -10800,7 +10808,7 @@
 					};
 					48885FBB2A0C1F440012EEB7 = {
 						CreatedOnToolsVersion = 14.3;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					48885FCA2A0C1FB30012EEB7 = {
 						CreatedOnToolsVersion = 14.3;
@@ -16271,12 +16279,14 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -16295,11 +16305,12 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSKinesisVideoWebRTCStorage;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -16311,12 +16322,14 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -16334,10 +16347,11 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSKinesisVideoWebRTCStorage;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -16357,6 +16371,10 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -16386,6 +16404,10 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSKinesisVideoWebRTCStorageUnitTests.AWSKinesisVideoWebRTCStorageUnitTests;
