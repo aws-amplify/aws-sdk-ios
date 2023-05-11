@@ -1670,6 +1670,13 @@
 			remoteGlobalIDString = 48885FBB2A0C1F440012EEB7;
 			remoteInfo = AWSKinesisVideoWebRTCStorage;
 		};
+		48885FE42A0C7FD20012EEB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 181154751E201403008F184C;
+			remoteInfo = AWSAllTestsHost;
+		};
 		5C1590192755727C00F88085 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
@@ -9202,6 +9209,7 @@
 			);
 			dependencies = (
 				48885FD12A0C1FB30012EEB7 /* PBXTargetDependency */,
+				48885FE52A0C7FD20012EEB7 /* PBXTargetDependency */,
 			);
 			name = AWSKinesisVideoWebRTCStorageUnitTests;
 			productName = AWSKinesisVideoWebRTCStorageUnitTests;
@@ -10798,6 +10806,7 @@
 						CreatedOnToolsVersion = 14.3;
 						DevelopmentTeam = 94KV3E626L;
 						ProvisioningStyle = Automatic;
+						TestTargetID = 181154751E201403008F184C;
 					};
 					9A7ACC1F20B0E85000DDBEC1 = {
 						CreatedOnToolsVersion = 9.2;
@@ -13680,6 +13689,11 @@
 			target = 48885FBB2A0C1F440012EEB7 /* AWSKinesisVideoWebRTCStorage */;
 			targetProxy = 48885FD02A0C1FB30012EEB7 /* PBXContainerItemProxy */;
 		};
+		48885FE52A0C7FD20012EEB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 181154751E201403008F184C /* AWSAllTestsHost */;
+			targetProxy = 48885FE42A0C7FD20012EEB7 /* PBXContainerItemProxy */;
+		};
 		5C15901A2755727C00F88085 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CE0D416C1C6A66E5006B91B5 /* AWSCore */;
@@ -16343,7 +16357,7 @@
 				DEVELOPMENT_TEAM = 94KV3E626L;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -16354,6 +16368,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AWSAllTestsHost.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AWSAllTestsHost";
 			};
 			name = Debug;
 		};
@@ -16372,7 +16387,7 @@
 				DEVELOPMENT_TEAM = 94KV3E626L;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSKinesisVideoWebRTCStorageUnitTests.AWSKinesisVideoWebRTCStorageUnitTests;
@@ -16380,6 +16395,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AWSAllTestsHost.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AWSAllTestsHost";
 			};
 			name = Release;
 		};
