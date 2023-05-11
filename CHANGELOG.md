@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.32.0
+
 ### New features
 - **AWSKinesisVideoWebRTCStorage**
   - Adding new framework for Kinesis Video WebRTC Storage
