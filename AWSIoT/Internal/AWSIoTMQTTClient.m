@@ -83,7 +83,7 @@
 @property (strong,atomic) dispatch_semaphore_t timerSemaphore;
 @property (strong,atomic) dispatch_queue_t timerQueue;
 @property (strong,nonatomic) dispatch_queue_t ackCallbackDictAccessQueue;
-
+@property (strong,nonatomic) dispatch_queue_t topicListenersAccessQueue;
 @end
 
 @implementation AWSIoTMQTTClient
@@ -112,7 +112,8 @@
         _timerSemaphore = dispatch_semaphore_create(1);
         _timerQueue = dispatch_queue_create("com.amazon.aws.iot.timer-queue", DISPATCH_QUEUE_SERIAL);
         _streamsThread = nil;
-        _ackCallbackDictAccessQueue = dispatch_queue_create("com.zmazon.aws.iot.topic-access-queue", DISPATCH_QUEUE_SERIAL);
+        _ackCallbackDictAccessQueue = dispatch_queue_create("com.zmazon.aws.iot.ack-callback-queue", DISPATCH_QUEUE_SERIAL);
+        _topicListenersAccessQueue = dispatch_queue_create("com.zmazon.aws.iot.topic-listener-queue", DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }
@@ -290,7 +291,10 @@
     self.mqttStatus = AWSIoTMQTTStatusConnecting;
     
     if (self.cleanSession) {
-        [self.topicListeners removeAllObjects];
+        dispatch_barrier_async(self.topicListenersAccessQueue, ^{
+            [self.topicListeners removeAllObjects];
+        });
+        
     }
     
     //Setup userName if metrics are enabled. We use the connection username as metadata for metrics calculation.
@@ -547,7 +551,9 @@
     
     //clear session if required
     if (self.cleanSession) {
-        [self.topicListeners removeAllObjects];
+        dispatch_barrier_async(self.topicListenersAccessQueue, ^{
+            [self.topicListeners removeAllObjects];
+        });
     }
     
     //Setup userName if metrics are enabled. We use the connection username as metadata for metrics calculation.
@@ -993,7 +999,10 @@
 // Private
 - (void)subscribeWithTopicModel:(AWSIoTMQTTTopicModel *)topicModel
                     ackCallback:(AWSIoTMQTTAckBlock)ackCallback {
-    [self.topicListeners setObject:topicModel forKey:topicModel.topic];
+    dispatch_barrier_async(self.topicListenersAccessQueue, ^{
+        [self.topicListeners setObject:topicModel forKey:topicModel.topic];
+    });
+ 
 
     UInt16 messageId = [self.session subscribeToTopic:topicModel.topic atLevel:topicModel.qos];
     AWSDDLogVerbose(@"Now subscribing w/ messageId: %d", messageId);
@@ -1020,7 +1029,10 @@
     }
     AWSDDLogInfo(@"Unsubscribing from topic %@", topic);
     UInt16 messageId = [self.session unsubscribeTopic:topic];
-    [self.topicListeners removeObjectForKey:topic];
+    dispatch_barrier_async(self.topicListenersAccessQueue, ^{
+        [self.topicListeners removeObjectForKey:topic];
+    });
+
     if (ackCallback) {
         dispatch_barrier_async(self.ackCallbackDictAccessQueue, ^{
             [self.ackCallbackDictionary setObject:ackCallback
@@ -1064,9 +1076,12 @@
             //Subscribe to prior topics
             if (_autoResubscribe) {
                 AWSDDLogInfo(@"Auto-resubscribe is enabled. Resubscribing to topics.");
-                for (AWSIoTMQTTTopicModel *topic in self.topicListeners.allValues) {
-                    [self.session subscribeToTopic:topic.topic atLevel:topic.qos];
-                }
+                dispatch_sync(self.topicListenersAccessQueue, ^{
+                    for (AWSIoTMQTTTopicModel *topic in self.topicListeners.allValues) {
+                        [self.session subscribeToTopic:topic.topic atLevel:topic.qos];
+                    }
+                });
+                
             }
             break;
             
@@ -1087,7 +1102,10 @@
             //Check if user issued a disconnect
             if (self.userDidIssueDisconnect ) {
                 //Clear all session state here.
-                [self.topicListeners removeAllObjects];
+                dispatch_barrier_async(self.topicListenersAccessQueue, ^{
+                    [self.topicListeners removeAllObjects];
+                });
+                
                 self.mqttStatus = AWSIoTMQTTStatusDisconnected;
                 [self notifyConnectionStatus];
             }
@@ -1115,7 +1133,9 @@
             }
             if (self.userDidIssueDisconnect ) {
                 //Clear all session state here.
-                [self.topicListeners removeAllObjects];
+                dispatch_barrier_async(self.topicListenersAccessQueue, ^{
+                    [self.topicListeners removeAllObjects];
+                });
                 self.mqttStatus = AWSIoTMQTTStatusDisconnected;
                 [self notifyConnectionStatus];
             }
@@ -1154,63 +1174,65 @@
     AWSDDLogVerbose(@"MQTTSessionDelegate newMessage: %@ onTopic: %@",[[NSString alloc] initWithData:message.data encoding:NSUTF8StringEncoding], topic);
 
     NSArray *topicParts = [topic componentsSeparatedByString: @"/"];
+    dispatch_sync(self.topicListenersAccessQueue, ^{
+        for (NSString *topicKey in self.topicListeners.allKeys) {
+            NSArray *topicKeyParts = [topicKey componentsSeparatedByString: @"/"];
 
-    for (NSString *topicKey in self.topicListeners.allKeys) {
-        NSArray *topicKeyParts = [topicKey componentsSeparatedByString: @"/"];
-
-        BOOL topicMatch = true;
-        for (int i = 0; i < topicKeyParts.count; i++) {
-            if (i >= topicParts.count) {
-                topicMatch = false;
-                break;
-            }
-
-            NSString *topicPart = topicParts[i];
-            NSString *topicKeyPart = topicKeyParts[i];
-
-            if ([topicKeyPart rangeOfString:@"#"].location == NSNotFound && [topicKeyPart rangeOfString:@"+"].location == NSNotFound) {
-                if (![topicPart isEqualToString:topicKeyPart]) {
+            BOOL topicMatch = true;
+            for (int i = 0; i < topicKeyParts.count; i++) {
+                if (i >= topicParts.count) {
                     topicMatch = false;
                     break;
                 }
+
+                NSString *topicPart = topicParts[i];
+                NSString *topicKeyPart = topicKeyParts[i];
+
+                if ([topicKeyPart rangeOfString:@"#"].location == NSNotFound && [topicKeyPart rangeOfString:@"+"].location == NSNotFound) {
+                    if (![topicPart isEqualToString:topicKeyPart]) {
+                        topicMatch = false;
+                        break;
+                    }
+                }
+            }
+
+            if (topicMatch) {
+                AWSDDLogVerbose(@"<<%@>>Topic: %@ is matched.",[NSThread currentThread], topic);
+                AWSIoTMQTTTopicModel *topicModel = [self.topicListeners objectForKey:topicKey];
+                if (topicModel) {
+                    AWSIoTMessage *iotMessage = [[AWSIoTMessage alloc] initWithMQTTMessage:message];
+
+                    if (topicModel.callback != nil) {
+                        AWSDDLogVerbose(@"<<%@>>topicModel.callback.", [NSThread currentThread]);
+                        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+                            topicModel.callback(iotMessage.messageData);
+                        });
+                    }
+                    if (topicModel.extendedCallback != nil) {
+                        AWSDDLogVerbose(@"<<%@>>topicModel.extendedcallback.", [NSThread currentThread]);
+                        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+                            topicModel.extendedCallback(self, topic, iotMessage.messageData);
+                        });
+                    }
+                    if (topicModel.fullCallback != nil) {
+                        AWSDDLogVerbose(@"<<%@>>topicModel.messageCallback.", [NSThread currentThread]);
+                        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+                            topicModel.fullCallback(iotMessage.topic, iotMessage);
+                        });
+                    }
+                    
+                    if (self.clientDelegate != nil ) {
+                        AWSDDLogVerbose(@"<<%@>>Calling receviedMessageData on client Delegate.", [NSThread currentThread]);
+                        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+                            [self.clientDelegate receivedMessageData:message.data onTopic:topic];
+                        });
+                    }
+                    
+                }
             }
         }
-
-        if (topicMatch) {
-            AWSDDLogVerbose(@"<<%@>>Topic: %@ is matched.",[NSThread currentThread], topic);
-            AWSIoTMQTTTopicModel *topicModel = [self.topicListeners objectForKey:topicKey];
-            if (topicModel) {
-                AWSIoTMessage *iotMessage = [[AWSIoTMessage alloc] initWithMQTTMessage:message];
-
-                if (topicModel.callback != nil) {
-                    AWSDDLogVerbose(@"<<%@>>topicModel.callback.", [NSThread currentThread]);
-                    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-                        topicModel.callback(iotMessage.messageData);
-                    });
-                }
-                if (topicModel.extendedCallback != nil) {
-                    AWSDDLogVerbose(@"<<%@>>topicModel.extendedcallback.", [NSThread currentThread]);
-                    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-                        topicModel.extendedCallback(self, topic, iotMessage.messageData);
-                    });
-                }
-                if (topicModel.fullCallback != nil) {
-                    AWSDDLogVerbose(@"<<%@>>topicModel.messageCallback.", [NSThread currentThread]);
-                    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-                        topicModel.fullCallback(iotMessage.topic, iotMessage);
-                    });
-                }
-                
-                if (self.clientDelegate != nil ) {
-                    AWSDDLogVerbose(@"<<%@>>Calling receviedMessageData on client Delegate.", [NSThread currentThread]);
-                    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-                        [self.clientDelegate receivedMessageData:message.data onTopic:topic];
-                    });
-                }
-                
-            }
-        }
-    }
+    });
+    
 }
 
 #pragma mark - callback handler -
