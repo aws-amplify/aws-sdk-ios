@@ -2,7 +2,10 @@
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSSTS
 
 ## 2.32.0
 
