@@ -17,7 +17,7 @@
     <a title="AWSRekognitionAttribute Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSRekognition 2.31.0 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSRekognition 2.32.0 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSRekognition.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -335,6 +335,9 @@
                 <a href="../Classes/AWSRekognitionFaceMatch.html">AWSRekognitionFaceMatch</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionFaceOccluded.html">AWSRekognitionFaceOccluded</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionFaceRecord.html">AWSRekognitionFaceRecord</a>
               </li>
               <li class="nav-group-task">
@@ -365,6 +368,9 @@
                 <a href="../Classes/AWSRekognitionGetContentModerationRequest.html">AWSRekognitionGetContentModerationRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetContentModerationRequestMetadata.html">AWSRekognitionGetContentModerationRequestMetadata</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionGetContentModerationResponse.html">AWSRekognitionGetContentModerationResponse</a>
               </li>
               <li class="nav-group-task">
@@ -387,6 +393,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionGetLabelDetectionRequest.html">AWSRekognitionGetLabelDetectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetLabelDetectionRequestMetadata.html">AWSRekognitionGetLabelDetectionRequestMetadata</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionGetLabelDetectionResponse.html">AWSRekognitionGetLabelDetectionResponse</a>
@@ -828,6 +837,9 @@
                 <a href="../Enums/AWSRekognitionContentClassifier.html">AWSRekognitionContentClassifier</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionContentModerationAggregateBy.html">AWSRekognitionContentModerationAggregateBy</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSRekognitionContentModerationSortBy.html">AWSRekognitionContentModerationSortBy</a>
               </li>
               <li class="nav-group-task">
@@ -932,6 +944,17 @@
     <span class="n">AWSRekognitionAttributeUnknown</span><span class="p">,</span>
     <span class="n">AWSRekognitionAttributeDefault</span><span class="p">,</span>
     <span class="n">AWSRekognitionAttributeAll</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeAgeRange</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeBeard</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeEmotions</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeEyeglasses</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeEyesOpen</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeGender</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeMouthOpen</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeMustache</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeFaceOccluded</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeSmile</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeSunglasses</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                 </div>
@@ -1043,13 +1066,365 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeAgeRange"></a>
+                    <a name="//apple_ref/objc/Case/AWSRekognitionAttributeAgeRange" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeAgeRange">AWSRekognitionAttributeAgeRange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSRekognitionAttributeAgeRange</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">ageRange</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeBeard"></a>
+                    <a name="//apple_ref/objc/Case/AWSRekognitionAttributeBeard" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeBeard">AWSRekognitionAttributeBeard</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSRekognitionAttributeBeard</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">beard</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeEmotions"></a>
+                    <a name="//apple_ref/objc/Case/AWSRekognitionAttributeEmotions" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeEmotions">AWSRekognitionAttributeEmotions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSRekognitionAttributeEmotions</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">emotions</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeEyeglasses"></a>
+                    <a name="//apple_ref/objc/Case/AWSRekognitionAttributeEyeglasses" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeEyeglasses">AWSRekognitionAttributeEyeglasses</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSRekognitionAttributeEyeglasses</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">eyeglasses</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeEyesOpen"></a>
+                    <a name="//apple_ref/objc/Case/AWSRekognitionAttributeEyesOpen" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeEyesOpen">AWSRekognitionAttributeEyesOpen</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSRekognitionAttributeEyesOpen</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">eyesOpen</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeGender"></a>
+                    <a name="//apple_ref/objc/Case/AWSRekognitionAttributeGender" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeGender">AWSRekognitionAttributeGender</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSRekognitionAttributeGender</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">gender</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeMouthOpen"></a>
+                    <a name="//apple_ref/objc/Case/AWSRekognitionAttributeMouthOpen" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeMouthOpen">AWSRekognitionAttributeMouthOpen</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSRekognitionAttributeMouthOpen</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">mouthOpen</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeMustache"></a>
+                    <a name="//apple_ref/objc/Case/AWSRekognitionAttributeMustache" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeMustache">AWSRekognitionAttributeMustache</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSRekognitionAttributeMustache</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">mustache</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeFaceOccluded"></a>
+                    <a name="//apple_ref/objc/Case/AWSRekognitionAttributeFaceOccluded" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeFaceOccluded">AWSRekognitionAttributeFaceOccluded</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSRekognitionAttributeFaceOccluded</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">faceOccluded</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeSmile"></a>
+                    <a name="//apple_ref/objc/Case/AWSRekognitionAttributeSmile" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeSmile">AWSRekognitionAttributeSmile</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSRekognitionAttributeSmile</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">smile</span> <span class="o">=</span> <span class="mi">12</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeSunglasses"></a>
+                    <a name="//apple_ref/objc/Case/AWSRekognitionAttributeSunglasses" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSRekognitionAttribute@AWSRekognitionAttributeSunglasses">AWSRekognitionAttributeSunglasses</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSRekognitionAttributeSunglasses</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">sunglasses</span> <span class="o">=</span> <span class="mi">13</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-01)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-11)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>

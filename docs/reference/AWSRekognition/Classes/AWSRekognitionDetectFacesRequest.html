@@ -17,7 +17,7 @@
     <a title="AWSRekognitionDetectFacesRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSRekognition 2.31.0 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSRekognition 2.32.0 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSRekognition.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -335,6 +335,9 @@
                 <a href="../Classes/AWSRekognitionFaceMatch.html">AWSRekognitionFaceMatch</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionFaceOccluded.html">AWSRekognitionFaceOccluded</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionFaceRecord.html">AWSRekognitionFaceRecord</a>
               </li>
               <li class="nav-group-task">
@@ -365,6 +368,9 @@
                 <a href="../Classes/AWSRekognitionGetContentModerationRequest.html">AWSRekognitionGetContentModerationRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetContentModerationRequestMetadata.html">AWSRekognitionGetContentModerationRequestMetadata</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionGetContentModerationResponse.html">AWSRekognitionGetContentModerationResponse</a>
               </li>
               <li class="nav-group-task">
@@ -387,6 +393,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionGetLabelDetectionRequest.html">AWSRekognitionGetLabelDetectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetLabelDetectionRequestMetadata.html">AWSRekognitionGetLabelDetectionRequestMetadata</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionGetLabelDetectionResponse.html">AWSRekognitionGetLabelDetectionResponse</a>
@@ -828,6 +837,9 @@
                 <a href="../Enums/AWSRekognitionContentClassifier.html">AWSRekognitionContentClassifier</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionContentModerationAggregateBy.html">AWSRekognitionContentModerationAggregateBy</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSRekognitionContentModerationSortBy.html">AWSRekognitionContentModerationSortBy</a>
               </li>
               <li class="nav-group-task">
@@ -955,7 +967,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An array of facial attributes you want to be returned. This can be the default list of attributes or all attributes. If you don&rsquo;t specify a value for <code>Attributes</code> or if you specify <code>["DEFAULT"]</code>, the API returns the following subset of facial attributes: <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>, <code>Quality</code>, and <code>Landmarks</code>. If you provide <code>["ALL"]</code>, all facial attributes are returned, but the operation takes longer to complete.</p><p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND operator to determine which attributes to return (in this case, all attributes). </p>
+                        <p>An array of facial attributes you want to be returned. A <code>DEFAULT</code> subset of facial attributes - <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>, <code>Quality</code>, and <code>Landmarks</code> - will always be returned. You can request for specific facial attributes (in addition to the default list) - by using [<code>"DEFAULT", "FACE_OCCLUDED"</code>] or just [<code>"FACE_OCCLUDED"</code>]. You can request for all facial attributes by using [<code>"ALL"]</code>. Requesting more attributes may increase response time.</p><p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical &ldquo;AND&rdquo; operator to determine which attributes to return (in this case, all attributes). </p>
 
                       </div>
                       <div class="declaration">
@@ -1011,8 +1023,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-01)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-11)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>

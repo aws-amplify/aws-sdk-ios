@@ -17,7 +17,7 @@
     <a title="AWSRekognitionGetFaceSearchResponse Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSRekognition 2.31.0 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSRekognition 2.32.0 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSRekognition.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -335,6 +335,9 @@
                 <a href="../Classes/AWSRekognitionFaceMatch.html">AWSRekognitionFaceMatch</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionFaceOccluded.html">AWSRekognitionFaceOccluded</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionFaceRecord.html">AWSRekognitionFaceRecord</a>
               </li>
               <li class="nav-group-task">
@@ -365,6 +368,9 @@
                 <a href="../Classes/AWSRekognitionGetContentModerationRequest.html">AWSRekognitionGetContentModerationRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetContentModerationRequestMetadata.html">AWSRekognitionGetContentModerationRequestMetadata</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionGetContentModerationResponse.html">AWSRekognitionGetContentModerationResponse</a>
               </li>
               <li class="nav-group-task">
@@ -387,6 +393,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionGetLabelDetectionRequest.html">AWSRekognitionGetLabelDetectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetLabelDetectionRequestMetadata.html">AWSRekognitionGetLabelDetectionRequestMetadata</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionGetLabelDetectionResponse.html">AWSRekognitionGetLabelDetectionResponse</a>
@@ -828,6 +837,9 @@
                 <a href="../Enums/AWSRekognitionContentClassifier.html">AWSRekognitionContentClassifier</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionContentModerationAggregateBy.html">AWSRekognitionContentModerationAggregateBy</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSRekognitionContentModerationSortBy.html">AWSRekognitionContentModerationSortBy</a>
               </li>
               <li class="nav-group-task">
@@ -945,6 +957,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSRekognitionGetFaceSearchResponse(py)jobId"></a>
+                    <a name="//apple_ref/objc/Property/jobId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionGetFaceSearchResponse(py)jobId">jobId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Job identifier for the face search operation for which you want to obtain results. The job identifer is returned by an initial call to StartFaceSearch.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">jobId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">jobId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSRekognitionGetFaceSearchResponse(py)jobStatus"></a>
                     <a name="//apple_ref/objc/Property/jobStatus" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSRekognitionGetFaceSearchResponse(py)jobStatus">jobStatus</a>
@@ -968,6 +1012,38 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">jobStatus</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSRekognitionVideoJobStatus.html">AWSRekognitionVideoJobStatus</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionGetFaceSearchResponse(py)jobTag"></a>
+                    <a name="//apple_ref/objc/Property/jobTag" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionGetFaceSearchResponse(py)jobTag">jobTag</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A job identifier specified in the call to StartFaceSearch and returned in the job completion notification sent to your Amazon Simple Notification Service topic.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">jobTag</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">jobTag</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -1073,6 +1149,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSRekognitionGetFaceSearchResponse(py)video"></a>
+                    <a name="//apple_ref/objc/Property/video" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionGetFaceSearchResponse(py)video">video</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSRekognitionVideo.html">AWSRekognitionVideo</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">video</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">video</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionVideo.html">AWSRekognitionVideo</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSRekognitionGetFaceSearchResponse(py)videoMetadata"></a>
                     <a name="//apple_ref/objc/Property/videoMetadata" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSRekognitionGetFaceSearchResponse(py)videoMetadata">videoMetadata</a>
@@ -1107,8 +1215,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-01)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-11)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>

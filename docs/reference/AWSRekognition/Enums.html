@@ -17,7 +17,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSRekognition 2.31.0 Docs</a> (79% documented)</p>
+        <p><a href="index.html">AWSRekognition 2.32.0 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSRekognition.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -335,6 +335,9 @@
                 <a href="Classes/AWSRekognitionFaceMatch.html">AWSRekognitionFaceMatch</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionFaceOccluded.html">AWSRekognitionFaceOccluded</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionFaceRecord.html">AWSRekognitionFaceRecord</a>
               </li>
               <li class="nav-group-task">
@@ -365,6 +368,9 @@
                 <a href="Classes/AWSRekognitionGetContentModerationRequest.html">AWSRekognitionGetContentModerationRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionGetContentModerationRequestMetadata.html">AWSRekognitionGetContentModerationRequestMetadata</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionGetContentModerationResponse.html">AWSRekognitionGetContentModerationResponse</a>
               </li>
               <li class="nav-group-task">
@@ -387,6 +393,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionGetLabelDetectionRequest.html">AWSRekognitionGetLabelDetectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionGetLabelDetectionRequestMetadata.html">AWSRekognitionGetLabelDetectionRequestMetadata</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionGetLabelDetectionResponse.html">AWSRekognitionGetLabelDetectionResponse</a>
@@ -828,6 +837,9 @@
                 <a href="Enums/AWSRekognitionContentClassifier.html">AWSRekognitionContentClassifier</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSRekognitionContentModerationAggregateBy.html">AWSRekognitionContentModerationAggregateBy</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSRekognitionContentModerationSortBy.html">AWSRekognitionContentModerationSortBy</a>
               </li>
               <li class="nav-group-task">
@@ -1012,6 +1024,17 @@
     <span class="n">AWSRekognitionAttributeUnknown</span><span class="p">,</span>
     <span class="n">AWSRekognitionAttributeDefault</span><span class="p">,</span>
     <span class="n">AWSRekognitionAttributeAll</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeAgeRange</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeBeard</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeEmotions</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeEyeglasses</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeEyesOpen</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeGender</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeMouthOpen</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeMustache</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeFaceOccluded</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeSmile</span><span class="p">,</span>
+    <span class="n">AWSRekognitionAttributeSunglasses</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                         </div>
@@ -1131,6 +1154,43 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSRekognitionContentClassifier</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSRekognitionContentModerationAggregateBy"></a>
+                    <a name="//apple_ref/objc/Enum/AWSRekognitionContentModerationAggregateBy" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSRekognitionContentModerationAggregateBy">AWSRekognitionContentModerationAggregateBy</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSRekognitionContentModerationAggregateBy.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSRekognitionContentModerationAggregateBy</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSRekognitionContentModerationAggregateByUnknown</span><span class="p">,</span>
+    <span class="n">AWSRekognitionContentModerationAggregateByTimestamps</span><span class="p">,</span>
+    <span class="n">AWSRekognitionContentModerationAggregateBySegments</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSRekognitionContentModerationAggregateBy</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -2291,8 +2351,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-01)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-11)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>

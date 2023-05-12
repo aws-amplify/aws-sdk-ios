@@ -16,7 +16,7 @@
     <a title="AWSRekognition  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSRekognition 2.31.0 Docs</a> (79% documented)</p>
+        <p><a href="index.html">AWSRekognition 2.32.0 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSRekognition.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -334,6 +334,9 @@
                 <a href="Classes/AWSRekognitionFaceMatch.html">AWSRekognitionFaceMatch</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionFaceOccluded.html">AWSRekognitionFaceOccluded</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionFaceRecord.html">AWSRekognitionFaceRecord</a>
               </li>
               <li class="nav-group-task">
@@ -364,6 +367,9 @@
                 <a href="Classes/AWSRekognitionGetContentModerationRequest.html">AWSRekognitionGetContentModerationRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionGetContentModerationRequestMetadata.html">AWSRekognitionGetContentModerationRequestMetadata</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionGetContentModerationResponse.html">AWSRekognitionGetContentModerationResponse</a>
               </li>
               <li class="nav-group-task">
@@ -386,6 +392,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionGetLabelDetectionRequest.html">AWSRekognitionGetLabelDetectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionGetLabelDetectionRequestMetadata.html">AWSRekognitionGetLabelDetectionRequestMetadata</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionGetLabelDetectionResponse.html">AWSRekognitionGetLabelDetectionResponse</a>
@@ -827,6 +836,9 @@
                 <a href="Enums/AWSRekognitionContentClassifier.html">AWSRekognitionContentClassifier</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSRekognitionContentModerationAggregateBy.html">AWSRekognitionContentModerationAggregateBy</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSRekognitionContentModerationSortBy.html">AWSRekognitionContentModerationSortBy</a>
               </li>
               <li class="nav-group-task">
@@ -933,24 +945,14 @@
 <a href="https://discord.gg/jWVbPfC"><img src="https://img.shields.io/discord/308323056592486420?logo=discord" alt="Discord"></a> </p>
 
 <p>The AWS SDK for iOS provides a library and documentation for developers to build connected mobile applications using AWS.</p>
-<h3 id='features-apis' class='heading'>Features / APIs</h3>
 
-<ul>
-<li><a href="https://aws-amplify.github.io/docs/ios/authentication"><strong>Authentication</strong></a>: APIs and building blocks for developers who want to create user authentication experiences.<br></li>
-<li><a href="https://aws-amplify.github.io/docs/ios/analytics"><strong>Analytics</strong></a>: Easily collect analytics data for your app. Analytics data includes user sessions and other custom events that you want to track in your app.<br></li>
-<li><a href="https://aws-amplify.github.io/docs/ios/api"><strong>API</strong></a>: Provides a simple solution when making HTTP requests. It provides an automatic, lightweight signing process which complies with AWS Signature Version 4.</li>
-<li><a href="https://aws-amplify.github.io/docs/ios/storage"><strong>Storage</strong></a>: Provides a simple mechanism for managing user content for your app in public, protected or private storage buckets.<br></li>
-<li><a href="https://aws-amplify.github.io/docs/ios/push-notifications"><strong>Push Notifications</strong></a>: Allows you to integrate push notifications in your app with Amazon Pinpoint targeting and campaign management support.</li>
-<li><a href="https://aws-amplify.github.io/docs/ios/pubsub"><strong>PubSub</strong></a>: Provides connectivity with cloud-based message-oriented middleware.<br></li>
-<li><a href="https://aws-amplify.github.io/docs/ios/manualsetup"><strong>Generated AWS Service Interfaces</strong></a>: Provides direct interaction with any AWS service.</li>
-</ul>
-<h4 id='visit-our-a-href-https-aws-amplify-github-io-web-site-a-to-learn-more-about-amplify-framework' class='heading'>Visit our <a href="https://aws-amplify.github.io">Web Site</a> to learn more about Amplify Framework.</h4>
+<p>We recommend using the latest v2 version of AWS Amplify Library for Swift to quickly implement common app use cases like Authentication, Storage, Push Notifications and more that follow patterns idiomatic to Swift like async/await. </p>
 
-<ul>
-<li><a href="https://aws-amplify.github.io/docs">Documentation</a></li>
-<li><a href="#setup">Setup</a></li>
-<li><a href="https://github.com/awslabs/aws-sdk-ios-samples">Examples</a></li>
-</ul>
+<p>Note: v2 of Amplify Library for Swift (currently GA) is built on top of the <a href="https://github.com/awslabs/aws-sdk-swift">AWS SDK for Swift</a> and <em>only</em> provides access to the AWS SDK for Swift which is currently in developer preview. You can access this underlying SDK via the Escape Hatch from AWS Amplify. </p>
+
+<p>You can head to <a href="https://docs.amplify.aws/lib/auth/getting-started/q/platform/ios/">the Amplify Library for Swift documentation</a> to learn more about all the features. You can also use AWS Amplify with <a href="https://docs.amplify.aws/lib/project-setup/use-existing-resources/q/platform/ios/">your existing AWS cloud resources</a>. If you are unable to find features you are looking for in Amplify please open an issue in <a href="https://github.com/aws-amplify/amplify-swift/issues/new/choose">the Amplify Library for Swift GitHub repo</a> and we will be happy to consider you request.</p>
+
+<p>If you still wish to use the AWS SDK for iOS directly you can refer to <a href="https://docs.amplify.aws/sdk/q/platform/ios/">the AWS SDK Documentation here</a> and follow the setup instructions below. You can also look at sample apps in <a href="https://github.com/awslabs/aws-sdk-ios-samples">the AWS SDK for iOS Samples repo</a>.</p>
 <h2 id='setup' class='heading'>Setup</h2>
 
 <p>To get started with the AWS SDK for iOS, check out the <a href="https://aws-amplify.github.io/docs/ios/start">Developer Guide for iOS</a>. You can set up the SDK and start building a new project, or you integrate the SDK in an existing project. You can also run the samples to get a sense of how the SDK works.</p>
@@ -1350,8 +1352,8 @@ fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-01)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-11)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>
