@@ -1,19 +1,19 @@
 {
   "warnings": [
     {
-      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAuthSDK/Sources/AWSGoogleSignIn/AWSGoogleSignIn.h",
+      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSAuthSDK/Sources/AWSGoogleSignIn/AWSGoogleSignIn.h",
       "line": 19,
       "symbol": "AWSGoogleSignInVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSAuthSDK/Sources/AWSGoogleSignIn/AWSGoogleSignIn.h",
+      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSAuthSDK/Sources/AWSGoogleSignIn/AWSGoogleSignIn.h",
       "line": 22,
       "symbol": "AWSGoogleSignInVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/royji/work/iOS/aws-sdk-ios"
+  "source_directory": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios"
 }
