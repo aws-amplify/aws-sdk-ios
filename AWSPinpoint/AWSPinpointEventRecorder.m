@@ -1063,8 +1063,8 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
                                                               @"id" : eventID
                                                               }];
                             if (!result) {
-                                AWSDDLogError(@"SQLite error. [%@]", db.lastError);
-                                *error = db.lastError;
+                                *error = [db.lastError copy];
+                                AWSDDLogError(@"SQLite error. [%@]", *error);
                             }
                         }];
                     }
@@ -1080,8 +1080,8 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
                                                               @"id" : eventID
                                                               }];
                             if (!result) {
-                                AWSDDLogError(@"SQLite error. [%@]", db.lastError);
-                                *error = db.lastError;
+                                *error = [db.lastError copy];
+                                AWSDDLogError(@"SQLite error. [%@]", *error);
                             }
                         }];
                     }
@@ -1116,8 +1116,8 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
                                                           @"id" : eventID
                                                           }];
                         if (!result) {
-                            AWSDDLogError(@"SQLite error. [%@]", db.lastError);
-                            *error = db.lastError;
+                            *error = [db.lastError copy];
+                            AWSDDLogError(@"SQLite error. [%@]", *error);
                         }
                     }];
                 }
@@ -1129,8 +1129,8 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
                                                           @"id" : eventID
                                                           }];
                         if (!result) {
-                            AWSDDLogError(@"SQLite error. [%@]", db.lastError);
-                            *error = db.lastError;
+                            *error = [db.lastError copy];
+                            AWSDDLogError(@"SQLite error. [%@]", *error);
                         }
                     }];
                 }
@@ -1143,8 +1143,8 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
                                                           @"id" : eventID
                                                           }];
                         if (!result) {
-                            AWSDDLogError(@"SQLite error. [%@]", db.lastError);
-                            *error = db.lastError;
+                            *error = [db.lastError copy];
+                            AWSDDLogError(@"SQLite error. [%@]", *error);
                         }
                     }];
                 }
