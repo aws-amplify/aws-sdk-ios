@@ -17,7 +17,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSPinpoint 2.31.0 Docs</a> (90% documented)</p>
+        <p><a href="index.html">AWSPinpoint 2.32.0 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSPinpoint.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -764,6 +764,24 @@
                 <a href="Classes/AWSPinpointTargetingGetJourneyResponse.html">AWSPinpointTargetingGetJourneyResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsRequest.html">AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsResponse.html">AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSPinpointTargetingGetJourneyRunExecutionMetricsRequest.html">AWSPinpointTargetingGetJourneyRunExecutionMetricsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSPinpointTargetingGetJourneyRunExecutionMetricsResponse.html">AWSPinpointTargetingGetJourneyRunExecutionMetricsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSPinpointTargetingGetJourneyRunsRequest.html">AWSPinpointTargetingGetJourneyRunsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSPinpointTargetingGetJourneyRunsResponse.html">AWSPinpointTargetingGetJourneyRunsResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSPinpointTargetingGetPushTemplateRequest.html">AWSPinpointTargetingGetPushTemplateRequest</a>
               </li>
               <li class="nav-group-task">
@@ -921,6 +939,18 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSPinpointTargetingJourneyResponse.html">AWSPinpointTargetingJourneyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSPinpointTargetingJourneyRunExecutionActivityMetricsResponse.html">AWSPinpointTargetingJourneyRunExecutionActivityMetricsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSPinpointTargetingJourneyRunExecutionMetricsResponse.html">AWSPinpointTargetingJourneyRunExecutionMetricsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSPinpointTargetingJourneyRunResponse.html">AWSPinpointTargetingJourneyRunResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSPinpointTargetingJourneyRunsResponse.html">AWSPinpointTargetingJourneyRunsResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSPinpointTargetingJourneySMSMessage.html">AWSPinpointTargetingJourneySMSMessage</a>
@@ -1525,6 +1555,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSPinpointTargetingJobStatus.html">AWSPinpointTargetingJobStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSPinpointTargetingJourneyRunStatus.html">AWSPinpointTargetingJourneyRunStatus</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSPinpointTargetingLayout.html">AWSPinpointTargetingLayout</a>
@@ -2345,6 +2378,45 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSPinpointTargetingJourneyRunStatus"></a>
+                    <a name="//apple_ref/objc/Enum/AWSPinpointTargetingJourneyRunStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSPinpointTargetingJourneyRunStatus">AWSPinpointTargetingJourneyRunStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSPinpointTargetingJourneyRunStatus.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSPinpointTargetingJourneyRunStatus</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSPinpointTargetingJourneyRunStatusUnknown</span><span class="p">,</span>
+    <span class="n">AWSPinpointTargetingJourneyRunStatusScheduled</span><span class="p">,</span>
+    <span class="n">AWSPinpointTargetingJourneyRunStatusRunning</span><span class="p">,</span>
+    <span class="n">AWSPinpointTargetingJourneyRunStatusCompleted</span><span class="p">,</span>
+    <span class="n">AWSPinpointTargetingJourneyRunStatusCancelled</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSPinpointTargetingJourneyRunStatus</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSPinpointTargetingLayout"></a>
                     <a name="//apple_ref/objc/Enum/AWSPinpointTargetingLayout" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSPinpointTargetingLayout">AWSPinpointTargetingLayout</a>
@@ -2820,8 +2892,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-01)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-11)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>
