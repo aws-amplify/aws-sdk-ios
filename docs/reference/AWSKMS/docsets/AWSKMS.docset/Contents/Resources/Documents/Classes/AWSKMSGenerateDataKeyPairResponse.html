@@ -17,7 +17,7 @@
     <a title="AWSKMSGenerateDataKeyPairResponse Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSKMS 2.31.0 Docs</a> (68% documented)</p>
+        <p><a href="../index.html">AWSKMS 2.32.0 Docs</a> (68% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKMS.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -263,6 +263,9 @@
                 <a href="../Classes/AWSKMSReEncryptResponse.html">AWSKMSReEncryptResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSKMSRecipientInfo.html">AWSKMSRecipientInfo</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSKMSReplicateKeyRequest.html">AWSKMSReplicateKeyRequest</a>
               </li>
               <li class="nav-group-task">
@@ -390,6 +393,9 @@
                 <a href="../Enums/AWSKMSGrantOperation.html">AWSKMSGrantOperation</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSKMSKeyEncryptionMechanism.html">AWSKMSKeyEncryptionMechanism</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSKMSKeyManagerType.html">AWSKMSKeyManagerType</a>
               </li>
               <li class="nav-group-task">
@@ -447,6 +453,38 @@
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSGenerateDataKeyPairResponse(py)ciphertextForRecipient"></a>
+                    <a name="//apple_ref/objc/Property/ciphertextForRecipient" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSGenerateDataKeyPairResponse(py)ciphertextForRecipient">ciphertextForRecipient</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The plaintext private data key encrypted with the public key from the Nitro enclave. This ciphertext can be decrypted only by using a private key in the Nitro enclave. </p><p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSData</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">ciphertextForRecipient</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">ciphertextForRecipient</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -556,7 +594,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The plaintext copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+                        <p>The plaintext copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p><p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>PrivateKeyPlaintext</code> field is null or empty.</p>
 
                       </div>
                       <div class="declaration">
@@ -612,8 +650,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-01)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-11)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>

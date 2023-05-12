@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSKMSGenerateRandomResponse Class Reference</title>
+    <title>AWSKMSRecipientInfo Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSKMSGenerateRandomResponse" class="dashAnchor"></a>
-    <a title="AWSKMSGenerateRandomResponse Class Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSKMSRecipientInfo" class="dashAnchor"></a>
+    <a title="AWSKMSRecipientInfo Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSKMS 2.32.0 Docs</a> (68% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSKMS Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSKMSGenerateRandomResponse Class Reference
+        AWSKMSRecipientInfo Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -435,20 +435,21 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSKMSGenerateRandomResponse</h1>
+            <h1>AWSKMSRecipientInfo</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSKMSGenerateRandomResponse</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSKMSRecipientInfo</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSKMSGenerateRandomResponse</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSKMSRecipientInfo</span></code></pre>
 
                 </div>
               </div>
-            
+            <p>Contains information about the party that receives the response from the API operation.</p><p>This data type is designed to support Amazon Web Services Nitro Enclaves, which lets you create an isolated compute environment in Amazon EC2. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -456,9 +457,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSKMSGenerateRandomResponse(py)ciphertextForRecipient"></a>
-                    <a name="//apple_ref/objc/Property/ciphertextForRecipient" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSKMSGenerateRandomResponse(py)ciphertextForRecipient">ciphertextForRecipient</a>
+                    <a name="/c:objc(cs)AWSKMSRecipientInfo(py)attestationDocument"></a>
+                    <a name="//apple_ref/objc/Property/attestationDocument" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSRecipientInfo(py)attestationDocument">attestationDocument</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -466,19 +467,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The plaintext random bytes encrypted with the public key from the Nitro enclave. This ciphertext can be decrypted only by using a private key in the Nitro enclave. </p><p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+                        <p>The attestation document for an Amazon Web Services Nitro Enclave. This document includes the enclave&rsquo;s public key.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSData</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">ciphertextForRecipient</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSData</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">attestationDocument</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">ciphertextForRecipient</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">attestationDocument</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -488,9 +489,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSKMSGenerateRandomResponse(py)plaintext"></a>
-                    <a name="//apple_ref/objc/Property/plaintext" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSKMSGenerateRandomResponse(py)plaintext">plaintext</a>
+                    <a name="/c:objc(cs)AWSKMSRecipientInfo(py)keyEncryptionAlgorithm"></a>
+                    <a name="//apple_ref/objc/Property/keyEncryptionAlgorithm" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSRecipientInfo(py)keyEncryptionAlgorithm">keyEncryptionAlgorithm</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -498,19 +499,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The random byte string. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p><p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>Plaintext</code> field is null or empty.</p>
+                        <p>The encryption algorithm that KMS should use with the public key for an Amazon Web Services Nitro Enclave to encrypt plaintext values for the response. The only valid value is <code>RSAES_OAEP_SHA_256</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSData</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">plaintext</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSKMSKeyEncryptionMechanism.html">AWSKMSKeyEncryptionMechanism</a></span> <span class="n">keyEncryptionAlgorithm</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">plaintext</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">keyEncryptionAlgorithm</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSKMSKeyEncryptionMechanism.html">AWSKMSKeyEncryptionMechanism</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
