@@ -1,103 +1,103 @@
 {
   "warnings": [
     {
-      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorage.h",
+      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorage.h",
       "line": 28,
       "symbol": "AWSKinesisVideoWebRTCStorageVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorage.h",
+      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorage.h",
       "line": 39,
       "symbol": "AWSKinesisVideoWebRTCStorageVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageModel.h",
+      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageModel.h",
       "line": 22,
       "symbol": "AWSKinesisVideoWebRTCStorageErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageModel.h",
+      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageModel.h",
       "line": 24,
       "symbol": "AWSKinesisVideoWebRTCStorageErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageModel.h",
+      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageModel.h",
       "line": 24,
       "symbol": "AWSKinesisVideoWebRTCStorageErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageModel.h",
+      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageModel.h",
       "line": 25,
       "symbol": "AWSKinesisVideoWebRTCStorageErrorType.AWSKinesisVideoWebRTCStorageErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageModel.h",
+      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageModel.h",
       "line": 26,
       "symbol": "AWSKinesisVideoWebRTCStorageErrorType.AWSKinesisVideoWebRTCStorageErrorAccessDenied",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageModel.h",
+      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageModel.h",
       "line": 27,
       "symbol": "AWSKinesisVideoWebRTCStorageErrorType.AWSKinesisVideoWebRTCStorageErrorClientLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageModel.h",
+      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageModel.h",
       "line": 28,
       "symbol": "AWSKinesisVideoWebRTCStorageErrorType.AWSKinesisVideoWebRTCStorageErrorInvalidArgument",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageModel.h",
+      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageModel.h",
       "line": 29,
       "symbol": "AWSKinesisVideoWebRTCStorageErrorType.AWSKinesisVideoWebRTCStorageErrorResourceNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageResources.h",
+      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageResources.h",
       "line": 18,
       "symbol": "AWSKinesisVideoWebRTCStorageResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageResources.h",
+      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageResources.h",
       "line": 20,
       "symbol": "AWSKinesisVideoWebRTCStorageResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageResources.h",
+      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageResources.h",
       "line": 22,
       "symbol": "AWSKinesisVideoWebRTCStorageResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageService.h",
+      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorageService.h",
       "line": 24,
       "symbol": "AWSKinesisVideoWebRTCStorageSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/royji/work/iOS/aws-sdk-ios"
+  "source_directory": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios"
 }
