@@ -5,6 +5,7 @@
 ### Misc. Updates
 
 - Model updates for the following services
+  - AWSConnect
   - AWSSTS
 
 ## 2.32.0
