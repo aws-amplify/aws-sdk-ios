@@ -17,7 +17,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSEC2 2.31.0 Docs</a> (78% documented)</p>
+        <p><a href="index.html">AWSEC2 2.32.0 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -5580,6 +5580,9 @@
                 <a href="Enums/AWSEC2AllowsMultipleInstanceTypes.html">AWSEC2AllowsMultipleInstanceTypes</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSEC2AmdSevSnpSpecification.html">AWSEC2AmdSevSnpSpecification</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSEC2AnalysisStatus.html">AWSEC2AnalysisStatus</a>
               </li>
               <li class="nav-group-task">
@@ -6277,6 +6280,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSEC2SummaryStatus.html">AWSEC2SummaryStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSEC2SupportedAdditionalProcessorFeature.html">AWSEC2SupportedAdditionalProcessorFeature</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSEC2TargetCapacityUnitType.html">AWSEC2TargetCapacityUnitType</a>
@@ -7000,6 +7006,43 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSEC2AllowsMultipleInstanceTypes</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSEC2AmdSevSnpSpecification"></a>
+                    <a name="//apple_ref/objc/Enum/AWSEC2AmdSevSnpSpecification" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2AmdSevSnpSpecification">AWSEC2AmdSevSnpSpecification</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSEC2AmdSevSnpSpecification.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSEC2AmdSevSnpSpecification</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSEC2AmdSevSnpSpecificationUnknown</span><span class="p">,</span>
+    <span class="n">AWSEC2AmdSevSnpSpecificationEnabled</span><span class="p">,</span>
+    <span class="n">AWSEC2AmdSevSnpSpecificationDisabled</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSEC2AmdSevSnpSpecification</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -12224,6 +12267,11 @@
     <span class="n">AWSEC2InstanceTypeM6Idn_metal</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeR6In_metal</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeR6Idn_metal</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeINF2_xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeINF2_8xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeINF2_24xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeINF2_48xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeTRN1n_32xlarge</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                         </div>
@@ -16649,6 +16697,42 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSEC2SupportedAdditionalProcessorFeature"></a>
+                    <a name="//apple_ref/objc/Enum/AWSEC2SupportedAdditionalProcessorFeature" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2SupportedAdditionalProcessorFeature">AWSEC2SupportedAdditionalProcessorFeature</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSEC2SupportedAdditionalProcessorFeature.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSEC2SupportedAdditionalProcessorFeature</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSEC2SupportedAdditionalProcessorFeatureUnknown</span><span class="p">,</span>
+    <span class="n">AWSEC2SupportedAdditionalProcessorFeatureAmdSevSnp</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSEC2SupportedAdditionalProcessorFeature</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSEC2TargetCapacityUnitType"></a>
                     <a name="//apple_ref/objc/Enum/AWSEC2TargetCapacityUnitType" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSEC2TargetCapacityUnitType">AWSEC2TargetCapacityUnitType</a>
@@ -18964,8 +19048,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-01)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-11)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>

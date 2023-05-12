@@ -17,7 +17,7 @@
     <a title="AWSEC2RunInstancesRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSEC2 2.31.0 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSEC2 2.32.0 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -5580,6 +5580,9 @@
                 <a href="../Enums/AWSEC2AllowsMultipleInstanceTypes.html">AWSEC2AllowsMultipleInstanceTypes</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSEC2AmdSevSnpSpecification.html">AWSEC2AmdSevSnpSpecification</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSEC2AnalysisStatus.html">AWSEC2AnalysisStatus</a>
               </li>
               <li class="nav-group-task">
@@ -6277,6 +6280,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSEC2SummaryStatus.html">AWSEC2SummaryStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSEC2SupportedAdditionalProcessorFeature.html">AWSEC2SupportedAdditionalProcessorFeature</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSEC2TargetCapacityUnitType.html">AWSEC2TargetCapacityUnitType</a>
@@ -7104,7 +7110,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>[EC2-VPC] The number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you&rsquo;ve specified a minimum number of instances to launch.</p><p>You cannot specify this option and the network interfaces option in the same request.</p>
+                        <p>The number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you&rsquo;ve specified a minimum number of instances to launch.</p><p>You cannot specify this option and the network interfaces option in the same request.</p>
 
                       </div>
                       <div class="declaration">
@@ -7136,7 +7142,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>[EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you&rsquo;ve specified a minimum number of instances to launch.</p><p>You cannot specify this option and the network interfaces option in the same request.</p>
+                        <p>The IPv6 addresses from the range of the subnet to associate with the primary network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you&rsquo;ve specified a minimum number of instances to launch.</p><p>You cannot specify this option and the network interfaces option in the same request.</p>
 
                       </div>
                       <div class="declaration">
@@ -7552,7 +7558,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>[EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.</p><p>Only one private IP address can be designated as primary. You can&rsquo;t specify this option if you&rsquo;ve specified the option to designate a private IP address as the primary IP address in a network interface specification. You cannot specify this option if you&rsquo;re launching more than one instance in the request.</p><p>You cannot specify this option and the network interfaces option in the same request.</p>
+                        <p>The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.</p><p>Only one private IP address can be designated as primary. You can&rsquo;t specify this option if you&rsquo;ve specified the option to designate a private IP address as the primary IP address in a network interface specification. You cannot specify this option if you&rsquo;re launching more than one instance in the request.</p><p>You cannot specify this option and the network interfaces option in the same request.</p>
 
                       </div>
                       <div class="declaration">
@@ -7648,7 +7654,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>[EC2-Classic, default VPC] The names of the security groups.</p><p>If you specify a network interface, you must specify any security groups as part of the network interface.</p><p>Default: Amazon EC2 uses the default security group.</p>
+                        <p>[Default VPC] The names of the security groups.</p><p>If you specify a network interface, you must specify any security groups as part of the network interface.</p><p>Default: Amazon EC2 uses the default security group.</p>
 
                       </div>
                       <div class="declaration">
@@ -7680,7 +7686,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p><p>If you specify a network interface, you must specify any subnets as part of the network interface.</p>
+                        <p>The ID of the subnet to launch the instance into.</p><p>If you specify a network interface, you must specify any subnets as part of the network interface.</p>
 
                       </div>
                       <div class="declaration">
@@ -7768,8 +7774,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-01)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-11)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>
