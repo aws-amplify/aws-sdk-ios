@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -41,6 +41,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionErrorType) {
     AWSRekognitionErrorResourceNotFound,
     AWSRekognitionErrorResourceNotReady,
     AWSRekognitionErrorServiceQuotaExceeded,
+    AWSRekognitionErrorSessionNotFound,
     AWSRekognitionErrorThrottling,
     AWSRekognitionErrorVideoTooLarge,
 };
@@ -49,6 +50,17 @@ typedef NS_ENUM(NSInteger, AWSRekognitionAttribute) {
     AWSRekognitionAttributeUnknown,
     AWSRekognitionAttributeDefault,
     AWSRekognitionAttributeAll,
+    AWSRekognitionAttributeAgeRange,
+    AWSRekognitionAttributeBeard,
+    AWSRekognitionAttributeEmotions,
+    AWSRekognitionAttributeEyeglasses,
+    AWSRekognitionAttributeEyesOpen,
+    AWSRekognitionAttributeGender,
+    AWSRekognitionAttributeMouthOpen,
+    AWSRekognitionAttributeMustache,
+    AWSRekognitionAttributeFaceOccluded,
+    AWSRekognitionAttributeSmile,
+    AWSRekognitionAttributeSunglasses,
 };
 
 typedef NS_ENUM(NSInteger, AWSRekognitionBodyPart) {
@@ -69,6 +81,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionContentClassifier) {
     AWSRekognitionContentClassifierUnknown,
     AWSRekognitionContentClassifierFreeOfPersonallyIdentifiableInformation,
     AWSRekognitionContentClassifierFreeOfAdultContent,
+};
+
+typedef NS_ENUM(NSInteger, AWSRekognitionContentModerationAggregateBy) {
+    AWSRekognitionContentModerationAggregateByUnknown,
+    AWSRekognitionContentModerationAggregateByTimestamps,
+    AWSRekognitionContentModerationAggregateBySegments,
 };
 
 typedef NS_ENUM(NSInteger, AWSRekognitionContentModerationSortBy) {
@@ -196,6 +214,15 @@ typedef NS_ENUM(NSInteger, AWSRekognitionLandmarkType) {
     AWSRekognitionLandmarkTypeUpperJawlineRight,
 };
 
+typedef NS_ENUM(NSInteger, AWSRekognitionLivenessSessionStatus) {
+    AWSRekognitionLivenessSessionStatusUnknown,
+    AWSRekognitionLivenessSessionStatusCreated,
+    AWSRekognitionLivenessSessionStatusInProgress,
+    AWSRekognitionLivenessSessionStatusSucceeded,
+    AWSRekognitionLivenessSessionStatusFailed,
+    AWSRekognitionLivenessSessionStatusExpired,
+};
+
 typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
     AWSRekognitionOrientationCorrectionUnknown,
     AWSRekognitionOrientationCorrectionRotate0,
@@ -315,6 +342,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionAgeRange;
 @class AWSRekognitionAsset;
 @class AWSRekognitionAudioMetadata;
+@class AWSRekognitionAuditImage;
 @class AWSRekognitionBeard;
 @class AWSRekognitionBlackFrame;
 @class AWSRekognitionBoundingBox;
@@ -336,6 +364,9 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionCreateCollectionResponse;
 @class AWSRekognitionCreateDatasetRequest;
 @class AWSRekognitionCreateDatasetResponse;
+@class AWSRekognitionCreateFaceLivenessSessionRequest;
+@class AWSRekognitionCreateFaceLivenessSessionRequestSettings;
+@class AWSRekognitionCreateFaceLivenessSessionResponse;
 @class AWSRekognitionCreateProjectRequest;
 @class AWSRekognitionCreateProjectResponse;
 @class AWSRekognitionCreateProjectVersionRequest;
@@ -407,6 +438,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionFaceDetail;
 @class AWSRekognitionFaceDetection;
 @class AWSRekognitionFaceMatch;
+@class AWSRekognitionFaceOccluded;
 @class AWSRekognitionFaceRecord;
 @class AWSRekognitionFaceSearchSettings;
 @class AWSRekognitionGender;
@@ -417,12 +449,16 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionGetCelebrityRecognitionRequest;
 @class AWSRekognitionGetCelebrityRecognitionResponse;
 @class AWSRekognitionGetContentModerationRequest;
+@class AWSRekognitionGetContentModerationRequestMetadata;
 @class AWSRekognitionGetContentModerationResponse;
 @class AWSRekognitionGetFaceDetectionRequest;
 @class AWSRekognitionGetFaceDetectionResponse;
+@class AWSRekognitionGetFaceLivenessSessionResultsRequest;
+@class AWSRekognitionGetFaceLivenessSessionResultsResponse;
 @class AWSRekognitionGetFaceSearchRequest;
 @class AWSRekognitionGetFaceSearchResponse;
 @class AWSRekognitionGetLabelDetectionRequest;
+@class AWSRekognitionGetLabelDetectionRequestMetadata;
 @class AWSRekognitionGetLabelDetectionResponse;
 @class AWSRekognitionGetPersonTrackingRequest;
 @class AWSRekognitionGetPersonTrackingResponse;
@@ -463,6 +499,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionListStreamProcessorsResponse;
 @class AWSRekognitionListTagsForResourceRequest;
 @class AWSRekognitionListTagsForResourceResponse;
+@class AWSRekognitionLivenessOutputConfig;
 @class AWSRekognitionModerationLabel;
 @class AWSRekognitionMouthOpen;
 @class AWSRekognitionMustache;
@@ -611,6 +648,29 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>The sample rate for the audio stream.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable sampleRate;
+
+@end
+
+/**
+ <p>An image that is picked from the Face Liveness video and returned for audit trail purposes, returned as Base64-encoded bytes.</p>
+ */
+@interface AWSRekognitionAuditImage : AWSModel
+
+
+/**
+ <p>Identifies the bounding box around the label, face, text, object of interest, or personal protective equipment. The <code>left</code> (x-coordinate) and <code>top</code> (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0). </p><p>The <code>top</code> and <code>left</code> values returned are ratios of the overall image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of the bounding box is 350x50 pixels, the API returns a <code>left</code> value of 0.5 (350/700) and a <code>top</code> value of 0.25 (50/200).</p><p>The <code>width</code> and <code>height</code> values represent the dimensions of the bounding box as a ratio of the overall image dimension. For example, if the input image is 700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. </p><note><p> The bounding box coordinates can have negative values. For example, if Amazon Rekognition is able to detect a face that is at the image edge and is only partially visible, the service can return coordinates that are outside the image bounds and, depending on the image edge, you might get negative values or values greater than 1 for the <code>left</code> or <code>top</code> values. </p></note>
+ */
+@property (nonatomic, strong) AWSRekognitionBoundingBox * _Nullable boundingBox;
+
+/**
+ <p>The Base64-encoded bytes representing an image selected from the Face Liveness video and returned for audit purposes.</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable bytes;
+
+/**
+ <p>Provides the S3 bucket name and object name.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see How Amazon Rekognition works with IAM in the Amazon Rekognition Developer Guide. </p>
+ */
+@property (nonatomic, strong) AWSRekognitionS3Object * _Nullable s3Object;
 
 @end
 
@@ -961,9 +1021,24 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ <p> The time duration of a segment in milliseconds, I.e. time elapsed from StartTimestampMillis to EndTimestampMillis. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable durationMillis;
+
+/**
+ <p> The time in milliseconds defining the end of the timeline segment containing a continuously detected moderation label. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable endTimestampMillis;
+
+/**
  <p>The content moderation label detected by in the stored video.</p>
  */
 @property (nonatomic, strong) AWSRekognitionModerationLabel * _Nullable moderationLabel;
+
+/**
+ <p>The time in milliseconds defining the start of the timeline segment containing a continuously detected moderation label.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable startTimestampMillis;
 
 /**
  <p>Time, in milliseconds from the beginning of the video, that the content moderation label was detected. Note that <code>Timestamp</code> is not guaranteed to be accurate to the individual frame where the moderated content first appears.</p>
@@ -1120,6 +1195,60 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p> The ARN of the created Amazon Rekognition Custom Labels dataset. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable datasetArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionCreateFaceLivenessSessionRequest : AWSRequest
+
+
+/**
+ <p>Idempotent token is used to recognize the Face Liveness request. If the same token is used with multiple <code>CreateFaceLivenessSession</code> requests, the same session is returned. This token is employed to avoid unintentionally creating the same session multiple times.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientRequestToken;
+
+/**
+ <p> The identifier for your AWS Key Management Service key (AWS KMS key). Used to encrypt audit images and reference images.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kmsKeyId;
+
+/**
+ <p>A session settings object. It contains settings for the operation to be performed. For Face Liveness, it accepts <code>OutputConfig</code> and <code>AuditImagesLimit</code>.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionCreateFaceLivenessSessionRequestSettings * _Nullable settings;
+
+@end
+
+/**
+ <p>A session settings object. It contains settings for the operation to be performed. It accepts arguments for OutputConfig and AuditImagesLimit.</p>
+ */
+@interface AWSRekognitionCreateFaceLivenessSessionRequestSettings : AWSModel
+
+
+/**
+ <p>Number of audit images to be returned back. Takes an integer between 0-4. Any integer less than 0 will return 0, any integer above 4 will return 4 images in the response. By default, it is set to 0. The limit is best effort and is based on the actual duration of the selfie-video.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable auditImagesLimit;
+
+/**
+ <p>Can specify the location of an Amazon S3 bucket, where reference and audit images will be stored. Note that the Amazon S3 bucket must be located in the caller's AWS account and in the same region as the Face Liveness end-point. Additionally, the Amazon S3 object keys are auto-generated by the Face Liveness system. Requires that the caller has the <code>s3:PutObject</code> permission on the Amazon S3 bucket.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionLivenessOutputConfig * _Nullable outputConfig;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionCreateFaceLivenessSessionResponse : AWSModel
+
+
+/**
+ <p>A unique 128-bit UUID identifying a Face Liveness session.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sessionId;
 
 @end
 
@@ -1946,7 +2075,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>An array of facial attributes you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for <code>Attributes</code> or if you specify <code>["DEFAULT"]</code>, the API returns the following subset of facial attributes: <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>, <code>Quality</code>, and <code>Landmarks</code>. If you provide <code>["ALL"]</code>, all facial attributes are returned, but the operation takes longer to complete.</p><p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND operator to determine which attributes to return (in this case, all attributes). </p>
+ <p>An array of facial attributes you want to be returned. A <code>DEFAULT</code> subset of facial attributes - <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>, <code>Quality</code>, and <code>Landmarks</code> - will always be returned. You can request for specific facial attributes (in addition to the default list) - by using [<code>"DEFAULT", "FACE_OCCLUDED"</code>] or just [<code>"FACE_OCCLUDED"</code>]. You can request for all facial attributes by using [<code>"ALL"]</code>. Requesting more attributes may increase response time.</p><p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical "AND" operator to determine which attributes to return (in this case, all attributes). </p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable attributes;
 
@@ -2102,7 +2231,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable minConfidence;
 
 /**
- <p>A list of the filters to be applied to returned detected labels and image properties. Specified filters can be inclusive, exclusive, or a combination of both. Filters can be used for individual labels or label categories. The exact label names or label categories must be supplied. For a full list of labels and label categories, see LINK HERE.</p>
+ <p>A list of the filters to be applied to returned detected labels and image properties. Specified filters can be inclusive, exclusive, or a combination of both. Filters can be used for individual labels or label categories. The exact label names or label categories must be supplied. For a full list of labels and label categories, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels.html">Detecting labels</a>.</p>
  */
 @property (nonatomic, strong) AWSRekognitionDetectLabelsSettings * _Nullable settings;
 
@@ -2576,6 +2705,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) AWSRekognitionEyeOpen * _Nullable eyesOpen;
 
 /**
+ <p><code>FaceOccluded</code> should return "true" with a high confidence score if a detected face’s eyes, nose, and mouth are partially captured or if they are covered by masks, dark sunglasses, cell phones, hands, or other objects. <code>FaceOccluded</code> should return "false" with a high confidence score if common occurrences that do not impact face verification are detected, such as eye glasses, lightly tinted sunglasses, strands of hair, and others. </p>
+ */
+@property (nonatomic, strong) AWSRekognitionFaceOccluded * _Nullable faceOccluded;
+
+/**
  <p>The predicted gender of a detected face. </p>
  */
 @property (nonatomic, strong) AWSRekognitionGender * _Nullable gender;
@@ -2654,6 +2788,24 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ <p><code>FaceOccluded</code> should return "true" with a high confidence score if a detected face’s eyes, nose, and mouth are partially captured or if they are covered by masks, dark sunglasses, cell phones, hands, or other objects. <code>FaceOccluded</code> should return "false" with a high confidence score if common occurrences that do not impact face verification are detected, such as eye glasses, lightly tinted sunglasses, strands of hair, and others. </p><p>You can use <code>FaceOccluded</code> to determine if an obstruction on a face negatively impacts using the image for face matching.</p>
+ */
+@interface AWSRekognitionFaceOccluded : AWSModel
+
+
+/**
+ <p>The confidence that the service has detected the presence of a face occlusion.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
+
+/**
+ <p>True if a detected face’s eyes, nose, and mouth are partially captured or if they are covered by masks, dark sunglasses, cell phones, hands, or other objects. False if common occurrences that do not impact face verification are detected, such as eye glasses, lightly tinted sunglasses, strands of hair, and others.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable value;
+
+@end
+
+/**
  <p>Object containing both the face metadata (stored in the backend database), and facial attributes that are detected but aren't stored in the database.</p>
  */
 @interface AWSRekognitionFaceRecord : AWSModel
@@ -2708,7 +2860,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Contains filters for the object labels returned by DetectLabels. Filters can be inclusive, exclusive, or a combination of both and can be applied to individual l abels or entire label categories.</p>
+ <p>Contains filters for the object labels returned by DetectLabels. Filters can be inclusive, exclusive, or a combination of both and can be applied to individual labels or entire label categories. To see a list of label categories, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels.html">Detecting Labels</a>.</p>
  */
 @interface AWSRekognitionGeneralLabelsSettings : AWSModel
 
@@ -2829,9 +2981,19 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSArray<AWSRekognitionCelebrityRecognition *> * _Nullable celebrities;
 
 /**
+ <p>Job identifier for the celebrity recognition operation for which you want to obtain results. The job identifer is returned by an initial call to StartCelebrityRecognition.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
  <p>The current status of the celebrity recognition job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
+
+/**
+ <p>A job identifier specified in the call to StartCelebrityRecognition and returned in the job completion notification sent to your Amazon Simple Notification Service topic.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
  <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of celebrities.</p>
@@ -2842,6 +3004,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+/**
+ <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionVideo * _Nullable video;
 
 /**
  <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition Video operation.</p>
@@ -2855,6 +3022,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  */
 @interface AWSRekognitionGetContentModerationRequest : AWSRequest
 
+
+/**
+ <p>Defines how to aggregate results of the StartContentModeration request. Default aggregation option is TIMESTAMPS. SEGMENTS mode aggregates moderation labels over time.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionContentModerationAggregateBy aggregateBy;
 
 /**
  <p>The identifier for the inappropriate, unwanted, or offensive content moderation job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetContentModeration</code>.</p>
@@ -2879,15 +3051,48 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ <p>Contains metadata about a content moderation request, including the SortBy and AggregateBy options.</p>
+ */
+@interface AWSRekognitionGetContentModerationRequestMetadata : AWSModel
+
+
+/**
+ <p>The aggregation method chosen for a GetContentModeration request.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionContentModerationAggregateBy aggregateBy;
+
+/**
+ <p>The sorting method chosen for a GetContentModeration request.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionContentModerationSortBy sortBy;
+
+@end
+
+/**
  
  */
 @interface AWSRekognitionGetContentModerationResponse : AWSModel
 
 
 /**
+ <p>Information about the paramters used when getting a response. Includes information on aggregation and sorting methods.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionGetContentModerationRequestMetadata * _Nullable getRequestMetadata;
+
+/**
+ <p>Job identifier for the content moderation operation for which you want to obtain results. The job identifer is returned by an initial call to StartContentModeration.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
  <p>The current status of the content moderation analysis job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
+
+/**
+ <p>A job identifier specified in the call to StartContentModeration and returned in the job completion notification sent to your Amazon Simple Notification Service topic.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
  <p>The detected inappropriate, unwanted, or offensive content moderation labels and the time(s) they were detected.</p>
@@ -2908,6 +3113,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+/**
+ <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionVideo * _Nullable video;
 
 /**
  <p>Information about a video that Amazon Rekognition analyzed. <code>Videometadata</code> is returned in every page of paginated responses from <code>GetContentModeration</code>. </p>
@@ -2951,9 +3161,19 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSArray<AWSRekognitionFaceDetection *> * _Nullable faces;
 
 /**
+ <p>Job identifier for the face detection operation for which you want to obtain results. The job identifer is returned by an initial call to StartFaceDetection.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
  <p>The current status of the face detection job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
+
+/**
+ <p>A job identifier specified in the call to StartFaceDetection and returned in the job completion notification sent to your Amazon Simple Notification Service topic.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
  <p>If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces. </p>
@@ -2966,9 +3186,60 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
 
 /**
+ <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionVideo * _Nullable video;
+
+/**
  <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition video operation.</p>
  */
 @property (nonatomic, strong) AWSRekognitionVideoMetadata * _Nullable videoMetadata;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionGetFaceLivenessSessionResultsRequest : AWSRequest
+
+
+/**
+ <p>A unique 128-bit UUID. This is used to uniquely identify the session and also acts as an idempotency token for all operations associated with the session.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sessionId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionGetFaceLivenessSessionResultsResponse : AWSModel
+
+
+/**
+ <p>A set of images from the Face Liveness video that can be used for audit purposes. It includes a bounding box of the face and the Base64-encoded bytes that return an image. If the CreateFaceLivenessSession request included an OutputConfig argument, the image will be uploaded to an S3Object specified in the output configuration.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionAuditImage *> * _Nullable auditImages;
+
+/**
+ <p>Probabalistic confidence score for if the person in the given video was live, represented as a float value between 0 to 100.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
+
+/**
+ <p>A high-quality image from the Face Liveness video that can be used for face comparison or search. It includes a bounding box of the face and the Base64-encoded bytes that return an image. If the CreateFaceLivenessSession request included an OutputConfig argument, the image will be uploaded to an S3Object specified in the output configuration. In case the reference image is not returned, it's recommended to retry the Liveness check.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionAuditImage * _Nullable referenceImage;
+
+/**
+ <p>The sessionId for which this request was called.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sessionId;
+
+/**
+ <p>Represents a status corresponding to the state of the session. Possible statuses are: CREATED, IN_PROGRESS, SUCCEEDED, FAILED, EXPIRED.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionLivenessSessionStatus status;
 
 @end
 
@@ -3007,9 +3278,19 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ <p>Job identifier for the face search operation for which you want to obtain results. The job identifer is returned by an initial call to StartFaceSearch.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
  <p>The current status of the face search job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
+
+/**
+ <p>A job identifier specified in the call to StartFaceSearch and returned in the job completion notification sent to your Amazon Simple Notification Service topic.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
  <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of search results. </p>
@@ -3025,6 +3306,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+/**
+ <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionVideo * _Nullable video;
 
 /**
  <p>Information about a video that Amazon Rekognition analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition Video operation. </p>
@@ -3067,15 +3353,48 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ <p>Contains metadata about a label detection request, including the SortBy and AggregateBy options.</p>
+ */
+@interface AWSRekognitionGetLabelDetectionRequestMetadata : AWSModel
+
+
+/**
+ <p>The aggregation method chosen for a GetLabelDetection request.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionLabelDetectionAggregateBy aggregateBy;
+
+/**
+ <p>The sorting method chosen for a GetLabelDetection request.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionLabelDetectionSortBy sortBy;
+
+@end
+
+/**
  
  */
 @interface AWSRekognitionGetLabelDetectionResponse : AWSModel
 
 
 /**
+ <p>Information about the paramters used when getting a response. Includes information on aggregation and sorting methods.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionGetLabelDetectionRequestMetadata * _Nullable getRequestMetadata;
+
+/**
+ <p>Job identifier for the label detection operation for which you want to obtain results. The job identifer is returned by an initial call to StartLabelDetection.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
  <p>The current status of the label detection job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
+
+/**
+ <p>A job identifier specified in the call to StartLabelDetection and returned in the job completion notification sent to your Amazon Simple Notification Service topic.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
  <p>Version number of the label detection model that was used to detect labels.</p>
@@ -3096,6 +3415,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+/**
+ <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionVideo * _Nullable video;
 
 /**
  <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition video operation.</p>
@@ -3139,9 +3463,19 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ <p>Job identifier for the person tracking operation for which you want to obtain results. The job identifer is returned by an initial call to StartPersonTracking.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
  <p>The current status of the person tracking job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
+
+/**
+ <p>A job identifier specified in the call to StartCelebrityRecognition and returned in the job completion notification sent to your Amazon Simple Notification Service topic.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
  <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of persons. </p>
@@ -3157,6 +3491,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+/**
+ <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionVideo * _Nullable video;
 
 /**
  <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition Video operation.</p>
@@ -3200,9 +3539,19 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSArray<AWSRekognitionAudioMetadata *> * _Nullable audioMetadata;
 
 /**
+ <p>Job identifier for the segment detection operation for which you want to obtain results. The job identifer is returned by an initial call to StartSegmentDetection.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
  <p>Current status of the segment detection job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
+
+/**
+ <p>A job identifier specified in the call to StartSegmentDetection and returned in the job completion notification sent to your Amazon Simple Notification Service topic.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
  <p>If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of text.</p>
@@ -3223,6 +3572,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+/**
+ <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionVideo * _Nullable video;
 
 /**
  <p>Currently, Amazon Rekognition Video returns a single object in the <code>VideoMetadata</code> array. The object contains information about the video stream in the input file that Amazon Rekognition Video chose to analyze. The <code>VideoMetadata</code> object includes the video codec, video format and other information. Video metadata is returned in each page of information returned by <code>GetSegmentDetection</code>.</p>
@@ -3261,9 +3615,19 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ <p>Job identifier for the text detection operation for which you want to obtain results. The job identifer is returned by an initial call to StartTextDetection.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
  <p>Current status of the text detection job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
+
+/**
+ <p>A job identifier specified in the call to StartTextDetection and returned in the job completion notification sent to your Amazon Simple Notification Service topic.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
  <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of text.</p>
@@ -3284,6 +3648,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Version number of the text detection model that was used to detect text.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable textModelVersion;
+
+/**
+ <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionVideo * _Nullable video;
 
 /**
  <p>Information about a video that Amazon Rekognition analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition video operation.</p>
@@ -3372,7 +3741,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>Blob of image bytes up to 5 MBs.</p>
+ <p>Blob of image bytes up to 5 MBs. Note that the maximum image size you can pass to <code>DetectCustomLabels</code> is 4MB. </p>
  */
 @property (nonatomic, strong) NSData * _Nullable bytes;
 
@@ -3413,7 +3782,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable collectionId;
 
 /**
- <p>An array of facial attributes that you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for <code>Attributes</code> or if you specify <code>["DEFAULT"]</code>, the API returns the following subset of facial attributes: <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>, <code>Quality</code>, and <code>Landmarks</code>. If you provide <code>["ALL"]</code>, all facial attributes are returned, but the operation takes longer to complete.</p><p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND operator to determine which attributes to return (in this case, all attributes). </p>
+ <p>An array of facial attributes you want to be returned. A <code>DEFAULT</code> subset of facial attributes - <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>, <code>Quality</code>, and <code>Landmarks</code> - will always be returned. You can request for specific facial attributes (in addition to the default list) - by using <code>["DEFAULT", "FACE_OCCLUDED"]</code> or just <code>["FACE_OCCLUDED"]</code>. You can request for all facial attributes by using <code>["ALL"]</code>. Requesting more attributes may increase response time.</p><p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND operator to determine which attributes to return (in this case, all attributes). </p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable detectionAttributes;
 
@@ -3651,7 +4020,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>Contains filters for the object labels returned by DetectLabels. Filters can be inclusive, exclusive, or a combination of both and can be applied to individual l abels or entire label categories.</p>
+ <p>Contains filters for the object labels returned by DetectLabels. Filters can be inclusive, exclusive, or a combination of both and can be applied to individual labels or entire label categories. To see a list of label categories, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels.html">Detecting Labels</a>.</p>
  */
 @property (nonatomic, strong) AWSRekognitionGeneralLabelsSettings * _Nullable generalLabels;
 
@@ -3969,6 +4338,25 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p> A list of key-value tags assigned to the resource. </p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ <p>Contains settings that specify the location of an Amazon S3 bucket used to store the output of a Face Liveness session. Note that the S3 bucket must be located in the caller's AWS account and in the same region as the Face Liveness end-point. Additionally, the Amazon S3 object keys are auto-generated by the Face Liveness system. </p>
+ Required parameters: [S3Bucket]
+ */
+@interface AWSRekognitionLivenessOutputConfig : AWSModel
+
+
+/**
+ <p>The path to an AWS Amazon S3 bucket used to store Face Liveness session results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Bucket;
+
+/**
+ <p>The prefix prepended to the output files for the Face Liveness session results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3KeyPrefix;
 
 @end
 

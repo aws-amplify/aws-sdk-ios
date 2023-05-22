@@ -260,13 +260,13 @@ commands:
 
             if [ -n "$CIRCLE_TAG" ]; then
               echo 'Fetch tag'
-              git fetch --depth 1 --force origin "+refs/tags/${CIRCLE_TAG}:refs/tags/${CIRCLE_TAG}"
+              git fetch --depth 10 --force origin "+refs/tags/${CIRCLE_TAG}:refs/tags/${CIRCLE_TAG}"
             elif [[ $(echo $CIRCLE_PULL_REQUEST | grep -E "${CIRCLE_BRANCH}$") ]]; then
               echo 'Fetch pull request'
-              git fetch --depth 1 --force origin "$CIRCLE_BRANCH/head:remotes/origin/$CIRCLE_BRANCH"
+              git fetch --depth 10 --force origin "$CIRCLE_BRANCH/head:remotes/origin/$CIRCLE_BRANCH"
             else
               echo 'Fetch branch'
-              git fetch --depth 1 --force origin "$CIRCLE_BRANCH:remotes/origin/$CIRCLE_BRANCH"
+              git fetch --depth 10 --force origin "$CIRCLE_BRANCH:remotes/origin/$CIRCLE_BRANCH"
             fi
 
             echo "Checking out the CI HEAD"
@@ -496,6 +496,7 @@ jobs:
           name: Copy documents
           command: |
             git config --local user.name "AWS"
+            git fetch --depth 1 origin gh-pages
             git checkout gh-pages
             rm -rf docs/reference
             mv docs_tmp docs/reference
@@ -519,6 +520,7 @@ jobs:
           name: Add documentation tags to gh-pages
           command: |
             git config --local user.name "AWS"
+            git fetch --depth 1 origin gh-pages
             git checkout gh-pages
             git tag -a ${CIRCLE_TAG}_api_docs -m "Add documentation tags to version ${CIRCLE_TAG}"
             git push --tags -q https://${GITHUB_TOKEN}@github.com/aws-amplify/aws-sdk-ios.git
@@ -943,6 +945,16 @@ workflows:
       - unit_test:
           scheme: AWSKinesisVideoSignaling
           name: unit_test_AWSKinesisVideoSignaling
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSKinesisVideoWebRTCStorage
+          name: unit_test_AWSKinesisVideoWebRTCStorage
           requires:
             - build
             - build_test_host_apps

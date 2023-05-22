@@ -5,15 +5,60 @@
 ### Misc. Updates
 
 - Model updates for the following services
+  - AWSConnect
+  - AWSSTS
+
+## 2.32.0
+
+### New features
+- **AWSKinesisVideoWebRTCStorage**
+  - Adding new framework for Kinesis Video WebRTC Storage
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSSQS
+  - AWSEC2
+  - **Breaking Changes** to AWSChimeSDKMessaging
+  - AWSConnect
+  - AWSPinpoint
+  - AWSLambda
+  - AWSRekognition
+  - AWSIoT
+  - AWSKMS
+
+## 2.31.1
+
+### Bug Fixes
+- **AWSS3**
+  - Increase speed of foreground uploads by specifying `NetworkServiceType`   
+
+## 2.31.0
+
+### Bug Fixes
+
+- **AWSMobileClient**
+  - Handling AWSMobileClient state issues gracefully handled gracefully
+  
+- **AWSIot**
+  - Include the certificate tag in Keychain query to look up identity
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSAutoScaling
   - AWSComprehend
   - AWSConnect
   - AWSDynamoDB
   - AWSEC2  
   - AWSIoT
+  - AWSLambda
   - AWSLocation
   - AWSTranscribe
   - AWSChimeSDKIdentity
   - AWSChimeSDKMessaging
+  - AWSKinesisVideoWebRTCStorage
+  - AWSRekognition
   - AWSSageMakerRuntime
   - AWSTextract
   - AWSConnectParticipant

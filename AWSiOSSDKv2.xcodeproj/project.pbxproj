@@ -558,6 +558,24 @@
 		21C913272667CD4B00233AF9 /* AWSServiceConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C913262667CD4B00233AF9 /* AWSServiceConfigurationTests.swift */; };
 		21C9132A2667D70F00233AF9 /* MockCredentialsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C913292667D70F00233AF9 /* MockCredentialsProvider.swift */; };
 		21E97D472558DBFF004C98D6 /* AsynchronousOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E97D462558DBFF004C98D6 /* AsynchronousOperation.swift */; };
+		482E77B52A0C9BB600308343 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
+		482E77B62A0C9BD600308343 /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */; };
+		482E77B72A0C9BDE00308343 /* AWSNSSecureCodingTestBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1C57E42539E80C00DBC24C /* AWSNSSecureCodingTestBase.framework */; };
+		482E77B82A0C9C5D00308343 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
+		48885FC22A0C1F450012EEB7 /* AWSKinesisVideoWebRTCStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48885FBC2A0C1F440012EEB7 /* AWSKinesisVideoWebRTCStorage.framework */; };
+		48885FC32A0C1F450012EEB7 /* AWSKinesisVideoWebRTCStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 48885FBC2A0C1F440012EEB7 /* AWSKinesisVideoWebRTCStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		48885FCF2A0C1FB30012EEB7 /* AWSKinesisVideoWebRTCStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48885FBC2A0C1F440012EEB7 /* AWSKinesisVideoWebRTCStorage.framework */; };
+		48885FD52A0C1FFF0012EEB7 /* AWSGeneralKinesisVideoWebRTCStorageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 48885FAC2A0C1EF30012EEB7 /* AWSGeneralKinesisVideoWebRTCStorageTests.m */; };
+		48885FD62A0C1FFF0012EEB7 /* AWSKinesisVideoWebRTCStorageNSSecureCodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 48885FAD2A0C1EF30012EEB7 /* AWSKinesisVideoWebRTCStorageNSSecureCodingTests.m */; };
+		48885FD82A0C20170012EEB7 /* AWSKinesisVideoWebRTCStorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = 48885FB02A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48885FD92A0C20170012EEB7 /* AWSKinesisVideoWebRTCStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 48885FAF2A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48885FDA2A0C20170012EEB7 /* AWSKinesisVideoWebRTCStorageModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48885FB52A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48885FDB2A0C20170012EEB7 /* AWSKinesisVideoWebRTCStorageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48885FB12A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageModel.m */; };
+		48885FDC2A0C20170012EEB7 /* AWSKinesisVideoWebRTCStorageResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 48885FB62A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageResources.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48885FDD2A0C20170012EEB7 /* AWSKinesisVideoWebRTCStorageResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 48885FB22A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageResources.m */; };
+		48885FDE2A0C20170012EEB7 /* AWSKinesisVideoWebRTCStorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 48885FB32A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageService.m */; };
+		48885FDF2A0C20D50012EEB7 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
+		48E234A12A0CA1CB00E46DFB /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		5C1590172755727C00F88085 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
 		5C1978DD2702364800F9C11E /* AWSLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1978DC2702364800F9C11E /* AWSLocationTests.swift */; };
 		5C71F33F295672B8001183A4 /* guten_tag.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5C71F33E295672B8001183A4 /* guten_tag.wav */; };
@@ -1643,6 +1661,20 @@
 			remoteGlobalIDString = 211FFC7C26C2FBAC00F0DB75;
 			remoteInfo = AWSChimeSDKIdentity;
 		};
+		48885FC02A0C1F450012EEB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 48885FBB2A0C1F440012EEB7;
+			remoteInfo = AWSKinesisVideoWebRTCStorage;
+		};
+		48885FD02A0C1FB30012EEB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 48885FBB2A0C1F440012EEB7;
+			remoteInfo = AWSKinesisVideoWebRTCStorage;
+		};
 		5C1590192755727C00F88085 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
@@ -2725,6 +2757,7 @@
 			files = (
 				211FFC9326C2FBAE00F0DB75 /* AWSChimeSDKIdentity.framework in Embed Frameworks */,
 				2109E2CF254745210057043C /* AWSLocation.framework in Embed Frameworks */,
+				48885FC32A0C1F450012EEB7 /* AWSKinesisVideoWebRTCStorage.framework in Embed Frameworks */,
 				211FFCB526C2FF4700F0DB75 /* AWSChimeSDKMessaging.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -3089,6 +3122,18 @@
 		21C913262667CD4B00233AF9 /* AWSServiceConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSServiceConfigurationTests.swift; sourceTree = "<group>"; };
 		21C913292667D70F00233AF9 /* MockCredentialsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCredentialsProvider.swift; sourceTree = "<group>"; };
 		21E97D462558DBFF004C98D6 /* AsynchronousOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynchronousOperation.swift; sourceTree = "<group>"; };
+		48885FAC2A0C1EF30012EEB7 /* AWSGeneralKinesisVideoWebRTCStorageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralKinesisVideoWebRTCStorageTests.m; sourceTree = "<group>"; };
+		48885FAD2A0C1EF30012EEB7 /* AWSKinesisVideoWebRTCStorageNSSecureCodingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSKinesisVideoWebRTCStorageNSSecureCodingTests.m; sourceTree = "<group>"; };
+		48885FAF2A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSKinesisVideoWebRTCStorage.h; sourceTree = "<group>"; };
+		48885FB02A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSKinesisVideoWebRTCStorageService.h; sourceTree = "<group>"; };
+		48885FB12A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSKinesisVideoWebRTCStorageModel.m; sourceTree = "<group>"; };
+		48885FB22A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageResources.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSKinesisVideoWebRTCStorageResources.m; sourceTree = "<group>"; };
+		48885FB32A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSKinesisVideoWebRTCStorageService.m; sourceTree = "<group>"; };
+		48885FB42A0C1F170012EEB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48885FB52A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSKinesisVideoWebRTCStorageModel.h; sourceTree = "<group>"; };
+		48885FB62A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageResources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSKinesisVideoWebRTCStorageResources.h; sourceTree = "<group>"; };
+		48885FBC2A0C1F440012EEB7 /* AWSKinesisVideoWebRTCStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSKinesisVideoWebRTCStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48885FCB2A0C1FB30012EEB7 /* AWSKinesisVideoWebRTCStorageUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSKinesisVideoWebRTCStorageUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C1978DB2702364800F9C11E /* AWSLocationTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSLocationTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5C1978DC2702364800F9C11E /* AWSLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSLocationTests.swift; sourceTree = "<group>"; };
 		5C71F33E295672B8001183A4 /* guten_tag.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = guten_tag.wav; sourceTree = "<group>"; };
@@ -4018,6 +4063,7 @@
 			files = (
 				211FFC9226C2FBAE00F0DB75 /* AWSChimeSDKIdentity.framework in Frameworks */,
 				2109E2CE254745210057043C /* AWSLocation.framework in Frameworks */,
+				48885FC22A0C1F450012EEB7 /* AWSKinesisVideoWebRTCStorage.framework in Frameworks */,
 				211FFCB426C2FF4700F0DB75 /* AWSChimeSDKMessaging.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4282,6 +4328,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				21863B392602660A0070CD1B /* AWSCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48885FB92A0C1F440012EEB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48885FDF2A0C20D50012EEB7 /* AWSCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48885FC82A0C1FB30012EEB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				482E77B72A0C9BDE00308343 /* AWSNSSecureCodingTestBase.framework in Frameworks */,
+				482E77B62A0C9BD600308343 /* AWSTestResources.framework in Frameworks */,
+				482E77B52A0C9BB600308343 /* AWSCore.framework in Frameworks */,
+				482E77B82A0C9C5D00308343 /* libOCMock.a in Frameworks */,
+				48885FCF2A0C1FB30012EEB7 /* AWSKinesisVideoWebRTCStorage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5823,6 +5889,30 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		48885FAB2A0C1EF30012EEB7 /* AWSKinesisVideoWebRTCStorageUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				48885FAC2A0C1EF30012EEB7 /* AWSGeneralKinesisVideoWebRTCStorageTests.m */,
+				48885FAD2A0C1EF30012EEB7 /* AWSKinesisVideoWebRTCStorageNSSecureCodingTests.m */,
+			);
+			path = AWSKinesisVideoWebRTCStorageUnitTests;
+			sourceTree = "<group>";
+		};
+		48885FAE2A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorage */ = {
+			isa = PBXGroup;
+			children = (
+				48885FAF2A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorage.h */,
+				48885FB02A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageService.h */,
+				48885FB12A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageModel.m */,
+				48885FB22A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageResources.m */,
+				48885FB32A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageService.m */,
+				48885FB42A0C1F170012EEB7 /* Info.plist */,
+				48885FB52A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageModel.h */,
+				48885FB62A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageResources.h */,
+			);
+			path = AWSKinesisVideoWebRTCStorage;
+			sourceTree = "<group>";
+		};
 		9A7ACC2120B0E85000DDBEC1 /* AWSTranslate */ = {
 			isa = PBXGroup;
 			children = (
@@ -6047,6 +6137,8 @@
 		CE0D41531C6A66A9006B91B5 = {
 			isa = PBXGroup;
 			children = (
+				48885FAE2A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorage */,
+				48885FAB2A0C1EF30012EEB7 /* AWSKinesisVideoWebRTCStorageUnitTests */,
 				CE6983C11CEE52D40092640F /* AWSAllTests */,
 				181154771E201403008F184C /* AWSAllTestsHost */,
 				CE9DEB1F1C6A81160060793F /* AWSAPIGateway */,
@@ -6294,6 +6386,8 @@
 				211FFCA726C2FF4700F0DB75 /* AWSChimeSDKMessagingTests.xctest */,
 				211FFCDE26C3069900F0DB75 /* AWSChimeSDKMessagingUnitTests.xctest */,
 				211FFCED26C306E000F0DB75 /* AWSChimeSDKIdentityUnitTests.xctest */,
+				48885FBC2A0C1F440012EEB7 /* AWSKinesisVideoWebRTCStorage.framework */,
+				48885FCB2A0C1FB30012EEB7 /* AWSKinesisVideoWebRTCStorageUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -7954,6 +8048,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		48885FB72A0C1F440012EEB7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48885FDC2A0C20170012EEB7 /* AWSKinesisVideoWebRTCStorageResources.h in Headers */,
+				48885FDA2A0C20170012EEB7 /* AWSKinesisVideoWebRTCStorageModel.h in Headers */,
+				48885FD92A0C20170012EEB7 /* AWSKinesisVideoWebRTCStorage.h in Headers */,
+				48885FD82A0C20170012EEB7 /* AWSKinesisVideoWebRTCStorageService.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9A7ACC1D20B0E85000DDBEC1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -8606,6 +8711,7 @@
 				2109E2CD254745210057043C /* PBXTargetDependency */,
 				211FFC9126C2FBAE00F0DB75 /* PBXTargetDependency */,
 				211FFCB326C2FF4700F0DB75 /* PBXTargetDependency */,
+				48885FC12A0C1F450012EEB7 /* PBXTargetDependency */,
 			);
 			name = AWSAllTestsHost;
 			productName = AWSAllTestsHost;
@@ -9074,6 +9180,42 @@
 			productName = AWSLocation;
 			productReference = 21863B3E2602660A0070CD1B /* AWSLocationXCF.framework */;
 			productType = "com.apple.product-type.framework";
+		};
+		48885FBB2A0C1F440012EEB7 /* AWSKinesisVideoWebRTCStorage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48885FC42A0C1F450012EEB7 /* Build configuration list for PBXNativeTarget "AWSKinesisVideoWebRTCStorage" */;
+			buildPhases = (
+				48885FB72A0C1F440012EEB7 /* Headers */,
+				48885FB82A0C1F440012EEB7 /* Sources */,
+				48885FB92A0C1F440012EEB7 /* Frameworks */,
+				48885FBA2A0C1F440012EEB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AWSKinesisVideoWebRTCStorage;
+			productName = AWSKinesisVideoWebRTCStorage;
+			productReference = 48885FBC2A0C1F440012EEB7 /* AWSKinesisVideoWebRTCStorage.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		48885FCA2A0C1FB30012EEB7 /* AWSKinesisVideoWebRTCStorageUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48885FD22A0C1FB30012EEB7 /* Build configuration list for PBXNativeTarget "AWSKinesisVideoWebRTCStorageUnitTests" */;
+			buildPhases = (
+				48885FC72A0C1FB30012EEB7 /* Sources */,
+				48885FC82A0C1FB30012EEB7 /* Frameworks */,
+				48885FC92A0C1FB30012EEB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				48885FD12A0C1FB30012EEB7 /* PBXTargetDependency */,
+			);
+			name = AWSKinesisVideoWebRTCStorageUnitTests;
+			productName = AWSKinesisVideoWebRTCStorageUnitTests;
+			productReference = 48885FCB2A0C1FB30012EEB7 /* AWSKinesisVideoWebRTCStorageUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		9A7ACC1F20B0E85000DDBEC1 /* AWSTranslate */ = {
 			isa = PBXNativeTarget;
@@ -10497,7 +10639,7 @@
 		CE0D41541C6A66A9006B91B5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1300;
 				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {
@@ -10655,6 +10797,15 @@
 						ProvisioningStyle = Automatic;
 					};
 					21863B1E2602660A0070CD1B = {
+						ProvisioningStyle = Automatic;
+					};
+					48885FBB2A0C1F440012EEB7 = {
+						CreatedOnToolsVersion = 14.3;
+						ProvisioningStyle = Manual;
+					};
+					48885FCA2A0C1FB30012EEB7 = {
+						CreatedOnToolsVersion = 14.3;
+						DevelopmentTeam = 94KV3E626L;
 						ProvisioningStyle = Automatic;
 					};
 					9A7ACC1F20B0E85000DDBEC1 = {
@@ -11081,6 +11232,8 @@
 				211FFC9E26C2FF4600F0DB75 /* AWSChimeSDKMessaging */,
 				211FFCA626C2FF4700F0DB75 /* AWSChimeSDKMessagingTests */,
 				211FFCDD26C3069900F0DB75 /* AWSChimeSDKMessagingUnitTests */,
+				48885FBB2A0C1F440012EEB7 /* AWSKinesisVideoWebRTCStorage */,
+				48885FCA2A0C1FB30012EEB7 /* AWSKinesisVideoWebRTCStorageUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -11354,6 +11507,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		21863B3A2602660A0070CD1B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48885FBA2A0C1F440012EEB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48885FC92A0C1FB30012EEB7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -12419,6 +12586,26 @@
 				21863B352602660A0070CD1B /* AtomicValue+RangeReplaceableCollection.swift in Sources */,
 				21863B362602660A0070CD1B /* RepeatingTimer.swift in Sources */,
 				21863B372602660A0070CD1B /* AWSLocationTracker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48885FB82A0C1F440012EEB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48885FDB2A0C20170012EEB7 /* AWSKinesisVideoWebRTCStorageModel.m in Sources */,
+				48885FDE2A0C20170012EEB7 /* AWSKinesisVideoWebRTCStorageService.m in Sources */,
+				48885FDD2A0C20170012EEB7 /* AWSKinesisVideoWebRTCStorageResources.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48885FC72A0C1FB30012EEB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48E234A12A0CA1CB00E46DFB /* AWSTestUtility.m in Sources */,
+				48885FD52A0C1FFF0012EEB7 /* AWSGeneralKinesisVideoWebRTCStorageTests.m in Sources */,
+				48885FD62A0C1FFF0012EEB7 /* AWSKinesisVideoWebRTCStorageNSSecureCodingTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -13492,6 +13679,16 @@
 			isa = PBXTargetDependency;
 			target = 211FFC7C26C2FBAC00F0DB75 /* AWSChimeSDKIdentity */;
 			targetProxy = 211FFCF326C306E000F0DB75 /* PBXContainerItemProxy */;
+		};
+		48885FC12A0C1F450012EEB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 48885FBB2A0C1F440012EEB7 /* AWSKinesisVideoWebRTCStorage */;
+			targetProxy = 48885FC02A0C1F450012EEB7 /* PBXContainerItemProxy */;
+		};
+		48885FD12A0C1FB30012EEB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 48885FBB2A0C1F440012EEB7 /* AWSKinesisVideoWebRTCStorage */;
+			targetProxy = 48885FD02A0C1FB30012EEB7 /* PBXContainerItemProxy */;
 		};
 		5C15901A2755727C00F88085 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -16059,6 +16256,149 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		48885FC52A0C1F450012EEB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = AWSKinesisVideoWebRTCStorage/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Amazon Web Services. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSKinesisVideoWebRTCStorage;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		48885FC62A0C1F450012EEB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = AWSKinesisVideoWebRTCStorage/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Amazon Web Services. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSKinesisVideoWebRTCStorage;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		48885FD32A0C1FB30012EEB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 94KV3E626L;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSKinesisVideoWebRTCStorageUnitTests.AWSKinesisVideoWebRTCStorageUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		48885FD42A0C1FB30012EEB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 94KV3E626L;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSKinesisVideoWebRTCStorageUnitTests.AWSKinesisVideoWebRTCStorageUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -19720,6 +20060,24 @@
 			buildConfigurations = (
 				21863B3C2602660A0070CD1B /* Debug */,
 				21863B3D2602660A0070CD1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		48885FC42A0C1F450012EEB7 /* Build configuration list for PBXNativeTarget "AWSKinesisVideoWebRTCStorage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48885FC52A0C1F450012EEB7 /* Debug */,
+				48885FC62A0C1F450012EEB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		48885FD22A0C1FB30012EEB7 /* Build configuration list for PBXNativeTarget "AWSKinesisVideoWebRTCStorageUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48885FD32A0C1FB30012EEB7 /* Debug */,
+				48885FD42A0C1FB30012EEB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

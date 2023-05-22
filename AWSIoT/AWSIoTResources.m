@@ -65,7 +65,7 @@
     \"serviceFullName\":\"AWS IoT\",\
     \"serviceId\":\"IoT\",\
     \"signatureVersion\":\"v4\",\
-    \"signingName\":\"execute-api\",\
+    \"signingName\":\"iot\",\
     \"uid\":\"iot-2015-05-28\"\
   },\
   \"operations\":{\
@@ -6662,6 +6662,10 @@
         \"tags\":{\
           \"shape\":\"TagList\",\
           \"documentation\":\"<p>Metadata which can be used to manage the domain configuration.</p> <note> <p>For URI Request parameters use format: ...key1=value1&amp;key2=value2...</p> <p>For the CLI command-line parameter use format: &amp;&amp;tags \\\"key1=value1&amp;key2=value2...\\\"</p> <p>For the cli-input-json file use format: \\\"tags\\\": \\\"key1=value1&amp;key2=value2...\\\"</p> </note>\"\
+        },\
+        \"tlsConfig\":{\
+          \"shape\":\"TlsConfig\",\
+          \"documentation\":\"<p>An object that specifies the TLS configuration for a domain.</p>\"\
         }\
       }\
     },\
@@ -6828,7 +6832,7 @@
         },\
         \"documentSource\":{\
           \"shape\":\"JobDocumentSource\",\
-          \"documentation\":\"<p>An S3 link to the job document. Required if you don't specify a value for <code>document</code>.</p> <note> <p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p> <p>The placeholder link is of the following form:</p> <p> <code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code> </p> <p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p> </note>\"\
+          \"documentation\":\"<p>An S3 link, or S3 object URL, to the job document. The link is an Amazon S3 object URL and is required if you don't specify a value for <code>document</code>.</p> <p>For example, <code>--document-source https://s3.<i>region-code</i>.amazonaws.com/example-firmware/device-firmware.1.0</code>.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html\\\">Methods for accessing a bucket</a>.</p>\"\
         },\
         \"document\":{\
           \"shape\":\"JobDocument\",\
@@ -8888,6 +8892,10 @@
         \"lastStatusChangeDate\":{\
           \"shape\":\"DateType\",\
           \"documentation\":\"<p>The date and time the domain configuration's status was last changed.</p>\"\
+        },\
+        \"tlsConfig\":{\
+          \"shape\":\"TlsConfig\",\
+          \"documentation\":\"<p>An object that specifies the TLS configuration for a domain.</p>\"\
         }\
       }\
     },\
@@ -15056,7 +15064,6 @@
     \"OTAUpdateFiles\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"OTAUpdateFile\"},\
-      \"max\":50,\
       \"min\":1\
     },\
     \"OTAUpdateId\":{\
@@ -15141,7 +15148,9 @@
         \"CREATE_PENDING\",\
         \"CREATE_IN_PROGRESS\",\
         \"CREATE_COMPLETE\",\
-        \"CREATE_FAILED\"\
+        \"CREATE_FAILED\",\
+        \"DELETE_IN_PROGRESS\",\
+        \"DELETE_FAILED\"\
       ]\
     },\
     \"OTAUpdateSummary\":{\
@@ -15419,7 +15428,7 @@
       \"members\":{\
         \"roleArn\":{\
           \"shape\":\"RoleArn\",\
-          \"documentation\":\"<p>The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job data/updates are stored. The role must also grant permission for IoT to download the files.</p> <important> <p>For information about addressing the confused deputy problem, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html\\\">cross-service confused deputy prevention</a> in the <i>Amazon Web Services IoT Core developer guide</i>.</p> </important>\"\
+          \"documentation\":\"<p>The ARN of an IAM role that grants permission to download files from the S3 bucket where the job data/updates are stored. The role must also grant permission for IoT to download the files.</p> <important> <p>For information about addressing the confused deputy problem, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html\\\">cross-service confused deputy prevention</a> in the <i>Amazon Web Services IoT Core developer guide</i>.</p> </important>\"\
         },\
         \"expiresInSec\":{\
           \"shape\":\"ExpiresInSec\",\
@@ -16500,6 +16509,11 @@
     \"SecurityGroupList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"SecurityGroupId\"}\
+    },\
+    \"SecurityPolicy\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"pattern\":\"[\\\\s\\\\S]*\"\
     },\
     \"SecurityProfileArn\":{\"type\":\"string\"},\
     \"SecurityProfileDescription\":{\
@@ -18011,6 +18025,16 @@
       \"max\":10,\
       \"min\":1\
     },\
+    \"TlsConfig\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"securityPolicy\":{\
+          \"shape\":\"SecurityPolicy\",\
+          \"documentation\":\"<p>The security policy for a domain configuration. For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html#tls-policy-table\\\">Security policies </a> in the <i>Amazon Web Services IoT Core developer guide</i>.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>An object that specifies the TLS configuration for a domain.</p>\"\
+    },\
     \"TlsContext\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -18698,6 +18722,10 @@
         \"removeAuthorizerConfig\":{\
           \"shape\":\"RemoveAuthorizerConfig\",\
           \"documentation\":\"<p>Removes the authorization configuration from a domain.</p>\"\
+        },\
+        \"tlsConfig\":{\
+          \"shape\":\"TlsConfig\",\
+          \"documentation\":\"<p>An object that specifies the TLS configuration for a domain.</p>\"\
         }\
       }\
     },\

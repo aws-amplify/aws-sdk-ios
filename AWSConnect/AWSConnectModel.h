@@ -67,6 +67,12 @@ typedef NS_ENUM(NSInteger, AWSConnectAgentStatusType) {
     AWSConnectAgentStatusTypeOffline,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectBehaviorType) {
+    AWSConnectBehaviorTypeUnknown,
+    AWSConnectBehaviorTypeRouteCurrentChannelOnly,
+    AWSConnectBehaviorTypeRouteAnyChannel,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectChannel) {
     AWSConnectChannelUnknown,
     AWSConnectChannelVoice,
@@ -164,6 +170,43 @@ typedef NS_ENUM(NSInteger, AWSConnectEncryptionType) {
     AWSConnectEncryptionTypeKms,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectEvaluationFormQuestionType) {
+    AWSConnectEvaluationFormQuestionTypeUnknown,
+    AWSConnectEvaluationFormQuestionTypeText,
+    AWSConnectEvaluationFormQuestionTypeSingleselect,
+    AWSConnectEvaluationFormQuestionTypeNumeric,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectEvaluationFormScoringMode) {
+    AWSConnectEvaluationFormScoringModeUnknown,
+    AWSConnectEvaluationFormScoringModeQuestionOnly,
+    AWSConnectEvaluationFormScoringModeSectionOnly,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectEvaluationFormScoringStatus) {
+    AWSConnectEvaluationFormScoringStatusUnknown,
+    AWSConnectEvaluationFormScoringStatusEnabled,
+    AWSConnectEvaluationFormScoringStatusDisabled,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectEvaluationFormSingleSelectQuestionDisplayMode) {
+    AWSConnectEvaluationFormSingleSelectQuestionDisplayModeUnknown,
+    AWSConnectEvaluationFormSingleSelectQuestionDisplayModeDropdown,
+    AWSConnectEvaluationFormSingleSelectQuestionDisplayModeRadio,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectEvaluationFormVersionStatus) {
+    AWSConnectEvaluationFormVersionStatusUnknown,
+    AWSConnectEvaluationFormVersionStatusDraft,
+    AWSConnectEvaluationFormVersionStatusActive,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectEvaluationStatus) {
+    AWSConnectEvaluationStatusUnknown,
+    AWSConnectEvaluationStatusDraft,
+    AWSConnectEvaluationStatusSubmitted,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectEventSourceName) {
     AWSConnectEventSourceNameUnknown,
     AWSConnectEventSourceNameOnPostCallAnalysisAvailable,
@@ -172,6 +215,7 @@ typedef NS_ENUM(NSInteger, AWSConnectEventSourceName) {
     AWSConnectEventSourceNameOnZendeskTicketCreate,
     AWSConnectEventSourceNameOnZendeskTicketStatusUpdate,
     AWSConnectEventSourceNameOnSalesforceCaseCreate,
+    AWSConnectEventSourceNameOnContactEvaluationSubmit,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectGrouping) {
@@ -291,6 +335,26 @@ typedef NS_ENUM(NSInteger, AWSConnectNotificationContentType) {
 typedef NS_ENUM(NSInteger, AWSConnectNotificationDeliveryType) {
     AWSConnectNotificationDeliveryTypeUnknown,
     AWSConnectNotificationDeliveryTypeEmail,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectNumericQuestionPropertyAutomationLabel) {
+    AWSConnectNumericQuestionPropertyAutomationLabelUnknown,
+    AWSConnectNumericQuestionPropertyAutomationLabelOverallCustomerSentimentScore,
+    AWSConnectNumericQuestionPropertyAutomationLabelOverallAgentSentimentScore,
+    AWSConnectNumericQuestionPropertyAutomationLabelNonTalkTime,
+    AWSConnectNumericQuestionPropertyAutomationLabelNonTalkTimePercentage,
+    AWSConnectNumericQuestionPropertyAutomationLabelNumberOfInterruptions,
+    AWSConnectNumericQuestionPropertyAutomationLabelContactDuration,
+    AWSConnectNumericQuestionPropertyAutomationLabelAgentInteractionDuration,
+    AWSConnectNumericQuestionPropertyAutomationLabelCustomerHoldTime,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectParticipantRole) {
+    AWSConnectParticipantRoleUnknown,
+    AWSConnectParticipantRoleAgent,
+    AWSConnectParticipantRoleCustomer,
+    AWSConnectParticipantRoleSystem,
+    AWSConnectParticipantRoleCustomBot,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectParticipantTimerAction) {
@@ -637,6 +701,12 @@ typedef NS_ENUM(NSInteger, AWSConnectSearchableQueueType) {
     AWSConnectSearchableQueueTypeStandard,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectSingleSelectQuestionRuleCategoryAutomationCondition) {
+    AWSConnectSingleSelectQuestionRuleCategoryAutomationConditionUnknown,
+    AWSConnectSingleSelectQuestionRuleCategoryAutomationConditionPresent,
+    AWSConnectSingleSelectQuestionRuleCategoryAutomationConditionNotPresent,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectSortOrder) {
     AWSConnectSortOrderUnknown,
     AWSConnectSortOrderAscending,
@@ -771,6 +841,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 };
 
 @class AWSConnectActionSummary;
+@class AWSConnectActivateEvaluationFormRequest;
+@class AWSConnectActivateEvaluationFormResponse;
 @class AWSConnectAgentContactReference;
 @class AWSConnectAgentInfo;
 @class AWSConnectAgentStatus;
@@ -813,12 +885,16 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectCreateContactFlowModuleResponse;
 @class AWSConnectCreateContactFlowRequest;
 @class AWSConnectCreateContactFlowResponse;
+@class AWSConnectCreateEvaluationFormRequest;
+@class AWSConnectCreateEvaluationFormResponse;
 @class AWSConnectCreateHoursOfOperationRequest;
 @class AWSConnectCreateHoursOfOperationResponse;
 @class AWSConnectCreateInstanceRequest;
 @class AWSConnectCreateInstanceResponse;
 @class AWSConnectCreateIntegrationAssociationRequest;
 @class AWSConnectCreateIntegrationAssociationResponse;
+@class AWSConnectCreateParticipantRequest;
+@class AWSConnectCreateParticipantResponse;
 @class AWSConnectCreateQueueRequest;
 @class AWSConnectCreateQueueResponse;
 @class AWSConnectCreateQuickConnectRequest;
@@ -842,16 +918,21 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectCreateVocabularyRequest;
 @class AWSConnectCreateVocabularyResponse;
 @class AWSConnectCredentials;
+@class AWSConnectCrossChannelBehavior;
 @class AWSConnectCurrentMetric;
 @class AWSConnectCurrentMetricData;
 @class AWSConnectCurrentMetricResult;
 @class AWSConnectCurrentMetricSortCriteria;
 @class AWSConnectDateReference;
+@class AWSConnectDeactivateEvaluationFormRequest;
+@class AWSConnectDeactivateEvaluationFormResponse;
 @class AWSConnectDefaultVocabulary;
+@class AWSConnectDeleteContactEvaluationRequest;
 @class AWSConnectDeleteContactFlowModuleRequest;
 @class AWSConnectDeleteContactFlowModuleResponse;
 @class AWSConnectDeleteContactFlowRequest;
 @class AWSConnectDeleteContactFlowResponse;
+@class AWSConnectDeleteEvaluationFormRequest;
 @class AWSConnectDeleteHoursOfOperationRequest;
 @class AWSConnectDeleteInstanceRequest;
 @class AWSConnectDeleteIntegrationAssociationRequest;
@@ -869,12 +950,16 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDeleteVocabularyResponse;
 @class AWSConnectDescribeAgentStatusRequest;
 @class AWSConnectDescribeAgentStatusResponse;
+@class AWSConnectDescribeContactEvaluationRequest;
+@class AWSConnectDescribeContactEvaluationResponse;
 @class AWSConnectDescribeContactFlowModuleRequest;
 @class AWSConnectDescribeContactFlowModuleResponse;
 @class AWSConnectDescribeContactFlowRequest;
 @class AWSConnectDescribeContactFlowResponse;
 @class AWSConnectDescribeContactRequest;
 @class AWSConnectDescribeContactResponse;
+@class AWSConnectDescribeEvaluationFormRequest;
+@class AWSConnectDescribeEvaluationFormResponse;
 @class AWSConnectDescribeHoursOfOperationRequest;
 @class AWSConnectDescribeHoursOfOperationResponse;
 @class AWSConnectDescribeInstanceAttributeRequest;
@@ -920,6 +1005,30 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDistribution;
 @class AWSConnectEmailReference;
 @class AWSConnectEncryptionConfig;
+@class AWSConnectEvaluation;
+@class AWSConnectEvaluationAnswerData;
+@class AWSConnectEvaluationAnswerInput;
+@class AWSConnectEvaluationAnswerOutput;
+@class AWSConnectEvaluationForm;
+@class AWSConnectEvaluationFormContent;
+@class AWSConnectEvaluationFormItem;
+@class AWSConnectEvaluationFormNumericQuestionAutomation;
+@class AWSConnectEvaluationFormNumericQuestionOption;
+@class AWSConnectEvaluationFormNumericQuestionProperties;
+@class AWSConnectEvaluationFormQuestion;
+@class AWSConnectEvaluationFormQuestionTypeProperties;
+@class AWSConnectEvaluationFormScoringStrategy;
+@class AWSConnectEvaluationFormSection;
+@class AWSConnectEvaluationFormSingleSelectQuestionAutomation;
+@class AWSConnectEvaluationFormSingleSelectQuestionAutomationOption;
+@class AWSConnectEvaluationFormSingleSelectQuestionOption;
+@class AWSConnectEvaluationFormSingleSelectQuestionProperties;
+@class AWSConnectEvaluationFormSummary;
+@class AWSConnectEvaluationFormVersionSummary;
+@class AWSConnectEvaluationMetadata;
+@class AWSConnectEvaluationNote;
+@class AWSConnectEvaluationScore;
+@class AWSConnectEvaluationSummary;
 @class AWSConnectEventBridgeActionDefinition;
 @class AWSConnectFilterV2;
 @class AWSConnectFilters;
@@ -974,6 +1083,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectListApprovedOriginsResponse;
 @class AWSConnectListBotsRequest;
 @class AWSConnectListBotsResponse;
+@class AWSConnectListContactEvaluationsRequest;
+@class AWSConnectListContactEvaluationsResponse;
 @class AWSConnectListContactFlowModulesRequest;
 @class AWSConnectListContactFlowModulesResponse;
 @class AWSConnectListContactFlowsRequest;
@@ -982,6 +1093,10 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectListContactReferencesResponse;
 @class AWSConnectListDefaultVocabulariesRequest;
 @class AWSConnectListDefaultVocabulariesResponse;
+@class AWSConnectListEvaluationFormVersionsRequest;
+@class AWSConnectListEvaluationFormVersionsResponse;
+@class AWSConnectListEvaluationFormsRequest;
+@class AWSConnectListEvaluationFormsResponse;
 @class AWSConnectListHoursOfOperationsRequest;
 @class AWSConnectListHoursOfOperationsResponse;
 @class AWSConnectListInstanceAttributesRequest;
@@ -1042,10 +1157,13 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectMonitorContactResponse;
 @class AWSConnectNotificationRecipientType;
 @class AWSConnectNumberReference;
+@class AWSConnectNumericQuestionPropertyValueAutomation;
 @class AWSConnectOutboundCallerConfig;
 @class AWSConnectParticipantDetails;
+@class AWSConnectParticipantDetailsToAdd;
 @class AWSConnectParticipantTimerConfiguration;
 @class AWSConnectParticipantTimerValue;
+@class AWSConnectParticipantTokenCredentials;
 @class AWSConnectPersistentChat;
 @class AWSConnectPhoneNumberQuickConnectConfig;
 @class AWSConnectPhoneNumberStatus;
@@ -1106,8 +1224,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectSecurityProfileSummary;
 @class AWSConnectSecurityProfilesSearchFilter;
 @class AWSConnectSendNotificationActionDefinition;
+@class AWSConnectSingleSelectQuestionRuleCategoryAutomation;
 @class AWSConnectStartChatContactRequest;
 @class AWSConnectStartChatContactResponse;
+@class AWSConnectStartContactEvaluationRequest;
+@class AWSConnectStartContactEvaluationResponse;
 @class AWSConnectStartContactRecordingRequest;
 @class AWSConnectStartContactRecordingResponse;
 @class AWSConnectStartContactStreamingRequest;
@@ -1124,6 +1245,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectStopContactStreamingResponse;
 @class AWSConnectStringCondition;
 @class AWSConnectStringReference;
+@class AWSConnectSubmitContactEvaluationRequest;
+@class AWSConnectSubmitContactEvaluationResponse;
 @class AWSConnectSuspendContactRecordingRequest;
 @class AWSConnectSuspendContactRecordingResponse;
 @class AWSConnectTagCondition;
@@ -1146,6 +1269,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUpdateAgentStatusRequest;
 @class AWSConnectUpdateContactAttributesRequest;
 @class AWSConnectUpdateContactAttributesResponse;
+@class AWSConnectUpdateContactEvaluationRequest;
+@class AWSConnectUpdateContactEvaluationResponse;
 @class AWSConnectUpdateContactFlowContentRequest;
 @class AWSConnectUpdateContactFlowContentResponse;
 @class AWSConnectUpdateContactFlowMetadataRequest;
@@ -1160,6 +1285,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUpdateContactResponse;
 @class AWSConnectUpdateContactScheduleRequest;
 @class AWSConnectUpdateContactScheduleResponse;
+@class AWSConnectUpdateEvaluationFormRequest;
+@class AWSConnectUpdateEvaluationFormResponse;
 @class AWSConnectUpdateHoursOfOperationRequest;
 @class AWSConnectUpdateInstanceAttributeRequest;
 @class AWSConnectUpdateInstanceStorageConfigRequest;
@@ -1222,6 +1349,52 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The action type.</p>
  */
 @property (nonatomic, assign) AWSConnectActionType actionType;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectActivateEvaluationFormRequest : AWSRequest
+
+
+/**
+ <p>The unique identifier for the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormId;
+
+/**
+ <p>The version of the evaluation form to activate. If the version property is not provided, the latest version of the evaluation form is activated.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable evaluationFormVersion;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectActivateEvaluationFormResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormArn;
+
+/**
+ <p>The unique identifier for the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormId;
+
+/**
+ <p>A version of the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable evaluationFormVersion;
 
 @end
 
@@ -1727,12 +1900,12 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The content of the chat message. </p><ul><li><p>For <code>text/plain</code> and <code>text/markdown</code>, the Length Constraints are Minimum of 1, Maximum of 1024. </p></li><li><p>For <code>application/json</code>, the Length Constraints are Minimum of 1, Maximum of 12000. </p></li></ul>
+ <p>The content of the chat message. </p><ul><li><p>For <code>text/plain</code> and <code>text/markdown</code>, the Length Constraints are Minimum of 1, Maximum of 1024. </p></li><li><p>For <code>application/json</code>, the Length Constraints are Minimum of 1, Maximum of 12000. </p></li><li><p>For <code>application/vnd.amazonaws.connect.message.interactive.response</code>, the Length Constraints are Minimum of 1, Maximum of 12288.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable content;
 
 /**
- <p>The type of the content. Supported types are <code>text/plain</code>, <code>text/markdown</code>, and <code>application/json</code>.</p>
+ <p>The type of the content. Supported types are <code>text/plain</code>, <code>text/markdown</code>, <code>application/json</code>, and <code>application/vnd.amazonaws.connect.message.interactive.response</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
 
@@ -2322,6 +2495,62 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectCreateEvaluationFormRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The description of the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectEvaluationFormItem *> * _Nullable items;
+
+/**
+ <p>A scoring strategy of the evaluation form.</p>
+ */
+@property (nonatomic, strong) AWSConnectEvaluationFormScoringStrategy * _Nullable scoringStrategy;
+
+/**
+ <p>A title of the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable title;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateEvaluationFormResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormArn;
+
+/**
+ <p>The unique identifier for the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectCreateHoursOfOperationRequest : AWSRequest
 
 
@@ -2489,6 +2718,52 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier for the integration association.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable integrationAssociationId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateParticipantRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The identifier of the contact in this instance of Amazon Connect. Only contacts in the CHAT channel are supported.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>Information identifying the participant.</p><important><p>The only Valid value for <code>ParticipantRole</code> is <code>CUSTOM_BOT</code>. </p><p><code>DisplayName</code> is <b>Required</b>.</p></important>
+ */
+@property (nonatomic, strong) AWSConnectParticipantDetailsToAdd * _Nullable participantDetails;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateParticipantResponse : AWSModel
+
+
+/**
+ <p>The token used by the chat participant to call <code>CreateParticipantConnection</code>. The participant token is valid for the lifetime of a chat participant.</p>
+ */
+@property (nonatomic, strong) AWSConnectParticipantTokenCredentials * _Nullable participantCredentials;
+
+/**
+ <p>The identifier for a chat participant. The participantId for a chat participant is the same throughout the chat lifecycle.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable participantId;
 
 @end
 
@@ -3172,6 +3447,20 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.</p>
+ Required parameters: [BehaviorType]
+ */
+@interface AWSConnectCrossChannelBehavior : AWSModel
+
+
+/**
+ <p>Specifies the other channels that can be routed to an agent handling their current channel.</p>
+ */
+@property (nonatomic, assign) AWSConnectBehaviorType behaviorType;
+
+@end
+
+/**
  <p>Contains information about a real-time metric. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html">Real-time Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  */
 @interface AWSConnectCurrentMetric : AWSModel
@@ -3262,6 +3551,52 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ 
+ */
+@interface AWSConnectDeactivateEvaluationFormRequest : AWSRequest
+
+
+/**
+ <p>The unique identifier for the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormId;
+
+/**
+ <p>A version of the evaluation form. If the version property is not provided, the latest version of the evaluation form is deactivated.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable evaluationFormVersion;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDeactivateEvaluationFormResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormArn;
+
+/**
+ <p>The unique identifier for the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormId;
+
+/**
+ <p>The version of the deactivated evaluation form resource.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable evaluationFormVersion;
+
+@end
+
+/**
  <p>Contains information about a default vocabulary.</p>
  Required parameters: [InstanceId, LanguageCode, VocabularyId, VocabularyName]
  */
@@ -3287,6 +3622,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>A unique name of the custom vocabulary.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vocabularyName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDeleteContactEvaluationRequest : AWSRequest
+
+
+/**
+ <p>A unique identifier for the contact evaluation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
 
 @end
 
@@ -3339,6 +3692,29 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  */
 @interface AWSConnectDeleteContactFlowResponse : AWSModel
 
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDeleteEvaluationFormRequest : AWSRequest
+
+
+/**
+ <p>The unique identifier for the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormId;
+
+/**
+ <p>The unique identifier for the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable evaluationFormVersion;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
 
 @end
 
@@ -3626,6 +4002,42 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectDescribeContactEvaluationRequest : AWSRequest
+
+
+/**
+ <p>A unique identifier for the contact evaluation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeContactEvaluationResponse : AWSModel
+
+
+/**
+ <p>Information about the evaluation form completed for a specific contact.</p>
+ */
+@property (nonatomic, strong) AWSConnectEvaluation * _Nullable evaluation;
+
+/**
+ <p>Information about the evaluation form.</p>
+ */
+@property (nonatomic, strong) AWSConnectEvaluationFormContent * _Nullable evaluationForm;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectDescribeContactFlowModuleRequest : AWSRequest
 
 
@@ -3713,6 +4125,42 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>Information about the contact.</p>
  */
 @property (nonatomic, strong) AWSConnectContact * _Nullable contact;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeEvaluationFormRequest : AWSRequest
+
+
+/**
+ <p>A unique identifier for the contact evaluation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormId;
+
+/**
+ <p>A version of the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable evaluationFormVersion;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeEvaluationFormResponse : AWSModel
+
+
+/**
+ <p>Information about the evaluation form.</p>
+ */
+@property (nonatomic, strong) AWSConnectEvaluationForm * _Nullable evaluationForm;
 
 @end
 
@@ -4464,6 +4912,768 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Information about a contact evaluation.</p>
+ Required parameters: [EvaluationId, EvaluationArn, Metadata, Answers, Notes, Status, CreatedTime, LastModifiedTime]
+ */
+@interface AWSConnectEvaluation : AWSModel
+
+
+/**
+ <p>A map of question identifiers to answer value.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSConnectEvaluationAnswerOutput *> * _Nullable answers;
+
+/**
+ <p>The timestamp for when the evaluation was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable createdTime;
+
+/**
+ <p>The Amazon Resource Name (ARN) for the contact evaluation resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationArn;
+
+/**
+ <p>A unique identifier for the contact evaluation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationId;
+
+/**
+ <p>The timestamp for when the evaluation was last updated.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModifiedTime;
+
+/**
+ <p>Metadata about the contact evaluation.</p>
+ */
+@property (nonatomic, strong) AWSConnectEvaluationMetadata * _Nullable metadata;
+
+/**
+ <p>A map of question identifiers to note value.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSConnectEvaluationNote *> * _Nullable notes;
+
+/**
+ <p>A map of item (section or question) identifiers to score value.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSConnectEvaluationScore *> * _Nullable scores;
+
+/**
+ <p>The status of the contact evaluation.</p>
+ */
+@property (nonatomic, assign) AWSConnectEvaluationStatus status;
+
+/**
+ <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ <p>Information about answer data for a contact evaluation. Answer data must be either string, numeric, or not applicable.</p>
+ */
+@interface AWSConnectEvaluationAnswerData : AWSModel
+
+
+/**
+ <p>The flag to mark the question as not applicable.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable notApplicable;
+
+/**
+ <p>The numeric value for an answer in a contact evaluation.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable numericValue;
+
+/**
+ <p>The string value for an answer in a contact evaluation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable stringValue;
+
+@end
+
+/**
+ <p>Information about input answers for a contact evaluation.</p>
+ */
+@interface AWSConnectEvaluationAnswerInput : AWSModel
+
+
+/**
+ <p>The value for an answer in a contact evaluation.</p>
+ */
+@property (nonatomic, strong) AWSConnectEvaluationAnswerData * _Nullable value;
+
+@end
+
+/**
+ <p>Information about output answers for a contact evaluation.</p>
+ */
+@interface AWSConnectEvaluationAnswerOutput : AWSModel
+
+
+/**
+ <p>The system suggested value for an answer in a contact evaluation.</p>
+ */
+@property (nonatomic, strong) AWSConnectEvaluationAnswerData * _Nullable systemSuggestedValue;
+
+/**
+ <p>The value for an answer in a contact evaluation.</p>
+ */
+@property (nonatomic, strong) AWSConnectEvaluationAnswerData * _Nullable value;
+
+@end
+
+/**
+ <p>Information about the evaluation form.</p>
+ Required parameters: [EvaluationFormId, EvaluationFormVersion, Locked, EvaluationFormArn, Title, Status, Items, CreatedTime, CreatedBy, LastModifiedTime, LastModifiedBy]
+ */
+@interface AWSConnectEvaluationForm : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the user who created the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable createdBy;
+
+/**
+ <p>The timestamp for when the evaluation form was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable createdTime;
+
+/**
+ <p>The description of the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormArn;
+
+/**
+ <p>The unique identifier for the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormId;
+
+/**
+ <p>A version of the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable evaluationFormVersion;
+
+/**
+ <p>Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectEvaluationFormItem *> * _Nullable items;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the user who last updated the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModifiedBy;
+
+/**
+ <p>The timestamp for when the evaluation form was last updated.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModifiedTime;
+
+/**
+ <p>The flag indicating whether the evaluation form is locked for changes.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable locked;
+
+/**
+ <p>A scoring strategy of the evaluation form.</p>
+ */
+@property (nonatomic, strong) AWSConnectEvaluationFormScoringStrategy * _Nullable scoringStrategy;
+
+/**
+ <p>The status of the evaluation form.</p>
+ */
+@property (nonatomic, assign) AWSConnectEvaluationFormVersionStatus status;
+
+/**
+ <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+/**
+ <p>A title of the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable title;
+
+@end
+
+/**
+ <p>Information about an evaluation form used in a contact evaluation.</p>
+ Required parameters: [EvaluationFormVersion, EvaluationFormId, EvaluationFormArn, Title, Items]
+ */
+@interface AWSConnectEvaluationFormContent : AWSModel
+
+
+/**
+ <p>The description of the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormArn;
+
+/**
+ <p>The unique identifier for the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormId;
+
+/**
+ <p>A version of the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable evaluationFormVersion;
+
+/**
+ <p>Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectEvaluationFormItem *> * _Nullable items;
+
+/**
+ <p>A scoring strategy of the evaluation form.</p>
+ */
+@property (nonatomic, strong) AWSConnectEvaluationFormScoringStrategy * _Nullable scoringStrategy;
+
+/**
+ <p>A title of the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable title;
+
+@end
+
+/**
+ <p>Information about an item from an evaluation form. The item must be either a section or a question.</p>
+ */
+@interface AWSConnectEvaluationFormItem : AWSModel
+
+
+/**
+ <p>The information of the question.</p>
+ */
+@property (nonatomic, strong) AWSConnectEvaluationFormQuestion * _Nullable question;
+
+/**
+ <p>The information of the section.</p>
+ */
+@property (nonatomic, strong) AWSConnectEvaluationFormSection * _Nullable section;
+
+@end
+
+/**
+ <p>Information about the automation configuration in numeric questions.</p>
+ */
+@interface AWSConnectEvaluationFormNumericQuestionAutomation : AWSModel
+
+
+/**
+ <p>The property value of the automation.</p>
+ */
+@property (nonatomic, strong) AWSConnectNumericQuestionPropertyValueAutomation * _Nullable propertyValue;
+
+@end
+
+/**
+ <p>Information about the option range used for scoring in numeric questions.</p>
+ Required parameters: [MinValue, MaxValue]
+ */
+@interface AWSConnectEvaluationFormNumericQuestionOption : AWSModel
+
+
+/**
+ <p>The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable automaticFail;
+
+/**
+ <p>The maximum answer value of the range option.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxValue;
+
+/**
+ <p>The minimum answer value of the range option.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable minValue;
+
+/**
+ <p>The score assigned to answer values within the range option.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable score;
+
+@end
+
+/**
+ <p>Information about properties for a numeric question in an evaluation form.</p>
+ Required parameters: [MinValue, MaxValue]
+ */
+@interface AWSConnectEvaluationFormNumericQuestionProperties : AWSModel
+
+
+/**
+ <p>The automation properties of the numeric question.</p>
+ */
+@property (nonatomic, strong) AWSConnectEvaluationFormNumericQuestionAutomation * _Nullable automation;
+
+/**
+ <p>The maximum answer value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxValue;
+
+/**
+ <p>The minimum answer value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable minValue;
+
+/**
+ <p>The scoring options of the numeric question.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectEvaluationFormNumericQuestionOption *> * _Nullable options;
+
+@end
+
+/**
+ <p>Information about a question from an evaluation form.</p>
+ Required parameters: [Title, RefId, QuestionType]
+ */
+@interface AWSConnectEvaluationFormQuestion : AWSModel
+
+
+/**
+ <p>The instructions of the section.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instructions;
+
+/**
+ <p>The flag to enable not applicable answers to the question.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable notApplicableEnabled;
+
+/**
+ <p>The type of the question.</p>
+ */
+@property (nonatomic, assign) AWSConnectEvaluationFormQuestionType questionType;
+
+/**
+ <p>The properties of the type of question. Text questions do not have to define question type properties.</p>
+ */
+@property (nonatomic, strong) AWSConnectEvaluationFormQuestionTypeProperties * _Nullable questionTypeProperties;
+
+/**
+ <p>The identifier of the question. An identifier must be unique within the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable refId;
+
+/**
+ <p>The title of the question.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable title;
+
+/**
+ <p>The scoring weight of the section.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable weight;
+
+@end
+
+/**
+ <p>Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.</p>
+ */
+@interface AWSConnectEvaluationFormQuestionTypeProperties : AWSModel
+
+
+/**
+ <p>The properties of the numeric question.</p>
+ */
+@property (nonatomic, strong) AWSConnectEvaluationFormNumericQuestionProperties * _Nullable numeric;
+
+/**
+ <p>The properties of the numeric question.</p>
+ */
+@property (nonatomic, strong) AWSConnectEvaluationFormSingleSelectQuestionProperties * _Nullable singleSelect;
+
+@end
+
+/**
+ <p>Information about scoring strategy for an evaluation form.</p>
+ Required parameters: [Mode, Status]
+ */
+@interface AWSConnectEvaluationFormScoringStrategy : AWSModel
+
+
+/**
+ <p>The scoring mode of the evaluation form.</p>
+ */
+@property (nonatomic, assign) AWSConnectEvaluationFormScoringMode mode;
+
+/**
+ <p>The scoring status of the evaluation form.</p>
+ */
+@property (nonatomic, assign) AWSConnectEvaluationFormScoringStatus status;
+
+@end
+
+/**
+ <p>Information about a section from an evaluation form. A section can contain sections and/or questions. Evaluation forms can only contain sections and subsections (two level nesting).</p>
+ Required parameters: [Title, RefId]
+ */
+@interface AWSConnectEvaluationFormSection : AWSModel
+
+
+/**
+ <p>The instructions of the section.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instructions;
+
+/**
+ <p>The items of the section.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectEvaluationFormItem *> * _Nullable items;
+
+/**
+ <p>The identifier of the section. An identifier must be unique within the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable refId;
+
+/**
+ <p>The title of the section.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable title;
+
+/**
+ <p>The scoring weight of the section.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable weight;
+
+@end
+
+/**
+ <p>Information about the automation configuration in single select questions. Automation options are evaluated in order, and the first matched option is applied. If no automation option matches, and there is a default option, then the default option is applied.</p>
+ Required parameters: [Options]
+ */
+@interface AWSConnectEvaluationFormSingleSelectQuestionAutomation : AWSModel
+
+
+/**
+ <p>The identifier of the default answer option, when none of the automation options match the criteria.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable defaultOptionRefId;
+
+/**
+ <p>The automation options of the single select question.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectEvaluationFormSingleSelectQuestionAutomationOption *> * _Nullable options;
+
+@end
+
+/**
+ <p>Information about the automation option of a single select question.</p>
+ */
+@interface AWSConnectEvaluationFormSingleSelectQuestionAutomationOption : AWSModel
+
+
+/**
+ <p>The automation option based on a rule category for the single select question.</p>
+ */
+@property (nonatomic, strong) AWSConnectSingleSelectQuestionRuleCategoryAutomation * _Nullable ruleCategory;
+
+@end
+
+/**
+ <p>Information about the automation configuration in single select questions.</p>
+ Required parameters: [RefId, Text]
+ */
+@interface AWSConnectEvaluationFormSingleSelectQuestionOption : AWSModel
+
+
+/**
+ <p>The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable automaticFail;
+
+/**
+ <p>The identifier of the answer option. An identifier must be unique within the question.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable refId;
+
+/**
+ <p>The score assigned to the answer option.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable score;
+
+/**
+ <p>The title of the answer option.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable text;
+
+@end
+
+/**
+ <p>Information about the options in single select questions.</p>
+ Required parameters: [Options]
+ */
+@interface AWSConnectEvaluationFormSingleSelectQuestionProperties : AWSModel
+
+
+/**
+ <p>The display mode of the single select question.</p>
+ */
+@property (nonatomic, strong) AWSConnectEvaluationFormSingleSelectQuestionAutomation * _Nullable automation;
+
+/**
+ <p>The display mode of the single select question.</p>
+ */
+@property (nonatomic, assign) AWSConnectEvaluationFormSingleSelectQuestionDisplayMode displayAs;
+
+/**
+ <p>The answer options of the single select question.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectEvaluationFormSingleSelectQuestionOption *> * _Nullable options;
+
+@end
+
+/**
+ <p>Summary information about an evaluation form.</p>
+ Required parameters: [EvaluationFormId, EvaluationFormArn, Title, CreatedTime, CreatedBy, LastModifiedTime, LastModifiedBy, LatestVersion]
+ */
+@interface AWSConnectEvaluationFormSummary : AWSModel
+
+
+/**
+ <p>The version of the active evaluation form version.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable activeVersion;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the user who created the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable createdBy;
+
+/**
+ <p>The timestamp for when the evaluation form was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable createdTime;
+
+/**
+ <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormArn;
+
+/**
+ <p>The unique identifier for the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormId;
+
+/**
+ <p> The Amazon Resource Name (ARN) of the user who last activated the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastActivatedBy;
+
+/**
+ <p>The timestamp for when the evaluation form was last activated.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastActivatedTime;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the user who last updated the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModifiedBy;
+
+/**
+ <p>The timestamp for when the evaluation form was last updated.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModifiedTime;
+
+/**
+ <p>The version number of the latest evaluation form version.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable latestVersion;
+
+/**
+ <p>A title of the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable title;
+
+@end
+
+/**
+ <p>Summary information about an evaluation form.</p>
+ Required parameters: [EvaluationFormArn, EvaluationFormId, EvaluationFormVersion, Locked, Status, CreatedTime, CreatedBy, LastModifiedTime, LastModifiedBy]
+ */
+@interface AWSConnectEvaluationFormVersionSummary : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the user who created the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable createdBy;
+
+/**
+ <p>The timestamp for when the evaluation form was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable createdTime;
+
+/**
+ <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormArn;
+
+/**
+ <p>The unique identifier for the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormId;
+
+/**
+ <p>A version of the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable evaluationFormVersion;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the user who last updated the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModifiedBy;
+
+/**
+ <p>The timestamp for when the evaluation form was last updated.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModifiedTime;
+
+/**
+ <p>The flag indicating whether the evaluation form is locked for changes.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable locked;
+
+/**
+ <p>The status of the evaluation form.</p>
+ */
+@property (nonatomic, assign) AWSConnectEvaluationFormVersionStatus status;
+
+@end
+
+/**
+ <p>Metadata information about a contact evaluation.</p>
+ Required parameters: [ContactId, EvaluatorArn]
+ */
+@interface AWSConnectEvaluationMetadata : AWSModel
+
+
+/**
+ <p>The identifier of the agent who performed the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactAgentId;
+
+/**
+ <p>The identifier of the contact in this instance of Amazon Connect. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the user who last updated the evaluation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluatorArn;
+
+/**
+ <p>The overall score of the contact evaluation.</p>
+ */
+@property (nonatomic, strong) AWSConnectEvaluationScore * _Nullable score;
+
+@end
+
+/**
+ <p>Information about notes for a contact evaluation.</p>
+ */
+@interface AWSConnectEvaluationNote : AWSModel
+
+
+/**
+ <p>The note for an item (section or question) in a contact evaluation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable value;
+
+@end
+
+/**
+ <p>Information about scores of a contact evaluation item (section or question).</p>
+ */
+@interface AWSConnectEvaluationScore : AWSModel
+
+
+/**
+ <p>The flag that marks the item as automatic fail. If the item or a child item gets an automatic fail answer, this flag will be true.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable automaticFail;
+
+/**
+ <p>The flag to mark the item as not applicable for scoring.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable notApplicable;
+
+/**
+ <p>The score percentage for an item in a contact evaluation.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable percentage;
+
+@end
+
+/**
+ <p>Summary information about a contact evaluation.</p>
+ Required parameters: [EvaluationId, EvaluationArn, EvaluationFormTitle, EvaluationFormId, Status, EvaluatorArn, CreatedTime, LastModifiedTime]
+ */
+@interface AWSConnectEvaluationSummary : AWSModel
+
+
+/**
+ <p>The timestamp for when the evaluation was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable createdTime;
+
+/**
+ <p>The Amazon Resource Name (ARN) for the contact evaluation resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationArn;
+
+/**
+ <p>The unique identifier for the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormId;
+
+/**
+ <p>A title of the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormTitle;
+
+/**
+ <p>A unique identifier for the contact evaluation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationId;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the user who last updated the evaluation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluatorArn;
+
+/**
+ <p>The timestamp for when the evaluation was last updated.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModifiedTime;
+
+/**
+ <p>The overall score of the contact evaluation.</p>
+ */
+@property (nonatomic, strong) AWSConnectEvaluationScore * _Nullable score;
+
+/**
+ <p>The status of the contact evaluation.</p>
+ */
+@property (nonatomic, assign) AWSConnectEvaluationStatus status;
+
+@end
+
+/**
  <p>The EventBridge action definition.</p>
  Required parameters: [Name]
  */
@@ -4785,7 +5995,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The timestamp, in UNIX Epoch time format, at which to end the reporting interval for the retrieval of historical metrics data. The time must be later than the start time timestamp.</p><p>The time range between the start and end time must be less than 24 hours.</p>
+ <p>The timestamp, in UNIX Epoch time format, at which to end the reporting interval for the retrieval of historical metrics data. The time must be later than the start time timestamp. It cannot be later than the current timestamp.</p><p>The time range between the start and end time must be less than 24 hours.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable endTime;
 
@@ -4805,7 +6015,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The metrics to retrieve. Specify the name, groupings, and filters for each metric. The following historical metrics are available. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.</p><dl><dt>AGENT_ADHERENT_TIME</dt><dd><p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p></dd><dt>AGENT_NON_RESPONSE</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p></dd><dt>AGENT_OCCUPANCY</dt><dd><p>Unit: Percentage</p><p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy </p></dd><dt>AGENT_SCHEDULE_ADHERENCE</dt><dd><p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AGENT_SCHEDULED_TIME</dt><dd><p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AVG_ABANDON_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AVG_AFTER_CONTACT_WORK_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AVG_AGENT_CONNECTING_TIME</dt><dd><p>Unit: Seconds</p><p>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AVG_HANDLE_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AVG_HOLD_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AVG_INTERACTION_AND_HOLD_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AVG_INTERACTION_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile</p></dd><dt>AVG_QUEUE_ANSWER_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile</p></dd><dt>CONTACTS_ABANDONED</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_CREATED</dt><dd><p>Unit: Count</p><p>Valid metric filter key: <code>INITIATION_METHOD</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile</p></dd><dt>CONTACTS_HANDLED</dt><dd><p>Unit: Count</p><p>Valid metric filter key: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_HOLD_ABANDONS</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_QUEUED</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_TRANSFERRED_OUT</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_TRANSFERRED_OUT_BY_AGENT</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>MAX_QUEUED_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SERVICE_LEVEL</dt><dd><p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile</p><p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for "Less than"). </p></dd><dt>SUM_CONTACTS_ANSWERED_IN_X</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile</p></dd><dt>SUM_CONTACTS_ABANDONED_IN_X</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile</p></dd><dt>SUM_CONTACTS_DISCONNECTED </dt><dd><p>Valid metric filter key: <code>DISCONNECT_REASON</code></p><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile</p></dd><dt>SUM_RETRY_CALLBACK_ATTEMPTS</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile</p></dd></dl>
+ <p>The metrics to retrieve. Specify the name, groupings, and filters for each metric. The following historical metrics are available. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.</p><dl><dt>AGENT_ADHERENT_TIME</dt><dd><p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p></dd><dt>AGENT_NON_RESPONSE</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p></dd><dt>AGENT_OCCUPANCY</dt><dd><p>Unit: Percentage</p><p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy </p></dd><dt>AGENT_SCHEDULE_ADHERENCE</dt><dd><p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AGENT_SCHEDULED_TIME</dt><dd><p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AVG_ABANDON_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AVG_AFTER_CONTACT_WORK_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AVG_AGENT_CONNECTING_TIME</dt><dd><p>Unit: Seconds</p><p>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AVG_HANDLE_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AVG_HOLD_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AVG_INTERACTION_AND_HOLD_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AVG_INTERACTION_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile</p></dd><dt>AVG_QUEUE_ANSWER_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile</p></dd><dt>CONTACTS_ABANDONED</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_CREATED</dt><dd><p>Unit: Count</p><p>Valid metric filter key: <code>INITIATION_METHOD</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile</p></dd><dt>CONTACTS_HANDLED</dt><dd><p>Unit: Count</p><p>Valid metric filter key: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_HOLD_ABANDONS</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_QUEUED</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_TRANSFERRED_OUT</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_TRANSFERRED_OUT_BY_AGENT</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>MAX_QUEUED_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SERVICE_LEVEL</dt><dd><p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile</p><p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for "Less than"). </p></dd><dt>SUM_CONTACTS_ANSWERED_IN_X</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile</p><p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for "Less than"). </p></dd><dt>SUM_CONTACTS_ABANDONED_IN_X</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile</p><p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for "Less than"). </p></dd><dt>SUM_CONTACTS_DISCONNECTED </dt><dd><p>Valid metric filter key: <code>DISCONNECT_REASON</code></p><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile</p></dd><dt>SUM_RETRY_CALLBACK_ATTEMPTS</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile</p></dd></dl>
  */
 @property (nonatomic, strong) NSArray<AWSConnectMetricV2 *> * _Nullable metrics;
 
@@ -4820,7 +6030,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable resourceArn;
 
 /**
- <p>The timestamp, in UNIX Epoch time format, at which to start the reporting interval for the retrieval of historical metrics data. The time must be before the end time timestamp. The time range between the start and end time must be less than 24 hours. The start time cannot be earlier than 14 days before the time of the request. Historical metrics are available for 14 days.</p>
+ <p>The timestamp, in UNIX Epoch time format, at which to start the reporting interval for the retrieval of historical metrics data. The time must be before the end time timestamp. The time range between the start and end time must be less than 24 hours. The start time cannot be earlier than 35 days before the time of the request. Historical metrics are available for 35 days.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable startTime;
 
@@ -5877,6 +7087,47 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectListContactEvaluationsRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the contact in this instance of Amazon Connect. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p><important><p>This is not expected to be set because the value returned in the previous response is always null.</p></important>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListContactEvaluationsResponse : AWSModel
+
+
+/**
+ <p>Provides details about a list of contact evaluations belonging to an instance.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectEvaluationSummary *> * _Nullable evaluationSummaryList;
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p><important><p>This is always returned as null in the response.</p></important>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectListContactFlowModulesRequest : AWSRequest
 
 
@@ -6050,6 +7301,93 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>A list of default vocabularies.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectDefaultVocabulary *> * _Nullable defaultVocabularyList;
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListEvaluationFormVersionsRequest : AWSRequest
+
+
+/**
+ <p>The unique identifier for the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListEvaluationFormVersionsResponse : AWSModel
+
+
+/**
+ <p>Provides details about a list of evaluation forms belonging to an instance.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectEvaluationFormVersionSummary *> * _Nullable evaluationFormVersionSummaryList;
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListEvaluationFormsRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListEvaluationFormsResponse : AWSModel
+
+
+/**
+ <p>Provides details about a list of evaluation forms belonging to an instance.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectEvaluationFormSummary *> * _Nullable evaluationFormSummaryList;
 
 /**
  <p>If there are additional results, this is the token for the next set of results.</p>
@@ -7204,6 +8542,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  */
 @property (nonatomic, strong) NSNumber * _Nullable concurrency;
 
+/**
+ <p>Defines the cross-channel routing behavior for each channel that is enabled for this Routing Profile. For example, this allows you to offer an agent a different contact from another channel when they are currently working with a contact from a Voice channel.</p>
+ */
+@property (nonatomic, strong) AWSConnectCrossChannelBehavior * _Nullable crossChannelBehavior;
+
 @end
 
 /**
@@ -7231,7 +8574,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The key to use for filtering data. </p><p>Valid metric filter keys: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code></p>
+ <p>The key to use for filtering data. </p><p>Valid metric filter keys: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code>. These are the same values as the <code>InitiationMethod</code> and <code>DisconnectReason</code> in the contact record. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord">ContactTraceRecord</a> in the <i>Amazon Connect Administrator's Guide</i>. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricFilterKey;
 
@@ -7272,7 +8615,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<AWSConnectMetricFilterV2 *> * _Nullable metricFilters;
 
 /**
- <p>The name of the metric.</p>
+ <p>The name of the metric.</p><important><p>This parameter is required. The following Required = No is incorrect.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
@@ -7371,6 +8714,20 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Information about the property value used in automation of a numeric questions. Label values are associated with minimum and maximum values for the numeric question.</p><ul><li><p>Sentiment scores have a minimum value of -5 and maximum value of 5.</p></li><li><p> Duration labels, such as <code>NON_TALK_TIME</code>, <code>CONTACT_DURATION</code>, <code>AGENT_INTERACTION_DURATION</code>, <code>CUSTOMER_HOLD_TIME</code> have a minimum value of 0 and maximum value of 28800.</p></li><li><p>Percentages have a minimum value of 0 and maximum value of 100. </p></li><li><p><code>NUMBER_OF_INTERRUPTIONS</code> has a minimum value of 0 and maximum value of 1000.</p></li></ul>
+ Required parameters: [Label]
+ */
+@interface AWSConnectNumericQuestionPropertyValueAutomation : AWSModel
+
+
+/**
+ <p>The property label of the automation.</p>
+ */
+@property (nonatomic, assign) AWSConnectNumericQuestionPropertyAutomationLabel label;
+
+@end
+
+/**
  <p>The outbound caller ID name, number, and outbound whisper flow.</p>
  */
 @interface AWSConnectOutboundCallerConfig : AWSModel
@@ -7404,6 +8761,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>Display name of the participant.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable displayName;
+
+@end
+
+/**
+ <p>The details to add for the participant.</p>
+ */
+@interface AWSConnectParticipantDetailsToAdd : AWSModel
+
+
+/**
+ <p>The display name of the participant.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable displayName;
+
+/**
+ <p>The role of the participant being added.</p>
+ */
+@property (nonatomic, assign) AWSConnectParticipantRole participantRole;
 
 @end
 
@@ -7446,6 +8821,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The duration of a timer, in minutes. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable participantTimerDurationInMinutes;
+
+@end
+
+/**
+ <p>The credentials used by the participant.</p>
+ */
+@interface AWSConnectParticipantTokenCredentials : AWSModel
+
+
+/**
+ <p>The expiration of the token. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable expiry;
+
+/**
+ <p>The token used by the chat participant to call <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>. The participant token is valid for the lifetime of a chat participant. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable participantToken;
 
 @end
 
@@ -9019,6 +10412,30 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Information about the automation option based on a rule category for a single select question.</p>
+ Required parameters: [Category, Condition, OptionRefId]
+ */
+@interface AWSConnectSingleSelectQuestionRuleCategoryAutomation : AWSModel
+
+
+/**
+ <p> The category name, as defined in Rules.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable category;
+
+/**
+ <p>The condition to apply for the automation option. If the condition is <code>PRESENT</code>, then the option is applied when the contact data includes the category. Similarly, if the condition is <code>NOT_PRESENT</code>, then the option is applied when the contact data does not include the category.</p>
+ */
+@property (nonatomic, assign) AWSConnectSingleSelectQuestionRuleCategoryAutomationCondition condition;
+
+/**
+ <p>The identifier of the answer option.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable optionRefId;
+
+@end
+
+/**
  
  */
 @interface AWSConnectStartChatContactRequest : AWSRequest
@@ -9101,6 +10518,52 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The token used by the chat participant to call <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>. The participant token is valid for the lifetime of a chat participant.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable participantToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectStartContactEvaluationRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The identifier of the contact in this instance of Amazon Connect. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The unique identifier for the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectStartContactEvaluationResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) for the contact evaluation resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationArn;
+
+/**
+ <p>A unique identifier for the contact evaluation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationId;
 
 @end
 
@@ -9459,6 +10922,52 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>A valid string.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable value;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSubmitContactEvaluationRequest : AWSRequest
+
+
+/**
+ <p>A map of question identifiers to answer value.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSConnectEvaluationAnswerInput *> * _Nullable answers;
+
+/**
+ <p>A unique identifier for the contact evaluation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>A map of question identifiers to note value.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSConnectEvaluationNote *> * _Nullable notes;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSubmitContactEvaluationResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) for the contact evaluation resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationArn;
+
+/**
+ <p>A unique identifier for the contact evaluation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationId;
 
 @end
 
@@ -9974,6 +11483,52 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectUpdateContactEvaluationRequest : AWSRequest
+
+
+/**
+ <p>A map of question identifiers to answer value.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSConnectEvaluationAnswerInput *> * _Nullable answers;
+
+/**
+ <p>A unique identifier for the contact evaluation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>A map of question identifiers to note value.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSConnectEvaluationNote *> * _Nullable notes;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateContactEvaluationResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) for the contact evaluation resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationArn;
+
+/**
+ <p>A unique identifier for the contact evaluation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectUpdateContactFlowContentRequest : AWSRequest
 
 
@@ -10220,6 +11775,82 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  */
 @interface AWSConnectUpdateContactScheduleResponse : AWSModel
 
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateEvaluationFormRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>A flag indicating whether the operation must create a new version.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable createNewVersion;
+
+/**
+ <p>The description of the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The unique identifier for the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormId;
+
+/**
+ <p>A version of the evaluation form to update.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable evaluationFormVersion;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectEvaluationFormItem *> * _Nullable items;
+
+/**
+ <p>A scoring strategy of the evaluation form.</p>
+ */
+@property (nonatomic, strong) AWSConnectEvaluationFormScoringStrategy * _Nullable scoringStrategy;
+
+/**
+ <p>A title of the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable title;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateEvaluationFormResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) for the contact evaluation resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormArn;
+
+/**
+ <p>The unique identifier for the evaluation form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormId;
+
+/**
+ <p>The version of the updated evaluation form resource.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable evaluationFormVersion;
 
 @end
 

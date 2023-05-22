@@ -475,6 +475,8 @@ typedef NS_ENUM(NSInteger, AWSIoTOTAUpdateStatus) {
     AWSIoTOTAUpdateStatusCreateInProgress,
     AWSIoTOTAUpdateStatusCreateComplete,
     AWSIoTOTAUpdateStatusCreateFailed,
+    AWSIoTOTAUpdateStatusDeleteInProgress,
+    AWSIoTOTAUpdateStatusDeleteFailed,
 };
 
 typedef NS_ENUM(NSInteger, AWSIoTPolicyTemplateName) {
@@ -1173,6 +1175,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTTimestreamAction;
 @class AWSIoTTimestreamDimension;
 @class AWSIoTTimestreamTimestamp;
+@class AWSIoTTlsConfig;
 @class AWSIoTTlsContext;
 @class AWSIoTTopicRule;
 @class AWSIoTTopicRuleDestination;
@@ -3528,6 +3531,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSArray<AWSIoTTag *> * _Nullable tags;
 
 /**
+ <p>An object that specifies the TLS configuration for a domain.</p>
+ */
+@property (nonatomic, strong) AWSIoTTlsConfig * _Nullable tlsConfig;
+
+/**
  <p>The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable validationCertificateArn;
@@ -3731,7 +3739,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable documentParameters;
 
 /**
- <p>An S3 link to the job document. Required if you don't specify a value for <code>document</code>.</p><note><p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p><p>The placeholder link is of the following form:</p><p><code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code></p><p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p></note>
+ <p>An S3 link, or S3 object URL, to the job document. The link is an Amazon S3 object URL and is required if you don't specify a value for <code>document</code>.</p><p>For example, <code>--document-source https://s3.<i>region-code</i>.amazonaws.com/example-firmware/device-firmware.1.0</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html">Methods for accessing a bucket</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable documentSource;
 
@@ -6092,6 +6100,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The type of service delivered by the endpoint.</p>
  */
 @property (nonatomic, assign) AWSIoTServiceType serviceType;
+
+/**
+ <p>An object that specifies the TLS configuration for a domain.</p>
+ */
+@property (nonatomic, strong) AWSIoTTlsConfig * _Nullable tlsConfig;
 
 @end
 
@@ -12472,7 +12485,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSNumber * _Nullable expiresInSec;
 
 /**
- <p>The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job data/updates are stored. The role must also grant permission for IoT to download the files.</p><important><p>For information about addressing the confused deputy problem, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html">cross-service confused deputy prevention</a> in the <i>Amazon Web Services IoT Core developer guide</i>.</p></important>
+ <p>The ARN of an IAM role that grants permission to download files from the S3 bucket where the job data/updates are stored. The role must also grant permission for IoT to download the files.</p><important><p>For information about addressing the confused deputy problem, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html">cross-service confused deputy prevention</a> in the <i>Amazon Web Services IoT Core developer guide</i>.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable roleArn;
 
@@ -14729,6 +14742,19 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
+ <p>An object that specifies the TLS configuration for a domain.</p>
+ */
+@interface AWSIoTTlsConfig : AWSModel
+
+
+/**
+ <p>The security policy for a domain configuration. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html#tls-policy-table">Security policies </a> in the <i>Amazon Web Services IoT Core developer guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable securityPolicy;
+
+@end
+
+/**
  <p>Specifies the TLS context to use for the test authorizer request.</p>
  */
 @interface AWSIoTTlsContext : AWSModel
@@ -15443,6 +15469,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>Removes the authorization configuration from a domain.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable removeAuthorizerConfig;
+
+/**
+ <p>An object that specifies the TLS configuration for a domain.</p>
+ */
+@property (nonatomic, strong) AWSIoTTlsConfig * _Nullable tlsConfig;
 
 @end
 

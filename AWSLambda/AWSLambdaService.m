@@ -26,7 +26,7 @@
 #import "AWSLambdaRequestRetryHandler.h"
 
 static NSString *const AWSInfoLambda = @"Lambda";
-NSString *const AWSLambdaSDKVersion = @"2.30.4";
+NSString *const AWSLambdaSDKVersion = @"2.32.0";
 
 
 @interface AWSLambdaResponseSerializer : AWSJSONResponseSerializer
@@ -1128,6 +1128,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLambdaInvokeAsyncResponse *response, NSError *error))completionHandler {
     [[self invokeAsync:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaInvokeAsyncResponse *> * _Nonnull task) {
         AWSLambdaInvokeAsyncResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaInvokeWithResponseStreamResponse *> *)invokeWithResponseStream:(AWSLambdaInvokeWithResponseStreamRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/2021-11-15/functions/{FunctionName}/response-streaming-invocations"
+                  targetPrefix:@""
+                 operationName:@"InvokeWithResponseStream"
+                   outputClass:[AWSLambdaInvokeWithResponseStreamResponse class]];
+}
+
+- (void)invokeWithResponseStream:(AWSLambdaInvokeWithResponseStreamRequest *)request
+     completionHandler:(void (^)(AWSLambdaInvokeWithResponseStreamResponse *response, NSError *error))completionHandler {
+    [[self invokeWithResponseStream:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaInvokeWithResponseStreamResponse *> * _Nonnull task) {
+        AWSLambdaInvokeWithResponseStreamResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

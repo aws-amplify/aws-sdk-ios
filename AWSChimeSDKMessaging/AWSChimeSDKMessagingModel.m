@@ -1487,7 +1487,6 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 	return @{
              @"channelArn" : @"ChannelArn",
              @"chimeBearer" : @"ChimeBearer",
-             @"subChannelId" : @"SubChannelId",
              };
 }
 
@@ -3204,7 +3203,6 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 	return @{
              @"channelArn" : @"ChannelArn",
              @"chimeBearer" : @"ChimeBearer",
-             @"subChannelId" : @"SubChannelId",
              };
 }
 
@@ -3219,7 +3217,6 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"channelArn" : @"ChannelArn",
-             @"subChannelId" : @"SubChannelId",
              };
 }
 

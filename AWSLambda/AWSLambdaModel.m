@@ -636,6 +636,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"nodejs18.x"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs18X);
         }
+        if ([value caseInsensitiveCompare:@"python3.10"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython310);
+        }
+        if ([value caseInsensitiveCompare:@"java17"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeJava17);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -695,6 +701,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"provided.al2";
             case AWSLambdaRuntimeNodejs18X:
                 return @"nodejs18.x";
+            case AWSLambdaRuntimePython310:
+                return @"python3.10";
+            case AWSLambdaRuntimeJava17:
+                return @"java17";
             default:
                 return nil;
         }
@@ -726,6 +736,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"authType" : @"AuthType",
              @"cors" : @"Cors",
              @"functionName" : @"FunctionName",
+             @"invokeMode" : @"InvokeMode",
              @"qualifier" : @"Qualifier",
              };
 }
@@ -755,6 +766,27 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaCors class]];
 }
 
++ (NSValueTransformer *)invokeModeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"BUFFERED"] == NSOrderedSame) {
+            return @(AWSLambdaInvokeModeBuffered);
+        }
+        if ([value caseInsensitiveCompare:@"RESPONSE_STREAM"] == NSOrderedSame) {
+            return @(AWSLambdaInvokeModeResponseStream);
+        }
+        return @(AWSLambdaInvokeModeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaInvokeModeBuffered:
+                return @"BUFFERED";
+            case AWSLambdaInvokeModeResponseStream:
+                return @"RESPONSE_STREAM";
+            default:
+                return nil;
+        }
+    }];
+}
+
 @end
 
 @implementation AWSLambdaCreateFunctionUrlConfigResponse
@@ -770,6 +802,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"creationTime" : @"CreationTime",
              @"functionArn" : @"FunctionArn",
              @"functionUrl" : @"FunctionUrl",
+             @"invokeMode" : @"InvokeMode",
              };
 }
 
@@ -796,6 +829,27 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)corsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaCors class]];
+}
+
++ (NSValueTransformer *)invokeModeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"BUFFERED"] == NSOrderedSame) {
+            return @(AWSLambdaInvokeModeBuffered);
+        }
+        if ([value caseInsensitiveCompare:@"RESPONSE_STREAM"] == NSOrderedSame) {
+            return @(AWSLambdaInvokeModeResponseStream);
+        }
+        return @(AWSLambdaInvokeModeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaInvokeModeBuffered:
+                return @"BUFFERED";
+            case AWSLambdaInvokeModeResponseStream:
+                return @"RESPONSE_STREAM";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -1605,6 +1659,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"nodejs18.x"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs18X);
         }
+        if ([value caseInsensitiveCompare:@"python3.10"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython310);
+        }
+        if ([value caseInsensitiveCompare:@"java17"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeJava17);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1664,6 +1724,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"provided.al2";
             case AWSLambdaRuntimeNodejs18X:
                 return @"nodejs18.x";
+            case AWSLambdaRuntimePython310:
+                return @"python3.10";
+            case AWSLambdaRuntimeJava17:
+                return @"java17";
             default:
                 return nil;
         }
@@ -1893,6 +1957,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"creationTime" : @"CreationTime",
              @"functionArn" : @"FunctionArn",
              @"functionUrl" : @"FunctionUrl",
+             @"invokeMode" : @"InvokeMode",
              @"lastModifiedTime" : @"LastModifiedTime",
              };
 }
@@ -1920,6 +1985,27 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)corsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaCors class]];
+}
+
++ (NSValueTransformer *)invokeModeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"BUFFERED"] == NSOrderedSame) {
+            return @(AWSLambdaInvokeModeBuffered);
+        }
+        if ([value caseInsensitiveCompare:@"RESPONSE_STREAM"] == NSOrderedSame) {
+            return @(AWSLambdaInvokeModeResponseStream);
+        }
+        return @(AWSLambdaInvokeModeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaInvokeModeBuffered:
+                return @"BUFFERED";
+            case AWSLambdaInvokeModeResponseStream:
+                return @"RESPONSE_STREAM";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -2175,6 +2261,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"creationTime" : @"CreationTime",
              @"functionArn" : @"FunctionArn",
              @"functionUrl" : @"FunctionUrl",
+             @"invokeMode" : @"InvokeMode",
              @"lastModifiedTime" : @"LastModifiedTime",
              };
 }
@@ -2202,6 +2289,27 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)corsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaCors class]];
+}
+
++ (NSValueTransformer *)invokeModeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"BUFFERED"] == NSOrderedSame) {
+            return @(AWSLambdaInvokeModeBuffered);
+        }
+        if ([value caseInsensitiveCompare:@"RESPONSE_STREAM"] == NSOrderedSame) {
+            return @(AWSLambdaInvokeModeResponseStream);
+        }
+        return @(AWSLambdaInvokeModeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaInvokeModeBuffered:
+                return @"BUFFERED";
+            case AWSLambdaInvokeModeResponseStream:
+                return @"RESPONSE_STREAM";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -2601,6 +2709,141 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 	return @{
              @"status" : @"Status",
              };
+}
+
+@end
+
+@implementation AWSLambdaInvokeResponseStreamUpdate
+
++ (BOOL)supportsSecureCoding {
+    return NO;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"payload" : @"Payload",
+             };
+}
+
+@end
+
+@implementation AWSLambdaInvokeWithResponseStreamCompleteEvent
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"errorCode" : @"ErrorCode",
+             @"errorDetails" : @"ErrorDetails",
+             @"logResult" : @"LogResult",
+             };
+}
+
+@end
+
+@implementation AWSLambdaInvokeWithResponseStreamRequest
+
++ (BOOL)supportsSecureCoding {
+    return NO;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientContext" : @"ClientContext",
+             @"functionName" : @"FunctionName",
+             @"invocationType" : @"InvocationType",
+             @"logType" : @"LogType",
+             @"payload" : @"Payload",
+             @"qualifier" : @"Qualifier",
+             };
+}
+
++ (NSValueTransformer *)invocationTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"RequestResponse"] == NSOrderedSame) {
+            return @(AWSLambdaResponseStreamingInvocationTypeRequestResponse);
+        }
+        if ([value caseInsensitiveCompare:@"DryRun"] == NSOrderedSame) {
+            return @(AWSLambdaResponseStreamingInvocationTypeDryRun);
+        }
+        return @(AWSLambdaResponseStreamingInvocationTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaResponseStreamingInvocationTypeRequestResponse:
+                return @"RequestResponse";
+            case AWSLambdaResponseStreamingInvocationTypeDryRun:
+                return @"DryRun";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)logTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"None"] == NSOrderedSame) {
+            return @(AWSLambdaLogTypeNone);
+        }
+        if ([value caseInsensitiveCompare:@"Tail"] == NSOrderedSame) {
+            return @(AWSLambdaLogTypeTail);
+        }
+        return @(AWSLambdaLogTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaLogTypeNone:
+                return @"None";
+            case AWSLambdaLogTypeTail:
+                return @"Tail";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSLambdaInvokeWithResponseStreamResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"eventStream" : @"EventStream",
+             @"executedVersion" : @"ExecutedVersion",
+             @"responseStreamContentType" : @"ResponseStreamContentType",
+             @"statusCode" : @"StatusCode",
+             };
+}
+
++ (NSValueTransformer *)eventStreamJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaInvokeWithResponseStreamResponseEvent class]];
+}
+
+@end
+
+@implementation AWSLambdaInvokeWithResponseStreamResponseEvent
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"invokeComplete" : @"InvokeComplete",
+             @"payloadChunk" : @"PayloadChunk",
+             };
+}
+
++ (NSValueTransformer *)invokeCompleteJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaInvokeWithResponseStreamCompleteEvent class]];
+}
+
++ (NSValueTransformer *)payloadChunkJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaInvokeResponseStreamUpdate class]];
 }
 
 @end
@@ -3079,6 +3322,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"nodejs18.x"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs18X);
         }
+        if ([value caseInsensitiveCompare:@"python3.10"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython310);
+        }
+        if ([value caseInsensitiveCompare:@"java17"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeJava17);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3138,6 +3387,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"provided.al2";
             case AWSLambdaRuntimeNodejs18X:
                 return @"nodejs18.x";
+            case AWSLambdaRuntimePython310:
+                return @"python3.10";
+            case AWSLambdaRuntimeJava17:
+                return @"java17";
             default:
                 return nil;
         }
@@ -3287,6 +3540,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"nodejs18.x"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs18X);
         }
+        if ([value caseInsensitiveCompare:@"python3.10"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython310);
+        }
+        if ([value caseInsensitiveCompare:@"java17"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeJava17);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3346,6 +3605,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"provided.al2";
             case AWSLambdaRuntimeNodejs18X:
                 return @"nodejs18.x";
+            case AWSLambdaRuntimePython310:
+                return @"python3.10";
+            case AWSLambdaRuntimeJava17:
+                return @"java17";
             default:
                 return nil;
         }
@@ -4465,6 +4728,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"nodejs18.x"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs18X);
         }
+        if ([value caseInsensitiveCompare:@"python3.10"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython310);
+        }
+        if ([value caseInsensitiveCompare:@"java17"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeJava17);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4524,6 +4793,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"provided.al2";
             case AWSLambdaRuntimeNodejs18X:
                 return @"nodejs18.x";
+            case AWSLambdaRuntimePython310:
+                return @"python3.10";
+            case AWSLambdaRuntimeJava17:
+                return @"java17";
             default:
                 return nil;
         }
@@ -4577,6 +4850,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"authType" : @"AuthType",
              @"cors" : @"Cors",
              @"functionName" : @"FunctionName",
+             @"invokeMode" : @"InvokeMode",
              @"qualifier" : @"Qualifier",
              };
 }
@@ -4606,6 +4880,27 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaCors class]];
 }
 
++ (NSValueTransformer *)invokeModeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"BUFFERED"] == NSOrderedSame) {
+            return @(AWSLambdaInvokeModeBuffered);
+        }
+        if ([value caseInsensitiveCompare:@"RESPONSE_STREAM"] == NSOrderedSame) {
+            return @(AWSLambdaInvokeModeResponseStream);
+        }
+        return @(AWSLambdaInvokeModeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaInvokeModeBuffered:
+                return @"BUFFERED";
+            case AWSLambdaInvokeModeResponseStream:
+                return @"RESPONSE_STREAM";
+            default:
+                return nil;
+        }
+    }];
+}
+
 @end
 
 @implementation AWSLambdaUpdateFunctionUrlConfigResponse
@@ -4621,6 +4916,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"creationTime" : @"CreationTime",
              @"functionArn" : @"FunctionArn",
              @"functionUrl" : @"FunctionUrl",
+             @"invokeMode" : @"InvokeMode",
              @"lastModifiedTime" : @"LastModifiedTime",
              };
 }
@@ -4648,6 +4944,27 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)corsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaCors class]];
+}
+
++ (NSValueTransformer *)invokeModeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"BUFFERED"] == NSOrderedSame) {
+            return @(AWSLambdaInvokeModeBuffered);
+        }
+        if ([value caseInsensitiveCompare:@"RESPONSE_STREAM"] == NSOrderedSame) {
+            return @(AWSLambdaInvokeModeResponseStream);
+        }
+        return @(AWSLambdaInvokeModeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaInvokeModeBuffered:
+                return @"BUFFERED";
+            case AWSLambdaInvokeModeResponseStream:
+                return @"RESPONSE_STREAM";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end

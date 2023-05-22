@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
 #import "AWSRekognitionResources.h"
 
 static NSString *const AWSInfoRekognition = @"Rekognition";
-NSString *const AWSRekognitionSDKVersion = @"2.30.4";
+NSString *const AWSRekognitionSDKVersion = @"2.32.0";
 
 
 @interface AWSRekognitionResponseSerializer : AWSJSONResponseSerializer
@@ -57,6 +57,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"ResourceNotFoundException" : @(AWSRekognitionErrorResourceNotFound),
                             @"ResourceNotReadyException" : @(AWSRekognitionErrorResourceNotReady),
                             @"ServiceQuotaExceededException" : @(AWSRekognitionErrorServiceQuotaExceeded),
+                            @"SessionNotFoundException" : @(AWSRekognitionErrorSessionNotFound),
                             @"ThrottlingException" : @(AWSRekognitionErrorThrottling),
                             @"VideoTooLargeException" : @(AWSRekognitionErrorVideoTooLarge),
                             };
@@ -375,6 +376,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSRekognitionCreateDatasetResponse *response, NSError *error))completionHandler {
     [[self createDataset:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionCreateDatasetResponse *> * _Nonnull task) {
         AWSRekognitionCreateDatasetResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionCreateFaceLivenessSessionResponse *> *)createFaceLivenessSession:(AWSRekognitionCreateFaceLivenessSessionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"CreateFaceLivenessSession"
+                   outputClass:[AWSRekognitionCreateFaceLivenessSessionResponse class]];
+}
+
+- (void)createFaceLivenessSession:(AWSRekognitionCreateFaceLivenessSessionRequest *)request
+     completionHandler:(void (^)(AWSRekognitionCreateFaceLivenessSessionResponse *response, NSError *error))completionHandler {
+    [[self createFaceLivenessSession:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionCreateFaceLivenessSessionResponse *> * _Nonnull task) {
+        AWSRekognitionCreateFaceLivenessSessionResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -973,6 +997,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSRekognitionGetFaceDetectionResponse *response, NSError *error))completionHandler {
     [[self getFaceDetection:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionGetFaceDetectionResponse *> * _Nonnull task) {
         AWSRekognitionGetFaceDetectionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionGetFaceLivenessSessionResultsResponse *> *)getFaceLivenessSessionResults:(AWSRekognitionGetFaceLivenessSessionResultsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"GetFaceLivenessSessionResults"
+                   outputClass:[AWSRekognitionGetFaceLivenessSessionResultsResponse class]];
+}
+
+- (void)getFaceLivenessSessionResults:(AWSRekognitionGetFaceLivenessSessionResultsRequest *)request
+     completionHandler:(void (^)(AWSRekognitionGetFaceLivenessSessionResultsResponse *response, NSError *error))completionHandler {
+    [[self getFaceLivenessSessionResults:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionGetFaceLivenessSessionResultsResponse *> * _Nonnull task) {
+        AWSRekognitionGetFaceLivenessSessionResultsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
 #import "AWSPinpointTargetingResources.h"
 
 static NSString *const AWSInfoPinpointTargeting = @"PinpointTargeting";
-NSString *const AWSPinpointTargetingSDKVersion = @"2.30.4";
+NSString *const AWSPinpointTargetingSDKVersion = @"2.32.0";
 
 
 @interface AWSPinpointTargetingResponseSerializer : AWSJSONResponseSerializer
@@ -1849,6 +1849,75 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSPinpointTargetingGetJourneyExecutionMetricsResponse *response, NSError *error))completionHandler {
     [[self getJourneyExecutionMetrics:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetJourneyExecutionMetricsResponse *> * _Nonnull task) {
         AWSPinpointTargetingGetJourneyExecutionMetricsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsResponse *> *)getJourneyRunExecutionActivityMetrics:(AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/v1/apps/{application-id}/journeys/{journey-id}/runs/{run-id}/activities/{journey-activity-id}/execution-metrics"
+                  targetPrefix:@""
+                 operationName:@"GetJourneyRunExecutionActivityMetrics"
+                   outputClass:[AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsResponse class]];
+}
+
+- (void)getJourneyRunExecutionActivityMetrics:(AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsResponse *response, NSError *error))completionHandler {
+    [[self getJourneyRunExecutionActivityMetrics:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsResponse *> * _Nonnull task) {
+        AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSPinpointTargetingGetJourneyRunExecutionMetricsResponse *> *)getJourneyRunExecutionMetrics:(AWSPinpointTargetingGetJourneyRunExecutionMetricsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/v1/apps/{application-id}/journeys/{journey-id}/runs/{run-id}/execution-metrics"
+                  targetPrefix:@""
+                 operationName:@"GetJourneyRunExecutionMetrics"
+                   outputClass:[AWSPinpointTargetingGetJourneyRunExecutionMetricsResponse class]];
+}
+
+- (void)getJourneyRunExecutionMetrics:(AWSPinpointTargetingGetJourneyRunExecutionMetricsRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingGetJourneyRunExecutionMetricsResponse *response, NSError *error))completionHandler {
+    [[self getJourneyRunExecutionMetrics:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetJourneyRunExecutionMetricsResponse *> * _Nonnull task) {
+        AWSPinpointTargetingGetJourneyRunExecutionMetricsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSPinpointTargetingGetJourneyRunsResponse *> *)getJourneyRuns:(AWSPinpointTargetingGetJourneyRunsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/v1/apps/{application-id}/journeys/{journey-id}/runs"
+                  targetPrefix:@""
+                 operationName:@"GetJourneyRuns"
+                   outputClass:[AWSPinpointTargetingGetJourneyRunsResponse class]];
+}
+
+- (void)getJourneyRuns:(AWSPinpointTargetingGetJourneyRunsRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingGetJourneyRunsResponse *response, NSError *error))completionHandler {
+    [[self getJourneyRuns:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetJourneyRunsResponse *> * _Nonnull task) {
+        AWSPinpointTargetingGetJourneyRunsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
