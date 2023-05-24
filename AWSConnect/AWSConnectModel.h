@@ -895,6 +895,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectCreateIntegrationAssociationResponse;
 @class AWSConnectCreateParticipantRequest;
 @class AWSConnectCreateParticipantResponse;
+@class AWSConnectCreatePromptRequest;
+@class AWSConnectCreatePromptResponse;
 @class AWSConnectCreateQueueRequest;
 @class AWSConnectCreateQueueResponse;
 @class AWSConnectCreateQuickConnectRequest;
@@ -936,6 +938,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDeleteHoursOfOperationRequest;
 @class AWSConnectDeleteInstanceRequest;
 @class AWSConnectDeleteIntegrationAssociationRequest;
+@class AWSConnectDeletePromptRequest;
 @class AWSConnectDeleteQuickConnectRequest;
 @class AWSConnectDeleteRuleRequest;
 @class AWSConnectDeleteSecurityProfileRequest;
@@ -970,6 +973,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDescribeInstanceStorageConfigResponse;
 @class AWSConnectDescribePhoneNumberRequest;
 @class AWSConnectDescribePhoneNumberResponse;
+@class AWSConnectDescribePromptRequest;
+@class AWSConnectDescribePromptResponse;
 @class AWSConnectDescribeQueueRequest;
 @class AWSConnectDescribeQueueResponse;
 @class AWSConnectDescribeQuickConnectRequest;
@@ -1044,6 +1049,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectGetMetricDataResponse;
 @class AWSConnectGetMetricDataV2Request;
 @class AWSConnectGetMetricDataV2Response;
+@class AWSConnectGetPromptFileRequest;
+@class AWSConnectGetPromptFileResponse;
 @class AWSConnectGetTaskTemplateRequest;
 @class AWSConnectGetTaskTemplateResponse;
 @class AWSConnectGetTrafficDistributionRequest;
@@ -1169,6 +1176,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectPhoneNumberStatus;
 @class AWSConnectPhoneNumberSummary;
 @class AWSConnectProblemDetail;
+@class AWSConnectPrompt;
 @class AWSConnectPromptSummary;
 @class AWSConnectPropertyValidationExceptionProperty;
 @class AWSConnectPutUserStatusRequest;
@@ -1295,6 +1303,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUpdateParticipantRoleConfigResponse;
 @class AWSConnectUpdatePhoneNumberRequest;
 @class AWSConnectUpdatePhoneNumberResponse;
+@class AWSConnectUpdatePromptRequest;
+@class AWSConnectUpdatePromptResponse;
 @class AWSConnectUpdateQueueHoursOfOperationRequest;
 @class AWSConnectUpdateQueueMaxContactsRequest;
 @class AWSConnectUpdateQueueNameRequest;
@@ -2770,6 +2780,57 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectCreatePromptRequest : AWSRequest
+
+
+/**
+ <p>The description of the prompt.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The name of the prompt.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The URI for the S3 bucket where the prompt is stored.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Uri;
+
+/**
+ <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreatePromptResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the prompt.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable promptARN;
+
+/**
+ <p>A unique identifier for the prompt.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable promptId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectCreateQueueRequest : AWSRequest
 
 
@@ -3770,6 +3831,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectDeletePromptRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>A unique identifier for the prompt.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable promptId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectDeleteQuickConnectRequest : AWSRequest
 
 
@@ -4311,6 +4390,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>Information about a phone number that's been claimed to your Amazon Connect instance or traffic distribution group.</p>
  */
 @property (nonatomic, strong) AWSConnectClaimedPhoneNumberSummary * _Nullable claimedPhoneNumberSummary;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribePromptRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>A unique identifier for the prompt.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable promptId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribePromptResponse : AWSModel
+
+
+/**
+ <p>Information about the prompt.</p>
+ */
+@property (nonatomic, strong) AWSConnectPrompt * _Nullable prompt;
 
 @end
 
@@ -5319,7 +5429,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 /**
  <p>Information about a section from an evaluation form. A section can contain sections and/or questions. Evaluation forms can only contain sections and subsections (two level nesting).</p>
- Required parameters: [Title, RefId]
+ Required parameters: [Title, RefId, Items]
  */
 @interface AWSConnectEvaluationFormSection : AWSModel
 
@@ -6051,6 +6161,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>If there are additional results, this is the token for the next set of results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectGetPromptFileRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>A unique identifier for the prompt.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable promptId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectGetPromptFileResponse : AWSModel
+
+
+/**
+ <p>A generated URL to the prompt that can be given to an unauthorized user so they can access the prompt in S3.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable promptPresignedUrl;
 
 @end
 
@@ -8935,6 +9076,39 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The problem detail's message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable message;
+
+@end
+
+/**
+ <p>Information about a prompt.</p>
+ */
+@interface AWSConnectPrompt : AWSModel
+
+
+/**
+ <p>A description for the prompt.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The name of the prompt.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the prompt.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable promptARN;
+
+/**
+ <p>A unique identifier for the prompt.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable promptId;
+
+/**
+ <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 @end
 
@@ -12025,6 +12199,57 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>A unique identifier for the phone number.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable phoneNumberId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdatePromptRequest : AWSRequest
+
+
+/**
+ <p>A description of the prompt.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The name of the prompt.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>A unique identifier for the prompt.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable promptId;
+
+/**
+ <p>The URI for the S3 bucket where the prompt is stored.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Uri;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdatePromptResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the prompt.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable promptARN;
+
+/**
+ <p>A unique identifier for the prompt.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable promptId;
 
 @end
 

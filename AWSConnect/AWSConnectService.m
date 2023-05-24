@@ -749,6 +749,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectCreatePromptResponse *> *)createPrompt:(AWSConnectCreatePromptRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/prompts/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"CreatePrompt"
+                   outputClass:[AWSConnectCreatePromptResponse class]];
+}
+
+- (void)createPrompt:(AWSConnectCreatePromptRequest *)request
+     completionHandler:(void (^)(AWSConnectCreatePromptResponse *response, NSError *error))completionHandler {
+    [[self createPrompt:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectCreatePromptResponse *> * _Nonnull task) {
+        AWSConnectCreatePromptResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectCreateQueueResponse *> *)createQueue:(AWSConnectCreateQueueRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -1171,6 +1194,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)deleteIntegrationAssociation:(AWSConnectDeleteIntegrationAssociationRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteIntegrationAssociation:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deletePrompt:(AWSConnectDeletePromptRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/prompts/{InstanceId}/{PromptId}"
+                  targetPrefix:@""
+                 operationName:@"DeletePrompt"
+                   outputClass:nil];
+}
+
+- (void)deletePrompt:(AWSConnectDeletePromptRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deletePrompt:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1625,6 +1670,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectDescribePhoneNumberResponse *response, NSError *error))completionHandler {
     [[self describePhoneNumber:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDescribePhoneNumberResponse *> * _Nonnull task) {
         AWSConnectDescribePhoneNumberResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectDescribePromptResponse *> *)describePrompt:(AWSConnectDescribePromptRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/prompts/{InstanceId}/{PromptId}"
+                  targetPrefix:@""
+                 operationName:@"DescribePrompt"
+                   outputClass:[AWSConnectDescribePromptResponse class]];
+}
+
+- (void)describePrompt:(AWSConnectDescribePromptRequest *)request
+     completionHandler:(void (^)(AWSConnectDescribePromptResponse *response, NSError *error))completionHandler {
+    [[self describePrompt:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDescribePromptResponse *> * _Nonnull task) {
+        AWSConnectDescribePromptResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2214,6 +2282,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectGetMetricDataV2Response *response, NSError *error))completionHandler {
     [[self getMetricDataV2:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectGetMetricDataV2Response *> * _Nonnull task) {
         AWSConnectGetMetricDataV2Response *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectGetPromptFileResponse *> *)getPromptFile:(AWSConnectGetPromptFileRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/prompts/{InstanceId}/{PromptId}/file"
+                  targetPrefix:@""
+                 operationName:@"GetPromptFile"
+                   outputClass:[AWSConnectGetPromptFileResponse class]];
+}
+
+- (void)getPromptFile:(AWSConnectGetPromptFileRequest *)request
+     completionHandler:(void (^)(AWSConnectGetPromptFileResponse *response, NSError *error))completionHandler {
+    [[self getPromptFile:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectGetPromptFileResponse *> * _Nonnull task) {
+        AWSConnectGetPromptFileResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -4001,6 +4092,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectUpdatePhoneNumberResponse *response, NSError *error))completionHandler {
     [[self updatePhoneNumber:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectUpdatePhoneNumberResponse *> * _Nonnull task) {
         AWSConnectUpdatePhoneNumberResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectUpdatePromptResponse *> *)updatePrompt:(AWSConnectUpdatePromptRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/prompts/{InstanceId}/{PromptId}"
+                  targetPrefix:@""
+                 operationName:@"UpdatePrompt"
+                   outputClass:[AWSConnectUpdatePromptResponse class]];
+}
+
+- (void)updatePrompt:(AWSConnectUpdatePromptRequest *)request
+     completionHandler:(void (^)(AWSConnectUpdatePromptResponse *response, NSError *error))completionHandler {
+    [[self updatePrompt:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectUpdatePromptResponse *> * _Nonnull task) {
+        AWSConnectUpdatePromptResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
