@@ -1,8 +1,25 @@
+import os
 import sys
+import json
 
 from framework_list import frameworks
 from functions import log, run_command
 import time
+
+
+def get_cocoapods_trunk_token():
+    (exit_code, out, error) = run_command([
+        "aws", "secretsmanager", "get-secret-value", "--secret-id", os.environ['COCOAPODS_SECRET_ARN']
+    ])
+    if exit_code != 0:
+        log(f"Failed to get CocoaPods token from AWS. Output: {out}, Error: {error}")
+        sys.exit(exit_code)
+
+    return json.loads(out)["SecretString"]
+
+log(f"Retrieving CocoaPods token")
+os.environ['COCOAPODS_TRUNK_TOKEN'] = get_cocoapods_trunk_token()
+log("Retrieved CocoaPods token")
 
 def publish(framework: str, retryAttempt: int = 0):
 
