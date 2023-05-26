@@ -5,6 +5,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ### Misc. Updates
 
 - Model updates for the following services
+  - AWSPinpoint
   - AWSEC2
   - AWSConnect
   - AWSSTS
