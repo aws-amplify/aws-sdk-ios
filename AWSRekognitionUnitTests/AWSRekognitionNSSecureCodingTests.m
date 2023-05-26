@@ -112,6 +112,7 @@
 - (void) test_AWSRekognitionEmotion API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionEquipmentDetection API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionEvaluationResult API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionEyeDirection API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionEyeOpen API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionEyeglasses API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionFace API_AVAILABLE(ios(11));
@@ -646,6 +647,10 @@
 
 - (void) test_AWSRekognitionEvaluationResult {
     [self validateSecureCodingForClass:[AWSRekognitionEvaluationResult class]];
+}
+
+- (void) test_AWSRekognitionEyeDirection {
+    [self validateSecureCodingForClass:[AWSRekognitionEyeDirection class]];
 }
 
 - (void) test_AWSRekognitionEyeOpen {
