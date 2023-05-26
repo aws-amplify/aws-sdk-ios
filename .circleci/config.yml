@@ -12,6 +12,9 @@
 
 version: 2.1
 
+orbs:
+  aws-cli: circleci/aws-cli@3.1.4
+
 commands:
   restore_gem:
     steps:
@@ -475,6 +478,10 @@ jobs:
     steps:
       - skip_job_unless_required
       - shallow_checkout
+      - aws-cli/setup:
+          role-arn: $AWS_OIDC_ROLE_ARN
+          role-session-name: "${CIRCLE_WORKFLOW_JOB_ID}.release-cocoapods"
+          session-duration: '900'
       - restore_gem
       - run:
           name: Release CocoaPods
@@ -1501,6 +1508,7 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
+          context: amplify-swift-aws-oidc
       - release_carthage:
           requires:
             - build_xcframeworks

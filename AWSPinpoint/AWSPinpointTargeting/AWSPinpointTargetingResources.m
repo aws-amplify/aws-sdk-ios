@@ -8724,7 +8724,7 @@
         \"tags\": {\
           \"shape\": \"MapOf__string\",\
           \"locationName\": \"tags\",\
-          \"documentation\": \"<p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>\"\
+          \"documentation\": \"<note><p>As of <b>22-05-2023</b> tags has been deprecated for update operations. After this date any value in tags is not processed and an error code is not returned. To manage tags we recommend using either <a href=\\\"https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html\\\">Tags</a> in the <i>API Reference for Amazon Pinpoint</i>, <a href=\\\"https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html\\\">resourcegroupstaggingapi</a> commands in the <i>AWS Command Line Interface Documentation</i> or <a href=\\\"https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html\\\">resourcegroupstaggingapi</a> in the <i>AWS SDK</i>.</p></note> <p>(Deprecated) A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>\"\
         },\
         \"TemplateDescription\": {\
           \"shape\": \"__string\",\
@@ -11868,7 +11868,7 @@
         \"tags\": {\
           \"shape\": \"MapOf__string\",\
           \"locationName\": \"tags\",\
-          \"documentation\": \"<p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>\"\
+          \"documentation\": \"<note><p>As of <b>22-05-2023</b> tags has been deprecated for update operations. After this date any value in tags is not processed and an error code is not returned. To manage tags we recommend using either <a href=\\\"https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html\\\">Tags</a> in the <i>API Reference for Amazon Pinpoint</i>, <a href=\\\"https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html\\\">resourcegroupstaggingapi</a> commands in the <i>AWS Command Line Interface Documentation</i> or <a href=\\\"https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html\\\">resourcegroupstaggingapi</a> in the <i>AWS SDK</i>.</p></note> <p>(Deprecated) A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>\"\
         },\
         \"TemplateDescription\": {\
           \"shape\": \"__string\",\
@@ -13183,7 +13183,7 @@
         \"tags\": {\
           \"shape\": \"MapOf__string\",\
           \"locationName\": \"tags\",\
-          \"documentation\": \"<p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>\"\
+          \"documentation\": \"<note><p>As of <b>22-05-2023</b> tags has been deprecated for update operations. After this date any value in tags is not processed and an error code is not returned. To manage tags we recommend using either <a href=\\\"https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html\\\">Tags</a> in the <i>API Reference for Amazon Pinpoint</i>, <a href=\\\"https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html\\\">resourcegroupstaggingapi</a> commands in the <i>AWS Command Line Interface Documentation</i> or <a href=\\\"https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html\\\">resourcegroupstaggingapi</a> in the <i>AWS SDK</i>.</p></note> <p>(Deprecated) A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>\"\
         },\
         \"TemplateDescription\": {\
           \"shape\": \"__string\",\
@@ -13708,7 +13708,7 @@
         \"tags\": {\
           \"shape\": \"MapOf__string\",\
           \"locationName\": \"tags\",\
-          \"documentation\": \"<p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>\"\
+          \"documentation\": \"<note><p>As of <b>22-05-2023</b> tags has been deprecated for update operations. After this date any value in tags is not processed and an error code is not returned. To manage tags we recommend using either <a href=\\\"https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html\\\">Tags</a> in the <i>API Reference for Amazon Pinpoint</i>, <a href=\\\"https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html\\\">resourcegroupstaggingapi</a> commands in the <i>AWS Command Line Interface Documentation</i> or <a href=\\\"https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html\\\">resourcegroupstaggingapi</a> in the <i>AWS SDK</i>.</p></note> <p>(Deprecated) A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>\"\
         },\
         \"TemplateDescription\": {\
           \"shape\": \"__string\",\
@@ -15815,7 +15815,7 @@
         \"tags\": {\
           \"shape\": \"MapOf__string\",\
           \"locationName\": \"tags\",\
-          \"documentation\": \"<p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>\"\
+          \"documentation\": \"<note><p>As of <b>22-05-2023</b> tags has been deprecated for update operations. After this date any value in tags is not processed and an error code is not returned. To manage tags we recommend using either <a href=\\\"https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html\\\">Tags</a> in the <i>API Reference for Amazon Pinpoint</i>, <a href=\\\"https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html\\\">resourcegroupstaggingapi</a> commands in the <i>AWS Command Line Interface Documentation</i> or <a href=\\\"https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html\\\">resourcegroupstaggingapi</a> in the <i>AWS SDK</i>.</p></note> <p>(Deprecated) A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>\"\
         },\
         \"TemplateDescription\": {\
           \"shape\": \"__string\",\
@@ -15996,7 +15996,7 @@
         \"tags\": {\
           \"shape\": \"MapOf__string\",\
           \"locationName\": \"tags\",\
-          \"documentation\": \"<p>A string-to-string map of key-value pairs that defines the tags to associate with the campaign. Each tag consists of a required tag key and an associated tag value.</p>\"\
+          \"documentation\": \"<note><p>As of <b>22-05-2023</b> tags has been deprecated for update operations. After this date any value in tags is not processed and an error code is not returned. To manage tags we recommend using either <a href=\\\"https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html\\\">Tags</a> in the <i>API Reference for Amazon Pinpoint</i>, <a href=\\\"https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html\\\">resourcegroupstaggingapi</a> commands in the <i>AWS Command Line Interface Documentation</i> or <a href=\\\"https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html\\\">resourcegroupstaggingapi</a> in the <i>AWS SDK</i>.</p></note> <p>(Deprecated) A string-to-string map of key-value pairs that defines the tags to associate with the campaign. Each tag consists of a required tag key and an associated tag value.</p>\"\
         },\
         \"TemplateConfiguration\": {\
           \"shape\": \"TemplateConfiguration\",\
@@ -16134,7 +16134,7 @@
         \"tags\": {\
           \"shape\": \"MapOf__string\",\
           \"locationName\": \"tags\",\
-          \"documentation\": \"<p>A string-to-string map of key-value pairs that defines the tags to associate with the segment. Each tag consists of a required tag key and an associated tag value.</p>\"\
+          \"documentation\": \"<note><p>As of <b>22-05-2023</b> tags has been deprecated for update operations. After this date any value in tags is not processed and an error code is not returned. To manage tags we recommend using either <a href=\\\"https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html\\\">Tags</a> in the <i>API Reference for Amazon Pinpoint</i>, <a href=\\\"https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html\\\">resourcegroupstaggingapi</a> commands in the <i>AWS Command Line Interface Documentation</i> or <a href=\\\"https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html\\\">resourcegroupstaggingapi</a> in the <i>AWS SDK</i>.</p></note> <p>(Deprecated) A string-to-string map of key-value pairs that defines the tags to associate with the segment. Each tag consists of a required tag key and an associated tag value.</p>\"\
         }\
       },\
       \"documentation\": \"<p>Specifies the configuration, dimension, and other settings for a segment. A WriteSegmentRequest object can include a Dimensions object or a SegmentGroups object, but not both.</p>\"\

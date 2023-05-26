@@ -31586,7 +31586,7 @@
           \"documentation\":\"<p>The ID of the EBS snapshot to be used for importing the snapshot.</p>\"\
         },\
         \"Url\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SensitiveUrl\",\
           \"documentation\":\"<p>The URL to the Amazon S3-based disk image being imported. The URL can either be a https URL (https://..) or an Amazon S3 URL (s3://..)</p>\"\
         },\
         \"UserBucket\":{\
@@ -35063,7 +35063,13 @@
         \"inf2.8xlarge\",\
         \"inf2.24xlarge\",\
         \"inf2.48xlarge\",\
-        \"trn1n.32xlarge\"\
+        \"trn1n.32xlarge\",\
+        \"i4g.large\",\
+        \"i4g.xlarge\",\
+        \"i4g.2xlarge\",\
+        \"i4g.4xlarge\",\
+        \"i4g.8xlarge\",\
+        \"i4g.16xlarge\"\
       ]\
     },\
     \"InstanceTypeHypervisor\":{\
@@ -46645,7 +46651,7 @@
           \"documentation\":\"<p>Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).</p> <p>Default: <code>stop</code> </p>\"\
         },\
         \"UserData\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SensitiveUserData\",\
           \"documentation\":\"<p>The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html\\\">Run commands on your Linux instance at launch</a> (Linux) or <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html\\\">Work with instance user data</a> (Windows) in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>If you are creating the launch template for use with Batch, the user data must be provided in the <a href=\\\"https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive\\\"> MIME multi-part archive format</a>. For more information, see <a href=\\\"https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html\\\">Amazon EC2 user data in launch templates</a> in the <i>Batch User Guide</i>.</p>\"\
         },\
         \"TagSpecifications\":{\
@@ -46723,8 +46729,7 @@
           \"documentation\":\"<p>Indicates whether to enable the instance for stop protection. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection\\\">Stop protection</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The information to include in the launch template.</p> <note> <p>You must specify at least one parameter for the launch template data.</p> </note>\",\
-      \"sensitive\":true\
+      \"documentation\":\"<p>The information to include in the launch template.</p> <note> <p>You must specify at least one parameter for the launch template data.</p> </note>\"\
     },\
     \"RequestSpotFleetRequest\":{\
       \"type\":\"structure\",\
@@ -49961,6 +49966,10 @@
         }\
       }\
     },\
+    \"SensitiveUrl\":{\
+      \"type\":\"string\",\
+      \"sensitive\":true\
+    },\
     \"SensitiveUserData\":{\
       \"type\":\"string\",\
       \"sensitive\":true\
@@ -50365,7 +50374,7 @@
           \"locationName\":\"statusMessage\"\
         },\
         \"Url\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SensitiveUrl\",\
           \"documentation\":\"<p>The URL used to access the disk image.</p>\",\
           \"locationName\":\"url\"\
         },\
@@ -50396,7 +50405,7 @@
           \"documentation\":\"<p>The format of the disk image being imported.</p> <p>Valid values: <code>VHD</code> | <code>VMDK</code> | <code>RAW</code> </p>\"\
         },\
         \"Url\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SensitiveUrl\",\
           \"documentation\":\"<p>The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..).</p>\"\
         },\
         \"UserBucket\":{\
@@ -50586,7 +50595,7 @@
           \"locationName\":\"statusMessage\"\
         },\
         \"Url\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SensitiveUrl\",\
           \"documentation\":\"<p>The URL of the disk image from which the snapshot is created.</p>\",\
           \"locationName\":\"url\"\
         },\
