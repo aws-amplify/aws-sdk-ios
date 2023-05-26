@@ -229,6 +229,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"MONITOR"] == NSOrderedSame) {
             return @(AWSConnectContactInitiationMethodMonitor);
         }
+        if ([value caseInsensitiveCompare:@"EXTERNAL_OUTBOUND"] == NSOrderedSame) {
+            return @(AWSConnectContactInitiationMethodExternalOutbound);
+        }
         return @(AWSConnectContactInitiationMethodUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -248,6 +251,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"DISCONNECT";
             case AWSConnectContactInitiationMethodMonitor:
                 return @"MONITOR";
+            case AWSConnectContactInitiationMethodExternalOutbound:
+                return @"EXTERNAL_OUTBOUND";
             default:
                 return nil;
         }
@@ -3603,6 +3608,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"MONITOR"] == NSOrderedSame) {
             return @(AWSConnectContactInitiationMethodMonitor);
         }
+        if ([value caseInsensitiveCompare:@"EXTERNAL_OUTBOUND"] == NSOrderedSame) {
+            return @(AWSConnectContactInitiationMethodExternalOutbound);
+        }
         return @(AWSConnectContactInitiationMethodUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3622,6 +3630,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"DISCONNECT";
             case AWSConnectContactInitiationMethodMonitor:
                 return @"MONITOR";
+            case AWSConnectContactInitiationMethodExternalOutbound:
+                return @"EXTERNAL_OUTBOUND";
             default:
                 return nil;
         }

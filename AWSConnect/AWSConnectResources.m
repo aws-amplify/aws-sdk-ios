@@ -4470,7 +4470,8 @@
         \"CALLBACK\",\
         \"API\",\
         \"DISCONNECT\",\
-        \"MONITOR\"\
+        \"MONITOR\",\
+        \"EXTERNAL_OUTBOUND\"\
       ]\
     },\
     \"ContactNotFoundException\":{\
