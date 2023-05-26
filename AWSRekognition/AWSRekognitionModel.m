@@ -2407,6 +2407,22 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionEyeDirection
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"confidence" : @"Confidence",
+             @"pitch" : @"Pitch",
+             @"yaw" : @"Yaw",
+             };
+}
+
+@end
+
 @implementation AWSRekognitionEyeOpen
 
 + (BOOL)supportsSecureCoding {
@@ -2473,6 +2489,7 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
              @"boundingBox" : @"BoundingBox",
              @"confidence" : @"Confidence",
              @"emotions" : @"Emotions",
+             @"eyeDirection" : @"EyeDirection",
              @"eyeglasses" : @"Eyeglasses",
              @"eyesOpen" : @"EyesOpen",
              @"faceOccluded" : @"FaceOccluded",
@@ -2501,6 +2518,10 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSValueTransformer *)emotionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionEmotion class]];
+}
+
++ (NSValueTransformer *)eyeDirectionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionEyeDirection class]];
 }
 
 + (NSValueTransformer *)eyeglassesJSONTransformer {

@@ -5,9 +5,11 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ### Misc. Updates
 
 - Model updates for the following services
----AWSEC2
----AWSConnect
----AWSSTS
+  - AWSEC2
+  - AWSConnect
+  - AWSSTS
+  - AWSRekognition
+
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
