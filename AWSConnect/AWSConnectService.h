@@ -654,6 +654,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)createParticipant:(AWSConnectCreateParticipantRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateParticipantResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Creates a prompt. For more information about prompts, such as supported file types and maximum length, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/prompts.html">Create prompts</a> in the <i>Amazon Connect Administrator's Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreatePrompt service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectCreatePromptResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorDuplicateResource`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorLimitExceeded`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectCreatePromptRequest
+ @see AWSConnectCreatePromptResponse
+ */
+- (AWSTask<AWSConnectCreatePromptResponse *> *)createPrompt:(AWSConnectCreatePromptRequest *)request;
+
+/**
+ <p>Creates a prompt. For more information about prompts, such as supported file types and maximum length, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/prompts.html">Create prompts</a> in the <i>Amazon Connect Administrator's Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreatePrompt service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorDuplicateResource`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorLimitExceeded`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectCreatePromptRequest
+ @see AWSConnectCreatePromptResponse
+ */
+- (void)createPrompt:(AWSConnectCreatePromptRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreatePromptResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates a new queue for the specified Amazon Connect instance.</p><important><p>If the number being used in the input is claimed to a traffic distribution group, and you are calling this API using an instance in the Amazon Web Services Region where the traffic distribution group was created, you can use either a full phone number ARN or UUID value for the <code>OutboundCallerIdNumberId</code> value of the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_OutboundCallerConfig">OutboundCallerConfig</a> request body parameter. However, if the number is claimed to a traffic distribution group and you are calling this API using an instance in the alternate Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a <code>ResourceNotFoundException</code>.</p></important>
  
  @param request A container for the necessary parameters to execute the CreateQueue service method.
@@ -1112,6 +1137,28 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectDeleteIntegrationAssociationRequest
  */
 - (void)deleteIntegrationAssociation:(AWSConnectDeleteIntegrationAssociationRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes a prompt.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeletePrompt service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectDeletePromptRequest
+ */
+- (AWSTask *)deletePrompt:(AWSConnectDeletePromptRequest *)request;
+
+/**
+ <p>Deletes a prompt.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeletePrompt service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectDeletePromptRequest
+ */
+- (void)deletePrompt:(AWSConnectDeletePromptRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes a quick connect.</p>
@@ -1594,6 +1641,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectDescribePhoneNumberResponse
  */
 - (void)describePhoneNumber:(AWSConnectDescribePhoneNumberRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribePhoneNumberResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes the prompt.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribePrompt service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectDescribePromptResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectDescribePromptRequest
+ @see AWSConnectDescribePromptResponse
+ */
+- (AWSTask<AWSConnectDescribePromptResponse *> *)describePrompt:(AWSConnectDescribePromptRequest *)request;
+
+/**
+ <p>Describes the prompt.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribePrompt service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectDescribePromptRequest
+ @see AWSConnectDescribePromptResponse
+ */
+- (void)describePrompt:(AWSConnectDescribePromptRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribePromptResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes the specified queue.</p>
@@ -2217,6 +2289,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectGetMetricDataV2Response
  */
 - (void)getMetricDataV2:(AWSConnectGetMetricDataV2Request *)request completionHandler:(void (^ _Nullable)(AWSConnectGetMetricDataV2Response * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets the prompt file.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetPromptFile service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectGetPromptFileResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectGetPromptFileRequest
+ @see AWSConnectGetPromptFileResponse
+ */
+- (AWSTask<AWSConnectGetPromptFileResponse *> *)getPromptFile:(AWSConnectGetPromptFileRequest *)request;
+
+/**
+ <p>Gets the prompt file.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetPromptFile service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectGetPromptFileRequest
+ @see AWSConnectGetPromptFileResponse
+ */
+- (void)getPromptFile:(AWSConnectGetPromptFileRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectGetPromptFileResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Gets details about a specific task template in the specified Amazon Connect instance.</p>
@@ -4146,6 +4243,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectUpdatePhoneNumberResponse
  */
 - (void)updatePhoneNumber:(AWSConnectUpdatePhoneNumberRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectUpdatePhoneNumberResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates a prompt.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdatePrompt service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectUpdatePromptResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectUpdatePromptRequest
+ @see AWSConnectUpdatePromptResponse
+ */
+- (AWSTask<AWSConnectUpdatePromptResponse *> *)updatePrompt:(AWSConnectUpdatePromptRequest *)request;
+
+/**
+ <p>Updates a prompt.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdatePrompt service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectUpdatePromptRequest
+ @see AWSConnectUpdatePromptResponse
+ */
+- (void)updatePrompt:(AWSConnectUpdatePromptRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectUpdatePromptResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the hours of operation for the specified queue.</p>

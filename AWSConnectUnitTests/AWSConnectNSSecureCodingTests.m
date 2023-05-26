@@ -74,6 +74,8 @@
 - (void) test_AWSConnectCreateIntegrationAssociationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateParticipantRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateParticipantResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCreatePromptRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCreatePromptResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateQueueRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateQueueResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateQuickConnectRequest API_AVAILABLE(ios(11));
@@ -115,6 +117,7 @@
 - (void) test_AWSConnectDeleteHoursOfOperationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteInstanceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteIntegrationAssociationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDeletePromptRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteQuickConnectRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteRuleRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteSecurityProfileRequest API_AVAILABLE(ios(11));
@@ -149,6 +152,8 @@
 - (void) test_AWSConnectDescribeInstanceStorageConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribePhoneNumberRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribePhoneNumberResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDescribePromptRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDescribePromptResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeQueueRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeQueueResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeQuickConnectRequest API_AVAILABLE(ios(11));
@@ -223,6 +228,8 @@
 - (void) test_AWSConnectGetMetricDataResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectGetMetricDataV2Request API_AVAILABLE(ios(11));
 - (void) test_AWSConnectGetMetricDataV2Response API_AVAILABLE(ios(11));
+- (void) test_AWSConnectGetPromptFileRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectGetPromptFileResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectGetTaskTemplateRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectGetTaskTemplateResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectGetTrafficDistributionRequest API_AVAILABLE(ios(11));
@@ -348,6 +355,7 @@
 - (void) test_AWSConnectPhoneNumberStatus API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPhoneNumberSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectProblemDetail API_AVAILABLE(ios(11));
+- (void) test_AWSConnectPrompt API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPromptSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPropertyValidationExceptionProperty API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPutUserStatusRequest API_AVAILABLE(ios(11));
@@ -474,6 +482,8 @@
 - (void) test_AWSConnectUpdateParticipantRoleConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdatePhoneNumberRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdatePhoneNumberResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdatePromptRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdatePromptResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateQueueHoursOfOperationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateQueueMaxContactsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateQueueNameRequest API_AVAILABLE(ios(11));
@@ -741,6 +751,14 @@
     [self validateSecureCodingForClass:[AWSConnectCreateParticipantResponse class]];
 }
 
+- (void) test_AWSConnectCreatePromptRequest {
+    [self validateSecureCodingForClass:[AWSConnectCreatePromptRequest class]];
+}
+
+- (void) test_AWSConnectCreatePromptResponse {
+    [self validateSecureCodingForClass:[AWSConnectCreatePromptResponse class]];
+}
+
 - (void) test_AWSConnectCreateQueueRequest {
     [self validateSecureCodingForClass:[AWSConnectCreateQueueRequest class]];
 }
@@ -905,6 +923,10 @@
     [self validateSecureCodingForClass:[AWSConnectDeleteIntegrationAssociationRequest class]];
 }
 
+- (void) test_AWSConnectDeletePromptRequest {
+    [self validateSecureCodingForClass:[AWSConnectDeletePromptRequest class]];
+}
+
 - (void) test_AWSConnectDeleteQuickConnectRequest {
     [self validateSecureCodingForClass:[AWSConnectDeleteQuickConnectRequest class]];
 }
@@ -1039,6 +1061,14 @@
 
 - (void) test_AWSConnectDescribePhoneNumberResponse {
     [self validateSecureCodingForClass:[AWSConnectDescribePhoneNumberResponse class]];
+}
+
+- (void) test_AWSConnectDescribePromptRequest {
+    [self validateSecureCodingForClass:[AWSConnectDescribePromptRequest class]];
+}
+
+- (void) test_AWSConnectDescribePromptResponse {
+    [self validateSecureCodingForClass:[AWSConnectDescribePromptResponse class]];
 }
 
 - (void) test_AWSConnectDescribeQueueRequest {
@@ -1335,6 +1365,14 @@
 
 - (void) test_AWSConnectGetMetricDataV2Response {
     [self validateSecureCodingForClass:[AWSConnectGetMetricDataV2Response class]];
+}
+
+- (void) test_AWSConnectGetPromptFileRequest {
+    [self validateSecureCodingForClass:[AWSConnectGetPromptFileRequest class]];
+}
+
+- (void) test_AWSConnectGetPromptFileResponse {
+    [self validateSecureCodingForClass:[AWSConnectGetPromptFileResponse class]];
 }
 
 - (void) test_AWSConnectGetTaskTemplateRequest {
@@ -1835,6 +1873,10 @@
 
 - (void) test_AWSConnectProblemDetail {
     [self validateSecureCodingForClass:[AWSConnectProblemDetail class]];
+}
+
+- (void) test_AWSConnectPrompt {
+    [self validateSecureCodingForClass:[AWSConnectPrompt class]];
 }
 
 - (void) test_AWSConnectPromptSummary {
@@ -2339,6 +2381,14 @@
 
 - (void) test_AWSConnectUpdatePhoneNumberResponse {
     [self validateSecureCodingForClass:[AWSConnectUpdatePhoneNumberResponse class]];
+}
+
+- (void) test_AWSConnectUpdatePromptRequest {
+    [self validateSecureCodingForClass:[AWSConnectUpdatePromptRequest class]];
+}
+
+- (void) test_AWSConnectUpdatePromptResponse {
+    [self validateSecureCodingForClass:[AWSConnectUpdatePromptResponse class]];
 }
 
 - (void) test_AWSConnectUpdateQueueHoursOfOperationRequest {
