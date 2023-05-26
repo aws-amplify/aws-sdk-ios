@@ -126,6 +126,7 @@ typedef NS_ENUM(NSInteger, AWSConnectContactInitiationMethod) {
     AWSConnectContactInitiationMethodApi,
     AWSConnectContactInitiationMethodDisconnect,
     AWSConnectContactInitiationMethodMonitor,
+    AWSConnectContactInitiationMethodExternalOutbound,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectContactState) {
