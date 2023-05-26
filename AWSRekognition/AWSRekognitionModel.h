@@ -53,6 +53,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionAttribute) {
     AWSRekognitionAttributeAgeRange,
     AWSRekognitionAttributeBeard,
     AWSRekognitionAttributeEmotions,
+    AWSRekognitionAttributeEyeDirection,
     AWSRekognitionAttributeEyeglasses,
     AWSRekognitionAttributeEyesOpen,
     AWSRekognitionAttributeGender,
@@ -432,6 +433,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionEmotion;
 @class AWSRekognitionEquipmentDetection;
 @class AWSRekognitionEvaluationResult;
+@class AWSRekognitionEyeDirection;
 @class AWSRekognitionEyeOpen;
 @class AWSRekognitionEyeglasses;
 @class AWSRekognitionFace;
@@ -2590,6 +2592,29 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ <p>Indicates the direction the eyes are gazing in (independent of the head pose) as determined by its pitch and yaw. </p>
+ */
+@interface AWSRekognitionEyeDirection : AWSModel
+
+
+/**
+ <p>The confidence that the service has in its predicted eye direction.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
+
+/**
+ <p>Value representing eye direction on the pitch axis.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable pitch;
+
+/**
+ <p>Value representing eye direction on the yaw axis.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable yaw;
+
+@end
+
+/**
  <p>Indicates whether or not the eyes on the face are open, and the confidence level in the determination.</p>
  */
 @interface AWSRekognitionEyeOpen : AWSModel
@@ -2693,6 +2718,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>The emotions that appear to be expressed on the face, and the confidence level in the determination. The API is only making a determination of the physical appearance of a person's face. It is not a determination of the person’s internal emotional state and should not be used in such a way. For example, a person pretending to have a sad face might not be sad emotionally.</p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionEmotion *> * _Nullable emotions;
+
+/**
+ <p>Indicates the direction the eyes are gazing in, as defined by pitch and yaw.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionEyeDirection * _Nullable eyeDirection;
 
 /**
  <p>Indicates whether or not the face is wearing eye glasses, and the confidence level in the determination.</p>
