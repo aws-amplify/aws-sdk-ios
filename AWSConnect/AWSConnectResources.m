@@ -687,7 +687,8 @@
         {\"shape\":\"InternalServiceException\"},\
         {\"shape\":\"ResourceConflictException\"}\
       ],\
-      \"documentation\":\"<p>Deletes a contact evaluation in the specified Amazon Connect instance.</p>\"\
+      \"documentation\":\"<p>Deletes a contact evaluation in the specified Amazon Connect instance.</p>\",\
+      \"idempotent\":true\
     },\
     \"DeleteContactFlow\":{\
       \"name\":\"DeleteContactFlow\",\
@@ -739,7 +740,8 @@
         {\"shape\":\"InternalServiceException\"},\
         {\"shape\":\"ResourceConflictException\"}\
       ],\
-      \"documentation\":\"<p>Deletes an evaluation form in the specified Amazon Connect instance. </p> <ul> <li> <p>If the version property is provided, only the specified version of the evaluation form is deleted.</p> </li> <li> <p>If no version is provided, then the full form (all versions) is deleted.</p> </li> </ul>\"\
+      \"documentation\":\"<p>Deletes an evaluation form in the specified Amazon Connect instance. </p> <ul> <li> <p>If the version property is provided, only the specified version of the evaluation form is deleted.</p> </li> <li> <p>If no version is provided, then the full form (all versions) is deleted.</p> </li> </ul>\",\
+      \"idempotent\":true\
     },\
     \"DeleteHoursOfOperation\":{\
       \"name\":\"DeleteHoursOfOperation\",\
@@ -7472,7 +7474,7 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"EvaluationFormItem\"},\
       \"max\":100,\
-      \"min\":0\
+      \"min\":1\
     },\
     \"EvaluationFormNumericQuestionAutomation\":{\
       \"type\":\"structure\",\
@@ -7656,7 +7658,8 @@
       \"type\":\"structure\",\
       \"required\":[\
         \"Title\",\
-        \"RefId\"\
+        \"RefId\",\
+        \"Items\"\
       ],\
       \"members\":{\
         \"Title\":{\
@@ -7849,7 +7852,7 @@
     \"EvaluationFormTitle\":{\
       \"type\":\"string\",\
       \"max\":128,\
-      \"min\":0\
+      \"min\":1\
     },\
     \"EvaluationFormVersionIsLocked\":{\"type\":\"boolean\"},\
     \"EvaluationFormVersionStatus\":{\
@@ -12336,7 +12339,7 @@
     \"ReferenceId\":{\
       \"type\":\"string\",\
       \"max\":40,\
-      \"min\":0\
+      \"min\":1\
     },\
     \"ReferenceKey\":{\
       \"type\":\"string\",\
@@ -12504,7 +12507,7 @@
     },\
     \"ResourceId\":{\
       \"type\":\"string\",\
-      \"max\":50,\
+      \"max\":500,\
       \"min\":1\
     },\
     \"ResourceInUseException\":{\

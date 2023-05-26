@@ -5429,7 +5429,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 /**
  <p>Information about a section from an evaluation form. A section can contain sections and/or questions. Evaluation forms can only contain sections and subsections (two level nesting).</p>
- Required parameters: [Title, RefId]
+ Required parameters: [Title, RefId, Items]
  */
 @interface AWSConnectEvaluationFormSection : AWSModel
 
