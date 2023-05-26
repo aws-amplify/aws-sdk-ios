@@ -4450,6 +4450,39 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectCreatePromptRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"Description",
+             @"instanceId" : @"InstanceId",
+             @"name" : @"Name",
+             @"s3Uri" : @"S3Uri",
+             @"tags" : @"Tags",
+             };
+}
+
+@end
+
+@implementation AWSConnectCreatePromptResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"promptARN" : @"PromptARN",
+             @"promptId" : @"PromptId",
+             };
+}
+
+@end
+
 @implementation AWSConnectCreateQueueRequest
 
 + (BOOL)supportsSecureCoding {
@@ -5745,6 +5778,21 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectDeletePromptRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"promptId" : @"PromptId",
+             };
+}
+
+@end
+
 @implementation AWSConnectDeleteQuickConnectRequest
 
 + (BOOL)supportsSecureCoding {
@@ -6424,6 +6472,39 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)claimedPhoneNumberSummaryJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectClaimedPhoneNumberSummary class]];
+}
+
+@end
+
+@implementation AWSConnectDescribePromptRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"promptId" : @"PromptId",
+             };
+}
+
+@end
+
+@implementation AWSConnectDescribePromptResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"prompt" : @"Prompt",
+             };
+}
+
++ (NSValueTransformer *)promptJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectPrompt class]];
 }
 
 @end
@@ -8234,6 +8315,35 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)metricResultsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectMetricResultV2 class]];
+}
+
+@end
+
+@implementation AWSConnectGetPromptFileRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"promptId" : @"PromptId",
+             };
+}
+
+@end
+
+@implementation AWSConnectGetPromptFileResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"promptPresignedUrl" : @"PromptPresignedUrl",
+             };
 }
 
 @end
@@ -14054,6 +14164,24 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectPrompt
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"Description",
+             @"name" : @"Name",
+             @"promptARN" : @"PromptARN",
+             @"promptId" : @"PromptId",
+             @"tags" : @"Tags",
+             };
+}
+
+@end
+
 @implementation AWSConnectPromptSummary
 
 + (BOOL)supportsSecureCoding {
@@ -18685,6 +18813,39 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"phoneNumberArn" : @"PhoneNumberArn",
              @"phoneNumberId" : @"PhoneNumberId",
+             };
+}
+
+@end
+
+@implementation AWSConnectUpdatePromptRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"Description",
+             @"instanceId" : @"InstanceId",
+             @"name" : @"Name",
+             @"promptId" : @"PromptId",
+             @"s3Uri" : @"S3Uri",
+             };
+}
+
+@end
+
+@implementation AWSConnectUpdatePromptResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"promptARN" : @"PromptARN",
+             @"promptId" : @"PromptId",
              };
 }
 
