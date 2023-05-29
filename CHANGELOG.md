@@ -24,6 +24,10 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 ## Unreleased
 
+-Features for next release
+
+## 2.33.0
+
 ### Misc. Updates
 
 - Model updates for the following services
