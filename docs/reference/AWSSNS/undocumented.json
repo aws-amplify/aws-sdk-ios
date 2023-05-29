@@ -1,530 +1,530 @@
 {
   "warnings": [
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNS.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNS.h",
       "line": 28,
       "symbol": "AWSSNSVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNS.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNS.h",
       "line": 39,
       "symbol": "AWSSNSVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 22,
       "symbol": "AWSSNSErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 24,
       "symbol": "AWSSNSErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 24,
       "symbol": "AWSSNSErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 25,
       "symbol": "AWSSNSErrorType.AWSSNSErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 26,
       "symbol": "AWSSNSErrorType.AWSSNSErrorAuthorizationError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 27,
       "symbol": "AWSSNSErrorType.AWSSNSErrorBatchEntryIdsNotDistinct",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 28,
       "symbol": "AWSSNSErrorType.AWSSNSErrorBatchRequestTooLong",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 29,
       "symbol": "AWSSNSErrorType.AWSSNSErrorConcurrentAccess",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 30,
       "symbol": "AWSSNSErrorType.AWSSNSErrorEmptyBatchRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 31,
       "symbol": "AWSSNSErrorType.AWSSNSErrorEndpointDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 32,
       "symbol": "AWSSNSErrorType.AWSSNSErrorFilterPolicyLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 33,
       "symbol": "AWSSNSErrorType.AWSSNSErrorInternalError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 34,
       "symbol": "AWSSNSErrorType.AWSSNSErrorInvalidBatchEntryId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 35,
       "symbol": "AWSSNSErrorType.AWSSNSErrorInvalidParameter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 36,
       "symbol": "AWSSNSErrorType.AWSSNSErrorInvalidParameterValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 37,
       "symbol": "AWSSNSErrorType.AWSSNSErrorInvalidSecurity",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 38,
       "symbol": "AWSSNSErrorType.AWSSNSErrorKMSAccessDenied",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 39,
       "symbol": "AWSSNSErrorType.AWSSNSErrorKMSDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 40,
       "symbol": "AWSSNSErrorType.AWSSNSErrorKMSInvalidState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 41,
       "symbol": "AWSSNSErrorType.AWSSNSErrorKMSNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 42,
       "symbol": "AWSSNSErrorType.AWSSNSErrorKMSOptInRequired",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 43,
       "symbol": "AWSSNSErrorType.AWSSNSErrorKMSThrottling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 44,
       "symbol": "AWSSNSErrorType.AWSSNSErrorNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 45,
       "symbol": "AWSSNSErrorType.AWSSNSErrorOptedOut",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 46,
       "symbol": "AWSSNSErrorType.AWSSNSErrorPlatformApplicationDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 47,
       "symbol": "AWSSNSErrorType.AWSSNSErrorResourceNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 48,
       "symbol": "AWSSNSErrorType.AWSSNSErrorStaleTag",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 49,
       "symbol": "AWSSNSErrorType.AWSSNSErrorSubscriptionLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 50,
       "symbol": "AWSSNSErrorType.AWSSNSErrorTagLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 51,
       "symbol": "AWSSNSErrorType.AWSSNSErrorTagPolicy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 52,
       "symbol": "AWSSNSErrorType.AWSSNSErrorThrottled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 53,
       "symbol": "AWSSNSErrorType.AWSSNSErrorTooManyEntriesInBatchRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 54,
       "symbol": "AWSSNSErrorType.AWSSNSErrorTopicLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 55,
       "symbol": "AWSSNSErrorType.AWSSNSErrorUserError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 56,
       "symbol": "AWSSNSErrorType.AWSSNSErrorValidation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 57,
       "symbol": "AWSSNSErrorType.AWSSNSErrorVerification",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 60,
       "symbol": "AWSSNSLanguageCodeString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 60,
       "symbol": "AWSSNSLanguageCodeString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 61,
       "symbol": "AWSSNSLanguageCodeString.AWSSNSLanguageCodeStringUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 62,
       "symbol": "AWSSNSLanguageCodeString.AWSSNSLanguageCodeStringEnUS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 63,
       "symbol": "AWSSNSLanguageCodeString.AWSSNSLanguageCodeStringEnGB",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 64,
       "symbol": "AWSSNSLanguageCodeString.AWSSNSLanguageCodeStringEs419",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 65,
       "symbol": "AWSSNSLanguageCodeString.AWSSNSLanguageCodeStringEsES",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 66,
       "symbol": "AWSSNSLanguageCodeString.AWSSNSLanguageCodeStringDeDE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 67,
       "symbol": "AWSSNSLanguageCodeString.AWSSNSLanguageCodeStringFrCA",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 68,
       "symbol": "AWSSNSLanguageCodeString.AWSSNSLanguageCodeStringFrFR",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 69,
       "symbol": "AWSSNSLanguageCodeString.AWSSNSLanguageCodeStringItIT",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 70,
       "symbol": "AWSSNSLanguageCodeString.AWSSNSLanguageCodeStringJaJP",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 71,
       "symbol": "AWSSNSLanguageCodeString.AWSSNSLanguageCodeStringPtBR",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 72,
       "symbol": "AWSSNSLanguageCodeString.AWSSNSLanguageCodeStringKrKR",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 73,
       "symbol": "AWSSNSLanguageCodeString.AWSSNSLanguageCodeStringZhCN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 74,
       "symbol": "AWSSNSLanguageCodeString.AWSSNSLanguageCodeStringZhTW",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 77,
       "symbol": "AWSSNSNumberCapability",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 77,
       "symbol": "AWSSNSNumberCapability",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 78,
       "symbol": "AWSSNSNumberCapability.AWSSNSNumberCapabilityUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 79,
       "symbol": "AWSSNSNumberCapability.AWSSNSNumberCapabilitySms",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 80,
       "symbol": "AWSSNSNumberCapability.AWSSNSNumberCapabilityMms",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 81,
       "symbol": "AWSSNSNumberCapability.AWSSNSNumberCapabilityVoice",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 84,
       "symbol": "AWSSNSRouteType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 84,
       "symbol": "AWSSNSRouteType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 85,
       "symbol": "AWSSNSRouteType.AWSSNSRouteTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 86,
       "symbol": "AWSSNSRouteType.AWSSNSRouteTypeTransactional",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 87,
       "symbol": "AWSSNSRouteType.AWSSNSRouteTypePromotional",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 88,
       "symbol": "AWSSNSRouteType.AWSSNSRouteTypePremium",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 91,
       "symbol": "AWSSNSSMSSandboxPhoneNumberVerificationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 91,
       "symbol": "AWSSNSSMSSandboxPhoneNumberVerificationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 92,
       "symbol": "AWSSNSSMSSandboxPhoneNumberVerificationStatus.AWSSNSSMSSandboxPhoneNumberVerificationStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 93,
       "symbol": "AWSSNSSMSSandboxPhoneNumberVerificationStatus.AWSSNSSMSSandboxPhoneNumberVerificationStatusPending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSModel.h",
       "line": 94,
       "symbol": "AWSSNSSMSSandboxPhoneNumberVerificationStatus.AWSSNSSMSSandboxPhoneNumberVerificationStatusVerified",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSResources.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSResources.h",
       "line": 18,
       "symbol": "AWSSNSResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSResources.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSResources.h",
       "line": 20,
       "symbol": "AWSSNSResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSResources.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSResources.h",
       "line": 22,
       "symbol": "AWSSNSResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSSNS/AWSSNSService.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSSNS/AWSSNSService.h",
       "line": 24,
       "symbol": "AWSSNSSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios"
+  "source_directory": "/Users/diwud/5d/aws-sdk-ios"
 }
