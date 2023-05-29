@@ -1,103 +1,103 @@
 {
   "warnings": [
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 23,
       "symbol": "AWSCognitoAuthSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 46,
       "symbol": "AWSCognitoAuthClientErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 46,
       "symbol": "AWSCognitoAuthClientErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 47,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 48,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientErrorUserCanceledOperation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 49,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientErrorLoadingPageFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 50,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientErrorBadRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 51,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientErrorSecurityFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 52,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientInvalidAuthenticationDelegate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 53,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientNoIdTokenIssued",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 54,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientErrorExpiredRefreshToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 57,
       "symbol": "AWSCognitoAuthGetSessionBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 58,
       "symbol": "AWSCognitoAuthSignOutBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 145,
       "symbol": "AWSCognitoAuth.-signOutWithWebUI:completion:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Volumes/workplace/workspaces/amplify/projects/aws-sdk-ios"
+  "source_directory": "/Users/diwud/5d/aws-sdk-ios"
 }
