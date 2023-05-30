@@ -3251,7 +3251,22 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"politicalView" : @"PoliticalView",
              @"style" : @"Style",
+             };
+}
+
+@end
+
+@implementation AWSLocationMapConfigurationUpdate
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"politicalView" : @"PoliticalView",
              };
 }
 
@@ -3971,10 +3986,15 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"configurationUpdate" : @"ConfigurationUpdate",
              @"detail" : @"Description",
              @"mapName" : @"MapName",
              @"pricingPlan" : @"PricingPlan",
              };
+}
+
++ (NSValueTransformer *)configurationUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationMapConfigurationUpdate class]];
 }
 
 + (NSValueTransformer *)pricingPlanJSONTransformer {

@@ -529,7 +529,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
  
  @param request A container for the necessary parameters to execute the CreateTracker service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLocationCreateTrackerResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLocationCreateTrackerResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorServiceQuotaExceeded`, `AWSLocationErrorThrottling`.
  
  @see AWSLocationCreateTrackerRequest
  @see AWSLocationCreateTrackerResponse
@@ -542,7 +542,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
  @param request A container for the necessary parameters to execute the CreateTracker service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorServiceQuotaExceeded`, `AWSLocationErrorThrottling`.
  
  @see AWSLocationCreateTrackerRequest
  @see AWSLocationCreateTrackerResponse
