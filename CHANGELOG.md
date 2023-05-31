@@ -1,6 +1,32 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSConnect
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSTranslate
+  - AWSPinpoint
+  - AWSEC2
+  - AWSConnect
+  - AWSSTS
+  - AWSRekognition
+
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
+
+-Features for next release
+
+## 2.33.0
 
 ### Misc. Updates
 

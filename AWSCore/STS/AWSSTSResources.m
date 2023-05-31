@@ -751,7 +751,8 @@
     \"SAMLAssertionType\":{\
       \"type\":\"string\",\
       \"max\":100000,\
-      \"min\":4\
+      \"min\":4,\
+      \"sensitive\":true\
     },\
     \"Subject\":{\"type\":\"string\"},\
     \"SubjectType\":{\"type\":\"string\"},\
@@ -779,7 +780,10 @@
       \"min\":16,\
       \"pattern\":\"[\\\\w]*\"\
     },\
-    \"accessKeySecretType\":{\"type\":\"string\"},\
+    \"accessKeySecretType\":{\
+      \"type\":\"string\",\
+      \"sensitive\":true\
+    },\
     \"accountType\":{\"type\":\"string\"},\
     \"arnType\":{\
       \"type\":\"string\",\
@@ -796,7 +800,8 @@
     \"clientTokenType\":{\
       \"type\":\"string\",\
       \"max\":20000,\
-      \"min\":4\
+      \"min\":4,\
+      \"sensitive\":true\
     },\
     \"dateType\":{\"type\":\"timestamp\"},\
     \"decodedMessageType\":{\"type\":\"string\"},\
