@@ -359,7 +359,11 @@ static BOOL _tagCertificateEnabled = NO;
         //
         // Try to retrieve a reference to the public key for the trust management object.
         //
-        *publicKeyRef = SecTrustCopyPublicKey(trust);
+        if (@available(iOS 12, macOS 10.14, *)) {
+            *publicKeyRef = SecCertificateCopyKey(*certRef);
+        } else {
+            *publicKeyRef = SecTrustCopyPublicKey(trust);
+        }
         if(*publicKeyRef == NULL)
         {
             AWSDDLogError(@"Unable to copy public key");
