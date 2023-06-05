@@ -17874,6 +17874,7 @@
     },\
     \"DeregisterInstanceEventNotificationAttributesRequest\":{\
       \"type\":\"structure\",\
+      \"required\":[\"InstanceTagAttribute\"],\
       \"members\":{\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -45707,6 +45708,7 @@
     },\
     \"RegisterInstanceEventNotificationAttributesRequest\":{\
       \"type\":\"structure\",\
+      \"required\":[\"InstanceTagAttribute\"],\
       \"members\":{\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
