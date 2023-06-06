@@ -5,6 +5,17 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ### Misc. Updates
 
 - Model updates for the following services
+---AWSSQS
+---AWSConnect
+---AWSIoT
+---AWSIoTDataPlane
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
 ---AWSConnect
 ---
 
