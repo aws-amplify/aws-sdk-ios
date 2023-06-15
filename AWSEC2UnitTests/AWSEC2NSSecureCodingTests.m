@@ -254,6 +254,8 @@
 - (void) test_AWSEC2CreateFpgaImageResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateImageRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateImageResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CreateInstanceConnectEndpointRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CreateInstanceConnectEndpointResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateInstanceEventWindowRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateInstanceEventWindowResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateInstanceExportTaskRequest API_AVAILABLE(ios(11));
@@ -416,6 +418,8 @@
 - (void) test_AWSEC2DeleteFlowLogsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteFpgaImageRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteFpgaImageResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DeleteInstanceConnectEndpointRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DeleteInstanceConnectEndpointResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteInstanceEventWindowRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteInstanceEventWindowResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteInternetGatewayRequest API_AVAILABLE(ios(11));
@@ -631,6 +635,8 @@
 - (void) test_AWSEC2DescribeImportSnapshotTasksRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeImportSnapshotTasksResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeInstanceAttributeRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DescribeInstanceConnectEndpointsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DescribeInstanceConnectEndpointsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeInstanceCreditSpecificationsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeInstanceCreditSpecificationsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeInstanceEventNotificationAttributesRequest API_AVAILABLE(ios(11));
@@ -911,6 +917,7 @@
 - (void) test_AWSEC2EbsInstanceBlockDevice API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EbsInstanceBlockDeviceSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EbsOptimizedInfo API_AVAILABLE(ios(11));
+- (void) test_AWSEC2Ec2InstanceConnectEndpoint API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EfaInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EgressOnlyInternetGateway API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ElasticGpuAssociation API_AVAILABLE(ios(11));
@@ -2788,6 +2795,14 @@
     [self validateSecureCodingForClass:[AWSEC2CreateImageResult class]];
 }
 
+- (void) test_AWSEC2CreateInstanceConnectEndpointRequest {
+    [self validateSecureCodingForClass:[AWSEC2CreateInstanceConnectEndpointRequest class]];
+}
+
+- (void) test_AWSEC2CreateInstanceConnectEndpointResult {
+    [self validateSecureCodingForClass:[AWSEC2CreateInstanceConnectEndpointResult class]];
+}
+
 - (void) test_AWSEC2CreateInstanceEventWindowRequest {
     [self validateSecureCodingForClass:[AWSEC2CreateInstanceEventWindowRequest class]];
 }
@@ -3434,6 +3449,14 @@
 
 - (void) test_AWSEC2DeleteFpgaImageResult {
     [self validateSecureCodingForClass:[AWSEC2DeleteFpgaImageResult class]];
+}
+
+- (void) test_AWSEC2DeleteInstanceConnectEndpointRequest {
+    [self validateSecureCodingForClass:[AWSEC2DeleteInstanceConnectEndpointRequest class]];
+}
+
+- (void) test_AWSEC2DeleteInstanceConnectEndpointResult {
+    [self validateSecureCodingForClass:[AWSEC2DeleteInstanceConnectEndpointResult class]];
 }
 
 - (void) test_AWSEC2DeleteInstanceEventWindowRequest {
@@ -4294,6 +4317,14 @@
 
 - (void) test_AWSEC2DescribeInstanceAttributeRequest {
     [self validateSecureCodingForClass:[AWSEC2DescribeInstanceAttributeRequest class]];
+}
+
+- (void) test_AWSEC2DescribeInstanceConnectEndpointsRequest {
+    [self validateSecureCodingForClass:[AWSEC2DescribeInstanceConnectEndpointsRequest class]];
+}
+
+- (void) test_AWSEC2DescribeInstanceConnectEndpointsResult {
+    [self validateSecureCodingForClass:[AWSEC2DescribeInstanceConnectEndpointsResult class]];
 }
 
 - (void) test_AWSEC2DescribeInstanceCreditSpecificationsRequest {
@@ -5414,6 +5445,10 @@
 
 - (void) test_AWSEC2EbsOptimizedInfo {
     [self validateSecureCodingForClass:[AWSEC2EbsOptimizedInfo class]];
+}
+
+- (void) test_AWSEC2Ec2InstanceConnectEndpoint {
+    [self validateSecureCodingForClass:[AWSEC2Ec2InstanceConnectEndpoint class]];
 }
 
 - (void) test_AWSEC2EfaInfo {
