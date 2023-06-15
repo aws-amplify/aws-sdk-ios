@@ -1,12 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSConnect
----
 
 MOVE THIS SECTION TO THE CORRECT LOCATION
 
@@ -19,6 +10,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSConnect
   - AWSSTS
   - AWSRekognition
+  - AWSDynamoDB
 
 # AWS Mobile SDK for iOS CHANGELOG
 
