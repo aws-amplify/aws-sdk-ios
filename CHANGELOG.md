@@ -10,6 +10,9 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSConnect
   - AWSSTS
   - AWSRekognition
+  - AWSSQS
+  - AWSIoT
+  - AWSIoTDataPlane
   - AWSDynamoDB
   - AWSCloudWatchLogs
 ---
