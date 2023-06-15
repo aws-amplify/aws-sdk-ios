@@ -1,4 +1,4 @@
-
+---
 MOVE THIS SECTION TO THE CORRECT LOCATION
 
 ### Misc. Updates
@@ -11,6 +11,8 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSSTS
   - AWSRekognition
   - AWSDynamoDB
+  - AWSCloudWatchLogs
+---
 
 # AWS Mobile SDK for iOS CHANGELOG
 
