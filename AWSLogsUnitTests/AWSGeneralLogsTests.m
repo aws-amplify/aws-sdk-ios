@@ -293,6 +293,53 @@ static id mockNetworking = nil;
     [AWSLogs removeLogsForKey:key];
 }
 
+- (void)testDeleteAccountPolicy {
+    NSString *key = @"testDeleteAccountPolicy";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLogs registerLogsWithConfiguration:configuration forKey:key];
+
+    AWSLogs *awsClient = [AWSLogs LogsForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLogs LogsForKey:key] deleteAccountPolicy:[AWSLogsDeleteAccountPolicyRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLogs removeLogsForKey:key];
+}
+
+- (void)testDeleteAccountPolicyCompletionHandler {
+    NSString *key = @"testDeleteAccountPolicy";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLogs registerLogsWithConfiguration:configuration forKey:key];
+
+    AWSLogs *awsClient = [AWSLogs LogsForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLogs LogsForKey:key] deleteAccountPolicy:[AWSLogsDeleteAccountPolicyRequest new] completionHandler:^(NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLogs removeLogsForKey:key];
+}
+
 - (void)testDeleteDataProtectionPolicy {
     NSString *key = @"testDeleteDataProtectionPolicy";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -708,6 +755,54 @@ static id mockNetworking = nil;
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLogs removeLogsForKey:key];
+}
+
+- (void)testDescribeAccountPolicies {
+    NSString *key = @"testDescribeAccountPolicies";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLogs registerLogsWithConfiguration:configuration forKey:key];
+
+    AWSLogs *awsClient = [AWSLogs LogsForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLogs LogsForKey:key] describeAccountPolicies:[AWSLogsDescribeAccountPoliciesRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLogs removeLogsForKey:key];
+}
+
+- (void)testDescribeAccountPoliciesCompletionHandler {
+    NSString *key = @"testDescribeAccountPolicies";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLogs registerLogsWithConfiguration:configuration forKey:key];
+
+    AWSLogs *awsClient = [AWSLogs LogsForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLogs LogsForKey:key] describeAccountPolicies:[AWSLogsDescribeAccountPoliciesRequest new] completionHandler:^(AWSLogsDescribeAccountPoliciesResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
         dispatch_semaphore_signal(semaphore);
     }];
 	
@@ -1567,6 +1662,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSLogs LogsForKey:key] listTagsLogGroup:[AWSLogsListTagsLogGroupRequest new] completionHandler:^(AWSLogsListTagsLogGroupResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLogs removeLogsForKey:key];
+}
+
+- (void)testPutAccountPolicy {
+    NSString *key = @"testPutAccountPolicy";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLogs registerLogsWithConfiguration:configuration forKey:key];
+
+    AWSLogs *awsClient = [AWSLogs LogsForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLogs LogsForKey:key] putAccountPolicy:[AWSLogsPutAccountPolicyRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLogs removeLogsForKey:key];
+}
+
+- (void)testPutAccountPolicyCompletionHandler {
+    NSString *key = @"testPutAccountPolicy";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLogs registerLogsWithConfiguration:configuration forKey:key];
+
+    AWSLogs *awsClient = [AWSLogs LogsForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLogs LogsForKey:key] putAccountPolicy:[AWSLogsPutAccountPolicyRequest new] completionHandler:^(AWSLogsPutAccountPolicyResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
