@@ -1,5 +1,4 @@
 ---
-
 MOVE THIS SECTION TO THE CORRECT LOCATION
 
 ### Misc. Updates
@@ -14,7 +13,10 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSSQS
   - AWSIoT
   - AWSIoTDataPlane
+  - AWSDynamoDB
+  - AWSCloudWatchLogs
 ---
+
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
