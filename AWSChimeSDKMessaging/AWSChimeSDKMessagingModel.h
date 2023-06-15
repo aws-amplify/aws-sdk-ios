@@ -1461,11 +1461,6 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
  */
 @property (nonatomic, strong) NSString * _Nullable chimeBearer;
 
-/**
- <p>The ID of the SubChannel in the request.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable subChannelId;
-
 @end
 
 /**
@@ -3203,11 +3198,6 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
  */
 @property (nonatomic, strong) NSString * _Nullable chimeBearer;
 
-/**
- <p>The ID of the SubChannel in the request.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable subChannelId;
-
 @end
 
 /**
@@ -3220,11 +3210,6 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
  <p>The ARN of the channel.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable channelArn;
-
-/**
- <p>The ID of the SubChannel in the response.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable subChannelId;
 
 @end
 

@@ -112,12 +112,14 @@
 - (void) test_AWSRekognitionEmotion API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionEquipmentDetection API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionEvaluationResult API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionEyeDirection API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionEyeOpen API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionEyeglasses API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionFace API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionFaceDetail API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionFaceDetection API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionFaceMatch API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionFaceOccluded API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionFaceRecord API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionFaceSearchSettings API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGender API_AVAILABLE(ios(11));
@@ -128,6 +130,7 @@
 - (void) test_AWSRekognitionGetCelebrityRecognitionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetCelebrityRecognitionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetContentModerationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionGetContentModerationRequestMetadata API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetContentModerationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetFaceDetectionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetFaceDetectionResponse API_AVAILABLE(ios(11));
@@ -136,6 +139,7 @@
 - (void) test_AWSRekognitionGetFaceSearchRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetFaceSearchResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetLabelDetectionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionGetLabelDetectionRequestMetadata API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetLabelDetectionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetPersonTrackingRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetPersonTrackingResponse API_AVAILABLE(ios(11));
@@ -645,6 +649,10 @@
     [self validateSecureCodingForClass:[AWSRekognitionEvaluationResult class]];
 }
 
+- (void) test_AWSRekognitionEyeDirection {
+    [self validateSecureCodingForClass:[AWSRekognitionEyeDirection class]];
+}
+
 - (void) test_AWSRekognitionEyeOpen {
     [self validateSecureCodingForClass:[AWSRekognitionEyeOpen class]];
 }
@@ -667,6 +675,10 @@
 
 - (void) test_AWSRekognitionFaceMatch {
     [self validateSecureCodingForClass:[AWSRekognitionFaceMatch class]];
+}
+
+- (void) test_AWSRekognitionFaceOccluded {
+    [self validateSecureCodingForClass:[AWSRekognitionFaceOccluded class]];
 }
 
 - (void) test_AWSRekognitionFaceRecord {
@@ -709,6 +721,10 @@
     [self validateSecureCodingForClass:[AWSRekognitionGetContentModerationRequest class]];
 }
 
+- (void) test_AWSRekognitionGetContentModerationRequestMetadata {
+    [self validateSecureCodingForClass:[AWSRekognitionGetContentModerationRequestMetadata class]];
+}
+
 - (void) test_AWSRekognitionGetContentModerationResponse {
     [self validateSecureCodingForClass:[AWSRekognitionGetContentModerationResponse class]];
 }
@@ -739,6 +755,10 @@
 
 - (void) test_AWSRekognitionGetLabelDetectionRequest {
     [self validateSecureCodingForClass:[AWSRekognitionGetLabelDetectionRequest class]];
+}
+
+- (void) test_AWSRekognitionGetLabelDetectionRequestMetadata {
+    [self validateSecureCodingForClass:[AWSRekognitionGetLabelDetectionRequestMetadata class]];
 }
 
 - (void) test_AWSRekognitionGetLabelDetectionResponse {

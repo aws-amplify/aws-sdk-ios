@@ -26,7 +26,7 @@
 #import "AWSEC2Serializer.h"
 
 static NSString *const AWSInfoEC2 = @"EC2";
-NSString *const AWSEC2SDKVersion = @"2.30.4";
+NSString *const AWSEC2SDKVersion = @"2.33.0";
 
 
 @interface AWSEC2ResponseSerializer : AWSXMLResponseSerializer
@@ -1877,6 +1877,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2CreateInstanceConnectEndpointResult *> *)createInstanceConnectEndpoint:(AWSEC2CreateInstanceConnectEndpointRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateInstanceConnectEndpoint"
+                   outputClass:[AWSEC2CreateInstanceConnectEndpointResult class]];
+}
+
+- (void)createInstanceConnectEndpoint:(AWSEC2CreateInstanceConnectEndpointRequest *)request
+     completionHandler:(void (^)(AWSEC2CreateInstanceConnectEndpointResult *response, NSError *error))completionHandler {
+    [[self createInstanceConnectEndpoint:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateInstanceConnectEndpointResult *> * _Nonnull task) {
+        AWSEC2CreateInstanceConnectEndpointResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2CreateInstanceEventWindowResult *> *)createInstanceEventWindow:(AWSEC2CreateInstanceEventWindowRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -3610,6 +3633,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2DeleteFpgaImageResult *response, NSError *error))completionHandler {
     [[self deleteFpgaImage:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteFpgaImageResult *> * _Nonnull task) {
         AWSEC2DeleteFpgaImageResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DeleteInstanceConnectEndpointResult *> *)deleteInstanceConnectEndpoint:(AWSEC2DeleteInstanceConnectEndpointRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteInstanceConnectEndpoint"
+                   outputClass:[AWSEC2DeleteInstanceConnectEndpointResult class]];
+}
+
+- (void)deleteInstanceConnectEndpoint:(AWSEC2DeleteInstanceConnectEndpointRequest *)request
+     completionHandler:(void (^)(AWSEC2DeleteInstanceConnectEndpointResult *response, NSError *error))completionHandler {
+    [[self deleteInstanceConnectEndpoint:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteInstanceConnectEndpointResult *> * _Nonnull task) {
+        AWSEC2DeleteInstanceConnectEndpointResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -6213,6 +6259,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2InstanceAttribute *response, NSError *error))completionHandler {
     [[self describeInstanceAttribute:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2InstanceAttribute *> * _Nonnull task) {
         AWSEC2InstanceAttribute *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DescribeInstanceConnectEndpointsResult *> *)describeInstanceConnectEndpoints:(AWSEC2DescribeInstanceConnectEndpointsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeInstanceConnectEndpoints"
+                   outputClass:[AWSEC2DescribeInstanceConnectEndpointsResult class]];
+}
+
+- (void)describeInstanceConnectEndpoints:(AWSEC2DescribeInstanceConnectEndpointsRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeInstanceConnectEndpointsResult *response, NSError *error))completionHandler {
+    [[self describeInstanceConnectEndpoints:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeInstanceConnectEndpointsResult *> * _Nonnull task) {
+        AWSEC2DescribeInstanceConnectEndpointsResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

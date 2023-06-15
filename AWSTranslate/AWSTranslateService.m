@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
 #import "AWSTranslateResources.h"
 
 static NSString *const AWSInfoTranslate = @"Translate";
-NSString *const AWSTranslateSDKVersion = @"2.30.4";
+NSString *const AWSTranslateSDKVersion = @"2.33.0";
 
 
 @interface AWSTranslateResponseSerializer : AWSJSONResponseSerializer
@@ -622,6 +622,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSTranslateTagResourceResponse *response, NSError *error))completionHandler {
     [[self tagResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranslateTagResourceResponse *> * _Nonnull task) {
         AWSTranslateTagResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTranslateTranslateDocumentResponse *> *)translateDocument:(AWSTranslateTranslateDocumentRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSShineFrontendService_20170701"
+                 operationName:@"TranslateDocument"
+                   outputClass:[AWSTranslateTranslateDocumentResponse class]];
+}
+
+- (void)translateDocument:(AWSTranslateTranslateDocumentRequest *)request
+     completionHandler:(void (^)(AWSTranslateTranslateDocumentResponse *response, NSError *error))completionHandler {
+    [[self translateDocument:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranslateTranslateDocumentResponse *> * _Nonnull task) {
+        AWSTranslateTranslateDocumentResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

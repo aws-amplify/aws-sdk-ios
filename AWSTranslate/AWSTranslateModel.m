@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -226,6 +226,21 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 + (NSValueTransformer *)textTranslationJobPropertiesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateTextTranslationJobProperties class]];
+}
+
+@end
+
+@implementation AWSTranslateDocument
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"content" : @"Content",
+             @"contentType" : @"ContentType",
+             };
 }
 
 @end
@@ -1584,6 +1599,62 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 @end
 
+@implementation AWSTranslateTranslateDocumentRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"document" : @"Document",
+             @"settings" : @"Settings",
+             @"sourceLanguageCode" : @"SourceLanguageCode",
+             @"targetLanguageCode" : @"TargetLanguageCode",
+             @"terminologyNames" : @"TerminologyNames",
+             };
+}
+
++ (NSValueTransformer *)documentJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateDocument class]];
+}
+
++ (NSValueTransformer *)settingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateTranslationSettings class]];
+}
+
+@end
+
+@implementation AWSTranslateTranslateDocumentResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appliedSettings" : @"AppliedSettings",
+             @"appliedTerminologies" : @"AppliedTerminologies",
+             @"sourceLanguageCode" : @"SourceLanguageCode",
+             @"targetLanguageCode" : @"TargetLanguageCode",
+             @"translatedDocument" : @"TranslatedDocument",
+             };
+}
+
++ (NSValueTransformer *)appliedSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateTranslationSettings class]];
+}
+
++ (NSValueTransformer *)appliedTerminologiesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranslateAppliedTerminology class]];
+}
+
++ (NSValueTransformer *)translatedDocumentJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateTranslatedDocument class]];
+}
+
+@end
+
 @implementation AWSTranslateTranslateTextRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1628,6 +1699,20 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 + (NSValueTransformer *)appliedTerminologiesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranslateAppliedTerminology class]];
+}
+
+@end
+
+@implementation AWSTranslateTranslatedDocument
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"content" : @"Content",
+             };
 }
 
 @end

@@ -175,6 +175,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 + (void)removeConnectForKey:(NSString *)key;
 
 /**
+ <p>Activates an evaluation form in the specified Amazon Connect instance. After the evaluation form is activated, it is available to start new evaluations based on the form. </p>
+ 
+ @param request A container for the necessary parameters to execute the ActivateEvaluationForm service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectActivateEvaluationFormResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectActivateEvaluationFormRequest
+ @see AWSConnectActivateEvaluationFormResponse
+ */
+- (AWSTask<AWSConnectActivateEvaluationFormResponse *> *)activateEvaluationForm:(AWSConnectActivateEvaluationFormRequest *)request;
+
+/**
+ <p>Activates an evaluation form in the specified Amazon Connect instance. After the evaluation form is activated, it is available to start new evaluations based on the form. </p>
+ 
+ @param request A container for the necessary parameters to execute the ActivateEvaluationForm service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectActivateEvaluationFormRequest
+ @see AWSConnectActivateEvaluationFormResponse
+ */
+- (void)activateEvaluationForm:(AWSConnectActivateEvaluationFormRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectActivateEvaluationFormResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Associates an approved origin to an Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the AssociateApprovedOrigin service method.
@@ -504,6 +529,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)createContactFlowModule:(AWSConnectCreateContactFlowModuleRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateContactFlowModuleResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Creates an evaluation form in the specified Amazon Connect instance. The form can be used to define questions related to agent performance, and create sections to organize such questions. Question and section identifiers cannot be duplicated within the same evaluation form.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateEvaluationForm service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectCreateEvaluationFormResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectCreateEvaluationFormRequest
+ @see AWSConnectCreateEvaluationFormResponse
+ */
+- (AWSTask<AWSConnectCreateEvaluationFormResponse *> *)createEvaluationForm:(AWSConnectCreateEvaluationFormRequest *)request;
+
+/**
+ <p>Creates an evaluation form in the specified Amazon Connect instance. The form can be used to define questions related to agent performance, and create sections to organize such questions. Question and section identifiers cannot be duplicated within the same evaluation form.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateEvaluationForm service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectCreateEvaluationFormRequest
+ @see AWSConnectCreateEvaluationFormResponse
+ */
+- (void)createEvaluationForm:(AWSConnectCreateEvaluationFormRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateEvaluationFormResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates hours of operation. </p>
  
  @param request A container for the necessary parameters to execute the CreateHoursOfOperation service method.
@@ -583,7 +633,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  
  @param request A container for the necessary parameters to execute the CreateParticipant service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectCreateParticipantResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorThrottling`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectCreateParticipantResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorThrottling`.
  
  @see AWSConnectCreateParticipantRequest
  @see AWSConnectCreateParticipantResponse
@@ -596,12 +646,37 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @param request A container for the necessary parameters to execute the CreateParticipant service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorThrottling`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorThrottling`.
  
  @see AWSConnectCreateParticipantRequest
  @see AWSConnectCreateParticipantResponse
  */
 - (void)createParticipant:(AWSConnectCreateParticipantRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateParticipantResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates a prompt. For more information about prompts, such as supported file types and maximum length, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/prompts.html">Create prompts</a> in the <i>Amazon Connect Administrator's Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreatePrompt service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectCreatePromptResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorDuplicateResource`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorLimitExceeded`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectCreatePromptRequest
+ @see AWSConnectCreatePromptResponse
+ */
+- (AWSTask<AWSConnectCreatePromptResponse *> *)createPrompt:(AWSConnectCreatePromptRequest *)request;
+
+/**
+ <p>Creates a prompt. For more information about prompts, such as supported file types and maximum length, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/prompts.html">Create prompts</a> in the <i>Amazon Connect Administrator's Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreatePrompt service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorDuplicateResource`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorLimitExceeded`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectCreatePromptRequest
+ @see AWSConnectCreatePromptResponse
+ */
+- (void)createPrompt:(AWSConnectCreatePromptRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreatePromptResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates a new queue for the specified Amazon Connect instance.</p><important><p>If the number being used in the input is claimed to a traffic distribution group, and you are calling this API using an instance in the Amazon Web Services Region where the traffic distribution group was created, you can use either a full phone number ARN or UUID value for the <code>OutboundCallerIdNumberId</code> value of the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_OutboundCallerConfig">OutboundCallerConfig</a> request body parameter. However, if the number is claimed to a traffic distribution group and you are calling this API using an instance in the alternate Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a <code>ResourceNotFoundException</code>.</p></important>
@@ -879,6 +954,53 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)createVocabulary:(AWSConnectCreateVocabularyRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateVocabularyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Deactivates an evaluation form in the specified Amazon Connect instance. After a form is deactivated, it is no longer available for users to start new evaluations based on the form. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeactivateEvaluationForm service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectDeactivateEvaluationFormResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectDeactivateEvaluationFormRequest
+ @see AWSConnectDeactivateEvaluationFormResponse
+ */
+- (AWSTask<AWSConnectDeactivateEvaluationFormResponse *> *)deactivateEvaluationForm:(AWSConnectDeactivateEvaluationFormRequest *)request;
+
+/**
+ <p>Deactivates an evaluation form in the specified Amazon Connect instance. After a form is deactivated, it is no longer available for users to start new evaluations based on the form. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeactivateEvaluationForm service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectDeactivateEvaluationFormRequest
+ @see AWSConnectDeactivateEvaluationFormResponse
+ */
+- (void)deactivateEvaluationForm:(AWSConnectDeactivateEvaluationFormRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDeactivateEvaluationFormResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes a contact evaluation in the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteContactEvaluation service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectDeleteContactEvaluationRequest
+ */
+- (AWSTask *)deleteContactEvaluation:(AWSConnectDeleteContactEvaluationRequest *)request;
+
+/**
+ <p>Deletes a contact evaluation in the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteContactEvaluation service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectDeleteContactEvaluationRequest
+ */
+- (void)deleteContactEvaluation:(AWSConnectDeleteContactEvaluationRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p>Deletes a flow for the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the DeleteContactFlow service method.
@@ -927,6 +1049,28 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectDeleteContactFlowModuleResponse
  */
 - (void)deleteContactFlowModule:(AWSConnectDeleteContactFlowModuleRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDeleteContactFlowModuleResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes an evaluation form in the specified Amazon Connect instance. </p><ul><li><p>If the version property is provided, only the specified version of the evaluation form is deleted.</p></li><li><p>If no version is provided, then the full form (all versions) is deleted.</p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the DeleteEvaluationForm service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectDeleteEvaluationFormRequest
+ */
+- (AWSTask *)deleteEvaluationForm:(AWSConnectDeleteEvaluationFormRequest *)request;
+
+/**
+ <p>Deletes an evaluation form in the specified Amazon Connect instance. </p><ul><li><p>If the version property is provided, only the specified version of the evaluation form is deleted.</p></li><li><p>If no version is provided, then the full form (all versions) is deleted.</p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the DeleteEvaluationForm service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectDeleteEvaluationFormRequest
+ */
+- (void)deleteEvaluationForm:(AWSConnectDeleteEvaluationFormRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Deletes an hours of operation.</p>
@@ -993,6 +1137,28 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectDeleteIntegrationAssociationRequest
  */
 - (void)deleteIntegrationAssociation:(AWSConnectDeleteIntegrationAssociationRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes a prompt.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeletePrompt service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectDeletePromptRequest
+ */
+- (AWSTask *)deletePrompt:(AWSConnectDeletePromptRequest *)request;
+
+/**
+ <p>Deletes a prompt.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeletePrompt service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectDeletePromptRequest
+ */
+- (void)deletePrompt:(AWSConnectDeletePromptRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes a quick connect.</p>
@@ -1252,6 +1418,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)describeContact:(AWSConnectDescribeContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribeContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Describes a contact evaluation in the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeContactEvaluation service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectDescribeContactEvaluationResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectDescribeContactEvaluationRequest
+ @see AWSConnectDescribeContactEvaluationResponse
+ */
+- (AWSTask<AWSConnectDescribeContactEvaluationResponse *> *)describeContactEvaluation:(AWSConnectDescribeContactEvaluationRequest *)request;
+
+/**
+ <p>Describes a contact evaluation in the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeContactEvaluation service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectDescribeContactEvaluationRequest
+ @see AWSConnectDescribeContactEvaluationResponse
+ */
+- (void)describeContactEvaluation:(AWSConnectDescribeContactEvaluationRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribeContactEvaluationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Describes the specified flow.</p><p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect Flow language</a>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeContactFlow service method.
@@ -1300,6 +1491,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectDescribeContactFlowModuleResponse
  */
 - (void)describeContactFlowModule:(AWSConnectDescribeContactFlowModuleRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribeContactFlowModuleResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes an evaluation form in the specified Amazon Connect instance. If the version property is not provided, the latest version of the evaluation form is described.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeEvaluationForm service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectDescribeEvaluationFormResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectDescribeEvaluationFormRequest
+ @see AWSConnectDescribeEvaluationFormResponse
+ */
+- (AWSTask<AWSConnectDescribeEvaluationFormResponse *> *)describeEvaluationForm:(AWSConnectDescribeEvaluationFormRequest *)request;
+
+/**
+ <p>Describes an evaluation form in the specified Amazon Connect instance. If the version property is not provided, the latest version of the evaluation form is described.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeEvaluationForm service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectDescribeEvaluationFormRequest
+ @see AWSConnectDescribeEvaluationFormResponse
+ */
+- (void)describeEvaluationForm:(AWSConnectDescribeEvaluationFormRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribeEvaluationFormResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes the hours of operation.</p>
@@ -1425,6 +1641,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectDescribePhoneNumberResponse
  */
 - (void)describePhoneNumber:(AWSConnectDescribePhoneNumberRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribePhoneNumberResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes the prompt.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribePrompt service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectDescribePromptResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectDescribePromptRequest
+ @see AWSConnectDescribePromptResponse
+ */
+- (AWSTask<AWSConnectDescribePromptResponse *> *)describePrompt:(AWSConnectDescribePromptRequest *)request;
+
+/**
+ <p>Describes the prompt.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribePrompt service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectDescribePromptRequest
+ @see AWSConnectDescribePromptResponse
+ */
+- (void)describePrompt:(AWSConnectDescribePromptRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribePromptResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes the specified queue.</p>
@@ -2025,7 +2266,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)getMetricData:(AWSConnectGetMetricDataRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectGetMetricDataResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets metric data from the specified Amazon Connect instance. </p><p><code>GetMetricDataV2</code> offers more features than <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html">GetMetricData</a>, the previous version of this API. It has new metrics, offers filtering at a metric level, and offers the ability to filter and group data by channels, queues, routing profiles, agents, and agent hierarchy levels. It can retrieve historical data for the last 14 days, in 24-hour intervals.</p><p>For a description of the historical metrics that are supported by <code>GetMetricDataV2</code> and <code>GetMetricData</code>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>. </p><p>This API is not available in the Amazon Web Services GovCloud (US) Regions.</p>
+ <p>Gets metric data from the specified Amazon Connect instance. </p><p><code>GetMetricDataV2</code> offers more features than <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html">GetMetricData</a>, the previous version of this API. It has new metrics, offers filtering at a metric level, and offers the ability to filter and group data by channels, queues, routing profiles, agents, and agent hierarchy levels. It can retrieve historical data for the last 35 days, in 24-hour intervals.</p><p>For a description of the historical metrics that are supported by <code>GetMetricDataV2</code> and <code>GetMetricData</code>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>. </p><p>This API is not available in the Amazon Web Services GovCloud (US) Regions.</p>
  
  @param request A container for the necessary parameters to execute the GetMetricDataV2 service method.
 
@@ -2037,7 +2278,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectGetMetricDataV2Response *> *)getMetricDataV2:(AWSConnectGetMetricDataV2Request *)request;
 
 /**
- <p>Gets metric data from the specified Amazon Connect instance. </p><p><code>GetMetricDataV2</code> offers more features than <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html">GetMetricData</a>, the previous version of this API. It has new metrics, offers filtering at a metric level, and offers the ability to filter and group data by channels, queues, routing profiles, agents, and agent hierarchy levels. It can retrieve historical data for the last 14 days, in 24-hour intervals.</p><p>For a description of the historical metrics that are supported by <code>GetMetricDataV2</code> and <code>GetMetricData</code>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>. </p><p>This API is not available in the Amazon Web Services GovCloud (US) Regions.</p>
+ <p>Gets metric data from the specified Amazon Connect instance. </p><p><code>GetMetricDataV2</code> offers more features than <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html">GetMetricData</a>, the previous version of this API. It has new metrics, offers filtering at a metric level, and offers the ability to filter and group data by channels, queues, routing profiles, agents, and agent hierarchy levels. It can retrieve historical data for the last 35 days, in 24-hour intervals.</p><p>For a description of the historical metrics that are supported by <code>GetMetricDataV2</code> and <code>GetMetricData</code>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>. </p><p>This API is not available in the Amazon Web Services GovCloud (US) Regions.</p>
  
  @param request A container for the necessary parameters to execute the GetMetricDataV2 service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2048,6 +2289,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectGetMetricDataV2Response
  */
 - (void)getMetricDataV2:(AWSConnectGetMetricDataV2Request *)request completionHandler:(void (^ _Nullable)(AWSConnectGetMetricDataV2Response * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets the prompt file.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetPromptFile service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectGetPromptFileResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectGetPromptFileRequest
+ @see AWSConnectGetPromptFileResponse
+ */
+- (AWSTask<AWSConnectGetPromptFileResponse *> *)getPromptFile:(AWSConnectGetPromptFileRequest *)request;
+
+/**
+ <p>Gets the prompt file.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetPromptFile service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectGetPromptFileRequest
+ @see AWSConnectGetPromptFileResponse
+ */
+- (void)getPromptFile:(AWSConnectGetPromptFileRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectGetPromptFileResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Gets details about a specific task template in the specified Amazon Connect instance.</p>
@@ -2175,6 +2441,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listBots:(AWSConnectListBotsRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListBotsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Lists contact evaluations in the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListContactEvaluations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectListContactEvaluationsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListContactEvaluationsRequest
+ @see AWSConnectListContactEvaluationsResponse
+ */
+- (AWSTask<AWSConnectListContactEvaluationsResponse *> *)listContactEvaluations:(AWSConnectListContactEvaluationsRequest *)request;
+
+/**
+ <p>Lists contact evaluations in the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListContactEvaluations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListContactEvaluationsRequest
+ @see AWSConnectListContactEvaluationsResponse
+ */
+- (void)listContactEvaluations:(AWSConnectListContactEvaluationsRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListContactEvaluationsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Provides information about the flow modules for the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the ListContactFlowModules service method.
@@ -2273,6 +2564,56 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectListDefaultVocabulariesResponse
  */
 - (void)listDefaultVocabularies:(AWSConnectListDefaultVocabulariesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListDefaultVocabulariesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Lists versions of an evaluation form in the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListEvaluationFormVersions service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectListEvaluationFormVersionsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListEvaluationFormVersionsRequest
+ @see AWSConnectListEvaluationFormVersionsResponse
+ */
+- (AWSTask<AWSConnectListEvaluationFormVersionsResponse *> *)listEvaluationFormVersions:(AWSConnectListEvaluationFormVersionsRequest *)request;
+
+/**
+ <p>Lists versions of an evaluation form in the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListEvaluationFormVersions service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListEvaluationFormVersionsRequest
+ @see AWSConnectListEvaluationFormVersionsResponse
+ */
+- (void)listEvaluationFormVersions:(AWSConnectListEvaluationFormVersionsRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListEvaluationFormVersionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Lists evaluation forms in the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListEvaluationForms service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectListEvaluationFormsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListEvaluationFormsRequest
+ @see AWSConnectListEvaluationFormsResponse
+ */
+- (AWSTask<AWSConnectListEvaluationFormsResponse *> *)listEvaluationForms:(AWSConnectListEvaluationFormsRequest *)request;
+
+/**
+ <p>Lists evaluation forms in the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListEvaluationForms service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListEvaluationFormsRequest
+ @see AWSConnectListEvaluationFormsResponse
+ */
+- (void)listEvaluationForms:(AWSConnectListEvaluationFormsRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListEvaluationFormsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Provides information about the hours of operation for the specified Amazon Connect instance.</p><p>For more information about hours of operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html">Set the Hours of Operation for a Queue</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
@@ -3197,6 +3538,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)startChatContact:(AWSConnectStartChatContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectStartChatContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Starts an empty evaluation in the specified Amazon Connect instance, using the given evaluation form for the particular contact. The evaluation form version used for the contact evaluation corresponds to the currently activated version. If no version is activated for the evaluation form, the contact evaluation cannot be started. </p><note><p>Evaluations created through the public API do not contain answer values suggested from automation.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the StartContactEvaluation service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectStartContactEvaluationResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectStartContactEvaluationRequest
+ @see AWSConnectStartContactEvaluationResponse
+ */
+- (AWSTask<AWSConnectStartContactEvaluationResponse *> *)startContactEvaluation:(AWSConnectStartContactEvaluationRequest *)request;
+
+/**
+ <p>Starts an empty evaluation in the specified Amazon Connect instance, using the given evaluation form for the particular contact. The evaluation form version used for the contact evaluation corresponds to the currently activated version. If no version is activated for the evaluation form, the contact evaluation cannot be started. </p><note><p>Evaluations created through the public API do not contain answer values suggested from automation.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the StartContactEvaluation service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectStartContactEvaluationRequest
+ @see AWSConnectStartContactEvaluationResponse
+ */
+- (void)startContactEvaluation:(AWSConnectStartContactEvaluationRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectStartContactEvaluationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Starts recording the contact: </p><ul><li><p>If the API is called <i>before</i> the agent joins the call, recording starts when the agent joins the call.</p></li><li><p>If the API is called <i>after</i> the agent joins the call, recording starts at the time of the API call.</p></li></ul><p>StartContactRecording is a one-time action. For example, if you use StopContactRecording to stop recording an ongoing call, you can't use StartContactRecording to restart it. For scenarios where the recording has started and you want to suspend and resume it, such as when collecting sensitive information (for example, a credit card number), use SuspendContactRecording and ResumeContactRecording.</p><p>You can use this API to override the recording behavior configured in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-recording-behavior.html">Set recording behavior</a> block.</p><p>Only voice recordings are supported at this time.</p>
  
  @param request A container for the necessary parameters to execute the StartContactRecording service method.
@@ -3372,6 +3738,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)stopContactStreaming:(AWSConnectStopContactStreamingRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectStopContactStreamingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Submits a contact evaluation in the specified Amazon Connect instance. Answers included in the request are merged with existing answers for the given evaluation. If no answers or notes are passed, the evaluation is submitted with the existing answers and notes. You can delete an answer or note by passing an empty object (<code>{}</code>) to the question identifier. </p><p>If a contact evaluation is already in submitted state, this operation will trigger a resubmission.</p>
+ 
+ @param request A container for the necessary parameters to execute the SubmitContactEvaluation service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectSubmitContactEvaluationResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectSubmitContactEvaluationRequest
+ @see AWSConnectSubmitContactEvaluationResponse
+ */
+- (AWSTask<AWSConnectSubmitContactEvaluationResponse *> *)submitContactEvaluation:(AWSConnectSubmitContactEvaluationRequest *)request;
+
+/**
+ <p>Submits a contact evaluation in the specified Amazon Connect instance. Answers included in the request are merged with existing answers for the given evaluation. If no answers or notes are passed, the evaluation is submitted with the existing answers and notes. You can delete an answer or note by passing an empty object (<code>{}</code>) to the question identifier. </p><p>If a contact evaluation is already in submitted state, this operation will trigger a resubmission.</p>
+ 
+ @param request A container for the necessary parameters to execute the SubmitContactEvaluation service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectSubmitContactEvaluationRequest
+ @see AWSConnectSubmitContactEvaluationResponse
+ */
+- (void)submitContactEvaluation:(AWSConnectSubmitContactEvaluationRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectSubmitContactEvaluationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>When a contact is being recorded, this API suspends recording the call. For example, you might suspend the call recording while collecting sensitive information, such as a credit card number. Then use ResumeContactRecording to restart recording. </p><p>The period of time that the recording is suspended is filled with silence in the final recording. </p><p>Only voice recordings are supported at this time.</p>
  
  @param request A container for the necessary parameters to execute the SuspendContactRecording service method.
@@ -3538,6 +3929,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)updateContactAttributes:(AWSConnectUpdateContactAttributesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectUpdateContactAttributesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Updates details about a contact evaluation in the specified Amazon Connect instance. A contact evaluation must be in draft state. Answers included in the request are merged with existing answers for the given evaluation. An answer or note can be deleted by passing an empty object (<code>{}</code>) to the question identifier. </p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateContactEvaluation service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectUpdateContactEvaluationResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectUpdateContactEvaluationRequest
+ @see AWSConnectUpdateContactEvaluationResponse
+ */
+- (AWSTask<AWSConnectUpdateContactEvaluationResponse *> *)updateContactEvaluation:(AWSConnectUpdateContactEvaluationRequest *)request;
+
+/**
+ <p>Updates details about a contact evaluation in the specified Amazon Connect instance. A contact evaluation must be in draft state. Answers included in the request are merged with existing answers for the given evaluation. An answer or note can be deleted by passing an empty object (<code>{}</code>) to the question identifier. </p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateContactEvaluation service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectUpdateContactEvaluationRequest
+ @see AWSConnectUpdateContactEvaluationResponse
+ */
+- (void)updateContactEvaluation:(AWSConnectUpdateContactEvaluationRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectUpdateContactEvaluationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Updates the specified flow.</p><p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect Flow language</a>.</p>
  
  @param request A container for the necessary parameters to execute the UpdateContactFlowContent service method.
@@ -3688,6 +4104,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)updateContactSchedule:(AWSConnectUpdateContactScheduleRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectUpdateContactScheduleResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Updates details about a specific evaluation form version in the specified Amazon Connect instance. Question and section identifiers cannot be duplicated within the same evaluation form.</p><p>This operation does not support partial updates. Instead it does a full update of evaluation form content.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateEvaluationForm service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectUpdateEvaluationFormResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectUpdateEvaluationFormRequest
+ @see AWSConnectUpdateEvaluationFormResponse
+ */
+- (AWSTask<AWSConnectUpdateEvaluationFormResponse *> *)updateEvaluationForm:(AWSConnectUpdateEvaluationFormRequest *)request;
+
+/**
+ <p>Updates details about a specific evaluation form version in the specified Amazon Connect instance. Question and section identifiers cannot be duplicated within the same evaluation form.</p><p>This operation does not support partial updates. Instead it does a full update of evaluation form content.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateEvaluationForm service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectUpdateEvaluationFormRequest
+ @see AWSConnectUpdateEvaluationFormResponse
+ */
+- (void)updateEvaluationForm:(AWSConnectUpdateEvaluationFormRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectUpdateEvaluationFormResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the hours of operation.</p>
  
  @param request A container for the necessary parameters to execute the UpdateHoursOfOperation service method.
@@ -3779,7 +4220,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)updateParticipantRoleConfig:(AWSConnectUpdateParticipantRoleConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectUpdateParticipantRoleConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates your claimed phone number from its current Amazon Connect instance or traffic distribution group to another Amazon Connect instance or traffic distribution group in the same Amazon Web Services Region.</p><important><p>You can call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation.</p></important>
+ <p>Updates your claimed phone number from its current Amazon Connect instance or traffic distribution group to another Amazon Connect instance or traffic distribution group in the same Amazon Web Services Region.</p><important><p>After using this API, you must verify that the phone number is attached to the correct flow in the target instance or traffic distribution group. You need to do this because the API switches only the phone number to a new instance or traffic distribution group. It doesn't migrate the flow configuration of the phone number, too.</p><p>You can call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdatePhoneNumber service method.
 
@@ -3791,7 +4232,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectUpdatePhoneNumberResponse *> *)updatePhoneNumber:(AWSConnectUpdatePhoneNumberRequest *)request;
 
 /**
- <p>Updates your claimed phone number from its current Amazon Connect instance or traffic distribution group to another Amazon Connect instance or traffic distribution group in the same Amazon Web Services Region.</p><important><p>You can call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation.</p></important>
+ <p>Updates your claimed phone number from its current Amazon Connect instance or traffic distribution group to another Amazon Connect instance or traffic distribution group in the same Amazon Web Services Region.</p><important><p>After using this API, you must verify that the phone number is attached to the correct flow in the target instance or traffic distribution group. You need to do this because the API switches only the phone number to a new instance or traffic distribution group. It doesn't migrate the flow configuration of the phone number, too.</p><p>You can call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdatePhoneNumber service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3802,6 +4243,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectUpdatePhoneNumberResponse
  */
 - (void)updatePhoneNumber:(AWSConnectUpdatePhoneNumberRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectUpdatePhoneNumberResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates a prompt.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdatePrompt service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectUpdatePromptResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectUpdatePromptRequest
+ @see AWSConnectUpdatePromptResponse
+ */
+- (AWSTask<AWSConnectUpdatePromptResponse *> *)updatePrompt:(AWSConnectUpdatePromptRequest *)request;
+
+/**
+ <p>Updates a prompt.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdatePrompt service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectUpdatePromptRequest
+ @see AWSConnectUpdatePromptResponse
+ */
+- (void)updatePrompt:(AWSConnectUpdatePromptRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectUpdatePromptResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the hours of operation for the specified queue.</p>

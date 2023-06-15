@@ -32,6 +32,7 @@ class VersionBumper:
         "AWSKinesisVideo",
         "AWSKinesisVideoArchivedMedia",
         "AWSKinesisVideoSignaling",
+        "AWSKinesisVideoWebRTCStorage",
         "AWSLambda",
         "AWSLex",
         "AWSLocation",

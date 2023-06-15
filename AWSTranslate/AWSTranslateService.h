@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -545,6 +545,31 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
  @see AWSTranslateTagResourceResponse
  */
 - (void)tagResource:(AWSTranslateTagResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateTagResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Translates the input document from the source language to the target language. This synchronous operation supports plain text or HTML for the input document. <code>TranslateDocument</code> supports translations from English to any supported language, and from any supported language to English. Therefore, specify either the source language code or the target language code as “en” (English). </p><p><code>TranslateDocument</code> does not support language auto-detection. </p><p> If you set the <code>Formality</code> parameter, the request will fail if the target language does not support formality. For a list of target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html">Setting formality</a>. </p>
+ 
+ @param request A container for the necessary parameters to execute the TranslateDocument service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateTranslateDocumentResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorLimitExceeded`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorUnsupportedLanguagePair`, `AWSTranslateErrorInternalServer`, `AWSTranslateErrorServiceUnavailable`.
+ 
+ @see AWSTranslateTranslateDocumentRequest
+ @see AWSTranslateTranslateDocumentResponse
+ */
+- (AWSTask<AWSTranslateTranslateDocumentResponse *> *)translateDocument:(AWSTranslateTranslateDocumentRequest *)request;
+
+/**
+ <p>Translates the input document from the source language to the target language. This synchronous operation supports plain text or HTML for the input document. <code>TranslateDocument</code> supports translations from English to any supported language, and from any supported language to English. Therefore, specify either the source language code or the target language code as “en” (English). </p><p><code>TranslateDocument</code> does not support language auto-detection. </p><p> If you set the <code>Formality</code> parameter, the request will fail if the target language does not support formality. For a list of target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html">Setting formality</a>. </p>
+ 
+ @param request A container for the necessary parameters to execute the TranslateDocument service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorLimitExceeded`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorUnsupportedLanguagePair`, `AWSTranslateErrorInternalServer`, `AWSTranslateErrorServiceUnavailable`.
+ 
+ @see AWSTranslateTranslateDocumentRequest
+ @see AWSTranslateTranslateDocumentResponse
+ */
+- (void)translateDocument:(AWSTranslateTranslateDocumentRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateTranslateDocumentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Translates input text from the source language to the target language. For a list of available languages and language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>

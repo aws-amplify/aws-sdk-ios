@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -159,6 +159,14 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingJobStatus) {
     AWSPinpointTargetingJobStatusCompleted,
     AWSPinpointTargetingJobStatusFailing,
     AWSPinpointTargetingJobStatusFailed,
+};
+
+typedef NS_ENUM(NSInteger, AWSPinpointTargetingJourneyRunStatus) {
+    AWSPinpointTargetingJourneyRunStatusUnknown,
+    AWSPinpointTargetingJourneyRunStatusScheduled,
+    AWSPinpointTargetingJourneyRunStatusRunning,
+    AWSPinpointTargetingJourneyRunStatusCompleted,
+    AWSPinpointTargetingJourneyRunStatusCancelled,
 };
 
 typedef NS_ENUM(NSInteger, AWSPinpointTargetingLayout) {
@@ -486,6 +494,12 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @class AWSPinpointTargetingGetJourneyExecutionMetricsResponse;
 @class AWSPinpointTargetingGetJourneyRequest;
 @class AWSPinpointTargetingGetJourneyResponse;
+@class AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsRequest;
+@class AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsResponse;
+@class AWSPinpointTargetingGetJourneyRunExecutionMetricsRequest;
+@class AWSPinpointTargetingGetJourneyRunExecutionMetricsResponse;
+@class AWSPinpointTargetingGetJourneyRunsRequest;
+@class AWSPinpointTargetingGetJourneyRunsResponse;
 @class AWSPinpointTargetingGetPushTemplateRequest;
 @class AWSPinpointTargetingGetPushTemplateResponse;
 @class AWSPinpointTargetingGetRecommenderConfigurationRequest;
@@ -539,6 +553,10 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @class AWSPinpointTargetingJourneyPushMessage;
 @class AWSPinpointTargetingJourneyChannelSettings;
 @class AWSPinpointTargetingJourneyResponse;
+@class AWSPinpointTargetingJourneyRunExecutionActivityMetricsResponse;
+@class AWSPinpointTargetingJourneyRunExecutionMetricsResponse;
+@class AWSPinpointTargetingJourneyRunResponse;
+@class AWSPinpointTargetingJourneyRunsResponse;
 @class AWSPinpointTargetingJourneySMSMessage;
 @class AWSPinpointTargetingJourneySchedule;
 @class AWSPinpointTargetingJourneyStateRequest;
@@ -1584,6 +1602,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
  <p>The actual time, in ISO 8601 format, when the activity was marked CANCELLED or COMPLETED.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable end;
+
+/**
+ <p>A JSON object that contains metrics relating to the campaign execution for this campaign activity. For information about the structure and contents of the results, see <a href="https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html">Standard Amazon Pinpoint analytics metrics</a> in the <i>Amazon Pinpoint Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable executionMetrics;
 
 /**
  <p>The unique identifier for the activity.</p>
@@ -4169,7 +4192,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSString * _Nullable textPart;
 
 /**
- <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
+ <note><p>As of <b>22-05-2023</b> tags has been deprecated for update operations. After this date any value in tags is not processed and an error code is not returned. To manage tags we recommend using either <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html">Tags</a> in the <i>API Reference for Amazon Pinpoint</i>, <a href="https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html">resourcegroupstaggingapi</a> commands in the <i>AWS Command Line Interface Documentation</i> or <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html">resourcegroupstaggingapi</a> in the <i>AWS SDK</i>.</p></note><p>(Deprecated) A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -6261,7 +6284,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSString * _Nullable journeyId;
 
 /**
- <p>Thestring that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+ <p>The <code/> string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -6302,7 +6325,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSString * _Nullable journeyId;
 
 /**
- <p>Thestring that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+ <p>The <code/> string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -6354,6 +6377,144 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
  <p>Provides information about the status, configuration, and other settings for a journey.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingJourneyResponse * _Nullable journeyResponse;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsRequest : AWSRequest
+
+
+/**
+ <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>The unique identifier for the journey activity.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable journeyActivityId;
+
+/**
+ <p>The unique identifier for the journey.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable journeyId;
+
+/**
+ <p>The <code/> string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable pageSize;
+
+/**
+ <p>The unique identifier for the journey run.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable runId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetJourneyRunExecutionActivityMetricsResponse : AWSModel
+
+
+/**
+ <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey activity for a particular journey run, and provides information about that query.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingJourneyRunExecutionActivityMetricsResponse * _Nullable journeyRunExecutionActivityMetricsResponse;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetJourneyRunExecutionMetricsRequest : AWSRequest
+
+
+/**
+ <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>The unique identifier for the journey.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable journeyId;
+
+/**
+ <p>The <code/> string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable pageSize;
+
+/**
+ <p>The unique identifier for the journey run.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable runId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetJourneyRunExecutionMetricsResponse : AWSModel
+
+
+/**
+ <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey run, and provides information about that query.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingJourneyRunExecutionMetricsResponse * _Nullable journeyRunExecutionMetricsResponse;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetJourneyRunsRequest : AWSRequest
+
+
+/**
+ <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>The unique identifier for the journey.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable journeyId;
+
+/**
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable pageSize;
+
+/**
+ <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable token;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetJourneyRunsResponse : AWSModel
+
+
+/**
+ <p>Provides information from all runs of a journey.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingJourneyRunsResponse * _Nullable journeyRunsResponse;
 
 @end
 
@@ -7274,7 +7435,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSString * _Nullable templateDescription;
 
 /**
- <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
+ <note><p>As of <b>22-05-2023</b> tags has been deprecated for update operations. After this date any value in tags is not processed and an error code is not returned. To manage tags we recommend using either <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html">Tags</a> in the <i>API Reference for Amazon Pinpoint</i>, <a href="https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html">resourcegroupstaggingapi</a> commands in the <i>AWS Command Line Interface Documentation</i> or <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html">resourcegroupstaggingapi</a> in the <i>AWS SDK</i>.</p></note><p>(Deprecated) A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -7440,7 +7601,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 
 
 /**
- <p>The type of activity that the metric applies to. Possible values are:</p><ul><li><p>CONDITIONAL_SPLIT - For a yes/no split activity, which is an activity that sends participants down one of two paths in a journey.</p></li><li><p>HOLDOUT - For a holdout activity, which is an activity that stops a journey for a specified percentage of participants.</p></li><li><p>MESSAGE - For an email activity, which is an activity that sends an email message to participants.</p></li><li><p>MULTI_CONDITIONAL_SPLIT - For a multivariate split activity, which is an activity that sends participants down one of as many as five paths in a journey.</p></li><li><p>RANDOM_SPLIT - For a random split activity, which is an activity that sends specified percentages of participants down one of as many as five paths in a journey.</p></li><li><p>WAIT - For a wait activity, which is an activity that waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.</p></li></ul>
+ <p>The type of activity that the metric applies to. Possible values are:</p><ul><li><p>CONDITIONAL_SPLIT – For a yes/no split activity, which is an activity that sends participants down one of two paths in a journey.</p></li><li><p>HOLDOUT – For a holdout activity, which is an activity that stops a journey for a specified percentage of participants.</p></li><li><p>MESSAGE – For an email activity, which is an activity that sends an email message to participants.</p></li><li><p>MULTI_CONDITIONAL_SPLIT – For a multivariate split activity, which is an activity that sends participants down one of as many as five paths in a journey.</p></li><li><p>RANDOM_SPLIT – For a random split activity, which is an activity that sends specified percentages of participants down one of as many as five paths in a journey.</p></li><li><p>WAIT – For a wait activity, which is an activity that waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable activityType;
 
@@ -7577,7 +7738,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The time when journey will stop sending messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
+ <p>The time when a journey will not send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingClosedDays * _Nullable closedDays;
 
@@ -7617,7 +7778,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>The time when journey allow to send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
+ <p>The time when a journey can send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingOpenHours * _Nullable openHours;
 
@@ -7632,7 +7793,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSString * _Nullable refreshFrequency;
 
 /**
- <p>Specifies whether a journey should be refreshed on segment update.</p>
+ <p>Indicates whether the journey participants should be refreshed when a segment is updated.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable refreshOnSegmentUpdate;
 
@@ -7642,7 +7803,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) AWSPinpointTargetingJourneySchedule * _Nullable schedule;
 
 /**
- <p>Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays). This flag should be set to true in order to allow (OpenHours and ClosedDays)</p>
+ <p>Indicates if journey has Advance Quiet Time enabled. This flag should be set to true in order to allow using OpenHours and ClosedDays.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable sendingSchedule;
 
@@ -7662,7 +7823,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, assign) AWSPinpointTargetingState state;
 
 /**
- <p>Specifies whether endpoints in quiet hours should enter a wait till the end of their quiet hours.</p>
+ <p>Indicates whether endpoints in quiet hours should enter a wait activity until quiet hours have elapsed.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable waitForQuietTime;
 
@@ -7670,6 +7831,132 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
  <p>This object is not used or supported.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey activity for a particular journey run, and provides information about that query.</p>
+ Required parameters: [Metrics, JourneyId, LastEvaluatedTime, JourneyActivityId, ActivityType, RunId, ApplicationId]
+ */
+@interface AWSPinpointTargetingJourneyRunExecutionActivityMetricsResponse : AWSModel
+
+
+/**
+ <p>The type of activity that the metric applies to. Possible values are:</p><ul><li><p>CONDITIONAL_SPLIT – For a yes/no split activity, which is an activity that sends participants down one of two paths in a journey.</p></li><li><p>HOLDOUT – For a holdout activity, which is an activity that stops a journey for a specified percentage of participants.</p></li><li><p>MESSAGE – For an email activity, which is an activity that sends an email message to participants.</p></li><li><p>MULTI_CONDITIONAL_SPLIT – For a multivariate split activity, which is an activity that sends participants down one of as many as five paths in a journey.</p></li><li><p>RANDOM_SPLIT – For a random split activity, which is an activity that sends specified percentages of participants down one of as many as five paths in a journey.</p></li><li><p>WAIT – For a wait activity, which is an activity that waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable activityType;
+
+/**
+ <p>The unique identifier for the application that the metric applies to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>The unique identifier for the activity that the metric applies to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable journeyActivityId;
+
+/**
+ <p>The unique identifier for the journey that the metric applies to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable journeyId;
+
+/**
+ <p>The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the execution status of the activity for this journey run and updated the data for the metric.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastEvaluatedTime;
+
+/**
+ <p>A JSON object that contains the results of the query. For information about the structure and contents of the results, see see <a href="https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html">Standard Amazon Pinpoint analytics metrics</a> in the <i>Amazon Pinpoint Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable metrics;
+
+/**
+ <p>The unique identifier for the journey run that the metric applies to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable runId;
+
+@end
+
+/**
+ <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey run, and provides information about that query.</p>
+ Required parameters: [Metrics, JourneyId, LastEvaluatedTime, RunId, ApplicationId]
+ */
+@interface AWSPinpointTargetingJourneyRunExecutionMetricsResponse : AWSModel
+
+
+/**
+ <p>The unique identifier for the application that the metric applies to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>The unique identifier for the journey that the metric applies to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable journeyId;
+
+/**
+ <p>The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the journey run and updated the data for the metric.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastEvaluatedTime;
+
+/**
+ <p>A JSON object that contains the results of the query. For information about the structure and contents of the results, see the <a href="https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html">Standard Amazon Pinpoint analytics metrics</a> in the <i>Amazon Pinpoint Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable metrics;
+
+/**
+ <p>The unique identifier for the journey run that the metric applies to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable runId;
+
+@end
+
+/**
+ <p>Provides information from a specified run of a journey.</p>
+ Required parameters: [Status, LastUpdateTime, CreationTime, RunId]
+ */
+@interface AWSPinpointTargetingJourneyRunResponse : AWSModel
+
+
+/**
+ <p>The time when the journey run was created or scheduled, in ISO 8601 format.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable creationTime;
+
+/**
+ <p>The last time the journey run was updated, in ISO 8601 format..</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastUpdateTime;
+
+/**
+ <p>The unique identifier for the run.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable runId;
+
+/**
+ <p>The current status of the journey run.</p>
+ */
+@property (nonatomic, assign) AWSPinpointTargetingJourneyRunStatus status;
+
+@end
+
+/**
+ <p>Provides information from all runs of a journey.</p>
+ Required parameters: [Item]
+ */
+@interface AWSPinpointTargetingJourneyRunsResponse : AWSModel
+
+
+/**
+ <p>An array of responses, one for each run of the journey</p>
+ */
+@property (nonatomic, strong) NSArray<AWSPinpointTargetingJourneyRunResponse *> * _Nullable item;
+
+/**
+ <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
@@ -8504,7 +8791,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSString * _Nullable templateDescription;
 
 /**
- <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
+ <note><p>As of <b>22-05-2023</b> tags has been deprecated for update operations. After this date any value in tags is not processed and an error code is not returned. To manage tags we recommend using either <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html">Tags</a> in the <i>API Reference for Amazon Pinpoint</i>, <a href="https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html">resourcegroupstaggingapi</a> commands in the <i>AWS Command Line Interface Documentation</i> or <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html">resourcegroupstaggingapi</a> in the <i>AWS SDK</i>.</p></note><p>(Deprecated) A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -9095,7 +9382,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSString * _Nullable templateDescription;
 
 /**
- <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
+ <note><p>As of <b>22-05-2023</b> tags has been deprecated for update operations. After this date any value in tags is not processed and an error code is not returned. To manage tags we recommend using either <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html">Tags</a> in the <i>API Reference for Amazon Pinpoint</i>, <a href="https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html">resourcegroupstaggingapi</a> commands in the <i>AWS Command Line Interface Documentation</i> or <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html">resourcegroupstaggingapi</a> in the <i>AWS SDK</i>.</p></note><p>(Deprecated) A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -11300,7 +11587,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSString * _Nullable voiceId;
 
 /**
- <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
+ <note><p>As of <b>22-05-2023</b> tags has been deprecated for update operations. After this date any value in tags is not processed and an error code is not returned. To manage tags we recommend using either <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html">Tags</a> in the <i>API Reference for Amazon Pinpoint</i>, <a href="https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html">resourcegroupstaggingapi</a> commands in the <i>AWS Command Line Interface Documentation</i> or <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html">resourcegroupstaggingapi</a> in the <i>AWS SDK</i>.</p></note><p>(Deprecated) A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -11531,7 +11818,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSString * _Nullable treatmentName;
 
 /**
- <p>A string-to-string map of key-value pairs that defines the tags to associate with the campaign. Each tag consists of a required tag key and an associated tag value.</p>
+ <note><p>As of <b>22-05-2023</b> tags has been deprecated for update operations. After this date any value in tags is not processed and an error code is not returned. To manage tags we recommend using either <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html">Tags</a> in the <i>API Reference for Amazon Pinpoint</i>, <a href="https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html">resourcegroupstaggingapi</a> commands in the <i>AWS Command Line Interface Documentation</i> or <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html">resourcegroupstaggingapi</a> in the <i>AWS SDK</i>.</p></note><p>(Deprecated) A string-to-string map of key-value pairs that defines the tags to associate with the campaign. Each tag consists of a required tag key and an associated tag value.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -11619,7 +11906,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSString * _Nullable refreshFrequency;
 
 /**
- <p>Specifies whether a journey should be refreshed on segment update.</p>
+ <p>Indicates whether the journey participants should be refreshed when a segment is updated.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable refreshOnSegmentUpdate;
 
@@ -11629,7 +11916,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) AWSPinpointTargetingJourneySchedule * _Nullable schedule;
 
 /**
- <p>Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays). This flag should be set to true in order to allow (OpenHours and ClosedDays)</p>
+ <p>Indicates if journey has Advance Quiet Time enabled. This flag should be set to true in order to allow using OpenHours and ClosedDays.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable sendingSchedule;
 
@@ -11677,7 +11964,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) AWSPinpointTargetingSegmentGroupList * _Nullable segmentGroups;
 
 /**
- <p>A string-to-string map of key-value pairs that defines the tags to associate with the segment. Each tag consists of a required tag key and an associated tag value.</p>
+ <note><p>As of <b>22-05-2023</b> tags has been deprecated for update operations. After this date any value in tags is not processed and an error code is not returned. To manage tags we recommend using either <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html">Tags</a> in the <i>API Reference for Amazon Pinpoint</i>, <a href="https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html">resourcegroupstaggingapi</a> commands in the <i>AWS Command Line Interface Documentation</i> or <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html">resourcegroupstaggingapi</a> in the <i>AWS SDK</i>.</p></note><p>(Deprecated) A string-to-string map of key-value pairs that defines the tags to associate with the segment. Each tag consists of a required tag key and an associated tag value.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -11728,107 +12015,107 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @end
 
 /**
- <p>List of OpenHours Rules.</p>
+ <p>Specifies the start and end time for OpenHours.</p>
  */
 @interface AWSPinpointTargetingOpenHoursRule : AWSModel
 
 
 /**
- <p>Local start time in ISO 8601 format.</p>
+ <p>The end of the scheduled time, in ISO 8601 format, when the channel can't send messages.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable endTime;
 
 /**
- <p>Local start time in ISO 8601 format.</p>
+ <p>The start of the scheduled time, in ISO 8601 format, when the channel can send messages.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable startTime;
 
 @end
 
 /**
- <p>The time when journey allow to send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
+ <p>Specifies the times when message are allowed to be sent to endpoints.</p>
  */
 @interface AWSPinpointTargetingOpenHours : AWSModel
 
 
 /**
- <p>Rules for Custom Channel.</p>
+ <p>Specifies the schedule settings for the custom channel.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSArray<AWSPinpointTargetingOpenHoursRule *> *> * _Nullable CUSTOM;
 
 /**
- <p>Rules for Email Channel.</p>
+ <p>Specifies the schedule settings for the email channel.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSArray<AWSPinpointTargetingOpenHoursRule *> *> * _Nullable EMAIL;
 
 /**
- <p>Rules for Push Channel.</p>
+ <p>Specifies the schedule settings for the push channel.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSArray<AWSPinpointTargetingOpenHoursRule *> *> * _Nullable PUSH;
 
 /**
- <p>Rules for SMS Channel.</p>
+ <p>Specifies the schedule settings for the SMS channel.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSArray<AWSPinpointTargetingOpenHoursRule *> *> * _Nullable SMS;
 
 /**
- <p>Rules for Voice Channel.</p>
+ <p>Specifies the schedule settings for the voice channel.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSArray<AWSPinpointTargetingOpenHoursRule *> *> * _Nullable VOICE;
 
 @end
 
 /**
- <p>Closed Days Rule. Part of Journey sending schedule.</p>
+ <p>Specifies the rule settings for when messages can't be sent.</p>
  */
 @interface AWSPinpointTargetingClosedDaysRule : AWSModel
 
 
 /**
- <p>End Datetime in ISO 8601 format.</p>
+ <p>End DateTime ISO 8601 format</p>
  */
 @property (nonatomic, strong) NSString * _Nullable endDateTime;
 
 /**
- <p>Name of the rule.</p>
+ <p>The name of the closed day rule.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>Start Datetime in ISO 8601 format.</p>
+ <p>Start DateTime ISO 8601 format</p>
  */
 @property (nonatomic, strong) NSString * _Nullable startDateTime;
 
 @end
 
 /**
- <p>The time when journey will stop sending messages.</p>
+ <p>The time when a journey will not send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
  */
 @interface AWSPinpointTargetingClosedDays : AWSModel
 
 
 /**
- <p>Rules for Custom Channel.</p>
+ <p>Rules for the Custom channel.</p>
  */
 @property (nonatomic, strong) NSArray<AWSPinpointTargetingClosedDaysRule *> * _Nullable CUSTOM;
 
 /**
- <p>Rules for Email Channel.</p>
+ <p>Rules for the Email channel.</p>
  */
 @property (nonatomic, strong) NSArray<AWSPinpointTargetingClosedDaysRule *> * _Nullable EMAIL;
 
 /**
- <p>Rules for Push Channel.</p>
+ <p>Rules for the Push channel.</p>
  */
 @property (nonatomic, strong) NSArray<AWSPinpointTargetingClosedDaysRule *> * _Nullable PUSH;
 
 /**
- <p>Rules for SMS Channel.</p>
+ <p>Rules for the SMS channel.</p>
  */
 @property (nonatomic, strong) NSArray<AWSPinpointTargetingClosedDaysRule *> * _Nullable SMS;
 
 /**
- <p>Rules for Voice Channel.</p>
+ <p>Rules for the Voice channel.</p>
  */
 @property (nonatomic, strong) NSArray<AWSPinpointTargetingClosedDaysRule *> * _Nullable VOICE;
 

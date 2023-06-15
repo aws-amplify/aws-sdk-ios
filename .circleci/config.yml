@@ -12,6 +12,9 @@
 
 version: 2.1
 
+orbs:
+  aws-cli: circleci/aws-cli@3.1.4
+
 commands:
   restore_gem:
     steps:
@@ -475,6 +478,10 @@ jobs:
     steps:
       - skip_job_unless_required
       - shallow_checkout
+      - aws-cli/setup:
+          role-arn: $AWS_OIDC_ROLE_ARN
+          role-session-name: "${CIRCLE_WORKFLOW_JOB_ID}.release-cocoapods"
+          session-duration: '900'
       - restore_gem
       - run:
           name: Release CocoaPods
@@ -496,6 +503,8 @@ jobs:
           name: Copy documents
           command: |
             git config --local user.name "AWS"
+            git remote set-branches --add origin 'gh-pages'
+            git fetch --depth 1 origin gh-pages
             git checkout gh-pages
             rm -rf docs/reference
             mv docs_tmp docs/reference
@@ -519,6 +528,8 @@ jobs:
           name: Add documentation tags to gh-pages
           command: |
             git config --local user.name "AWS"
+            git remote set-branches --add origin 'gh-pages'
+            git fetch --depth 1 origin gh-pages
             git checkout gh-pages
             git tag -a ${CIRCLE_TAG}_api_docs -m "Add documentation tags to version ${CIRCLE_TAG}"
             git push --tags -q https://${GITHUB_TOKEN}@github.com/aws-amplify/aws-sdk-ios.git
@@ -943,6 +954,16 @@ workflows:
       - unit_test:
           scheme: AWSKinesisVideoSignaling
           name: unit_test_AWSKinesisVideoSignaling
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSKinesisVideoWebRTCStorage
+          name: unit_test_AWSKinesisVideoWebRTCStorage
           requires:
             - build
             - build_test_host_apps
@@ -1489,6 +1510,7 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
+          context: amplify-swift-aws-oidc
       - release_carthage:
           requires:
             - build_xcframeworks
