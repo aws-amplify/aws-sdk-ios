@@ -2956,6 +2956,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 	return @{
              @"abortConfig" : @"abortConfig",
              @"detail" : @"description",
+             @"destinationPackageVersions" : @"destinationPackageVersions",
              @"document" : @"document",
              @"documentParameters" : @"documentParameters",
              @"documentSource" : @"documentSource",
@@ -3050,6 +3051,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 	return @{
              @"abortConfig" : @"abortConfig",
              @"detail" : @"description",
+             @"destinationPackageVersions" : @"destinationPackageVersions",
              @"document" : @"document",
              @"documentSource" : @"documentSource",
              @"jobArn" : @"jobArn",
@@ -3305,6 +3307,104 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return @"DELETE_IN_PROGRESS";
             case AWSIoTOTAUpdateStatusDeleteFailed:
                 return @"DELETE_FAILED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSIoTCreatePackageRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientToken" : @"clientToken",
+             @"detail" : @"description",
+             @"packageName" : @"packageName",
+             @"tags" : @"tags",
+             };
+}
+
+@end
+
+@implementation AWSIoTCreatePackageResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"description",
+             @"packageArn" : @"packageArn",
+             @"packageName" : @"packageName",
+             };
+}
+
+@end
+
+@implementation AWSIoTCreatePackageVersionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attributes" : @"attributes",
+             @"clientToken" : @"clientToken",
+             @"detail" : @"description",
+             @"packageName" : @"packageName",
+             @"tags" : @"tags",
+             @"versionName" : @"versionName",
+             };
+}
+
+@end
+
+@implementation AWSIoTCreatePackageVersionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attributes" : @"attributes",
+             @"detail" : @"description",
+             @"errorReason" : @"errorReason",
+             @"packageName" : @"packageName",
+             @"packageVersionArn" : @"packageVersionArn",
+             @"status" : @"status",
+             @"versionName" : @"versionName",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DRAFT"] == NSOrderedSame) {
+            return @(AWSIoTPackageVersionStatusDraft);
+        }
+        if ([value caseInsensitiveCompare:@"PUBLISHED"] == NSOrderedSame) {
+            return @(AWSIoTPackageVersionStatusPublished);
+        }
+        if ([value caseInsensitiveCompare:@"DEPRECATED"] == NSOrderedSame) {
+            return @(AWSIoTPackageVersionStatusDeprecated);
+        }
+        return @(AWSIoTPackageVersionStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTPackageVersionStatusDraft:
+                return @"DRAFT";
+            case AWSIoTPackageVersionStatusPublished:
+                return @"PUBLISHED";
+            case AWSIoTPackageVersionStatusDeprecated:
+                return @"DEPRECATED";
             default:
                 return nil;
         }
@@ -4294,6 +4394,53 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 @end
 
 @implementation AWSIoTDeleteOTAUpdateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSIoTDeletePackageRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientToken" : @"clientToken",
+             @"packageName" : @"packageName",
+             };
+}
+
+@end
+
+@implementation AWSIoTDeletePackageResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSIoTDeletePackageVersionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientToken" : @"clientToken",
+             @"packageName" : @"packageName",
+             @"versionName" : @"versionName",
+             };
+}
+
+@end
+
+@implementation AWSIoTDeletePackageVersionResponse
 
 + (BOOL)supportsSecureCoding {
     return YES;
@@ -5909,6 +6056,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"abortConfig" : @"abortConfig",
              @"createdAt" : @"createdAt",
              @"detail" : @"description",
+             @"destinationPackageVersions" : @"destinationPackageVersions",
              @"document" : @"document",
              @"documentSource" : @"documentSource",
              @"jobExecutionsRetryConfig" : @"jobExecutionsRetryConfig",
@@ -7667,6 +7815,160 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTGetPackageConfigurationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSIoTGetPackageConfigurationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"versionUpdateByJobsConfig" : @"versionUpdateByJobsConfig",
+             };
+}
+
++ (NSValueTransformer *)versionUpdateByJobsConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTVersionUpdateByJobsConfig class]];
+}
+
+@end
+
+@implementation AWSIoTGetPackageRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"packageName" : @"packageName",
+             };
+}
+
+@end
+
+@implementation AWSIoTGetPackageResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"creationDate" : @"creationDate",
+             @"defaultVersionName" : @"defaultVersionName",
+             @"detail" : @"description",
+             @"lastModifiedDate" : @"lastModifiedDate",
+             @"packageArn" : @"packageArn",
+             @"packageName" : @"packageName",
+             };
+}
+
++ (NSValueTransformer *)creationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSIoTGetPackageVersionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"packageName" : @"packageName",
+             @"versionName" : @"versionName",
+             };
+}
+
+@end
+
+@implementation AWSIoTGetPackageVersionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attributes" : @"attributes",
+             @"creationDate" : @"creationDate",
+             @"detail" : @"description",
+             @"errorReason" : @"errorReason",
+             @"lastModifiedDate" : @"lastModifiedDate",
+             @"packageName" : @"packageName",
+             @"packageVersionArn" : @"packageVersionArn",
+             @"status" : @"status",
+             @"versionName" : @"versionName",
+             };
+}
+
++ (NSValueTransformer *)creationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DRAFT"] == NSOrderedSame) {
+            return @(AWSIoTPackageVersionStatusDraft);
+        }
+        if ([value caseInsensitiveCompare:@"PUBLISHED"] == NSOrderedSame) {
+            return @(AWSIoTPackageVersionStatusPublished);
+        }
+        if ([value caseInsensitiveCompare:@"DEPRECATED"] == NSOrderedSame) {
+            return @(AWSIoTPackageVersionStatusDeprecated);
+        }
+        return @(AWSIoTPackageVersionStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTPackageVersionStatusDraft:
+                return @"DRAFT";
+            case AWSIoTPackageVersionStatusPublished:
+                return @"PUBLISHED";
+            case AWSIoTPackageVersionStatusDeprecated:
+                return @"DEPRECATED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSIoTGetPercentilesRequest
 
 + (BOOL)supportsSecureCoding {
@@ -8231,6 +8533,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"completedAt" : @"completedAt",
              @"createdAt" : @"createdAt",
              @"detail" : @"description",
+             @"destinationPackageVersions" : @"destinationPackageVersions",
              @"documentParameters" : @"documentParameters",
              @"forceCanceled" : @"forceCanceled",
              @"isConcurrent" : @"isConcurrent",
@@ -10466,6 +10769,102 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTListPackageVersionsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"maxResults",
+             @"nextToken" : @"nextToken",
+             @"packageName" : @"packageName",
+             @"status" : @"status",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DRAFT"] == NSOrderedSame) {
+            return @(AWSIoTPackageVersionStatusDraft);
+        }
+        if ([value caseInsensitiveCompare:@"PUBLISHED"] == NSOrderedSame) {
+            return @(AWSIoTPackageVersionStatusPublished);
+        }
+        if ([value caseInsensitiveCompare:@"DEPRECATED"] == NSOrderedSame) {
+            return @(AWSIoTPackageVersionStatusDeprecated);
+        }
+        return @(AWSIoTPackageVersionStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTPackageVersionStatusDraft:
+                return @"DRAFT";
+            case AWSIoTPackageVersionStatusPublished:
+                return @"PUBLISHED";
+            case AWSIoTPackageVersionStatusDeprecated:
+                return @"DEPRECATED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSIoTListPackageVersionsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"nextToken",
+             @"packageVersionSummaries" : @"packageVersionSummaries",
+             };
+}
+
++ (NSValueTransformer *)packageVersionSummariesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTPackageVersionSummary class]];
+}
+
+@end
+
+@implementation AWSIoTListPackagesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"maxResults",
+             @"nextToken" : @"nextToken",
+             };
+}
+
+@end
+
+@implementation AWSIoTListPackagesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"nextToken",
+             @"packageSummaries" : @"packageSummaries",
+             };
+}
+
++ (NSValueTransformer *)packageSummariesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTPackageSummary class]];
+}
+
+@end
+
 @implementation AWSIoTListPoliciesRequest
 
 + (BOOL)supportsSecureCoding {
@@ -12438,6 +12837,99 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSIoTPackageSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"creationDate" : @"creationDate",
+             @"defaultVersionName" : @"defaultVersionName",
+             @"lastModifiedDate" : @"lastModifiedDate",
+             @"packageName" : @"packageName",
+             };
+}
+
++ (NSValueTransformer *)creationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSIoTPackageVersionSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"creationDate" : @"creationDate",
+             @"lastModifiedDate" : @"lastModifiedDate",
+             @"packageName" : @"packageName",
+             @"status" : @"status",
+             @"versionName" : @"versionName",
+             };
+}
+
++ (NSValueTransformer *)creationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DRAFT"] == NSOrderedSame) {
+            return @(AWSIoTPackageVersionStatusDraft);
+        }
+        if ([value caseInsensitiveCompare:@"PUBLISHED"] == NSOrderedSame) {
+            return @(AWSIoTPackageVersionStatusPublished);
+        }
+        if ([value caseInsensitiveCompare:@"DEPRECATED"] == NSOrderedSame) {
+            return @(AWSIoTPackageVersionStatusDeprecated);
+        }
+        return @(AWSIoTPackageVersionStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTPackageVersionStatusDraft:
+                return @"DRAFT";
+            case AWSIoTPackageVersionStatusPublished:
+                return @"PUBLISHED";
+            case AWSIoTPackageVersionStatusDeprecated:
+                return @"DEPRECATED";
+            default:
+                return nil;
+        }
     }];
 }
 
@@ -16211,6 +16703,107 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTUpdatePackageConfigurationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientToken" : @"clientToken",
+             @"versionUpdateByJobsConfig" : @"versionUpdateByJobsConfig",
+             };
+}
+
++ (NSValueTransformer *)versionUpdateByJobsConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTVersionUpdateByJobsConfig class]];
+}
+
+@end
+
+@implementation AWSIoTUpdatePackageConfigurationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSIoTUpdatePackageRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientToken" : @"clientToken",
+             @"defaultVersionName" : @"defaultVersionName",
+             @"detail" : @"description",
+             @"packageName" : @"packageName",
+             @"unsetDefaultVersion" : @"unsetDefaultVersion",
+             };
+}
+
+@end
+
+@implementation AWSIoTUpdatePackageResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSIoTUpdatePackageVersionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"action" : @"action",
+             @"attributes" : @"attributes",
+             @"clientToken" : @"clientToken",
+             @"detail" : @"description",
+             @"packageName" : @"packageName",
+             @"versionName" : @"versionName",
+             };
+}
+
++ (NSValueTransformer *)actionJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PUBLISH"] == NSOrderedSame) {
+            return @(AWSIoTPackageVersionActionPublish);
+        }
+        if ([value caseInsensitiveCompare:@"DEPRECATE"] == NSOrderedSame) {
+            return @(AWSIoTPackageVersionActionDeprecate);
+        }
+        return @(AWSIoTPackageVersionActionUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTPackageVersionActionPublish:
+                return @"PUBLISH";
+            case AWSIoTPackageVersionActionDeprecate:
+                return @"DEPRECATE";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSIoTUpdatePackageVersionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
 @implementation AWSIoTUpdateProvisioningTemplateRequest
 
 + (BOOL)supportsSecureCoding {
@@ -16724,6 +17317,21 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"errorMessage" : @"errorMessage",
+             };
+}
+
+@end
+
+@implementation AWSIoTVersionUpdateByJobsConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"enabled" : @"enabled",
+             @"roleArn" : @"roleArn",
              };
 }
 
