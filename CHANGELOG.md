@@ -10,8 +10,10 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSConnect
   - AWSSTS
   - AWSRekognition
+  - AWSDynamoDB
   - AWSCloudWatchLogs
 ---
+
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased

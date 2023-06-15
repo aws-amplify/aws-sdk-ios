@@ -1586,7 +1586,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
-      \"documentation\":\"<p>Gets metric data from the specified Amazon Connect instance. </p> <p> <code>GetMetricDataV2</code> offers more features than <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html\\\">GetMetricData</a>, the previous version of this API. It has new metrics, offers filtering at a metric level, and offers the ability to filter and group data by channels, queues, routing profiles, agents, and agent hierarchy levels. It can retrieve historical data for the last 35 days, in 24-hour intervals.</p> <p>For a description of the historical metrics that are supported by <code>GetMetricDataV2</code> and <code>GetMetricData</code>, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html\\\">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>. </p> <p>This API is not available in the Amazon Web Services GovCloud (US) Regions.</p>\"\
+      \"documentation\":\"<p>Gets metric data from the specified Amazon Connect instance. </p> <p> <code>GetMetricDataV2</code> offers more features than <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html\\\">GetMetricData</a>, the previous version of this API. It has new metrics, offers filtering at a metric level, and offers the ability to filter and group data by channels, queues, routing profiles, agents, and agent hierarchy levels. It can retrieve historical data for the last 35 days, in 24-hour intervals.</p> <p>For a description of the historical metrics that are supported by <code>GetMetricDataV2</code> and <code>GetMetricData</code>, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html\\\">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.</p>\"\
     },\
     \"GetPromptFile\":{\
       \"name\":\"GetPromptFile\",\
@@ -2330,6 +2330,40 @@
       ],\
       \"documentation\":\"<p>Searches for available phone numbers that you can claim to your Amazon Connect instance or traffic distribution group. If the provided <code>TargetArn</code> is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with the traffic distribution group.</p>\"\
     },\
+    \"SearchHoursOfOperations\":{\
+      \"name\":\"SearchHoursOfOperations\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/search-hours-of-operations\"\
+      },\
+      \"input\":{\"shape\":\"SearchHoursOfOperationsRequest\"},\
+      \"output\":{\"shape\":\"SearchHoursOfOperationsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Searches the hours of operation in an Amazon Connect instance, with optional filtering.</p>\"\
+    },\
+    \"SearchPrompts\":{\
+      \"name\":\"SearchPrompts\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/search-prompts\"\
+      },\
+      \"input\":{\"shape\":\"SearchPromptsRequest\"},\
+      \"output\":{\"shape\":\"SearchPromptsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Searches prompts in an Amazon Connect instance, with optional filtering.</p>\"\
+    },\
     \"SearchQueues\":{\
       \"name\":\"SearchQueues\",\
       \"http\":{\
@@ -2346,6 +2380,23 @@
         {\"shape\":\"InternalServiceException\"}\
       ],\
       \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Searches queues in an Amazon Connect instance, with optional filtering.</p>\"\
+    },\
+    \"SearchQuickConnects\":{\
+      \"name\":\"SearchQuickConnects\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/search-quick-connects\"\
+      },\
+      \"input\":{\"shape\":\"SearchQuickConnectsRequest\"},\
+      \"output\":{\"shape\":\"SearchQuickConnectsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Searches quick connects in an Amazon Connect instance, with optional filtering.</p>\"\
     },\
     \"SearchRoutingProfiles\":{\
       \"name\":\"SearchRoutingProfiles\",\
@@ -4207,7 +4258,7 @@
         },\
         \"InitiationTimestamp\":{\
           \"shape\":\"timestamp\",\
-          \"documentation\":\"<p>The date and time this contact was initiated, in UTC time. For <code>INBOUND</code>, this is when the contact arrived. For <code>OUTBOUND</code>, this is when the agent began dialing. For <code>CALLBACK</code>, this is when the callback contact was created. For <code>TRANSFER</code> and <code>QUEUE_TRANSFER</code>, this is when the transfer was initiated. For <code>API</code>, this is when the request arrived.</p>\"\
+          \"documentation\":\"<p>The date and time this contact was initiated, in UTC time. For <code>INBOUND</code>, this is when the contact arrived. For <code>OUTBOUND</code>, this is when the agent began dialing. For <code>CALLBACK</code>, this is when the callback contact was created. For <code>TRANSFER</code> and <code>QUEUE_TRANSFER</code>, this is when the transfer was initiated. For <code>API</code>, this is when the request arrived. For <code>EXTERNAL_OUTBOUND</code>, this is when the agent started dialing the external participant. For <code>MONITOR</code>, this is when the supervisor started listening to a contact.</p>\"\
         },\
         \"DisconnectTimestamp\":{\
           \"shape\":\"timestamp\",\
@@ -9005,7 +9056,40 @@
       \"min\":1\
     },\
     \"HoursOfOperationId\":{\"type\":\"string\"},\
+    \"HoursOfOperationList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"HoursOfOperation\"}\
+    },\
     \"HoursOfOperationName\":{\"type\":\"string\"},\
+    \"HoursOfOperationSearchConditionList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"HoursOfOperationSearchCriteria\"}\
+    },\
+    \"HoursOfOperationSearchCriteria\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"OrConditions\":{\
+          \"shape\":\"HoursOfOperationSearchConditionList\",\
+          \"documentation\":\"<p>A list of conditions which would be applied together with an OR condition.</p>\"\
+        },\
+        \"AndConditions\":{\
+          \"shape\":\"HoursOfOperationSearchConditionList\",\
+          \"documentation\":\"<p>A list of conditions which would be applied together with an AND condition.</p>\"\
+        },\
+        \"StringCondition\":{\
+          \"shape\":\"StringCondition\",\
+          \"documentation\":\"<p>A leaf node condition which can be used to specify a string condition.</p> <note> <p>The currently supported values for <code>FieldName</code> are <code>name</code>, <code>description</code>, <code>timezone</code>, and <code>resourceID</code>.</p> </note>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The search criteria to be used to return hours of operations.</p>\"\
+    },\
+    \"HoursOfOperationSearchFilter\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TagFilter\":{\"shape\":\"ControlPlaneTagFilter\"}\
+      },\
+      \"documentation\":\"<p>Filters to be applied to search results.</p>\"\
+    },\
     \"HoursOfOperationSummary\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -11876,7 +11960,7 @@
         },\
         \"Description\":{\
           \"shape\":\"PromptDescription\",\
-          \"documentation\":\"<p>A description for the prompt.</p>\"\
+          \"documentation\":\"<p>The description of the prompt.</p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
@@ -11895,6 +11979,10 @@
       \"max\":256,\
       \"min\":1\
     },\
+    \"PromptList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Prompt\"}\
+    },\
     \"PromptName\":{\
       \"type\":\"string\",\
       \"max\":256,\
@@ -11904,6 +11992,35 @@
       \"type\":\"string\",\
       \"max\":2000,\
       \"min\":1\
+    },\
+    \"PromptSearchConditionList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"PromptSearchCriteria\"}\
+    },\
+    \"PromptSearchCriteria\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"OrConditions\":{\
+          \"shape\":\"PromptSearchConditionList\",\
+          \"documentation\":\"<p>A list of conditions which would be applied together with an OR condition.</p>\"\
+        },\
+        \"AndConditions\":{\
+          \"shape\":\"PromptSearchConditionList\",\
+          \"documentation\":\"<p>A list of conditions which would be applied together with an AND condition.</p>\"\
+        },\
+        \"StringCondition\":{\
+          \"shape\":\"StringCondition\",\
+          \"documentation\":\"<p>A leaf node condition which can be used to specify a string condition.</p> <note> <p>The currently supported values for <code>FieldName</code> are <code>name</code>, <code>description</code>, and <code>resourceID</code>.</p> </note>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The search criteria to be used to return prompts.</p>\"\
+    },\
+    \"PromptSearchFilter\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TagFilter\":{\"shape\":\"ControlPlaneTagFilter\"}\
+      },\
+      \"documentation\":\"<p>Filters to be applied to search results.</p>\"\
     },\
     \"PromptSummary\":{\
       \"type\":\"structure\",\
@@ -12126,7 +12243,10 @@
           \"shape\":\"QueueSearchConditionList\",\
           \"documentation\":\"<p>A list of conditions which would be applied together with an AND condition.</p>\"\
         },\
-        \"StringCondition\":{\"shape\":\"StringCondition\"},\
+        \"StringCondition\":{\
+          \"shape\":\"StringCondition\",\
+          \"documentation\":\"<p>A leaf node condition which can be used to specify a string condition.</p> <note> <p>The currently supported values for <code>FieldName</code> are <code>name</code>, <code>description</code>, and <code>resourceID</code>.</p> </note>\"\
+        },\
         \"QueueTypeCondition\":{\
           \"shape\":\"SearchableQueueType\",\
           \"documentation\":\"<p>The type of queue.</p>\"\
@@ -12259,6 +12379,39 @@
       \"type\":\"string\",\
       \"max\":127,\
       \"min\":1\
+    },\
+    \"QuickConnectSearchConditionList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"QuickConnectSearchCriteria\"}\
+    },\
+    \"QuickConnectSearchCriteria\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"OrConditions\":{\
+          \"shape\":\"QuickConnectSearchConditionList\",\
+          \"documentation\":\"<p>A list of conditions which would be applied together with an OR condition.</p>\"\
+        },\
+        \"AndConditions\":{\
+          \"shape\":\"QuickConnectSearchConditionList\",\
+          \"documentation\":\"<p>A list of conditions which would be applied together with an AND condition.</p>\"\
+        },\
+        \"StringCondition\":{\
+          \"shape\":\"StringCondition\",\
+          \"documentation\":\"<p>A leaf node condition which can be used to specify a string condition.</p> <note> <p>The currently supported values for <code>FieldName</code> are <code>name</code>, <code>description</code>, and <code>resourceID</code>.</p> </note>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The search criteria to be used to return quick connects.</p>\"\
+    },\
+    \"QuickConnectSearchFilter\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TagFilter\":{\"shape\":\"ControlPlaneTagFilter\"}\
+      },\
+      \"documentation\":\"<p>Filters to be applied to search results.</p>\"\
+    },\
+    \"QuickConnectSearchSummaryList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"QuickConnect\"}\
     },\
     \"QuickConnectSummary\":{\
       \"type\":\"structure\",\
@@ -12773,7 +12926,10 @@
           \"shape\":\"RoutingProfileSearchConditionList\",\
           \"documentation\":\"<p>A list of conditions which would be applied together with an AND condition.</p>\"\
         },\
-        \"StringCondition\":{\"shape\":\"StringCondition\"}\
+        \"StringCondition\":{\
+          \"shape\":\"StringCondition\",\
+          \"documentation\":\"<p>A leaf node condition which can be used to specify a string condition.</p> <note> <p>The currently supported values for <code>FieldName</code> are <code>name</code>, <code>description</code>, and <code>resourceID</code>.</p> </note>\"\
+        }\
       },\
       \"documentation\":\"<p>The search criteria to be used to return routing profiles.</p> <note> <p>The <code>name</code> and <code>description</code> fields support \\\"contains\\\" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results. </p> </note>\"\
     },\
@@ -13067,6 +13223,94 @@
         }\
       }\
     },\
+    \"SearchHoursOfOperationsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"InstanceId\"],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken2500\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResult100\",\
+          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"box\":true\
+        },\
+        \"SearchFilter\":{\
+          \"shape\":\"HoursOfOperationSearchFilter\",\
+          \"documentation\":\"<p>Filters to be applied to search results.</p>\"\
+        },\
+        \"SearchCriteria\":{\
+          \"shape\":\"HoursOfOperationSearchCriteria\",\
+          \"documentation\":\"<p>The search criteria to be used to return hours of operations.</p>\"\
+        }\
+      }\
+    },\
+    \"SearchHoursOfOperationsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"HoursOfOperations\":{\
+          \"shape\":\"HoursOfOperationList\",\
+          \"documentation\":\"<p>Information about the hours of operations.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken2500\",\
+          \"documentation\":\"<p>If there are additional results, this is the token for the next set of results.</p>\"\
+        },\
+        \"ApproximateTotalCount\":{\
+          \"shape\":\"ApproximateTotalCount\",\
+          \"documentation\":\"<p>The total number of hours of operations which matched your search query.</p>\"\
+        }\
+      }\
+    },\
+    \"SearchPromptsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"InstanceId\"],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken2500\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResult100\",\
+          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"box\":true\
+        },\
+        \"SearchFilter\":{\
+          \"shape\":\"PromptSearchFilter\",\
+          \"documentation\":\"<p>Filters to be applied to search results.</p>\"\
+        },\
+        \"SearchCriteria\":{\
+          \"shape\":\"PromptSearchCriteria\",\
+          \"documentation\":\"<p>The search criteria to be used to return prompts.</p>\"\
+        }\
+      }\
+    },\
+    \"SearchPromptsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Prompts\":{\
+          \"shape\":\"PromptList\",\
+          \"documentation\":\"<p>Information about the prompts.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken2500\",\
+          \"documentation\":\"<p>If there are additional results, this is the token for the next set of results.</p>\"\
+        },\
+        \"ApproximateTotalCount\":{\
+          \"shape\":\"ApproximateTotalCount\",\
+          \"documentation\":\"<p>The total number of quick connects which matched your search query.</p>\"\
+        }\
+      }\
+    },\
     \"SearchQueuesRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"InstanceId\"],\
@@ -13108,6 +13352,50 @@
         \"ApproximateTotalCount\":{\
           \"shape\":\"ApproximateTotalCount\",\
           \"documentation\":\"<p>The total number of queues which matched your search query.</p>\"\
+        }\
+      }\
+    },\
+    \"SearchQuickConnectsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"InstanceId\"],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken2500\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResult100\",\
+          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"box\":true\
+        },\
+        \"SearchFilter\":{\
+          \"shape\":\"QuickConnectSearchFilter\",\
+          \"documentation\":\"<p>Filters to be applied to search results.</p>\"\
+        },\
+        \"SearchCriteria\":{\
+          \"shape\":\"QuickConnectSearchCriteria\",\
+          \"documentation\":\"<p>The search criteria to be used to return quick connects.</p>\"\
+        }\
+      }\
+    },\
+    \"SearchQuickConnectsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"QuickConnects\":{\
+          \"shape\":\"QuickConnectSearchSummaryList\",\
+          \"documentation\":\"<p>Information about the quick connects.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken2500\",\
+          \"documentation\":\"<p>If there are additional results, this is the token for the next set of results.</p>\"\
+        },\
+        \"ApproximateTotalCount\":{\
+          \"shape\":\"ApproximateTotalCount\",\
+          \"documentation\":\"<p>The total number of quick connects which matched your search query.</p>\"\
         }\
       }\
     },\
@@ -13999,7 +14287,7 @@
           \"documentation\":\"<p>The type of comparison to be made when evaluating the string condition.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>A leaf node condition which can be used to specify a string condition. </p> <note> <p>The currently supported value for <code>FieldName</code>: <code>name</code> </p> </note>\"\
+      \"documentation\":\"<p>A leaf node condition which can be used to specify a string condition. </p>\"\
     },\
     \"StringReference\":{\
       \"type\":\"structure\",\
@@ -16269,7 +16557,7 @@
         },\
         \"StringCondition\":{\
           \"shape\":\"StringCondition\",\
-          \"documentation\":\"<p>A leaf node condition which can be used to specify a string condition.</p>\"\
+          \"documentation\":\"<p>A leaf node condition which can be used to specify a string condition.</p> <note> <p>The currently supported values for <code>FieldName</code> are <code>name</code>, <code>description</code>, and <code>resourceID</code>.</p> </note>\"\
         },\
         \"HierarchyGroupCondition\":{\
           \"shape\":\"HierarchyGroupCondition\",\
