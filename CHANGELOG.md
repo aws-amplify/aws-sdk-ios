@@ -5,32 +5,16 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ### Misc. Updates
 
 - Model updates for the following services
----AWSSQS
----AWSConnect
----AWSIoT
----AWSIoTDataPlane
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSConnect
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
   - AWSTranslate
   - AWSPinpoint
   - AWSEC2
   - AWSConnect
   - AWSSTS
   - AWSRekognition
-
+  - AWSSQS
+  - AWSIoT
+  - AWSIoTDataPlane
+---
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
