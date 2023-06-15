@@ -1,21 +1,4 @@
 ---
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSCloudWatchLogs
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSConnect
----
-
 MOVE THIS SECTION TO THE CORRECT LOCATION
 
 ### Misc. Updates
@@ -27,7 +10,8 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSConnect
   - AWSSTS
   - AWSRekognition
-
+  - AWSCloudWatchLogs
+---
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
