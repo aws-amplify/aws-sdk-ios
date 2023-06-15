@@ -61,10 +61,20 @@ typedef NS_ENUM(NSInteger, AWSLogsExportTaskStatusCode) {
     AWSLogsExportTaskStatusCodeRunning,
 };
 
+typedef NS_ENUM(NSInteger, AWSLogsInheritedProperty) {
+    AWSLogsInheritedPropertyUnknown,
+    AWSLogsInheritedPropertyAccountDataProtection,
+};
+
 typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
     AWSLogsOrderByUnknown,
     AWSLogsOrderByLogStreamName,
     AWSLogsOrderByLastEventTime,
+};
+
+typedef NS_ENUM(NSInteger, AWSLogsPolicyType) {
+    AWSLogsPolicyTypeUnknown,
+    AWSLogsPolicyTypeDataProtectionPolicy,
 };
 
 typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
@@ -75,6 +85,11 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
     AWSLogsQueryStatusFailed,
     AWSLogsQueryStatusCancelled,
     AWSLogsQueryStatusTimeout,
+};
+
+typedef NS_ENUM(NSInteger, AWSLogsScope) {
+    AWSLogsScopeUnknown,
+    AWSLogsScopeAll,
 };
 
 typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
@@ -108,12 +123,14 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
     AWSLogsStandardUnitNone,
 };
 
+@class AWSLogsAccountPolicy;
 @class AWSLogsAssociateKmsKeyRequest;
 @class AWSLogsCancelExportTaskRequest;
 @class AWSLogsCreateExportTaskRequest;
 @class AWSLogsCreateExportTaskResponse;
 @class AWSLogsCreateLogGroupRequest;
 @class AWSLogsCreateLogStreamRequest;
+@class AWSLogsDeleteAccountPolicyRequest;
 @class AWSLogsDeleteDataProtectionPolicyRequest;
 @class AWSLogsDeleteDestinationRequest;
 @class AWSLogsDeleteLogGroupRequest;
@@ -124,6 +141,8 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @class AWSLogsDeleteResourcePolicyRequest;
 @class AWSLogsDeleteRetentionPolicyRequest;
 @class AWSLogsDeleteSubscriptionFilterRequest;
+@class AWSLogsDescribeAccountPoliciesRequest;
+@class AWSLogsDescribeAccountPoliciesResponse;
 @class AWSLogsDescribeDestinationsRequest;
 @class AWSLogsDescribeDestinationsResponse;
 @class AWSLogsDescribeExportTasksRequest;
@@ -172,6 +191,8 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @class AWSLogsMetricFilterMatchRecord;
 @class AWSLogsMetricTransformation;
 @class AWSLogsOutputLogEvent;
+@class AWSLogsPutAccountPolicyRequest;
+@class AWSLogsPutAccountPolicyResponse;
 @class AWSLogsPutDataProtectionPolicyRequest;
 @class AWSLogsPutDataProtectionPolicyResponse;
 @class AWSLogsPutDestinationPolicyRequest;
@@ -208,7 +229,45 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @class AWSLogsUntagResourceRequest;
 
 /**
+ <p>A structure that contains information about one CloudWatch Logs account policy.</p>
+ */
+@interface AWSLogsAccountPolicy : AWSModel
 
+
+/**
+ <p>The Amazon Web Services account ID that the policy applies to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable accountId;
+
+/**
+ <p>The date and time that this policy was most recently updated.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable lastUpdatedTime;
+
+/**
+ <p>The policy document for this account policy.</p><p>The JSON specified in <code>policyDocument</code> can be up to 30,720 characters.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyDocument;
+
+/**
+ <p>The name of the account policy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyName;
+
+/**
+ <p>The type of policy for this account policy.</p>
+ */
+@property (nonatomic, assign) AWSLogsPolicyType policyType;
+
+/**
+ <p>The scope of the account policy.</p>
+ */
+@property (nonatomic, assign) AWSLogsScope scope;
+
+@end
+
+/**
+ 
  */
 @interface AWSLogsAssociateKmsKeyRequest : AWSRequest
 
@@ -226,7 +285,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsCancelExportTaskRequest : AWSRequest
 
@@ -239,7 +298,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsCreateExportTaskRequest : AWSRequest
 
@@ -282,7 +341,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsCreateExportTaskResponse : AWSModel
 
@@ -295,7 +354,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsCreateLogGroupRequest : AWSRequest
 
@@ -318,7 +377,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsCreateLogStreamRequest : AWSRequest
 
@@ -336,7 +395,25 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
+ 
+ */
+@interface AWSLogsDeleteAccountPolicyRequest : AWSRequest
 
+
+/**
+ <p>The name of the policy to delete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyName;
+
+/**
+ <p>The type of policy to delete. Currently, the only valid value is <code>DATA_PROTECTION_POLICY</code>.</p>
+ */
+@property (nonatomic, assign) AWSLogsPolicyType policyType;
+
+@end
+
+/**
+ 
  */
 @interface AWSLogsDeleteDataProtectionPolicyRequest : AWSRequest
 
@@ -349,7 +426,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDeleteDestinationRequest : AWSRequest
 
@@ -362,7 +439,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDeleteLogGroupRequest : AWSRequest
 
@@ -375,7 +452,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDeleteLogStreamRequest : AWSRequest
 
@@ -393,7 +470,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDeleteMetricFilterRequest : AWSRequest
 
@@ -411,7 +488,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDeleteQueryDefinitionRequest : AWSRequest
 
@@ -424,7 +501,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDeleteQueryDefinitionResponse : AWSModel
 
@@ -437,7 +514,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDeleteResourcePolicyRequest : AWSRequest
 
@@ -450,7 +527,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDeleteRetentionPolicyRequest : AWSRequest
 
@@ -463,7 +540,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDeleteSubscriptionFilterRequest : AWSRequest
 
@@ -481,7 +558,43 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
+ 
+ */
+@interface AWSLogsDescribeAccountPoliciesRequest : AWSRequest
 
+
+/**
+ <p>If you are using an account that is set up as a monitoring account for CloudWatch unified cross-account observability, you can use this to specify the account ID of a source account. If you do, the operation returns the account policy for the specified account. Currently, you can specify only one account ID in this parameter.</p><p>If you omit this parameter, only the policy in the current account is returned.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable accountIdentifiers;
+
+/**
+ <p>Use this parameter to limit the returned policies to only the policy with the name that you specify.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyName;
+
+/**
+ <p>Use this parameter to limit the returned policies to only the policies that match the policy type that you specify. Currently, the only valid value is <code>DATA_PROTECTION_POLICY</code>.</p>
+ */
+@property (nonatomic, assign) AWSLogsPolicyType policyType;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsDescribeAccountPoliciesResponse : AWSModel
+
+
+/**
+ <p>An array of structures that contain information about the CloudWatch Logs account policies that match the specified filters.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSLogsAccountPolicy *> * _Nullable accountPolicies;
+
+@end
+
+/**
+ 
  */
 @interface AWSLogsDescribeDestinationsRequest : AWSRequest
 
@@ -504,7 +617,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDescribeDestinationsResponse : AWSModel
 
@@ -522,7 +635,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDescribeExportTasksRequest : AWSRequest
 
@@ -550,7 +663,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDescribeExportTasksResponse : AWSModel
 
@@ -568,7 +681,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDescribeLogGroupsRequest : AWSRequest
 
@@ -579,7 +692,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable accountIdentifiers;
 
 /**
- <p>If you are using a monitoring account, set this to <code>True</code> to have the operation return log groups in the accounts listed in <code>accountIdentifiers</code>.</p><p>If this parameter is set to <code>true</code> and <code>accountIdentifiers</code> contains a null value, the operation returns all log groups in the monitoring account and all log groups in all source accounts that are linked to the monitoring account. </p><note><p> If you specify <code>includeLinkedAccounts</code> in your request, then <code>metricFilterCount</code>, <code>retentionInDays</code>, and <code>storedBytes</code> are not included in the response. </p></note>
+ <p>If you are using a monitoring account, set this to <code>True</code> to have the operation return log groups in the accounts listed in <code>accountIdentifiers</code>.</p><p>If this parameter is set to <code>true</code> and <code>accountIdentifiers</code> contains a null value, the operation returns all log groups in the monitoring account and all log groups in all source accounts that are linked to the monitoring account. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable includeLinkedAccounts;
 
@@ -589,7 +702,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) NSNumber * _Nullable limit;
 
 /**
- <p>If you specify a string for this parameter, the operation returns only log groups that have names that match the string based on a case-sensitive substring search. For example, if you specify <code>Foo</code>, log groups named <code>FooBar</code>, <code>aws/Foo</code>, and <code>GroupFoo</code> would match, but <code>foo</code>, <code>F/o/o</code> and <code>Froo</code> would not match.</p><note><p><code>logGroupNamePattern</code> and <code>logGroupNamePrefix</code> are mutually exclusive. Only one of these parameters can be passed. </p></note>
+ <p>If you specify a string for this parameter, the operation returns only log groups that have names that match the string based on a case-sensitive substring search. For example, if you specify <code>Foo</code>, log groups named <code>FooBar</code>, <code>aws/Foo</code>, and <code>GroupFoo</code> would match, but <code>foo</code>, <code>F/o/o</code> and <code>Froo</code> would not match.</p><p>If you specify <code>logGroupNamePattern</code> in your request, then only <code>arn</code>, <code>creationTime</code>, and <code>logGroupName</code> are included in the response. </p><note><p><code>logGroupNamePattern</code> and <code>logGroupNamePrefix</code> are mutually exclusive. Only one of these parameters can be passed. </p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupNamePattern;
 
@@ -606,7 +719,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDescribeLogGroupsResponse : AWSModel
 
@@ -624,7 +737,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDescribeLogStreamsRequest : AWSRequest
 
@@ -667,7 +780,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDescribeLogStreamsResponse : AWSModel
 
@@ -685,7 +798,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDescribeMetricFiltersRequest : AWSRequest
 
@@ -723,7 +836,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDescribeMetricFiltersResponse : AWSModel
 
@@ -741,7 +854,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDescribeQueriesRequest : AWSRequest
 
@@ -769,7 +882,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDescribeQueriesResponse : AWSModel
 
@@ -787,7 +900,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDescribeQueryDefinitionsRequest : AWSRequest
 
@@ -810,7 +923,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDescribeQueryDefinitionsResponse : AWSModel
 
@@ -828,7 +941,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDescribeResourcePoliciesRequest : AWSRequest
 
@@ -846,7 +959,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDescribeResourcePoliciesResponse : AWSModel
 
@@ -864,7 +977,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDescribeSubscriptionFiltersRequest : AWSRequest
 
@@ -892,7 +1005,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDescribeSubscriptionFiltersResponse : AWSModel
 
@@ -948,7 +1061,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsDisassociateKmsKeyRequest : AWSRequest
 
@@ -1050,7 +1163,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsFilterLogEventsRequest : AWSRequest
 
@@ -1113,7 +1226,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsFilterLogEventsResponse : AWSModel
 
@@ -1169,7 +1282,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsGetDataProtectionPolicyRequest : AWSRequest
 
@@ -1182,7 +1295,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsGetDataProtectionPolicyResponse : AWSModel
 
@@ -1205,7 +1318,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsGetLogEventsRequest : AWSRequest
 
@@ -1258,7 +1371,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsGetLogEventsResponse : AWSModel
 
@@ -1281,7 +1394,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsGetLogGroupFieldsRequest : AWSRequest
 
@@ -1304,7 +1417,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsGetLogGroupFieldsResponse : AWSModel
 
@@ -1317,7 +1430,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsGetLogRecordRequest : AWSRequest
 
@@ -1335,7 +1448,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsGetLogRecordResponse : AWSModel
 
@@ -1348,7 +1461,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsGetQueryResultsRequest : AWSRequest
 
@@ -1361,7 +1474,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsGetQueryResultsResponse : AWSModel
 
@@ -1377,7 +1490,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) AWSLogsQueryStatistics * _Nullable statistics;
 
 /**
- <p>The status of the most recent running of the query. Possible values are <code>Cancelled</code>, <code>Complete</code>, <code>Failed</code>, <code>Running</code>, <code>Scheduled</code>, <code>Timeout</code>, and <code>Unknown</code>.</p><p>Queries time out after 15 minutes of runtime. To avoid having your queries time out, reduce the time range being searched or partition your query into a number of queries.</p>
+ <p>The status of the most recent running of the query. Possible values are <code>Cancelled</code>, <code>Complete</code>, <code>Failed</code>, <code>Running</code>, <code>Scheduled</code>, <code>Timeout</code>, and <code>Unknown</code>.</p><p>Queries time out after 60 minutes of runtime. To avoid having your queries time out, reduce the time range being searched or partition your query into a number of queries.</p>
  */
 @property (nonatomic, assign) AWSLogsQueryStatus status;
 
@@ -1391,7 +1504,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 
 
 /**
- <p>The raw event message.</p>
+ <p>The raw event message. Each log event can be no larger than 256 KB.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable message;
 
@@ -1403,7 +1516,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsListTagsForResourceRequest : AWSRequest
 
@@ -1416,7 +1529,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsListTagsForResourceResponse : AWSModel
 
@@ -1429,7 +1542,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsListTagsLogGroupRequest : AWSRequest
 
@@ -1442,7 +1555,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsListTagsLogGroupResponse : AWSModel
 
@@ -1476,6 +1589,11 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, assign) AWSLogsDataProtectionStatus dataProtectionStatus;
 
 /**
+ <p>Displays all the properties that this log group has inherited from account-level settings.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable inheritedProperties;
+
+/**
  <p>The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
@@ -1491,7 +1609,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) NSNumber * _Nullable metricFilterCount;
 
 /**
- <p>The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 2192, 2557, 2922, 3288, and 3653.</p><p>To set a log group so that its log events do not expire, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>. </p>
+ <p>The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.</p><p>To set a log group so that its log events do not expire, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable retentionInDays;
 
@@ -1687,7 +1805,48 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
+ 
+ */
+@interface AWSLogsPutAccountPolicyRequest : AWSRequest
 
+
+/**
+ <p>Specify the data protection policy, in JSON.</p><p>This policy must include two JSON blocks:</p><ul><li><p>The first block must include both a <code>DataIdentifer</code> array and an <code>Operation</code> property with an <code>Audit</code> action. The <code>DataIdentifer</code> array lists the types of sensitive data that you want to mask. For more information about the available options, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-types.html">Types of data that you can mask</a>.</p><p>The <code>Operation</code> property with an <code>Audit</code> action is required to find the sensitive data terms. This <code>Audit</code> action must contain a <code>FindingsDestination</code> object. You can optionally use that <code>FindingsDestination</code> object to list one or more destinations to send audit findings to. If you specify destinations such as log groups, Kinesis Data Firehose streams, and S3 buckets, they must already exist.</p></li><li><p>The second block must include both a <code>DataIdentifer</code> array and an <code>Operation</code> property with an <code>Deidentify</code> action. The <code>DataIdentifer</code> array must exactly match the <code>DataIdentifer</code> array in the first block of the policy.</p><p>The <code>Operation</code> property with the <code>Deidentify</code> action is what actually masks the data, and it must contain the <code> "MaskConfig": {}</code> object. The <code> "MaskConfig": {}</code> object must be empty.</p></li></ul><p>For an example data protection policy, see the <b>Examples</b> section on this page.</p><important><p>The contents of the two <code>DataIdentifer</code> arrays must match exactly.</p></important><p>In addition to the two JSON blocks, the <code>policyDocument</code> can also include <code>Name</code>, <code>Description</code>, and <code>Version</code> fields. The <code>Name</code> is different than the operation's <code>policyName</code> parameter, and is used as a dimension when CloudWatch Logs reports audit findings metrics to CloudWatch.</p><p>The JSON specified in <code>policyDocument</code> can be up to 30,720 characters.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyDocument;
+
+/**
+ <p>A name for the policy. This must be unique within the account.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyName;
+
+/**
+ <p>Currently the only valid value for this parameter is <code>DATA_PROTECTION_POLICY</code>.</p>
+ */
+@property (nonatomic, assign) AWSLogsPolicyType policyType;
+
+/**
+ <p>Currently the only valid value for this parameter is <code>GLOBAL</code>, which specifies that the data protection policy applies to all log groups in the account. If you omit this parameter, the default of <code>GLOBAL</code> is used.</p>
+ */
+@property (nonatomic, assign) AWSLogsScope scope;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsPutAccountPolicyResponse : AWSModel
+
+
+/**
+ <p>The account policy that you created.</p>
+ */
+@property (nonatomic, strong) AWSLogsAccountPolicy * _Nullable accountPolicy;
+
+@end
+
+/**
+ 
  */
 @interface AWSLogsPutDataProtectionPolicyRequest : AWSRequest
 
@@ -1698,14 +1857,14 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) NSString * _Nullable logGroupIdentifier;
 
 /**
- <p>Specify the data protection policy, in JSON.</p><p>This policy must include two JSON blocks:</p><ul><li><p>The first block must include both a <code>DataIdentifer</code> array and an <code>Operation</code> property with an <code>Audit</code> action. The <code>DataIdentifer</code> array lists the types of sensitive data that you want to mask. For more information about the available options, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-types.html">Types of data that you can mask</a>.</p><p>The <code>Operation</code> property with an <code>Audit</code> action is required to find the sensitive data terms. This <code>Audit</code> action must contain a <code>FindingsDestination</code> object. You can optionally use that <code>FindingsDestination</code> object to list one or more destinations to send audit findings to. If you specify destinations such as log groups, Kinesis Data Firehose streams, and S3 buckets, they must already exist.</p></li><li><p>The second block must include both a <code>DataIdentifer</code> array and an <code>Operation</code> property with an <code>Deidentify</code> action. The <code>DataIdentifer</code> array must exactly match the <code>DataIdentifer</code> array in the first block of the policy.</p><p>The <code>Operation</code> property with the <code>Deidentify</code> action is what actually masks the data, and it must contain the <code> "MaskConfig": {}</code> object. The <code> "MaskConfig": {}</code> object must be empty.</p></li></ul><p>For an example data protection policy, see the <b>Examples</b> section on this page.</p><important><p>The contents of two <code>DataIdentifer</code> arrays must match exactly.</p></important>
+ <p>Specify the data protection policy, in JSON.</p><p>This policy must include two JSON blocks:</p><ul><li><p>The first block must include both a <code>DataIdentifer</code> array and an <code>Operation</code> property with an <code>Audit</code> action. The <code>DataIdentifer</code> array lists the types of sensitive data that you want to mask. For more information about the available options, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-types.html">Types of data that you can mask</a>.</p><p>The <code>Operation</code> property with an <code>Audit</code> action is required to find the sensitive data terms. This <code>Audit</code> action must contain a <code>FindingsDestination</code> object. You can optionally use that <code>FindingsDestination</code> object to list one or more destinations to send audit findings to. If you specify destinations such as log groups, Kinesis Data Firehose streams, and S3 buckets, they must already exist.</p></li><li><p>The second block must include both a <code>DataIdentifer</code> array and an <code>Operation</code> property with an <code>Deidentify</code> action. The <code>DataIdentifer</code> array must exactly match the <code>DataIdentifer</code> array in the first block of the policy.</p><p>The <code>Operation</code> property with the <code>Deidentify</code> action is what actually masks the data, and it must contain the <code> "MaskConfig": {}</code> object. The <code> "MaskConfig": {}</code> object must be empty.</p></li></ul><p>For an example data protection policy, see the <b>Examples</b> section on this page.</p><important><p>The contents of the two <code>DataIdentifer</code> arrays must match exactly.</p></important><p>In addition to the two JSON blocks, the <code>policyDocument</code> can also include <code>Name</code>, <code>Description</code>, and <code>Version</code> fields. The <code>Name</code> is used as a dimension when CloudWatch Logs reports audit findings metrics to CloudWatch.</p><p>The JSON specified in <code>policyDocument</code> can be up to 30,720 characters.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable policyDocument;
 
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsPutDataProtectionPolicyResponse : AWSModel
 
@@ -1728,7 +1887,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsPutDestinationPolicyRequest : AWSRequest
 
@@ -1744,14 +1903,14 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) NSString * _Nullable destinationName;
 
 /**
- <p>Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts. Before you update a destination policy this way, you must first update the subscription filters in the accounts that send logs to this destination. If you do not, the subscription filters might stop working. By specifying <code>true</code> for <code>forceUpdate</code>, you are affirming that you have already updated the subscription filters. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Cross-Account-Log_Subscription-Update.html"> Updating an existing cross-account subscription</a></p><p>If you omit this parameter, the default of <code>false</code> is used.</p>
+ <p>Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual Amazon Web Services accounts. Before you update a destination policy this way, you must first update the subscription filters in the accounts that send logs to this destination. If you do not, the subscription filters might stop working. By specifying <code>true</code> for <code>forceUpdate</code>, you are affirming that you have already updated the subscription filters. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Cross-Account-Log_Subscription-Update.html"> Updating an existing cross-account subscription</a></p><p>If you omit this parameter, the default of <code>false</code> is used.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable forceUpdate;
 
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsPutDestinationRequest : AWSRequest
 
@@ -1779,7 +1938,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsPutDestinationResponse : AWSModel
 
@@ -1792,7 +1951,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsPutLogEventsRequest : AWSRequest
 
@@ -1820,7 +1979,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsPutLogEventsResponse : AWSModel
 
@@ -1838,7 +1997,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsPutMetricFilterRequest : AWSRequest
 
@@ -1866,7 +2025,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsPutQueryDefinitionRequest : AWSRequest
 
@@ -1894,7 +2053,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsPutQueryDefinitionResponse : AWSModel
 
@@ -1907,7 +2066,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsPutResourcePolicyRequest : AWSRequest
 
@@ -1925,7 +2084,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsPutResourcePolicyResponse : AWSModel
 
@@ -1938,7 +2097,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsPutRetentionPolicyRequest : AWSRequest
 
@@ -1949,14 +2108,14 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
 /**
- <p>The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 2192, 2557, 2922, 3288, and 3653.</p><p>To set a log group so that its log events do not expire, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>. </p>
+ <p>The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.</p><p>To set a log group so that its log events do not expire, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable retentionInDays;
 
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsPutSubscriptionFilterRequest : AWSRequest
 
@@ -2201,7 +2360,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsStartQueryRequest : AWSRequest
 
@@ -2244,7 +2403,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsStartQueryResponse : AWSModel
 
@@ -2257,7 +2416,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsStopQueryRequest : AWSRequest
 
@@ -2270,7 +2429,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsStopQueryResponse : AWSModel
 
@@ -2326,7 +2485,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsTagLogGroupRequest : AWSRequest
 
@@ -2344,7 +2503,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsTagResourceRequest : AWSRequest
 
@@ -2362,7 +2521,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsTestMetricFilterRequest : AWSRequest
 
@@ -2380,7 +2539,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsTestMetricFilterResponse : AWSModel
 
@@ -2393,7 +2552,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsUntagLogGroupRequest : AWSRequest
 
@@ -2411,7 +2570,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
-
+ 
  */
 @interface AWSLogsUntagResourceRequest : AWSRequest
 

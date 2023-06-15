@@ -21,6 +21,8 @@
 
 - (void) test_AWSSQSAddPermissionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSSQSBatchResultErrorEntry API_AVAILABLE(ios(11));
+- (void) test_AWSSQSCancelMessageMoveTaskRequest API_AVAILABLE(ios(11));
+- (void) test_AWSSQSCancelMessageMoveTaskResult API_AVAILABLE(ios(11));
 - (void) test_AWSSQSChangeMessageVisibilityBatchRequest API_AVAILABLE(ios(11));
 - (void) test_AWSSQSChangeMessageVisibilityBatchRequestEntry API_AVAILABLE(ios(11));
 - (void) test_AWSSQSChangeMessageVisibilityBatchResult API_AVAILABLE(ios(11));
@@ -40,6 +42,9 @@
 - (void) test_AWSSQSGetQueueUrlResult API_AVAILABLE(ios(11));
 - (void) test_AWSSQSListDeadLetterSourceQueuesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSSQSListDeadLetterSourceQueuesResult API_AVAILABLE(ios(11));
+- (void) test_AWSSQSListMessageMoveTasksRequest API_AVAILABLE(ios(11));
+- (void) test_AWSSQSListMessageMoveTasksResult API_AVAILABLE(ios(11));
+- (void) test_AWSSQSListMessageMoveTasksResultEntry API_AVAILABLE(ios(11));
 - (void) test_AWSSQSListQueueTagsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSSQSListQueueTagsResult API_AVAILABLE(ios(11));
 - (void) test_AWSSQSListQueuesRequest API_AVAILABLE(ios(11));
@@ -58,6 +63,8 @@
 - (void) test_AWSSQSSendMessageRequest API_AVAILABLE(ios(11));
 - (void) test_AWSSQSSendMessageResult API_AVAILABLE(ios(11));
 - (void) test_AWSSQSSetQueueAttributesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSSQSStartMessageMoveTaskRequest API_AVAILABLE(ios(11));
+- (void) test_AWSSQSStartMessageMoveTaskResult API_AVAILABLE(ios(11));
 - (void) test_AWSSQSTagQueueRequest API_AVAILABLE(ios(11));
 - (void) test_AWSSQSUntagQueueRequest API_AVAILABLE(ios(11));
 
@@ -71,6 +78,14 @@
 
 - (void) test_AWSSQSBatchResultErrorEntry {
     [self validateSecureCodingForClass:[AWSSQSBatchResultErrorEntry class]];
+}
+
+- (void) test_AWSSQSCancelMessageMoveTaskRequest {
+    [self validateSecureCodingForClass:[AWSSQSCancelMessageMoveTaskRequest class]];
+}
+
+- (void) test_AWSSQSCancelMessageMoveTaskResult {
+    [self validateSecureCodingForClass:[AWSSQSCancelMessageMoveTaskResult class]];
 }
 
 - (void) test_AWSSQSChangeMessageVisibilityBatchRequest {
@@ -149,6 +164,18 @@
     [self validateSecureCodingForClass:[AWSSQSListDeadLetterSourceQueuesResult class]];
 }
 
+- (void) test_AWSSQSListMessageMoveTasksRequest {
+    [self validateSecureCodingForClass:[AWSSQSListMessageMoveTasksRequest class]];
+}
+
+- (void) test_AWSSQSListMessageMoveTasksResult {
+    [self validateSecureCodingForClass:[AWSSQSListMessageMoveTasksResult class]];
+}
+
+- (void) test_AWSSQSListMessageMoveTasksResultEntry {
+    [self validateSecureCodingForClass:[AWSSQSListMessageMoveTasksResultEntry class]];
+}
+
 - (void) test_AWSSQSListQueueTagsRequest {
     [self validateSecureCodingForClass:[AWSSQSListQueueTagsRequest class]];
 }
@@ -219,6 +246,14 @@
 
 - (void) test_AWSSQSSetQueueAttributesRequest {
     [self validateSecureCodingForClass:[AWSSQSSetQueueAttributesRequest class]];
+}
+
+- (void) test_AWSSQSStartMessageMoveTaskRequest {
+    [self validateSecureCodingForClass:[AWSSQSStartMessageMoveTaskRequest class]];
+}
+
+- (void) test_AWSSQSStartMessageMoveTaskResult {
+    [self validateSecureCodingForClass:[AWSSQSStartMessageMoveTaskResult class]];
 }
 
 - (void) test_AWSSQSTagQueueRequest {
