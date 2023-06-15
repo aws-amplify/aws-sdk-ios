@@ -1,12 +1,4 @@
 ---
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSLocation
----
 MOVE THIS SECTION TO THE CORRECT LOCATION
 
 ### Misc. Updates
@@ -20,6 +12,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSRekognition
   - AWSDynamoDB
   - AWSCloudWatchLogs
+  - AWSLocation
 ---
 
 # AWS Mobile SDK for iOS CHANGELOG
