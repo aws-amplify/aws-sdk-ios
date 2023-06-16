@@ -421,6 +421,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"geofenceId" : @"GeofenceId",
+             @"geofenceProperties" : @"GeofenceProperties",
              @"geometry" : @"Geometry",
              };
 }
@@ -2252,6 +2253,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 	return @{
              @"createTime" : @"CreateTime",
              @"geofenceId" : @"GeofenceId",
+             @"geofenceProperties" : @"GeofenceProperties",
              @"geometry" : @"Geometry",
              @"status" : @"Status",
              @"updateTime" : @"UpdateTime",
@@ -2655,6 +2657,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 	return @{
              @"createTime" : @"CreateTime",
              @"geofenceId" : @"GeofenceId",
+             @"geofenceProperties" : @"GeofenceProperties",
              @"geometry" : @"Geometry",
              @"status" : @"Status",
              @"updateTime" : @"UpdateTime",
@@ -3251,7 +3254,22 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"politicalView" : @"PoliticalView",
              @"style" : @"Style",
+             };
+}
+
+@end
+
+@implementation AWSLocationMapConfigurationUpdate
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"politicalView" : @"PoliticalView",
              };
 }
 
@@ -3266,6 +3284,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"addressNumber" : @"AddressNumber",
+             @"categories" : @"Categories",
              @"country" : @"Country",
              @"geometry" : @"Geometry",
              @"interpolated" : @"Interpolated",
@@ -3276,6 +3295,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
              @"region" : @"Region",
              @"street" : @"Street",
              @"subRegion" : @"SubRegion",
+             @"supplementalCategories" : @"SupplementalCategories",
              @"timeZone" : @"TimeZone",
              @"unitNumber" : @"UnitNumber",
              @"unitType" : @"UnitType",
@@ -3330,6 +3350,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 	return @{
              @"collectionName" : @"CollectionName",
              @"geofenceId" : @"GeofenceId",
+             @"geofenceProperties" : @"GeofenceProperties",
              @"geometry" : @"Geometry",
              };
 }
@@ -3476,7 +3497,9 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"categories" : @"Categories",
              @"placeId" : @"PlaceId",
+             @"supplementalCategories" : @"SupplementalCategories",
              @"text" : @"Text",
              };
 }
@@ -3571,6 +3594,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 	return @{
              @"biasPosition" : @"BiasPosition",
              @"filterBBox" : @"FilterBBox",
+             @"filterCategories" : @"FilterCategories",
              @"filterCountries" : @"FilterCountries",
              @"indexName" : @"IndexName",
              @"language" : @"Language",
@@ -3615,6 +3639,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
              @"biasPosition" : @"BiasPosition",
              @"dataSource" : @"DataSource",
              @"filterBBox" : @"FilterBBox",
+             @"filterCategories" : @"FilterCategories",
              @"filterCountries" : @"FilterCountries",
              @"language" : @"Language",
              @"maxResults" : @"MaxResults",
@@ -3634,6 +3659,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 	return @{
              @"biasPosition" : @"BiasPosition",
              @"filterBBox" : @"FilterBBox",
+             @"filterCategories" : @"FilterCategories",
              @"filterCountries" : @"FilterCountries",
              @"indexName" : @"IndexName",
              @"language" : @"Language",
@@ -3678,6 +3704,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
              @"biasPosition" : @"BiasPosition",
              @"dataSource" : @"DataSource",
              @"filterBBox" : @"FilterBBox",
+             @"filterCategories" : @"FilterCategories",
              @"filterCountries" : @"FilterCountries",
              @"language" : @"Language",
              @"maxResults" : @"MaxResults",
@@ -3971,10 +3998,15 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"configurationUpdate" : @"ConfigurationUpdate",
              @"detail" : @"Description",
              @"mapName" : @"MapName",
              @"pricingPlan" : @"PricingPlan",
              };
+}
+
++ (NSValueTransformer *)configurationUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationMapConfigurationUpdate class]];
 }
 
 + (NSValueTransformer *)pricingPlanJSONTransformer {
