@@ -18,6 +18,57 @@
 
 NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
+@implementation AWSLogsAccountPolicy
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"accountId" : @"accountId",
+             @"lastUpdatedTime" : @"lastUpdatedTime",
+             @"policyDocument" : @"policyDocument",
+             @"policyName" : @"policyName",
+             @"policyType" : @"policyType",
+             @"scope" : @"scope",
+             };
+}
+
++ (NSValueTransformer *)policyTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DATA_PROTECTION_POLICY"] == NSOrderedSame) {
+            return @(AWSLogsPolicyTypeDataProtectionPolicy);
+        }
+        return @(AWSLogsPolicyTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLogsPolicyTypeDataProtectionPolicy:
+                return @"DATA_PROTECTION_POLICY";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)scopeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ALL"] == NSOrderedSame) {
+            return @(AWSLogsScopeAll);
+        }
+        return @(AWSLogsScopeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLogsScopeAll:
+                return @"ALL";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSLogsAssociateKmsKeyRequest
 
 + (BOOL)supportsSecureCoding {
@@ -108,6 +159,37 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
              @"logGroupName" : @"logGroupName",
              @"logStreamName" : @"logStreamName",
              };
+}
+
+@end
+
+@implementation AWSLogsDeleteAccountPolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policyName" : @"policyName",
+             @"policyType" : @"policyType",
+             };
+}
+
++ (NSValueTransformer *)policyTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DATA_PROTECTION_POLICY"] == NSOrderedSame) {
+            return @(AWSLogsPolicyTypeDataProtectionPolicy);
+        }
+        return @(AWSLogsPolicyTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLogsPolicyTypeDataProtectionPolicy:
+                return @"DATA_PROTECTION_POLICY";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -251,6 +333,56 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
              @"filterName" : @"filterName",
              @"logGroupName" : @"logGroupName",
              };
+}
+
+@end
+
+@implementation AWSLogsDescribeAccountPoliciesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"accountIdentifiers" : @"accountIdentifiers",
+             @"policyName" : @"policyName",
+             @"policyType" : @"policyType",
+             };
+}
+
++ (NSValueTransformer *)policyTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DATA_PROTECTION_POLICY"] == NSOrderedSame) {
+            return @(AWSLogsPolicyTypeDataProtectionPolicy);
+        }
+        return @(AWSLogsPolicyTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLogsPolicyTypeDataProtectionPolicy:
+                return @"DATA_PROTECTION_POLICY";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSLogsDescribeAccountPoliciesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"accountPolicies" : @"accountPolicies",
+             };
+}
+
++ (NSValueTransformer *)accountPoliciesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLogsAccountPolicy class]];
 }
 
 @end
@@ -1187,6 +1319,7 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
              @"arn" : @"arn",
              @"creationTime" : @"creationTime",
              @"dataProtectionStatus" : @"dataProtectionStatus",
+             @"inheritedProperties" : @"inheritedProperties",
              @"kmsKeyId" : @"kmsKeyId",
              @"logGroupName" : @"logGroupName",
              @"metricFilterCount" : @"metricFilterCount",
@@ -1479,6 +1612,73 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
              @"message" : @"message",
              @"timestamp" : @"timestamp",
              };
+}
+
+@end
+
+@implementation AWSLogsPutAccountPolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policyDocument" : @"policyDocument",
+             @"policyName" : @"policyName",
+             @"policyType" : @"policyType",
+             @"scope" : @"scope",
+             };
+}
+
++ (NSValueTransformer *)policyTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DATA_PROTECTION_POLICY"] == NSOrderedSame) {
+            return @(AWSLogsPolicyTypeDataProtectionPolicy);
+        }
+        return @(AWSLogsPolicyTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLogsPolicyTypeDataProtectionPolicy:
+                return @"DATA_PROTECTION_POLICY";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)scopeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ALL"] == NSOrderedSame) {
+            return @(AWSLogsScopeAll);
+        }
+        return @(AWSLogsScopeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLogsScopeAll:
+                return @"ALL";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSLogsPutAccountPolicyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"accountPolicy" : @"accountPolicy",
+             };
+}
+
++ (NSValueTransformer *)accountPolicyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsAccountPolicy class]];
 }
 
 @end

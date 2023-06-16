@@ -21,6 +21,9 @@
 
 - (void) test_AWSRekognitionAgeRange API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionAsset API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionAssociateFacesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionAssociateFacesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionAssociatedFace API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionAudioMetadata API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionAuditImage API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionBeard API_AVAILABLE(ios(11));
@@ -53,6 +56,8 @@
 - (void) test_AWSRekognitionCreateProjectVersionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionCreateStreamProcessorRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionCreateStreamProcessorResponse API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionCreateUserRequest API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionCreateUserResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionCustomLabel API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDatasetChanges API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDatasetDescription API_AVAILABLE(ios(11));
@@ -75,6 +80,8 @@
 - (void) test_AWSRekognitionDeleteProjectVersionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDeleteStreamProcessorRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDeleteStreamProcessorResponse API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionDeleteUserRequest API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionDeleteUserResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDescribeCollectionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDescribeCollectionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDescribeDatasetRequest API_AVAILABLE(ios(11));
@@ -105,6 +112,9 @@
 - (void) test_AWSRekognitionDetectTextRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDetectTextResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDetectionFilter API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionDisassociateFacesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionDisassociateFacesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionDisassociatedFace API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDistributeDataset API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDistributeDatasetEntriesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDistributeDatasetEntriesResponse API_AVAILABLE(ios(11));
@@ -180,7 +190,10 @@
 - (void) test_AWSRekognitionListStreamProcessorsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionListTagsForResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionListTagsForResourceResponse API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionListUsersRequest API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionListUsersResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionLivenessOutputConfig API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionMatchedUser API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionModerationLabel API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionMouthOpen API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionMustache API_AVAILABLE(ios(11));
@@ -210,6 +223,13 @@
 - (void) test_AWSRekognitionSearchFacesByImageResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionSearchFacesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionSearchFacesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionSearchUsersByImageRequest API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionSearchUsersByImageResponse API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionSearchUsersRequest API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionSearchUsersResponse API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionSearchedFace API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionSearchedFaceDetails API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionSearchedUser API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionSegmentDetection API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionSegmentTypeInfo API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionShotSegment API_AVAILABLE(ios(11));
@@ -263,12 +283,18 @@
 - (void) test_AWSRekognitionTrainingData API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionTrainingDataResult API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionUnindexedFace API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionUnsearchedFace API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionUnsuccessfulFaceAssociation API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionUnsuccessfulFaceDeletion API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionUnsuccessfulFaceDisassociation API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionUntagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionUntagResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionUpdateDatasetEntriesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionUpdateDatasetEntriesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionUpdateStreamProcessorRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionUpdateStreamProcessorResponse API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionUser API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionUserMatch API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionValidationData API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionVideo API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionVideoMetadata API_AVAILABLE(ios(11));
@@ -283,6 +309,18 @@
 
 - (void) test_AWSRekognitionAsset {
     [self validateSecureCodingForClass:[AWSRekognitionAsset class]];
+}
+
+- (void) test_AWSRekognitionAssociateFacesRequest {
+    [self validateSecureCodingForClass:[AWSRekognitionAssociateFacesRequest class]];
+}
+
+- (void) test_AWSRekognitionAssociateFacesResponse {
+    [self validateSecureCodingForClass:[AWSRekognitionAssociateFacesResponse class]];
+}
+
+- (void) test_AWSRekognitionAssociatedFace {
+    [self validateSecureCodingForClass:[AWSRekognitionAssociatedFace class]];
 }
 
 - (void) test_AWSRekognitionAudioMetadata {
@@ -413,6 +451,14 @@
     [self validateSecureCodingForClass:[AWSRekognitionCreateStreamProcessorResponse class]];
 }
 
+- (void) test_AWSRekognitionCreateUserRequest {
+    [self validateSecureCodingForClass:[AWSRekognitionCreateUserRequest class]];
+}
+
+- (void) test_AWSRekognitionCreateUserResponse {
+    [self validateSecureCodingForClass:[AWSRekognitionCreateUserResponse class]];
+}
+
 - (void) test_AWSRekognitionCustomLabel {
     [self validateSecureCodingForClass:[AWSRekognitionCustomLabel class]];
 }
@@ -499,6 +545,14 @@
 
 - (void) test_AWSRekognitionDeleteStreamProcessorResponse {
     [self validateSecureCodingForClass:[AWSRekognitionDeleteStreamProcessorResponse class]];
+}
+
+- (void) test_AWSRekognitionDeleteUserRequest {
+    [self validateSecureCodingForClass:[AWSRekognitionDeleteUserRequest class]];
+}
+
+- (void) test_AWSRekognitionDeleteUserResponse {
+    [self validateSecureCodingForClass:[AWSRekognitionDeleteUserResponse class]];
 }
 
 - (void) test_AWSRekognitionDescribeCollectionRequest {
@@ -619,6 +673,18 @@
 
 - (void) test_AWSRekognitionDetectionFilter {
     [self validateSecureCodingForClass:[AWSRekognitionDetectionFilter class]];
+}
+
+- (void) test_AWSRekognitionDisassociateFacesRequest {
+    [self validateSecureCodingForClass:[AWSRekognitionDisassociateFacesRequest class]];
+}
+
+- (void) test_AWSRekognitionDisassociateFacesResponse {
+    [self validateSecureCodingForClass:[AWSRekognitionDisassociateFacesResponse class]];
+}
+
+- (void) test_AWSRekognitionDisassociatedFace {
+    [self validateSecureCodingForClass:[AWSRekognitionDisassociatedFace class]];
 }
 
 - (void) test_AWSRekognitionDistributeDataset {
@@ -921,8 +987,20 @@
     [self validateSecureCodingForClass:[AWSRekognitionListTagsForResourceResponse class]];
 }
 
+- (void) test_AWSRekognitionListUsersRequest {
+    [self validateSecureCodingForClass:[AWSRekognitionListUsersRequest class]];
+}
+
+- (void) test_AWSRekognitionListUsersResponse {
+    [self validateSecureCodingForClass:[AWSRekognitionListUsersResponse class]];
+}
+
 - (void) test_AWSRekognitionLivenessOutputConfig {
     [self validateSecureCodingForClass:[AWSRekognitionLivenessOutputConfig class]];
+}
+
+- (void) test_AWSRekognitionMatchedUser {
+    [self validateSecureCodingForClass:[AWSRekognitionMatchedUser class]];
 }
 
 - (void) test_AWSRekognitionModerationLabel {
@@ -1039,6 +1117,34 @@
 
 - (void) test_AWSRekognitionSearchFacesResponse {
     [self validateSecureCodingForClass:[AWSRekognitionSearchFacesResponse class]];
+}
+
+- (void) test_AWSRekognitionSearchUsersByImageRequest {
+    [self validateSecureCodingForClass:[AWSRekognitionSearchUsersByImageRequest class]];
+}
+
+- (void) test_AWSRekognitionSearchUsersByImageResponse {
+    [self validateSecureCodingForClass:[AWSRekognitionSearchUsersByImageResponse class]];
+}
+
+- (void) test_AWSRekognitionSearchUsersRequest {
+    [self validateSecureCodingForClass:[AWSRekognitionSearchUsersRequest class]];
+}
+
+- (void) test_AWSRekognitionSearchUsersResponse {
+    [self validateSecureCodingForClass:[AWSRekognitionSearchUsersResponse class]];
+}
+
+- (void) test_AWSRekognitionSearchedFace {
+    [self validateSecureCodingForClass:[AWSRekognitionSearchedFace class]];
+}
+
+- (void) test_AWSRekognitionSearchedFaceDetails {
+    [self validateSecureCodingForClass:[AWSRekognitionSearchedFaceDetails class]];
+}
+
+- (void) test_AWSRekognitionSearchedUser {
+    [self validateSecureCodingForClass:[AWSRekognitionSearchedUser class]];
 }
 
 - (void) test_AWSRekognitionSegmentDetection {
@@ -1253,6 +1359,22 @@
     [self validateSecureCodingForClass:[AWSRekognitionUnindexedFace class]];
 }
 
+- (void) test_AWSRekognitionUnsearchedFace {
+    [self validateSecureCodingForClass:[AWSRekognitionUnsearchedFace class]];
+}
+
+- (void) test_AWSRekognitionUnsuccessfulFaceAssociation {
+    [self validateSecureCodingForClass:[AWSRekognitionUnsuccessfulFaceAssociation class]];
+}
+
+- (void) test_AWSRekognitionUnsuccessfulFaceDeletion {
+    [self validateSecureCodingForClass:[AWSRekognitionUnsuccessfulFaceDeletion class]];
+}
+
+- (void) test_AWSRekognitionUnsuccessfulFaceDisassociation {
+    [self validateSecureCodingForClass:[AWSRekognitionUnsuccessfulFaceDisassociation class]];
+}
+
 - (void) test_AWSRekognitionUntagResourceRequest {
     [self validateSecureCodingForClass:[AWSRekognitionUntagResourceRequest class]];
 }
@@ -1275,6 +1397,14 @@
 
 - (void) test_AWSRekognitionUpdateStreamProcessorResponse {
     [self validateSecureCodingForClass:[AWSRekognitionUpdateStreamProcessorResponse class]];
+}
+
+- (void) test_AWSRekognitionUser {
+    [self validateSecureCodingForClass:[AWSRekognitionUser class]];
+}
+
+- (void) test_AWSRekognitionUserMatch {
+    [self validateSecureCodingForClass:[AWSRekognitionUserMatch class]];
 }
 
 - (void) test_AWSRekognitionValidationData {
