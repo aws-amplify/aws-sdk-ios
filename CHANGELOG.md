@@ -16,6 +16,8 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSDynamoDB
   - AWSCloudWatchLogs
   - AWSLocation
+  - AWSKMS
+  - AWSLambda
 ---
 
 # AWS Mobile SDK for iOS CHANGELOG
