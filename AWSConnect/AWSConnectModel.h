@@ -304,6 +304,7 @@ typedef NS_ENUM(NSInteger, AWSConnectInstanceStorageResourceType) {
     AWSConnectInstanceStorageResourceTypeRealTimeContactAnalysisSegments,
     AWSConnectInstanceStorageResourceTypeAttachments,
     AWSConnectInstanceStorageResourceTypeContactEvaluations,
+    AWSConnectInstanceStorageResourceTypeScreenRecordings,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectIntegrationType) {
@@ -1071,6 +1072,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectHistoricalMetricResult;
 @class AWSConnectHoursOfOperation;
 @class AWSConnectHoursOfOperationConfig;
+@class AWSConnectHoursOfOperationSearchCriteria;
+@class AWSConnectHoursOfOperationSearchFilter;
 @class AWSConnectHoursOfOperationSummary;
 @class AWSConnectHoursOfOperationTimeSlice;
 @class AWSConnectInstance;
@@ -1178,6 +1181,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectPhoneNumberSummary;
 @class AWSConnectProblemDetail;
 @class AWSConnectPrompt;
+@class AWSConnectPromptSearchCriteria;
+@class AWSConnectPromptSearchFilter;
 @class AWSConnectPromptSummary;
 @class AWSConnectPropertyValidationExceptionProperty;
 @class AWSConnectPutUserStatusRequest;
@@ -1191,6 +1196,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectQueueSummary;
 @class AWSConnectQuickConnect;
 @class AWSConnectQuickConnectConfig;
+@class AWSConnectQuickConnectSearchCriteria;
+@class AWSConnectQuickConnectSearchFilter;
 @class AWSConnectQuickConnectSummary;
 @class AWSConnectReadOnlyFieldInfo;
 @class AWSConnectReference;
@@ -1216,8 +1223,14 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectS3Config;
 @class AWSConnectSearchAvailablePhoneNumbersRequest;
 @class AWSConnectSearchAvailablePhoneNumbersResponse;
+@class AWSConnectSearchHoursOfOperationsRequest;
+@class AWSConnectSearchHoursOfOperationsResponse;
+@class AWSConnectSearchPromptsRequest;
+@class AWSConnectSearchPromptsResponse;
 @class AWSConnectSearchQueuesRequest;
 @class AWSConnectSearchQueuesResponse;
+@class AWSConnectSearchQuickConnectsRequest;
+@class AWSConnectSearchQuickConnectsResponse;
 @class AWSConnectSearchRoutingProfilesRequest;
 @class AWSConnectSearchRoutingProfilesResponse;
 @class AWSConnectSearchSecurityProfilesRequest;
@@ -2101,7 +2114,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectContactInitiationMethod initiationMethod;
 
 /**
- <p>The date and time this contact was initiated, in UTC time. For <code>INBOUND</code>, this is when the contact arrived. For <code>OUTBOUND</code>, this is when the agent began dialing. For <code>CALLBACK</code>, this is when the callback contact was created. For <code>TRANSFER</code> and <code>QUEUE_TRANSFER</code>, this is when the transfer was initiated. For <code>API</code>, this is when the request arrived.</p>
+ <p>The date and time this contact was initiated, in UTC time. For <code>INBOUND</code>, this is when the contact arrived. For <code>OUTBOUND</code>, this is when the agent began dialing. For <code>CALLBACK</code>, this is when the callback contact was created. For <code>TRANSFER</code> and <code>QUEUE_TRANSFER</code>, this is when the transfer was initiated. For <code>API</code>, this is when the request arrived. For <code>EXTERNAL_OUTBOUND</code>, this is when the agent started dialing the external participant. For <code>MONITOR</code>, this is when the supervisor started listening to a contact.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable initiationTimestamp;
 
@@ -6726,6 +6739,42 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>The search criteria to be used to return hours of operations.</p>
+ */
+@interface AWSConnectHoursOfOperationSearchCriteria : AWSModel
+
+
+/**
+ <p>A list of conditions which would be applied together with an AND condition.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectHoursOfOperationSearchCriteria *> * _Nullable andConditions;
+
+/**
+ <p>A list of conditions which would be applied together with an OR condition.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectHoursOfOperationSearchCriteria *> * _Nullable orConditions;
+
+/**
+ <p>A leaf node condition which can be used to specify a string condition.</p><note><p>The currently supported values for <code>FieldName</code> are <code>name</code>, <code>description</code>, <code>timezone</code>, and <code>resourceID</code>.</p></note>
+ */
+@property (nonatomic, strong) AWSConnectStringCondition * _Nullable stringCondition;
+
+@end
+
+/**
+ <p>Filters to be applied to search results.</p>
+ */
+@interface AWSConnectHoursOfOperationSearchFilter : AWSModel
+
+
+/**
+ <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p><ul><li><p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p></li><li><p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p></li></ul>
+ */
+@property (nonatomic, strong) AWSConnectControlPlaneTagFilter * _Nullable tagFilter;
+
+@end
+
+/**
  <p>Contains summary information about hours of operation for a contact center.</p>
  */
 @interface AWSConnectHoursOfOperationSummary : AWSModel
@@ -6797,6 +6846,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>Whether inbound calls are enabled.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable inboundCallsEnabled;
+
+/**
+ <p>This URL allows contact center users to access Amazon Connect admin website.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceAccessUrl;
 
 /**
  <p>The alias of instance.</p>
@@ -6907,6 +6961,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>Whether inbound calls are enabled.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable inboundCallsEnabled;
+
+/**
+ <p>This URL allows contact center users to access Amazon Connect admin website.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceAccessUrl;
 
 /**
  <p>The alias of the instance.</p>
@@ -9087,7 +9146,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>A description for the prompt.</p>
+ <p>The description of the prompt.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
 
@@ -9110,6 +9169,42 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ <p>The search criteria to be used to return prompts.</p>
+ */
+@interface AWSConnectPromptSearchCriteria : AWSModel
+
+
+/**
+ <p>A list of conditions which would be applied together with an AND condition.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectPromptSearchCriteria *> * _Nullable andConditions;
+
+/**
+ <p>A list of conditions which would be applied together with an OR condition.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectPromptSearchCriteria *> * _Nullable orConditions;
+
+/**
+ <p>A leaf node condition which can be used to specify a string condition.</p><note><p>The currently supported values for <code>FieldName</code> are <code>name</code>, <code>description</code>, and <code>resourceID</code>.</p></note>
+ */
+@property (nonatomic, strong) AWSConnectStringCondition * _Nullable stringCondition;
+
+@end
+
+/**
+ <p>Filters to be applied to search results.</p>
+ */
+@interface AWSConnectPromptSearchFilter : AWSModel
+
+
+/**
+ <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p><ul><li><p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p></li><li><p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p></li></ul>
+ */
+@property (nonatomic, strong) AWSConnectControlPlaneTagFilter * _Nullable tagFilter;
 
 @end
 
@@ -9321,7 +9416,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectSearchableQueueType queueTypeCondition;
 
 /**
- <p>A leaf node condition which can be used to specify a string condition. </p><note><p>The currently supported value for <code>FieldName</code>: <code>name</code></p></note>
+ <p>A leaf node condition which can be used to specify a string condition.</p><note><p>The currently supported values for <code>FieldName</code> are <code>name</code>, <code>description</code>, and <code>resourceID</code>.</p></note>
  */
 @property (nonatomic, strong) AWSConnectStringCondition * _Nullable stringCondition;
 
@@ -9432,6 +9527,42 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The user configuration. This is required only if QuickConnectType is USER.</p>
  */
 @property (nonatomic, strong) AWSConnectUserQuickConnectConfig * _Nullable userConfig;
+
+@end
+
+/**
+ <p>The search criteria to be used to return quick connects.</p>
+ */
+@interface AWSConnectQuickConnectSearchCriteria : AWSModel
+
+
+/**
+ <p>A list of conditions which would be applied together with an AND condition.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectQuickConnectSearchCriteria *> * _Nullable andConditions;
+
+/**
+ <p>A list of conditions which would be applied together with an OR condition.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectQuickConnectSearchCriteria *> * _Nullable orConditions;
+
+/**
+ <p>A leaf node condition which can be used to specify a string condition.</p><note><p>The currently supported values for <code>FieldName</code> are <code>name</code>, <code>description</code>, and <code>resourceID</code>.</p></note>
+ */
+@property (nonatomic, strong) AWSConnectStringCondition * _Nullable stringCondition;
+
+@end
+
+/**
+ <p>Filters to be applied to search results.</p>
+ */
+@interface AWSConnectQuickConnectSearchFilter : AWSModel
+
+
+/**
+ <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p><ul><li><p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p></li><li><p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p></li></ul>
+ */
+@property (nonatomic, strong) AWSConnectControlPlaneTagFilter * _Nullable tagFilter;
 
 @end
 
@@ -9816,7 +9947,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<AWSConnectRoutingProfileSearchCriteria *> * _Nullable orConditions;
 
 /**
- <p>A leaf node condition which can be used to specify a string condition. </p><note><p>The currently supported value for <code>FieldName</code>: <code>name</code></p></note>
+ <p>A leaf node condition which can be used to specify a string condition.</p><note><p>The currently supported values for <code>FieldName</code> are <code>name</code>, <code>description</code>, and <code>resourceID</code>.</p></note>
  */
 @property (nonatomic, strong) AWSConnectStringCondition * _Nullable stringCondition;
 
@@ -10107,6 +10238,118 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectSearchHoursOfOperationsRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The search criteria to be used to return hours of operations.</p>
+ */
+@property (nonatomic, strong) AWSConnectHoursOfOperationSearchCriteria * _Nullable searchCriteria;
+
+/**
+ <p>Filters to be applied to search results.</p>
+ */
+@property (nonatomic, strong) AWSConnectHoursOfOperationSearchFilter * _Nullable searchFilter;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSearchHoursOfOperationsResponse : AWSModel
+
+
+/**
+ <p>The total number of hours of operations which matched your search query.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable approximateTotalCount;
+
+/**
+ <p>Information about the hours of operations.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectHoursOfOperation *> * _Nullable hoursOfOperations;
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSearchPromptsRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The search criteria to be used to return prompts.</p>
+ */
+@property (nonatomic, strong) AWSConnectPromptSearchCriteria * _Nullable searchCriteria;
+
+/**
+ <p>Filters to be applied to search results.</p>
+ */
+@property (nonatomic, strong) AWSConnectPromptSearchFilter * _Nullable searchFilter;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSearchPromptsResponse : AWSModel
+
+
+/**
+ <p>The total number of quick connects which matched your search query.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable approximateTotalCount;
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Information about the prompts.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectPrompt *> * _Nullable prompts;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectSearchQueuesRequest : AWSRequest
 
 
@@ -10157,6 +10400,62 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>Information about the queues.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectQueue *> * _Nullable queues;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSearchQuickConnectsRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The search criteria to be used to return quick connects.</p>
+ */
+@property (nonatomic, strong) AWSConnectQuickConnectSearchCriteria * _Nullable searchCriteria;
+
+/**
+ <p>Filters to be applied to search results.</p>
+ */
+@property (nonatomic, strong) AWSConnectQuickConnectSearchFilter * _Nullable searchFilter;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSearchQuickConnectsResponse : AWSModel
+
+
+/**
+ <p>The total number of quick connects which matched your search query.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable approximateTotalCount;
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Information about the quick connects.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectQuickConnect *> * _Nullable quickConnects;
 
 @end
 
@@ -10472,7 +10771,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<AWSConnectSecurityProfileSearchCriteria *> * _Nullable orConditions;
 
 /**
- <p>A leaf node condition which can be used to specify a string condition. </p><note><p>The currently supported value for <code>FieldName</code>: <code>name</code></p></note>
+ <p>A leaf node condition which can be used to specify a string condition. </p>
  */
 @property (nonatomic, strong) AWSConnectStringCondition * _Nullable stringCondition;
 
@@ -11060,7 +11359,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>A leaf node condition which can be used to specify a string condition. </p><note><p>The currently supported value for <code>FieldName</code>: <code>name</code></p></note>
+ <p>A leaf node condition which can be used to specify a string condition. </p>
  */
 @interface AWSConnectStringCondition : AWSModel
 
@@ -13225,7 +13524,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<AWSConnectUserSearchCriteria *> * _Nullable orConditions;
 
 /**
- <p>A leaf node condition which can be used to specify a string condition.</p>
+ <p>A leaf node condition which can be used to specify a string condition.</p><note><p>The currently supported values for <code>FieldName</code> are <code>name</code>, <code>description</code>, and <code>resourceID</code>.</p></note>
  */
 @property (nonatomic, strong) AWSConnectStringCondition * _Nullable stringCondition;
 

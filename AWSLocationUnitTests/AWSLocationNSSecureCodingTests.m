@@ -142,6 +142,7 @@
 - (void) test_AWSLocationListTrackersResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationListTrackersResponseEntry API_AVAILABLE(ios(11));
 - (void) test_AWSLocationMapConfiguration API_AVAILABLE(ios(11));
+- (void) test_AWSLocationMapConfigurationUpdate API_AVAILABLE(ios(11));
 - (void) test_AWSLocationPlace API_AVAILABLE(ios(11));
 - (void) test_AWSLocationPlaceGeometry API_AVAILABLE(ios(11));
 - (void) test_AWSLocationPositionalAccuracy API_AVAILABLE(ios(11));
@@ -677,6 +678,10 @@
 
 - (void) test_AWSLocationMapConfiguration {
     [self validateSecureCodingForClass:[AWSLocationMapConfiguration class]];
+}
+
+- (void) test_AWSLocationMapConfigurationUpdate {
+    [self validateSecureCodingForClass:[AWSLocationMapConfigurationUpdate class]];
 }
 
 - (void) test_AWSLocationPlace {
