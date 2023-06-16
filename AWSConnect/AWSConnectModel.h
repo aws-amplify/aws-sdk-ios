@@ -304,6 +304,7 @@ typedef NS_ENUM(NSInteger, AWSConnectInstanceStorageResourceType) {
     AWSConnectInstanceStorageResourceTypeRealTimeContactAnalysisSegments,
     AWSConnectInstanceStorageResourceTypeAttachments,
     AWSConnectInstanceStorageResourceTypeContactEvaluations,
+    AWSConnectInstanceStorageResourceTypeScreenRecordings,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectIntegrationType) {
@@ -6847,6 +6848,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSNumber * _Nullable inboundCallsEnabled;
 
 /**
+ <p>This URL allows contact center users to access Amazon Connect admin website.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceAccessUrl;
+
+/**
  <p>The alias of instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceAlias;
@@ -6955,6 +6961,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>Whether inbound calls are enabled.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable inboundCallsEnabled;
+
+/**
+ <p>This URL allows contact center users to access Amazon Connect admin website.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceAccessUrl;
 
 /**
  <p>The alias of the instance.</p>
