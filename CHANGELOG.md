@@ -18,6 +18,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSLocation
   - AWSKMS
   - AWSLambda
+  - AWSPolly
 ---
 
 # AWS Mobile SDK for iOS CHANGELOG
