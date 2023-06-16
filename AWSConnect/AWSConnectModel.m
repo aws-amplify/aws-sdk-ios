@@ -686,6 +686,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"CONTACT_EVALUATIONS"] == NSOrderedSame) {
             return @(AWSConnectInstanceStorageResourceTypeContactEvaluations);
         }
+        if ([value caseInsensitiveCompare:@"SCREEN_RECORDINGS"] == NSOrderedSame) {
+            return @(AWSConnectInstanceStorageResourceTypeScreenRecordings);
+        }
         return @(AWSConnectInstanceStorageResourceTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -707,6 +710,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"ATTACHMENTS";
             case AWSConnectInstanceStorageResourceTypeContactEvaluations:
                 return @"CONTACT_EVALUATIONS";
+            case AWSConnectInstanceStorageResourceTypeScreenRecordings:
+                return @"SCREEN_RECORDINGS";
             default:
                 return nil;
         }
@@ -6407,6 +6412,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"CONTACT_EVALUATIONS"] == NSOrderedSame) {
             return @(AWSConnectInstanceStorageResourceTypeContactEvaluations);
         }
+        if ([value caseInsensitiveCompare:@"SCREEN_RECORDINGS"] == NSOrderedSame) {
+            return @(AWSConnectInstanceStorageResourceTypeScreenRecordings);
+        }
         return @(AWSConnectInstanceStorageResourceTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -6428,6 +6436,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"ATTACHMENTS";
             case AWSConnectInstanceStorageResourceTypeContactEvaluations:
                 return @"CONTACT_EVALUATIONS";
+            case AWSConnectInstanceStorageResourceTypeScreenRecordings:
+                return @"SCREEN_RECORDINGS";
             default:
                 return nil;
         }
@@ -6979,6 +6989,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"CONTACT_EVALUATIONS"] == NSOrderedSame) {
             return @(AWSConnectInstanceStorageResourceTypeContactEvaluations);
         }
+        if ([value caseInsensitiveCompare:@"SCREEN_RECORDINGS"] == NSOrderedSame) {
+            return @(AWSConnectInstanceStorageResourceTypeScreenRecordings);
+        }
         return @(AWSConnectInstanceStorageResourceTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -7000,6 +7013,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"ATTACHMENTS";
             case AWSConnectInstanceStorageResourceTypeContactEvaluations:
                 return @"CONTACT_EVALUATIONS";
+            case AWSConnectInstanceStorageResourceTypeScreenRecordings:
+                return @"SCREEN_RECORDINGS";
             default:
                 return nil;
         }
@@ -9190,6 +9205,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"identifier" : @"Id",
              @"identityManagementType" : @"IdentityManagementType",
              @"inboundCallsEnabled" : @"InboundCallsEnabled",
+             @"instanceAccessUrl" : @"InstanceAccessUrl",
              @"instanceAlias" : @"InstanceAlias",
              @"instanceStatus" : @"InstanceStatus",
              @"outboundCallsEnabled" : @"OutboundCallsEnabled",
@@ -9357,6 +9373,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"identifier" : @"Id",
              @"identityManagementType" : @"IdentityManagementType",
              @"inboundCallsEnabled" : @"InboundCallsEnabled",
+             @"instanceAccessUrl" : @"InstanceAccessUrl",
              @"instanceAlias" : @"InstanceAlias",
              @"instanceStatus" : @"InstanceStatus",
              @"outboundCallsEnabled" : @"OutboundCallsEnabled",
@@ -10262,6 +10279,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"CONTACT_EVALUATIONS"] == NSOrderedSame) {
             return @(AWSConnectInstanceStorageResourceTypeContactEvaluations);
         }
+        if ([value caseInsensitiveCompare:@"SCREEN_RECORDINGS"] == NSOrderedSame) {
+            return @(AWSConnectInstanceStorageResourceTypeScreenRecordings);
+        }
         return @(AWSConnectInstanceStorageResourceTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -10283,6 +10303,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"ATTACHMENTS";
             case AWSConnectInstanceStorageResourceTypeContactEvaluations:
                 return @"CONTACT_EVALUATIONS";
+            case AWSConnectInstanceStorageResourceTypeScreenRecordings:
+                return @"SCREEN_RECORDINGS";
             default:
                 return nil;
         }
@@ -18994,6 +19016,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"CONTACT_EVALUATIONS"] == NSOrderedSame) {
             return @(AWSConnectInstanceStorageResourceTypeContactEvaluations);
         }
+        if ([value caseInsensitiveCompare:@"SCREEN_RECORDINGS"] == NSOrderedSame) {
+            return @(AWSConnectInstanceStorageResourceTypeScreenRecordings);
+        }
         return @(AWSConnectInstanceStorageResourceTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -19015,6 +19040,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"ATTACHMENTS";
             case AWSConnectInstanceStorageResourceTypeContactEvaluations:
                 return @"CONTACT_EVALUATIONS";
+            case AWSConnectInstanceStorageResourceTypeScreenRecordings:
+                return @"SCREEN_RECORDINGS";
             default:
                 return nil;
         }

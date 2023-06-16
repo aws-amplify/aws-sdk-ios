@@ -3338,7 +3338,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)replicateInstance:(AWSConnectReplicateInstanceRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectReplicateInstanceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>When a contact is being recorded, and the recording has been suspended using SuspendContactRecording, this API resumes recording the call.</p><p>Only voice recordings are supported at this time.</p>
+ <p>When a contact is being recorded, and the recording has been suspended using SuspendContactRecording, this API resumes recording the call or screen.</p><p>Voice and screen recordings are supported.</p>
  
  @param request A container for the necessary parameters to execute the ResumeContactRecording service method.
 
@@ -3350,7 +3350,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectResumeContactRecordingResponse *> *)resumeContactRecording:(AWSConnectResumeContactRecordingRequest *)request;
 
 /**
- <p>When a contact is being recorded, and the recording has been suspended using SuspendContactRecording, this API resumes recording the call.</p><p>Only voice recordings are supported at this time.</p>
+ <p>When a contact is being recorded, and the recording has been suspended using SuspendContactRecording, this API resumes recording the call or screen.</p><p>Voice and screen recordings are supported.</p>
  
  @param request A container for the necessary parameters to execute the ResumeContactRecording service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3838,7 +3838,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)submitContactEvaluation:(AWSConnectSubmitContactEvaluationRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectSubmitContactEvaluationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>When a contact is being recorded, this API suspends recording the call. For example, you might suspend the call recording while collecting sensitive information, such as a credit card number. Then use ResumeContactRecording to restart recording. </p><p>The period of time that the recording is suspended is filled with silence in the final recording. </p><p>Only voice recordings are supported at this time.</p>
+ <p>When a contact is being recorded, this API suspends recording the call or screen. For example, you might suspend the call or screen recording while collecting sensitive information, such as a credit card number. Then use ResumeContactRecording to restart recording.</p><p>The period of time that the recording is suspended is filled with silence in the final recording.</p><p>Voice and screen recordings are supported.</p>
  
  @param request A container for the necessary parameters to execute the SuspendContactRecording service method.
 
@@ -3850,7 +3850,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectSuspendContactRecordingResponse *> *)suspendContactRecording:(AWSConnectSuspendContactRecordingRequest *)request;
 
 /**
- <p>When a contact is being recorded, this API suspends recording the call. For example, you might suspend the call recording while collecting sensitive information, such as a credit card number. Then use ResumeContactRecording to restart recording. </p><p>The period of time that the recording is suspended is filled with silence in the final recording. </p><p>Only voice recordings are supported at this time.</p>
+ <p>When a contact is being recorded, this API suspends recording the call or screen. For example, you might suspend the call or screen recording while collecting sensitive information, such as a credit card number. Then use ResumeContactRecording to restart recording.</p><p>The period of time that the recording is suspended is filled with silence in the final recording.</p><p>Voice and screen recordings are supported.</p>
  
  @param request A container for the necessary parameters to execute the SuspendContactRecording service method.
  @param completionHandler The completion handler to call when the load request is complete.
