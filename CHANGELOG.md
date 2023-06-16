@@ -15,6 +15,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSIoTDataPlane
   - AWSDynamoDB
   - AWSCloudWatchLogs
+  - AWSLocation
 ---
 
 # AWS Mobile SDK for iOS CHANGELOG
