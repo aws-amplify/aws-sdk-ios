@@ -19,12 +19,14 @@
 
 @interface AWSLogsNSSecureCodingTests : AWSNSSecureCodingTest
 
+- (void) test_AWSLogsAccountPolicy API_AVAILABLE(ios(11));
 - (void) test_AWSLogsAssociateKmsKeyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsCancelExportTaskRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsCreateExportTaskRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsCreateExportTaskResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsCreateLogGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsCreateLogStreamRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsDeleteAccountPolicyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDeleteDataProtectionPolicyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDeleteDestinationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDeleteLogGroupRequest API_AVAILABLE(ios(11));
@@ -35,6 +37,8 @@
 - (void) test_AWSLogsDeleteResourcePolicyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDeleteRetentionPolicyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDeleteSubscriptionFilterRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsDescribeAccountPoliciesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsDescribeAccountPoliciesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDescribeDestinationsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDescribeDestinationsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDescribeExportTasksRequest API_AVAILABLE(ios(11));
@@ -83,6 +87,8 @@
 - (void) test_AWSLogsMetricFilterMatchRecord API_AVAILABLE(ios(11));
 - (void) test_AWSLogsMetricTransformation API_AVAILABLE(ios(11));
 - (void) test_AWSLogsOutputLogEvent API_AVAILABLE(ios(11));
+- (void) test_AWSLogsPutAccountPolicyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsPutAccountPolicyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsPutDataProtectionPolicyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsPutDataProtectionPolicyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsPutDestinationPolicyRequest API_AVAILABLE(ios(11));
@@ -122,6 +128,10 @@
 
 @implementation AWSLogsNSSecureCodingTests
 
+- (void) test_AWSLogsAccountPolicy {
+    [self validateSecureCodingForClass:[AWSLogsAccountPolicy class]];
+}
+
 - (void) test_AWSLogsAssociateKmsKeyRequest {
     [self validateSecureCodingForClass:[AWSLogsAssociateKmsKeyRequest class]];
 }
@@ -144,6 +154,10 @@
 
 - (void) test_AWSLogsCreateLogStreamRequest {
     [self validateSecureCodingForClass:[AWSLogsCreateLogStreamRequest class]];
+}
+
+- (void) test_AWSLogsDeleteAccountPolicyRequest {
+    [self validateSecureCodingForClass:[AWSLogsDeleteAccountPolicyRequest class]];
 }
 
 - (void) test_AWSLogsDeleteDataProtectionPolicyRequest {
@@ -184,6 +198,14 @@
 
 - (void) test_AWSLogsDeleteSubscriptionFilterRequest {
     [self validateSecureCodingForClass:[AWSLogsDeleteSubscriptionFilterRequest class]];
+}
+
+- (void) test_AWSLogsDescribeAccountPoliciesRequest {
+    [self validateSecureCodingForClass:[AWSLogsDescribeAccountPoliciesRequest class]];
+}
+
+- (void) test_AWSLogsDescribeAccountPoliciesResponse {
+    [self validateSecureCodingForClass:[AWSLogsDescribeAccountPoliciesResponse class]];
 }
 
 - (void) test_AWSLogsDescribeDestinationsRequest {
@@ -376,6 +398,14 @@
 
 - (void) test_AWSLogsOutputLogEvent {
     [self validateSecureCodingForClass:[AWSLogsOutputLogEvent class]];
+}
+
+- (void) test_AWSLogsPutAccountPolicyRequest {
+    [self validateSecureCodingForClass:[AWSLogsPutAccountPolicyRequest class]];
+}
+
+- (void) test_AWSLogsPutAccountPolicyResponse {
+    [self validateSecureCodingForClass:[AWSLogsPutAccountPolicyResponse class]];
 }
 
 - (void) test_AWSLogsPutDataProtectionPolicyRequest {

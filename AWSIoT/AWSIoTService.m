@@ -61,6 +61,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"ResourceAlreadyExistsException" : @(AWSIoTErrorResourceAlreadyExists),
                             @"ResourceNotFoundException" : @(AWSIoTErrorResourceNotFound),
                             @"ResourceRegistrationFailureException" : @(AWSIoTErrorResourceRegistrationFailure),
+                            @"ServiceQuotaExceededException" : @(AWSIoTErrorServiceQuotaExceeded),
                             @"ServiceUnavailableException" : @(AWSIoTErrorServiceUnavailable),
                             @"SqlParseException" : @(AWSIoTErrorSqlParse),
                             @"TaskAlreadyExistsException" : @(AWSIoTErrorTaskAlreadyExists),
@@ -68,6 +69,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"TransferAlreadyCompletedException" : @(AWSIoTErrorTransferAlreadyCompleted),
                             @"TransferConflictException" : @(AWSIoTErrorTransferConflict),
                             @"UnauthorizedException" : @(AWSIoTErrorUnauthorized),
+                            @"ValidationException" : @(AWSIoTErrorValidation),
                             @"VersionConflictException" : @(AWSIoTErrorVersionConflict),
                             @"VersionsLimitExceededException" : @(AWSIoTErrorVersionsLimitExceeded),
                             };
@@ -991,6 +993,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTCreatePackageResponse *> *)createPackage:(AWSIoTCreatePackageRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/packages/{packageName}"
+                  targetPrefix:@""
+                 operationName:@"CreatePackage"
+                   outputClass:[AWSIoTCreatePackageResponse class]];
+}
+
+- (void)createPackage:(AWSIoTCreatePackageRequest *)request
+     completionHandler:(void (^)(AWSIoTCreatePackageResponse *response, NSError *error))completionHandler {
+    [[self createPackage:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreatePackageResponse *> * _Nonnull task) {
+        AWSIoTCreatePackageResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTCreatePackageVersionResponse *> *)createPackageVersion:(AWSIoTCreatePackageVersionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/packages/{packageName}/versions/{versionName}"
+                  targetPrefix:@""
+                 operationName:@"CreatePackageVersion"
+                   outputClass:[AWSIoTCreatePackageVersionResponse class]];
+}
+
+- (void)createPackageVersion:(AWSIoTCreatePackageVersionRequest *)request
+     completionHandler:(void (^)(AWSIoTCreatePackageVersionResponse *response, NSError *error))completionHandler {
+    [[self createPackageVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreatePackageVersionResponse *> * _Nonnull task) {
+        AWSIoTCreatePackageVersionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTCreatePolicyResponse *> *)createPolicy:(AWSIoTCreatePolicyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1665,6 +1713,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTDeleteOTAUpdateResponse *response, NSError *error))completionHandler {
     [[self deleteOTAUpdate:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDeleteOTAUpdateResponse *> * _Nonnull task) {
         AWSIoTDeleteOTAUpdateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDeletePackageResponse *> *)deletePackage:(AWSIoTDeletePackageRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/packages/{packageName}"
+                  targetPrefix:@""
+                 operationName:@"DeletePackage"
+                   outputClass:[AWSIoTDeletePackageResponse class]];
+}
+
+- (void)deletePackage:(AWSIoTDeletePackageRequest *)request
+     completionHandler:(void (^)(AWSIoTDeletePackageResponse *response, NSError *error))completionHandler {
+    [[self deletePackage:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDeletePackageResponse *> * _Nonnull task) {
+        AWSIoTDeletePackageResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDeletePackageVersionResponse *> *)deletePackageVersion:(AWSIoTDeletePackageVersionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/packages/{packageName}/versions/{versionName}"
+                  targetPrefix:@""
+                 operationName:@"DeletePackageVersion"
+                   outputClass:[AWSIoTDeletePackageVersionResponse class]];
+}
+
+- (void)deletePackageVersion:(AWSIoTDeletePackageVersionRequest *)request
+     completionHandler:(void (^)(AWSIoTDeletePackageVersionResponse *response, NSError *error))completionHandler {
+    [[self deletePackageVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDeletePackageVersionResponse *> * _Nonnull task) {
+        AWSIoTDeletePackageVersionResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -3116,6 +3210,75 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTGetPackageResponse *> *)getPackage:(AWSIoTGetPackageRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/packages/{packageName}"
+                  targetPrefix:@""
+                 operationName:@"GetPackage"
+                   outputClass:[AWSIoTGetPackageResponse class]];
+}
+
+- (void)getPackage:(AWSIoTGetPackageRequest *)request
+     completionHandler:(void (^)(AWSIoTGetPackageResponse *response, NSError *error))completionHandler {
+    [[self getPackage:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTGetPackageResponse *> * _Nonnull task) {
+        AWSIoTGetPackageResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTGetPackageConfigurationResponse *> *)getPackageConfiguration:(AWSIoTGetPackageConfigurationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/package-configuration"
+                  targetPrefix:@""
+                 operationName:@"GetPackageConfiguration"
+                   outputClass:[AWSIoTGetPackageConfigurationResponse class]];
+}
+
+- (void)getPackageConfiguration:(AWSIoTGetPackageConfigurationRequest *)request
+     completionHandler:(void (^)(AWSIoTGetPackageConfigurationResponse *response, NSError *error))completionHandler {
+    [[self getPackageConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTGetPackageConfigurationResponse *> * _Nonnull task) {
+        AWSIoTGetPackageConfigurationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTGetPackageVersionResponse *> *)getPackageVersion:(AWSIoTGetPackageVersionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/packages/{packageName}/versions/{versionName}"
+                  targetPrefix:@""
+                 operationName:@"GetPackageVersion"
+                   outputClass:[AWSIoTGetPackageVersionResponse class]];
+}
+
+- (void)getPackageVersion:(AWSIoTGetPackageVersionRequest *)request
+     completionHandler:(void (^)(AWSIoTGetPackageVersionResponse *response, NSError *error))completionHandler {
+    [[self getPackageVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTGetPackageVersionResponse *> * _Nonnull task) {
+        AWSIoTGetPackageVersionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTGetPercentilesResponse *> *)getPercentiles:(AWSIoTGetPercentilesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -3934,6 +4097,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTListOutgoingCertificatesResponse *response, NSError *error))completionHandler {
     [[self listOutgoingCertificates:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListOutgoingCertificatesResponse *> * _Nonnull task) {
         AWSIoTListOutgoingCertificatesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListPackageVersionsResponse *> *)listPackageVersions:(AWSIoTListPackageVersionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/packages/{packageName}/versions"
+                  targetPrefix:@""
+                 operationName:@"ListPackageVersions"
+                   outputClass:[AWSIoTListPackageVersionsResponse class]];
+}
+
+- (void)listPackageVersions:(AWSIoTListPackageVersionsRequest *)request
+     completionHandler:(void (^)(AWSIoTListPackageVersionsResponse *response, NSError *error))completionHandler {
+    [[self listPackageVersions:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListPackageVersionsResponse *> * _Nonnull task) {
+        AWSIoTListPackageVersionsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListPackagesResponse *> *)listPackages:(AWSIoTListPackagesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/packages"
+                  targetPrefix:@""
+                 operationName:@"ListPackages"
+                   outputClass:[AWSIoTListPackagesResponse class]];
+}
+
+- (void)listPackages:(AWSIoTListPackagesRequest *)request
+     completionHandler:(void (^)(AWSIoTListPackagesResponse *response, NSError *error))completionHandler {
+    [[self listPackages:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListPackagesResponse *> * _Nonnull task) {
+        AWSIoTListPackagesResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -5511,6 +5720,75 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTUpdateMitigationActionResponse *response, NSError *error))completionHandler {
     [[self updateMitigationAction:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUpdateMitigationActionResponse *> * _Nonnull task) {
         AWSIoTUpdateMitigationActionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTUpdatePackageResponse *> *)updatePackage:(AWSIoTUpdatePackageRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPATCH
+                     URLString:@"/packages/{packageName}"
+                  targetPrefix:@""
+                 operationName:@"UpdatePackage"
+                   outputClass:[AWSIoTUpdatePackageResponse class]];
+}
+
+- (void)updatePackage:(AWSIoTUpdatePackageRequest *)request
+     completionHandler:(void (^)(AWSIoTUpdatePackageResponse *response, NSError *error))completionHandler {
+    [[self updatePackage:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUpdatePackageResponse *> * _Nonnull task) {
+        AWSIoTUpdatePackageResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTUpdatePackageConfigurationResponse *> *)updatePackageConfiguration:(AWSIoTUpdatePackageConfigurationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPATCH
+                     URLString:@"/package-configuration"
+                  targetPrefix:@""
+                 operationName:@"UpdatePackageConfiguration"
+                   outputClass:[AWSIoTUpdatePackageConfigurationResponse class]];
+}
+
+- (void)updatePackageConfiguration:(AWSIoTUpdatePackageConfigurationRequest *)request
+     completionHandler:(void (^)(AWSIoTUpdatePackageConfigurationResponse *response, NSError *error))completionHandler {
+    [[self updatePackageConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUpdatePackageConfigurationResponse *> * _Nonnull task) {
+        AWSIoTUpdatePackageConfigurationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTUpdatePackageVersionResponse *> *)updatePackageVersion:(AWSIoTUpdatePackageVersionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPATCH
+                     URLString:@"/packages/{packageName}/versions/{versionName}"
+                  targetPrefix:@""
+                 operationName:@"UpdatePackageVersion"
+                   outputClass:[AWSIoTUpdatePackageVersionResponse class]];
+}
+
+- (void)updatePackageVersion:(AWSIoTUpdatePackageVersionRequest *)request
+     completionHandler:(void (^)(AWSIoTUpdatePackageVersionResponse *response, NSError *error))completionHandler {
+    [[self updatePackageVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUpdatePackageVersionResponse *> * _Nonnull task) {
+        AWSIoTUpdatePackageVersionResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

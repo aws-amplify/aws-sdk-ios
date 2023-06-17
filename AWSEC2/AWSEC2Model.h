@@ -581,6 +581,16 @@ typedef NS_ENUM(NSInteger, AWSEC2EbsOptimizedSupport) {
     AWSEC2EbsOptimizedSupportDefault,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2Ec2InstanceConnectEndpointState) {
+    AWSEC2Ec2InstanceConnectEndpointStateUnknown,
+    AWSEC2Ec2InstanceConnectEndpointStateCreateInProgress,
+    AWSEC2Ec2InstanceConnectEndpointStateCreateComplete,
+    AWSEC2Ec2InstanceConnectEndpointStateCreateFailed,
+    AWSEC2Ec2InstanceConnectEndpointStateDeleteInProgress,
+    AWSEC2Ec2InstanceConnectEndpointStateDeleteComplete,
+    AWSEC2Ec2InstanceConnectEndpointStateDeleteFailed,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2ElasticGpuState) {
     AWSEC2ElasticGpuStateUnknown,
     AWSEC2ElasticGpuStateAttached,
@@ -2384,6 +2394,7 @@ typedef NS_ENUM(NSInteger, AWSEC2ResourceType) {
     AWSEC2ResourceTypeVpcBlockPublicAccessExclusion,
     AWSEC2ResourceTypeIpamResourceDiscovery,
     AWSEC2ResourceTypeIpamResourceDiscoveryAssociation,
+    AWSEC2ResourceTypeInstanceConnectEndpoint,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2RootDeviceType) {
@@ -3279,6 +3290,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2CreateFpgaImageResult;
 @class AWSEC2CreateImageRequest;
 @class AWSEC2CreateImageResult;
+@class AWSEC2CreateInstanceConnectEndpointRequest;
+@class AWSEC2CreateInstanceConnectEndpointResult;
 @class AWSEC2CreateInstanceEventWindowRequest;
 @class AWSEC2CreateInstanceEventWindowResult;
 @class AWSEC2CreateInstanceExportTaskRequest;
@@ -3441,6 +3454,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DeleteFlowLogsResult;
 @class AWSEC2DeleteFpgaImageRequest;
 @class AWSEC2DeleteFpgaImageResult;
+@class AWSEC2DeleteInstanceConnectEndpointRequest;
+@class AWSEC2DeleteInstanceConnectEndpointResult;
 @class AWSEC2DeleteInstanceEventWindowRequest;
 @class AWSEC2DeleteInstanceEventWindowResult;
 @class AWSEC2DeleteInternetGatewayRequest;
@@ -3656,6 +3671,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DescribeImportSnapshotTasksRequest;
 @class AWSEC2DescribeImportSnapshotTasksResult;
 @class AWSEC2DescribeInstanceAttributeRequest;
+@class AWSEC2DescribeInstanceConnectEndpointsRequest;
+@class AWSEC2DescribeInstanceConnectEndpointsResult;
 @class AWSEC2DescribeInstanceCreditSpecificationsRequest;
 @class AWSEC2DescribeInstanceCreditSpecificationsResult;
 @class AWSEC2DescribeInstanceEventNotificationAttributesRequest;
@@ -3936,6 +3953,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2EbsInstanceBlockDevice;
 @class AWSEC2EbsInstanceBlockDeviceSpecification;
 @class AWSEC2EbsOptimizedInfo;
+@class AWSEC2Ec2InstanceConnectEndpoint;
 @class AWSEC2EfaInfo;
 @class AWSEC2EgressOnlyInternetGateway;
 @class AWSEC2ElasticGpuAssociation;
@@ -5432,12 +5450,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The ID representing the allocation of the address for use with EC2-VPC.</p>
+ <p>The ID representing the allocation of the address.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable allocationId;
 
 /**
- <p>The ID representing the association of the address with an instance in a VPC.</p>
+ <p>The ID representing the association of the address with an instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable associationId;
 
@@ -5457,7 +5475,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable customerOwnedIpv4Pool;
 
 /**
- <p>Indicates whether this Elastic IP address is for use with instances in EC2-Classic (<code>standard</code>) or instances in a VPC (<code>vpc</code>).</p>
+ <p>The network (<code>vpc</code>).</p>
  */
 @property (nonatomic, assign) AWSEC2DomainType domain;
 
@@ -5607,7 +5625,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>[EC2-VPC] The Elastic IP address to recover or an IPv4 address from an address pool.</p>
+ <p>The Elastic IP address to recover or an IPv4 address from an address pool.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable address;
 
@@ -5617,7 +5635,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable customerOwnedIpv4Pool;
 
 /**
- <p>Indicates whether the Elastic IP address is for use with instances in a VPC or instances in EC2-Classic.</p><p>Default: If the Region supports EC2-Classic, the default is <code>standard</code>. Otherwise, the default is <code>vpc</code>.</p>
+ <p>The network (<code>vpc</code>).</p>
  */
 @property (nonatomic, assign) AWSEC2DomainType domain;
 
@@ -5650,12 +5668,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>[EC2-VPC] The ID that Amazon Web Services assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.</p>
+ <p>The ID that represents the allocation of the Elastic IP address.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable allocationId;
 
 /**
- <p>The carrier IP address. This option is only available for network interfaces which reside in a subnet in a Wavelength Zone (for example an EC2 instance). </p>
+ <p>The carrier IP address. This option is only available for network interfaces that reside in a subnet in a Wavelength Zone.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable carrierIp;
 
@@ -5670,7 +5688,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable customerOwnedIpv4Pool;
 
 /**
- <p>Indicates whether the Elastic IP address is for use with instances in a VPC (<code>vpc</code>) or instances in EC2-Classic (<code>standard</code>).</p>
+ <p>The network (<code>vpc</code>).</p>
  */
 @property (nonatomic, assign) AWSEC2DomainType domain;
 
@@ -6355,12 +6373,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>[EC2-VPC] The allocation ID. This is required for EC2-VPC.</p>
+ <p>The allocation ID. This is required.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable allocationId;
 
 /**
- <p>[EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP address that is already associated with an instance or network interface to be reassociated with the specified instance or network interface. Otherwise, the operation fails. In a VPC in an EC2-VPC-only account, reassociation is automatic, therefore you can specify false to ensure the operation fails if the Elastic IP address is already associated with another resource.</p>
+ <p>Reassociation is automatic, but you can specify false to ensure the operation fails if the Elastic IP address is already associated with another resource.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable allowReassociation;
 
@@ -6370,22 +6388,22 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The ID of the instance. The instance must have exactly one attached network interface. For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. For EC2-Classic, you must specify an instance ID and the instance must be in the running state.</p>
+ <p>The ID of the instance. The instance must have exactly one attached network interface. You can specify either the instance ID or the network interface ID, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>[EC2-VPC] The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.</p><p>For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. </p>
+ <p>The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.</p><p>You can specify either the instance ID or the network interface ID, but not both. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
 
 /**
- <p>[EC2-VPC] The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.</p>
+ <p>The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable privateIpAddress;
 
 /**
- <p>[EC2-Classic] The Elastic IP address to associate with the instance. This is required for EC2-Classic.</p>
+ <p>Deprecated.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable publicIp;
 
@@ -6398,7 +6416,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>[EC2-VPC] The ID that represents the association of the Elastic IP address with an instance.</p>
+ <p>The ID that represents the association of the Elastic IP address with an instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable associationId;
 
@@ -11016,6 +11034,62 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2CreateInstanceConnectEndpointRequest : AWSRequest
+
+
+/**
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>Indicates whether your client's IP address is preserved as the source. The value is <code>true</code> or <code>false</code>.</p><ul><li><p>If <code>true</code>, your client's IP address is used when you connect to a resource.</p></li><li><p>If <code>false</code>, the elastic network interface IP address is used when you connect to a resource.</p></li></ul><p>Default: <code>true</code></p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable preserveClientIp;
+
+/**
+ <p>One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for your VPC will be associated with the endpoint.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
+
+/**
+ <p>The ID of the subnet in which to create the EC2 Instance Connect Endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable subnetId;
+
+/**
+ <p>The tags to apply to the EC2 Instance Connect Endpoint during creation.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateInstanceConnectEndpointResult : AWSModel
+
+
+/**
+ <p>Unique, case-sensitive idempotency token provided by the client in the the request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Information about the EC2 Instance Connect Endpoint.</p>
+ */
+@property (nonatomic, strong) AWSEC2Ec2InstanceConnectEndpoint * _Nullable instanceConnectEndpoint;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2CreateInstanceEventWindowRequest : AWSRequest
 
 
@@ -12131,7 +12205,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groups;
 
 /**
- <p>The type of network interface. The default is <code>interface</code>.</p><p>The only supported values are <code>efa</code> and <code>trunk</code>.</p>
+ <p>The type of network interface. The default is <code>interface</code>.</p><p>The only supported values are <code>interface</code>, <code>efa</code>, and <code>trunk</code>.</p>
  */
 @property (nonatomic, assign) AWSEC2NetworkInterfaceCreationType interfaceType;
 
@@ -15256,6 +15330,37 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DeleteInstanceConnectEndpointRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the EC2 Instance Connect Endpoint to delete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceConnectEndpointId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteInstanceConnectEndpointResult : AWSModel
+
+
+/**
+ <p>Information about the EC2 Instance Connect Endpoint.</p>
+ */
+@property (nonatomic, strong) AWSEC2Ec2InstanceConnectEndpoint * _Nullable instanceConnectEndpoint;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DeleteInstanceEventWindowRequest : AWSRequest
 
 
@@ -17523,7 +17628,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>[EC2-VPC] Information about the allocation IDs.</p>
+ <p>Information about the allocation IDs.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable allocationIds;
 
@@ -17533,7 +17638,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. Filter names and values are case-sensitive.</p><ul><li><p><code>allocation-id</code> - [EC2-VPC] The allocation ID for the address.</p></li><li><p><code>association-id</code> - [EC2-VPC] The association ID for the address.</p></li><li><p><code>domain</code> - Indicates whether the address is for use in EC2-Classic (<code>standard</code>) or in a VPC (<code>vpc</code>).</p></li><li><p><code>instance-id</code> - The ID of the instance the address is associated with, if any.</p></li><li><p><code>network-border-group</code> - A unique set of Availability Zones, Local Zones, or Wavelength Zones from where Amazon Web Services advertises IP addresses. </p></li><li><p><code>network-interface-id</code> - [EC2-VPC] The ID of the network interface that the address is associated with, if any.</p></li><li><p><code>network-interface-owner-id</code> - The Amazon Web Services account ID of the owner.</p></li><li><p><code>private-ip-address</code> - [EC2-VPC] The private IP address associated with the Elastic IP address.</p></li><li><p><code>public-ip</code> - The Elastic IP address, or the carrier IP address.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
+ <p>One or more filters. Filter names and values are case-sensitive.</p><ul><li><p><code>allocation-id</code> - The allocation ID for the address.</p></li><li><p><code>association-id</code> - The association ID for the address.</p></li><li><p><code>instance-id</code> - The ID of the instance the address is associated with, if any.</p></li><li><p><code>network-border-group</code> - A unique set of Availability Zones, Local Zones, or Wavelength Zones from where Amazon Web Services advertises IP addresses. </p></li><li><p><code>network-interface-id</code> - The ID of the network interface that the address is associated with, if any.</p></li><li><p><code>network-interface-owner-id</code> - The Amazon Web Services account ID of the owner.</p></li><li><p><code>private-ip-address</code> - The private IP address associated with the Elastic IP address.</p></li><li><p><code>public-ip</code> - The Elastic IP address, or the carrier IP address.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -19637,6 +19742,57 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeInstanceConnectEndpointsRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>One or more filters.</p><ul><li><p><code>instance-connect-endpoint-id</code> - The ID of the EC2 Instance Connect Endpoint.</p></li><li><p><code>state</code> - The state of the EC2 Instance Connect Endpoint (<code>create-in-progress</code> | <code>create-complete</code> | <code>create-failed</code> | <code>delete-in-progress</code> | <code>delete-complete</code> | <code>delete-failed</code>).</p></li><li><p><code>subnet-id</code> - The ID of the subnet in which the EC2 Instance Connect Endpoint was created.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>tag-value</code> - The value of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific value, regardless of tag key.</p></li><li><p><code>vpc-id</code> - The ID of the VPC in which the EC2 Instance Connect Endpoint was created.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>One or more EC2 Instance Connect Endpoint IDs.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable instanceConnectEndpointIds;
+
+/**
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeInstanceConnectEndpointsResult : AWSModel
+
+
+/**
+ <p>Information about the EC2 Instance Connect Endpoints.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Ec2InstanceConnectEndpoint *> * _Nullable instanceConnectEndpoints;
+
+/**
+ <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
@@ -25549,7 +25705,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>[EC2-VPC] The association ID. Required for EC2-VPC.</p>
+ <p>The association ID. This parameter is required.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable associationId;
 
@@ -25559,7 +25715,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>[EC2-Classic] The Elastic IP address. Required for EC2-Classic.</p>
+ <p>Deprecated.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable publicIp;
 
@@ -26370,6 +26526,89 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The maximum throughput performance for an EBS-optimized instance type, in MB/s.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumThroughputInMBps;
+
+@end
+
+/**
+ <p>The EC2 Instance Connect Endpoint.</p>
+ */
+@interface AWSEC2Ec2InstanceConnectEndpoint : AWSModel
+
+
+/**
+ <p>The Availability Zone of the EC2 Instance Connect Endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable availabilityZone;
+
+/**
+ <p>The date and time that the EC2 Instance Connect Endpoint was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable createdAt;
+
+/**
+ <p>The DNS name of the EC2 Instance Connect Endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dnsName;
+
+/**
+ <p/>
+ */
+@property (nonatomic, strong) NSString * _Nullable fipsDnsName;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceConnectEndpointArn;
+
+/**
+ <p>The ID of the EC2 Instance Connect Endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceConnectEndpointId;
+
+/**
+ <p>The ID of the elastic network interface that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable networkInterfaceIds;
+
+/**
+ <p>The ID of the Amazon Web Services account that created the EC2 Instance Connect Endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ownerId;
+
+/**
+ <p>Indicates whether your client's IP address is preserved as the source. The value is <code>true</code> or <code>false</code>.</p><ul><li><p>If <code>true</code>, your client's IP address is used when you connect to a resource.</p></li><li><p>If <code>false</code>, the elastic network interface IP address is used when you connect to a resource.</p></li></ul><p>Default: <code>true</code></p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable preserveClientIp;
+
+/**
+ <p>The security groups associated with the endpoint. If you didn't specify a security group, the default security group for your VPC is associated with the endpoint.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
+
+/**
+ <p>The current state of the EC2 Instance Connect Endpoint.</p>
+ */
+@property (nonatomic, assign) AWSEC2Ec2InstanceConnectEndpointState state;
+
+/**
+ <p>The message for the current state of the EC2 Instance Connect Endpoint. Can include a failure message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable stateMessage;
+
+/**
+ <p>The ID of the subnet in which the EC2 Instance Connect Endpoint was created.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable subnetId;
+
+/**
+ <p>The tags assigned to the EC2 Instance Connect Endpoint.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>The ID of the VPC in which the EC2 Instance Connect Endpoint was created.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vpcId;
 
 @end
 
@@ -41257,13 +41496,13 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes the status of a moving Elastic IP address.</p><note><p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note>
+ <note><p>This action is deprecated.</p></note><p>Describes the status of a moving Elastic IP address.</p>
  */
 @interface AWSEC2MovingAddressStatus : AWSModel
 
 
 /**
- <p>The status of the Elastic IP address that's being moved to the EC2-VPC platform, or restored to the EC2-Classic platform.</p>
+ <p>The status of the Elastic IP address that's being moved or restored.</p>
  */
 @property (nonatomic, assign) AWSEC2MoveStatus moveStatus;
 
@@ -44518,7 +44757,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>[EC2-VPC] The allocation ID. Required for EC2-VPC.</p>
+ <p>The allocation ID. This parameter is required.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable allocationId;
 
@@ -44533,7 +44772,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable networkBorderGroup;
 
 /**
- <p>[EC2-Classic] The Elastic IP address. Required for EC2-Classic.</p>
+ <p>Deprecated.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable publicIp;
 

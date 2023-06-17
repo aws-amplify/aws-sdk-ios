@@ -642,6 +642,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"java17"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava17);
         }
+        if ([value caseInsensitiveCompare:@"ruby3.2"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeRuby32);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -705,6 +708,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"python3.10";
             case AWSLambdaRuntimeJava17:
                 return @"java17";
+            case AWSLambdaRuntimeRuby32:
+                return @"ruby3.2";
             default:
                 return nil;
         }
@@ -1665,6 +1670,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"java17"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava17);
         }
+        if ([value caseInsensitiveCompare:@"ruby3.2"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeRuby32);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1728,6 +1736,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"python3.10";
             case AWSLambdaRuntimeJava17:
                 return @"java17";
+            case AWSLambdaRuntimeRuby32:
+                return @"ruby3.2";
             default:
                 return nil;
         }
@@ -3328,6 +3338,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"java17"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava17);
         }
+        if ([value caseInsensitiveCompare:@"ruby3.2"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeRuby32);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3391,6 +3404,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"python3.10";
             case AWSLambdaRuntimeJava17:
                 return @"java17";
+            case AWSLambdaRuntimeRuby32:
+                return @"ruby3.2";
             default:
                 return nil;
         }
@@ -3546,6 +3561,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"java17"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava17);
         }
+        if ([value caseInsensitiveCompare:@"ruby3.2"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeRuby32);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3609,6 +3627,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"python3.10";
             case AWSLambdaRuntimeJava17:
                 return @"java17";
+            case AWSLambdaRuntimeRuby32:
+                return @"ruby3.2";
             default:
                 return nil;
         }
@@ -4734,6 +4754,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"java17"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava17);
         }
+        if ([value caseInsensitiveCompare:@"ruby3.2"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeRuby32);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4797,6 +4820,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"python3.10";
             case AWSLambdaRuntimeJava17:
                 return @"java17";
+            case AWSLambdaRuntimeRuby32:
+                return @"ruby3.2";
             default:
                 return nil;
         }
