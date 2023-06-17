@@ -52,6 +52,34 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 
 @end
 
+@implementation AWSSQSCancelMessageMoveTaskRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"taskHandle" : @"TaskHandle",
+             };
+}
+
+@end
+
+@implementation AWSSQSCancelMessageMoveTaskResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"approximateNumberOfMessagesMoved" : @"ApproximateNumberOfMessagesMoved",
+             };
+}
+
+@end
+
 @implementation AWSSQSChangeMessageVisibilityBatchRequest
 
 + (BOOL)supportsSecureCoding {
@@ -354,6 +382,61 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 	return @{
              @"nextToken" : @"NextToken",
              @"queueUrls" : @"queueUrls",
+             };
+}
+
+@end
+
+@implementation AWSSQSListMessageMoveTasksRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"MaxResults",
+             @"sourceArn" : @"SourceArn",
+             };
+}
+
+@end
+
+@implementation AWSSQSListMessageMoveTasksResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"results" : @"Results",
+             };
+}
+
++ (NSValueTransformer *)resultsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSQSListMessageMoveTasksResultEntry class]];
+}
+
+@end
+
+@implementation AWSSQSListMessageMoveTasksResultEntry
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"approximateNumberOfMessagesMoved" : @"ApproximateNumberOfMessagesMoved",
+             @"approximateNumberOfMessagesToMove" : @"ApproximateNumberOfMessagesToMove",
+             @"destinationArn" : @"DestinationArn",
+             @"failureReason" : @"FailureReason",
+             @"maxNumberOfMessagesPerSecond" : @"MaxNumberOfMessagesPerSecond",
+             @"sourceArn" : @"SourceArn",
+             @"startedTimestamp" : @"StartedTimestamp",
+             @"status" : @"Status",
+             @"taskHandle" : @"TaskHandle",
              };
 }
 
@@ -710,6 +793,36 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 	return @{
              @"attributes" : @"Attributes",
              @"queueUrl" : @"QueueUrl",
+             };
+}
+
+@end
+
+@implementation AWSSQSStartMessageMoveTaskRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"destinationArn" : @"DestinationArn",
+             @"maxNumberOfMessagesPerSecond" : @"MaxNumberOfMessagesPerSecond",
+             @"sourceArn" : @"SourceArn",
+             };
+}
+
+@end
+
+@implementation AWSSQSStartMessageMoveTaskResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"taskHandle" : @"TaskHandle",
              };
 }
 

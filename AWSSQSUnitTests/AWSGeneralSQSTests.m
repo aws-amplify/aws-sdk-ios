@@ -104,6 +104,54 @@ static id mockNetworking = nil;
     [AWSSQS removeSQSForKey:key];
 }
 
+- (void)testCancelMessageMoveTask {
+    NSString *key = @"testCancelMessageMoveTask";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
+
+    AWSSQS *awsClient = [AWSSQS SQSForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSQS SQSForKey:key] cancelMessageMoveTask:[AWSSQSCancelMessageMoveTaskRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSQS removeSQSForKey:key];
+}
+
+- (void)testCancelMessageMoveTaskCompletionHandler {
+    NSString *key = @"testCancelMessageMoveTask";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
+
+    AWSSQS *awsClient = [AWSSQS SQSForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSQS SQSForKey:key] cancelMessageMoveTask:[AWSSQSCancelMessageMoveTaskRequest new] completionHandler:^(AWSSQSCancelMessageMoveTaskResult* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSQS removeSQSForKey:key];
+}
+
 - (void)testChangeMessageVisibility {
     NSString *key = @"testChangeMessageVisibility";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -533,6 +581,54 @@ static id mockNetworking = nil;
     [AWSSQS removeSQSForKey:key];
 }
 
+- (void)testListMessageMoveTasks {
+    NSString *key = @"testListMessageMoveTasks";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
+
+    AWSSQS *awsClient = [AWSSQS SQSForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSQS SQSForKey:key] listMessageMoveTasks:[AWSSQSListMessageMoveTasksRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSQS removeSQSForKey:key];
+}
+
+- (void)testListMessageMoveTasksCompletionHandler {
+    NSString *key = @"testListMessageMoveTasks";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
+
+    AWSSQS *awsClient = [AWSSQS SQSForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSQS SQSForKey:key] listMessageMoveTasks:[AWSSQSListMessageMoveTasksRequest new] completionHandler:^(AWSSQSListMessageMoveTasksResult* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSQS removeSQSForKey:key];
+}
+
 - (void)testListQueueTags {
     NSString *key = @"testListQueueTags";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -905,6 +1001,54 @@ static id mockNetworking = nil;
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSQS removeSQSForKey:key];
+}
+
+- (void)testStartMessageMoveTask {
+    NSString *key = @"testStartMessageMoveTask";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
+
+    AWSSQS *awsClient = [AWSSQS SQSForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSQS SQSForKey:key] startMessageMoveTask:[AWSSQSStartMessageMoveTaskRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSQS removeSQSForKey:key];
+}
+
+- (void)testStartMessageMoveTaskCompletionHandler {
+    NSString *key = @"testStartMessageMoveTask";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSQS registerSQSWithConfiguration:configuration forKey:key];
+
+    AWSSQS *awsClient = [AWSSQS SQSForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSQS SQSForKey:key] startMessageMoveTask:[AWSSQSStartMessageMoveTaskRequest new] completionHandler:^(AWSSQSStartMessageMoveTaskResult* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
         dispatch_semaphore_signal(semaphore);
     }];
 	

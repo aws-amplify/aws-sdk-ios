@@ -576,6 +576,8 @@
 		48885FDE2A0C20170012EEB7 /* AWSKinesisVideoWebRTCStorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 48885FB32A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageService.m */; };
 		48885FDF2A0C20D50012EEB7 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
 		48E234A12A0CA1CB00E46DFB /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
+		568BD1B62A29144A0084977E /* test-identity-password-is-abc123.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 568BD1B52A29144A0084977E /* test-identity-password-is-abc123.p12 */; };
+		568BD1B82A2915590084977E /* AWSIoTManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 568BD1B72A2915590084977E /* AWSIoTManagerTests.m */; };
 		5C1590172755727C00F88085 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
 		5C1978DD2702364800F9C11E /* AWSLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1978DC2702364800F9C11E /* AWSLocationTests.swift */; };
 		5C71F33F295672B8001183A4 /* guten_tag.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5C71F33E295672B8001183A4 /* guten_tag.wav */; };
@@ -3134,6 +3136,8 @@
 		48885FB62A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageResources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSKinesisVideoWebRTCStorageResources.h; sourceTree = "<group>"; };
 		48885FBC2A0C1F440012EEB7 /* AWSKinesisVideoWebRTCStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSKinesisVideoWebRTCStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48885FCB2A0C1FB30012EEB7 /* AWSKinesisVideoWebRTCStorageUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSKinesisVideoWebRTCStorageUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		568BD1B52A29144A0084977E /* test-identity-password-is-abc123.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "test-identity-password-is-abc123.p12"; sourceTree = "<group>"; };
+		568BD1B72A2915590084977E /* AWSIoTManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSIoTManagerTests.m; sourceTree = "<group>"; };
 		5C1978DB2702364800F9C11E /* AWSLocationTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSLocationTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5C1978DC2702364800F9C11E /* AWSLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSLocationTests.swift; sourceTree = "<group>"; };
 		5C71F33E295672B8001183A4 /* guten_tag.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = guten_tag.wav; sourceTree = "<group>"; };
@@ -6769,6 +6773,7 @@
 			children = (
 				CE5605321C6BCE2700B4E00B /* AWSGeneralIoTDataTests.m */,
 				CE5605331C6BCE2700B4E00B /* AWSGeneralIoTTests.m */,
+				568BD1B72A2915590084977E /* AWSIoTManagerTests.m */,
 				FAF522B325438B6200E2C5FE /* AWSIoTManagerNSSecureCodingTests.m */,
 				FAFAF8C52540FAE60074FAB3 /* AWSIoTDataNSSecureCodingTests.m */,
 				CE56053D1C6BD02800B4E00B /* AWSIoTDataUnitTests.m */,
@@ -7728,6 +7733,7 @@
 		FA92428E2344F3DA003F546D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				568BD1B52A29144A0084977E /* test-identity-password-is-abc123.p12 */,
 				FA92428A2344F30C003F546D /* mqttclient-transcript.base64 */,
 				FA92428C2344F329003F546D /* websocket-transcript.base64 */,
 			);
@@ -11738,6 +11744,7 @@
 			files = (
 				FA92428D2344F329003F546D /* websocket-transcript.base64 in Resources */,
 				FA92428B2344F30D003F546D /* mqttclient-transcript.base64 in Resources */,
+				568BD1B62A29144A0084977E /* test-identity-password-is-abc123.p12 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -12976,6 +12983,7 @@
 				CE5604ED1C6BCA9A00B4E00B /* AWSTestUtility.m in Sources */,
 				CE5605341C6BCE2700B4E00B /* AWSGeneralIoTDataTests.m in Sources */,
 				FA39AF102346847A0006050D /* MQTTSessionTests.m in Sources */,
+				568BD1B82A2915590084977E /* AWSIoTManagerTests.m in Sources */,
 				CE5605401C6BD02800B4E00B /* AWSIoTUnitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
