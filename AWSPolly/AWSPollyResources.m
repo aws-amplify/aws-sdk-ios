@@ -479,7 +479,8 @@
         \"de-AT\",\
         \"yue-CN\",\
         \"ar-AE\",\
-        \"fi-FI\"\
+        \"fi-FI\",\
+        \"en-IE\"\
       ]\
     },\
     \"LanguageCodeList\":{\
@@ -1159,7 +1160,9 @@
         \"Ruth\",\
         \"Stephen\",\
         \"Kazuha\",\
-        \"Tomoko\"\
+        \"Tomoko\",\
+        \"Niamh\",\
+        \"Sofie\"\
       ]\
     },\
     \"VoiceList\":{\
