@@ -53654,7 +53654,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes the destinations for Verified Access logs.</p>
+ <p>Options for Verified Access logs.</p>
  */
 @interface AWSEC2VerifiedAccessLogOptions : AWSModel
 
@@ -53665,9 +53665,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2VerifiedAccessLogCloudWatchLogsDestinationOptions * _Nullable cloudWatchLogs;
 
 /**
+ <p> Include trust data sent by trust providers into the logs. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable includeTrustContext;
+
+/**
  <p>Sends Verified Access logs to Kinesis.</p>
  */
 @property (nonatomic, strong) AWSEC2VerifiedAccessLogKinesisDataFirehoseDestinationOptions * _Nullable kinesisDataFirehose;
+
+/**
+ <p> The logging version to use. </p><p>Valid values: <code>ocsf-0.1</code> | <code>ocsf-1.0.0-rc.2</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable logVersion;
 
 /**
  <p>Sends Verified Access logs to Amazon S3.</p>
@@ -53739,7 +53749,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes the destinations for Verified Access logs.</p>
+ <p>Describes the options for Verified Access logs.</p>
  */
 @interface AWSEC2VerifiedAccessLogs : AWSModel
 
@@ -53750,9 +53760,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2VerifiedAccessLogCloudWatchLogsDestination * _Nullable cloudWatchLogs;
 
 /**
+ <p> Describes current setting for including trust data into the logs. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable includeTrustContext;
+
+/**
  <p>Kinesis logging destination.</p>
  */
 @property (nonatomic, strong) AWSEC2VerifiedAccessLogKinesisDataFirehoseDestination * _Nullable kinesisDataFirehose;
+
+/**
+ <p> Describes current setting for the logging version. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable logVersion;
 
 /**
  <p>Amazon S3 logging options.</p>
