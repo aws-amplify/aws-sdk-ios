@@ -65,6 +65,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"PolicyLengthExceededException" : @(AWSLambdaErrorPolicyLengthExceeded),
                             @"PreconditionFailedException" : @(AWSLambdaErrorPreconditionFailed),
                             @"ProvisionedConcurrencyConfigNotFoundException" : @(AWSLambdaErrorProvisionedConcurrencyConfigNotFound),
+                            @"RecursiveInvocationException" : @(AWSLambdaErrorRecursiveInvocation),
                             @"RequestTooLargeException" : @(AWSLambdaErrorRequestTooLarge),
                             @"ResourceConflictException" : @(AWSLambdaErrorResourceConflict),
                             @"ResourceInUseException" : @(AWSLambdaErrorResourceInUse),

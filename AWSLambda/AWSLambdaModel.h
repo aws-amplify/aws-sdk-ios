@@ -48,6 +48,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaErrorType) {
     AWSLambdaErrorPolicyLengthExceeded,
     AWSLambdaErrorPreconditionFailed,
     AWSLambdaErrorProvisionedConcurrencyConfigNotFound,
+    AWSLambdaErrorRecursiveInvocation,
     AWSLambdaErrorRequestTooLarge,
     AWSLambdaErrorResourceConflict,
     AWSLambdaErrorResourceInUse,
