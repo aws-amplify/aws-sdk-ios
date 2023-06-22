@@ -61,6 +61,7 @@
 - (void) test_AWSChimeSDKIdentityGetAppInstanceRetentionSettingsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityGetAppInstanceRetentionSettingsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityIdentity API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKIdentityInvokedBy API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityLexConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityListAppInstanceAdminsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKIdentityListAppInstanceAdminsResponse API_AVAILABLE(ios(11));
@@ -262,6 +263,10 @@
 
 - (void) test_AWSChimeSDKIdentityIdentity {
     [self validateSecureCodingForClass:[AWSChimeSDKIdentityIdentity class]];
+}
+
+- (void) test_AWSChimeSDKIdentityInvokedBy {
+    [self validateSecureCodingForClass:[AWSChimeSDKIdentityInvokedBy class]];
 }
 
 - (void) test_AWSChimeSDKIdentityLexConfiguration {
