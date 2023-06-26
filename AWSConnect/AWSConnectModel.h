@@ -35,6 +35,7 @@ typedef NS_ENUM(NSInteger, AWSConnectErrorType) {
     AWSConnectErrorInvalidParameter,
     AWSConnectErrorInvalidRequest,
     AWSConnectErrorLimitExceeded,
+    AWSConnectErrorMaximumResultReturned,
     AWSConnectErrorOutboundContactNotPermitted,
     AWSConnectErrorPropertyValidation,
     AWSConnectErrorResourceConflict,
@@ -1206,6 +1207,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectReplicateInstanceRequest;
 @class AWSConnectReplicateInstanceResponse;
 @class AWSConnectRequiredFieldInfo;
+@class AWSConnectResourceTagsSearchCriteria;
 @class AWSConnectResumeContactRecordingRequest;
 @class AWSConnectResumeContactRecordingResponse;
 @class AWSConnectRoutingProfile;
@@ -1231,6 +1233,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectSearchQueuesResponse;
 @class AWSConnectSearchQuickConnectsRequest;
 @class AWSConnectSearchQuickConnectsResponse;
+@class AWSConnectSearchResourceTagsRequest;
+@class AWSConnectSearchResourceTagsResponse;
 @class AWSConnectSearchRoutingProfilesRequest;
 @class AWSConnectSearchRoutingProfilesResponse;
 @class AWSConnectSearchSecurityProfilesRequest;
@@ -1273,6 +1277,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectSuspendContactRecordingResponse;
 @class AWSConnectTagCondition;
 @class AWSConnectTagResourceRequest;
+@class AWSConnectTagSearchCondition;
+@class AWSConnectTagSet;
 @class AWSConnectTaskActionDefinition;
 @class AWSConnectTaskTemplateConstraints;
 @class AWSConnectTaskTemplateDefaultFieldValue;
@@ -9742,6 +9748,19 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>The search criteria to be used to search tags.</p>
+ */
+@interface AWSConnectResourceTagsSearchCriteria : AWSModel
+
+
+/**
+ <p>The search criteria to be used to return tags.</p>
+ */
+@property (nonatomic, strong) AWSConnectTagSearchCondition * _Nullable tagSearchCondition;
+
+@end
+
+/**
  
  */
 @interface AWSConnectResumeContactRecordingRequest : AWSRequest
@@ -10456,6 +10475,57 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>Information about the quick connects.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectQuickConnect *> * _Nullable quickConnects;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSearchResourceTagsRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The list of resource types to be used to search tags from. If not provided or if any empty list is provided, this API will search from all supported resource types.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable resourceTypes;
+
+/**
+ <p>The search criteria to be used to return tags.</p>
+ */
+@property (nonatomic, strong) AWSConnectResourceTagsSearchCriteria * _Nullable searchCriteria;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSearchResourceTagsResponse : AWSModel
+
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>A list of tags used in the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectTagSet *> * _Nullable tags;
 
 @end
 
@@ -11509,6 +11579,52 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ <p>The search criteria to be used to return tags.</p>
+ */
+@interface AWSConnectTagSearchCondition : AWSModel
+
+
+/**
+ <p>The tag key used in the tag search condition.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tagKey;
+
+/**
+ <p>The type of comparison to be made when evaluating the tag key in tag search condition.</p>
+ */
+@property (nonatomic, assign) AWSConnectStringComparisonType tagKeyComparisonType;
+
+/**
+ <p>The tag value used in the tag search condition.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tagValue;
+
+/**
+ <p>The type of comparison to be made when evaluating the tag value in tag search condition.</p>
+ */
+@property (nonatomic, assign) AWSConnectStringComparisonType tagValueComparisonType;
+
+@end
+
+/**
+ <p>A tag set contains tag key and tag value.</p>
+ */
+@interface AWSConnectTagSet : AWSModel
+
+
+/**
+ <p>The tag key in the tagSet.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable key;
+
+/**
+ <p>The tag value in the tagSet.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable value;
 
 @end
 

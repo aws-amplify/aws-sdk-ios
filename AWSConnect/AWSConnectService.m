@@ -51,6 +51,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidParameterException" : @(AWSConnectErrorInvalidParameter),
                             @"InvalidRequestException" : @(AWSConnectErrorInvalidRequest),
                             @"LimitExceededException" : @(AWSConnectErrorLimitExceeded),
+                            @"MaximumResultReturnedException" : @(AWSConnectErrorMaximumResultReturned),
                             @"OutboundContactNotPermittedException" : @(AWSConnectErrorOutboundContactNotPermitted),
                             @"PropertyValidationException" : @(AWSConnectErrorPropertyValidation),
                             @"ResourceConflictException" : @(AWSConnectErrorResourceConflict),
@@ -3385,6 +3386,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectSearchQuickConnectsResponse *response, NSError *error))completionHandler {
     [[self searchQuickConnects:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectSearchQuickConnectsResponse *> * _Nonnull task) {
         AWSConnectSearchQuickConnectsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectSearchResourceTagsResponse *> *)searchResourceTags:(AWSConnectSearchResourceTagsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/search-resource-tags"
+                  targetPrefix:@""
+                 operationName:@"SearchResourceTags"
+                   outputClass:[AWSConnectSearchResourceTagsResponse class]];
+}
+
+- (void)searchResourceTags:(AWSConnectSearchResourceTagsRequest *)request
+     completionHandler:(void (^)(AWSConnectSearchResourceTagsResponse *response, NSError *error))completionHandler {
+    [[self searchResourceTags:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectSearchResourceTagsResponse *> * _Nonnull task) {
+        AWSConnectSearchResourceTagsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
