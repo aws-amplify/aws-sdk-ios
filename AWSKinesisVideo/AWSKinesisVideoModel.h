@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -111,6 +111,13 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoMediaUriType) {
     AWSKinesisVideoMediaUriTypeFileUri,
 };
 
+typedef NS_ENUM(NSInteger, AWSKinesisVideoRecorderStatus) {
+    AWSKinesisVideoRecorderStatusUnknown,
+    AWSKinesisVideoRecorderStatusSuccess,
+    AWSKinesisVideoRecorderStatusUserError,
+    AWSKinesisVideoRecorderStatusSystemError,
+};
+
 typedef NS_ENUM(NSInteger, AWSKinesisVideoStatus) {
     AWSKinesisVideoStatusUnknown,
     AWSKinesisVideoStatusCreating,
@@ -133,6 +140,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoSyncStatus) {
     AWSKinesisVideoSyncStatusSyncFailed,
     AWSKinesisVideoSyncStatusDeleting,
     AWSKinesisVideoSyncStatusDeleteFailed,
+    AWSKinesisVideoSyncStatusDeletingAcknowledged,
 };
 
 typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
@@ -141,12 +149,21 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
     AWSKinesisVideoUpdateDataRetentionOperationDecreaseDataRetention,
 };
 
+typedef NS_ENUM(NSInteger, AWSKinesisVideoUploaderStatus) {
+    AWSKinesisVideoUploaderStatusUnknown,
+    AWSKinesisVideoUploaderStatusSuccess,
+    AWSKinesisVideoUploaderStatusUserError,
+    AWSKinesisVideoUploaderStatusSystemError,
+};
+
 @class AWSKinesisVideoChannelInfo;
 @class AWSKinesisVideoChannelNameCondition;
 @class AWSKinesisVideoCreateSignalingChannelInput;
 @class AWSKinesisVideoCreateSignalingChannelOutput;
 @class AWSKinesisVideoCreateStreamInput;
 @class AWSKinesisVideoCreateStreamOutput;
+@class AWSKinesisVideoDeleteEdgeConfigurationInput;
+@class AWSKinesisVideoDeleteEdgeConfigurationOutput;
 @class AWSKinesisVideoDeleteSignalingChannelInput;
 @class AWSKinesisVideoDeleteSignalingChannelOutput;
 @class AWSKinesisVideoDeleteStreamInput;
@@ -166,6 +183,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @class AWSKinesisVideoDescribeSignalingChannelOutput;
 @class AWSKinesisVideoDescribeStreamInput;
 @class AWSKinesisVideoDescribeStreamOutput;
+@class AWSKinesisVideoEdgeAgentStatus;
 @class AWSKinesisVideoEdgeConfig;
 @class AWSKinesisVideoGetDataEndpointInput;
 @class AWSKinesisVideoGetDataEndpointOutput;
@@ -173,6 +191,11 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @class AWSKinesisVideoGetSignalingChannelEndpointOutput;
 @class AWSKinesisVideoImageGenerationConfiguration;
 @class AWSKinesisVideoImageGenerationDestinationConfig;
+@class AWSKinesisVideoLastRecorderStatus;
+@class AWSKinesisVideoLastUploaderStatus;
+@class AWSKinesisVideoListEdgeAgentConfigurationsEdgeConfig;
+@class AWSKinesisVideoListEdgeAgentConfigurationsInput;
+@class AWSKinesisVideoListEdgeAgentConfigurationsOutput;
 @class AWSKinesisVideoListSignalingChannelsInput;
 @class AWSKinesisVideoListSignalingChannelsOutput;
 @class AWSKinesisVideoListStreamsInput;
@@ -338,7 +361,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @property (nonatomic, strong) NSString * _Nullable deviceName;
 
 /**
- <p>The ID of the Key Management Service (KMS) key that you want Kinesis Video Streams to use to encrypt stream data.</p><p>If no key ID is specified, the default, Kinesis Video-managed key (<code>aws/kinesisvideo</code>) is used.</p><p> For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">DescribeKey</a>. </p>
+ <p>The ID of the Key Management Service (KMS) key that you want Kinesis Video Streams to use to encrypt stream data.</p><p>If no key ID is specified, the default, Kinesis Video-managed key (<code>Amazon Web Services/kinesisvideo</code>) is used.</p><p> For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">DescribeKey</a>. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
@@ -369,6 +392,32 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
  <p>The Amazon Resource Name (ARN) of the stream.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable streamARN;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoDeleteEdgeConfigurationInput : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the stream. Specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamARN;
+
+/**
+ <p>The name of the stream from which to delete the edge configuration. Specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoDeleteEdgeConfigurationOutput : AWSModel
+
 
 @end
 
@@ -431,7 +480,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The <code>boolean</code> value used to indicate whether or not you want to mark the media for deletion, once it has been uploaded to the Kinesis Video Stream cloud. The media files can be deleted if any of the deletion configuration values are set to <code>true</code>, such as when the limit for the <code>EdgeRetentionInHours</code>, or the <code>MaxLocalMediaSizeInMB</code>, has been reached. </p><p>Since the default value is set to <code>true</code>, configure the uploader schedule such that the media files are not being deleted before they are initially uploaded to AWS cloud.</p>
+ <p>The <code>boolean</code> value used to indicate whether or not you want to mark the media for deletion, once it has been uploaded to the Kinesis Video Stream cloud. The media files can be deleted if any of the deletion configuration values are set to <code>true</code>, such as when the limit for the <code>EdgeRetentionInHours</code>, or the <code>MaxLocalMediaSizeInMB</code>, has been reached. </p><p>Since the default value is set to <code>true</code>, configure the uploader schedule such that the media files are not being deleted before they are initially uploaded to the Amazon Web Services cloud.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable deleteAfterUpload;
 
@@ -475,6 +524,11 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
  <p>The timestamp at which a stream’s edge configuration was first created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable creationTime;
+
+/**
+ <p>An object that contains the latest status details for an edge agent's recorder and uploader jobs. Use this information to determine the current health of an edge agent.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoEdgeAgentStatus * _Nullable edgeAgentStatus;
 
 /**
  <p>A description of the stream's edge configuration that will be used to sync with the Edge Agent IoT Greengrass component. The Edge Agent component will run on an IoT Hub Device setup at your premise.</p>
@@ -710,6 +764,24 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @end
 
 /**
+ <p>An object that contains the latest status details for an edge agent's recorder and uploader jobs. Use this information to determine the current health of an edge agent.</p>
+ */
+@interface AWSKinesisVideoEdgeAgentStatus : AWSModel
+
+
+/**
+ <p>The latest status of a stream’s edge recording job.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoLastRecorderStatus * _Nullable lastRecorderStatus;
+
+/**
+ <p>The latest status of a stream’s edge to cloud uploader job.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoLastUploaderStatus * _Nullable lastUploaderStatus;
+
+@end
+
+/**
  <p>A description of the stream's edge configuration that will be used to sync with the Edge Agent IoT Greengrass component. The Edge Agent component will run on an IoT Hub Device setup at your premise.</p>
  Required parameters: [HubDeviceArn, RecorderConfig]
  */
@@ -862,7 +934,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The AWS Region of the S3 bucket where images will be delivered. This <code>DestinationRegion</code> must match the Region where the stream is located.</p>
+ <p>The Amazon Web Services Region of the S3 bucket where images will be delivered. This <code>DestinationRegion</code> must match the Region where the stream is located.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationRegion;
 
@@ -870,6 +942,146 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
  <p>The Uniform Resource Identifier (URI) that identifies where the images will be delivered.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable uri;
+
+@end
+
+/**
+ <p>The latest status of a stream's edge recording job.</p>
+ */
+@interface AWSKinesisVideoLastRecorderStatus : AWSModel
+
+
+/**
+ <p>A description of a recorder job’s latest status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobStatusDetails;
+
+/**
+ <p>The timestamp at which the recorder job was last executed and media stored to local disk.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastCollectedTime;
+
+/**
+ <p>The timestamp at which the recorder status was last updated.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastUpdatedTime;
+
+/**
+ <p>The status of the latest recorder job.</p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoRecorderStatus recorderStatus;
+
+@end
+
+/**
+ <p>The latest status of a stream’s edge to cloud uploader job.</p>
+ */
+@interface AWSKinesisVideoLastUploaderStatus : AWSModel
+
+
+/**
+ <p>A description of an uploader job’s latest status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobStatusDetails;
+
+/**
+ <p>The timestamp at which the uploader job was last executed and media collected to the cloud.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastCollectedTime;
+
+/**
+ <p>The timestamp at which the uploader status was last updated.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastUpdatedTime;
+
+/**
+ <p>The status of the latest uploader job.</p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoUploaderStatus uploaderStatus;
+
+@end
+
+/**
+ <p>A description of a single stream's edge configuration.</p>
+ */
+@interface AWSKinesisVideoListEdgeAgentConfigurationsEdgeConfig : AWSModel
+
+
+/**
+ <p>The timestamp when the stream first created the edge config.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTime;
+
+/**
+ <p>A description of the stream's edge configuration that will be used to sync with the Edge Agent IoT Greengrass component. The Edge Agent component will run on an IoT Hub Device setup at your premise.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoEdgeConfig * _Nullable edgeConfig;
+
+/**
+ <p>A description of the generated failure status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable failedStatusDetails;
+
+/**
+ <p>The timestamp when the stream last updated the edge config.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastUpdatedTime;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the stream.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamARN;
+
+/**
+ <p>The name of the stream.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamName;
+
+/**
+ <p>The current sync status of the stream's edge configuration.</p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoSyncStatus syncStatus;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoListEdgeAgentConfigurationsInput : AWSRequest
+
+
+/**
+ <p>The "Internet of Things (IoT) Thing" Arn of the edge agent.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable hubDeviceArn;
+
+/**
+ <p>The maximum number of edge configurations to return in the response. The default is 5.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>If you specify this parameter, when the result of a <code>ListEdgeAgentConfigurations</code> operation is truncated, the call returns the <code>NextToken</code> in the response. To get another batch of edge configurations, provide this token in your next request. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoListEdgeAgentConfigurationsOutput : AWSModel
+
+
+/**
+ <p>A description of a single stream's edge configuration.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSKinesisVideoListEdgeAgentConfigurationsEdgeConfig *> * _Nullable edgeConfigs;
+
+/**
+ <p>If the response is truncated, the call returns this element with a given token. To get the next batch of edge configurations, use this token in your next request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
@@ -1076,7 +1288,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The AWS Secrets Manager ARN for the username and password of the camera, or a local media file location.</p>
+ <p>The Amazon Web Services Secrets Manager ARN for the username and password of the camera, or a local media file location.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable mediaUriSecretArn;
 
@@ -1159,7 +1371,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @end
 
 /**
- <p>An object that describes the endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.</p>
+ <p>An object that describes the endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.</p><p>The media server endpoint will correspond to the <code>WEBRTC</code> Protocol.</p>
  */
 @interface AWSKinesisVideoResourceEndpointListItem : AWSModel
 
@@ -1177,7 +1389,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @end
 
 /**
- <p>This API enables you to specify the duration that the camera, or local media file, should record onto the Edge Agent. The <code>ScheduleConfig</code> consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code> attributes. </p><p>If the <code>ScheduleExpression</code> is not provided, then the Edge Agent will always be set to recording mode.</p>
+ <p>This API enables you to specify the duration that the camera, or local media file, should record onto the Edge Agent. The <code>ScheduleConfig</code> consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code> attributes. </p><p>If the <code>ScheduleConfig</code> is not provided in the <code>RecorderConfig</code>, then the Edge Agent will always be set to recording mode.</p><p>If the <code>ScheduleConfig</code> is not provided in the <code>UploaderConfig</code>, then the Edge Agent will upload at regular intervals (every 1 hour).</p>
  Required parameters: [ScheduleExpression, DurationInSeconds]
  */
 @interface AWSKinesisVideoScheduleConfig : AWSModel
@@ -1698,14 +1910,14 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @end
 
 /**
- <p>The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutesdetails</code>, that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided, then the Edge Agent will always be in upload mode. </p>
+ <p>The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code> details that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleConfig</code> is not provided in the <code>UploaderConfig</code>, then the Edge Agent will upload at regular intervals (every 1 hour). </p>
  Required parameters: [ScheduleConfig]
  */
 @interface AWSKinesisVideoUploaderConfig : AWSModel
 
 
 /**
- <p>The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code>details that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided, then the Edge Agent will always be in recording mode.</p>
+ <p>The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code> details that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleConfig</code> is not provided in this <code>UploaderConfig</code>, then the Edge Agent will upload at regular intervals (every 1 hour).</p>
  */
 @property (nonatomic, strong) AWSKinesisVideoScheduleConfig * _Nullable scheduleConfig;
 
