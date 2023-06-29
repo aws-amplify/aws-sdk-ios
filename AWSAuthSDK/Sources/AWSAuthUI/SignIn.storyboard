@@ -11,7 +11,7 @@
         <!--Sign-In View Controller-->
         <scene sceneID="7j4-1z-nW1">
             <objects>
-                <viewController storyboardIdentifier="SignIn" title="Sign-In View Controller" id="xc1-Jg-Y5t" customClass="AWSSignInViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignIn" title="Sign-In View Controller" extendedLayoutIncludesOpaqueBars="YES" id="xc1-Jg-Y5t" customClass="AWSSignInViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iDn-EW-gbn"/>
                         <viewControllerLayoutGuide type="bottom" id="oro-gg-Uv8"/>
