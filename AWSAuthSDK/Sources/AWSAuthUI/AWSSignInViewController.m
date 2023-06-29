@@ -170,18 +170,6 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
     [AWSSignInManager sharedInstance].pendingSignIn = NO;
     [AWSSignInManager sharedInstance].pendingUsername = @"";
     [AWSSignInManager sharedInstance].pendingPassword = @"";
-    
-}
-
-// This is used to dismiss the keyboard, user just has to tap outside the
-// user name and password views and it will dismiss
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-    if (touch.phase == UITouchPhaseBegan) {
-        [self.view endEditing:YES];
-    }
-    
-    [super touchesBegan:touches withEvent:event];
 }
 
 #pragma mark - Utility Methods
