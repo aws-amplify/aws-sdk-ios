@@ -24,6 +24,12 @@
   - AWSSTS
   - AWSTranslate
 
+### Bug Fixes
+- **AWSAuthUI**
+  - Fix ability to hide keyboard in `AWSSignInViewController`, using `keyboardDismissMode`
+  - Fix black navigation bar in `AWSSignInViewController`, using view controllers option to 'Extend edges Under Opaque Bars'.  
+   [Issue #2321](https://github.com/aws-amplify/aws-sdk-ios/issues/2321)
+
 ## 2.33.0
 
 ### Misc. Updates
