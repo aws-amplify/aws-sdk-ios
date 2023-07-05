@@ -1,40 +1,28 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSKMS
----AWSConnect
----
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
-  - AWSTranslate
-  - AWSPinpoint
-  - AWSEC2
-  - AWSConnect
-  - AWSSTS
-  - AWSRekognition
-  - AWSSQS
-  - AWSIoT
-  - AWSIoTDataPlane
-  - AWSDynamoDB
-  - AWSCloudWatchLogs
-  - AWSLocation
-  - AWSKMS
-  - AWSLambda
-  - AWSPolly
----
-
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSChimeSDKIdentity
+  - AWSChimeSDKMessaging
+  - AWSCloudWatchLogs
+  - AWSConnect
+  - AWSDynamoDB
+  - AWSEC2
+  - AWSIoT
+  - AWSIoTDataPlane
+  - AWSKinesisVideo
+  - AWSKMS
+  - AWSLambda
+  - AWSLocation
+  - AWSPinpoint
+  - AWSPolly
+  - AWSRekognition
+  - AWSSQS
+  - AWSSTS
+  - AWSTranslate
 
 ## 2.33.0
 
