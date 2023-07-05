@@ -51,6 +51,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"CustomKeyStoreNotFoundException" : @(AWSKMSErrorCustomKeyStoreNotFound),
                             @"DependencyTimeoutException" : @(AWSKMSErrorDependencyTimeout),
                             @"DisabledException" : @(AWSKMSErrorDisabled),
+                            @"DryRunOperationException" : @(AWSKMSErrorDryRunOperation),
                             @"ExpiredImportTokenException" : @(AWSKMSErrorExpiredImportToken),
                             @"IncorrectKeyException" : @(AWSKMSErrorIncorrectKey),
                             @"IncorrectKeyMaterialException" : @(AWSKMSErrorIncorrectKeyMaterial),

@@ -276,7 +276,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  
  @param request A container for the necessary parameters to execute the CreateGrant service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSCreateGrantResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidArn`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorLimitExceeded`, `AWSKMSErrorKMSInvalidState`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSCreateGrantResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidArn`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorLimitExceeded`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSCreateGrantRequest
  @see AWSKMSCreateGrantResponse
@@ -289,7 +289,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  @param request A container for the necessary parameters to execute the CreateGrant service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidArn`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorLimitExceeded`, `AWSKMSErrorKMSInvalidState`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidArn`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorLimitExceeded`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSCreateGrantRequest
  @see AWSKMSCreateGrantResponse
@@ -326,7 +326,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  
  @param request A container for the necessary parameters to execute the Decrypt service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSDecryptResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorInvalidCiphertext`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorIncorrectKey`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSDecryptResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorInvalidCiphertext`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorIncorrectKey`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSDecryptRequest
  @see AWSKMSDecryptResponse
@@ -339,7 +339,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  @param request A container for the necessary parameters to execute the Decrypt service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorInvalidCiphertext`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorIncorrectKey`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorInvalidCiphertext`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorIncorrectKey`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSDecryptRequest
  @see AWSKMSDecryptResponse
@@ -583,7 +583,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  
  @param request A container for the necessary parameters to execute the Encrypt service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSEncryptResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSEncryptResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSEncryptRequest
  @see AWSKMSEncryptResponse
@@ -596,7 +596,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  @param request A container for the necessary parameters to execute the Encrypt service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSEncryptRequest
  @see AWSKMSEncryptResponse
@@ -608,7 +608,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  
  @param request A container for the necessary parameters to execute the GenerateDataKey service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSGenerateDataKeyResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSGenerateDataKeyResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSGenerateDataKeyRequest
  @see AWSKMSGenerateDataKeyResponse
@@ -621,7 +621,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  @param request A container for the necessary parameters to execute the GenerateDataKey service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSGenerateDataKeyRequest
  @see AWSKMSGenerateDataKeyResponse
@@ -633,7 +633,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  
  @param request A container for the necessary parameters to execute the GenerateDataKeyPair service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSGenerateDataKeyPairResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorUnsupportedOperation`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSGenerateDataKeyPairResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorUnsupportedOperation`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSGenerateDataKeyPairRequest
  @see AWSKMSGenerateDataKeyPairResponse
@@ -646,7 +646,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  @param request A container for the necessary parameters to execute the GenerateDataKeyPair service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorUnsupportedOperation`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorUnsupportedOperation`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSGenerateDataKeyPairRequest
  @see AWSKMSGenerateDataKeyPairResponse
@@ -658,7 +658,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  
  @param request A container for the necessary parameters to execute the GenerateDataKeyPairWithoutPlaintext service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSGenerateDataKeyPairWithoutPlaintextResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorUnsupportedOperation`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSGenerateDataKeyPairWithoutPlaintextResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorUnsupportedOperation`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSGenerateDataKeyPairWithoutPlaintextRequest
  @see AWSKMSGenerateDataKeyPairWithoutPlaintextResponse
@@ -671,7 +671,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  @param request A container for the necessary parameters to execute the GenerateDataKeyPairWithoutPlaintext service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorUnsupportedOperation`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorUnsupportedOperation`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSGenerateDataKeyPairWithoutPlaintextRequest
  @see AWSKMSGenerateDataKeyPairWithoutPlaintextResponse
@@ -683,7 +683,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  
  @param request A container for the necessary parameters to execute the GenerateDataKeyWithoutPlaintext service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSGenerateDataKeyWithoutPlaintextResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSGenerateDataKeyWithoutPlaintextResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSGenerateDataKeyWithoutPlaintextRequest
  @see AWSKMSGenerateDataKeyWithoutPlaintextResponse
@@ -696,7 +696,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  @param request A container for the necessary parameters to execute the GenerateDataKeyWithoutPlaintext service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSGenerateDataKeyWithoutPlaintextRequest
  @see AWSKMSGenerateDataKeyWithoutPlaintextResponse
@@ -708,7 +708,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  
  @param request A container for the necessary parameters to execute the GenerateMac service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSGenerateMacResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSGenerateMacResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSGenerateMacRequest
  @see AWSKMSGenerateMacResponse
@@ -721,7 +721,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  @param request A container for the necessary parameters to execute the GenerateMac service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSGenerateMacRequest
  @see AWSKMSGenerateMacResponse
@@ -1055,7 +1055,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  
  @param request A container for the necessary parameters to execute the ReEncrypt service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSReEncryptResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorInvalidCiphertext`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorIncorrectKey`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSReEncryptResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorInvalidCiphertext`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorIncorrectKey`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSReEncryptRequest
  @see AWSKMSReEncryptResponse
@@ -1068,7 +1068,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  @param request A container for the necessary parameters to execute the ReEncrypt service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorInvalidCiphertext`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorIncorrectKey`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorInvalidCiphertext`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorIncorrectKey`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSReEncryptRequest
  @see AWSKMSReEncryptResponse
@@ -1105,7 +1105,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  
  @param request A container for the necessary parameters to execute the RetireGrant service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorInvalidArn`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorInvalidGrantId`, `AWSKMSErrorNotFound`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorInvalidArn`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorInvalidGrantId`, `AWSKMSErrorNotFound`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSRetireGrantRequest
  */
@@ -1116,7 +1116,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  
  @param request A container for the necessary parameters to execute the RetireGrant service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorInvalidArn`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorInvalidGrantId`, `AWSKMSErrorNotFound`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorInvalidArn`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorInvalidGrantId`, `AWSKMSErrorNotFound`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSRetireGrantRequest
  */
@@ -1127,7 +1127,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  
  @param request A container for the necessary parameters to execute the RevokeGrant service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidArn`, `AWSKMSErrorInvalidGrantId`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidArn`, `AWSKMSErrorInvalidGrantId`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSRevokeGrantRequest
  */
@@ -1138,14 +1138,14 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  
  @param request A container for the necessary parameters to execute the RevokeGrant service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidArn`, `AWSKMSErrorInvalidGrantId`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidArn`, `AWSKMSErrorInvalidGrantId`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSRevokeGrantRequest
  */
 - (void)revokeGrant:(AWSKMSRevokeGrantRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Schedules the deletion of a KMS key. By default, KMS applies a waiting period of 30 days, but you can specify a waiting period of 7-30 days. When this operation is successful, the key state of the KMS key changes to <code>PendingDeletion</code> and the key can't be used in any cryptographic operations. It remains in this state for the duration of the waiting period. Before the waiting period ends, you can use <a>CancelKeyDeletion</a> to cancel the deletion of the KMS key. After the waiting period ends, KMS deletes the KMS key, its key material, and all KMS data associated with it, including all aliases that refer to it.</p><important><p>Deleting a KMS key is a destructive and potentially dangerous operation. When a KMS key is deleted, all data that was encrypted under the KMS key is unrecoverable. (The only exception is a <a href="kms/latest/developerguide/multi-region-keys-delete.html">multi-Region replica key</a>, or an asymmetric or HMAC KMS key with imported key material[BUGBUG-link to importing-keys-managing.html#import-delete-key.) To prevent the use of a KMS key without deleting it, use <a>DisableKey</a>. </p></important><p>You can schedule the deletion of a multi-Region primary key and its replica keys at any time. However, KMS will not delete a multi-Region primary key with existing replica keys. If you schedule the deletion of a primary key with replicas, its key state changes to <code>PendingReplicaDeletion</code> and it cannot be replicated or used in cryptographic operations. This status can continue indefinitely. When the last of its replicas keys is deleted (not just scheduled), the key state of the primary key changes to <code>PendingDeletion</code> and its waiting period (<code>PendingWindowInDays</code>) begins. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html">Deleting multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</p><p>When KMS <a href="https://docs.aws.amazon.com/kms/latest/developerguide/delete-cmk-keystore.html">deletes a KMS key from an CloudHSM key store</a>, it makes a best effort to delete the associated key material from the associated CloudHSM cluster. However, you might need to manually <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-orphaned-key">delete the orphaned key material</a> from the cluster and its backups. <a href="https://docs.aws.amazon.com/kms/latest/developerguide/delete-xks-key.html">Deleting a KMS key from an external key store</a> has no effect on the associated external key. However, for both types of custom key stores, deleting a KMS key is destructive and irreversible. You cannot decrypt ciphertext encrypted under the KMS key by using only its associated external key or CloudHSM key. Also, you cannot recreate a KMS key in an external key store by creating a new KMS key with the same key material.</p><p>For more information about scheduling a KMS key for deletion, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html">Deleting KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p><p>The KMS key that you use for this operation must be in a compatible key state. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p><p><b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p><p><b>Required permissions</b>: kms:ScheduleKeyDeletion (key policy)</p><p><b>Related operations</b></p><ul><li><p><a>CancelKeyDeletion</a></p></li><li><p><a>DisableKey</a></p></li></ul>
+ <p>Schedules the deletion of a KMS key. By default, KMS applies a waiting period of 30 days, but you can specify a waiting period of 7-30 days. When this operation is successful, the key state of the KMS key changes to <code>PendingDeletion</code> and the key can't be used in any cryptographic operations. It remains in this state for the duration of the waiting period. Before the waiting period ends, you can use <a>CancelKeyDeletion</a> to cancel the deletion of the KMS key. After the waiting period ends, KMS deletes the KMS key, its key material, and all KMS data associated with it, including all aliases that refer to it.</p><important><p>Deleting a KMS key is a destructive and potentially dangerous operation. When a KMS key is deleted, all data that was encrypted under the KMS key is unrecoverable. (The only exception is a <a href="kms/latest/developerguide/multi-region-keys-delete.html">multi-Region replica key</a>, or an <a href="kms/latest/developerguide/importing-keys-managing.html#import-delete-key">asymmetric or HMAC KMS key with imported key material</a>.) To prevent the use of a KMS key without deleting it, use <a>DisableKey</a>. </p></important><p>You can schedule the deletion of a multi-Region primary key and its replica keys at any time. However, KMS will not delete a multi-Region primary key with existing replica keys. If you schedule the deletion of a primary key with replicas, its key state changes to <code>PendingReplicaDeletion</code> and it cannot be replicated or used in cryptographic operations. This status can continue indefinitely. When the last of its replicas keys is deleted (not just scheduled), the key state of the primary key changes to <code>PendingDeletion</code> and its waiting period (<code>PendingWindowInDays</code>) begins. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html">Deleting multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</p><p>When KMS <a href="https://docs.aws.amazon.com/kms/latest/developerguide/delete-cmk-keystore.html">deletes a KMS key from an CloudHSM key store</a>, it makes a best effort to delete the associated key material from the associated CloudHSM cluster. However, you might need to manually <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-orphaned-key">delete the orphaned key material</a> from the cluster and its backups. <a href="https://docs.aws.amazon.com/kms/latest/developerguide/delete-xks-key.html">Deleting a KMS key from an external key store</a> has no effect on the associated external key. However, for both types of custom key stores, deleting a KMS key is destructive and irreversible. You cannot decrypt ciphertext encrypted under the KMS key by using only its associated external key or CloudHSM key. Also, you cannot recreate a KMS key in an external key store by creating a new KMS key with the same key material.</p><p>For more information about scheduling a KMS key for deletion, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html">Deleting KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p><p>The KMS key that you use for this operation must be in a compatible key state. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p><p><b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p><p><b>Required permissions</b>: kms:ScheduleKeyDeletion (key policy)</p><p><b>Related operations</b></p><ul><li><p><a>CancelKeyDeletion</a></p></li><li><p><a>DisableKey</a></p></li></ul>
  
  @param request A container for the necessary parameters to execute the ScheduleKeyDeletion service method.
 
@@ -1157,7 +1157,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
 - (AWSTask<AWSKMSScheduleKeyDeletionResponse *> *)scheduleKeyDeletion:(AWSKMSScheduleKeyDeletionRequest *)request;
 
 /**
- <p>Schedules the deletion of a KMS key. By default, KMS applies a waiting period of 30 days, but you can specify a waiting period of 7-30 days. When this operation is successful, the key state of the KMS key changes to <code>PendingDeletion</code> and the key can't be used in any cryptographic operations. It remains in this state for the duration of the waiting period. Before the waiting period ends, you can use <a>CancelKeyDeletion</a> to cancel the deletion of the KMS key. After the waiting period ends, KMS deletes the KMS key, its key material, and all KMS data associated with it, including all aliases that refer to it.</p><important><p>Deleting a KMS key is a destructive and potentially dangerous operation. When a KMS key is deleted, all data that was encrypted under the KMS key is unrecoverable. (The only exception is a <a href="kms/latest/developerguide/multi-region-keys-delete.html">multi-Region replica key</a>, or an asymmetric or HMAC KMS key with imported key material[BUGBUG-link to importing-keys-managing.html#import-delete-key.) To prevent the use of a KMS key without deleting it, use <a>DisableKey</a>. </p></important><p>You can schedule the deletion of a multi-Region primary key and its replica keys at any time. However, KMS will not delete a multi-Region primary key with existing replica keys. If you schedule the deletion of a primary key with replicas, its key state changes to <code>PendingReplicaDeletion</code> and it cannot be replicated or used in cryptographic operations. This status can continue indefinitely. When the last of its replicas keys is deleted (not just scheduled), the key state of the primary key changes to <code>PendingDeletion</code> and its waiting period (<code>PendingWindowInDays</code>) begins. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html">Deleting multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</p><p>When KMS <a href="https://docs.aws.amazon.com/kms/latest/developerguide/delete-cmk-keystore.html">deletes a KMS key from an CloudHSM key store</a>, it makes a best effort to delete the associated key material from the associated CloudHSM cluster. However, you might need to manually <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-orphaned-key">delete the orphaned key material</a> from the cluster and its backups. <a href="https://docs.aws.amazon.com/kms/latest/developerguide/delete-xks-key.html">Deleting a KMS key from an external key store</a> has no effect on the associated external key. However, for both types of custom key stores, deleting a KMS key is destructive and irreversible. You cannot decrypt ciphertext encrypted under the KMS key by using only its associated external key or CloudHSM key. Also, you cannot recreate a KMS key in an external key store by creating a new KMS key with the same key material.</p><p>For more information about scheduling a KMS key for deletion, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html">Deleting KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p><p>The KMS key that you use for this operation must be in a compatible key state. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p><p><b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p><p><b>Required permissions</b>: kms:ScheduleKeyDeletion (key policy)</p><p><b>Related operations</b></p><ul><li><p><a>CancelKeyDeletion</a></p></li><li><p><a>DisableKey</a></p></li></ul>
+ <p>Schedules the deletion of a KMS key. By default, KMS applies a waiting period of 30 days, but you can specify a waiting period of 7-30 days. When this operation is successful, the key state of the KMS key changes to <code>PendingDeletion</code> and the key can't be used in any cryptographic operations. It remains in this state for the duration of the waiting period. Before the waiting period ends, you can use <a>CancelKeyDeletion</a> to cancel the deletion of the KMS key. After the waiting period ends, KMS deletes the KMS key, its key material, and all KMS data associated with it, including all aliases that refer to it.</p><important><p>Deleting a KMS key is a destructive and potentially dangerous operation. When a KMS key is deleted, all data that was encrypted under the KMS key is unrecoverable. (The only exception is a <a href="kms/latest/developerguide/multi-region-keys-delete.html">multi-Region replica key</a>, or an <a href="kms/latest/developerguide/importing-keys-managing.html#import-delete-key">asymmetric or HMAC KMS key with imported key material</a>.) To prevent the use of a KMS key without deleting it, use <a>DisableKey</a>. </p></important><p>You can schedule the deletion of a multi-Region primary key and its replica keys at any time. However, KMS will not delete a multi-Region primary key with existing replica keys. If you schedule the deletion of a primary key with replicas, its key state changes to <code>PendingReplicaDeletion</code> and it cannot be replicated or used in cryptographic operations. This status can continue indefinitely. When the last of its replicas keys is deleted (not just scheduled), the key state of the primary key changes to <code>PendingDeletion</code> and its waiting period (<code>PendingWindowInDays</code>) begins. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html">Deleting multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</p><p>When KMS <a href="https://docs.aws.amazon.com/kms/latest/developerguide/delete-cmk-keystore.html">deletes a KMS key from an CloudHSM key store</a>, it makes a best effort to delete the associated key material from the associated CloudHSM cluster. However, you might need to manually <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-orphaned-key">delete the orphaned key material</a> from the cluster and its backups. <a href="https://docs.aws.amazon.com/kms/latest/developerguide/delete-xks-key.html">Deleting a KMS key from an external key store</a> has no effect on the associated external key. However, for both types of custom key stores, deleting a KMS key is destructive and irreversible. You cannot decrypt ciphertext encrypted under the KMS key by using only its associated external key or CloudHSM key. Also, you cannot recreate a KMS key in an external key store by creating a new KMS key with the same key material.</p><p>For more information about scheduling a KMS key for deletion, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html">Deleting KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p><p>The KMS key that you use for this operation must be in a compatible key state. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p><p><b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p><p><b>Required permissions</b>: kms:ScheduleKeyDeletion (key policy)</p><p><b>Related operations</b></p><ul><li><p><a>CancelKeyDeletion</a></p></li><li><p><a>DisableKey</a></p></li></ul>
  
  @param request A container for the necessary parameters to execute the ScheduleKeyDeletion service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1174,7 +1174,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  
  @param request A container for the necessary parameters to execute the Sign service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSSignResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSSignResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSSignRequest
  @see AWSKMSSignResponse
@@ -1187,7 +1187,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  @param request A container for the necessary parameters to execute the Sign service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSSignRequest
  @see AWSKMSSignResponse
@@ -1334,7 +1334,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  
  @param request A container for the necessary parameters to execute the Verify service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSVerifyResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorKMSInvalidSignature`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSVerifyResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorKMSInvalidSignature`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSVerifyRequest
  @see AWSKMSVerifyResponse
@@ -1347,7 +1347,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  @param request A container for the necessary parameters to execute the Verify service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorKMSInvalidSignature`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorDependencyTimeout`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorKMSInvalidSignature`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSVerifyRequest
  @see AWSKMSVerifyResponse
@@ -1359,7 +1359,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  
  @param request A container for the necessary parameters to execute the VerifyMac service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSVerifyMacResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidMac`, `AWSKMSErrorKMSInvalidState`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKMSVerifyMacResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidMac`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSVerifyMacRequest
  @see AWSKMSVerifyMacResponse
@@ -1372,7 +1372,7 @@ FOUNDATION_EXPORT NSString *const AWSKMSSDKVersion;
  @param request A container for the necessary parameters to execute the VerifyMac service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidMac`, `AWSKMSErrorKMSInvalidState`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKMSErrorDomain` domain and the following error code: `AWSKMSErrorNotFound`, `AWSKMSErrorDisabled`, `AWSKMSErrorKeyUnavailable`, `AWSKMSErrorInvalidKeyUsage`, `AWSKMSErrorInvalidGrantToken`, `AWSKMSErrorKMSInternal`, `AWSKMSErrorKMSInvalidMac`, `AWSKMSErrorKMSInvalidState`, `AWSKMSErrorDryRunOperation`.
  
  @see AWSKMSVerifyMacRequest
  @see AWSKMSVerifyMacResponse
