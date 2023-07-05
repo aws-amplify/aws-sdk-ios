@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 
 /**
- <p>The Amazon Chime SDK Messaging APIs in this section allow software developers to send and receive messages in custom messaging applications. These APIs depend on the frameworks provided by the Amazon Chime SDK Identity APIs. For more information about the messaging APIs, see <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging.html">Amazon Chime SDK messaging</a>.</p>
+ <p>The Amazon Chime SDK messaging APIs in this section allow software developers to send and receive messages in custom messaging applications. These APIs depend on the frameworks provided by the Amazon Chime SDK identity APIs. For more information about the messaging APIs, see <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging.html">Amazon Chime SDK messaging</a>.</p>
  */
 @interface AWSChimeSDKMessaging : AWSService
 
@@ -222,7 +222,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)batchCreateChannelMembership:(AWSChimeSDKMessagingBatchCreateChannelMembershipRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingBatchCreateChannelMembershipResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Calls back Chime SDK Messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.</p><p>You can return one of the following processing responses:</p><ul><li><p>Update message content or metadata</p></li><li><p>Deny a message</p></li><li><p>Make no changes to the message</p></li></ul>
+ <p>Calls back Amazon Chime SDK messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.</p><p>You can return one of the following processing responses:</p><ul><li><p>Update message content or metadata</p></li><li><p>Deny a message</p></li><li><p>Make no changes to the message</p></li></ul>
  
  @param request A container for the necessary parameters to execute the ChannelFlowCallback service method.
 
@@ -234,7 +234,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingChannelFlowCallbackResponse *> *)channelFlowCallback:(AWSChimeSDKMessagingChannelFlowCallbackRequest *)request;
 
 /**
- <p>Calls back Chime SDK Messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.</p><p>You can return one of the following processing responses:</p><ul><li><p>Update message content or metadata</p></li><li><p>Deny a message</p></li><li><p>Make no changes to the message</p></li></ul>
+ <p>Calls back Amazon Chime SDK messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.</p><p>You can return one of the following processing responses:</p><ul><li><p>Update message content or metadata</p></li><li><p>Deny a message</p></li><li><p>Make no changes to the message</p></li></ul>
  
  @param request A container for the necessary parameters to execute the ChannelFlowCallback service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -297,7 +297,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)createChannelBan:(AWSChimeSDKMessagingCreateChannelBanRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingCreateChannelBanResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions that perform actions on chat messages, such as stripping out profanity. You can associate channel flows with channels, and the processors in the channel flow then take action on all messages sent to that channel. This is a developer API.</p><p>Channel flows process the following items:</p><ol><li><p>New and updated messages</p></li><li><p>Persistent and non-persistent messages</p></li><li><p>The Standard message type</p></li></ol><note><p>Channel flows don't process Control or System messages. For more information about the message types provided by Chime SDK Messaging, refer to <a href="https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types">Message types</a> in the <i>Amazon Chime developer guide</i>.</p></note>
+ <p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions that perform actions on chat messages, such as stripping out profanity. You can associate channel flows with channels, and the processors in the channel flow then take action on all messages sent to that channel. This is a developer API.</p><p>Channel flows process the following items:</p><ol><li><p>New and updated messages</p></li><li><p>Persistent and non-persistent messages</p></li><li><p>The Standard message type</p></li></ol><note><p>Channel flows don't process Control or System messages. For more information about the message types provided by Chime SDK messaging, refer to <a href="https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types">Message types</a> in the <i>Amazon Chime developer guide</i>.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateChannelFlow service method.
 
@@ -309,7 +309,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingCreateChannelFlowResponse *> *)createChannelFlow:(AWSChimeSDKMessagingCreateChannelFlowRequest *)request;
 
 /**
- <p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions that perform actions on chat messages, such as stripping out profanity. You can associate channel flows with channels, and the processors in the channel flow then take action on all messages sent to that channel. This is a developer API.</p><p>Channel flows process the following items:</p><ol><li><p>New and updated messages</p></li><li><p>Persistent and non-persistent messages</p></li><li><p>The Standard message type</p></li></ol><note><p>Channel flows don't process Control or System messages. For more information about the message types provided by Chime SDK Messaging, refer to <a href="https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types">Message types</a> in the <i>Amazon Chime developer guide</i>.</p></note>
+ <p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions that perform actions on chat messages, such as stripping out profanity. You can associate channel flows with channels, and the processors in the channel flow then take action on all messages sent to that channel. This is a developer API.</p><p>Channel flows process the following items:</p><ol><li><p>New and updated messages</p></li><li><p>Persistent and non-persistent messages</p></li><li><p>The Standard message type</p></li></ol><note><p>Channel flows don't process Control or System messages. For more information about the message types provided by Chime SDK messaging, refer to <a href="https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types">Message types</a> in the <i>Amazon Chime developer guide</i>.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateChannelFlow service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -723,7 +723,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)disassociateChannelFlow:(AWSChimeSDKMessagingDisassociateChannelFlowRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> for the specified channel. A user or a bot must be a member of the channel and own the membership to be able to retrieve membership preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't retrieve preferences for other users or bots. Banned users or bots can't retrieve membership preferences for the channel from which they are banned.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
+ <p>Gets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> for the specified channel. A user or a bot must be a member of the channel and own the membership in order to retrieve membership preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't retrieve preferences for other users or bots. Banned users or bots can't retrieve membership preferences for the channel from which they are banned.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the GetChannelMembershipPreferences service method.
 
@@ -735,7 +735,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingGetChannelMembershipPreferencesResponse *> *)getChannelMembershipPreferences:(AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest *)request;
 
 /**
- <p>Gets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> for the specified channel. A user or a bot must be a member of the channel and own the membership to be able to retrieve membership preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't retrieve preferences for other users or bots. Banned users or bots can't retrieve membership preferences for the channel from which they are banned.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
+ <p>Gets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> for the specified channel. A user or a bot must be a member of the channel and own the membership in order to retrieve membership preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't retrieve preferences for other users or bots. Banned users or bots can't retrieve membership preferences for the channel from which they are banned.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the GetChannelMembershipPreferences service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -773,7 +773,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)getChannelMessage:(AWSChimeSDKMessagingGetChannelMessageRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingGetChannelMessageResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to retrieving message status if the event was not received because a client wasn't connected to a websocket. </p><p>Messages can have any one of these statuses.</p><dl><dt>SENT</dt><dd><p>Message processed successfully</p></dd><dt>PENDING</dt><dd><p>Ongoing processing</p></dd><dt>FAILED</dt><dd><p>Processing failed</p></dd><dt>DENIED</dt><dd><p>Messasge denied by the processor</p></dd></dl><note><ul><li><p>This API does not return statuses for denied messages, because we don't store them once the processor denies them. </p></li><li><p>Only the message sender can invoke this API.</p></li><li><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></li></ul></note>
+ <p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to retrieving message status if the event was not received because a client wasn't connected to a websocket. </p><p>Messages can have any one of these statuses.</p><dl><dt>SENT</dt><dd><p>Message processed successfully</p></dd><dt>PENDING</dt><dd><p>Ongoing processing</p></dd><dt>FAILED</dt><dd><p>Processing failed</p></dd><dt>DENIED</dt><dd><p>Message denied by the processor</p></dd></dl><note><ul><li><p>This API does not return statuses for denied messages, because we don't store them once the processor denies them. </p></li><li><p>Only the message sender can invoke this API.</p></li><li><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></li></ul></note>
  
  @param request A container for the necessary parameters to execute the GetChannelMessageStatus service method.
 
@@ -785,7 +785,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingGetChannelMessageStatusResponse *> *)getChannelMessageStatus:(AWSChimeSDKMessagingGetChannelMessageStatusRequest *)request;
 
 /**
- <p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to retrieving message status if the event was not received because a client wasn't connected to a websocket. </p><p>Messages can have any one of these statuses.</p><dl><dt>SENT</dt><dd><p>Message processed successfully</p></dd><dt>PENDING</dt><dd><p>Ongoing processing</p></dd><dt>FAILED</dt><dd><p>Processing failed</p></dd><dt>DENIED</dt><dd><p>Messasge denied by the processor</p></dd></dl><note><ul><li><p>This API does not return statuses for denied messages, because we don't store them once the processor denies them. </p></li><li><p>Only the message sender can invoke this API.</p></li><li><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></li></ul></note>
+ <p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to retrieving message status if the event was not received because a client wasn't connected to a websocket. </p><p>Messages can have any one of these statuses.</p><dl><dt>SENT</dt><dd><p>Message processed successfully</p></dd><dt>PENDING</dt><dd><p>Ongoing processing</p></dd><dt>FAILED</dt><dd><p>Processing failed</p></dd><dt>DENIED</dt><dd><p>Message denied by the processor</p></dd></dl><note><ul><li><p>This API does not return statuses for denied messages, because we don't store them once the processor denies them. </p></li><li><p>Only the message sender can invoke this API.</p></li><li><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></li></ul></note>
  
  @param request A container for the necessary parameters to execute the GetChannelMessageStatus service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -923,7 +923,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)listChannelMemberships:(AWSChimeSDKMessagingListChannelMembershipsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingListChannelMembershipsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Lists all channels that anr <code>AppInstanceUser</code> or <code>AppInstanceBot</code> is a part of. Only an <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
+ <p> Lists all channels that an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> is a part of. Only an <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the ListChannelMembershipsForAppInstanceUser service method.
 
@@ -935,7 +935,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingListChannelMembershipsForAppInstanceUserResponse *> *)listChannelMembershipsForAppInstanceUser:(AWSChimeSDKMessagingListChannelMembershipsForAppInstanceUserRequest *)request;
 
 /**
- <p> Lists all channels that anr <code>AppInstanceUser</code> or <code>AppInstanceBot</code> is a part of. Only an <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
+ <p> Lists all channels that an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> is a part of. Only an <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the ListChannelMembershipsForAppInstanceUser service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1148,7 +1148,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)putChannelExpirationSettings:(AWSChimeSDKMessagingPutChannelExpirationSettingsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingPutChannelExpirationSettingsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppIntanceBot</code> for the specified channel. The user or bot must be a member of the channel. Only the user or bot who owns the membership can set preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't set preferences for other users or users. Banned users or bots can't set membership preferences for the channel from which they are banned.</p><note><p>The x-amz-chime-bearer request header is mandatory. Use the ARN of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
+ <p>Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> for the specified channel. The user or bot must be a member of the channel. Only the user or bot who owns the membership can set preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't set preferences for other users. Banned users or bots can't set membership preferences for the channel from which they are banned.</p><note><p>The x-amz-chime-bearer request header is mandatory. Use the ARN of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the PutChannelMembershipPreferences service method.
 
@@ -1160,7 +1160,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse *> *)putChannelMembershipPreferences:(AWSChimeSDKMessagingPutChannelMembershipPreferencesRequest *)request;
 
 /**
- <p>Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppIntanceBot</code> for the specified channel. The user or bot must be a member of the channel. Only the user or bot who owns the membership can set preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't set preferences for other users or users. Banned users or bots can't set membership preferences for the channel from which they are banned.</p><note><p>The x-amz-chime-bearer request header is mandatory. Use the ARN of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
+ <p>Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> for the specified channel. The user or bot must be a member of the channel. Only the user or bot who owns the membership can set preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't set preferences for other users. Banned users or bots can't set membership preferences for the channel from which they are banned.</p><note><p>The x-amz-chime-bearer request header is mandatory. Use the ARN of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the PutChannelMembershipPreferences service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1248,7 +1248,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)searchChannels:(AWSChimeSDKMessagingSearchChannelsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingSearchChannelsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sends a message to a particular channel that the member is a part of.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p><p>Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata. <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.</p></note>
+ <p>Sends a message to a particular channel that the member is a part of.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p><p>Also, <code>STANDARD</code> messages can be up to 4KB in size and contain metadata. Metadata is arbitrary, and you can use it in a variety of ways, such as containing a link to an attachment.</p><p><code>CONTROL</code> messages are limited to 30 bytes and do not contain metadata.</p></note>
  
  @param request A container for the necessary parameters to execute the SendChannelMessage service method.
 
@@ -1260,7 +1260,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingSendChannelMessageResponse *> *)sendChannelMessage:(AWSChimeSDKMessagingSendChannelMessageRequest *)request;
 
 /**
- <p>Sends a message to a particular channel that the member is a part of.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p><p>Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata. <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.</p></note>
+ <p>Sends a message to a particular channel that the member is a part of.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p><p>Also, <code>STANDARD</code> messages can be up to 4KB in size and contain metadata. Metadata is arbitrary, and you can use it in a variety of ways, such as containing a link to an attachment.</p><p><code>CONTROL</code> messages are limited to 30 bytes and do not contain metadata.</p></note>
  
  @param request A container for the necessary parameters to execute the SendChannelMessage service method.
  @param completionHandler The completion handler to call when the load request is complete.

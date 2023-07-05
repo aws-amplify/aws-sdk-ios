@@ -744,6 +744,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"sender" : @"Sender",
              @"status" : @"Status",
              @"subChannelId" : @"SubChannelId",
+             @"target" : @"Target",
              @"types" : @"Type",
              };
 }
@@ -807,6 +808,10 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 
 + (NSValueTransformer *)statusJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKMessagingChannelMessageStatusStructure class]];
+}
+
++ (NSValueTransformer *)targetJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSChimeSDKMessagingTarget class]];
 }
 
 + (NSValueTransformer *)typesJSONTransformer {
@@ -929,6 +934,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"redacted" : @"Redacted",
              @"sender" : @"Sender",
              @"status" : @"Status",
+             @"target" : @"Target",
              @"types" : @"Type",
              };
 }
@@ -971,6 +977,10 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 
 + (NSValueTransformer *)statusJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKMessagingChannelMessageStatusStructure class]];
+}
+
++ (NSValueTransformer *)targetJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSChimeSDKMessagingTarget class]];
 }
 
 + (NSValueTransformer *)typesJSONTransformer {
@@ -2937,6 +2947,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"persistence" : @"Persistence",
              @"pushNotification" : @"PushNotification",
              @"subChannelId" : @"SubChannelId",
+             @"target" : @"Target",
              @"types" : @"Type",
              };
 }
@@ -2972,6 +2983,10 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 
 + (NSValueTransformer *)pushNotificationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKMessagingPushNotificationConfiguration class]];
+}
+
++ (NSValueTransformer *)targetJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSChimeSDKMessagingTarget class]];
 }
 
 + (NSValueTransformer *)typesJSONTransformer {
@@ -3099,6 +3114,20 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 
 + (NSValueTransformer *)tagsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSChimeSDKMessagingTag class]];
+}
+
+@end
+
+@implementation AWSChimeSDKMessagingTarget
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"memberArn" : @"MemberArn",
+             };
 }
 
 @end
