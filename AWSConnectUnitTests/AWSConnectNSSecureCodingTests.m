@@ -383,6 +383,7 @@
 - (void) test_AWSConnectReplicateInstanceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectReplicateInstanceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectRequiredFieldInfo API_AVAILABLE(ios(11));
+- (void) test_AWSConnectResourceTagsSearchCriteria API_AVAILABLE(ios(11));
 - (void) test_AWSConnectResumeContactRecordingRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectResumeContactRecordingResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectRoutingProfile API_AVAILABLE(ios(11));
@@ -408,6 +409,8 @@
 - (void) test_AWSConnectSearchQueuesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSearchQuickConnectsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSearchQuickConnectsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSearchResourceTagsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSearchResourceTagsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSearchRoutingProfilesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSearchRoutingProfilesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSearchSecurityProfilesRequest API_AVAILABLE(ios(11));
@@ -450,6 +453,8 @@
 - (void) test_AWSConnectSuspendContactRecordingResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTagCondition API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTagResourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectTagSearchCondition API_AVAILABLE(ios(11));
+- (void) test_AWSConnectTagSet API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTaskActionDefinition API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTaskTemplateConstraints API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTaskTemplateDefaultFieldValue API_AVAILABLE(ios(11));
@@ -1999,6 +2004,10 @@
     [self validateSecureCodingForClass:[AWSConnectRequiredFieldInfo class]];
 }
 
+- (void) test_AWSConnectResourceTagsSearchCriteria {
+    [self validateSecureCodingForClass:[AWSConnectResourceTagsSearchCriteria class]];
+}
+
 - (void) test_AWSConnectResumeContactRecordingRequest {
     [self validateSecureCodingForClass:[AWSConnectResumeContactRecordingRequest class]];
 }
@@ -2097,6 +2106,14 @@
 
 - (void) test_AWSConnectSearchQuickConnectsResponse {
     [self validateSecureCodingForClass:[AWSConnectSearchQuickConnectsResponse class]];
+}
+
+- (void) test_AWSConnectSearchResourceTagsRequest {
+    [self validateSecureCodingForClass:[AWSConnectSearchResourceTagsRequest class]];
+}
+
+- (void) test_AWSConnectSearchResourceTagsResponse {
+    [self validateSecureCodingForClass:[AWSConnectSearchResourceTagsResponse class]];
 }
 
 - (void) test_AWSConnectSearchRoutingProfilesRequest {
@@ -2265,6 +2282,14 @@
 
 - (void) test_AWSConnectTagResourceRequest {
     [self validateSecureCodingForClass:[AWSConnectTagResourceRequest class]];
+}
+
+- (void) test_AWSConnectTagSearchCondition {
+    [self validateSecureCodingForClass:[AWSConnectTagSearchCondition class]];
+}
+
+- (void) test_AWSConnectTagSet {
+    [self validateSecureCodingForClass:[AWSConnectTagSet class]];
 }
 
 - (void) test_AWSConnectTaskActionDefinition {
