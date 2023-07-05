@@ -839,11 +839,11 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"AppInstanceUserArn\":{\
-          \"shape\":\"SensitiveChimeArn\",\
+          \"shape\":\"ChimeArn\",\
           \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code>.</p>\"\
         },\
         \"EndpointId\":{\
-          \"shape\":\"SensitiveString64\",\
+          \"shape\":\"String64\",\
           \"documentation\":\"<p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>\"\
         },\
         \"Name\":{\
@@ -885,11 +885,11 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"AppInstanceUserArn\":{\
-          \"shape\":\"SensitiveChimeArn\",\
+          \"shape\":\"ChimeArn\",\
           \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code>.</p>\"\
         },\
         \"EndpointId\":{\
-          \"shape\":\"SensitiveString64\",\
+          \"shape\":\"String64\",\
           \"documentation\":\"<p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>\"\
         },\
         \"Name\":{\
@@ -1223,13 +1223,13 @@
       ],\
       \"members\":{\
         \"AppInstanceUserArn\":{\
-          \"shape\":\"SensitiveChimeArn\",\
+          \"shape\":\"ChimeArn\",\
           \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code>.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"appInstanceUserArn\"\
         },\
         \"EndpointId\":{\
-          \"shape\":\"SensitiveString64\",\
+          \"shape\":\"String64\",\
           \"documentation\":\"<p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"endpointId\"\
@@ -1316,13 +1316,13 @@
       ],\
       \"members\":{\
         \"AppInstanceUserArn\":{\
-          \"shape\":\"SensitiveString1600\",\
+          \"shape\":\"String1600\",\
           \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code>.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"appInstanceUserArn\"\
         },\
         \"EndpointId\":{\
-          \"shape\":\"SensitiveString64\",\
+          \"shape\":\"String64\",\
           \"documentation\":\"<p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"endpointId\"\
@@ -1499,6 +1499,24 @@
       },\
       \"documentation\":\"<p>The details of a user or bot.</p>\"\
     },\
+    \"InvokedBy\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"StandardMessages\",\
+        \"TargetedMessages\"\
+      ],\
+      \"members\":{\
+        \"StandardMessages\":{\
+          \"shape\":\"StandardMessages\",\
+          \"documentation\":\"<p>Sets standard messages as the bot trigger. For standard messages:</p> <ul> <li> <p> <code>ALL</code>: The bot processes all standard messages.</p> </li> <li> <p> <code>AUTO</code>: The bot responds to ALL messages when the channel has one other non-hidden member, and responds to MENTIONS when the channel has more than one other non-hidden member.</p> </li> <li> <p> <code>MENTIONS</code>: The bot processes all standard messages that have a message attribute with <code>CHIME.mentions</code> and a value of the bot ARN.</p> </li> <li> <p> <code>NONE</code>: The bot processes no standard messages.</p> </li> </ul>\"\
+        },\
+        \"TargetedMessages\":{\
+          \"shape\":\"TargetedMessages\",\
+          \"documentation\":\"<p>Sets targeted messages as the bot trigger. For targeted messages:</p> <ul> <li> <p> <code>ALL</code>: The bot processes all <code>TargetedMessages</code> sent to it. The bot then responds with a targeted message back to the sender. </p> </li> <li> <p> <code>NONE</code>: The bot processes no targeted messages.</p> </li> </ul>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Specifies the type of message that triggers a bot.</p>\"\
+    },\
     \"LexBotAliasArn\":{\
       \"type\":\"string\",\
       \"max\":2048,\
@@ -1508,14 +1526,17 @@
     \"LexConfiguration\":{\
       \"type\":\"structure\",\
       \"required\":[\
-        \"RespondsTo\",\
         \"LexBotAliasArn\",\
         \"LocaleId\"\
       ],\
       \"members\":{\
         \"RespondsTo\":{\
           \"shape\":\"RespondsTo\",\
-          \"documentation\":\"<p>Determines whether the Amazon Lex V2 bot responds to all standard messages. Control messages are not supported.</p>\"\
+          \"documentation\":\"<important> <p> <b>Deprecated</b>. Use <code>InvokedBy</code> instead.</p> </important> <p>Determines whether the Amazon Lex V2 bot responds to all standard messages. Control messages are not supported.</p>\"\
+        },\
+        \"InvokedBy\":{\
+          \"shape\":\"InvokedBy\",\
+          \"documentation\":\"<p>Specifies the type of message that triggers a bot.</p>\"\
         },\
         \"LexBotAliasArn\":{\
           \"shape\":\"LexBotAliasArn\",\
@@ -1900,11 +1921,11 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"AppInstanceUserArn\":{\
-          \"shape\":\"SensitiveChimeArn\",\
+          \"shape\":\"ChimeArn\",\
           \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code>.</p>\"\
         },\
         \"EndpointId\":{\
-          \"shape\":\"SensitiveString64\",\
+          \"shape\":\"String64\",\
           \"documentation\":\"<p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>\"\
         }\
       }\
@@ -1949,13 +1970,6 @@
       \"pattern\":\".*\",\
       \"sensitive\":true\
     },\
-    \"SensitiveString64\":{\
-      \"type\":\"string\",\
-      \"max\":64,\
-      \"min\":0,\
-      \"pattern\":\".*\",\
-      \"sensitive\":true\
-    },\
     \"ServiceFailureException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -1978,7 +1992,28 @@
       \"exception\":true,\
       \"fault\":true\
     },\
+    \"StandardMessages\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"AUTO\",\
+        \"ALL\",\
+        \"MENTIONS\",\
+        \"NONE\"\
+      ]\
+    },\
     \"String\":{\"type\":\"string\"},\
+    \"String1600\":{\
+      \"type\":\"string\",\
+      \"max\":1600,\
+      \"min\":0,\
+      \"pattern\":\".*\"\
+    },\
+    \"String64\":{\
+      \"type\":\"string\",\
+      \"max\":64,\
+      \"min\":0,\
+      \"pattern\":\".*\"\
+    },\
     \"Tag\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -2037,6 +2072,13 @@
       \"max\":256,\
       \"min\":1,\
       \"sensitive\":true\
+    },\
+    \"TargetedMessages\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ALL\",\
+        \"NONE\"\
+      ]\
     },\
     \"ThrottledClientException\":{\
       \"type\":\"structure\",\
@@ -2097,6 +2139,10 @@
         \"Metadata\":{\
           \"shape\":\"Metadata\",\
           \"documentation\":\"<p>The metadata of the <code>AppInstanceBot</code>.</p>\"\
+        },\
+        \"Configuration\":{\
+          \"shape\":\"Configuration\",\
+          \"documentation\":\"<p>The configuration for the bot update.</p>\"\
         }\
       }\
     },\
@@ -2150,13 +2196,13 @@
       ],\
       \"members\":{\
         \"AppInstanceUserArn\":{\
-          \"shape\":\"SensitiveChimeArn\",\
+          \"shape\":\"ChimeArn\",\
           \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code>.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"appInstanceUserArn\"\
         },\
         \"EndpointId\":{\
-          \"shape\":\"SensitiveString64\",\
+          \"shape\":\"String64\",\
           \"documentation\":\"<p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"endpointId\"\
@@ -2175,11 +2221,11 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"AppInstanceUserArn\":{\
-          \"shape\":\"SensitiveChimeArn\",\
+          \"shape\":\"ChimeArn\",\
           \"documentation\":\"<p>The ARN of the <code>AppInstanceUser</code>.</p>\"\
         },\
         \"EndpointId\":{\
-          \"shape\":\"SensitiveString64\",\
+          \"shape\":\"String64\",\
           \"documentation\":\"<p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>\"\
         }\
       }\

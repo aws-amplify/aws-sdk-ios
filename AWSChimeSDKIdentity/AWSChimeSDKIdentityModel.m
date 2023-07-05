@@ -983,6 +983,73 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 
 @end
 
+@implementation AWSChimeSDKIdentityInvokedBy
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"standardMessages" : @"StandardMessages",
+             @"targetedMessages" : @"TargetedMessages",
+             };
+}
+
++ (NSValueTransformer *)standardMessagesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"AUTO"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityStandardMessagesAuto);
+        }
+        if ([value caseInsensitiveCompare:@"ALL"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityStandardMessagesAll);
+        }
+        if ([value caseInsensitiveCompare:@"MENTIONS"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityStandardMessagesMentions);
+        }
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityStandardMessagesNone);
+        }
+        return @(AWSChimeSDKIdentityStandardMessagesUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSChimeSDKIdentityStandardMessagesAuto:
+                return @"AUTO";
+            case AWSChimeSDKIdentityStandardMessagesAll:
+                return @"ALL";
+            case AWSChimeSDKIdentityStandardMessagesMentions:
+                return @"MENTIONS";
+            case AWSChimeSDKIdentityStandardMessagesNone:
+                return @"NONE";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)targetedMessagesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ALL"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityTargetedMessagesAll);
+        }
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityTargetedMessagesNone);
+        }
+        return @(AWSChimeSDKIdentityTargetedMessagesUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSChimeSDKIdentityTargetedMessagesAll:
+                return @"ALL";
+            case AWSChimeSDKIdentityTargetedMessagesNone:
+                return @"NONE";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSChimeSDKIdentityLexConfiguration
 
 + (BOOL)supportsSecureCoding {
@@ -991,11 +1058,16 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"invokedBy" : @"InvokedBy",
              @"lexBotAliasArn" : @"LexBotAliasArn",
              @"localeId" : @"LocaleId",
              @"respondsTo" : @"RespondsTo",
              @"welcomeIntent" : @"WelcomeIntent",
              };
+}
+
++ (NSValueTransformer *)invokedByJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKIdentityInvokedBy class]];
 }
 
 + (NSValueTransformer *)respondsToJSONTransformer {
@@ -1453,9 +1525,14 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"appInstanceBotArn" : @"AppInstanceBotArn",
+             @"configuration" : @"Configuration",
              @"metadata" : @"Metadata",
              @"name" : @"Name",
              };
+}
+
++ (NSValueTransformer *)configurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKIdentityConfiguration class]];
 }
 
 @end

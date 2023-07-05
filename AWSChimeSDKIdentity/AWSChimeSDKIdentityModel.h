@@ -88,6 +88,20 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityRespondsTo) {
     AWSChimeSDKIdentityRespondsToStandardMessages,
 };
 
+typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityStandardMessages) {
+    AWSChimeSDKIdentityStandardMessagesUnknown,
+    AWSChimeSDKIdentityStandardMessagesAuto,
+    AWSChimeSDKIdentityStandardMessagesAll,
+    AWSChimeSDKIdentityStandardMessagesMentions,
+    AWSChimeSDKIdentityStandardMessagesNone,
+};
+
+typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityTargetedMessages) {
+    AWSChimeSDKIdentityTargetedMessagesUnknown,
+    AWSChimeSDKIdentityTargetedMessagesAll,
+    AWSChimeSDKIdentityTargetedMessagesNone,
+};
+
 @class AWSChimeSDKIdentityAppInstance;
 @class AWSChimeSDKIdentityAppInstanceAdmin;
 @class AWSChimeSDKIdentityAppInstanceAdminSummary;
@@ -130,6 +144,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityRespondsTo) {
 @class AWSChimeSDKIdentityGetAppInstanceRetentionSettingsRequest;
 @class AWSChimeSDKIdentityGetAppInstanceRetentionSettingsResponse;
 @class AWSChimeSDKIdentityIdentity;
+@class AWSChimeSDKIdentityInvokedBy;
 @class AWSChimeSDKIdentityLexConfiguration;
 @class AWSChimeSDKIdentityListAppInstanceAdminsRequest;
 @class AWSChimeSDKIdentityListAppInstanceAdminsResponse;
@@ -1017,11 +1032,35 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityRespondsTo) {
 @end
 
 /**
+ <p>Specifies the type of message that triggers a bot.</p>
+ Required parameters: [StandardMessages, TargetedMessages]
+ */
+@interface AWSChimeSDKIdentityInvokedBy : AWSModel
+
+
+/**
+ <p>Sets standard messages as the bot trigger. For standard messages:</p><ul><li><p><code>ALL</code>: The bot processes all standard messages.</p></li><li><p><code>AUTO</code>: The bot responds to ALL messages when the channel has one other non-hidden member, and responds to MENTIONS when the channel has more than one other non-hidden member.</p></li><li><p><code>MENTIONS</code>: The bot processes all standard messages that have a message attribute with <code>CHIME.mentions</code> and a value of the bot ARN.</p></li><li><p><code>NONE</code>: The bot processes no standard messages.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSChimeSDKIdentityStandardMessages standardMessages;
+
+/**
+ <p>Sets targeted messages as the bot trigger. For targeted messages:</p><ul><li><p><code>ALL</code>: The bot processes all <code>TargetedMessages</code> sent to it. The bot then responds with a targeted message back to the sender. </p></li><li><p><code>NONE</code>: The bot processes no targeted messages.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSChimeSDKIdentityTargetedMessages targetedMessages;
+
+@end
+
+/**
  <p>The configuration for an Amazon Lex V2 bot.</p>
- Required parameters: [RespondsTo, LexBotAliasArn, LocaleId]
+ Required parameters: [LexBotAliasArn, LocaleId]
  */
 @interface AWSChimeSDKIdentityLexConfiguration : AWSModel
 
+
+/**
+ <p>Specifies the type of message that triggers a bot.</p>
+ */
+@property (nonatomic, strong) AWSChimeSDKIdentityInvokedBy * _Nullable invokedBy;
 
 /**
  <p>The ARN of the Amazon Lex V2 bot's alias. The ARN uses this format: <code>arn:aws:lex:REGION:ACCOUNT:bot-alias/MYBOTID/MYBOTALIAS</code></p>
@@ -1034,7 +1073,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityRespondsTo) {
 @property (nonatomic, strong) NSString * _Nullable localeId;
 
 /**
- <p>Determines whether the Amazon Lex V2 bot responds to all standard messages. Control messages are not supported.</p>
+ <important><p><b>Deprecated</b>. Use <code>InvokedBy</code> instead.</p></important><p>Determines whether the Amazon Lex V2 bot responds to all standard messages. Control messages are not supported.</p>
  */
 @property (nonatomic, assign) AWSChimeSDKIdentityRespondsTo respondsTo;
 
@@ -1484,6 +1523,11 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityRespondsTo) {
  <p>The ARN of the <code>AppInstanceBot</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable appInstanceBotArn;
+
+/**
+ <p>The configuration for the bot update.</p>
+ */
+@property (nonatomic, strong) AWSChimeSDKIdentityConfiguration * _Nullable configuration;
 
 /**
  <p>The metadata of the <code>AppInstanceBot</code>.</p>

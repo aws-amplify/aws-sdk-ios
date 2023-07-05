@@ -14953,6 +14953,24 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectResourceTagsSearchCriteria
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tagSearchCondition" : @"TagSearchCondition",
+             };
+}
+
++ (NSValueTransformer *)tagSearchConditionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectTagSearchCondition class]];
+}
+
+@end
+
 @implementation AWSConnectResumeContactRecordingRequest
 
 + (BOOL)supportsSecureCoding {
@@ -16949,6 +16967,47 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectSearchResourceTagsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"resourceTypes" : @"ResourceTypes",
+             @"searchCriteria" : @"SearchCriteria",
+             };
+}
+
++ (NSValueTransformer *)searchCriteriaJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectResourceTagsSearchCriteria class]];
+}
+
+@end
+
+@implementation AWSConnectSearchResourceTagsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectTagSet class]];
+}
+
+@end
+
 @implementation AWSConnectSearchRoutingProfilesRequest
 
 + (BOOL)supportsSecureCoding {
@@ -17989,6 +18048,90 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"resourceArn" : @"resourceArn",
              @"tags" : @"tags",
+             };
+}
+
+@end
+
+@implementation AWSConnectTagSearchCondition
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tagKey" : @"tagKey",
+             @"tagKeyComparisonType" : @"tagKeyComparisonType",
+             @"tagValue" : @"tagValue",
+             @"tagValueComparisonType" : @"tagValueComparisonType",
+             };
+}
+
++ (NSValueTransformer *)tagKeyComparisonTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"STARTS_WITH"] == NSOrderedSame) {
+            return @(AWSConnectStringComparisonTypeStartsWith);
+        }
+        if ([value caseInsensitiveCompare:@"CONTAINS"] == NSOrderedSame) {
+            return @(AWSConnectStringComparisonTypeContains);
+        }
+        if ([value caseInsensitiveCompare:@"EXACT"] == NSOrderedSame) {
+            return @(AWSConnectStringComparisonTypeExact);
+        }
+        return @(AWSConnectStringComparisonTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectStringComparisonTypeStartsWith:
+                return @"STARTS_WITH";
+            case AWSConnectStringComparisonTypeContains:
+                return @"CONTAINS";
+            case AWSConnectStringComparisonTypeExact:
+                return @"EXACT";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)tagValueComparisonTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"STARTS_WITH"] == NSOrderedSame) {
+            return @(AWSConnectStringComparisonTypeStartsWith);
+        }
+        if ([value caseInsensitiveCompare:@"CONTAINS"] == NSOrderedSame) {
+            return @(AWSConnectStringComparisonTypeContains);
+        }
+        if ([value caseInsensitiveCompare:@"EXACT"] == NSOrderedSame) {
+            return @(AWSConnectStringComparisonTypeExact);
+        }
+        return @(AWSConnectStringComparisonTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectStringComparisonTypeStartsWith:
+                return @"STARTS_WITH";
+            case AWSConnectStringComparisonTypeContains:
+                return @"CONTAINS";
+            case AWSConnectStringComparisonTypeExact:
+                return @"EXACT";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSConnectTagSet
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"key" : @"key",
+             @"value" : @"value",
              };
 }
 

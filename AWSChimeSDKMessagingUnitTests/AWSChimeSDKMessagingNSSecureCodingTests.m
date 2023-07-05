@@ -136,6 +136,7 @@
 - (void) test_AWSChimeSDKMessagingSubChannelSummary API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingTag API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingTagResourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKMessagingTarget API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingUntagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingUpdateChannelFlowRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingUpdateChannelFlowResponse API_AVAILABLE(ios(11));
@@ -616,6 +617,10 @@
 
 - (void) test_AWSChimeSDKMessagingTagResourceRequest {
     [self validateSecureCodingForClass:[AWSChimeSDKMessagingTagResourceRequest class]];
+}
+
+- (void) test_AWSChimeSDKMessagingTarget {
+    [self validateSecureCodingForClass:[AWSChimeSDKMessagingTarget class]];
 }
 
 - (void) test_AWSChimeSDKMessagingUntagResourceRequest {

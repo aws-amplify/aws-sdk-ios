@@ -35,6 +35,7 @@ typedef NS_ENUM(NSInteger, AWSConnectErrorType) {
     AWSConnectErrorInvalidParameter,
     AWSConnectErrorInvalidRequest,
     AWSConnectErrorLimitExceeded,
+    AWSConnectErrorMaximumResultReturned,
     AWSConnectErrorOutboundContactNotPermitted,
     AWSConnectErrorPropertyValidation,
     AWSConnectErrorResourceConflict,
@@ -1206,6 +1207,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectReplicateInstanceRequest;
 @class AWSConnectReplicateInstanceResponse;
 @class AWSConnectRequiredFieldInfo;
+@class AWSConnectResourceTagsSearchCriteria;
 @class AWSConnectResumeContactRecordingRequest;
 @class AWSConnectResumeContactRecordingResponse;
 @class AWSConnectRoutingProfile;
@@ -1231,6 +1233,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectSearchQueuesResponse;
 @class AWSConnectSearchQuickConnectsRequest;
 @class AWSConnectSearchQuickConnectsResponse;
+@class AWSConnectSearchResourceTagsRequest;
+@class AWSConnectSearchResourceTagsResponse;
 @class AWSConnectSearchRoutingProfilesRequest;
 @class AWSConnectSearchRoutingProfilesResponse;
 @class AWSConnectSearchSecurityProfilesRequest;
@@ -1273,6 +1277,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectSuspendContactRecordingResponse;
 @class AWSConnectTagCondition;
 @class AWSConnectTagResourceRequest;
+@class AWSConnectTagSearchCondition;
+@class AWSConnectTagSet;
 @class AWSConnectTaskActionDefinition;
 @class AWSConnectTaskTemplateConstraints;
 @class AWSConnectTaskTemplateDefaultFieldValue;
@@ -6124,7 +6130,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSDate * _Nullable endTime;
 
 /**
- <p>The filters to apply to returned metrics. You can filter on the following resources:</p><ul><li><p>Queues</p></li><li><p>Routing profiles</p></li><li><p>Agents</p></li><li><p>Channels</p></li><li><p>User hierarchy groups</p></li></ul><p>At least one filter must be passed from queues, routing profiles, agents, or user hierarchy groups.</p><p>To filter by phone number, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-historical-metrics-report.html">Create a historical metrics report</a> in the <i>Amazon Connect Administrator's Guide</i>.</p><p>Note the following limits:</p><ul><li><p><b>Filter keys</b>: A maximum of 5 filter keys are supported in a single request. Valid filter keys: <code>QUEUE</code> | <code>ROUTING_PROFILE</code> | <code>AGENT</code> | <code>CHANNEL</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code></p></li><li><p><b>Filter values</b>: A maximum of 100 filter values are supported in a single request. For example, a <code>GetMetricDataV2</code> request can filter by 50 queues, 35 agents, and 15 routing profiles for a total of 100 filter values. <code>VOICE</code>, <code>CHAT</code>, and <code>TASK</code> are valid <code>filterValue</code> for the <code>CHANNEL</code> filter key.</p></li></ul>
+ <p>The filters to apply to returned metrics. You can filter on the following resources:</p><ul><li><p>Queues</p></li><li><p>Routing profiles</p></li><li><p>Agents</p></li><li><p>Channels</p></li><li><p>User hierarchy groups</p></li></ul><p>At least one filter must be passed from queues, routing profiles, agents, or user hierarchy groups.</p><p>To filter by phone number, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-historical-metrics-report.html">Create a historical metrics report</a> in the <i>Amazon Connect Administrator's Guide</i>.</p><p>Note the following limits:</p><ul><li><p><b>Filter keys</b>: A maximum of 5 filter keys are supported in a single request. Valid filter keys: <code>QUEUE</code> | <code>ROUTING_PROFILE</code> | <code>AGENT</code> | <code>CHANNEL</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code></p></li><li><p><b>Filter values</b>: A maximum of 100 filter values are supported in a single request. VOICE, CHAT, and TASK are valid <code>filterValue</code> for the CHANNEL filter key. They do not count towards limitation of 100 filter values. For example, a GetMetricDataV2 request can filter by 50 queues, 35 agents, and 15 routing profiles for a total of 100 filter values, along with 3 channel filters.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSConnectFilterV2 *> * _Nullable filters;
 
@@ -9742,6 +9748,19 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>The search criteria to be used to search tags.</p>
+ */
+@interface AWSConnectResourceTagsSearchCriteria : AWSModel
+
+
+/**
+ <p>The search criteria to be used to return tags.</p>
+ */
+@property (nonatomic, strong) AWSConnectTagSearchCondition * _Nullable tagSearchCondition;
+
+@end
+
+/**
  
  */
 @interface AWSConnectResumeContactRecordingRequest : AWSRequest
@@ -10456,6 +10475,57 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>Information about the quick connects.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectQuickConnect *> * _Nullable quickConnects;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSearchResourceTagsRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The list of resource types to be used to search tags from. If not provided or if any empty list is provided, this API will search from all supported resource types.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable resourceTypes;
+
+/**
+ <p>The search criteria to be used to return tags.</p>
+ */
+@property (nonatomic, strong) AWSConnectResourceTagsSearchCriteria * _Nullable searchCriteria;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSearchResourceTagsResponse : AWSModel
+
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>A list of tags used in the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectTagSet *> * _Nullable tags;
 
 @end
 
@@ -11509,6 +11579,52 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ <p>The search criteria to be used to return tags.</p>
+ */
+@interface AWSConnectTagSearchCondition : AWSModel
+
+
+/**
+ <p>The tag key used in the tag search condition.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tagKey;
+
+/**
+ <p>The type of comparison to be made when evaluating the tag key in tag search condition.</p>
+ */
+@property (nonatomic, assign) AWSConnectStringComparisonType tagKeyComparisonType;
+
+/**
+ <p>The tag value used in the tag search condition.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tagValue;
+
+/**
+ <p>The type of comparison to be made when evaluating the tag value in tag search condition.</p>
+ */
+@property (nonatomic, assign) AWSConnectStringComparisonType tagValueComparisonType;
+
+@end
+
+/**
+ <p>A tag set contains tag key and tag value.</p>
+ */
+@interface AWSConnectTagSet : AWSModel
+
+
+/**
+ <p>The tag key in the tagSet.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable key;
+
+/**
+ <p>The tag value in the tagSet.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable value;
 
 @end
 

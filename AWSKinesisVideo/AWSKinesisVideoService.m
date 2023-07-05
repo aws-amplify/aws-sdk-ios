@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -336,6 +336,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSKinesisVideoDeleteEdgeConfigurationOutput *> *)deleteEdgeConfiguration:(AWSKinesisVideoDeleteEdgeConfigurationInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/deleteEdgeConfiguration"
+                  targetPrefix:@""
+                 operationName:@"DeleteEdgeConfiguration"
+                   outputClass:[AWSKinesisVideoDeleteEdgeConfigurationOutput class]];
+}
+
+- (void)deleteEdgeConfiguration:(AWSKinesisVideoDeleteEdgeConfigurationInput *)request
+     completionHandler:(void (^)(AWSKinesisVideoDeleteEdgeConfigurationOutput *response, NSError *error))completionHandler {
+    [[self deleteEdgeConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisVideoDeleteEdgeConfigurationOutput *> * _Nonnull task) {
+        AWSKinesisVideoDeleteEdgeConfigurationOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSKinesisVideoDeleteSignalingChannelOutput *> *)deleteSignalingChannel:(AWSKinesisVideoDeleteSignalingChannelInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -579,6 +602,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSKinesisVideoGetSignalingChannelEndpointOutput *response, NSError *error))completionHandler {
     [[self getSignalingChannelEndpoint:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisVideoGetSignalingChannelEndpointOutput *> * _Nonnull task) {
         AWSKinesisVideoGetSignalingChannelEndpointOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKinesisVideoListEdgeAgentConfigurationsOutput *> *)listEdgeAgentConfigurations:(AWSKinesisVideoListEdgeAgentConfigurationsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/listEdgeAgentConfigurations"
+                  targetPrefix:@""
+                 operationName:@"ListEdgeAgentConfigurations"
+                   outputClass:[AWSKinesisVideoListEdgeAgentConfigurationsOutput class]];
+}
+
+- (void)listEdgeAgentConfigurations:(AWSKinesisVideoListEdgeAgentConfigurationsInput *)request
+     completionHandler:(void (^)(AWSKinesisVideoListEdgeAgentConfigurationsOutput *response, NSError *error))completionHandler {
+    [[self listEdgeAgentConfigurations:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisVideoListEdgeAgentConfigurationsOutput *> * _Nonnull task) {
+        AWSKinesisVideoListEdgeAgentConfigurationsOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

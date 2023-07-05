@@ -261,6 +261,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 @class AWSChimeSDKMessagingSubChannelSummary;
 @class AWSChimeSDKMessagingTag;
 @class AWSChimeSDKMessagingTagResourceRequest;
+@class AWSChimeSDKMessagingTarget;
 @class AWSChimeSDKMessagingUntagResourceRequest;
 @class AWSChimeSDKMessagingUpdateChannelFlowRequest;
 @class AWSChimeSDKMessagingUpdateChannelFlowResponse;
@@ -767,12 +768,12 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 @property (nonatomic, strong) NSString * _Nullable channelArn;
 
 /**
- <p>The message content.</p>
+ <p>The content of the channel message. For Amazon Lex V2 bot responses, this field holds a list of messages originating from the bot. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable content;
 
 /**
- <p>The content type of the channel message.</p>
+ <p>The content type of the channel message. For Amazon Lex V2 bot responses, the content type is <code>application/amz-chime-lex-msgs</code> for success responses and <code>application/amz-chime-lex-error</code> for failure responses. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
 
@@ -792,7 +793,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 @property (nonatomic, strong) NSDate * _Nullable lastUpdatedTimestamp;
 
 /**
- <p>The attributes for the message, used for message filtering along with a <code>FilterRule</code> defined in the <code>PushNotificationPreferences</code>.</p>
+ <p>The attributes for the channel message. For Amazon Lex V2 bot responses, the attributes are mapped to specific fields from the bot. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSChimeSDKMessagingMessageAttributeValue *> * _Nullable messageAttributes;
 
@@ -832,6 +833,11 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 @property (nonatomic, strong) NSString * _Nullable subChannelId;
 
 /**
+ <p>The target of a message, a sender, a user, or a bot. Only the target and the sender can view targeted messages. Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSChimeSDKMessagingTarget *> * _Nullable target;
+
+/**
  <p>The message type.</p>
  */
 @property (nonatomic, assign) AWSChimeSDKMessagingChannelMessageType types;
@@ -846,17 +852,17 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 
 
 /**
- <p>The message content.</p>
+ <p>The message content. For Amazon Lex V2 bot responses, this field holds a list of messages originating from the bot. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable content;
 
 /**
- <p>The content type of the call-back message.</p>
+ <p>The content type of the call-back message. For Amazon Lex V2 bot responses, the content type is <code>application/amz-chime-lex-msgs</code> for success responses and <code>application/amz-chime-lex-error</code> for failure responses. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
 
 /**
- <p>The attributes for the message, used for message filtering along with a <code>FilterRule</code> defined in the <code>PushNotificationPreferences</code>. </p>
+ <p>The attributes for the channel message. For Amazon Lex V2 bot responses, the attributes are mapped to specific fields from the bot. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSChimeSDKMessagingMessageAttributeValue *> * _Nullable messageAttributes;
 
@@ -889,7 +895,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 
 
 /**
- <p>Contains more details about the messasge status.</p>
+ <p>Contains more details about the message status.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
 
@@ -907,12 +913,12 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 
 
 /**
- <p>The content of the message.</p>
+ <p>The content of the channel message. For Amazon Lex V2 bot responses, this field holds a list of messages originating from the bot. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable content;
 
 /**
- <p>The content type of the channel messsage listed in the summary.</p>
+ <p>The content type of the channel message listed in the summary. For Amazon Lex V2 bot responses, the content type is <code>application/amz-chime-lex-msgs</code> for success responses and <code>application/amz-chime-lex-error</code> for failure responses. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
 
@@ -932,7 +938,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 @property (nonatomic, strong) NSDate * _Nullable lastUpdatedTimestamp;
 
 /**
- <p>The message attribues listed in a the summary of a channel message.</p>
+ <p>The attributes for the channel message. For Amazon Lex V2 bot responses, the attributes are mapped to specific fields from the bot. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSChimeSDKMessagingMessageAttributeValue *> * _Nullable messageAttributes;
 
@@ -960,6 +966,11 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
  <p>The message status. The status value is <code>SENT</code> for messages sent to a channel without a channel flow. For channels associated with channel flow, the value determines the processing stage.</p>
  */
 @property (nonatomic, strong) AWSChimeSDKMessagingChannelMessageStatusStructure * _Nullable status;
+
+/**
+ <p>The target of a message, a sender, a user, or a bot. Only the target and the sender can view targeted messages. Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSChimeSDKMessagingTarget *> * _Nullable target;
 
 /**
  <p>The type of message.</p>
@@ -1034,7 +1045,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 @property (nonatomic, strong) NSString * _Nullable channelArn;
 
 /**
- <p>The time at which the last persistent message in a channel was sent.</p>
+ <p>The time at which the last persistent message visible to the caller in a channel was sent.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastMessageTimestamp;
 
@@ -2914,7 +2925,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 @property (nonatomic, strong) NSString * _Nullable clientRequestToken;
 
 /**
- <p>The content of the message.</p>
+ <p>The content of the channel message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable content;
 
@@ -2949,7 +2960,12 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 @property (nonatomic, strong) NSString * _Nullable subChannelId;
 
 /**
- <p>The type of message, <code>STANDARD</code> or <code>CONTROL</code>.</p>
+ <p>The target of a message. Must be a member of the channel, such as another user, a bot, or the sender. Only the target and the sender can view targeted messages. Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSChimeSDKMessagingTarget *> * _Nullable target;
+
+/**
+ <p>The type of message, <code>STANDARD</code> or <code>CONTROL</code>.</p><p><code>STANDARD</code> messages can be up to 4KB in size and contain metadata. Metadata is arbitrary, and you can use it in a variety of ways, such as containing a link to an attachment.</p><p><code>CONTROL</code> messages are limited to 30 bytes and do not contain metadata.</p>
  */
 @property (nonatomic, assign) AWSChimeSDKMessagingChannelMessageType types;
 
@@ -3058,6 +3074,19 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 @end
 
 /**
+ <p>The target of a message, a sender, a user, or a bot. Only the target and the sender can view targeted messages. Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see.</p>
+ */
+@interface AWSChimeSDKMessagingTarget : AWSModel
+
+
+/**
+ <p>The ARN of the target channel member.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable memberArn;
+
+@end
+
+/**
  
  */
 @interface AWSChimeSDKMessagingUntagResourceRequest : AWSRequest
@@ -3128,7 +3157,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 @property (nonatomic, strong) NSString * _Nullable chimeBearer;
 
 /**
- <p>The content of the message being updated.</p>
+ <p>The content of the channel message. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable content;
 

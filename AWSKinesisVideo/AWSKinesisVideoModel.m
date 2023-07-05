@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -226,6 +226,29 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @end
 
+@implementation AWSKinesisVideoDeleteEdgeConfigurationInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"streamARN" : @"StreamARN",
+             @"streamName" : @"StreamName",
+             };
+}
+
+@end
+
+@implementation AWSKinesisVideoDeleteEdgeConfigurationOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
 @implementation AWSKinesisVideoDeleteSignalingChannelInput
 
 + (BOOL)supportsSecureCoding {
@@ -316,6 +339,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"creationTime" : @"CreationTime",
+             @"edgeAgentStatus" : @"EdgeAgentStatus",
              @"edgeConfig" : @"EdgeConfig",
              @"failedStatusDetails" : @"FailedStatusDetails",
              @"lastUpdatedTime" : @"LastUpdatedTime",
@@ -331,6 +355,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)edgeAgentStatusJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSKinesisVideoEdgeAgentStatus class]];
 }
 
 + (NSValueTransformer *)edgeConfigJSONTransformer {
@@ -365,6 +393,9 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
         if ([value caseInsensitiveCompare:@"DELETE_FAILED"] == NSOrderedSame) {
             return @(AWSKinesisVideoSyncStatusDeleteFailed);
         }
+        if ([value caseInsensitiveCompare:@"DELETING_ACKNOWLEDGED"] == NSOrderedSame) {
+            return @(AWSKinesisVideoSyncStatusDeletingAcknowledged);
+        }
         return @(AWSKinesisVideoSyncStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -380,6 +411,8 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
                 return @"DELETING";
             case AWSKinesisVideoSyncStatusDeleteFailed:
                 return @"DELETE_FAILED";
+            case AWSKinesisVideoSyncStatusDeletingAcknowledged:
+                return @"DELETING_ACKNOWLEDGED";
             default:
                 return nil;
         }
@@ -585,6 +618,29 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 + (NSValueTransformer *)streamInfoJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSKinesisVideoStreamInfo class]];
+}
+
+@end
+
+@implementation AWSKinesisVideoEdgeAgentStatus
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"lastRecorderStatus" : @"LastRecorderStatus",
+             @"lastUploaderStatus" : @"LastUploaderStatus",
+             };
+}
+
++ (NSValueTransformer *)lastRecorderStatusJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSKinesisVideoLastRecorderStatus class]];
+}
+
++ (NSValueTransformer *)lastUploaderStatusJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSKinesisVideoLastUploaderStatus class]];
 }
 
 @end
@@ -835,6 +891,245 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
              @"destinationRegion" : @"DestinationRegion",
              @"uri" : @"Uri",
              };
+}
+
+@end
+
+@implementation AWSKinesisVideoLastRecorderStatus
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"jobStatusDetails" : @"JobStatusDetails",
+             @"lastCollectedTime" : @"LastCollectedTime",
+             @"lastUpdatedTime" : @"LastUpdatedTime",
+             @"recorderStatus" : @"RecorderStatus",
+             };
+}
+
++ (NSValueTransformer *)lastCollectedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastUpdatedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)recorderStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"SUCCESS"] == NSOrderedSame) {
+            return @(AWSKinesisVideoRecorderStatusSuccess);
+        }
+        if ([value caseInsensitiveCompare:@"USER_ERROR"] == NSOrderedSame) {
+            return @(AWSKinesisVideoRecorderStatusUserError);
+        }
+        if ([value caseInsensitiveCompare:@"SYSTEM_ERROR"] == NSOrderedSame) {
+            return @(AWSKinesisVideoRecorderStatusSystemError);
+        }
+        return @(AWSKinesisVideoRecorderStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSKinesisVideoRecorderStatusSuccess:
+                return @"SUCCESS";
+            case AWSKinesisVideoRecorderStatusUserError:
+                return @"USER_ERROR";
+            case AWSKinesisVideoRecorderStatusSystemError:
+                return @"SYSTEM_ERROR";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSKinesisVideoLastUploaderStatus
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"jobStatusDetails" : @"JobStatusDetails",
+             @"lastCollectedTime" : @"LastCollectedTime",
+             @"lastUpdatedTime" : @"LastUpdatedTime",
+             @"uploaderStatus" : @"UploaderStatus",
+             };
+}
+
++ (NSValueTransformer *)lastCollectedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastUpdatedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)uploaderStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"SUCCESS"] == NSOrderedSame) {
+            return @(AWSKinesisVideoUploaderStatusSuccess);
+        }
+        if ([value caseInsensitiveCompare:@"USER_ERROR"] == NSOrderedSame) {
+            return @(AWSKinesisVideoUploaderStatusUserError);
+        }
+        if ([value caseInsensitiveCompare:@"SYSTEM_ERROR"] == NSOrderedSame) {
+            return @(AWSKinesisVideoUploaderStatusSystemError);
+        }
+        return @(AWSKinesisVideoUploaderStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSKinesisVideoUploaderStatusSuccess:
+                return @"SUCCESS";
+            case AWSKinesisVideoUploaderStatusUserError:
+                return @"USER_ERROR";
+            case AWSKinesisVideoUploaderStatusSystemError:
+                return @"SYSTEM_ERROR";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSKinesisVideoListEdgeAgentConfigurationsEdgeConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"creationTime" : @"CreationTime",
+             @"edgeConfig" : @"EdgeConfig",
+             @"failedStatusDetails" : @"FailedStatusDetails",
+             @"lastUpdatedTime" : @"LastUpdatedTime",
+             @"streamARN" : @"StreamARN",
+             @"streamName" : @"StreamName",
+             @"syncStatus" : @"SyncStatus",
+             };
+}
+
++ (NSValueTransformer *)creationTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)edgeConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSKinesisVideoEdgeConfig class]];
+}
+
++ (NSValueTransformer *)lastUpdatedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)syncStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"SYNCING"] == NSOrderedSame) {
+            return @(AWSKinesisVideoSyncStatusSyncing);
+        }
+        if ([value caseInsensitiveCompare:@"ACKNOWLEDGED"] == NSOrderedSame) {
+            return @(AWSKinesisVideoSyncStatusAcknowledged);
+        }
+        if ([value caseInsensitiveCompare:@"IN_SYNC"] == NSOrderedSame) {
+            return @(AWSKinesisVideoSyncStatusInSync);
+        }
+        if ([value caseInsensitiveCompare:@"SYNC_FAILED"] == NSOrderedSame) {
+            return @(AWSKinesisVideoSyncStatusSyncFailed);
+        }
+        if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
+            return @(AWSKinesisVideoSyncStatusDeleting);
+        }
+        if ([value caseInsensitiveCompare:@"DELETE_FAILED"] == NSOrderedSame) {
+            return @(AWSKinesisVideoSyncStatusDeleteFailed);
+        }
+        if ([value caseInsensitiveCompare:@"DELETING_ACKNOWLEDGED"] == NSOrderedSame) {
+            return @(AWSKinesisVideoSyncStatusDeletingAcknowledged);
+        }
+        return @(AWSKinesisVideoSyncStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSKinesisVideoSyncStatusSyncing:
+                return @"SYNCING";
+            case AWSKinesisVideoSyncStatusAcknowledged:
+                return @"ACKNOWLEDGED";
+            case AWSKinesisVideoSyncStatusInSync:
+                return @"IN_SYNC";
+            case AWSKinesisVideoSyncStatusSyncFailed:
+                return @"SYNC_FAILED";
+            case AWSKinesisVideoSyncStatusDeleting:
+                return @"DELETING";
+            case AWSKinesisVideoSyncStatusDeleteFailed:
+                return @"DELETE_FAILED";
+            case AWSKinesisVideoSyncStatusDeletingAcknowledged:
+                return @"DELETING_ACKNOWLEDGED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSKinesisVideoListEdgeAgentConfigurationsInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"hubDeviceArn" : @"HubDeviceArn",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSKinesisVideoListEdgeAgentConfigurationsOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"edgeConfigs" : @"EdgeConfigs",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)edgeConfigsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSKinesisVideoListEdgeAgentConfigurationsEdgeConfig class]];
 }
 
 @end
@@ -1362,6 +1657,9 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
         if ([value caseInsensitiveCompare:@"DELETE_FAILED"] == NSOrderedSame) {
             return @(AWSKinesisVideoSyncStatusDeleteFailed);
         }
+        if ([value caseInsensitiveCompare:@"DELETING_ACKNOWLEDGED"] == NSOrderedSame) {
+            return @(AWSKinesisVideoSyncStatusDeletingAcknowledged);
+        }
         return @(AWSKinesisVideoSyncStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1377,6 +1675,8 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
                 return @"DELETING";
             case AWSKinesisVideoSyncStatusDeleteFailed:
                 return @"DELETE_FAILED";
+            case AWSKinesisVideoSyncStatusDeletingAcknowledged:
+                return @"DELETING_ACKNOWLEDGED";
             default:
                 return nil;
         }

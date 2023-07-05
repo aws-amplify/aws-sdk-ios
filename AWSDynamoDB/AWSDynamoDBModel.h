@@ -1036,6 +1036,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBBatchStatementErrorCodeEnum code;
 
 /**
+ <p>The item which caused the condition check to fail. This will be set if ReturnValuesOnConditionCheckFailure is specified as <code>ALL_OLD</code>.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable item;
+
+/**
  <p> The error message associated with the PartiQL batch response. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable message;
@@ -1058,6 +1063,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p> The parameters associated with a PartiQL statement in the batch request. </p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBAttributeValue *> * _Nullable parameters;
+
+/**
+ <p>An optional parameter that returns the item attributes for a PartiQL batch request operation that failed a condition check.</p><p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnValuesOnConditionCheckFailure returnValuesOnConditionCheckFailure;
 
 /**
  <p> A valid PartiQL statement. </p>
@@ -1714,6 +1724,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBReturnValue returnValues;
 
 /**
+ <p>An optional parameter that returns the item attributes for a <code>DeleteItem</code> operation that failed a condition check.</p><p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnValuesOnConditionCheckFailure returnValuesOnConditionCheckFailure;
+
+/**
  <p>The name of the table from which to delete the item.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
@@ -2245,6 +2260,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
+
+/**
+ <p>An optional parameter that returns the item attributes for an <code>ExecuteStatement</code> operation that failed a condition check.</p><p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnValuesOnConditionCheckFailure returnValuesOnConditionCheckFailure;
 
 /**
  <p>The PartiQL statement representing the operation to run.</p>
@@ -3625,6 +3645,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBAttributeValue *> * _Nullable parameters;
 
 /**
+ <p>An optional parameter that returns the item attributes for a PartiQL <code>ParameterizedStatement</code> operation that failed a condition check.</p><p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnValuesOnConditionCheckFailure returnValuesOnConditionCheckFailure;
+
+/**
  <p> A PartiQL statment that uses parameters. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable statement;
@@ -3841,6 +3866,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were updated with the <code>PutItem</code> request. For <code>PutItem</code>, the valid values are:</p><ul><li><p><code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.)</p></li><li><p><code>ALL_OLD</code> - If <code>PutItem</code> overwrote an attribute name-value pair, then the content of the old item is returned.</p></li></ul><p>The values returned are strongly consistent.</p><p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p><note><p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>PutItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>.</p></note>
  */
 @property (nonatomic, assign) AWSDynamoDBReturnValue returnValues;
+
+/**
+ <p>An optional parameter that returns the item attributes for a <code>PutItem</code> operation that failed a condition check.</p><p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnValuesOnConditionCheckFailure returnValuesOnConditionCheckFailure;
 
 /**
  <p>The name of the table to contain the item.</p>
@@ -5577,6 +5607,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appear before or after they are successfully updated. For <code>UpdateItem</code>, the valid values are:</p><ul><li><p><code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.)</p></li><li><p><code>ALL_OLD</code> - Returns all of the attributes of the item, as they appeared before the UpdateItem operation.</p></li><li><p><code>UPDATED_OLD</code> - Returns only the updated attributes, as they appeared before the UpdateItem operation.</p></li><li><p><code>ALL_NEW</code> - Returns all of the attributes of the item, as they appear after the UpdateItem operation.</p></li><li><p><code>UPDATED_NEW</code> - Returns only the updated attributes, as they appear after the UpdateItem operation.</p></li></ul><p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p><p>The values returned are strongly consistent.</p>
  */
 @property (nonatomic, assign) AWSDynamoDBReturnValue returnValues;
+
+/**
+ <p>An optional parameter that returns the item attributes for an <code>UpdateItem</code> operation that failed a condition check.</p><p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnValuesOnConditionCheckFailure returnValuesOnConditionCheckFailure;
 
 /**
  <p>The name of the table containing the item to update.</p>
