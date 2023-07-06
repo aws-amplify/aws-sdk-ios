@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSChimeSDKMessagingCreateChannelBanRequest Class Reference</title>
+    <title>AWSChimeSDKMessagingTarget Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSChimeSDKMessagingCreateChannelBanRequest" class="dashAnchor"></a>
-    <a title="AWSChimeSDKMessagingCreateChannelBanRequest Class Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSChimeSDKMessagingTarget" class="dashAnchor"></a>
+    <a title="AWSChimeSDKMessagingTarget Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSChimeSDKMessaging 2.33.1 Docs</a> (84% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSChimeSDKMessaging Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSChimeSDKMessagingCreateChannelBanRequest Class Reference
+        AWSChimeSDKMessagingTarget Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -507,20 +507,21 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSChimeSDKMessagingCreateChannelBanRequest</h1>
+            <h1>AWSChimeSDKMessagingTarget</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSChimeSDKMessagingCreateChannelBanRequest</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSChimeSDKMessagingTarget</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSChimeSDKMessagingCreateChannelBanRequest</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSChimeSDKMessagingTarget</span></code></pre>
 
                 </div>
               </div>
-            
+            <p>The target of a message, a sender, a user, or a bot. Only the target and the sender can view targeted messages. Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see.</p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -528,73 +529,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSChimeSDKMessagingCreateChannelBanRequest(py)channelArn"></a>
-                    <a name="//apple_ref/objc/Property/channelArn" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSChimeSDKMessagingCreateChannelBanRequest(py)channelArn">channelArn</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The ARN of the ban request.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">channelArn</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">channelArn</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)AWSChimeSDKMessagingCreateChannelBanRequest(py)chimeBearer"></a>
-                    <a name="//apple_ref/objc/Property/chimeBearer" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSChimeSDKMessagingCreateChannelBanRequest(py)chimeBearer">chimeBearer</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">chimeBearer</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">chimeBearer</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)AWSChimeSDKMessagingCreateChannelBanRequest(py)memberArn"></a>
+                    <a name="/c:objc(cs)AWSChimeSDKMessagingTarget(py)memberArn"></a>
                     <a name="//apple_ref/objc/Property/memberArn" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSChimeSDKMessagingCreateChannelBanRequest(py)memberArn">memberArn</a>
+                    <a class="token" href="#/c:objc(cs)AWSChimeSDKMessagingTarget(py)memberArn">memberArn</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -602,7 +539,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>AppInstanceUserArn</code> of the member being banned.</p>
+                        <p>The ARN of the target channel member.</p>
 
                       </div>
                       <div class="declaration">

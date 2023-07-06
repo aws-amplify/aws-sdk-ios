@@ -17,7 +17,7 @@
     <a title="AWSChimeSDKMessaging Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSChimeSDKMessaging 2.33.0 Docs</a> (84% documented)</p>
+        <p><a href="../index.html">AWSChimeSDKMessaging 2.33.1 Docs</a> (84% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSChimeSDKMessaging.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -398,6 +398,9 @@
                 <a href="../Classes/AWSChimeSDKMessagingTagResourceRequest.html">AWSChimeSDKMessagingTagResourceRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSChimeSDKMessagingTarget.html">AWSChimeSDKMessagingTarget</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSChimeSDKMessagingUntagResourceRequest.html">AWSChimeSDKMessagingUntagResourceRequest</a>
               </li>
               <li class="nav-group-task">
@@ -517,7 +520,7 @@
 
                 </div>
               </div>
-            <p>The Amazon Chime SDK Messaging APIs in this section allow software developers to send and receive messages in custom messaging applications. These APIs depend on the frameworks provided by the Amazon Chime SDK Identity APIs. For more information about the messaging APIs, see <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging.html">Amazon Chime SDK messaging</a>.</p>
+            <p>The Amazon Chime SDK messaging APIs in this section allow software developers to send and receive messages in custom messaging applications. These APIs depend on the frameworks provided by the Amazon Chime SDK identity APIs. For more information about the messaging APIs, see <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging.html">Amazon Chime SDK messaging</a>.</p>
 
           </section>
           <section class="section task-group-section">
@@ -1171,7 +1174,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Calls back Chime SDK Messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.</p><p>You can return one of the following processing responses:</p><ul><li><p>Update message content or metadata</p></li><li><p>Deny a message</p></li><li><p>Make no changes to the message</p></li></ul></p>
+                        <p><p>Calls back Amazon Chime SDK messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.</p><p>You can return one of the following processing responses:</p><ul><li><p>Update message content or metadata</p></li><li><p>Deny a message</p></li><li><p>Make no changes to the message</p></li></ul></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSChimeSDKMessagingChannelFlowCallbackRequest</p>
@@ -1236,7 +1239,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Calls back Chime SDK Messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.</p><p>You can return one of the following processing responses:</p><ul><li><p>Update message content or metadata</p></li><li><p>Deny a message</p></li><li><p>Make no changes to the message</p></li></ul></p>
+                        <p><p>Calls back Amazon Chime SDK messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.</p><p>You can return one of the following processing responses:</p><ul><li><p>Update message content or metadata</p></li><li><p>Deny a message</p></li><li><p>Make no changes to the message</p></li></ul></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSChimeSDKMessagingChannelFlowCallbackRequest</p>
@@ -1601,7 +1604,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions that perform actions on chat messages, such as stripping out profanity. You can associate channel flows with channels, and the processors in the channel flow then take action on all messages sent to that channel. This is a developer API.</p><p>Channel flows process the following items:</p><ol><li><p>New and updated messages</p></li><li><p>Persistent and non-persistent messages</p></li><li><p>The Standard message type</p></li></ol><note><p>Channel flows don&rsquo;t process Control or System messages. For more information about the message types provided by Chime SDK Messaging, refer to <a href="https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types">Message types</a> in the <i>Amazon Chime developer guide</i>.</p></note></p>
+                        <p><p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions that perform actions on chat messages, such as stripping out profanity. You can associate channel flows with channels, and the processors in the channel flow then take action on all messages sent to that channel. This is a developer API.</p><p>Channel flows process the following items:</p><ol><li><p>New and updated messages</p></li><li><p>Persistent and non-persistent messages</p></li><li><p>The Standard message type</p></li></ol><note><p>Channel flows don&rsquo;t process Control or System messages. For more information about the message types provided by Chime SDK messaging, refer to <a href="https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types">Message types</a> in the <i>Amazon Chime developer guide</i>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSChimeSDKMessagingCreateChannelFlowRequest</p>
@@ -1666,7 +1669,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions that perform actions on chat messages, such as stripping out profanity. You can associate channel flows with channels, and the processors in the channel flow then take action on all messages sent to that channel. This is a developer API.</p><p>Channel flows process the following items:</p><ol><li><p>New and updated messages</p></li><li><p>Persistent and non-persistent messages</p></li><li><p>The Standard message type</p></li></ol><note><p>Channel flows don&rsquo;t process Control or System messages. For more information about the message types provided by Chime SDK Messaging, refer to <a href="https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types">Message types</a> in the <i>Amazon Chime developer guide</i>.</p></note></p>
+                        <p><p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions that perform actions on chat messages, such as stripping out profanity. You can associate channel flows with channels, and the processors in the channel flow then take action on all messages sent to that channel. This is a developer API.</p><p>Channel flows process the following items:</p><ol><li><p>New and updated messages</p></li><li><p>Persistent and non-persistent messages</p></li><li><p>The Standard message type</p></li></ol><note><p>Channel flows don&rsquo;t process Control or System messages. For more information about the message types provided by Chime SDK messaging, refer to <a href="https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types">Message types</a> in the <i>Amazon Chime developer guide</i>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSChimeSDKMessagingCreateChannelFlowRequest</p>
@@ -4129,7 +4132,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Gets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> for the specified channel. A user or a bot must be a member of the channel and own the membership to be able to retrieve membership preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can&rsquo;t retrieve preferences for other users or bots. Banned users or bots can&rsquo;t retrieve membership preferences for the channel from which they are banned.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note></p>
+                        <p><p>Gets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> for the specified channel. A user or a bot must be a member of the channel and own the membership in order to retrieve membership preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can&rsquo;t retrieve preferences for other users or bots. Banned users or bots can&rsquo;t retrieve membership preferences for the channel from which they are banned.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest</p>
@@ -4195,7 +4198,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Gets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> for the specified channel. A user or a bot must be a member of the channel and own the membership to be able to retrieve membership preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can&rsquo;t retrieve preferences for other users or bots. Banned users or bots can&rsquo;t retrieve membership preferences for the channel from which they are banned.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note></p>
+                        <p><p>Gets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> for the specified channel. A user or a bot must be a member of the channel and own the membership in order to retrieve membership preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can&rsquo;t retrieve preferences for other users or bots. Banned users or bots can&rsquo;t retrieve membership preferences for the channel from which they are banned.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest</p>
@@ -4421,7 +4424,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to retrieving message status if the event was not received because a client wasn&rsquo;t connected to a websocket. </p><p>Messages can have any one of these statuses.</p><dl><dt>SENT</dt><dd><p>Message processed successfully</p></dd><dt>PENDING</dt><dd><p>Ongoing processing</p></dd><dt>FAILED</dt><dd><p>Processing failed</p></dd><dt>DENIED</dt><dd><p>Messasge denied by the processor</p></dd></dl><note><ul><li><p>This API does not return statuses for denied messages, because we don&rsquo;t store them once the processor denies them. </p></li><li><p>Only the message sender can invoke this API.</p></li><li><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></li></ul></note></p>
+                        <p><p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to retrieving message status if the event was not received because a client wasn&rsquo;t connected to a websocket. </p><p>Messages can have any one of these statuses.</p><dl><dt>SENT</dt><dd><p>Message processed successfully</p></dd><dt>PENDING</dt><dd><p>Ongoing processing</p></dd><dt>FAILED</dt><dd><p>Processing failed</p></dd><dt>DENIED</dt><dd><p>Message denied by the processor</p></dd></dl><note><ul><li><p>This API does not return statuses for denied messages, because we don&rsquo;t store them once the processor denies them. </p></li><li><p>Only the message sender can invoke this API.</p></li><li><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></li></ul></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSChimeSDKMessagingGetChannelMessageStatusRequest</p>
@@ -4486,7 +4489,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to retrieving message status if the event was not received because a client wasn&rsquo;t connected to a websocket. </p><p>Messages can have any one of these statuses.</p><dl><dt>SENT</dt><dd><p>Message processed successfully</p></dd><dt>PENDING</dt><dd><p>Ongoing processing</p></dd><dt>FAILED</dt><dd><p>Processing failed</p></dd><dt>DENIED</dt><dd><p>Messasge denied by the processor</p></dd></dl><note><ul><li><p>This API does not return statuses for denied messages, because we don&rsquo;t store them once the processor denies them. </p></li><li><p>Only the message sender can invoke this API.</p></li><li><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></li></ul></note></p>
+                        <p><p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to retrieving message status if the event was not received because a client wasn&rsquo;t connected to a websocket. </p><p>Messages can have any one of these statuses.</p><dl><dt>SENT</dt><dd><p>Message processed successfully</p></dd><dt>PENDING</dt><dd><p>Ongoing processing</p></dd><dt>FAILED</dt><dd><p>Processing failed</p></dd><dt>DENIED</dt><dd><p>Message denied by the processor</p></dd></dl><note><ul><li><p>This API does not return statuses for denied messages, because we don&rsquo;t store them once the processor denies them. </p></li><li><p>Only the message sender can invoke this API.</p></li><li><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></li></ul></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSChimeSDKMessagingGetChannelMessageStatusRequest</p>
@@ -5295,7 +5298,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p> Lists all channels that anr <code>AppInstanceUser</code> or <code>AppInstanceBot</code> is a part of. Only an <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note></p>
+                        <p><p> Lists all channels that an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> is a part of. Only an <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSChimeSDKMessagingListChannelMembershipsForAppInstanceUserRequest</p>
@@ -5361,7 +5364,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p> Lists all channels that anr <code>AppInstanceUser</code> or <code>AppInstanceBot</code> is a part of. Only an <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note></p>
+                        <p><p> Lists all channels that an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> is a part of. Only an <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSChimeSDKMessagingListChannelMembershipsForAppInstanceUserRequest</p>
@@ -6607,7 +6610,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppIntanceBot</code> for the specified channel. The user or bot must be a member of the channel. Only the user or bot who owns the membership can set preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can&rsquo;t set preferences for other users or users. Banned users or bots can&rsquo;t set membership preferences for the channel from which they are banned.</p><note><p>The x-amz-chime-bearer request header is mandatory. Use the ARN of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note></p>
+                        <p><p>Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> for the specified channel. The user or bot must be a member of the channel. Only the user or bot who owns the membership can set preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can&rsquo;t set preferences for other users. Banned users or bots can&rsquo;t set membership preferences for the channel from which they are banned.</p><note><p>The x-amz-chime-bearer request header is mandatory. Use the ARN of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSChimeSDKMessagingPutChannelMembershipPreferencesRequest</p>
@@ -6673,7 +6676,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppIntanceBot</code> for the specified channel. The user or bot must be a member of the channel. Only the user or bot who owns the membership can set preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can&rsquo;t set preferences for other users or users. Banned users or bots can&rsquo;t set membership preferences for the channel from which they are banned.</p><note><p>The x-amz-chime-bearer request header is mandatory. Use the ARN of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note></p>
+                        <p><p>Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> for the specified channel. The user or bot must be a member of the channel. Only the user or bot who owns the membership can set preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can&rsquo;t set preferences for other users. Banned users or bots can&rsquo;t set membership preferences for the channel from which they are banned.</p><note><p>The x-amz-chime-bearer request header is mandatory. Use the ARN of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSChimeSDKMessagingPutChannelMembershipPreferencesRequest</p>
@@ -7191,7 +7194,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Sends a message to a particular channel that the member is a part of.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p><p>Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata. <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.</p></note></p>
+                        <p><p>Sends a message to a particular channel that the member is a part of.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p><p>Also, <code>STANDARD</code> messages can be up to 4KB in size and contain metadata. Metadata is arbitrary, and you can use it in a variety of ways, such as containing a link to an attachment.</p><p><code>CONTROL</code> messages are limited to 30 bytes and do not contain metadata.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSChimeSDKMessagingSendChannelMessageRequest</p>
@@ -7256,7 +7259,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Sends a message to a particular channel that the member is a part of.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p><p>Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata. <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.</p></note></p>
+                        <p><p>Sends a message to a particular channel that the member is a part of.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p><p>Also, <code>STANDARD</code> messages can be up to 4KB in size and contain metadata. Metadata is arbitrary, and you can use it in a variety of ways, such as containing a link to an attachment.</p><p><code>CONTROL</code> messages are limited to 30 bytes and do not contain metadata.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSChimeSDKMessagingSendChannelMessageRequest</p>
@@ -8164,7 +8167,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-29)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-07-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
