@@ -1,1279 +1,1279 @@
 {
   "warnings": [
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribe.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribe.h",
       "line": 28,
       "symbol": "AWSTranscribeVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribe.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribe.h",
       "line": 39,
       "symbol": "AWSTranscribeVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 22,
       "symbol": "AWSTranscribeErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 24,
       "symbol": "AWSTranscribeErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 24,
       "symbol": "AWSTranscribeErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 25,
       "symbol": "AWSTranscribeErrorType.AWSTranscribeErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 26,
       "symbol": "AWSTranscribeErrorType.AWSTranscribeErrorBadRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 27,
       "symbol": "AWSTranscribeErrorType.AWSTranscribeErrorConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 28,
       "symbol": "AWSTranscribeErrorType.AWSTranscribeErrorInternalFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 29,
       "symbol": "AWSTranscribeErrorType.AWSTranscribeErrorLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 30,
       "symbol": "AWSTranscribeErrorType.AWSTranscribeErrorNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 33,
       "symbol": "AWSTranscribeBaseModelName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 33,
       "symbol": "AWSTranscribeBaseModelName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 34,
       "symbol": "AWSTranscribeBaseModelName.AWSTranscribeBaseModelNameUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 35,
       "symbol": "AWSTranscribeBaseModelName.AWSTranscribeBaseModelNameNarrowBand",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 36,
       "symbol": "AWSTranscribeBaseModelName.AWSTranscribeBaseModelNameWideBand",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 39,
       "symbol": "AWSTranscribeCLMLanguageCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 39,
       "symbol": "AWSTranscribeCLMLanguageCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 40,
       "symbol": "AWSTranscribeCLMLanguageCode.AWSTranscribeCLMLanguageCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 41,
       "symbol": "AWSTranscribeCLMLanguageCode.AWSTranscribeCLMLanguageCodeEnUS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 42,
       "symbol": "AWSTranscribeCLMLanguageCode.AWSTranscribeCLMLanguageCodeHiIN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 43,
       "symbol": "AWSTranscribeCLMLanguageCode.AWSTranscribeCLMLanguageCodeEsUS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 44,
       "symbol": "AWSTranscribeCLMLanguageCode.AWSTranscribeCLMLanguageCodeEnGB",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 45,
       "symbol": "AWSTranscribeCLMLanguageCode.AWSTranscribeCLMLanguageCodeEnAU",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 46,
       "symbol": "AWSTranscribeCLMLanguageCode.AWSTranscribeCLMLanguageCodeDeDE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 47,
       "symbol": "AWSTranscribeCLMLanguageCode.AWSTranscribeCLMLanguageCodeJaJP",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 50,
       "symbol": "AWSTranscribeCallAnalyticsJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 50,
       "symbol": "AWSTranscribeCallAnalyticsJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 51,
       "symbol": "AWSTranscribeCallAnalyticsJobStatus.AWSTranscribeCallAnalyticsJobStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 52,
       "symbol": "AWSTranscribeCallAnalyticsJobStatus.AWSTranscribeCallAnalyticsJobStatusQueued",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 53,
       "symbol": "AWSTranscribeCallAnalyticsJobStatus.AWSTranscribeCallAnalyticsJobStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 54,
       "symbol": "AWSTranscribeCallAnalyticsJobStatus.AWSTranscribeCallAnalyticsJobStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 55,
       "symbol": "AWSTranscribeCallAnalyticsJobStatus.AWSTranscribeCallAnalyticsJobStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 58,
       "symbol": "AWSTranscribeInputType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 58,
       "symbol": "AWSTranscribeInputType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 59,
       "symbol": "AWSTranscribeInputType.AWSTranscribeInputTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 60,
       "symbol": "AWSTranscribeInputType.AWSTranscribeInputTypeRealTime",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 61,
       "symbol": "AWSTranscribeInputType.AWSTranscribeInputTypePostCall",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 64,
       "symbol": "AWSTranscribeLanguageCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 64,
       "symbol": "AWSTranscribeLanguageCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 65,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 66,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeAfZA",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 67,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeArAE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 68,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeArSA",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 69,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeDaDK",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 70,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeDeCH",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 71,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeDeDE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 72,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnAB",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 73,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnAU",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 74,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnGB",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 75,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnIE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 76,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnIN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 77,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnUS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 78,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnWL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 79,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEsES",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 80,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEsUS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 81,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeFaIR",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 82,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeFrCA",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 83,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeFrFR",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 84,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeHeIL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 85,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeHiIN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 86,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeIdID",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 87,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeItIT",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 88,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeJaJP",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 89,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeKoKR",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 90,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeMsMY",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 91,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeNlNL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 92,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodePtBR",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 93,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodePtPT",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 94,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeRuRU",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 95,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeTaIN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 96,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeTeIN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 97,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeTrTR",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 98,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeZhCN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 99,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeZhTW",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 100,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeThTH",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 101,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnZA",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 102,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnNZ",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 103,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeViVN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 104,
       "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeSvSE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 107,
       "symbol": "AWSTranscribeMediaFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 107,
       "symbol": "AWSTranscribeMediaFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 108,
       "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 109,
       "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatMp3",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 110,
       "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatMp4",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 111,
       "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatWav",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 112,
       "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatFlac",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 113,
       "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatOgg",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 114,
       "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatAmr",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 115,
       "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatWebm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 118,
       "symbol": "AWSTranscribeMedicalContentIdentificationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 118,
       "symbol": "AWSTranscribeMedicalContentIdentificationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 119,
       "symbol": "AWSTranscribeMedicalContentIdentificationType.AWSTranscribeMedicalContentIdentificationTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 120,
       "symbol": "AWSTranscribeMedicalContentIdentificationType.AWSTranscribeMedicalContentIdentificationTypePhi",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 123,
       "symbol": "AWSTranscribeModelStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 123,
       "symbol": "AWSTranscribeModelStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 124,
       "symbol": "AWSTranscribeModelStatus.AWSTranscribeModelStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 125,
       "symbol": "AWSTranscribeModelStatus.AWSTranscribeModelStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 126,
       "symbol": "AWSTranscribeModelStatus.AWSTranscribeModelStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 127,
       "symbol": "AWSTranscribeModelStatus.AWSTranscribeModelStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 130,
       "symbol": "AWSTranscribeOutputLocationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 130,
       "symbol": "AWSTranscribeOutputLocationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 131,
       "symbol": "AWSTranscribeOutputLocationType.AWSTranscribeOutputLocationTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 132,
       "symbol": "AWSTranscribeOutputLocationType.AWSTranscribeOutputLocationTypeCustomerBucket",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 133,
       "symbol": "AWSTranscribeOutputLocationType.AWSTranscribeOutputLocationTypeServiceBucket",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 136,
       "symbol": "AWSTranscribeParticipantRole",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 136,
       "symbol": "AWSTranscribeParticipantRole",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 137,
       "symbol": "AWSTranscribeParticipantRole.AWSTranscribeParticipantRoleUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 138,
       "symbol": "AWSTranscribeParticipantRole.AWSTranscribeParticipantRoleAgent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 139,
       "symbol": "AWSTranscribeParticipantRole.AWSTranscribeParticipantRoleCustomer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 142,
       "symbol": "AWSTranscribePiiEntityType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 142,
       "symbol": "AWSTranscribePiiEntityType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 143,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 144,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeBankAccountNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 145,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeBankRouting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 146,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeCreditDebitNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 147,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeCreditDebitCvv",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 148,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeCreditDebitExpiry",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 149,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypePin",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 150,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeEmail",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 151,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeAddress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 152,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 153,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypePhone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 154,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeSsn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 155,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 158,
       "symbol": "AWSTranscribeRedactionOutput",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 158,
       "symbol": "AWSTranscribeRedactionOutput",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 159,
       "symbol": "AWSTranscribeRedactionOutput.AWSTranscribeRedactionOutputUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 160,
       "symbol": "AWSTranscribeRedactionOutput.AWSTranscribeRedactionOutputRedacted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 161,
       "symbol": "AWSTranscribeRedactionOutput.AWSTranscribeRedactionOutputRedactedAndUnredacted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 164,
       "symbol": "AWSTranscribeRedactionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 164,
       "symbol": "AWSTranscribeRedactionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 165,
       "symbol": "AWSTranscribeRedactionType.AWSTranscribeRedactionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 166,
       "symbol": "AWSTranscribeRedactionType.AWSTranscribeRedactionTypePii",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 169,
       "symbol": "AWSTranscribeSentimentValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 169,
       "symbol": "AWSTranscribeSentimentValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 170,
       "symbol": "AWSTranscribeSentimentValue.AWSTranscribeSentimentValueUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 171,
       "symbol": "AWSTranscribeSentimentValue.AWSTranscribeSentimentValuePositive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 172,
       "symbol": "AWSTranscribeSentimentValue.AWSTranscribeSentimentValueNegative",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 173,
       "symbol": "AWSTranscribeSentimentValue.AWSTranscribeSentimentValueNeutral",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 174,
       "symbol": "AWSTranscribeSentimentValue.AWSTranscribeSentimentValueMixed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 177,
       "symbol": "AWSTranscribeSpecialty",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 177,
       "symbol": "AWSTranscribeSpecialty",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 178,
       "symbol": "AWSTranscribeSpecialty.AWSTranscribeSpecialtyUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 179,
       "symbol": "AWSTranscribeSpecialty.AWSTranscribeSpecialtyPrimarycare",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 182,
       "symbol": "AWSTranscribeSubtitleFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 182,
       "symbol": "AWSTranscribeSubtitleFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 183,
       "symbol": "AWSTranscribeSubtitleFormat.AWSTranscribeSubtitleFormatUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 184,
       "symbol": "AWSTranscribeSubtitleFormat.AWSTranscribeSubtitleFormatVtt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 185,
       "symbol": "AWSTranscribeSubtitleFormat.AWSTranscribeSubtitleFormatSrt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 188,
       "symbol": "AWSTranscribeTranscriptFilterType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 188,
       "symbol": "AWSTranscribeTranscriptFilterType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 189,
       "symbol": "AWSTranscribeTranscriptFilterType.AWSTranscribeTranscriptFilterTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 190,
       "symbol": "AWSTranscribeTranscriptFilterType.AWSTranscribeTranscriptFilterTypeExact",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 193,
       "symbol": "AWSTranscribeTranscriptionJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 193,
       "symbol": "AWSTranscribeTranscriptionJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 194,
       "symbol": "AWSTranscribeTranscriptionJobStatus.AWSTranscribeTranscriptionJobStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 195,
       "symbol": "AWSTranscribeTranscriptionJobStatus.AWSTranscribeTranscriptionJobStatusQueued",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 196,
       "symbol": "AWSTranscribeTranscriptionJobStatus.AWSTranscribeTranscriptionJobStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 197,
       "symbol": "AWSTranscribeTranscriptionJobStatus.AWSTranscribeTranscriptionJobStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 198,
       "symbol": "AWSTranscribeTranscriptionJobStatus.AWSTranscribeTranscriptionJobStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 201,
       "symbol": "AWSTranscribeTypes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 201,
       "symbol": "AWSTranscribeTypes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 202,
       "symbol": "AWSTranscribeTypes.AWSTranscribeTypesUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 203,
       "symbol": "AWSTranscribeTypes.AWSTranscribeTypesConversation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 204,
       "symbol": "AWSTranscribeTypes.AWSTranscribeTypesDictation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 207,
       "symbol": "AWSTranscribeVocabularyFilterMethod",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 207,
       "symbol": "AWSTranscribeVocabularyFilterMethod",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 208,
       "symbol": "AWSTranscribeVocabularyFilterMethod.AWSTranscribeVocabularyFilterMethodUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 209,
       "symbol": "AWSTranscribeVocabularyFilterMethod.AWSTranscribeVocabularyFilterMethodRemove",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 210,
       "symbol": "AWSTranscribeVocabularyFilterMethod.AWSTranscribeVocabularyFilterMethodMask",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 211,
       "symbol": "AWSTranscribeVocabularyFilterMethod.AWSTranscribeVocabularyFilterMethodTag",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 214,
       "symbol": "AWSTranscribeVocabularyState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 214,
       "symbol": "AWSTranscribeVocabularyState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 215,
       "symbol": "AWSTranscribeVocabularyState.AWSTranscribeVocabularyStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 216,
       "symbol": "AWSTranscribeVocabularyState.AWSTranscribeVocabularyStatePending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 217,
       "symbol": "AWSTranscribeVocabularyState.AWSTranscribeVocabularyStateReady",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeModel.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 218,
       "symbol": "AWSTranscribeVocabularyState.AWSTranscribeVocabularyStateFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeResources.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeResources.h",
       "line": 18,
       "symbol": "AWSTranscribeResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeResources.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeResources.h",
       "line": 20,
       "symbol": "AWSTranscribeResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeResources.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeResources.h",
       "line": 22,
       "symbol": "AWSTranscribeResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSTranscribe/AWSTranscribeService.h",
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeService.h",
       "line": 24,
       "symbol": "AWSTranscribeSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/diwud/5d/aws-sdk-ios"
+  "source_directory": "/Users/distiller/project"
 }
