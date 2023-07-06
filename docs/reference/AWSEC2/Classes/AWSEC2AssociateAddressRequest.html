@@ -17,7 +17,7 @@
     <a title="AWSEC2AssociateAddressRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSEC2 2.33.0 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSEC2 2.33.1 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -731,6 +731,12 @@
                 <a href="../Classes/AWSEC2CreateImageResult.html">AWSEC2CreateImageResult</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2CreateInstanceConnectEndpointRequest.html">AWSEC2CreateInstanceConnectEndpointRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2CreateInstanceConnectEndpointResult.html">AWSEC2CreateInstanceConnectEndpointResult</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2CreateInstanceEventWindowRequest.html">AWSEC2CreateInstanceEventWindowRequest</a>
               </li>
               <li class="nav-group-task">
@@ -1215,6 +1221,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2DeleteFpgaImageResult.html">AWSEC2DeleteFpgaImageResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2DeleteInstanceConnectEndpointRequest.html">AWSEC2DeleteInstanceConnectEndpointRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2DeleteInstanceConnectEndpointResult.html">AWSEC2DeleteInstanceConnectEndpointResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2DeleteInstanceEventWindowRequest.html">AWSEC2DeleteInstanceEventWindowRequest</a>
@@ -1860,6 +1872,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2DescribeInstanceAttributeRequest.html">AWSEC2DescribeInstanceAttributeRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2DescribeInstanceConnectEndpointsRequest.html">AWSEC2DescribeInstanceConnectEndpointsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2DescribeInstanceConnectEndpointsResult.html">AWSEC2DescribeInstanceConnectEndpointsResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2DescribeInstanceCreditSpecificationsRequest.html">AWSEC2DescribeInstanceCreditSpecificationsRequest</a>
@@ -2700,6 +2718,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2EbsOptimizedInfo.html">AWSEC2EbsOptimizedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2Ec2InstanceConnectEndpoint.html">AWSEC2Ec2InstanceConnectEndpoint</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2EfaInfo.html">AWSEC2EfaInfo</a>
@@ -5766,6 +5787,9 @@
                 <a href="../Enums/AWSEC2EbsOptimizedSupport.html">AWSEC2EbsOptimizedSupport</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSEC2Ec2InstanceConnectEndpointState.html">AWSEC2Ec2InstanceConnectEndpointState</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSEC2ElasticGpuState.html">AWSEC2ElasticGpuState</a>
               </li>
               <li class="nav-group-task">
@@ -6502,7 +6526,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>[EC2-VPC] The allocation ID. This is required for EC2-VPC.</p>
+                        <p>The allocation ID. This is required.</p>
 
                       </div>
                       <div class="declaration">
@@ -6534,7 +6558,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>[EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP address that is already associated with an instance or network interface to be reassociated with the specified instance or network interface. Otherwise, the operation fails. In a VPC in an EC2-VPC-only account, reassociation is automatic, therefore you can specify false to ensure the operation fails if the Elastic IP address is already associated with another resource.</p>
+                        <p>Reassociation is automatic, but you can specify false to ensure the operation fails if the Elastic IP address is already associated with another resource.</p>
 
                       </div>
                       <div class="declaration">
@@ -6598,7 +6622,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ID of the instance. The instance must have exactly one attached network interface. For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. For EC2-Classic, you must specify an instance ID and the instance must be in the running state.</p>
+                        <p>The ID of the instance. The instance must have exactly one attached network interface. You can specify either the instance ID or the network interface ID, but not both.</p>
 
                       </div>
                       <div class="declaration">
@@ -6630,7 +6654,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>[EC2-VPC] The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.</p><p>For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. </p>
+                        <p>The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.</p><p>You can specify either the instance ID or the network interface ID, but not both. </p>
 
                       </div>
                       <div class="declaration">
@@ -6662,7 +6686,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>[EC2-VPC] The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.</p>
+                        <p>The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.</p>
 
                       </div>
                       <div class="declaration">
@@ -6694,7 +6718,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>[EC2-Classic] The Elastic IP address to associate with the instance. This is required for EC2-Classic.</p>
+                        <p>Deprecated.</p>
 
                       </div>
                       <div class="declaration">
@@ -6718,7 +6742,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-29)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-07-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

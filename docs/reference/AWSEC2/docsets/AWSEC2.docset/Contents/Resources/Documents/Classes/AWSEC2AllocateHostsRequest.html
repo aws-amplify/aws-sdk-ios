@@ -17,7 +17,7 @@
     <a title="AWSEC2AllocateHostsRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSEC2 2.33.0 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSEC2 2.33.1 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -731,6 +731,12 @@
                 <a href="../Classes/AWSEC2CreateImageResult.html">AWSEC2CreateImageResult</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2CreateInstanceConnectEndpointRequest.html">AWSEC2CreateInstanceConnectEndpointRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2CreateInstanceConnectEndpointResult.html">AWSEC2CreateInstanceConnectEndpointResult</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2CreateInstanceEventWindowRequest.html">AWSEC2CreateInstanceEventWindowRequest</a>
               </li>
               <li class="nav-group-task">
@@ -1215,6 +1221,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2DeleteFpgaImageResult.html">AWSEC2DeleteFpgaImageResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2DeleteInstanceConnectEndpointRequest.html">AWSEC2DeleteInstanceConnectEndpointRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2DeleteInstanceConnectEndpointResult.html">AWSEC2DeleteInstanceConnectEndpointResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2DeleteInstanceEventWindowRequest.html">AWSEC2DeleteInstanceEventWindowRequest</a>
@@ -1860,6 +1872,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2DescribeInstanceAttributeRequest.html">AWSEC2DescribeInstanceAttributeRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2DescribeInstanceConnectEndpointsRequest.html">AWSEC2DescribeInstanceConnectEndpointsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2DescribeInstanceConnectEndpointsResult.html">AWSEC2DescribeInstanceConnectEndpointsResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2DescribeInstanceCreditSpecificationsRequest.html">AWSEC2DescribeInstanceCreditSpecificationsRequest</a>
@@ -2700,6 +2718,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2EbsOptimizedInfo.html">AWSEC2EbsOptimizedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2Ec2InstanceConnectEndpoint.html">AWSEC2Ec2InstanceConnectEndpoint</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2EfaInfo.html">AWSEC2EfaInfo</a>
@@ -5766,6 +5787,9 @@
                 <a href="../Enums/AWSEC2EbsOptimizedSupport.html">AWSEC2EbsOptimizedSupport</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSEC2Ec2InstanceConnectEndpointState.html">AWSEC2Ec2InstanceConnectEndpointState</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSEC2ElasticGpuState.html">AWSEC2ElasticGpuState</a>
               </li>
               <li class="nav-group-task">
@@ -6492,6 +6516,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSEC2AllocateHostsRequest(py)assetIds"></a>
+                    <a name="//apple_ref/objc/Property/assetIds" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2AllocateHostsRequest(py)assetIds">assetIds</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>The IDs of the Outpost hardware assets on which to allocate the Dedicated Hosts. Targeting specific hardware assets on an Outpost can help to minimize latency between your workloads. This parameter is supported only if you specify <b>OutpostArn</b>. If you are allocating the Dedicated Hosts in a Region, omit this parameter.</p><ul><li><p>If you specify this parameter, you can omit <b>Quantity</b>. In this case, Amazon EC2 allocates a Dedicated Host on each specified hardware asset.</p></li><li><p>If you specify both <b>AssetIds</b> and <b>Quantity</b>, then the value for <b>Quantity</b> must be equal to the number of asset IDs specified.</p></li></ul></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">assetIds</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">assetIds</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSEC2AllocateHostsRequest(py)autoPlacement"></a>
                     <a name="//apple_ref/objc/Property/autoPlacement" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSEC2AllocateHostsRequest(py)autoPlacement">autoPlacement</a>
@@ -6726,7 +6782,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.</p>
+                        <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host. If you specify <b>OutpostArn</b>, you can optionally specify <b>AssetIds</b>.</p><p>If you are allocating the Dedicated Host in a Region, omit this parameter.</p>
 
                       </div>
                       <div class="declaration">
@@ -6758,7 +6814,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The number of Dedicated Hosts to allocate to your account with these parameters.</p>
+                        <p>The number of Dedicated Hosts to allocate to your account with these parameters. If you are allocating the Dedicated Hosts on an Outpost, and you specify <b>AssetIds</b>, you can omit this parameter. In this case, Amazon EC2 allocates a Dedicated Host on each specified hardware asset. If you specify both <b>AssetIds</b> and <b>Quantity</b>, then the value that you specify for <b>Quantity</b> must be equal to the number of asset IDs specified.</p>
 
                       </div>
                       <div class="declaration">
@@ -6814,7 +6870,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-29)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-07-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

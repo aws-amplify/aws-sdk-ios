@@ -17,7 +17,7 @@
     <a title="AWSEC2DescribeAddressesRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSEC2 2.33.0 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSEC2 2.33.1 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -731,6 +731,12 @@
                 <a href="../Classes/AWSEC2CreateImageResult.html">AWSEC2CreateImageResult</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2CreateInstanceConnectEndpointRequest.html">AWSEC2CreateInstanceConnectEndpointRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2CreateInstanceConnectEndpointResult.html">AWSEC2CreateInstanceConnectEndpointResult</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2CreateInstanceEventWindowRequest.html">AWSEC2CreateInstanceEventWindowRequest</a>
               </li>
               <li class="nav-group-task">
@@ -1215,6 +1221,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2DeleteFpgaImageResult.html">AWSEC2DeleteFpgaImageResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2DeleteInstanceConnectEndpointRequest.html">AWSEC2DeleteInstanceConnectEndpointRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2DeleteInstanceConnectEndpointResult.html">AWSEC2DeleteInstanceConnectEndpointResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2DeleteInstanceEventWindowRequest.html">AWSEC2DeleteInstanceEventWindowRequest</a>
@@ -1860,6 +1872,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2DescribeInstanceAttributeRequest.html">AWSEC2DescribeInstanceAttributeRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2DescribeInstanceConnectEndpointsRequest.html">AWSEC2DescribeInstanceConnectEndpointsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2DescribeInstanceConnectEndpointsResult.html">AWSEC2DescribeInstanceConnectEndpointsResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2DescribeInstanceCreditSpecificationsRequest.html">AWSEC2DescribeInstanceCreditSpecificationsRequest</a>
@@ -2700,6 +2718,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2EbsOptimizedInfo.html">AWSEC2EbsOptimizedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2Ec2InstanceConnectEndpoint.html">AWSEC2Ec2InstanceConnectEndpoint</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2EfaInfo.html">AWSEC2EfaInfo</a>
@@ -5766,6 +5787,9 @@
                 <a href="../Enums/AWSEC2EbsOptimizedSupport.html">AWSEC2EbsOptimizedSupport</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSEC2Ec2InstanceConnectEndpointState.html">AWSEC2Ec2InstanceConnectEndpointState</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSEC2ElasticGpuState.html">AWSEC2ElasticGpuState</a>
               </li>
               <li class="nav-group-task">
@@ -6502,7 +6526,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>[EC2-VPC] Information about the allocation IDs.</p>
+                        <p>Information about the allocation IDs.</p>
 
                       </div>
                       <div class="declaration">
@@ -6566,7 +6590,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>One or more filters. Filter names and values are case-sensitive.</p><ul><li><p><code>allocation-id</code> - [EC2-VPC] The allocation ID for the address.</p></li><li><p><code>association-id</code> - [EC2-VPC] The association ID for the address.</p></li><li><p><code>domain</code> - Indicates whether the address is for use in EC2-Classic (<code>standard</code>) or in a VPC (<code>vpc</code>).</p></li><li><p><code>instance-id</code> - The ID of the instance the address is associated with, if any.</p></li><li><p><code>network-border-group</code> - A unique set of Availability Zones, Local Zones, or Wavelength Zones from where Amazon Web Services advertises IP addresses. </p></li><li><p><code>network-interface-id</code> - [EC2-VPC] The ID of the network interface that the address is associated with, if any.</p></li><li><p><code>network-interface-owner-id</code> - The Amazon Web Services account ID of the owner.</p></li><li><p><code>private-ip-address</code> - [EC2-VPC] The private IP address associated with the Elastic IP address.</p></li><li><p><code>public-ip</code> - The Elastic IP address, or the carrier IP address.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul></p>
+                        <p><p>One or more filters. Filter names and values are case-sensitive.</p><ul><li><p><code>allocation-id</code> - The allocation ID for the address.</p></li><li><p><code>association-id</code> - The association ID for the address.</p></li><li><p><code>instance-id</code> - The ID of the instance the address is associated with, if any.</p></li><li><p><code>network-border-group</code> - A unique set of Availability Zones, Local Zones, or Wavelength Zones from where Amazon Web Services advertises IP addresses. </p></li><li><p><code>network-interface-id</code> - The ID of the network interface that the address is associated with, if any.</p></li><li><p><code>network-interface-owner-id</code> - The Amazon Web Services account ID of the owner.</p></li><li><p><code>private-ip-address</code> - The private IP address associated with the Elastic IP address.</p></li><li><p><code>public-ip</code> - The Elastic IP address, or the carrier IP address.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -6622,7 +6646,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-29)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-07-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
