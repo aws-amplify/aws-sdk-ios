@@ -17,7 +17,7 @@
     <a title="AWSSQSReceiveMessageRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSSQS 2.33.0 Docs</a> (75% documented)</p>
+        <p><a href="../index.html">AWSSQS 2.33.1 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSSQS.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -48,6 +48,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSSQSBatchResultErrorEntry.html">AWSSQSBatchResultErrorEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSQSCancelMessageMoveTaskRequest.html">AWSSQSCancelMessageMoveTaskRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSQSCancelMessageMoveTaskResult.html">AWSSQSCancelMessageMoveTaskResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSSQSChangeMessageVisibilityBatchRequest.html">AWSSQSChangeMessageVisibilityBatchRequest</a>
@@ -107,6 +113,15 @@
                 <a href="../Classes/AWSSQSListDeadLetterSourceQueuesResult.html">AWSSQSListDeadLetterSourceQueuesResult</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSSQSListMessageMoveTasksRequest.html">AWSSQSListMessageMoveTasksRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSQSListMessageMoveTasksResult.html">AWSSQSListMessageMoveTasksResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSQSListMessageMoveTasksResultEntry.html">AWSSQSListMessageMoveTasksResultEntry</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSSQSListQueueTagsRequest.html">AWSSQSListQueueTagsRequest</a>
               </li>
               <li class="nav-group-task">
@@ -162,6 +177,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSSQSSetQueueAttributesRequest.html">AWSSQSSetQueueAttributesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSQSStartMessageMoveTaskRequest.html">AWSSQSStartMessageMoveTaskRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSQSStartMessageMoveTaskResult.html">AWSSQSStartMessageMoveTaskResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSSQSTagQueueRequest.html">AWSSQSTagQueueRequest</a>
@@ -243,7 +264,7 @@ Required parameters: [QueueUrl]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>A list of attributes that need to be returned along with each message. These attributes include:</p><ul><li><p><code>All</code> – Returns all values.</p></li><li><p><code>ApproximateFirstReceiveTimestamp</code> – Returns the time the message was first received from the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>ApproximateReceiveCount</code> – Returns the number of times a message has been received across all queues but not deleted.</p></li><li><p><code>AWSTraceHeader</code> – Returns the X-Ray trace header string. </p></li><li><p><code>SenderId</code></p><ul><li><p>For an IAM user, returns the IAM user ID, for example <code>ABCDEFGHI1JKLMNOPQ23R</code>.</p></li><li><p>For an IAM role, returns the IAM role ID, for example <code>ABCDE1F2GH3I4JK5LMNOP:i-a123b456</code>.</p></li></ul></li><li><p><code>SentTimestamp</code> – Returns the time the message was sent to the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>SqsManagedSseEnabled</code> – Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p></li><li><p><code>MessageDeduplicationId</code> – Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action.</p></li><li><p><code>MessageGroupId</code> – Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action. Messages with the same <code>MessageGroupId</code> are returned in sequence.</p></li><li><p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li></ul></p>
+                        <p><p>A list of attributes that need to be returned along with each message. These attributes include:</p><ul><li><p><code>All</code> – Returns all values.</p></li><li><p><code>ApproximateFirstReceiveTimestamp</code> – Returns the time the message was first received from the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>ApproximateReceiveCount</code> – Returns the number of times a message has been received across all queues but not deleted.</p></li><li><p><code>AWSTraceHeader</code> – Returns the X-Ray trace header string. </p></li><li><p><code>SenderId</code></p><ul><li><p>For a user, returns the user ID, for example <code>ABCDEFGHI1JKLMNOPQ23R</code>.</p></li><li><p>For an IAM role, returns the IAM role ID, for example <code>ABCDE1F2GH3I4JK5LMNOP:i-a123b456</code>.</p></li></ul></li><li><p><code>SentTimestamp</code> – Returns the time the message was sent to the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>SqsManagedSseEnabled</code> – Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p></li><li><p><code>MessageDeduplicationId</code> – Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action.</p></li><li><p><code>MessageGroupId</code> – Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action. Messages with the same <code>MessageGroupId</code> are returned in sequence.</p></li><li><p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -459,7 +480,7 @@ Required parameters: [QueueUrl]</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-29)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-07-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
