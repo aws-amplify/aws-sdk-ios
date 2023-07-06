@@ -17,7 +17,7 @@
     <a title="AWSLogs Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLogs 2.33.0 Docs</a> (84% documented)</p>
+        <p><a href="../index.html">AWSLogs 2.33.1 Docs</a> (83% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLogs.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -44,6 +44,9 @@
                 <a href="../Classes/AWSLogs.html">AWSLogs</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLogsAccountPolicy.html">AWSLogsAccountPolicy</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLogsAssociateKmsKeyRequest.html">AWSLogsAssociateKmsKeyRequest</a>
               </li>
               <li class="nav-group-task">
@@ -60,6 +63,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsCreateLogStreamRequest.html">AWSLogsCreateLogStreamRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsDeleteAccountPolicyRequest.html">AWSLogsDeleteAccountPolicyRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsDeleteDataProtectionPolicyRequest.html">AWSLogsDeleteDataProtectionPolicyRequest</a>
@@ -90,6 +96,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsDeleteSubscriptionFilterRequest.html">AWSLogsDeleteSubscriptionFilterRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsDescribeAccountPoliciesRequest.html">AWSLogsDescribeAccountPoliciesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsDescribeAccountPoliciesResponse.html">AWSLogsDescribeAccountPoliciesResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsDescribeDestinationsRequest.html">AWSLogsDescribeDestinationsRequest</a>
@@ -236,6 +248,12 @@
                 <a href="../Classes/AWSLogsOutputLogEvent.html">AWSLogsOutputLogEvent</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLogsPutAccountPolicyRequest.html">AWSLogsPutAccountPolicyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsPutAccountPolicyResponse.html">AWSLogsPutAccountPolicyResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLogsPutDataProtectionPolicyRequest.html">AWSLogsPutDataProtectionPolicyRequest</a>
               </li>
               <li class="nav-group-task">
@@ -375,10 +393,19 @@
                 <a href="../Enums/AWSLogsExportTaskStatusCode.html">AWSLogsExportTaskStatusCode</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSLogsInheritedProperty.html">AWSLogsInheritedProperty</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSLogsOrderBy.html">AWSLogsOrderBy</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSLogsPolicyType.html">AWSLogsPolicyType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSLogsQueryStatus.html">AWSLogsQueryStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLogsScope.html">AWSLogsScope</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSLogsStandardUnit.html">AWSLogsStandardUnit</a>
@@ -1180,7 +1207,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a log group with the specified name. You can create up to 20,000 log groups per account.</p><p>You must use the following guidelines when naming a log group:</p><ul><li><p>Log group names must be unique within a Region for an Amazon Web Services account.</p></li><li><p>Log group names can be between 1 and 512 characters long.</p></li><li><p>Log group names consist of the following characters: a-z, A-Z, 0-9, &lsquo;_&rsquo; (underscore), &lsquo;-&rsquo; (hyphen), &lsquo;/&rsquo; (forward slash), &lsquo;.&rsquo; (period), and &lsquo;#&rsquo; (number sign)</p></li></ul><p>When you create a log group, by default the log events in the log group do not expire. To set a retention policy so that events expire and are deleted after a specified time, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html">PutRetentionPolicy</a>.</p><p>If you associate an KMS key with the log group, ingested data is encrypted using the KMS key. This association is stored as long as the data encrypted with the KMS key is still within CloudWatch Logs. This enables CloudWatch Logs to decrypt this data whenever it is requested.</p><p>If you attempt to associate a KMS key with the log group but the KMS keydoes not exist or the KMS key is disabled, you receive an <code>InvalidParameterException</code> error. </p><important><p>CloudWatch Logs supports only symmetric KMS keys. Do not associate an asymmetric KMS key with your log group. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a>.</p></important></p>
+                        <p><p>Creates a log group with the specified name. You can create up to 20,000 log groups per account.</p><p>You must use the following guidelines when naming a log group:</p><ul><li><p>Log group names must be unique within a Region for an Amazon Web Services account.</p></li><li><p>Log group names can be between 1 and 512 characters long.</p></li><li><p>Log group names consist of the following characters: a-z, A-Z, 0-9, &lsquo;_&rsquo; (underscore), &lsquo;-&rsquo; (hyphen), &lsquo;/&rsquo; (forward slash), &lsquo;.&rsquo; (period), and &lsquo;#&rsquo; (number sign)</p></li></ul><p>When you create a log group, by default the log events in the log group do not expire. To set a retention policy so that events expire and are deleted after a specified time, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html">PutRetentionPolicy</a>.</p><p>If you associate an KMS key with the log group, ingested data is encrypted using the KMS key. This association is stored as long as the data encrypted with the KMS key is still within CloudWatch Logs. This enables CloudWatch Logs to decrypt this data whenever it is requested.</p><p>If you attempt to associate a KMS key with the log group but the KMS key does not exist or the KMS key is disabled, you receive an <code>InvalidParameterException</code> error. </p><important><p>CloudWatch Logs supports only symmetric KMS keys. Do not associate an asymmetric KMS key with your log group. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a>.</p></important></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsCreateLogGroupRequest</p>
@@ -1240,7 +1267,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a log group with the specified name. You can create up to 20,000 log groups per account.</p><p>You must use the following guidelines when naming a log group:</p><ul><li><p>Log group names must be unique within a Region for an Amazon Web Services account.</p></li><li><p>Log group names can be between 1 and 512 characters long.</p></li><li><p>Log group names consist of the following characters: a-z, A-Z, 0-9, &lsquo;_&rsquo; (underscore), &lsquo;-&rsquo; (hyphen), &lsquo;/&rsquo; (forward slash), &lsquo;.&rsquo; (period), and &lsquo;#&rsquo; (number sign)</p></li></ul><p>When you create a log group, by default the log events in the log group do not expire. To set a retention policy so that events expire and are deleted after a specified time, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html">PutRetentionPolicy</a>.</p><p>If you associate an KMS key with the log group, ingested data is encrypted using the KMS key. This association is stored as long as the data encrypted with the KMS key is still within CloudWatch Logs. This enables CloudWatch Logs to decrypt this data whenever it is requested.</p><p>If you attempt to associate a KMS key with the log group but the KMS keydoes not exist or the KMS key is disabled, you receive an <code>InvalidParameterException</code> error. </p><important><p>CloudWatch Logs supports only symmetric KMS keys. Do not associate an asymmetric KMS key with your log group. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a>.</p></important></p>
+                        <p><p>Creates a log group with the specified name. You can create up to 20,000 log groups per account.</p><p>You must use the following guidelines when naming a log group:</p><ul><li><p>Log group names must be unique within a Region for an Amazon Web Services account.</p></li><li><p>Log group names can be between 1 and 512 characters long.</p></li><li><p>Log group names consist of the following characters: a-z, A-Z, 0-9, &lsquo;_&rsquo; (underscore), &lsquo;-&rsquo; (hyphen), &lsquo;/&rsquo; (forward slash), &lsquo;.&rsquo; (period), and &lsquo;#&rsquo; (number sign)</p></li></ul><p>When you create a log group, by default the log events in the log group do not expire. To set a retention policy so that events expire and are deleted after a specified time, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html">PutRetentionPolicy</a>.</p><p>If you associate an KMS key with the log group, ingested data is encrypted using the KMS key. This association is stored as long as the data encrypted with the KMS key is still within CloudWatch Logs. This enables CloudWatch Logs to decrypt this data whenever it is requested.</p><p>If you attempt to associate a KMS key with the log group but the KMS key does not exist or the KMS key is disabled, you receive an <code>InvalidParameterException</code> error. </p><important><p>CloudWatch Logs supports only symmetric KMS keys. Do not associate an asymmetric KMS key with your log group. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a>.</p></important></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsCreateLogGroupRequest</p>
@@ -1419,6 +1446,137 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLogsErrorDomain">AWSLogsErrorDomain</a></code> domain and the following error code: <code>AWSLogsErrorInvalidParameter</code>, <code>AWSLogsErrorResourceAlreadyExists</code>, <code>AWSLogsErrorResourceNotFound</code>, <code>AWSLogsErrorServiceUnavailable</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLogs(im)deleteAccountPolicy:"></a>
+                    <a name="//apple_ref/objc/Method/-deleteAccountPolicy:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLogs(im)deleteAccountPolicy:">-deleteAccountPolicy:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Deletes a CloudWatch Logs account policy.</p><p>To use this operation, you must be signed on with the <code>logs:DeleteDataProtectionPolicy</code> and <code>logs:DeleteAccountPolicy</code> permissions.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLogsDeleteAccountPolicyRequest</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">deleteAccountPolicy</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLogsDeleteAccountPolicyRequest.html">AWSLogsDeleteAccountPolicyRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteAccountPolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLogsDeleteAccountPolicyRequest.html">AWSLogsDeleteAccountPolicyRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DeleteAccountPolicy service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLogsErrorDomain">AWSLogsErrorDomain</a></code> domain and the following error code: <code>AWSLogsErrorInvalidParameter</code>, <code>AWSLogsErrorResourceNotFound</code>, <code>AWSLogsErrorServiceUnavailable</code>, <code>AWSLogsErrorOperationAborted</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLogs(im)deleteAccountPolicy:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-deleteAccountPolicy:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLogs(im)deleteAccountPolicy:completionHandler:">-deleteAccountPolicy:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Deletes a CloudWatch Logs account policy.</p><p>To use this operation, you must be signed on with the <code>logs:DeleteDataProtectionPolicy</code> and <code>logs:DeleteAccountPolicy</code> permissions.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLogsDeleteAccountPolicyRequest</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">deleteAccountPolicy</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLogsDeleteAccountPolicyRequest.html">AWSLogsDeleteAccountPolicyRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+          <span class="nf">completionHandler</span><span class="p">:</span>
+              <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteAccountPolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLogsDeleteAccountPolicyRequest.html">AWSLogsDeleteAccountPolicyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DeleteAccountPolicy service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLogsErrorDomain">AWSLogsErrorDomain</a></code> domain and the following error code: <code>AWSLogsErrorInvalidParameter</code>, <code>AWSLogsErrorResourceNotFound</code>, <code>AWSLogsErrorServiceUnavailable</code>, <code>AWSLogsErrorOperationAborted</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -2617,6 +2775,150 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLogsErrorDomain">AWSLogsErrorDomain</a></code> domain and the following error code: <code>AWSLogsErrorInvalidParameter</code>, <code>AWSLogsErrorResourceNotFound</code>, <code>AWSLogsErrorOperationAborted</code>, <code>AWSLogsErrorServiceUnavailable</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLogs(im)describeAccountPolicies:"></a>
+                    <a name="//apple_ref/objc/Method/-describeAccountPolicies:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLogs(im)describeAccountPolicies:">-describeAccountPolicies:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a list of all CloudWatch Logs account policies in the account.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLogsDescribeAccountPoliciesRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLogsDescribeAccountPoliciesResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">describeAccountPolicies</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLogsDescribeAccountPoliciesRequest.html">AWSLogsDescribeAccountPoliciesRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeAccountPolicies</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLogsDescribeAccountPoliciesRequest.html">AWSLogsDescribeAccountPoliciesRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DescribeAccountPolicies service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSLogsDescribeAccountPoliciesResponse.html">AWSLogsDescribeAccountPoliciesResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLogsErrorDomain">AWSLogsErrorDomain</a></code> domain and the following error code: <code>AWSLogsErrorInvalidParameter</code>, <code>AWSLogsErrorOperationAborted</code>, <code>AWSLogsErrorResourceNotFound</code>, <code>AWSLogsErrorServiceUnavailable</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLogs(im)describeAccountPolicies:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-describeAccountPolicies:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLogs(im)describeAccountPolicies:completionHandler:">-describeAccountPolicies:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a list of all CloudWatch Logs account policies in the account.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLogsDescribeAccountPoliciesRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLogsDescribeAccountPoliciesResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">describeAccountPolicies</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLogsDescribeAccountPoliciesRequest.html">AWSLogsDescribeAccountPoliciesRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+              <span class="nf">completionHandler</span><span class="p">:</span>
+                  <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                      <span class="n"><a href="../Classes/AWSLogsDescribeAccountPoliciesResponse.html">AWSLogsDescribeAccountPoliciesResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                      <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeAccountPolicies</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLogsDescribeAccountPoliciesRequest.html">AWSLogsDescribeAccountPoliciesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLogsDescribeAccountPoliciesResponse.html">AWSLogsDescribeAccountPoliciesResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DescribeAccountPolicies service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLogsErrorDomain">AWSLogsErrorDomain</a></code> domain and the following error code: <code>AWSLogsErrorInvalidParameter</code>, <code>AWSLogsErrorOperationAborted</code>, <code>AWSLogsErrorResourceNotFound</code>, <code>AWSLogsErrorServiceUnavailable</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -4052,7 +4354,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists log events from the specified log group. You can list all the log events or filter the results using a filter pattern, a time range, and the name of the log stream.</p><p>You must have the <code>logs;FilterLogEvents</code> permission to perform this operation.</p><p>You can specify the log group to search by using either <code>logGroupIdentifier</code> or <code>logGroupName</code>. You must include one of these two parameters, but you can&rsquo;t include both. </p><p>By default, this operation returns as many log events as can fit in 1 MB (up to 10,000 log events) or all the events found within the specified time range. If the results include a token, that means there are more log events available. You can get additional results by specifying the token in a subsequent call. This operation can return empty results while there are more log events available through the token.</p><p>The returned log events are sorted by event timestamp, the timestamp when the event was ingested by CloudWatch Logs, and the ID of the <code>PutLogEvents</code> request.</p><p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and view data from the linked source accounts. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>
+                        <p>Lists log events from the specified log group. You can list all the log events or filter the results using a filter pattern, a time range, and the name of the log stream.</p><p>You must have the <code>logs:FilterLogEvents</code> permission to perform this operation.</p><p>You can specify the log group to search by using either <code>logGroupIdentifier</code> or <code>logGroupName</code>. You must include one of these two parameters, but you can&rsquo;t include both. </p><p>By default, this operation returns as many log events as can fit in 1 MB (up to 10,000 log events) or all the events found within the specified time range. If the results include a token, that means there are more log events available. You can get additional results by specifying the token in a subsequent call. This operation can return empty results while there are more log events available through the token.</p><p>The returned log events are sorted by event timestamp, the timestamp when the event was ingested by CloudWatch Logs, and the ID of the <code>PutLogEvents</code> request.</p><p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and view data from the linked source accounts. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsFilterLogEventsRequest</p>
@@ -4116,7 +4418,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists log events from the specified log group. You can list all the log events or filter the results using a filter pattern, a time range, and the name of the log stream.</p><p>You must have the <code>logs;FilterLogEvents</code> permission to perform this operation.</p><p>You can specify the log group to search by using either <code>logGroupIdentifier</code> or <code>logGroupName</code>. You must include one of these two parameters, but you can&rsquo;t include both. </p><p>By default, this operation returns as many log events as can fit in 1 MB (up to 10,000 log events) or all the events found within the specified time range. If the results include a token, that means there are more log events available. You can get additional results by specifying the token in a subsequent call. This operation can return empty results while there are more log events available through the token.</p><p>The returned log events are sorted by event timestamp, the timestamp when the event was ingested by CloudWatch Logs, and the ID of the <code>PutLogEvents</code> request.</p><p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and view data from the linked source accounts. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>
+                        <p>Lists log events from the specified log group. You can list all the log events or filter the results using a filter pattern, a time range, and the name of the log stream.</p><p>You must have the <code>logs:FilterLogEvents</code> permission to perform this operation.</p><p>You can specify the log group to search by using either <code>logGroupIdentifier</code> or <code>logGroupName</code>. You must include one of these two parameters, but you can&rsquo;t include both. </p><p>By default, this operation returns as many log events as can fit in 1 MB (up to 10,000 log events) or all the events found within the specified time range. If the results include a token, that means there are more log events available. You can get additional results by specifying the token in a subsequent call. This operation can return empty results while there are more log events available through the token.</p><p>The returned log events are sorted by event timestamp, the timestamp when the event was ingested by CloudWatch Logs, and the ID of the <code>PutLogEvents</code> request.</p><p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and view data from the linked source accounts. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsFilterLogEventsRequest</p>
@@ -5171,6 +5473,147 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSLogs(im)putAccountPolicy:"></a>
+                    <a name="//apple_ref/objc/Method/-putAccountPolicy:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLogs(im)putAccountPolicy:">-putAccountPolicy:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an account-level data protection policy that applies to all log groups in the account. A data protection policy can help safeguard sensitive data that&rsquo;s ingested by your log groups by auditing and masking the sensitive log data. Each account can have only one account-level policy.</p><important><p>Sensitive data is detected and masked when it is ingested into a log group. When you set a data protection policy, log events ingested into the log groups before that time are not masked.</p></important><p>If you use <code>PutAccountPolicy</code> to create a data protection policy for your whole account, it applies to both existing log groups and all log groups that are created later in this account. The account policy is applied to existing log groups with eventual consistency. It might take up to 5 minutes before sensitive data in existing log groups begins to be masked.</p><p>By default, when a user views a log event that includes masked data, the sensitive data is replaced by asterisks. A user who has the <code>logs:Unmask</code> permission can use a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html">GetLogEvents</a> or <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.html">FilterLogEvents</a> operation with the <code>unmask</code> parameter set to <code>true</code> to view the unmasked log events. Users with the <code>logs:Unmask</code> can also view unmasked data in the CloudWatch Logs console by running a CloudWatch Logs Insights query with the <code>unmask</code> query command.</p><p>For more information, including a list of types of data that can be audited and masked, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html">Protect sensitive log data with masking</a>.</p><p>To use the <code>PutAccountPolicy</code> operation, you must be signed on with the <code>logs:PutDataProtectionPolicy</code> and <code>logs:PutAccountPolicy</code> permissions.</p><p>The <code>PutAccountPolicy</code> operation applies to all log groups in the account. You can also use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html">PutDataProtectionPolicy</a> to create a data protection policy that applies to just one log group. If a log group has its own data protection policy and the account also has an account-level data protection policy, then the two policies are cumulative. Any sensitive term specified in either policy is masked.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLogsPutAccountPolicyRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLogsPutAccountPolicyResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">putAccountPolicy</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLogsPutAccountPolicyRequest.html">AWSLogsPutAccountPolicyRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putAccountPolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLogsPutAccountPolicyRequest.html">AWSLogsPutAccountPolicyRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the PutAccountPolicy service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSLogsPutAccountPolicyResponse.html">AWSLogsPutAccountPolicyResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLogsErrorDomain">AWSLogsErrorDomain</a></code> domain and the following error code: <code>AWSLogsErrorInvalidParameter</code>, <code>AWSLogsErrorOperationAborted</code>, <code>AWSLogsErrorServiceUnavailable</code>, <code>AWSLogsErrorLimitExceeded</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLogs(im)putAccountPolicy:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-putAccountPolicy:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLogs(im)putAccountPolicy:completionHandler:">-putAccountPolicy:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an account-level data protection policy that applies to all log groups in the account. A data protection policy can help safeguard sensitive data that&rsquo;s ingested by your log groups by auditing and masking the sensitive log data. Each account can have only one account-level policy.</p><important><p>Sensitive data is detected and masked when it is ingested into a log group. When you set a data protection policy, log events ingested into the log groups before that time are not masked.</p></important><p>If you use <code>PutAccountPolicy</code> to create a data protection policy for your whole account, it applies to both existing log groups and all log groups that are created later in this account. The account policy is applied to existing log groups with eventual consistency. It might take up to 5 minutes before sensitive data in existing log groups begins to be masked.</p><p>By default, when a user views a log event that includes masked data, the sensitive data is replaced by asterisks. A user who has the <code>logs:Unmask</code> permission can use a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html">GetLogEvents</a> or <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.html">FilterLogEvents</a> operation with the <code>unmask</code> parameter set to <code>true</code> to view the unmasked log events. Users with the <code>logs:Unmask</code> can also view unmasked data in the CloudWatch Logs console by running a CloudWatch Logs Insights query with the <code>unmask</code> query command.</p><p>For more information, including a list of types of data that can be audited and masked, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html">Protect sensitive log data with masking</a>.</p><p>To use the <code>PutAccountPolicy</code> operation, you must be signed on with the <code>logs:PutDataProtectionPolicy</code> and <code>logs:PutAccountPolicy</code> permissions.</p><p>The <code>PutAccountPolicy</code> operation applies to all log groups in the account. You can also use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html">PutDataProtectionPolicy</a> to create a data protection policy that applies to just one log group. If a log group has its own data protection policy and the account also has an account-level data protection policy, then the two policies are cumulative. Any sensitive term specified in either policy is masked.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLogsPutAccountPolicyRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLogsPutAccountPolicyResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">putAccountPolicy</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLogsPutAccountPolicyRequest.html">AWSLogsPutAccountPolicyRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+       <span class="nf">completionHandler</span><span class="p">:</span>
+           <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSLogsPutAccountPolicyResponse.html">AWSLogsPutAccountPolicyResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                              <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putAccountPolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLogsPutAccountPolicyRequest.html">AWSLogsPutAccountPolicyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLogsPutAccountPolicyResponse.html">AWSLogsPutAccountPolicyResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the PutAccountPolicy service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLogsErrorDomain">AWSLogsErrorDomain</a></code> domain and the following error code: <code>AWSLogsErrorInvalidParameter</code>, <code>AWSLogsErrorOperationAborted</code>, <code>AWSLogsErrorServiceUnavailable</code>, <code>AWSLogsErrorLimitExceeded</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSLogs(im)putDataProtectionPolicy:"></a>
                     <a name="//apple_ref/objc/Method/-putDataProtectionPolicy:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSLogs(im)putDataProtectionPolicy:">-putDataProtectionPolicy:<wbr></a>
@@ -5181,7 +5624,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a data protection policy for the specified log group. A data protection policy can help safeguard sensitive data that&rsquo;s ingested by the log group by auditing and masking the sensitive log data.</p><important><p>Sensitive data is detected and masked when it is ingested into the log group. When you set a data protection policy, log events ingested into the log group before that time are not masked.</p></important><p>By default, when a user views a log event that includes masked data, the sensitive data is replaced by asterisks. A user who has the <code>logs:Unmask</code> permission can use a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html">GetLogEvents</a> or <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.html">FilterLogEvents</a> operation with the <code>unmask</code> parameter set to <code>true</code> to view the unmasked log events. Users with the <code>logs:Unmask</code> can also view unmasked data in the CloudWatch Logs console by running a CloudWatch Logs Insights query with the <code>unmask</code> query command.</p><p>For more information, including a list of types of data that can be audited and masked, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html">Protect sensitive log data with masking</a>.</p>
+                        <p>Creates a data protection policy for the specified log group. A data protection policy can help safeguard sensitive data that&rsquo;s ingested by the log group by auditing and masking the sensitive log data.</p><important><p>Sensitive data is detected and masked when it is ingested into the log group. When you set a data protection policy, log events ingested into the log group before that time are not masked.</p></important><p>By default, when a user views a log event that includes masked data, the sensitive data is replaced by asterisks. A user who has the <code>logs:Unmask</code> permission can use a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html">GetLogEvents</a> or <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.html">FilterLogEvents</a> operation with the <code>unmask</code> parameter set to <code>true</code> to view the unmasked log events. Users with the <code>logs:Unmask</code> can also view unmasked data in the CloudWatch Logs console by running a CloudWatch Logs Insights query with the <code>unmask</code> query command.</p><p>For more information, including a list of types of data that can be audited and masked, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html">Protect sensitive log data with masking</a>.</p><p>The <code>PutDataProtectionPolicy</code> operation applies to only the specified log group. You can also use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html">PutAccountPolicy</a> to create an account-level data protection policy that applies to all log groups in the account, including both existing log groups and log groups that are created level. If a log group has its own data protection policy and the account also has an account-level data protection policy, then the two policies are cumulative. Any sensitive term specified in either policy is masked.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsPutDataProtectionPolicyRequest</p>
@@ -5246,7 +5689,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a data protection policy for the specified log group. A data protection policy can help safeguard sensitive data that&rsquo;s ingested by the log group by auditing and masking the sensitive log data.</p><important><p>Sensitive data is detected and masked when it is ingested into the log group. When you set a data protection policy, log events ingested into the log group before that time are not masked.</p></important><p>By default, when a user views a log event that includes masked data, the sensitive data is replaced by asterisks. A user who has the <code>logs:Unmask</code> permission can use a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html">GetLogEvents</a> or <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.html">FilterLogEvents</a> operation with the <code>unmask</code> parameter set to <code>true</code> to view the unmasked log events. Users with the <code>logs:Unmask</code> can also view unmasked data in the CloudWatch Logs console by running a CloudWatch Logs Insights query with the <code>unmask</code> query command.</p><p>For more information, including a list of types of data that can be audited and masked, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html">Protect sensitive log data with masking</a>.</p>
+                        <p>Creates a data protection policy for the specified log group. A data protection policy can help safeguard sensitive data that&rsquo;s ingested by the log group by auditing and masking the sensitive log data.</p><important><p>Sensitive data is detected and masked when it is ingested into the log group. When you set a data protection policy, log events ingested into the log group before that time are not masked.</p></important><p>By default, when a user views a log event that includes masked data, the sensitive data is replaced by asterisks. A user who has the <code>logs:Unmask</code> permission can use a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html">GetLogEvents</a> or <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.html">FilterLogEvents</a> operation with the <code>unmask</code> parameter set to <code>true</code> to view the unmasked log events. Users with the <code>logs:Unmask</code> can also view unmasked data in the CloudWatch Logs console by running a CloudWatch Logs Insights query with the <code>unmask</code> query command.</p><p>For more information, including a list of types of data that can be audited and masked, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html">Protect sensitive log data with masking</a>.</p><p>The <code>PutDataProtectionPolicy</code> operation applies to only the specified log group. You can also use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html">PutAccountPolicy</a> to create an account-level data protection policy that applies to all log groups in the account, including both existing log groups and log groups that are created level. If a log group has its own data protection policy and the account also has an account-level data protection policy, then the two policies are cumulative. Any sensitive term specified in either policy is masked.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsPutDataProtectionPolicyRequest</p>
@@ -5599,7 +6042,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Uploads a batch of log events to the specified log stream.</p><important><p>The sequence token is now ignored in <code>PutLogEvents</code> actions. <code>PutLogEvents</code> actions are always accepted and never return <code>InvalidSequenceTokenException</code> or <code>DataAlreadyAcceptedException</code> even if the sequence token is not valid. You can use parallel <code>PutLogEvents</code> actions on the same log stream. </p></important><p>The batch of events must satisfy the following constraints:</p><ul><li><p>The maximum batch size is 1,048,576 bytes. This size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p></li><li><p>None of the log events in the batch can be more than 2 hours in the future.</p></li><li><p>None of the log events in the batch can be more than 14 days in the past. Also, none of the log events can be from earlier than the retention period of the log group.</p></li><li><p>The log events in the batch must be in chronological order by their timestamp. The timestamp is the time that the event occurred, expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>. (In Amazon Web Services Tools for PowerShell and the Amazon Web Services SDK for .NET, the timestamp is specified in .NET format: <code>yyyy-mm-ddThh:mm:ss</code>. For example, <code>2017-09-15T13:45:30</code>.) </p></li><li><p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p></li><li><p>The maximum number of log events in a batch is 10,000.</p></li><li><important><p>The quota of five requests per second per log stream has been removed. Instead, <code>PutLogEvents</code> actions are throttled based on a per-second per-account quota. You can request an increase to the per-second throttling quota by using the Service Quotas service.</p></important></li></ul><p>If a call to <code>PutLogEvents</code> returns &ldquo;UnrecognizedClientException&rdquo; the most likely cause is a non-valid Amazon Web Services access key ID or secret key. </p>
+                        <p>Uploads a batch of log events to the specified log stream.</p><important><p>The sequence token is now ignored in <code>PutLogEvents</code> actions. <code>PutLogEvents</code> actions are always accepted and never return <code>InvalidSequenceTokenException</code> or <code>DataAlreadyAcceptedException</code> even if the sequence token is not valid. You can use parallel <code>PutLogEvents</code> actions on the same log stream. </p></important><p>The batch of events must satisfy the following constraints:</p><ul><li><p>The maximum batch size is 1,048,576 bytes. This size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p></li><li><p>None of the log events in the batch can be more than 2 hours in the future.</p></li><li><p>None of the log events in the batch can be more than 14 days in the past. Also, none of the log events can be from earlier than the retention period of the log group.</p></li><li><p>The log events in the batch must be in chronological order by their timestamp. The timestamp is the time that the event occurred, expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>. (In Amazon Web Services Tools for PowerShell and the Amazon Web Services SDK for .NET, the timestamp is specified in .NET format: <code>yyyy-mm-ddThh:mm:ss</code>. For example, <code>2017-09-15T13:45:30</code>.) </p></li><li><p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p></li><li><p>Each log event can be no larger than 256 KB.</p></li><li><p>The maximum number of log events in a batch is 10,000.</p></li><li><important><p>The quota of five requests per second per log stream has been removed. Instead, <code>PutLogEvents</code> actions are throttled based on a per-second per-account quota. You can request an increase to the per-second throttling quota by using the Service Quotas service.</p></important></li></ul><p>If a call to <code>PutLogEvents</code> returns &ldquo;UnrecognizedClientException&rdquo; the most likely cause is a non-valid Amazon Web Services access key ID or secret key. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsPutLogEventsRequest</p>
@@ -5663,7 +6106,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Uploads a batch of log events to the specified log stream.</p><important><p>The sequence token is now ignored in <code>PutLogEvents</code> actions. <code>PutLogEvents</code> actions are always accepted and never return <code>InvalidSequenceTokenException</code> or <code>DataAlreadyAcceptedException</code> even if the sequence token is not valid. You can use parallel <code>PutLogEvents</code> actions on the same log stream. </p></important><p>The batch of events must satisfy the following constraints:</p><ul><li><p>The maximum batch size is 1,048,576 bytes. This size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p></li><li><p>None of the log events in the batch can be more than 2 hours in the future.</p></li><li><p>None of the log events in the batch can be more than 14 days in the past. Also, none of the log events can be from earlier than the retention period of the log group.</p></li><li><p>The log events in the batch must be in chronological order by their timestamp. The timestamp is the time that the event occurred, expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>. (In Amazon Web Services Tools for PowerShell and the Amazon Web Services SDK for .NET, the timestamp is specified in .NET format: <code>yyyy-mm-ddThh:mm:ss</code>. For example, <code>2017-09-15T13:45:30</code>.) </p></li><li><p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p></li><li><p>The maximum number of log events in a batch is 10,000.</p></li><li><important><p>The quota of five requests per second per log stream has been removed. Instead, <code>PutLogEvents</code> actions are throttled based on a per-second per-account quota. You can request an increase to the per-second throttling quota by using the Service Quotas service.</p></important></li></ul><p>If a call to <code>PutLogEvents</code> returns &ldquo;UnrecognizedClientException&rdquo; the most likely cause is a non-valid Amazon Web Services access key ID or secret key. </p>
+                        <p>Uploads a batch of log events to the specified log stream.</p><important><p>The sequence token is now ignored in <code>PutLogEvents</code> actions. <code>PutLogEvents</code> actions are always accepted and never return <code>InvalidSequenceTokenException</code> or <code>DataAlreadyAcceptedException</code> even if the sequence token is not valid. You can use parallel <code>PutLogEvents</code> actions on the same log stream. </p></important><p>The batch of events must satisfy the following constraints:</p><ul><li><p>The maximum batch size is 1,048,576 bytes. This size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p></li><li><p>None of the log events in the batch can be more than 2 hours in the future.</p></li><li><p>None of the log events in the batch can be more than 14 days in the past. Also, none of the log events can be from earlier than the retention period of the log group.</p></li><li><p>The log events in the batch must be in chronological order by their timestamp. The timestamp is the time that the event occurred, expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>. (In Amazon Web Services Tools for PowerShell and the Amazon Web Services SDK for .NET, the timestamp is specified in .NET format: <code>yyyy-mm-ddThh:mm:ss</code>. For example, <code>2017-09-15T13:45:30</code>.) </p></li><li><p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p></li><li><p>Each log event can be no larger than 256 KB.</p></li><li><p>The maximum number of log events in a batch is 10,000.</p></li><li><important><p>The quota of five requests per second per log stream has been removed. Instead, <code>PutLogEvents</code> actions are throttled based on a per-second per-account quota. You can request an increase to the per-second throttling quota by using the Service Quotas service.</p></important></li></ul><p>If a call to <code>PutLogEvents</code> returns &ldquo;UnrecognizedClientException&rdquo; the most likely cause is a non-valid Amazon Web Services access key ID or secret key. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsPutLogEventsRequest</p>
@@ -6283,7 +6726,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates or updates a subscription filter and associates it with the specified log group. With subscription filters, you can subscribe to a real-time stream of log events ingested through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a> and have them delivered to a specific destination. When log events are sent to the receiving service, they are Base64 encoded and compressed with the GZIP format.</p><p>The following destinations are supported for subscription filters:</p><ul><li><p>An Amazon Kinesis data stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>A logical destination that belongs to a different account, for cross-account delivery.</p></li><li><p>An Amazon Kinesis Data Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.</p></li><li><p>An Lambda function that belongs to the same account as the subscription filter, for same-account delivery.</p></li></ul><p>Each log group can have up to two subscription filters associated with it. If you are updating an existing filter, you must specify the correct name in <code>filterName</code>. </p><p>To perform a <code>PutSubscriptionFilter</code> operation, you must also have the <code>iam:PassRole</code> permission.</p>
+                        <p>Creates or updates a subscription filter and associates it with the specified log group. With subscription filters, you can subscribe to a real-time stream of log events ingested through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a> and have them delivered to a specific destination. When log events are sent to the receiving service, they are Base64 encoded and compressed with the GZIP format.</p><p>The following destinations are supported for subscription filters:</p><ul><li><p>An Amazon Kinesis data stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>A logical destination that belongs to a different account, for cross-account delivery.</p></li><li><p>An Amazon Kinesis Data Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.</p></li><li><p>An Lambda function that belongs to the same account as the subscription filter, for same-account delivery.</p></li></ul><p>Each log group can have up to two subscription filters associated with it. If you are updating an existing filter, you must specify the correct name in <code>filterName</code>. </p><p>To perform a <code>PutSubscriptionFilter</code> operation for any destination except a Lambda function, you must also have the <code>iam:PassRole</code> permission.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsPutSubscriptionFilterRequest</p>
@@ -6344,7 +6787,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates or updates a subscription filter and associates it with the specified log group. With subscription filters, you can subscribe to a real-time stream of log events ingested through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a> and have them delivered to a specific destination. When log events are sent to the receiving service, they are Base64 encoded and compressed with the GZIP format.</p><p>The following destinations are supported for subscription filters:</p><ul><li><p>An Amazon Kinesis data stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>A logical destination that belongs to a different account, for cross-account delivery.</p></li><li><p>An Amazon Kinesis Data Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.</p></li><li><p>An Lambda function that belongs to the same account as the subscription filter, for same-account delivery.</p></li></ul><p>Each log group can have up to two subscription filters associated with it. If you are updating an existing filter, you must specify the correct name in <code>filterName</code>. </p><p>To perform a <code>PutSubscriptionFilter</code> operation, you must also have the <code>iam:PassRole</code> permission.</p>
+                        <p>Creates or updates a subscription filter and associates it with the specified log group. With subscription filters, you can subscribe to a real-time stream of log events ingested through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a> and have them delivered to a specific destination. When log events are sent to the receiving service, they are Base64 encoded and compressed with the GZIP format.</p><p>The following destinations are supported for subscription filters:</p><ul><li><p>An Amazon Kinesis data stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>A logical destination that belongs to a different account, for cross-account delivery.</p></li><li><p>An Amazon Kinesis Data Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.</p></li><li><p>An Lambda function that belongs to the same account as the subscription filter, for same-account delivery.</p></li></ul><p>Each log group can have up to two subscription filters associated with it. If you are updating an existing filter, you must specify the correct name in <code>filterName</code>. </p><p>To perform a <code>PutSubscriptionFilter</code> operation for any destination except a Lambda function, you must also have the <code>iam:PassRole</code> permission.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsPutSubscriptionFilterRequest</p>
@@ -6416,7 +6859,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group and time range to query and the query string to use.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p><p>Queries time out after 15 minutes of runtime. If your queries are timing out, reduce the time range being searched or partition your query into a number of queries.</p><p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account to start a query in a linked source account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>. For a cross-account <code>StartQuery</code> operation, the query definition must be defined in the monitoring account.</p><p>You can have up to 20 concurrent CloudWatch Logs insights queries, including queries that have been added to dashboards. </p>
+                        <p>Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group and time range to query and the query string to use.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p><p>Queries time out after 60 minutes of runtime. If your queries are timing out, reduce the time range being searched or partition your query into a number of queries.</p><p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account to start a query in a linked source account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>. For a cross-account <code>StartQuery</code> operation, the query definition must be defined in the monitoring account.</p><p>You can have up to 30 concurrent CloudWatch Logs insights queries, including queries that have been added to dashboards. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsStartQueryRequest</p>
@@ -6480,7 +6923,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group and time range to query and the query string to use.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p><p>Queries time out after 15 minutes of runtime. If your queries are timing out, reduce the time range being searched or partition your query into a number of queries.</p><p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account to start a query in a linked source account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>. For a cross-account <code>StartQuery</code> operation, the query definition must be defined in the monitoring account.</p><p>You can have up to 20 concurrent CloudWatch Logs insights queries, including queries that have been added to dashboards. </p>
+                        <p>Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group and time range to query and the query string to use.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p><p>Queries time out after 60 minutes of runtime. If your queries are timing out, reduce the time range being searched or partition your query into a number of queries.</p><p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account to start a query in a linked source account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>. For a cross-account <code>StartQuery</code> operation, the query definition must be defined in the monitoring account.</p><p>You can have up to 30 concurrent CloudWatch Logs insights queries, including queries that have been added to dashboards. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsStartQueryRequest</p>
@@ -7349,7 +7792,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-29)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-07-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

@@ -17,7 +17,7 @@
     <a title="AWSLogsDescribeLogGroupsRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLogs 2.33.0 Docs</a> (84% documented)</p>
+        <p><a href="../index.html">AWSLogs 2.33.1 Docs</a> (83% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLogs.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -44,6 +44,9 @@
                 <a href="../Classes/AWSLogs.html">AWSLogs</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLogsAccountPolicy.html">AWSLogsAccountPolicy</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLogsAssociateKmsKeyRequest.html">AWSLogsAssociateKmsKeyRequest</a>
               </li>
               <li class="nav-group-task">
@@ -60,6 +63,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsCreateLogStreamRequest.html">AWSLogsCreateLogStreamRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsDeleteAccountPolicyRequest.html">AWSLogsDeleteAccountPolicyRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsDeleteDataProtectionPolicyRequest.html">AWSLogsDeleteDataProtectionPolicyRequest</a>
@@ -90,6 +96,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsDeleteSubscriptionFilterRequest.html">AWSLogsDeleteSubscriptionFilterRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsDescribeAccountPoliciesRequest.html">AWSLogsDescribeAccountPoliciesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsDescribeAccountPoliciesResponse.html">AWSLogsDescribeAccountPoliciesResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsDescribeDestinationsRequest.html">AWSLogsDescribeDestinationsRequest</a>
@@ -236,6 +248,12 @@
                 <a href="../Classes/AWSLogsOutputLogEvent.html">AWSLogsOutputLogEvent</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLogsPutAccountPolicyRequest.html">AWSLogsPutAccountPolicyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsPutAccountPolicyResponse.html">AWSLogsPutAccountPolicyResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLogsPutDataProtectionPolicyRequest.html">AWSLogsPutDataProtectionPolicyRequest</a>
               </li>
               <li class="nav-group-task">
@@ -375,10 +393,19 @@
                 <a href="../Enums/AWSLogsExportTaskStatusCode.html">AWSLogsExportTaskStatusCode</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSLogsInheritedProperty.html">AWSLogsInheritedProperty</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSLogsOrderBy.html">AWSLogsOrderBy</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSLogsPolicyType.html">AWSLogsPolicyType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSLogsQueryStatus.html">AWSLogsQueryStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLogsScope.html">AWSLogsScope</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSLogsStandardUnit.html">AWSLogsStandardUnit</a>
@@ -453,7 +480,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>If you are using a monitoring account, set this to <code>True</code> to have the operation return log groups in the accounts listed in <code><a href="../Classes/AWSLogsDescribeLogGroupsRequest.html#/c:objc(cs)AWSLogsDescribeLogGroupsRequest(py)accountIdentifiers">accountIdentifiers</a></code>.</p><p>If this parameter is set to <code>true</code> and <code><a href="../Classes/AWSLogsDescribeLogGroupsRequest.html#/c:objc(cs)AWSLogsDescribeLogGroupsRequest(py)accountIdentifiers">accountIdentifiers</a></code> contains a null value, the operation returns all log groups in the monitoring account and all log groups in all source accounts that are linked to the monitoring account. </p><note><p> If you specify <code>includeLinkedAccounts</code> in your request, then <code>metricFilterCount</code>, <code>retentionInDays</code>, and <code>storedBytes</code> are not included in the response. </p></note></p>
+                        <p>If you are using a monitoring account, set this to <code>True</code> to have the operation return log groups in the accounts listed in <code><a href="../Classes/AWSLogsDescribeLogGroupsRequest.html#/c:objc(cs)AWSLogsDescribeLogGroupsRequest(py)accountIdentifiers">accountIdentifiers</a></code>.</p><p>If this parameter is set to <code>true</code> and <code><a href="../Classes/AWSLogsDescribeLogGroupsRequest.html#/c:objc(cs)AWSLogsDescribeLogGroupsRequest(py)accountIdentifiers">accountIdentifiers</a></code> contains a null value, the operation returns all log groups in the monitoring account and all log groups in all source accounts that are linked to the monitoring account. </p>
 
                       </div>
                       <div class="declaration">
@@ -517,7 +544,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>If you specify a string for this parameter, the operation returns only log groups that have names that match the string based on a case-sensitive substring search. For example, if you specify <code>Foo</code>, log groups named <code>FooBar</code>, <code>aws/Foo</code>, and <code>GroupFoo</code> would match, but <code>foo</code>, <code>F/o/o</code> and <code>Froo</code> would not match.</p><note><p><code>logGroupNamePattern</code> and <code><a href="../Classes/AWSLogsDescribeLogGroupsRequest.html#/c:objc(cs)AWSLogsDescribeLogGroupsRequest(py)logGroupNamePrefix">logGroupNamePrefix</a></code> are mutually exclusive. Only one of these parameters can be passed. </p></note></p>
+                        <p><p>If you specify a string for this parameter, the operation returns only log groups that have names that match the string based on a case-sensitive substring search. For example, if you specify <code>Foo</code>, log groups named <code>FooBar</code>, <code>aws/Foo</code>, and <code>GroupFoo</code> would match, but <code>foo</code>, <code>F/o/o</code> and <code>Froo</code> would not match.</p><p>If you specify <code>logGroupNamePattern</code> in your request, then only <code>arn</code>, <code>creationTime</code>, and <code>logGroupName</code> are included in the response. </p><note><p><code>logGroupNamePattern</code> and <code><a href="../Classes/AWSLogsDescribeLogGroupsRequest.html#/c:objc(cs)AWSLogsDescribeLogGroupsRequest(py)logGroupNamePrefix">logGroupNamePrefix</a></code> are mutually exclusive. Only one of these parameters can be passed. </p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -605,7 +632,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-29)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-07-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

@@ -17,7 +17,7 @@
     <a title="AWSLogsLogGroup Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLogs 2.33.0 Docs</a> (84% documented)</p>
+        <p><a href="../index.html">AWSLogs 2.33.1 Docs</a> (83% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLogs.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -44,6 +44,9 @@
                 <a href="../Classes/AWSLogs.html">AWSLogs</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLogsAccountPolicy.html">AWSLogsAccountPolicy</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLogsAssociateKmsKeyRequest.html">AWSLogsAssociateKmsKeyRequest</a>
               </li>
               <li class="nav-group-task">
@@ -60,6 +63,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsCreateLogStreamRequest.html">AWSLogsCreateLogStreamRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsDeleteAccountPolicyRequest.html">AWSLogsDeleteAccountPolicyRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsDeleteDataProtectionPolicyRequest.html">AWSLogsDeleteDataProtectionPolicyRequest</a>
@@ -90,6 +96,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsDeleteSubscriptionFilterRequest.html">AWSLogsDeleteSubscriptionFilterRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsDescribeAccountPoliciesRequest.html">AWSLogsDescribeAccountPoliciesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsDescribeAccountPoliciesResponse.html">AWSLogsDescribeAccountPoliciesResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsDescribeDestinationsRequest.html">AWSLogsDescribeDestinationsRequest</a>
@@ -236,6 +248,12 @@
                 <a href="../Classes/AWSLogsOutputLogEvent.html">AWSLogsOutputLogEvent</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLogsPutAccountPolicyRequest.html">AWSLogsPutAccountPolicyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsPutAccountPolicyResponse.html">AWSLogsPutAccountPolicyResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLogsPutDataProtectionPolicyRequest.html">AWSLogsPutDataProtectionPolicyRequest</a>
               </li>
               <li class="nav-group-task">
@@ -375,10 +393,19 @@
                 <a href="../Enums/AWSLogsExportTaskStatusCode.html">AWSLogsExportTaskStatusCode</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSLogsInheritedProperty.html">AWSLogsInheritedProperty</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSLogsOrderBy.html">AWSLogsOrderBy</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSLogsPolicyType.html">AWSLogsPolicyType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSLogsQueryStatus.html">AWSLogsQueryStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLogsScope.html">AWSLogsScope</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSLogsStandardUnit.html">AWSLogsStandardUnit</a>
@@ -508,6 +535,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSLogsLogGroup(py)inheritedProperties"></a>
+                    <a name="//apple_ref/objc/Property/inheritedProperties" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLogsLogGroup(py)inheritedProperties">inheritedProperties</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Displays all the properties that this log group has inherited from account-level settings.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">inheritedProperties</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">inheritedProperties</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSLogsLogGroup(py)kmsKeyId"></a>
                     <a name="//apple_ref/objc/Property/kmsKeyId" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSLogsLogGroup(py)kmsKeyId">kmsKeyId</a>
@@ -614,7 +673,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 2192, 2557, 2922, 3288, and 3653.</p><p>To set a log group so that its log events do not expire, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>. </p>
+                        <p>The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.</p><p>To set a log group so that its log events do not expire, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>. </p>
 
                       </div>
                       <div class="declaration">
@@ -670,7 +729,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-29)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-07-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
