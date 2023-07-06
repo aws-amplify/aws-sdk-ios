@@ -582,6 +582,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
              @"departureTime" : @"DepartureTime",
              @"destinationPositions" : @"DestinationPositions",
              @"distanceUnit" : @"DistanceUnit",
+             @"key" : @"Key",
              @"travelMode" : @"TravelMode",
              @"truckModeOptions" : @"TruckModeOptions",
              };
@@ -737,6 +738,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
              @"destinationPosition" : @"DestinationPosition",
              @"distanceUnit" : @"DistanceUnit",
              @"includeLegGeometry" : @"IncludeLegGeometry",
+             @"key" : @"Key",
              @"travelMode" : @"TravelMode",
              @"truckModeOptions" : @"TruckModeOptions",
              @"waypointPositions" : @"WaypointPositions",
@@ -1267,6 +1269,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"detail" : @"Description",
+             @"eventBridgeEnabled" : @"EventBridgeEnabled",
              @"kmsKeyId" : @"KmsKeyId",
              @"positionFiltering" : @"PositionFiltering",
              @"pricingPlan" : @"PricingPlan",
@@ -1928,6 +1931,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 	return @{
              @"createTime" : @"CreateTime",
              @"detail" : @"Description",
+             @"eventBridgeEnabled" : @"EventBridgeEnabled",
              @"kmsKeyId" : @"KmsKeyId",
              @"positionFiltering" : @"PositionFiltering",
              @"pricingPlan" : @"PricingPlan",
@@ -2421,6 +2425,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"indexName" : @"IndexName",
+             @"key" : @"Key",
              @"language" : @"Language",
              @"placeId" : @"PlaceId",
              };
@@ -3536,6 +3541,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"indexName" : @"IndexName",
+             @"key" : @"Key",
              @"language" : @"Language",
              @"maxResults" : @"MaxResults",
              @"position" : @"Position",
@@ -3597,6 +3603,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
              @"filterCategories" : @"FilterCategories",
              @"filterCountries" : @"FilterCountries",
              @"indexName" : @"IndexName",
+             @"key" : @"Key",
              @"language" : @"Language",
              @"maxResults" : @"MaxResults",
              @"text" : @"Text",
@@ -3662,6 +3669,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
              @"filterCategories" : @"FilterCategories",
              @"filterCountries" : @"FilterCountries",
              @"indexName" : @"IndexName",
+             @"key" : @"Key",
              @"language" : @"Language",
              @"maxResults" : @"MaxResults",
              @"text" : @"Text",
@@ -4207,6 +4215,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"detail" : @"Description",
+             @"eventBridgeEnabled" : @"EventBridgeEnabled",
              @"positionFiltering" : @"PositionFiltering",
              @"pricingPlan" : @"PricingPlan",
              @"pricingPlanDataSource" : @"PricingPlanDataSource",
