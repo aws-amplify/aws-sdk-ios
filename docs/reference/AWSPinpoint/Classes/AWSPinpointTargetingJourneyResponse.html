@@ -17,7 +17,7 @@
     <a title="AWSPinpointTargetingJourneyResponse Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSPinpoint 2.33.0 Docs</a> (90% documented)</p>
+        <p><a href="../index.html">AWSPinpoint 2.33.1 Docs</a> (89% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSPinpoint.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -1592,6 +1592,9 @@
               <li class="nav-group-task">
                 <a href="../Enums/AWSPinpointTargeting__EndpointTypesElement.html">AWSPinpointTargeting__EndpointTypesElement</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSPinpointTargeting__TimezoneEstimationMethodsElement.html">AWSPinpointTargeting__TimezoneEstimationMethodsElement</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -2248,6 +2251,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSPinpointTargetingJourneyResponse(py)timezoneEstimationMethods"></a>
+                    <a name="//apple_ref/objc/Property/timezoneEstimationMethods" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointTargetingJourneyResponse(py)timezoneEstimationMethods">timezoneEstimationMethods</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>An array of time zone estimation methods, if any, to use for determining an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html">Endpoints</a> time zone if the Endpoint does not have a value for the Demographic.Timezone attribute.</p><ul><li><p>PHONE_NUMBER - A time zone is determined based on the Endpoint.Address and Endpoint.Location.Country.</p></li><li><p>POSTAL_CODE - A time zone is determined based on the Endpoint.Location.PostalCode and Endpoint.Location.Country.</p><note><p>POSTAL_CODE detection is only supported in the United States, United Kingdom, Australia, New Zealand, Canada, France, Italy, Spain, Germany and in regions where Amazon Pinpoint is available.</p></note></li></ul></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">timezoneEstimationMethods</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">timezoneEstimationMethods</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSPinpointTargetingJourneyResponse(py)waitForQuietTime"></a>
                     <a name="//apple_ref/objc/Property/waitForQuietTime" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSPinpointTargetingJourneyResponse(py)waitForQuietTime">waitForQuietTime</a>
@@ -2314,7 +2349,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-29)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-07-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
