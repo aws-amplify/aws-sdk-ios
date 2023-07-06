@@ -1,2735 +1,2735 @@
 {
   "warnings": [
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h",
       "line": 28,
       "symbol": "AWSCognitoIdentityProviderVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h",
       "line": 39,
       "symbol": "AWSCognitoIdentityProviderVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 22,
       "symbol": "AWSCognitoIdentityProviderErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 24,
       "symbol": "AWSCognitoIdentityProviderErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 24,
       "symbol": "AWSCognitoIdentityProviderErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 25,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 26,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorAliasExists",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 27,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorCodeDeliveryFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 28,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorCodeMismatch",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 29,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorConcurrentModification",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 30,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorDuplicateProvider",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 31,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorEnableSoftwareTokenMFA",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 32,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorExpiredCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 33,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorForbidden",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 34,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorGroupExists",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 35,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorInternalError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 36,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorInvalidEmailRoleAccessPolicy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 37,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorInvalidLambdaResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 38,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorInvalidOAuthFlow",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 39,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorInvalidParameter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 40,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorInvalidPassword",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 41,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorInvalidSmsRoleAccessPolicy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 42,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorInvalidSmsRoleTrustRelationship",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 43,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorInvalidUserPoolConfiguration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 44,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 45,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorMFAMethodNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 46,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorNotAuthorized",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 47,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorPasswordResetRequired",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 48,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorPreconditionNotMet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 49,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorResourceNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 50,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorScopeDoesNotExist",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 51,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorSoftwareTokenMFANotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 52,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorTooManyFailedAttempts",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 53,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorTooManyRequests",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 54,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorUnauthorized",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 55,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorUnexpectedLambda",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 56,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorUnsupportedIdentityProvider",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 57,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorUnsupportedOperation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 58,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorUnsupportedTokenType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 59,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorUnsupportedUserState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 60,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorUserImportInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 61,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorUserLambdaValidation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 62,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorUserNotConfirmed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 63,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorUserNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 64,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorUserPoolAddOnNotEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 65,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorUserPoolTagging",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 66,
       "symbol": "AWSCognitoIdentityProviderErrorType.AWSCognitoIdentityProviderErrorUsernameExists",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 69,
       "symbol": "AWSCognitoIdentityProviderAccountTakeoverEventActionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 69,
       "symbol": "AWSCognitoIdentityProviderAccountTakeoverEventActionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 70,
       "symbol": "AWSCognitoIdentityProviderAccountTakeoverEventActionType.AWSCognitoIdentityProviderAccountTakeoverEventActionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 71,
       "symbol": "AWSCognitoIdentityProviderAccountTakeoverEventActionType.AWSCognitoIdentityProviderAccountTakeoverEventActionTypeBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 72,
       "symbol": "AWSCognitoIdentityProviderAccountTakeoverEventActionType.AWSCognitoIdentityProviderAccountTakeoverEventActionTypeMfaIfConfigured",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 73,
       "symbol": "AWSCognitoIdentityProviderAccountTakeoverEventActionType.AWSCognitoIdentityProviderAccountTakeoverEventActionTypeMfaRequired",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 74,
       "symbol": "AWSCognitoIdentityProviderAccountTakeoverEventActionType.AWSCognitoIdentityProviderAccountTakeoverEventActionTypeNoAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 77,
       "symbol": "AWSCognitoIdentityProviderAdvancedSecurityModeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 77,
       "symbol": "AWSCognitoIdentityProviderAdvancedSecurityModeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 78,
       "symbol": "AWSCognitoIdentityProviderAdvancedSecurityModeType.AWSCognitoIdentityProviderAdvancedSecurityModeTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 79,
       "symbol": "AWSCognitoIdentityProviderAdvancedSecurityModeType.AWSCognitoIdentityProviderAdvancedSecurityModeTypeOff",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 80,
       "symbol": "AWSCognitoIdentityProviderAdvancedSecurityModeType.AWSCognitoIdentityProviderAdvancedSecurityModeTypeAudit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 81,
       "symbol": "AWSCognitoIdentityProviderAdvancedSecurityModeType.AWSCognitoIdentityProviderAdvancedSecurityModeTypeEnforced",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 84,
       "symbol": "AWSCognitoIdentityProviderAliasAttributeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 84,
       "symbol": "AWSCognitoIdentityProviderAliasAttributeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 85,
       "symbol": "AWSCognitoIdentityProviderAliasAttributeType.AWSCognitoIdentityProviderAliasAttributeTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 86,
       "symbol": "AWSCognitoIdentityProviderAliasAttributeType.AWSCognitoIdentityProviderAliasAttributeTypePhoneNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 87,
       "symbol": "AWSCognitoIdentityProviderAliasAttributeType.AWSCognitoIdentityProviderAliasAttributeTypeEmail",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 88,
       "symbol": "AWSCognitoIdentityProviderAliasAttributeType.AWSCognitoIdentityProviderAliasAttributeTypePreferredUsername",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 91,
       "symbol": "AWSCognitoIdentityProviderAttributeDataType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 91,
       "symbol": "AWSCognitoIdentityProviderAttributeDataType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 92,
       "symbol": "AWSCognitoIdentityProviderAttributeDataType.AWSCognitoIdentityProviderAttributeDataTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 93,
       "symbol": "AWSCognitoIdentityProviderAttributeDataType.AWSCognitoIdentityProviderAttributeDataTypeString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 94,
       "symbol": "AWSCognitoIdentityProviderAttributeDataType.AWSCognitoIdentityProviderAttributeDataTypeNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 95,
       "symbol": "AWSCognitoIdentityProviderAttributeDataType.AWSCognitoIdentityProviderAttributeDataTypeDateTime",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 96,
       "symbol": "AWSCognitoIdentityProviderAttributeDataType.AWSCognitoIdentityProviderAttributeDataTypeBoolean",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 99,
       "symbol": "AWSCognitoIdentityProviderAuthFlowType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 99,
       "symbol": "AWSCognitoIdentityProviderAuthFlowType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 100,
       "symbol": "AWSCognitoIdentityProviderAuthFlowType.AWSCognitoIdentityProviderAuthFlowTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 101,
       "symbol": "AWSCognitoIdentityProviderAuthFlowType.AWSCognitoIdentityProviderAuthFlowTypeUserSrpAuth",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 102,
       "symbol": "AWSCognitoIdentityProviderAuthFlowType.AWSCognitoIdentityProviderAuthFlowTypeRefreshTokenAuth",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 103,
       "symbol": "AWSCognitoIdentityProviderAuthFlowType.AWSCognitoIdentityProviderAuthFlowTypeRefreshToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 104,
       "symbol": "AWSCognitoIdentityProviderAuthFlowType.AWSCognitoIdentityProviderAuthFlowTypeCustomAuth",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 105,
       "symbol": "AWSCognitoIdentityProviderAuthFlowType.AWSCognitoIdentityProviderAuthFlowTypeAdminNoSrpAuth",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 106,
       "symbol": "AWSCognitoIdentityProviderAuthFlowType.AWSCognitoIdentityProviderAuthFlowTypeUserPasswordAuth",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 107,
       "symbol": "AWSCognitoIdentityProviderAuthFlowType.AWSCognitoIdentityProviderAuthFlowTypeAdminUserPasswordAuth",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 110,
       "symbol": "AWSCognitoIdentityProviderChallengeName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 110,
       "symbol": "AWSCognitoIdentityProviderChallengeName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 111,
       "symbol": "AWSCognitoIdentityProviderChallengeName.AWSCognitoIdentityProviderChallengeNameUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 112,
       "symbol": "AWSCognitoIdentityProviderChallengeName.AWSCognitoIdentityProviderChallengeNamePassword",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 113,
       "symbol": "AWSCognitoIdentityProviderChallengeName.AWSCognitoIdentityProviderChallengeNameMfa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 116,
       "symbol": "AWSCognitoIdentityProviderChallengeNameType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 116,
       "symbol": "AWSCognitoIdentityProviderChallengeNameType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 117,
       "symbol": "AWSCognitoIdentityProviderChallengeNameType.AWSCognitoIdentityProviderChallengeNameTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 118,
       "symbol": "AWSCognitoIdentityProviderChallengeNameType.AWSCognitoIdentityProviderChallengeNameTypeSmsMfa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 119,
       "symbol": "AWSCognitoIdentityProviderChallengeNameType.AWSCognitoIdentityProviderChallengeNameTypeSoftwareTokenMfa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 120,
       "symbol": "AWSCognitoIdentityProviderChallengeNameType.AWSCognitoIdentityProviderChallengeNameTypeSelectMfaType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 121,
       "symbol": "AWSCognitoIdentityProviderChallengeNameType.AWSCognitoIdentityProviderChallengeNameTypeMfaSetup",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 122,
       "symbol": "AWSCognitoIdentityProviderChallengeNameType.AWSCognitoIdentityProviderChallengeNameTypePasswordVerifier",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 123,
       "symbol": "AWSCognitoIdentityProviderChallengeNameType.AWSCognitoIdentityProviderChallengeNameTypeCustomChallenge",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 124,
       "symbol": "AWSCognitoIdentityProviderChallengeNameType.AWSCognitoIdentityProviderChallengeNameTypeDeviceSrpAuth",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 125,
       "symbol": "AWSCognitoIdentityProviderChallengeNameType.AWSCognitoIdentityProviderChallengeNameTypeDevicePasswordVerifier",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 126,
       "symbol": "AWSCognitoIdentityProviderChallengeNameType.AWSCognitoIdentityProviderChallengeNameTypeAdminNoSrpAuth",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 127,
       "symbol": "AWSCognitoIdentityProviderChallengeNameType.AWSCognitoIdentityProviderChallengeNameTypeNewPasswordRequired",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 130,
       "symbol": "AWSCognitoIdentityProviderChallengeResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 130,
       "symbol": "AWSCognitoIdentityProviderChallengeResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 131,
       "symbol": "AWSCognitoIdentityProviderChallengeResponse.AWSCognitoIdentityProviderChallengeResponseUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 132,
       "symbol": "AWSCognitoIdentityProviderChallengeResponse.AWSCognitoIdentityProviderChallengeResponseSuccess",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 133,
       "symbol": "AWSCognitoIdentityProviderChallengeResponse.AWSCognitoIdentityProviderChallengeResponseFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 136,
       "symbol": "AWSCognitoIdentityProviderCompromisedCredentialsEventActionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 136,
       "symbol": "AWSCognitoIdentityProviderCompromisedCredentialsEventActionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 137,
       "symbol": "AWSCognitoIdentityProviderCompromisedCredentialsEventActionType.AWSCognitoIdentityProviderCompromisedCredentialsEventActionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 138,
       "symbol": "AWSCognitoIdentityProviderCompromisedCredentialsEventActionType.AWSCognitoIdentityProviderCompromisedCredentialsEventActionTypeBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 139,
       "symbol": "AWSCognitoIdentityProviderCompromisedCredentialsEventActionType.AWSCognitoIdentityProviderCompromisedCredentialsEventActionTypeNoAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 142,
       "symbol": "AWSCognitoIdentityProviderCustomEmailSenderLambdaVersionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 142,
       "symbol": "AWSCognitoIdentityProviderCustomEmailSenderLambdaVersionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 143,
       "symbol": "AWSCognitoIdentityProviderCustomEmailSenderLambdaVersionType.AWSCognitoIdentityProviderCustomEmailSenderLambdaVersionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 144,
       "symbol": "AWSCognitoIdentityProviderCustomEmailSenderLambdaVersionType.AWSCognitoIdentityProviderCustomEmailSenderLambdaVersionTypeV10",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 147,
       "symbol": "AWSCognitoIdentityProviderCustomSMSSenderLambdaVersionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 147,
       "symbol": "AWSCognitoIdentityProviderCustomSMSSenderLambdaVersionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 148,
       "symbol": "AWSCognitoIdentityProviderCustomSMSSenderLambdaVersionType.AWSCognitoIdentityProviderCustomSMSSenderLambdaVersionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 149,
       "symbol": "AWSCognitoIdentityProviderCustomSMSSenderLambdaVersionType.AWSCognitoIdentityProviderCustomSMSSenderLambdaVersionTypeV10",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 152,
       "symbol": "AWSCognitoIdentityProviderDefaultEmailOptionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 152,
       "symbol": "AWSCognitoIdentityProviderDefaultEmailOptionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 153,
       "symbol": "AWSCognitoIdentityProviderDefaultEmailOptionType.AWSCognitoIdentityProviderDefaultEmailOptionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 154,
       "symbol": "AWSCognitoIdentityProviderDefaultEmailOptionType.AWSCognitoIdentityProviderDefaultEmailOptionTypeConfirmWithLink",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 155,
       "symbol": "AWSCognitoIdentityProviderDefaultEmailOptionType.AWSCognitoIdentityProviderDefaultEmailOptionTypeConfirmWithCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 158,
       "symbol": "AWSCognitoIdentityProviderDeletionProtectionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 158,
       "symbol": "AWSCognitoIdentityProviderDeletionProtectionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 159,
       "symbol": "AWSCognitoIdentityProviderDeletionProtectionType.AWSCognitoIdentityProviderDeletionProtectionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 160,
       "symbol": "AWSCognitoIdentityProviderDeletionProtectionType.AWSCognitoIdentityProviderDeletionProtectionTypeActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 161,
       "symbol": "AWSCognitoIdentityProviderDeletionProtectionType.AWSCognitoIdentityProviderDeletionProtectionTypeInactive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 164,
       "symbol": "AWSCognitoIdentityProviderDeliveryMediumType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 164,
       "symbol": "AWSCognitoIdentityProviderDeliveryMediumType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 165,
       "symbol": "AWSCognitoIdentityProviderDeliveryMediumType.AWSCognitoIdentityProviderDeliveryMediumTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 166,
       "symbol": "AWSCognitoIdentityProviderDeliveryMediumType.AWSCognitoIdentityProviderDeliveryMediumTypeSms",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 167,
       "symbol": "AWSCognitoIdentityProviderDeliveryMediumType.AWSCognitoIdentityProviderDeliveryMediumTypeEmail",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 170,
       "symbol": "AWSCognitoIdentityProviderDeviceRememberedStatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 170,
       "symbol": "AWSCognitoIdentityProviderDeviceRememberedStatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 171,
       "symbol": "AWSCognitoIdentityProviderDeviceRememberedStatusType.AWSCognitoIdentityProviderDeviceRememberedStatusTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 172,
       "symbol": "AWSCognitoIdentityProviderDeviceRememberedStatusType.AWSCognitoIdentityProviderDeviceRememberedStatusTypeRemembered",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 173,
       "symbol": "AWSCognitoIdentityProviderDeviceRememberedStatusType.AWSCognitoIdentityProviderDeviceRememberedStatusTypeNotRemembered",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 176,
       "symbol": "AWSCognitoIdentityProviderDomainStatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 176,
       "symbol": "AWSCognitoIdentityProviderDomainStatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 177,
       "symbol": "AWSCognitoIdentityProviderDomainStatusType.AWSCognitoIdentityProviderDomainStatusTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 178,
       "symbol": "AWSCognitoIdentityProviderDomainStatusType.AWSCognitoIdentityProviderDomainStatusTypeCreating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 179,
       "symbol": "AWSCognitoIdentityProviderDomainStatusType.AWSCognitoIdentityProviderDomainStatusTypeDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 180,
       "symbol": "AWSCognitoIdentityProviderDomainStatusType.AWSCognitoIdentityProviderDomainStatusTypeUpdating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 181,
       "symbol": "AWSCognitoIdentityProviderDomainStatusType.AWSCognitoIdentityProviderDomainStatusTypeActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 182,
       "symbol": "AWSCognitoIdentityProviderDomainStatusType.AWSCognitoIdentityProviderDomainStatusTypeFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 185,
       "symbol": "AWSCognitoIdentityProviderEmailSendingAccountType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 185,
       "symbol": "AWSCognitoIdentityProviderEmailSendingAccountType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 186,
       "symbol": "AWSCognitoIdentityProviderEmailSendingAccountType.AWSCognitoIdentityProviderEmailSendingAccountTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 187,
       "symbol": "AWSCognitoIdentityProviderEmailSendingAccountType.AWSCognitoIdentityProviderEmailSendingAccountTypeCognitoDefault",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 188,
       "symbol": "AWSCognitoIdentityProviderEmailSendingAccountType.AWSCognitoIdentityProviderEmailSendingAccountTypeDeveloper",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 191,
       "symbol": "AWSCognitoIdentityProviderEventFilterType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 191,
       "symbol": "AWSCognitoIdentityProviderEventFilterType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 192,
       "symbol": "AWSCognitoIdentityProviderEventFilterType.AWSCognitoIdentityProviderEventFilterTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 193,
       "symbol": "AWSCognitoIdentityProviderEventFilterType.AWSCognitoIdentityProviderEventFilterTypeSignIn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 194,
       "symbol": "AWSCognitoIdentityProviderEventFilterType.AWSCognitoIdentityProviderEventFilterTypePasswordChange",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 195,
       "symbol": "AWSCognitoIdentityProviderEventFilterType.AWSCognitoIdentityProviderEventFilterTypeSignUp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 198,
       "symbol": "AWSCognitoIdentityProviderEventResponseType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 198,
       "symbol": "AWSCognitoIdentityProviderEventResponseType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 199,
       "symbol": "AWSCognitoIdentityProviderEventResponseType.AWSCognitoIdentityProviderEventResponseTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 200,
       "symbol": "AWSCognitoIdentityProviderEventResponseType.AWSCognitoIdentityProviderEventResponseTypePass",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 201,
       "symbol": "AWSCognitoIdentityProviderEventResponseType.AWSCognitoIdentityProviderEventResponseTypeFail",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 202,
       "symbol": "AWSCognitoIdentityProviderEventResponseType.AWSCognitoIdentityProviderEventResponseTypeInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 205,
       "symbol": "AWSCognitoIdentityProviderEventType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 205,
       "symbol": "AWSCognitoIdentityProviderEventType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 206,
       "symbol": "AWSCognitoIdentityProviderEventType.AWSCognitoIdentityProviderEventTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 207,
       "symbol": "AWSCognitoIdentityProviderEventType.AWSCognitoIdentityProviderEventTypeSignIn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 208,
       "symbol": "AWSCognitoIdentityProviderEventType.AWSCognitoIdentityProviderEventTypeSignUp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 209,
       "symbol": "AWSCognitoIdentityProviderEventType.AWSCognitoIdentityProviderEventTypeForgotPassword",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 210,
       "symbol": "AWSCognitoIdentityProviderEventType.AWSCognitoIdentityProviderEventTypePasswordChange",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 211,
       "symbol": "AWSCognitoIdentityProviderEventType.AWSCognitoIdentityProviderEventTypeResendCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 214,
       "symbol": "AWSCognitoIdentityProviderExplicitAuthFlowsType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 214,
       "symbol": "AWSCognitoIdentityProviderExplicitAuthFlowsType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 215,
       "symbol": "AWSCognitoIdentityProviderExplicitAuthFlowsType.AWSCognitoIdentityProviderExplicitAuthFlowsTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 216,
       "symbol": "AWSCognitoIdentityProviderExplicitAuthFlowsType.AWSCognitoIdentityProviderExplicitAuthFlowsTypeAdminNoSrpAuth",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 217,
       "symbol": "AWSCognitoIdentityProviderExplicitAuthFlowsType.AWSCognitoIdentityProviderExplicitAuthFlowsTypeCustomAuthFlowOnly",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 218,
       "symbol": "AWSCognitoIdentityProviderExplicitAuthFlowsType.AWSCognitoIdentityProviderExplicitAuthFlowsTypeUserPasswordAuth",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 219,
       "symbol": "AWSCognitoIdentityProviderExplicitAuthFlowsType.AWSCognitoIdentityProviderExplicitAuthFlowsTypeAllowAdminUserPasswordAuth",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 220,
       "symbol": "AWSCognitoIdentityProviderExplicitAuthFlowsType.AWSCognitoIdentityProviderExplicitAuthFlowsTypeAllowCustomAuth",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 221,
       "symbol": "AWSCognitoIdentityProviderExplicitAuthFlowsType.AWSCognitoIdentityProviderExplicitAuthFlowsTypeAllowUserPasswordAuth",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 222,
       "symbol": "AWSCognitoIdentityProviderExplicitAuthFlowsType.AWSCognitoIdentityProviderExplicitAuthFlowsTypeAllowUserSrpAuth",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 223,
       "symbol": "AWSCognitoIdentityProviderExplicitAuthFlowsType.AWSCognitoIdentityProviderExplicitAuthFlowsTypeAllowRefreshTokenAuth",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 226,
       "symbol": "AWSCognitoIdentityProviderFeedbackValueType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 226,
       "symbol": "AWSCognitoIdentityProviderFeedbackValueType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 227,
       "symbol": "AWSCognitoIdentityProviderFeedbackValueType.AWSCognitoIdentityProviderFeedbackValueTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 228,
       "symbol": "AWSCognitoIdentityProviderFeedbackValueType.AWSCognitoIdentityProviderFeedbackValueTypeValid",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 229,
       "symbol": "AWSCognitoIdentityProviderFeedbackValueType.AWSCognitoIdentityProviderFeedbackValueTypeInvalid",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 232,
       "symbol": "AWSCognitoIdentityProviderIdentityProviderTypeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 232,
       "symbol": "AWSCognitoIdentityProviderIdentityProviderTypeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 233,
       "symbol": "AWSCognitoIdentityProviderIdentityProviderTypeType.AWSCognitoIdentityProviderIdentityProviderTypeTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 234,
       "symbol": "AWSCognitoIdentityProviderIdentityProviderTypeType.AWSCognitoIdentityProviderIdentityProviderTypeTypeSaml",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 235,
       "symbol": "AWSCognitoIdentityProviderIdentityProviderTypeType.AWSCognitoIdentityProviderIdentityProviderTypeTypeFacebook",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 236,
       "symbol": "AWSCognitoIdentityProviderIdentityProviderTypeType.AWSCognitoIdentityProviderIdentityProviderTypeTypeGoogle",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 237,
       "symbol": "AWSCognitoIdentityProviderIdentityProviderTypeType.AWSCognitoIdentityProviderIdentityProviderTypeTypeLoginWithAmazon",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 238,
       "symbol": "AWSCognitoIdentityProviderIdentityProviderTypeType.AWSCognitoIdentityProviderIdentityProviderTypeTypeSignInWithApple",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 239,
       "symbol": "AWSCognitoIdentityProviderIdentityProviderTypeType.AWSCognitoIdentityProviderIdentityProviderTypeTypeOidc",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 242,
       "symbol": "AWSCognitoIdentityProviderMessageActionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 242,
       "symbol": "AWSCognitoIdentityProviderMessageActionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 243,
       "symbol": "AWSCognitoIdentityProviderMessageActionType.AWSCognitoIdentityProviderMessageActionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 244,
       "symbol": "AWSCognitoIdentityProviderMessageActionType.AWSCognitoIdentityProviderMessageActionTypeResend",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 245,
       "symbol": "AWSCognitoIdentityProviderMessageActionType.AWSCognitoIdentityProviderMessageActionTypeSuppress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 248,
       "symbol": "AWSCognitoIdentityProviderOAuthFlowType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 248,
       "symbol": "AWSCognitoIdentityProviderOAuthFlowType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 249,
       "symbol": "AWSCognitoIdentityProviderOAuthFlowType.AWSCognitoIdentityProviderOAuthFlowTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 250,
       "symbol": "AWSCognitoIdentityProviderOAuthFlowType.AWSCognitoIdentityProviderOAuthFlowTypeCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 251,
       "symbol": "AWSCognitoIdentityProviderOAuthFlowType.AWSCognitoIdentityProviderOAuthFlowTypeImplicit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 252,
       "symbol": "AWSCognitoIdentityProviderOAuthFlowType.AWSCognitoIdentityProviderOAuthFlowTypeClientCredentials",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 255,
       "symbol": "AWSCognitoIdentityProviderPreventUserExistenceErrorTypes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 255,
       "symbol": "AWSCognitoIdentityProviderPreventUserExistenceErrorTypes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 256,
       "symbol": "AWSCognitoIdentityProviderPreventUserExistenceErrorTypes.AWSCognitoIdentityProviderPreventUserExistenceErrorTypesUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 257,
       "symbol": "AWSCognitoIdentityProviderPreventUserExistenceErrorTypes.AWSCognitoIdentityProviderPreventUserExistenceErrorTypesLegacy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 258,
       "symbol": "AWSCognitoIdentityProviderPreventUserExistenceErrorTypes.AWSCognitoIdentityProviderPreventUserExistenceErrorTypesEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 261,
       "symbol": "AWSCognitoIdentityProviderRecoveryOptionNameType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 261,
       "symbol": "AWSCognitoIdentityProviderRecoveryOptionNameType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 262,
       "symbol": "AWSCognitoIdentityProviderRecoveryOptionNameType.AWSCognitoIdentityProviderRecoveryOptionNameTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 263,
       "symbol": "AWSCognitoIdentityProviderRecoveryOptionNameType.AWSCognitoIdentityProviderRecoveryOptionNameTypeVerifiedEmail",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 264,
       "symbol": "AWSCognitoIdentityProviderRecoveryOptionNameType.AWSCognitoIdentityProviderRecoveryOptionNameTypeVerifiedPhoneNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 265,
       "symbol": "AWSCognitoIdentityProviderRecoveryOptionNameType.AWSCognitoIdentityProviderRecoveryOptionNameTypeAdminOnly",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 268,
       "symbol": "AWSCognitoIdentityProviderRiskDecisionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 268,
       "symbol": "AWSCognitoIdentityProviderRiskDecisionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 269,
       "symbol": "AWSCognitoIdentityProviderRiskDecisionType.AWSCognitoIdentityProviderRiskDecisionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 270,
       "symbol": "AWSCognitoIdentityProviderRiskDecisionType.AWSCognitoIdentityProviderRiskDecisionTypeNoRisk",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 271,
       "symbol": "AWSCognitoIdentityProviderRiskDecisionType.AWSCognitoIdentityProviderRiskDecisionTypeAccountTakeover",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 272,
       "symbol": "AWSCognitoIdentityProviderRiskDecisionType.AWSCognitoIdentityProviderRiskDecisionTypeBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 275,
       "symbol": "AWSCognitoIdentityProviderRiskLevelType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 275,
       "symbol": "AWSCognitoIdentityProviderRiskLevelType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 276,
       "symbol": "AWSCognitoIdentityProviderRiskLevelType.AWSCognitoIdentityProviderRiskLevelTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 277,
       "symbol": "AWSCognitoIdentityProviderRiskLevelType.AWSCognitoIdentityProviderRiskLevelTypeLow",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 278,
       "symbol": "AWSCognitoIdentityProviderRiskLevelType.AWSCognitoIdentityProviderRiskLevelTypeMedium",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 279,
       "symbol": "AWSCognitoIdentityProviderRiskLevelType.AWSCognitoIdentityProviderRiskLevelTypeHigh",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 282,
       "symbol": "AWSCognitoIdentityProviderStatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 282,
       "symbol": "AWSCognitoIdentityProviderStatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 283,
       "symbol": "AWSCognitoIdentityProviderStatusType.AWSCognitoIdentityProviderStatusTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 284,
       "symbol": "AWSCognitoIdentityProviderStatusType.AWSCognitoIdentityProviderStatusTypeEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 285,
       "symbol": "AWSCognitoIdentityProviderStatusType.AWSCognitoIdentityProviderStatusTypeDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 288,
       "symbol": "AWSCognitoIdentityProviderTimeUnitsType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 288,
       "symbol": "AWSCognitoIdentityProviderTimeUnitsType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 289,
       "symbol": "AWSCognitoIdentityProviderTimeUnitsType.AWSCognitoIdentityProviderTimeUnitsTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 290,
       "symbol": "AWSCognitoIdentityProviderTimeUnitsType.AWSCognitoIdentityProviderTimeUnitsTypeSeconds",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 291,
       "symbol": "AWSCognitoIdentityProviderTimeUnitsType.AWSCognitoIdentityProviderTimeUnitsTypeMinutes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 292,
       "symbol": "AWSCognitoIdentityProviderTimeUnitsType.AWSCognitoIdentityProviderTimeUnitsTypeHours",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 293,
       "symbol": "AWSCognitoIdentityProviderTimeUnitsType.AWSCognitoIdentityProviderTimeUnitsTypeDays",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 296,
       "symbol": "AWSCognitoIdentityProviderUserImportJobStatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 296,
       "symbol": "AWSCognitoIdentityProviderUserImportJobStatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 297,
       "symbol": "AWSCognitoIdentityProviderUserImportJobStatusType.AWSCognitoIdentityProviderUserImportJobStatusTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 298,
       "symbol": "AWSCognitoIdentityProviderUserImportJobStatusType.AWSCognitoIdentityProviderUserImportJobStatusTypeCreated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 299,
       "symbol": "AWSCognitoIdentityProviderUserImportJobStatusType.AWSCognitoIdentityProviderUserImportJobStatusTypePending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 300,
       "symbol": "AWSCognitoIdentityProviderUserImportJobStatusType.AWSCognitoIdentityProviderUserImportJobStatusTypeInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 301,
       "symbol": "AWSCognitoIdentityProviderUserImportJobStatusType.AWSCognitoIdentityProviderUserImportJobStatusTypeStopping",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 302,
       "symbol": "AWSCognitoIdentityProviderUserImportJobStatusType.AWSCognitoIdentityProviderUserImportJobStatusTypeExpired",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 303,
       "symbol": "AWSCognitoIdentityProviderUserImportJobStatusType.AWSCognitoIdentityProviderUserImportJobStatusTypeStopped",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 304,
       "symbol": "AWSCognitoIdentityProviderUserImportJobStatusType.AWSCognitoIdentityProviderUserImportJobStatusTypeFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 305,
       "symbol": "AWSCognitoIdentityProviderUserImportJobStatusType.AWSCognitoIdentityProviderUserImportJobStatusTypeSucceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 308,
       "symbol": "AWSCognitoIdentityProviderUserPoolMfaType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 308,
       "symbol": "AWSCognitoIdentityProviderUserPoolMfaType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 309,
       "symbol": "AWSCognitoIdentityProviderUserPoolMfaType.AWSCognitoIdentityProviderUserPoolMfaTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 310,
       "symbol": "AWSCognitoIdentityProviderUserPoolMfaType.AWSCognitoIdentityProviderUserPoolMfaTypeOff",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 311,
       "symbol": "AWSCognitoIdentityProviderUserPoolMfaType.AWSCognitoIdentityProviderUserPoolMfaTypeOn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 312,
       "symbol": "AWSCognitoIdentityProviderUserPoolMfaType.AWSCognitoIdentityProviderUserPoolMfaTypeOptional",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 315,
       "symbol": "AWSCognitoIdentityProviderUserStatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 315,
       "symbol": "AWSCognitoIdentityProviderUserStatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 316,
       "symbol": "AWSCognitoIdentityProviderUserStatusType.AWSCognitoIdentityProviderUserStatusTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 317,
       "symbol": "AWSCognitoIdentityProviderUserStatusType.AWSCognitoIdentityProviderUserStatusTypeUnconfirmed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 318,
       "symbol": "AWSCognitoIdentityProviderUserStatusType.AWSCognitoIdentityProviderUserStatusTypeConfirmed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 319,
       "symbol": "AWSCognitoIdentityProviderUserStatusType.AWSCognitoIdentityProviderUserStatusTypeArchived",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 320,
       "symbol": "AWSCognitoIdentityProviderUserStatusType.AWSCognitoIdentityProviderUserStatusTypeCompromised",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 321,
       "symbol": "AWSCognitoIdentityProviderUserStatusType.AWSCognitoIdentityProviderUserStatusTypeResetRequired",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 322,
       "symbol": "AWSCognitoIdentityProviderUserStatusType.AWSCognitoIdentityProviderUserStatusTypeForceChangePassword",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 325,
       "symbol": "AWSCognitoIdentityProviderUsernameAttributeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 325,
       "symbol": "AWSCognitoIdentityProviderUsernameAttributeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 326,
       "symbol": "AWSCognitoIdentityProviderUsernameAttributeType.AWSCognitoIdentityProviderUsernameAttributeTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 327,
       "symbol": "AWSCognitoIdentityProviderUsernameAttributeType.AWSCognitoIdentityProviderUsernameAttributeTypePhoneNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 328,
       "symbol": "AWSCognitoIdentityProviderUsernameAttributeType.AWSCognitoIdentityProviderUsernameAttributeTypeEmail",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 331,
       "symbol": "AWSCognitoIdentityProviderVerifiedAttributeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 331,
       "symbol": "AWSCognitoIdentityProviderVerifiedAttributeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 332,
       "symbol": "AWSCognitoIdentityProviderVerifiedAttributeType.AWSCognitoIdentityProviderVerifiedAttributeTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 333,
       "symbol": "AWSCognitoIdentityProviderVerifiedAttributeType.AWSCognitoIdentityProviderVerifiedAttributeTypePhoneNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 334,
       "symbol": "AWSCognitoIdentityProviderVerifiedAttributeType.AWSCognitoIdentityProviderVerifiedAttributeTypeEmail",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 337,
       "symbol": "AWSCognitoIdentityProviderVerifySoftwareTokenResponseType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 337,
       "symbol": "AWSCognitoIdentityProviderVerifySoftwareTokenResponseType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 338,
       "symbol": "AWSCognitoIdentityProviderVerifySoftwareTokenResponseType.AWSCognitoIdentityProviderVerifySoftwareTokenResponseTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 339,
       "symbol": "AWSCognitoIdentityProviderVerifySoftwareTokenResponseType.AWSCognitoIdentityProviderVerifySoftwareTokenResponseTypeSuccess",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderModel.h",
       "line": 340,
       "symbol": "AWSCognitoIdentityProviderVerifySoftwareTokenResponseType.AWSCognitoIdentityProviderVerifySoftwareTokenResponseTypeError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderResources.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderResources.h",
       "line": 18,
       "symbol": "AWSCognitoIdentityProviderResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderResources.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderResources.h",
       "line": 20,
       "symbol": "AWSCognitoIdentityProviderResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderResources.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderResources.h",
       "line": 22,
       "symbol": "AWSCognitoIdentityProviderResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderService.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityProviderService.h",
       "line": 24,
       "symbol": "AWSCognitoIdentityProviderSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 20,
       "symbol": "AWSCognitoIdentityUserStatus.AWSCognitoIdentityUserStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 21,
       "symbol": "AWSCognitoIdentityUserStatus.AWSCognitoIdentityUserStatusConfirmed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 22,
       "symbol": "AWSCognitoIdentityUserStatus.AWSCognitoIdentityUserStatusUnconfirmed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 55,
       "symbol": "AWSCognitoIdentityUser",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 104,
       "symbol": "AWSCognitoIdentityUser.-confirmSignUp:clientMetaData:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 107,
       "symbol": "AWSCognitoIdentityUser.-confirmSignUp:forceAliasCreation:clientMetaData:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 115,
       "symbol": "AWSCognitoIdentityUser.-resendConfirmationCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 129,
       "symbol": "AWSCognitoIdentityUser.-getSession:password:validationData:clientMetaData:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 134,
       "symbol": "AWSCognitoIdentityUser.-getSession:password:validationData:isInitialCustomChallenge:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 139,
       "symbol": "AWSCognitoIdentityUser.-getSession:password:validationData:clientMetaData:isInitialCustomChallenge:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 155,
       "symbol": "AWSCognitoIdentityUser.-forgotPassword",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 166,
       "symbol": "AWSCognitoIdentityUser.-confirmForgotPassword:password:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 182,
       "symbol": "AWSCognitoIdentityUser.-updateAttributes:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 202,
       "symbol": "AWSCognitoIdentityUser.-getAttributeVerificationCode:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 304,
       "symbol": "AWSCognitoIdentityUserSession.idToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 305,
       "symbol": "AWSCognitoIdentityUserSession.accessToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 306,
       "symbol": "AWSCognitoIdentityUserSession.refreshToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 307,
       "symbol": "AWSCognitoIdentityUserSession.expirationTime",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 341,
       "symbol": "AWSCognitoIdentityUserSettings.mfaOptions",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 351,
       "symbol": "AWSCognitoIdentityUserMfaPreferences.smsMfa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 352,
       "symbol": "AWSCognitoIdentityUserMfaPreferences.softwareTokenMfa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 361,
       "symbol": "AWSCognitoIdentityUserMfaType.enabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 362,
       "symbol": "AWSCognitoIdentityUserMfaType.preferred",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 364,
       "symbol": "AWSCognitoIdentityUserMfaType.-initWithEnabled:preferred:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 369,
       "symbol": "AWSCognitoIdentityUserMFAOption",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 371,
       "symbol": "AWSCognitoIdentityUserMFAOption.attributeName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 372,
       "symbol": "AWSCognitoIdentityUserMFAOption.deliveryMedium",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 376,
       "symbol": "AWSCognitoIdentityUserAttributeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 377,
       "symbol": "AWSCognitoIdentityUserAttributeType.-initWithName:value:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 381,
       "symbol": "AWSCognitoIdentityUserConfirmSignUpResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 385,
       "symbol": "AWSCognitoIdentityUserResendConfirmationCodeResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 389,
       "symbol": "AWSCognitoIdentityUserGetDetailsResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 393,
       "symbol": "AWSCognitoIdentityUserForgotPasswordResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 397,
       "symbol": "AWSCognitoIdentityUserConfirmForgotPasswordResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 401,
       "symbol": "AWSCognitoIdentityUserChangePasswordResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 405,
       "symbol": "AWSCognitoIdentityUserUpdateAttributesResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 409,
       "symbol": "AWSCognitoIdentityUserDeleteAttributesResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 413,
       "symbol": "AWSCognitoIdentityUserVerifyAttributeResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 417,
       "symbol": "AWSCognitoIdentityUserGetAttributeVerificationCodeResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 421,
       "symbol": "AWSCognitoIdentityUserSetUserSettingsResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 425,
       "symbol": "AWSCognitoIdentityUserGlobalSignOutResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 429,
       "symbol": "AWSCognitoIdentityUserListDevicesResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 433,
       "symbol": "AWSCognitoIdentityUserUpdateDeviceStatusResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 437,
       "symbol": "AWSCognitoIdentityUserGetDeviceResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 441,
       "symbol": "AWSCognitoIdentityUserVerifySoftwareTokenResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 445,
       "symbol": "AWSCognitoIdentityUserAssociateSoftwareTokenResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
       "line": 449,
       "symbol": "AWSCognitoIdentityUserSetUserMfaPreferenceResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 35,
       "symbol": "AWSCognitoIdentityUserPool",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 37,
       "symbol": "AWSCognitoIdentityUserPool.configuration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 38,
       "symbol": "AWSCognitoIdentityUserPool.userPoolConfiguration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 39,
       "symbol": "AWSCognitoIdentityUserPool.identityProviderName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 53,
       "symbol": "AWSCognitoIdentityUserPool.+registerCognitoIdentityUserPoolWithUserPoolConfiguration:forKey:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 56,
       "symbol": "AWSCognitoIdentityUserPool.+registerCognitoIdentityUserPoolWithConfiguration:userPoolConfiguration:forKey:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 60,
       "symbol": "AWSCognitoIdentityUserPool.+CognitoIdentityUserPoolForKey:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 62,
       "symbol": "AWSCognitoIdentityUserPool.+removeCognitoIdentityUserPoolForKey:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 64,
       "symbol": "AWSCognitoIdentityUserPool.+buildUserPoolConfiguration:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 76,
       "symbol": "AWSCognitoIdentityUserPool.-signUp:password:userAttributes:validationData:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 110,
       "symbol": "AWSCognitoIdentityUserPoolConfiguration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 112,
       "symbol": "AWSCognitoIdentityUserPoolConfiguration.clientId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 113,
       "symbol": "AWSCognitoIdentityUserPoolConfiguration.clientSecret",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 114,
       "symbol": "AWSCognitoIdentityUserPoolConfiguration.poolId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 115,
       "symbol": "AWSCognitoIdentityUserPoolConfiguration.pinpointAppId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 116,
       "symbol": "AWSCognitoIdentityUserPoolConfiguration.shouldProvideCognitoValidationData",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 117,
       "symbol": "AWSCognitoIdentityUserPoolConfiguration.migrationEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 119,
       "symbol": "AWSCognitoIdentityUserPoolConfiguration.-initWithClientId:clientSecret:poolId:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 123,
       "symbol": "AWSCognitoIdentityUserPoolConfiguration.-initWithClientId:clientSecret:poolId:shouldProvideCognitoValidationData:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 128,
       "symbol": "AWSCognitoIdentityUserPoolConfiguration.-initWithClientId:clientSecret:poolId:shouldProvideCognitoValidationData:pinpointAppId:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 134,
       "symbol": "AWSCognitoIdentityUserPoolConfiguration.-initWithClientId:clientSecret:poolId:shouldProvideCognitoValidationData:pinpointAppId:migrationEnabled:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 148,
       "symbol": "AWSCognitoIdentityPasswordAuthenticationInput.lastKnownUsername",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 160,
       "symbol": "AWSCognitoIdentityMultifactorAuthenticationInput.destination",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 161,
       "symbol": "AWSCognitoIdentityMultifactorAuthenticationInput.deliveryMedium",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 169,
       "symbol": "AWSCognitoIdentityPasswordAuthenticationDetails.username",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 170,
       "symbol": "AWSCognitoIdentityPasswordAuthenticationDetails.password",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 171,
       "symbol": "AWSCognitoIdentityPasswordAuthenticationDetails.validationData",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 173,
       "symbol": "AWSCognitoIdentityPasswordAuthenticationDetails.-initWithUsername:password:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 203,
       "symbol": "AWSCognitoIdentityCustomChallengeDetails.-initWithChallengeResponses:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 260,
       "symbol": "AWSCognitoIdentityCustomAuthenticationInput.challengeParameters",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 262,
       "symbol": "AWSCognitoIdentityCustomAuthenticationInput.-initWithChallengeParameters:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 271,
       "symbol": "AWSCognitoIdentityNewPasswordRequiredInput.userAttributes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 273,
       "symbol": "AWSCognitoIdentityNewPasswordRequiredInput.requiredAttributes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 275,
       "symbol": "AWSCognitoIdentityNewPasswordRequiredInput.-initWithUserAttributes:requiredAttributes:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 284,
       "symbol": "AWSCognitoIdentitySoftwareMfaSetupRequiredInput.secretCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 285,
       "symbol": "AWSCognitoIdentitySoftwareMfaSetupRequiredInput.username",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 287,
       "symbol": "AWSCognitoIdentitySoftwareMfaSetupRequiredInput.-initWithSecretCode:username:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 316,
       "symbol": "AWSCognitoIdentitySelectMfaInput.availableMfas",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 318,
       "symbol": "AWSCognitoIdentitySelectMfaInput.-initWithAvailableMfas:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 351,
       "symbol": "AWSCognitoIdentityClientErrorType.AWSCognitoIdentityProviderClientErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 352,
       "symbol": "AWSCognitoIdentityClientErrorType.AWSCognitoIdentityProviderClientErrorInvalidAuthenticationDelegate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 353,
       "symbol": "AWSCognitoIdentityClientErrorType.AWSCognitoIdentityProviderClientErrorCustomAuthenticationNotSupported",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 354,
       "symbol": "AWSCognitoIdentityClientErrorType.AWSCognitoIdentityProviderClientErrorDeviceNotTracked",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 357,
       "symbol": "AWSCognitoIdentityUserPoolSignUpResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 358,
       "symbol": "AWSCognitoIdentityUserPoolSignUpResponse.user",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 361,
       "symbol": "AWSCognitoIdentityInteractiveAuthenticationDelegate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 398,
       "symbol": "AWSCognitoIdentityPasswordAuthentication",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 413,
       "symbol": "AWSCognitoIdentityMultiFactorAuthentication",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 421,
       "symbol": "AWSCognitoIdentityMultiFactorAuthentication.-getMultiFactorAuthenticationCode:mfaCodeCompletionSource:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 432,
       "symbol": "AWSCognitoIdentityMultiFactorAuthentication.-getMultiFactorAuthenticationCode_v2:mfaCodeCompletionSource:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 442,
       "symbol": "AWSCognitoIdentityCustomAuthentication",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 460,
       "symbol": "AWSCognitoIdentityRememberDevice",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 475,
       "symbol": "AWSCognitoIdentityNewPasswordRequired",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 493,
       "symbol": "AWSCognitoIdentitySoftwareMfaSetupRequired",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/diwud/5d/aws-sdk-ios/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
+      "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h",
       "line": 510,
       "symbol": "AWSCognitoIdentitySelectMfa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/diwud/5d/aws-sdk-ios"
+  "source_directory": "/Users/distiller/project"
 }
