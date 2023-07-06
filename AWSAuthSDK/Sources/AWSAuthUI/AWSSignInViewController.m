@@ -110,30 +110,9 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 
 #pragma mark - UIViewController
 
-
-- (void)keyboardDidShow:(NSNotification *)notification {
-    CGSize keyboardSize = ((NSValue *)[[notification userInfo]
-                                       valueForKey:UIKeyboardFrameBeginUserInfoKey]).CGRectValue.size;
-    
-    CGPoint buttonOrigin = self.signInButton.frame.origin;
-    CGRect visibleRect = self.view.frame;
-    
-    visibleRect.size.height -= keyboardSize.height;
-    
-    if (visibleRect.size.height < buttonOrigin.y) {
-        [self.view setFrame:CGRectMake(0,visibleRect.size.height - buttonOrigin.y, self.view.frame.size.width, self.view.frame.size.height)];
-    }
-}
-
-- (void)keyboardDidHide:(NSNotification *)notification {
-    [self.view setFrame:CGRectMake(0, NAVIGATION_BAR_HEIGHT ,self.view.frame.size.width,self.view.frame.size.height)];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     AWSDDLogDebug(@"Sign-In Loading...");
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
     
     // set up the navigation controller
     [self setUpNavigationController];
@@ -170,18 +149,6 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
     [AWSSignInManager sharedInstance].pendingSignIn = NO;
     [AWSSignInManager sharedInstance].pendingUsername = @"";
     [AWSSignInManager sharedInstance].pendingPassword = @"";
-    
-}
-
-// This is used to dismiss the keyboard, user just has to tap outside the
-// user name and password views and it will dismiss
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-    if (touch.phase == UITouchPhaseBegan) {
-        [self.view endEditing:YES];
-    }
-    
-    [super touchesBegan:touches withEvent:event];
 }
 
 #pragma mark - Utility Methods
