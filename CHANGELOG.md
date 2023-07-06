@@ -3,6 +3,8 @@
 ## Unreleased
 
 ### Misc. Updates
+- **AWSComprehend**
+  - Updating text used in the `testDetectSentimentNeutral` integration test.
 
 - Model updates for the following services
   - AWSChimeSDKIdentity
