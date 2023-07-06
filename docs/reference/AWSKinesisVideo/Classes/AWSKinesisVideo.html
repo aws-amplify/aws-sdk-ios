@@ -17,7 +17,7 @@
     <a title="AWSKinesisVideo Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSKinesisVideo 2.33.0 Docs</a> (73% documented)</p>
+        <p><a href="../index.html">AWSKinesisVideo 2.33.1 Docs</a> (73% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKinesisVideo.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -60,6 +60,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKinesisVideoCreateStreamOutput.html">AWSKinesisVideoCreateStreamOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisVideoDeleteEdgeConfigurationInput.html">AWSKinesisVideoDeleteEdgeConfigurationInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSKinesisVideoDeleteEdgeConfigurationOutput">AWSKinesisVideoDeleteEdgeConfigurationOutput</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKinesisVideoDeleteSignalingChannelInput.html">AWSKinesisVideoDeleteSignalingChannelInput</a>
@@ -119,6 +125,9 @@
                 <a href="../Classes/AWSKinesisVideoDescribeStreamOutput.html">AWSKinesisVideoDescribeStreamOutput</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisVideoEdgeAgentStatus.html">AWSKinesisVideoEdgeAgentStatus</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSKinesisVideoEdgeConfig.html">AWSKinesisVideoEdgeConfig</a>
               </li>
               <li class="nav-group-task">
@@ -138,6 +147,21 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKinesisVideoImageGenerationDestinationConfig.html">AWSKinesisVideoImageGenerationDestinationConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisVideoLastRecorderStatus.html">AWSKinesisVideoLastRecorderStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisVideoLastUploaderStatus.html">AWSKinesisVideoLastUploaderStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisVideoListEdgeAgentConfigurationsEdgeConfig.html">AWSKinesisVideoListEdgeAgentConfigurationsEdgeConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisVideoListEdgeAgentConfigurationsInput.html">AWSKinesisVideoListEdgeAgentConfigurationsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisVideoListEdgeAgentConfigurationsOutput.html">AWSKinesisVideoListEdgeAgentConfigurationsOutput</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKinesisVideoListSignalingChannelsInput.html">AWSKinesisVideoListSignalingChannelsInput</a>
@@ -336,6 +360,9 @@
                 <a href="../Enums/AWSKinesisVideoMediaUriType.html">AWSKinesisVideoMediaUriType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSKinesisVideoRecorderStatus.html">AWSKinesisVideoRecorderStatus</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSKinesisVideoStatus.html">AWSKinesisVideoStatus</a>
               </li>
               <li class="nav-group-task">
@@ -346,6 +373,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSKinesisVideoUpdateDataRetentionOperation.html">AWSKinesisVideoUpdateDataRetentionOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKinesisVideoUploaderStatus.html">AWSKinesisVideoUploaderStatus</a>
               </li>
             </ul>
           </li>
@@ -1016,6 +1046,150 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSKinesisVideo(im)deleteEdgeConfiguration:"></a>
+                    <a name="//apple_ref/objc/Method/-deleteEdgeConfiguration:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKinesisVideo(im)deleteEdgeConfiguration:">-deleteEdgeConfiguration:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An asynchronous API that deletes a stream’s existing edge configuration, as well as the corresponding media from the Edge Agent.</p><p>When you invoke this API, the sync status is set to <code>DELETING</code>. A deletion process starts, in which active edge jobs are stopped and all media is deleted from the edge device. The time to delete varies, depending on the total amount of stored media. If the deletion process fails, the sync status changes to <code>DELETE_FAILED</code>. You will need to re-try the deletion.</p><p>When the deletion process has completed successfully, the edge configuration is no longer accessible.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSKinesisVideoDeleteEdgeConfigurationInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSKinesisVideoDeleteEdgeConfigurationOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">deleteEdgeConfiguration</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSKinesisVideoDeleteEdgeConfigurationInput.html">AWSKinesisVideoDeleteEdgeConfigurationInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteEdgeConfiguration</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSKinesisVideoDeleteEdgeConfigurationInput.html">AWSKinesisVideoDeleteEdgeConfigurationInput</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DeleteEdgeConfiguration service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSKinesisVideoDeleteEdgeConfigurationOutput">AWSKinesisVideoDeleteEdgeConfigurationOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSKinesisVideoErrorDomain">AWSKinesisVideoErrorDomain</a></code> domain and the following error code: <code>AWSKinesisVideoErrorAccessDenied</code>, <code>AWSKinesisVideoErrorClientLimitExceeded</code>, <code>AWSKinesisVideoErrorInvalidArgument</code>, <code>AWSKinesisVideoErrorResourceNotFound</code>, <code>AWSKinesisVideoErrorStreamEdgeConfigurationNotFound</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKinesisVideo(im)deleteEdgeConfiguration:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-deleteEdgeConfiguration:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKinesisVideo(im)deleteEdgeConfiguration:completionHandler:">-deleteEdgeConfiguration:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An asynchronous API that deletes a stream’s existing edge configuration, as well as the corresponding media from the Edge Agent.</p><p>When you invoke this API, the sync status is set to <code>DELETING</code>. A deletion process starts, in which active edge jobs are stopped and all media is deleted from the edge device. The time to delete varies, depending on the total amount of stored media. If the deletion process fails, the sync status changes to <code>DELETE_FAILED</code>. You will need to re-try the deletion.</p><p>When the deletion process has completed successfully, the edge configuration is no longer accessible.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSKinesisVideoDeleteEdgeConfigurationInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSKinesisVideoDeleteEdgeConfigurationOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">deleteEdgeConfiguration</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSKinesisVideoDeleteEdgeConfigurationInput.html">AWSKinesisVideoDeleteEdgeConfigurationInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+              <span class="nf">completionHandler</span><span class="p">:</span>
+                  <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                      <span class="n"><a href="../Classes.html#/c:objc(cs)AWSKinesisVideoDeleteEdgeConfigurationOutput">AWSKinesisVideoDeleteEdgeConfigurationOutput</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                      <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteEdgeConfiguration</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSKinesisVideoDeleteEdgeConfigurationInput.html">AWSKinesisVideoDeleteEdgeConfigurationInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSKinesisVideoDeleteEdgeConfigurationOutput">AWSKinesisVideoDeleteEdgeConfigurationOutput</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DeleteEdgeConfiguration service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSKinesisVideoErrorDomain">AWSKinesisVideoErrorDomain</a></code> domain and the following error code: <code>AWSKinesisVideoErrorAccessDenied</code>, <code>AWSKinesisVideoErrorClientLimitExceeded</code>, <code>AWSKinesisVideoErrorInvalidArgument</code>, <code>AWSKinesisVideoErrorResourceNotFound</code>, <code>AWSKinesisVideoErrorStreamEdgeConfigurationNotFound</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSKinesisVideo(im)deleteSignalingChannel:"></a>
                     <a name="//apple_ref/objc/Method/-deleteSignalingChannel:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSKinesisVideo(im)deleteSignalingChannel:">-deleteSignalingChannel:<wbr></a>
@@ -1311,7 +1485,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes a stream’s edge configuration that was set using the <code>StartEdgeConfigurationUpdate</code> API. Use this API to get the status of the configuration if the configuration is in sync with the Edge Agent.</p>
+                        <p>Describes a stream’s edge configuration that was set using the <code>StartEdgeConfigurationUpdate</code> API and the latest status of the edge agent&rsquo;s recorder and uploader jobs. Use this API to get the status of the configuration to determine if the configuration is in sync with the Edge Agent. Use this API to evaluate the health of the Edge Agent.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSKinesisVideoDescribeEdgeConfigurationInput</p>
@@ -1376,7 +1550,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes a stream’s edge configuration that was set using the <code>StartEdgeConfigurationUpdate</code> API. Use this API to get the status of the configuration if the configuration is in sync with the Edge Agent.</p>
+                        <p>Describes a stream’s edge configuration that was set using the <code>StartEdgeConfigurationUpdate</code> API and the latest status of the edge agent&rsquo;s recorder and uploader jobs. Use this API to get the status of the configuration to determine if the configuration is in sync with the Edge Agent. Use this API to evaluate the health of the Edge Agent.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSKinesisVideoDescribeEdgeConfigurationInput</p>
@@ -1603,7 +1777,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the most current information about the stream. Either streamName or streamARN should be provided in the input.</p><p>Returns the most current information about the stream. The <code>streamName</code> or <code>streamARN</code> should be provided in the input.</p>
+                        <p>Returns the most current information about the stream. The <code>streamName</code> or <code>streamARN</code> should be provided in the input.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSKinesisVideoDescribeMappedResourceConfigurationInput</p>
@@ -1668,7 +1842,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the most current information about the stream. Either streamName or streamARN should be provided in the input.</p><p>Returns the most current information about the stream. The <code>streamName</code> or <code>streamARN</code> should be provided in the input.</p>
+                        <p>Returns the most current information about the stream. The <code>streamName</code> or <code>streamARN</code> should be provided in the input.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSKinesisVideoDescribeMappedResourceConfigurationInput</p>
@@ -2591,6 +2765,151 @@
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSKinesisVideoErrorDomain">AWSKinesisVideoErrorDomain</a></code> domain and the following error code: <code>AWSKinesisVideoErrorInvalidArgument</code>, <code>AWSKinesisVideoErrorClientLimitExceeded</code>, <code>AWSKinesisVideoErrorResourceNotFound</code>, <code>AWSKinesisVideoErrorResourceInUse</code>, <code>AWSKinesisVideoErrorAccessDenied</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKinesisVideo(im)listEdgeAgentConfigurations:"></a>
+                    <a name="//apple_ref/objc/Method/-listEdgeAgentConfigurations:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKinesisVideo(im)listEdgeAgentConfigurations:">-listEdgeAgentConfigurations:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an array of edge configurations associated with the specified Edge Agent.</p><p>In the request, you must specify the Edge Agent <code>HubDeviceArn</code>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSKinesisVideoListEdgeAgentConfigurationsInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSKinesisVideoListEdgeAgentConfigurationsOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">listEdgeAgentConfigurations</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSKinesisVideoListEdgeAgentConfigurationsInput.html">AWSKinesisVideoListEdgeAgentConfigurationsInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listEdgeAgentConfigurations</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSKinesisVideoListEdgeAgentConfigurationsInput.html">AWSKinesisVideoListEdgeAgentConfigurationsInput</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListEdgeAgentConfigurations service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSKinesisVideoListEdgeAgentConfigurationsOutput.html">AWSKinesisVideoListEdgeAgentConfigurationsOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSKinesisVideoErrorDomain">AWSKinesisVideoErrorDomain</a></code> domain and the following error code: <code>AWSKinesisVideoErrorNotAuthorized</code>, <code>AWSKinesisVideoErrorClientLimitExceeded</code>, <code>AWSKinesisVideoErrorInvalidArgument</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKinesisVideo(im)listEdgeAgentConfigurations:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-listEdgeAgentConfigurations:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKinesisVideo(im)listEdgeAgentConfigurations:completionHandler:">-listEdgeAgentConfigurations:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an array of edge configurations associated with the specified Edge Agent.</p><p>In the request, you must specify the Edge Agent <code>HubDeviceArn</code>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSKinesisVideoListEdgeAgentConfigurationsInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSKinesisVideoListEdgeAgentConfigurationsOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">listEdgeAgentConfigurations</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSKinesisVideoListEdgeAgentConfigurationsInput.html">AWSKinesisVideoListEdgeAgentConfigurationsInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+                  <span class="nf">completionHandler</span><span class="p">:</span>
+                      <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                          <span class="n"><a href="../Classes/AWSKinesisVideoListEdgeAgentConfigurationsOutput.html">AWSKinesisVideoListEdgeAgentConfigurationsOutput</a></span>
+                              <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                          <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listEdgeAgentConfigurations</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSKinesisVideoListEdgeAgentConfigurationsInput.html">AWSKinesisVideoListEdgeAgentConfigurationsInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSKinesisVideoListEdgeAgentConfigurationsOutput.html">AWSKinesisVideoListEdgeAgentConfigurationsOutput</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListEdgeAgentConfigurations service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSKinesisVideoErrorDomain">AWSKinesisVideoErrorDomain</a></code> domain and the following error code: <code>AWSKinesisVideoErrorNotAuthorized</code>, <code>AWSKinesisVideoErrorClientLimitExceeded</code>, <code>AWSKinesisVideoErrorInvalidArgument</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -4754,7 +5073,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-05-29)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-07-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
