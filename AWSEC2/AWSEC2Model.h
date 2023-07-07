@@ -2098,6 +2098,12 @@ typedef NS_ENUM(NSInteger, AWSEC2NetworkInterfaceType) {
     AWSEC2NetworkInterfaceTypeAwsCodestarConnectionsManaged,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2NitroEnclavesSupport) {
+    AWSEC2NitroEnclavesSupportUnknown,
+    AWSEC2NitroEnclavesSupportUnsupported,
+    AWSEC2NitroEnclavesSupportSupported,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2OfferingClassType) {
     AWSEC2OfferingClassTypeUnknown,
     AWSEC2OfferingClassTypeStandard,
@@ -31314,26 +31320,26 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Indicates whether your instance is configured for hibernation. This parameter is valid only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Indicates whether your instance is configured for hibernation. This parameter is valid only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 @interface AWSEC2HibernationOptions : AWSModel
 
 
 /**
- <p>If this parameter is set to <code>true</code>, your instance is enabled for hibernation; otherwise, it is not enabled for hibernation.</p>
+ <p>If <code>true</code>, your instance is enabled for hibernation; otherwise, it is not enabled for hibernation.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable configured;
 
 @end
 
 /**
- <p>Indicates whether your instance is configured for hibernation. This parameter is valid only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Indicates whether your instance is configured for hibernation. This parameter is valid only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 @interface AWSEC2HibernationOptionsRequest : AWSModel
 
 
 /**
- <p>If you set this parameter to <code>true</code>, your instance is enabled for hibernation.</p><p>Default: <code>false</code></p>
+ <p>Set to <code>true</code> to enable your instance for hibernation.</p><p>Default: <code>false</code></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable configured;
 
@@ -34709,6 +34715,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Describes the network settings for the instance type.</p>
  */
 @property (nonatomic, strong) AWSEC2NetworkInfo * _Nullable networkInfo;
+
+/**
+ <p>Indicates whether Nitro Enclaves is supported.</p>
+ */
+@property (nonatomic, assign) AWSEC2NitroEnclavesSupport nitroEnclavesSupport;
 
 /**
  <p>Describes the placement group settings for the instance type.</p>
@@ -47399,12 +47410,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2ElasticInferenceAccelerator *> * _Nullable elasticInferenceAccelerators;
 
 /**
- <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"> What is Amazon Web Services Nitro Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p><p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same instance.</p>
+ <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">What is Amazon Web Services Nitro Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p><p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same instance.</p>
  */
 @property (nonatomic, strong) AWSEC2EnclaveOptionsRequest * _Nullable enclaveOptions;
 
 /**
- <p>Indicates whether an instance is enabled for hibernation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon EC2 User Guide</i>.</p><p>You can't enable hibernation and Amazon Web Services Nitro Enclaves on the same instance.</p>
+ <p>Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon EC2 User Guide</i>.</p><p>You can't enable hibernation and Amazon Web Services Nitro Enclaves on the same instance.</p>
  */
 @property (nonatomic, strong) AWSEC2HibernationOptionsRequest * _Nullable hibernationOptions;
 
