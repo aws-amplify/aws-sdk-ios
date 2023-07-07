@@ -425,7 +425,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)createGeofenceCollection:(AWSLocationCreateGeofenceCollectionRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationCreateGeofenceCollectionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an API key resource in your Amazon Web Services account, which lets you grant <code>geo:GetMap*</code> actions for Amazon Location Map resources to the API key bearer.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important>
+ <p>Creates an API key resource in your Amazon Web Services account, which lets you grant actions for Amazon Location resources to the API key bearer.</p><note><p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateKey service method.
 
@@ -437,7 +437,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationCreateKeyResponse *> *)createKey:(AWSLocationCreateKeyRequest *)request;
 
 /**
- <p>Creates an API key resource in your Amazon Web Services account, which lets you grant <code>geo:GetMap*</code> actions for Amazon Location Map resources to the API key bearer.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important>
+ <p>Creates an API key resource in your Amazon Web Services account, which lets you grant actions for Amazon Location resources to the API key bearer.</p><note><p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateKey service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -725,7 +725,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)describeGeofenceCollection:(AWSLocationDescribeGeofenceCollectionRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationDescribeGeofenceCollectionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Retrieves the API key resource details.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important>
+ <p>Retrieves the API key resource details.</p>
  
  @param request A container for the necessary parameters to execute the DescribeKey service method.
 
@@ -737,7 +737,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationDescribeKeyResponse *> *)describeKey:(AWSLocationDescribeKeyRequest *)request;
 
 /**
- <p>Retrieves the API key resource details.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important>
+ <p>Retrieves the API key resource details.</p>
  
  @param request A container for the necessary parameters to execute the DescribeKey service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1150,7 +1150,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)listGeofences:(AWSLocationListGeofencesRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationListGeofencesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists API key resources in your Amazon Web Services account.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important>
+ <p>Lists API key resources in your Amazon Web Services account.</p>
  
  @param request A container for the necessary parameters to execute the ListKeys service method.
 
@@ -1162,7 +1162,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationListKeysResponse *> *)listKeys:(AWSLocationListKeysRequest *)request;
 
 /**
- <p>Lists API key resources in your Amazon Web Services account.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important>
+ <p>Lists API key resources in your Amazon Web Services account.</p>
  
  @param request A container for the necessary parameters to execute the ListKeys service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1500,7 +1500,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)updateGeofenceCollection:(AWSLocationUpdateGeofenceCollectionRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationUpdateGeofenceCollectionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the specified properties of a given API key resource.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important>
+ <p>Updates the specified properties of a given API key resource.</p>
  
  @param request A container for the necessary parameters to execute the UpdateKey service method.
 
@@ -1512,7 +1512,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationUpdateKeyResponse *> *)updateKey:(AWSLocationUpdateKeyRequest *)request;
 
 /**
- <p>Updates the specified properties of a given API key resource.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important>
+ <p>Updates the specified properties of a given API key resource.</p>
  
  @param request A container for the necessary parameters to execute the UpdateKey service method.
  @param completionHandler The completion handler to call when the load request is complete.

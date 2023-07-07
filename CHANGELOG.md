@@ -11,7 +11,13 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 ## Unreleased
 
+-Features for next release
+
+## 2.33.1
+
 ### Misc. Updates
+- **AWSComprehend**
+  - Updating text used in the `testDetectSentimentNeutral` integration test.
 
 - Model updates for the following services
   - AWSChimeSDKIdentity

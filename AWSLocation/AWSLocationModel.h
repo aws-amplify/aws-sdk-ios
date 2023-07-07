@@ -300,7 +300,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
- <p>A list of allowed actions that an API key resource grants permissions to perform</p><note><p>Currently, the only valid action is <code>geo:GetMap*</code> as an input to the list. For example, <code>["geo:GetMap*"]</code> is valid but <code>["geo:GetMapTile"]</code> is not.</p></note>
+ <p>A list of allowed actions that an API key resource grants permissions to perform. You must have at least one action for each type of resource. For example, if you have a place resource, you must include at least one place action.</p><p>The following are valid values for the actions.</p><ul><li><p><b>Map actions</b></p><ul><li><p><code>geo:GetMap*</code> - Allows all actions needed for map rendering.</p></li></ul></li><li><p><b>Place actions</b></p><ul><li><p><code>geo:SearchPlaceIndexForText</code> - Allows geocoding.</p></li><li><p><code>geo:SearchPlaceIndexForPosition</code> - Allows reverse geocoding.</p></li><li><p><code>geo:SearchPlaceIndexForSuggestions</code> - Allows generating suggestions from text.</p></li><li><p><code>GetPlace</code> - Allows finding a place by place ID.</p></li></ul></li><li><p><b>Route actions</b></p><ul><li><p><code>geo:CalculateRoute</code> - Allows point to point routing.</p></li><li><p><code>geo:CalculateRouteMatrix</code> - Allows calculating a matrix of routes.</p></li></ul></li></ul><note><p>You must use these strings exactly. For example, to provide access to map rendering, the only valid action is <code>geo:GetMap*</code> as an input to the list. <code>["geo:GetMap*"]</code> is valid but <code>["geo:GetMapTile"]</code> is not. Similarly, you cannot use <code>["geo:SearchPlaceIndexFor*"]</code> - you must list each of the Place actions separately.</p></note>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable allowActions;
 
@@ -310,7 +310,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable allowReferers;
 
 /**
- <p>A list of allowed resource ARNs that a API key bearer can perform actions on</p><p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p><note><p>In this preview, you can allow only map resources.</p></note><p>Requirements:</p><ul><li><p>Must be prefixed with <code>arn</code>.</p></li><li><p><code>partition</code> and <code>service</code> must not be empty and should begin with only alphanumeric characters (A–Z, a–z, 0–9) and contain only alphanumeric numbers, hyphens (-) and periods (.).</p></li><li><p><code>region</code> and <code>account-id</code> can be empty or should begin with only alphanumeric characters (A–Z, a–z, 0–9) and contain only alphanumeric numbers, hyphens (-) and periods (.).</p></li><li><p><code>resource-id</code> can begin with any character except for forward slash (/) and contain any characters after, including forward slashes to form a path.</p><p><code>resource-id</code> can also include wildcard characters, denoted by an asterisk (*).</p></li><li><p><code>arn</code>, <code>partition</code>, <code>service</code>, <code>region</code>, <code>account-id</code> and <code>resource-id</code> must be delimited by a colon (:).</p></li><li><p>No spaces allowed. For example, <code>arn:aws:geo:region:<i>account-id</i>:map/ExampleMap*</code>.</p></li></ul>
+ <p>A list of allowed resource ARNs that a API key bearer can perform actions on.</p><ul><li><p>The ARN must be the correct ARN for a map, place, or route ARN. You may include wildcards in the resource-id to match multiple resources of the same type.</p></li><li><p>The resources must be in the same <code>partition</code>, <code>region</code>, and <code>account-id</code> as the key that is being created.</p></li><li><p>Other than wildcards, you must include the full ARN, including the <code>arn</code>, <code>partition</code>, <code>service</code>, <code>region</code>, <code>account-id</code> and <code>resource-id</code>, delimited by colons (:).</p></li><li><p>No spaces allowed, even with wildcards. For example, <code>arn:aws:geo:region:<i>account-id</i>:map/ExampleMap*</code>.</p></li></ul><p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable allowResources;
 
@@ -620,7 +620,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSString * _Nullable geofenceId;
 
 /**
- <p>Specifies additional user-defined properties to store with the Geofence. An array of key-value pairs.</p>
+ <p>Associates one of more properties with the geofence. A property is a key-value pair stored with the geofence and added to any geofence event triggered with that geofence.</p><p>Format: <code>"key" : "value"</code></p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable geofenceProperties;
 
@@ -788,6 +788,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, assign) AWSLocationDistanceUnit distanceUnit;
 
 /**
+ <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize the request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable key;
+
+/**
  <p>Specifies the mode of transport when calculating a route. Used in estimating the speed of travel and road compatibility.</p><p>The <code>TravelMode</code> you specify also determines how you specify route preferences: </p><ul><li><p>If traveling by <code>Car</code> use the <code>CarModeOptions</code> parameter.</p></li><li><p>If traveling by <code>Truck</code> use the <code>TruckModeOptions</code> parameter.</p></li></ul><note><p><code>Bicycle</code> or <code>Motorcycle</code> are only valid when using <code>Grab</code> as a data provider, and only within Southeast Asia.</p><p><code>Truck</code> is not available for Grab.</p><p>For more information about using Grab as a data provider, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a> in the <i>Amazon Location Service Developer Guide</i>.</p></note><p>Default Value: <code>Car</code></p>
  */
 @property (nonatomic, assign) AWSLocationTravelMode travelMode;
@@ -902,6 +907,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  <p>Set to include the geometry details in the result for each path between a pair of positions.</p><p>Default Value: <code>false</code></p><p>Valid Values: <code>false</code> | <code>true</code></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable includeLegGeometry;
+
+/**
+ <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize the request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  <p>Specifies the mode of transport when calculating a route. Used in estimating the speed of travel and road compatibility. You can choose <code>Car</code>, <code>Truck</code>, <code>Walking</code>, <code>Bicycle</code> or <code>Motorcycle</code> as options for the <code>TravelMode</code>.</p><note><p><code>Bicycle</code> and <code>Motorcycle</code> are only valid when using Grab as a data provider, and only within Southeast Asia.</p><p><code>Truck</code> is not available for Grab.</p><p>For more details on the using Grab for routing, including areas of coverage, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a> in the <i>Amazon Location Service Developer Guide</i>.</p></note><p>The <code>TravelMode</code> you specify also determines how you specify route preferences: </p><ul><li><p>If traveling by <code>Car</code> use the <code>CarModeOptions</code> parameter.</p></li><li><p>If traveling by <code>Truck</code> use the <code>TruckModeOptions</code> parameter.</p></li></ul><p>Default Value: <code>Car</code></p>
@@ -1330,6 +1340,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  <p>An optional description for the tracker resource.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>Whether to enable position <code>UPDATE</code> events from this tracker to be sent to EventBridge.</p><note><p>You do not need enable this feature to get <code>ENTER</code> and <code>EXIT</code> events for geofences with this tracker. Those events are always sent to EventBridge.</p></note>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable eventBridgeEnabled;
 
 /**
  <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.</p>
@@ -1880,6 +1895,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
+ <p>Whether <code>UPDATE</code> events from this tracker in EventBridge are enabled. If set to <code>true</code> these events will be sent to EventBridge.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable eventBridgeEnabled;
+
+/**
  <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services KMS customer managed key</a> assigned to the Amazon Location resource.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
@@ -2185,7 +2205,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSString * _Nullable geofenceId;
 
 /**
- <p>Contains additional user-defined properties stored with the geofence. An array of key-value pairs.</p>
+ <p>User defined properties of the geofence. A property is a key-value pair stored with the geofence and added to any geofence event triggered with that geofence.</p><p>Format: <code>"key" : "value"</code></p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable geofenceProperties;
 
@@ -2410,6 +2430,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  <p>The name of the place index resource that you want to use for the search.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize the request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example, <code>en</code> for English.</p><p>This setting affects the languages used in the results, but not the results themselves. If no language is specified, or not supported for a particular result, the partner automatically chooses a language for the result.</p><p>For an example, we'll use the Greek language. You search for a location around Athens, Greece, with the <code>language</code> parameter set to <code>en</code>. The <code>city</code> in the results will most likely be returned as <code>Athens</code>.</p><p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the <code>city</code> in the results will more likely be returned as <code>Αθήνα</code>.</p><p>If the data provider does not have a value for Greek, the result will be in a language that the provider does support.</p>
@@ -2656,7 +2681,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSString * _Nullable geofenceId;
 
 /**
- <p>Contains additional user-defined properties stored with the geofence. An array of key-value pairs.</p>
+ <p>User defined properties of the geofence. A property is a key-value pair stored with the geofence and added to any geofence event triggered with that geofence.</p><p>Format: <code>"key" : "value"</code></p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable geofenceProperties;
 
@@ -3330,7 +3355,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSString * _Nullable geofenceId;
 
 /**
- <p>Specifies additional user-defined properties to store with the Geofence. An array of key-value pairs.</p>
+ <p>Associates one of more properties with the geofence. A property is a key-value pair stored with the geofence and added to any geofence event triggered with that geofence.</p><p>Format: <code>"key" : "value"</code></p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable geofenceProperties;
 
@@ -3500,6 +3525,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSString * _Nullable indexName;
 
 /**
+ <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize the request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable key;
+
+/**
  <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example, <code>en</code> for English.</p><p>This setting affects the languages used in the results, but not the results themselves. If no language is specified, or not supported for a particular result, the partner automatically chooses a language for the result.</p><p>For an example, we'll use the Greek language. You search for a location around Athens, Greece, with the <code>language</code> parameter set to <code>en</code>. The <code>city</code> in the results will most likely be returned as <code>Athens</code>.</p><p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the <code>city</code> in the results will more likely be returned as <code>Αθήνα</code>.</p><p>If the data provider does not have a value for Greek, the result will be in a language that the provider does support.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable language;
@@ -3593,6 +3623,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  <p>The name of the place index resource you want to use for the search.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize the request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example, <code>en</code> for English.</p><p>This setting affects the languages used in the results. If no language is specified, or not supported for a particular result, the partner automatically chooses a language for the result.</p><p>For an example, we'll use the Greek language. You search for <code>Athens, Gr</code> to get suggestions with the <code>language</code> parameter set to <code>en</code>. The results found will most likely be returned as <code>Athens, Greece</code>.</p><p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the result found will more likely be returned as <code>Αθήνα, Ελλάδα</code>.</p><p>If the data provider does not have a value for Greek, the result will be in a language that the provider does support.</p>
@@ -3708,6 +3743,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  <p>The name of the place index resource you want to use for the search.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize the request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable key;
 
 /**
  <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example, <code>en</code> for English.</p><p>This setting affects the languages used in the results, but not the results themselves. If no language is specified, or not supported for a particular result, the partner automatically chooses a language for the result.</p><p>For an example, we'll use the Greek language. You search for <code>Athens, Greece</code>, with the <code>language</code> parameter set to <code>en</code>. The result found will most likely be returned as <code>Athens</code>.</p><p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the result found will more likely be returned as <code>Αθήνα</code>.</p><p>If the data provider does not have a value for Greek, the result will be in a language that the provider does support.</p>
@@ -4219,6 +4259,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  <p>Updates the description for the tracker resource.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>Whether to enable position <code>UPDATE</code> events from this tracker to be sent to EventBridge.</p><note><p>You do not need enable this feature to get <code>ENTER</code> and <code>EXIT</code> events for geofences with this tracker. Those events are always sent to EventBridge.</p></note>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable eventBridgeEnabled;
 
 /**
  <p>Updates the position filtering for the tracker resource.</p><p>Valid values:</p><ul><li><p><code>TimeBased</code> - Location updates are evaluated against linked geofence collections, but not every location update is stored. If your update frequency is more often than 30 seconds, only one update per 30 seconds is stored for each unique device ID. </p></li><li><p><code>DistanceBased</code> - If the device has moved less than 30 m (98.4 ft), location updates are ignored. Location updates within this distance are neither evaluated against linked geofence collections, nor stored. This helps control costs by reducing the number of geofence evaluations and historical device positions to paginate through. Distance-based filtering can also reduce the effects of GPS noise when displaying device trajectories on a map. </p></li><li><p><code>AccuracyBased</code> - If the device has moved less than the measured accuracy, location updates are ignored. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device has moved less than 15 m. Ignored location updates are neither evaluated against linked geofence collections, nor stored. This helps educe the effects of GPS noise when displaying device trajectories on a map, and can help control costs by reducing the number of geofence evaluations. </p></li></ul>
