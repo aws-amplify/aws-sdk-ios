@@ -147,7 +147,11 @@ static NSString *FacebookLogoImageKey = @"fb-icon";
     self.facebookButton.layer.cornerRadius = 4.0f;
     self.facebookButton.layer.borderWidth = 0.1f;
     self.facebookButton.layer.borderColor = [[UIColor grayColor] CGColor];
-    self.facebookButton.layer.shadowColor = [[UIColor lightGrayColor] CGColor];
+    if (@available(iOS 13.0, *)) {
+        self.facebookButton.layer.shadowColor = [[UIColor systemGray3Color] CGColor];
+    } else {
+        self.facebookButton.layer.shadowColor = [[UIColor lightGrayColor] CGColor];
+    }
     self.facebookButton.layer.shadowOffset = CGSizeMake(0, 2.0f);
     self.facebookButton.layer.shadowOpacity = 0.5f;
     self.facebookButton.layer.shadowRadius = 0.0f;
@@ -188,6 +192,12 @@ static NSString *FacebookLogoImageKey = @"fb-icon";
                                                                                       result:result
                                                                                        error:error];
                                                 }];
+}
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    if (@available(iOS 13.0, *)) {
+        self.facebookButton.layer.shadowColor = [[UIColor systemGray3Color] CGColor];
+    }
 }
 
 @end

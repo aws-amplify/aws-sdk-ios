@@ -328,6 +328,7 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 
 - (void)setUpNavigationController {
     UIColor *textColor = [AWSAuthUIHelper getTextColor:config];
+    UIColor *backgroundColor = [AWSAuthUIHelper getBackgroundColor:config];
 
     self.navigationController.navigationBar.topItem.title = @"Sign In";
     self.canCancel = self.config.canCancel;
@@ -344,9 +345,14 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
                                                                     NSForegroundColorAttributeName: textColor,
                                                                     };
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.barTintColor = [AWSAuthUIHelper getBackgroundColor:config];
+    self.navigationController.navigationBar.barTintColor = backgroundColor;
     self.navigationController.navigationBar.tintColor = textColor;
-    
+    if (@available(iOS 13.0, *)) {
+        UINavigationBarAppearance *barAppearance = [[UINavigationBarAppearance alloc] init];
+        barAppearance.backgroundColor = backgroundColor;
+        self.navigationController.navigationBar.standardAppearance = barAppearance;
+        self.navigationController.navigationBar.scrollEdgeAppearance = barAppearance;
+    }
 }
 
 - (void)setUpFont {
