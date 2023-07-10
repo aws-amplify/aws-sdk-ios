@@ -5,6 +5,7 @@
 ### Misc. Updates
 
 - Model updates for the following services
+  - AWSCloudWatchLogs
   - AWSEC2
   - AWSLocation
 
