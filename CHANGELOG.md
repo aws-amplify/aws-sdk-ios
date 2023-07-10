@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+### Bug Fixes
+- **AWSAuthUI**
+  - Fixed spacing and color issues in `AWSSignInViewController` when displaying social providers.
+
+- **AWSFacebookSignIn** & **AWSAuthGoogleSignIn**
+  - Added support for Dark Mode colors
+
 ### Misc. Updates
 
 - Model updates for the following services

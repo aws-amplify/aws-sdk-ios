@@ -137,18 +137,27 @@ static NSString *RESOURCES_BUNDLE = @"AWSGoogleSignIn.bundle";
     self.textLabel.lineBreakMode = NSLineBreakByCharWrapping;
     
     self.textLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
-    self.textLabel.textColor = [UIColor darkGrayColor];
+    if (@available(iOS 13.0, *)) {
+        self.textLabel.textColor = [UIColor labelColor];
+    } else {
+        self.textLabel.textColor = [UIColor darkGrayColor];
+    }
     self.textLabel.exclusiveTouch = NO;
     self.textLabel.userInteractionEnabled = NO;
     [self.textLabel setContentHuggingPriority:HIGH_HUGGING_PRIORITY forAxis:UILayoutConstraintAxisHorizontal];
 }
 
 - (void)setUpButtonEffects {
-    self.googleButton.backgroundColor = [UIColor whiteColor];
+    if (@available(iOS 13.0, *)) {
+        self.googleButton.backgroundColor = [UIColor systemBackgroundColor];
+        self.googleButton.layer.shadowColor = [[UIColor systemGray3Color] CGColor];
+    } else {
+        self.googleButton.backgroundColor = [UIColor whiteColor];
+        self.googleButton.layer.shadowColor = [[UIColor lightGrayColor] CGColor];
+    }
     self.googleButton.layer.cornerRadius = 4.0f;
     self.googleButton.layer.borderWidth = 0.1f;
     self.googleButton.layer.borderColor = [[UIColor grayColor] CGColor];
-    self.googleButton.layer.shadowColor = [[UIColor lightGrayColor] CGColor];
     self.googleButton.layer.shadowOffset = CGSizeMake(0, 2.0f);
     self.googleButton.layer.shadowOpacity = 0.5f;
     self.googleButton.layer.shadowRadius = 0.0f;
@@ -190,6 +199,12 @@ static NSString *RESOURCES_BUNDLE = @"AWSGoogleSignIn.bundle";
                                                                                       result:result
                                                                                        error:error];
                                                 }];
+}
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    if (@available(iOS 13.0, *)) {
+        self.googleButton.layer.shadowColor = [[UIColor systemGray3Color] CGColor];
+    }
 }
 
 @end
