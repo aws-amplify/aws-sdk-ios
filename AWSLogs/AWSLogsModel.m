@@ -79,6 +79,7 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 	return @{
              @"kmsKeyId" : @"kmsKeyId",
              @"logGroupName" : @"logGroupName",
+             @"resourceIdentifier" : @"resourceIdentifier",
              };
 }
 
@@ -850,6 +851,7 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"logGroupName" : @"logGroupName",
+             @"resourceIdentifier" : @"resourceIdentifier",
              };
 }
 
@@ -1179,6 +1181,7 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"encryptionKey" : @"encryptionKey",
              @"results" : @"results",
              @"statistics" : @"statistics",
              @"status" : @"status",
