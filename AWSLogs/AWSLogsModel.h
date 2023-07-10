@@ -278,9 +278,14 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
- <p>The name of the log group.</p>
+ <p>The name of the log group.</p><p>In your <code>AssociateKmsKey</code> operation, you must specify either the <code>resourceIdentifier</code> parameter or the <code>logGroup</code> parameter, but you can't specify both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
+
+/**
+ <p>Specifies the target for this operation. You must specify one of the following:</p><ul><li><p>Specify the following ARN to have future <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.html">GetQueryResults</a> operations in this account encrypt the results with the specified KMS key. Replace <i>REGION</i> and <i>ACCOUNT_ID</i> with your Region and account ID.</p><p><code>arn:aws:logs:<i>REGION</i>:<i>ACCOUNT_ID</i>:query-result:*</code></p></li><li><p>Specify the ARN of a log group to have CloudWatch Logs use the KMS key to encrypt log events that are ingested and stored by that log group. The log group ARN must be in the following format. Replace <i>REGION</i> and <i>ACCOUNT_ID</i> with your Region and account ID.</p><p><code>arn:aws:logs:<i>REGION</i>:<i>ACCOUNT_ID</i>:log-group:<i>LOG_GROUP_NAME</i></code></p></li></ul><p>In your <code>AssociateKmsKey</code> operation, you must specify either the <code>resourceIdentifier</code> parameter or the <code>logGroup</code> parameter, but you can't specify both.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceIdentifier;
 
 @end
 
@@ -1067,9 +1072,14 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 
 
 /**
- <p>The name of the log group.</p>
+ <p>The name of the log group.</p><p>In your <code>DisassociateKmsKey</code> operation, you must specify either the <code>resourceIdentifier</code> parameter or the <code>logGroup</code> parameter, but you can't specify both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
+
+/**
+ <p>Specifies the target for this operation. You must specify one of the following:</p><ul><li><p>Specify the ARN of a log group to stop having CloudWatch Logs use the KMS key to encrypt log events that are ingested and stored by that log group. After you run this operation, CloudWatch Logs encrypts ingested log events with the default CloudWatch Logs method. The log group ARN must be in the following format. Replace <i>REGION</i> and <i>ACCOUNT_ID</i> with your Region and account ID.</p><p><code>arn:aws:logs:<i>REGION</i>:<i>ACCOUNT_ID</i>:log-group:<i>LOG_GROUP_NAME</i></code></p></li><li><p>Specify the following ARN to stop using this key to encrypt the results of future <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a> operations in this account. Replace <i>REGION</i> and <i>ACCOUNT_ID</i> with your Region and account ID.</p><p><code>arn:aws:logs:<i>REGION</i>:<i>ACCOUNT_ID</i>:query-result:*</code></p></li></ul><p>In your <code>DisssociateKmsKey</code> operation, you must specify either the <code>resourceIdentifier</code> parameter or the <code>logGroup</code> parameter, but you can't specify both.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceIdentifier;
 
 @end
 
@@ -1410,7 +1420,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
 /**
- <p>The time to set as the center of the query. If you specify <code>time</code>, the 15 minutes before this time are queries. If you omit <code>time</code>, the 8 minutes before and 8 minutes after this time are searched.</p><p>The <code>time</code> value is specified as epoch time, which is the number of seconds since <code>January 1, 1970, 00:00:00 UTC</code>.</p>
+ <p>The time to set as the center of the query. If you specify <code>time</code>, the 8 minutes before and 8 minutes after this time are searched. If you omit <code>time</code>, the most recent 15 minutes up to the current time are searched.</p><p>The <code>time</code> value is specified as epoch time, which is the number of seconds since <code>January 1, 1970, 00:00:00 UTC</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable time;
 
@@ -1480,12 +1490,17 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 
 
 /**
+ <p>If you associated an KMS key with the CloudWatch Logs Insights query results in this account, this field displays the ARN of the key that's used to encrypt the query results when <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a> stores them.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable encryptionKey;
+
+/**
  <p>The log events that matched the query criteria during the most recent time it ran.</p><p>The <code>results</code> value is an array of arrays. Each log event is one object in the top-level array. Each of these log event objects is an array of <code>field</code>/<code>value</code> pairs.</p>
  */
 @property (nonatomic, strong) NSArray<NSArray<AWSLogsResultField *> *> * _Nullable results;
 
 /**
- <p>Includes the number of log events scanned by the query, the number of log events that matched the query criteria, and the total number of bytes in the log events that were scanned. These values reflect the full raw results of the query.</p>
+ <p>Includes the number of log events scanned by the query, the number of log events that matched the query criteria, and the total number of bytes in the scanned log events. These values reflect the full raw results of the query.</p>
  */
 @property (nonatomic, strong) AWSLogsQueryStatistics * _Nullable statistics;
 
@@ -1826,7 +1841,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, assign) AWSLogsPolicyType policyType;
 
 /**
- <p>Currently the only valid value for this parameter is <code>GLOBAL</code>, which specifies that the data protection policy applies to all log groups in the account. If you omit this parameter, the default of <code>GLOBAL</code> is used.</p>
+ <p>Currently the only valid value for this parameter is <code>ALL</code>, which specifies that the data protection policy applies to all log groups in the account. If you omit this parameter, the default of <code>ALL</code> is used.</p>
  */
 @property (nonatomic, assign) AWSLogsScope scope;
 
@@ -2376,17 +2391,17 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) NSNumber * _Nullable limit;
 
 /**
- <p>The list of log groups to query. You can include up to 50 log groups.</p><p>You can specify them by the log group name or ARN. If a log group that you're querying is in a source account and you're using a monitoring account, you must specify the ARN of the log group here. The query definition must also be defined in the monitoring account.</p><p>If you specify an ARN, the ARN can't end with an asterisk (*).</p><p>A <code>StartQuery</code> operation must include exactly one of the following parameters: <code>logGroupName</code>, <code>logGroupNames</code> or <code>logGroupIdentifiers</code>. </p>
+ <p>The list of log groups to query. You can include up to 50 log groups.</p><p>You can specify them by the log group name or ARN. If a log group that you're querying is in a source account and you're using a monitoring account, you must specify the ARN of the log group here. The query definition must also be defined in the monitoring account.</p><p>If you specify an ARN, the ARN can't end with an asterisk (*).</p><p>A <code>StartQuery</code> operation must include exactly one of the following parameters: <code>logGroupName</code>, <code>logGroupNames</code>, or <code>logGroupIdentifiers</code>. </p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable logGroupIdentifiers;
 
 /**
- <p>The log group on which to perform the query.</p><note><p>A <code>StartQuery</code> operation must include exactly one of the following parameters: <code>logGroupName</code>, <code>logGroupNames</code> or <code>logGroupIdentifiers</code>. </p></note>
+ <p>The log group on which to perform the query.</p><note><p>A <code>StartQuery</code> operation must include exactly one of the following parameters: <code>logGroupName</code>, <code>logGroupNames</code>, or <code>logGroupIdentifiers</code>. </p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
 /**
- <p>The list of log groups to be queried. You can include up to 50 log groups.</p><note><p>A <code>StartQuery</code> operation must include exactly one of the following parameters: <code>logGroupName</code>, <code>logGroupNames</code> or <code>logGroupIdentifiers</code>. </p></note>
+ <p>The list of log groups to be queried. You can include up to 50 log groups.</p><note><p>A <code>StartQuery</code> operation must include exactly one of the following parameters: <code>logGroupName</code>, <code>logGroupNames</code>, or <code>logGroupIdentifiers</code>. </p></note>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable logGroupNames;
 
