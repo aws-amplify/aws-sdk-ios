@@ -1,11 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSCognitoIdentityProvider
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -21,6 +13,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 - Model updates for the following services
   - AWSCloudWatchLogs
+  - AWSCognitoIdentityProvider
   - AWSEC2
   - AWSLocation
 
