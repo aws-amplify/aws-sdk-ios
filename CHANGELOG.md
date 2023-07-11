@@ -13,6 +13,7 @@
 
 - Model updates for the following services
   - AWSCloudWatchLogs
+  - AWSCognitoIdentityProvider
   - AWSEC2
   - AWSLocation
 
