@@ -1,0 +1,362 @@
+name: Release
+
+on:
+  workflow_run:
+    workflows:
+      - Unit Test
+      - Integration Test
+    types:
+      - completed
+    branches:
+      - release
+
+permissions:
+  id-token: write
+  contents: write
+
+jobs:
+  build_xcframeworks:
+    name: Build xcframeworks
+    runs-on: macos-latest
+    outputs:
+      version: ${{ steps.extract-release-version.outputs.version }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          persist-credentials: false
+
+      - name: Extract release version
+        id: extract-release-version
+        run: |
+          next_version=$(echo ${{ github.event.head_commit.message }} | \
+          awk 'match($0, /[0-9]+\.[0-9]+\.[0-9]+/) { print substr($0, RSTART, RLENGTH) }')
+          # assert next_version is not empty
+          [[ ! -z "$next_version" ]] || exit 1
+          # export to outputs
+          echo "version=$next_version" >> "$GITHUB_OUTPUT"
+
+      - name: Build xcframework
+        run: python3 ./CircleciScripts/create_xcframeworks.py
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
+        with:
+          name: xcframework
+          path: xcframeworks/
+
+  release_xcframeworks:
+    name: Release xcframeworks
+    runs-on: macos-latest
+    environment: ReleaseArtifacts
+    needs:
+      - build_xcframeworks
+    env:
+      RELEASE_VERSION: ${{ needs.build_xcframeworks.outputs.version }}
+
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@5fd3084fc36e372ff1fff382a39b10d03659f355 # v2.2.0
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          role-duration-seconds: 3600
+          aws-region: us-east-1
+          role-session-name: "release-artifacts-${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}"
+
+      - name: Checkout Code
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+
+      - name: Download aratifacts
+        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+        with:
+          name: xcframework
+          path: xcframeworks
+
+      - name: Checkout SPM Code
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          path: aws-sdk-ios-spm
+          repository: aws-amplify/aws-sdk-ios-spm
+
+      - name: Create version branch ${{ env.RELEASE_VERSION }} for SPM
+        working-directory: ${{ github.workspace }}/aws-sdk-ios-spm
+        run: |
+          git checkout -b pre-release-$RELEASE_VERSION
+
+      - name: Prepare xcframework archives
+        working-directory: ${{ github.workspace }}
+        run: |
+          pip3 install boto3
+          python3 CircleciScripts/prepare_xcframework_archives.py $RELEASE_VERSION
+
+      - name: Release xcframeworks
+        working-directory: ${{ github.workspace }}
+        run: |
+          python3 CircleciScripts/upload_xcframeworks.py \
+          ${{ secrets.RELEASE_BUCKET }} \
+          $RELEASE_VERSION
+
+      - name: Post release xcframeworks
+        working-directory: ${{ github.workspace }}/aws-sdk-ios-spm
+        run: |
+          git config --local user.name "aws-amplify-ops"
+          git config --local user.email "aws-amplify-ops@amazon.com"
+          git add Package.swift
+          git commit -m "[release-spm]: Version and checksum update for $RELEASE_VERSION"
+          echo "TODO: use deploy key to push $(git log -1)"
+          # git push origin pre-release-$RELEASE_VERSION
+
+  release_combined_xcframeworks:
+    name: Release combine xcframeworks
+    runs-on: macos-latest
+    environment: ReleaseArtifacts
+    needs:
+      - build_xcframeworks
+      - release_xcframeworks
+    env:
+      RELEASE_VERSION: ${{ needs.build_xcframeworks.outputs.version }}
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          persist-credentials: false
+
+      - name: Download aratifacts
+        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+        with:
+          name: xcframework
+          path: xcframeworks
+
+      - name: Make directory structure
+        id: make-release-folder
+        run: |
+          releaseFolder="aws-ios-sdk-${RELEASE_VERSION}"
+          echo "releaseFolder=$releaseFolder" >> "$GITHUB_OUTPUT"
+          mkdir -p "$releaseFolder"
+          mv "xcframeworks/output/XCF/" "$releaseFolder/frameworks"
+          rm -rf "xcframeworks/output/"
+
+      - name: Copy SDK resource files
+        env:
+          RELEASE_FOLDER: ${{ steps.make-release-folder.outputs.releaseFolder }}
+        run: |
+          python3 CircleciScripts/copy_resourcefiles.py "$(pwd)" "$(pwd)/${RELEASE_FOLDER}"
+          zip -r "${RELEASE_FOLDER}.zip" "$RELEASE_FOLDER"
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@5fd3084fc36e372ff1fff382a39b10d03659f355 # v2.2.0
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          role-duration-seconds: 900
+          aws-region: us-east-1
+          role-session-name: "release-artifacts-${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}"
+
+      - name: Upload to S3
+        env:
+          RELEASE_FOLDER: ${{ steps.make-release-folder.outputs.releaseFolder }}
+          RELEASE_BUCKET: ${{ secrets.RELEASE_BUCKET }}
+          XCF_RELEASE_DISTRIBUTION_ID: ${{ secrets.XCF_RELEASE_DISTRIBUTION_ID }}
+        run: |
+          aws s3api put-object \
+            --bucket "$RELEASE_BUCKET" \
+            --key "aws-sdk-ios/${RELEASE_FOLDER}.zip" \
+            --body "${RELEASE_FOLDER}.zip" \
+            --content-disposition "attachment;filename=${RELEASE_FOLDER}.zip"
+
+          aws s3api put-object \
+            --bucket "$RELEASE_BUCKET" \
+            --key "aws-sdk-ios/latest/aws-ios-sdk.zip" \
+            --body "${RELEASE_FOLDER}.zip" \
+            --content-disposition "attachment;filename=${RELEASE_FOLDER}.zip"
+
+      - name: Invalidate cloudfront
+        run: |
+          python3 CircleciScripts/cloudfront_invalidate.py \
+          $XCF_RELEASE_DISTRIBUTION_ID \
+          "aws-sdk-ios/latest/aws-ios-sdk.zip"
+
+  release_tag:
+    name: Release tag
+    runs-on: macos-latest
+    needs:
+      - build_xcframeworks
+      - release_combined_xcframeworks
+    env:
+      RELEASE_VERSION: ${{ needs.build_xcframeworks.outputs.version }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          persist-credentials: false
+
+      - name: Release the tag to Github
+        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410 # v6.4.1
+        with:
+          script: |
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: `refs/tags/${process.env.RELEASE_VERSION}`,
+              sha: context.sha
+            })
+
+  release_doc:
+    name: Release docs
+    runs-on: macos-latest
+    needs:
+      - build_xcframeworks
+      - release_tag
+    env:
+      RELEASE_VERSION: ${{ needs.build_xcframeworks.outputs.version }}
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          persist-credentials: false
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@250fcd6a742febb1123a77a841497ccaa8b9e939 # v1.152.0
+        with:
+          ruby-version: '3.2.1'
+          bundler-cache: true
+
+      - name: Generate documents
+        run: bash ./CircleciScripts/generate_documentation.sh
+
+      - name: Checkout gh-page branch
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Copy documents
+        working-directory: ${{ github.workspace }}/gh-pages
+        run: |
+          rm -rf docs/reference
+          mv ../docs_tmp docs/reference
+
+      - name: Checkin documents
+        working-directory: ${{ github.workspace }}/gh-pages
+        run: |
+          for dirPath in docs/reference/* ; do
+            sdkName=$( basename "$dirPath" )
+            git add "$dirPath" && git commit -m "Update API documentation for ${sdkName} ${RELEASE_VERSION}"
+            git prune
+          done
+          git push origin gh-pages
+
+  add_doc_tag:
+    name: Add doc tag
+    runs-on: macos-latest
+    needs:
+      - build_xcframeworks
+      - release_doc
+    env:
+      RELEASE_VERSION: ${{ needs.build_xcframeworks.outputs.version }}
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          ref: gh-pages
+          persist-credentials: false
+
+      - name: Add documentation tags to gh-pages
+        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410 # v6.4.1
+        with:
+          script: |
+            console.log(`Adding documentation tags...`)
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: `refs/tags/${process.env.RELEASE_VERSION}_api_docs`,
+              sha: context.sha
+            })
+
+  release_cocoapods:
+    name: Release Cocoapods
+    runs-on: macos-latest
+    needs:
+      - add_doc_tag
+    environment: CocoaPodsRelease
+    env:
+      COCOAPODS_SECRET_ARN: ${{ secrets.COCOAPODS_SECRET_ARN }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          persist-credentials: false
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@250fcd6a742febb1123a77a841497ccaa8b9e939 # v1.152.0
+        with:
+          ruby-version: '3.2.1'
+          bundler-cache: true
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@5fd3084fc36e372ff1fff382a39b10d03659f355 # v2.2.0
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          role-duration-seconds: 1200
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-session-name: "release-cocoapods-${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}"
+
+      - name: Publisher new version to CocoaPods
+        run: |
+          echo 'TODO: CocoaPods release'
+          # python3 ./CircleciScripts/cocoapods_release.py
+
+  release_carthage:
+    name: Release Carthage
+    runs-on: macos-latest
+    needs:
+      - build_xcframeworks
+      - add_doc_tag
+    env:
+      RELEASE_VERSION: ${{ needs.build_xcframeworks.outputs.version }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          persist-credentials: false
+
+      - name: Download aratifacts
+        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+        with:
+          name: xcframework
+          path: xcframeworks
+
+      - name: Create Carthage archive
+        run: python3 ./CircleciScripts/create_carthage_archive.py
+
+      - name: Upload Carthage archive to Github release
+        run: |
+          gh release create --draft \
+          --title "AWS SDK for iOS $RELEASE_VERSION" \
+          $RELEASE_VERSION './aws-sdk-ios-carthage.framework.zip'
+
+  bump_ios_sampleapp_version:
+    name: 'Bump iOS sample App version'
+    runs-on: macos-latest
+    needs:
+      - release_xcframeworks
+      - release_cocoapods
+      - release_tag
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          persist-credentials: false
+
+      - name: Checkout iOS Sample Code
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          repository: awslabs/aws-sdk-ios-samples
+          path: aws-sdk-ios-samples
+          persist-credentials: false
+
+      - name: Build projects
+        run: python3 CircleciScripts/build_iossample.py ${{ github.workspace }}/aws-sdk-ios-samples
