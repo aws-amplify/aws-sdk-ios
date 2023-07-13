@@ -1,0 +1,68 @@
+name: Bump SDK versions
+
+on:
+  push:
+    branches:
+      - bump_sdk_version
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  extract_release_version:
+    name: Extract Release Version
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.extract-release-version.outputs.version }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          ref: 5d/bump_sdk_version
+
+      - name: Extract Release Version
+        id: extract-release-version
+        run: |
+          next_version=$(cat ./version | \
+          awk 'match($0, /[0-9]+\.[0-9]+\.[0-9]+/) { print substr($0, RSTART, RLENGTH) }')
+          # assert next_version is not empty
+          [[ ! -z "$next_version" ]] || exit 1
+          # export to outputs
+          echo "version=$next_version" >> "$GITHUB_OUTPUT"
+        shell: bash
+
+
+  bump_sdk_versions:
+    name: Bump SDK versions
+    runs-on: macos-latest
+    needs: [extract_release_version]
+    env:
+      RELEASE_VERSION: ${{ needs.extract_release_version.outputs.version }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          ref: main
+
+      - name: Bump versions to ${{ env.RELEASE_VERSION }}
+        run: |
+          pip3 install lxml
+          git checkout -b bump-version/$RELEASE_VERSION main
+          python3 ./CircleciScripts/bump_sdk_version.py "$(pwd)" "$RELEASE_VERSION"
+          git add -A
+          git commit -am '[bump version "$RELEASE_VERSION"]'
+          git push origin HEAD
+        shell: bash
+
+      - name: Create Pull Request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr create \
+          --title "bump iOS SDK version to $RELEASE_VERSION" \
+          --body "bump version to $RELEASE_VERSION" \
+          --head bump-version/$RELEASE_VERSION \
+          --base release
+
+
