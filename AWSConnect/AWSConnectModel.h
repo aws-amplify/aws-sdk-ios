@@ -942,7 +942,9 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDeleteInstanceRequest;
 @class AWSConnectDeleteIntegrationAssociationRequest;
 @class AWSConnectDeletePromptRequest;
+@class AWSConnectDeleteQueueRequest;
 @class AWSConnectDeleteQuickConnectRequest;
+@class AWSConnectDeleteRoutingProfileRequest;
 @class AWSConnectDeleteRuleRequest;
 @class AWSConnectDeleteSecurityProfileRequest;
 @class AWSConnectDeleteTaskTemplateRequest;
@@ -3869,6 +3871,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectDeleteQueueRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier for the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queueId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectDeleteQuickConnectRequest : AWSRequest
 
 
@@ -3881,6 +3901,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier for the quick connect.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable quickConnectId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDeleteRoutingProfileRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier of the routing profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable routingProfileId;
 
 @end
 
@@ -6854,7 +6892,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSNumber * _Nullable inboundCallsEnabled;
 
 /**
- <p>This URL allows contact center users to access Amazon Connect admin website.</p>
+ <p>This URL allows contact center users to access the Amazon Connect admin website.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceAccessUrl;
 
@@ -6969,7 +7007,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSNumber * _Nullable inboundCallsEnabled;
 
 /**
- <p>This URL allows contact center users to access Amazon Connect admin website.</p>
+ <p>This URL allows contact center users to access the Amazon Connect admin website.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceAccessUrl;
 

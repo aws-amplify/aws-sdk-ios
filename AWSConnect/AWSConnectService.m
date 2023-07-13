@@ -1227,6 +1227,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)deleteQueue:(AWSConnectDeleteQueueRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/queues/{InstanceId}/{QueueId}"
+                  targetPrefix:@""
+                 operationName:@"DeleteQueue"
+                   outputClass:nil];
+}
+
+- (void)deleteQueue:(AWSConnectDeleteQueueRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteQueue:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deleteQuickConnect:(AWSConnectDeleteQuickConnectRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -1239,6 +1261,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)deleteQuickConnect:(AWSConnectDeleteQuickConnectRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteQuickConnect:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteRoutingProfile:(AWSConnectDeleteRoutingProfileRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/routing-profiles/{InstanceId}/{RoutingProfileId}"
+                  targetPrefix:@""
+                 operationName:@"DeleteRoutingProfile"
+                   outputClass:nil];
+}
+
+- (void)deleteRoutingProfile:(AWSConnectDeleteRoutingProfileRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteRoutingProfile:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {

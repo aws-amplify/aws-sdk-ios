@@ -118,7 +118,9 @@
 - (void) test_AWSConnectDeleteInstanceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteIntegrationAssociationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeletePromptRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDeleteQueueRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteQuickConnectRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDeleteRoutingProfileRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteRuleRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteSecurityProfileRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteTaskTemplateRequest API_AVAILABLE(ios(11));
@@ -944,8 +946,16 @@
     [self validateSecureCodingForClass:[AWSConnectDeletePromptRequest class]];
 }
 
+- (void) test_AWSConnectDeleteQueueRequest {
+    [self validateSecureCodingForClass:[AWSConnectDeleteQueueRequest class]];
+}
+
 - (void) test_AWSConnectDeleteQuickConnectRequest {
     [self validateSecureCodingForClass:[AWSConnectDeleteQuickConnectRequest class]];
+}
+
+- (void) test_AWSConnectDeleteRoutingProfileRequest {
+    [self validateSecureCodingForClass:[AWSConnectDeleteRoutingProfileRequest class]];
 }
 
 - (void) test_AWSConnectDeleteRuleRequest {
