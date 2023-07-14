@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.33.2
+
 ### Bug Fixes
 - **AWSAuthUI**
   - Fixed spacing and color issues in `AWSSignInViewController` when displaying social providers.
