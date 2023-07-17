@@ -334,6 +334,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         
         components.host = [NSString stringWithFormat:@"transcribestreaming.%@.amazonaws.com",
                            self.configuration.endpoint.regionName];
+
+        // need to add ".cn" at end of URL if it is in China Region
+        if ([self.configuration.endpoint.regionName hasPrefix:@"cn"]) {
+            components.host = [components.host stringByAppendingString:@".cn"];
+        }
         
         components.port = @(8443);
         
