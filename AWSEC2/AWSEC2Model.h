@@ -1656,6 +1656,17 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeI4G_4xlarge,
     AWSEC2InstanceTypeI4G_8xlarge,
     AWSEC2InstanceTypeI4G_16xlarge,
+    AWSEC2InstanceTypeHPC7g_4xlarge,
+    AWSEC2InstanceTypeHPC7g_8xlarge,
+    AWSEC2InstanceTypeHPC7g_16xlarge,
+    AWSEC2InstanceTypeC7Gn_medium,
+    AWSEC2InstanceTypeC7Gn_large,
+    AWSEC2InstanceTypeC7Gn_xlarge,
+    AWSEC2InstanceTypeC7Gn_2xlarge,
+    AWSEC2InstanceTypeC7Gn_4xlarge,
+    AWSEC2InstanceTypeC7Gn_8xlarge,
+    AWSEC2InstanceTypeC7Gn_12xlarge,
+    AWSEC2InstanceTypeC7Gn_16xlarge,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {
@@ -2102,6 +2113,12 @@ typedef NS_ENUM(NSInteger, AWSEC2NitroEnclavesSupport) {
     AWSEC2NitroEnclavesSupportUnknown,
     AWSEC2NitroEnclavesSupportUnsupported,
     AWSEC2NitroEnclavesSupportSupported,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2NitroTpmSupport) {
+    AWSEC2NitroTpmSupportUnknown,
+    AWSEC2NitroTpmSupportUnsupported,
+    AWSEC2NitroTpmSupportSupported,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2OfferingClassType) {
@@ -4492,6 +4509,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2NetworkInterfacePermissionState;
 @class AWSEC2NetworkInterfacePrivateIpAddress;
 @class AWSEC2LatestDhcpConfiguration;
+@class AWSEC2NitroTpmInfo;
 @class AWSEC2OidcOptions;
 @class AWSEC2OnDemandOptions;
 @class AWSEC2OnDemandOptionsRequest;
@@ -34722,6 +34740,16 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2NitroEnclavesSupport nitroEnclavesSupport;
 
 /**
+ <p>Describes the supported NitroTPM versions for the instance type.</p>
+ */
+@property (nonatomic, strong) AWSEC2NitroTpmInfo * _Nullable nitroTpmInfo;
+
+/**
+ <p>Indicates whether NitroTPM is supported.</p>
+ */
+@property (nonatomic, assign) AWSEC2NitroTpmSupport nitroTpmSupport;
+
+/**
  <p>Describes the placement group settings for the instance type.</p>
  */
 @property (nonatomic, strong) AWSEC2PlacementGroupInfo * _Nullable placementGroupInfo;
@@ -42581,6 +42609,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable values;
+
+@end
+
+/**
+ <p>Describes the supported NitroTPM versions for the instance type.</p>
+ */
+@interface AWSEC2NitroTpmInfo : AWSModel
+
+
+/**
+ <p>Indicates the supported NitroTPM versions.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedVersions;
 
 @end
 

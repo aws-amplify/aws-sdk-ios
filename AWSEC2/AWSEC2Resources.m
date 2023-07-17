@@ -7029,7 +7029,7 @@
       \"type\":\"string\",\
       \"max\":30,\
       \"min\":1,\
-      \"pattern\":\"[a-zA-Z0-9\\\\.\\\\*]+\"\
+      \"pattern\":\"[a-zA-Z0-9\\\\.\\\\*\\\\-]+\"\
     },\
     \"AllowedInstanceTypeSet\":{\
       \"type\":\"list\",\
@@ -27225,7 +27225,7 @@
       \"type\":\"string\",\
       \"max\":30,\
       \"min\":1,\
-      \"pattern\":\"[a-zA-Z0-9\\\\.\\\\*]+\"\
+      \"pattern\":\"[a-zA-Z0-9\\\\.\\\\*\\\\-]+\"\
     },\
     \"ExcludedInstanceTypeSet\":{\
       \"type\":\"list\",\
@@ -35332,7 +35332,18 @@
         \"i4g.2xlarge\",\
         \"i4g.4xlarge\",\
         \"i4g.8xlarge\",\
-        \"i4g.16xlarge\"\
+        \"i4g.16xlarge\",\
+        \"hpc7g.4xlarge\",\
+        \"hpc7g.8xlarge\",\
+        \"hpc7g.16xlarge\",\
+        \"c7gn.medium\",\
+        \"c7gn.large\",\
+        \"c7gn.xlarge\",\
+        \"c7gn.2xlarge\",\
+        \"c7gn.4xlarge\",\
+        \"c7gn.8xlarge\",\
+        \"c7gn.12xlarge\",\
+        \"c7gn.16xlarge\"\
       ]\
     },\
     \"InstanceTypeHypervisor\":{\
@@ -35469,6 +35480,16 @@
           \"shape\":\"NitroEnclavesSupport\",\
           \"documentation\":\"<p>Indicates whether Nitro Enclaves is supported.</p>\",\
           \"locationName\":\"nitroEnclavesSupport\"\
+        },\
+        \"NitroTpmSupport\":{\
+          \"shape\":\"NitroTpmSupport\",\
+          \"documentation\":\"<p>Indicates whether NitroTPM is supported.</p>\",\
+          \"locationName\":\"nitroTpmSupport\"\
+        },\
+        \"NitroTpmInfo\":{\
+          \"shape\":\"NitroTpmInfo\",\
+          \"documentation\":\"<p>Describes the supported NitroTPM versions for the instance type.</p>\",\
+          \"locationName\":\"nitroTpmInfo\"\
         }\
       },\
       \"documentation\":\"<p>Describes the instance type.</p>\"\
@@ -43712,6 +43733,32 @@
         \"unsupported\",\
         \"supported\"\
       ]\
+    },\
+    \"NitroTpmInfo\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"SupportedVersions\":{\
+          \"shape\":\"NitroTpmSupportedVersionsList\",\
+          \"documentation\":\"<p>Indicates the supported NitroTPM versions.</p>\",\
+          \"locationName\":\"supportedVersions\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the supported NitroTPM versions for the instance type.</p>\"\
+    },\
+    \"NitroTpmSupport\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"unsupported\",\
+        \"supported\"\
+      ]\
+    },\
+    \"NitroTpmSupportedVersionType\":{\"type\":\"string\"},\
+    \"NitroTpmSupportedVersionsList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"NitroTpmSupportedVersionType\",\
+        \"locationName\":\"item\"\
+      }\
     },\
     \"OccurrenceDayRequestSet\":{\
       \"type\":\"list\",\
