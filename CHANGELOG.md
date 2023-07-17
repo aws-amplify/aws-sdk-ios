@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- **AWSTranscribeStreaming**
+  - Fixed assigning of host for CN regions in AWSTranscribeStreaming
+
 ### Bug Fixes
 - **AWSAuthUI**
   - Fixed spacing and color issues in `AWSSignInViewController` when displaying social providers.
