@@ -1,17 +1,6 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSTranscribe
 # AWS Mobile SDK for iOS CHANGELOG
 
-## Unreleased
-
-- **AWSTranscribeStreaming**
-  - Fixed assigning of host for CN regions in AWSTranscribeStreaming
+## Unreleased  
 
 ### Bug Fixes
 - **AWSAuthUI**
@@ -20,6 +9,9 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 - **AWSFacebookSignIn** & **AWSAuthGoogleSignIn**
   - Added support for Dark Mode colors
 
+- **AWSTranscribeStreaming**
+  - Fixed assigning of host for CN regions in AWSTranscribeStreaming
+
 ### Misc. Updates
 
 - Model updates for the following services
@@ -27,6 +19,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSCognitoIdentityProvider
   - AWSEC2
   - AWSLocation
+  - AWSTranscribe
 
 ## 2.33.1
 
