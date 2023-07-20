@@ -22,6 +22,7 @@
   - AWSConnect
   - AWSTranslate
   - AWSTranscribe
+  - AWSCognitoIdentityProvider
 
 ## 2.33.1
 
