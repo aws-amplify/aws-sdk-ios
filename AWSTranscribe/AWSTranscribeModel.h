@@ -185,6 +185,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeSubtitleFormat) {
     AWSTranscribeSubtitleFormatSrt,
 };
 
+typedef NS_ENUM(NSInteger, AWSTranscribeToxicityCategory) {
+    AWSTranscribeToxicityCategoryUnknown,
+    AWSTranscribeToxicityCategoryAll,
+};
+
 typedef NS_ENUM(NSInteger, AWSTranscribeTranscriptFilterType) {
     AWSTranscribeTranscriptFilterTypeUnknown,
     AWSTranscribeTranscriptFilterTypeExact,
@@ -307,6 +312,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @class AWSTranscribeTag;
 @class AWSTranscribeTagResourceRequest;
 @class AWSTranscribeTagResourceResponse;
+@class AWSTranscribeToxicityDetectionSettings;
 @class AWSTranscribeTranscript;
 @class AWSTranscribeTranscriptFilter;
 @class AWSTranscribeTranscriptionJob;
@@ -2505,6 +2511,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSArray<AWSTranscribeTag *> * _Nullable tags;
 
 /**
+ <p>Enables toxic speech detection in your transcript. If you include <code>ToxicityDetection</code> in your request, you must also include <code>ToxicityCategories</code>.</p><p>For information on the types of toxic speech Amazon Transcribe can detect, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/toxic-language.html">Detecting toxic speech</a>.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTranscribeToxicityDetectionSettings *> * _Nullable toxicityDetection;
+
+/**
  <p>A unique name, chosen by you, for your transcription job. The name that you specify is also used as the default name of your transcription output file. If you want to specify a different name for your transcription output, use the <code>OutputKey</code> parameter.</p><p>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon Web Services account. If you try to create a new job with the same name as an existing job, you get a <code>ConflictException</code> error.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transcriptionJobName;
@@ -2607,6 +2618,20 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  */
 @interface AWSTranscribeTagResourceResponse : AWSModel
 
+
+@end
+
+/**
+ <p>Contains <code>ToxicityCategories</code>, which is a required parameter if you want to enable toxicity detection (<code>ToxicityDetection</code>) in your transcription request.</p>
+ Required parameters: [ToxicityCategories]
+ */
+@interface AWSTranscribeToxicityDetectionSettings : AWSModel
+
+
+/**
+ <p> If you include <code>ToxicityDetection</code> in your transcription request, you must also include <code>ToxicityCategories</code>. The only accepted value for this parameter is <code>ALL</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable toxicityCategories;
 
 @end
 
@@ -2774,6 +2799,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSArray<AWSTranscribeTag *> * _Nullable tags;
 
 /**
+ <p>Provides information about the toxicity detection settings applied to your transcription.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTranscribeToxicityDetectionSettings *> * _Nullable toxicityDetection;
+
+/**
  <p>Provides you with the Amazon S3 URI you can use to access your transcript.</p>
  */
 @property (nonatomic, strong) AWSTranscribeTranscript * _Nullable transcript;
@@ -2855,6 +2885,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  <p>The date and time your transcription job began processing.</p><p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For example, <code>2022-05-04T12:32:58.789000-07:00</code> represents a transcription job that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable startTime;
+
+/**
+ <p>Indicates whether toxicity detection was enabled for the specified transcription job.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTranscribeToxicityDetectionSettings *> * _Nullable toxicityDetection;
 
 /**
  <p>The name of the transcription job. Job names are case sensitive and must be unique within an Amazon Web Services account.</p>
