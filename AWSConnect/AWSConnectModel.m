@@ -5808,6 +5808,21 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectDeleteQueueRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"queueId" : @"QueueId",
+             };
+}
+
+@end
+
 @implementation AWSConnectDeleteQuickConnectRequest
 
 + (BOOL)supportsSecureCoding {
@@ -5818,6 +5833,21 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"instanceId" : @"InstanceId",
              @"quickConnectId" : @"QuickConnectId",
+             };
+}
+
+@end
+
+@implementation AWSConnectDeleteRoutingProfileRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"routingProfileId" : @"RoutingProfileId",
              };
 }
 
