@@ -1450,6 +1450,7 @@
 - (void) test_AWSEC2NetworkInterfacePermissionState API_AVAILABLE(ios(11));
 - (void) test_AWSEC2NetworkInterfacePrivateIpAddress API_AVAILABLE(ios(11));
 - (void) test_AWSEC2LatestDhcpConfiguration API_AVAILABLE(ios(11));
+- (void) test_AWSEC2NitroTpmInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2OidcOptions API_AVAILABLE(ios(11));
 - (void) test_AWSEC2OnDemandOptions API_AVAILABLE(ios(11));
 - (void) test_AWSEC2OnDemandOptionsRequest API_AVAILABLE(ios(11));
@@ -7577,6 +7578,10 @@
 
 - (void) test_AWSEC2LatestDhcpConfiguration {
     [self validateSecureCodingForClass:[AWSEC2LatestDhcpConfiguration class]];
+}
+
+- (void) test_AWSEC2NitroTpmInfo {
+    [self validateSecureCodingForClass:[AWSEC2NitroTpmInfo class]];
 }
 
 - (void) test_AWSEC2OidcOptions {
