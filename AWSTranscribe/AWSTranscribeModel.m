@@ -6172,6 +6172,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
              @"settings" : @"Settings",
              @"subtitles" : @"Subtitles",
              @"tags" : @"Tags",
+             @"toxicityDetection" : @"ToxicityDetection",
              @"transcriptionJobName" : @"TranscriptionJobName",
              };
 }
@@ -6464,6 +6465,10 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranscribeTag class]];
 }
 
++ (NSValueTransformer *)toxicityDetectionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranscribeToxicityDetectionSettings class]];
+}
+
 @end
 
 @implementation AWSTranscribeStartTranscriptionJobResponse
@@ -6553,6 +6558,20 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 
 + (BOOL)supportsSecureCoding {
     return YES;
+}
+
+@end
+
+@implementation AWSTranscribeToxicityDetectionSettings
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"toxicityCategories" : @"ToxicityCategories",
+             };
 }
 
 @end
@@ -6664,6 +6683,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
              @"startTime" : @"StartTime",
              @"subtitles" : @"Subtitles",
              @"tags" : @"Tags",
+             @"toxicityDetection" : @"ToxicityDetection",
              @"transcript" : @"Transcript",
              @"transcriptionJobName" : @"TranscriptionJobName",
              @"transcriptionJobStatus" : @"TranscriptionJobStatus",
@@ -6986,6 +7006,10 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranscribeTag class]];
 }
 
++ (NSValueTransformer *)toxicityDetectionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranscribeToxicityDetectionSettings class]];
+}
+
 + (NSValueTransformer *)transcriptJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranscribeTranscript class]];
 }
@@ -7043,6 +7067,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
              @"modelSettings" : @"ModelSettings",
              @"outputLocationType" : @"OutputLocationType",
              @"startTime" : @"StartTime",
+             @"toxicityDetection" : @"ToxicityDetection",
              @"transcriptionJobName" : @"TranscriptionJobName",
              @"transcriptionJobStatus" : @"TranscriptionJobStatus",
              };
@@ -7309,6 +7334,10 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)toxicityDetectionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranscribeToxicityDetectionSettings class]];
 }
 
 + (NSValueTransformer *)transcriptionJobStatusJSONTransformer {
