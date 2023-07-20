@@ -1,13 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSConnect
----AWSCognitoIdentityProvider
----AWSEC2
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased  
@@ -32,6 +22,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSConnect
   - AWSTranslate
   - AWSTranscribe
+  - AWSCognitoIdentityProvider
 
 ## 2.33.1
 
