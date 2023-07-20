@@ -1,9 +1,6 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## Unreleased
-
-- **AWSTranscribeStreaming**
-  - Fixed assigning of host for CN regions in AWSTranscribeStreaming
+## Unreleased  
 
 ### Bug Fixes
 - **AWSAuthUI**
@@ -11,6 +8,9 @@
 
 - **AWSFacebookSignIn** & **AWSAuthGoogleSignIn**
   - Added support for Dark Mode colors
+
+- **AWSTranscribeStreaming**
+  - Fixed assigning of host for CN regions in AWSTranscribeStreaming
 
 ### Misc. Updates
 
@@ -21,6 +21,7 @@
   - AWSLocation
   - AWSConnect
   - AWSTranslate
+  - AWSTranscribe
 
 ## 2.33.1
 
