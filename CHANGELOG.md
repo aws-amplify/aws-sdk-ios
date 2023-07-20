@@ -10,7 +10,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ---AWSEC2
 # AWS Mobile SDK for iOS CHANGELOG
 
-## Unreleased
+## Unreleased  
 
 ### Bug Fixes
 - **AWSAuthUI**
@@ -19,6 +19,9 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 - **AWSFacebookSignIn** & **AWSAuthGoogleSignIn**
   - Added support for Dark Mode colors
 
+- **AWSTranscribeStreaming**
+  - Fixed assigning of host for CN regions in AWSTranscribeStreaming
+
 ### Misc. Updates
 
 - Model updates for the following services
@@ -26,6 +29,9 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSCognitoIdentityProvider
   - AWSEC2
   - AWSLocation
+  - AWSConnect
+  - AWSTranslate
+  - AWSTranscribe
 
 ## 2.33.1
 
