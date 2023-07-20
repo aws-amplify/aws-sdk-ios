@@ -19,6 +19,8 @@
   - AWSCognitoIdentityProvider
   - AWSEC2
   - AWSLocation
+  - AWSConnect
+  - AWSTranslate
   - AWSTranscribe
 
 ## 2.33.1
