@@ -14,7 +14,7 @@ XCFRAMEWORK_PATH = f"{PWD}/xcframeworks/output/XCF/"
 
 def create_archive(framework, project_file, build_for_device):
     if build_for_device:
-        archive_path = f"{IOS_DEVICE_ARCHIVE_PATH}{framework}" 
+        archive_path = f"{IOS_DEVICE_ARCHIVE_PATH}{framework}"
         destination = "generic/platform=iOS"
     else:
         archive_path = f"{IOS_SIMULATOR_ARCHIVE_PATH}{framework}"
@@ -32,8 +32,8 @@ def create_archive(framework, project_file, build_for_device):
         archive_path,
         "SKIP_INSTALL=NO",
         "BUILD_LIBRARY_FOR_DISTRIBUTION=YES"
-    ] 
-    
+    ]
+
     (exit_code, out, err) = run_command(cmd, keepalive_interval=300, timeout=7200)
     if exit_code == 0:
         log(f"Created iOS archive {framework} {destination}")
@@ -48,7 +48,7 @@ def map_framework_to_project(framework_list):
         "-project",
         "AWSiOSSDKv2.xcodeproj",
         "-list",
-    ] 
+    ]
     (exit_code, out, err) = run_command(cmd, keepalive_interval=300, timeout=7200)
     if exit_code == 0:
         log(f"List of schema found")
@@ -87,7 +87,7 @@ def create_xc_framework(framework):
         log(f"skipping {framework}...")
     else:
         log(f"Creating XCF for {framework}")
-        
+
         cmd = [
                 "xcodebuild",
                 "-create-xcframework",
@@ -101,7 +101,7 @@ def create_xc_framework(framework):
                 ios_simulator_debug_symbols,
                 "-output",
                 xcframework
-            ] 
+            ]
         (exit_code, out, err) = run_command(cmd, keepalive_interval=300, timeout=7200)
         if exit_code == 0:
             log(f"Created XCFramework for {framework}")
@@ -125,11 +125,11 @@ if __name__ == '__main__':
     # and the build scripts will fail if they're not archived /
     # created in the proper order.
     # *** This may need to be updated when dependencies change ***
-    base_frameworks = xcframeworks[:5]
+    base_frameworks = xcframeworks[:1]
 
     # The remaining_frameworks are archived and built concurrently
     # because they are dependent only on base_frameworks.
-    remaining_frameworks = xcframeworks[5:]
+    remaining_frameworks = [] # xcframeworks[5:]
 
     # To build the remaining_frameworks concurrently, we're using
     # a Pool(). By omitting an explicit input into the Pool constructor

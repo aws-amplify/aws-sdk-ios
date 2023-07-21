@@ -81,7 +81,8 @@ OBJC_SDK_LIST=$(find $SOURCE_ROOT ${SOURCE_ROOT}/AWSAuthSDK/Sources -type d -max
   -not -name "AWSMobileClient" \
   -not -name "AWSMobileClientXCF" \
   -not -name "AWSLocationXCF" \
-  | sort
+  | sort \
+  | head -n 3
 )
 
 for sdkRoot in $OBJC_SDK_LIST ; do

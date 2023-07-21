@@ -1,0 +1,66 @@
+name: Kick off release
+
+run-name: Kick off release ${{ github.event.inputs.release-version }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      release-version:
+        description: Release version
+        required: true
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  validate-version-format:
+    name: Validate Release Version Format
+    if: ${{ github.ref_name == 'main' }}
+    runs-on: ubuntu-latest
+    env:
+      RELEASE_VERSION: ${{ github.event.inputs.release-version }}
+    steps:
+      - name: Validate release version input
+        run: |
+          if [[ "$RELEASE_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          then
+            echo "Valid version - $RELEASE_VERSION"
+          else
+            echo "Invalid version - $RELEASE_VERSION"
+            exit 1
+          fi
+        shell: bash
+
+  create-release-pr:
+    name: Create release PR for ${{ github.event.inputs.release-version }}
+    runs-on: macos-latest
+    needs:
+      - validate-version-format
+    env:
+      RELEASE_VERSION: ${{ github.event.inputs.release-version }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          ref: main
+
+      - name: Bump versions to ${{ env.RELEASE_VERSION }}
+        run: |
+          pip3 install lxml
+          git checkout -b bump-version/$RELEASE_VERSION main
+          python3 ./CircleciScripts/bump_sdk_version.py "$(pwd)" "$RELEASE_VERSION"
+          git add -A
+          git commit -am "[bump version $RELEASE_VERSION]"
+          git push origin HEAD
+        shell: bash
+
+      - name: Create Pull Request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr create \
+          --title "bump iOS SDK version to $RELEASE_VERSION" \
+          --body "bump version to $RELEASE_VERSION" \
+          --head bump-version/$RELEASE_VERSION \
+          --base release
