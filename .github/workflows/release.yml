@@ -11,42 +11,63 @@ permissions:
   pull-requests: write
 
 jobs:
-  unit-test:
-    name: Unit Tests
-    uses: ./.github/workflows/unit-test.yml
-
-  integration-test:
-    name: Integration Tests
-    uses: ./.github/workflows/integ-test.yml
-    secrets: inherit
-
-  build_xcframeworks:
-    name: Build xcframeworks
-    runs-on: macos-latest
-    needs:
-      - unit-test
-      - integration-test
+  extract-release-version:
+    name: Extract Release Version
+    runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.extract-release-version.outputs.result }}
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
-        with:
-          persist-credentials: false
-
       - name: Extract release version
         uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410 # v6.4.1
         id: extract-release-version
         with:
           result-encoding: string
           script: |
-            const matches = `${{ github.event.head_commit.message }}`.match(/[0-9]+\.[0-9]+\.[0-9]+/)
+            const matches = `${{ github.event.head_commit.message }}`.match(/[0-9]+\.[0-9]+\.[0-9]+/) ?? []
             return matches.length > 0 ? matches[0] : ""
+
+  validate-version-format:
+    name: Validate Version Format
+    needs:
+      - extract-release-version
+    if: ${{ needs.extract-release-version.outputs.version != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validated
+        run: echo "Releasing new version ${{ needs.extract-release-version.outputs.version }}"
+
+  unit-test:
+    name: Unit Tests
+    needs:
+      - validate-version-format
+    uses: ./.github/workflows/unit-test.yml
+
+  integration-test:
+    name: Integration Tests
+    needs:
+      - validate-version-format
+    uses: ./.github/workflows/integ-test.yml
+    secrets: inherit
+
+  build-xcframeworks:
+    name: Build xcframeworks
+    runs-on: macos-latest
+    needs:
+      - extract-release-version
+      - unit-test
+      - integration-test
+    env:
+      RELEASE_VERSION: ${{ needs.extract-release-version.outputs.version }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          persist-credentials: false
 
       - name: Build xcframework
         run: |
           # assert release version is not empty
-          [[ ! -z "${{ steps.extract-release-version.outputs.result }}" ]] || exit 1
+          [[ ! -z "$RELEASE_VERSION" ]] || exit 1
           python3 ./CircleciScripts/create_xcframeworks.py
 
       - name: Upload artifacts
@@ -55,14 +76,15 @@ jobs:
           name: xcframework
           path: xcframeworks/
 
-  release_xcframeworks:
+  release-xcframeworks:
     name: Release xcframeworks
     runs-on: macos-latest
     environment: ReleaseArtifacts
     needs:
-      - build_xcframeworks
+      - extract-release-version
+      - build-xcframeworks
     env:
-      RELEASE_VERSION: ${{ needs.build_xcframeworks.outputs.version }}
+      RELEASE_VERSION: ${{ needs.extract-release-version.outputs.version }}
 
     steps:
       - name: Configure AWS Credentials
@@ -107,15 +129,15 @@ jobs:
           name: spm-checksum
           path: ${{ github.workspace }}/aws-sdk-ios-spm/Package.swift
 
-  release_spm:
+  release-spm:
     name: Release SPM
     runs-on: macos-latest
     environment: SPMRelease
     needs:
-      - build_xcframeworks
-      - release_xcframeworks
+      - extract-release-version
+      - release-xcframeworks
     env:
-      RELEASE_VERSION: ${{ needs.build_xcframeworks.outputs.version }}
+      RELEASE_VERSION: ${{ needs.extract-release-version.outputs.version }}
 
     steps:
       - name: Checkout SPM Code
@@ -149,15 +171,15 @@ jobs:
           git commit -m "[release-spm]: Version and checksum update for $RELEASE_VERSION"
           git push "https://${PAT}@github.com/5d/aws-sdk-ios-spm" pre-release-$RELEASE_VERSION
 
-  release_combined_xcframeworks:
+  release-combined-xcframeworks:
     name: Release combine xcframeworks
     runs-on: macos-latest
     environment: ReleaseArtifacts
     needs:
-      - build_xcframeworks
-      - release_spm
+      - extract-release-version
+      - release-spm
     env:
-      RELEASE_VERSION: ${{ needs.build_xcframeworks.outputs.version }}
+      RELEASE_VERSION: ${{ needs.extract-release-version.outputs.version }}
 
     steps:
       - name: Checkout Code
@@ -219,14 +241,14 @@ jobs:
           # "$XCF_RELEASE_DISTRIBUTION_ID" \
           # "aws-sdk-ios/latest/aws-ios-sdk.zip"
 
-  release_tag:
+  release-tag:
     name: Rlease tag
     runs-on: macos-latest
     needs:
-      - build_xcframeworks
-      - release_combined_xcframeworks
+      - extract-release-version
+      - release-combined-xcframeworks
     env:
-      RELEASE_VERSION: ${{ needs.build_xcframeworks.outputs.version }}
+      RELEASE_VERSION: ${{ needs.extract-release-version.outputs.version }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
@@ -245,14 +267,14 @@ jobs:
               force: true
             })
 
-  update_main_branch:
+  update-main-branch:
     name: Update main branch
     runs-on: ubuntu-latest
     needs:
-      - build_xcframeworks
-      - release_tag
+      - extract-release-version
+      - release-tag
     env:
-      RELEASE_VERSION: ${{ needs.build_xcframeworks.outputs.version }}
+      RELEASE_VERSION: ${{ needs.extract-release-version.outputs.version }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
@@ -267,14 +289,14 @@ jobs:
           --head release \
           --base main
 
-  release_doc:
+  release-doc:
     name: Release docs
     runs-on: macos-latest
     needs:
-      - build_xcframeworks
-      - update_main_branch
+      - extract-release-version
+      - update-main-branch
     env:
-      RELEASE_VERSION: ${{ needs.build_xcframeworks.outputs.version }}
+      RELEASE_VERSION: ${{ needs.extract-release-version.outputs.version }}
 
     steps:
       - name: Checkout Code
@@ -313,14 +335,14 @@ jobs:
           done
           git push origin gh-pages
 
-  add_doc_tag:
+  add-doc-tag:
     name: Add doc tag
     runs-on: macos-latest
     needs:
-      - build_xcframeworks
-      - release_doc
+      - extract-release-version
+      - release-doc
     env:
-      RELEASE_VERSION: ${{ needs.build_xcframeworks.outputs.version }}
+      RELEASE_VERSION: ${{ needs.extract-release-version.outputs.version }}
 
     steps:
       - name: Checkout Code
@@ -341,11 +363,11 @@ jobs:
               sha: context.sha
             })
 
-  release_cocoapods:
+  release-cocoapods:
     name: Release Cocoapods
     runs-on: macos-latest
     needs:
-      - add_doc_tag
+      - add-doc-tag
     environment: CocoaPodsRelease
     env:
       COCOAPODS_SECRET_ARN: ${{ secrets.COCOAPODS_SECRET_ARN }}
@@ -375,14 +397,14 @@ jobs:
           pod env
           # python3 ./CircleciScripts/cocoapods_release.py
 
-  release_carthage:
+  release-carthage:
     name: Release Carthage
     runs-on: macos-latest
     needs:
-      - build_xcframeworks
-      - add_doc_tag
+      - extract-release-version
+      - add-doc-tag
     env:
-      RELEASE_VERSION: ${{ needs.build_xcframeworks.outputs.version }}
+      RELEASE_VERSION: ${{ needs.extract-release-version.outputs.version }}
       GH_TOKEN: ${{ github.token }}
     steps:
       - name: Checkout Code
@@ -406,13 +428,13 @@ jobs:
           --title "AWS SDK for iOS $RELEASE_VERSION" \
           $RELEASE_VERSION './aws-sdk-ios-carthage.framework.zip'
 
-  bump_ios_sampleapp_version:
+  bump-ios-sampleapp-version:
     name: 'Bump iOS sample App version'
     runs-on: macos-latest
     needs:
-      - release_xcframeworks
-      - release_cocoapods
-      - release_tag
+      - release-xcframeworks
+      - release-cocoapods
+      - release-tag
     steps:
       - name: Checkout Code
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
