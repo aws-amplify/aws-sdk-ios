@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.33.27
+
 - **AWSTranscribeStreaming**
   - Fixed assigning of host for CN regions in AWSTranscribeStreaming
 
