@@ -108,6 +108,7 @@
 - (void) test_AWSTranscribeTag API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeTagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeTagResourceResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeToxicityDetectionSettings API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeTranscript API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeTranscriptFilter API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeTranscriptionJob API_AVAILABLE(ios(11));
@@ -483,6 +484,10 @@
 
 - (void) test_AWSTranscribeTagResourceResponse {
     [self validateSecureCodingForClass:[AWSTranscribeTagResourceResponse class]];
+}
+
+- (void) test_AWSTranscribeToxicityDetectionSettings {
+    [self validateSecureCodingForClass:[AWSTranscribeToxicityDetectionSettings class]];
 }
 
 - (void) test_AWSTranscribeTranscript {
