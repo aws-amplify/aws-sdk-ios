@@ -13,7 +13,6 @@ permissions:
 jobs:
   integration-test:
     name: Integration Test
-    environment: IntegrationTest
     strategy:
       matrix:
         scheme:
@@ -48,6 +47,7 @@ jobs:
           #   scheme: AWSMobileClient
 
     runs-on: macos-latest
+    environment: IntegrationTest
     steps:
       - name: Checkout code
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
