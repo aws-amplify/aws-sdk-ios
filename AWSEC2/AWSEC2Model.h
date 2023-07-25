@@ -2526,6 +2526,7 @@ typedef NS_ENUM(NSInteger, AWSEC2SpotInstanceState) {
     AWSEC2SpotInstanceStateClosed,
     AWSEC2SpotInstanceStateCancelled,
     AWSEC2SpotInstanceStateFailed,
+    AWSEC2SpotInstanceStateDisabled,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2SpotInstanceType) {
@@ -4199,6 +4200,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ImportVolumeTaskDetails;
 @class AWSEC2InferenceAcceleratorInfo;
 @class AWSEC2InferenceDeviceInfo;
+@class AWSEC2InferenceDeviceMemoryInfo;
 @class AWSEC2Instance;
 @class AWSEC2InstanceAttribute;
 @class AWSEC2InstanceBlockDeviceMapping;
@@ -32898,6 +32900,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @property (nonatomic, strong) NSArray<AWSEC2InferenceDeviceInfo *> * _Nullable accelerators;
 
+/**
+ <p>The total size of the memory for the inference accelerators for the instance type, in MiB.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable totalInferenceMemoryInMiB;
+
 @end
 
 /**
@@ -32917,9 +32924,27 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable manufacturer;
 
 /**
+ <p>Describes the memory available to the inference accelerator.</p>
+ */
+@property (nonatomic, strong) AWSEC2InferenceDeviceMemoryInfo * _Nullable memoryInfo;
+
+/**
  <p>The name of the Inference accelerator.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ <p>Describes the memory available to the inference accelerator.</p>
+ */
+@interface AWSEC2InferenceDeviceMemoryInfo : AWSModel
+
+
+/**
+ <p>The size of the memory available to the inference accelerator, in MiB.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable sizeInMiB;
 
 @end
 
@@ -41835,6 +41860,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
+ <p>The baseline network performance of the network card, in Gbps.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable baselineBandwidthInGbps;
+
+/**
  <p>The maximum number of network interfaces for the network card.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumNetworkInterfaces;
@@ -41848,6 +41878,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The network performance of the network card.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable networkPerformance;
+
+/**
+ <p>The peak (burst) network performance of the network card, in Gbps.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable peakBandwidthInGbps;
 
 @end
 
