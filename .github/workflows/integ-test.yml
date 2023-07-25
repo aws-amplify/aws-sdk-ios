@@ -2,7 +2,7 @@ name: Integration Test
 
 on:
   workflow_call:
-  pull_request:
+  pull_request_target:
     branches:
       - main
 
