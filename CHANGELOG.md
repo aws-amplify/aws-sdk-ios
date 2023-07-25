@@ -1,6 +1,10 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## Unreleased  
+
+## 2.33.27
+
+- **AWSTranscribeStreaming**
+  - Fixed assigning of host for CN regions in AWSTranscribeStreaming
 
 ### Bug Fixes
 - **AWSAuthUI**
