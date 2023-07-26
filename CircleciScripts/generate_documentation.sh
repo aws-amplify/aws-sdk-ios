@@ -6,7 +6,7 @@
 
 set -x
 
-SDK_VERSION="2.33.29"
+SDK_VERSION="2.33.32"
 
 GITHUB_DOC_ROOT=https://aws-amplify.github.io
 GITHUB_SOURCE_ROOT=https://github.com/aws-amplify/aws-sdk-ios
