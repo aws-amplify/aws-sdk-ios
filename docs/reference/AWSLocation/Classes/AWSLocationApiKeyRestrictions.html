@@ -17,7 +17,7 @@
     <a title="AWSLocationApiKeyRestrictions Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLocation 2.33.1 Docs</a> (90% documented)</p>
+        <p><a href="../index.html">AWSLocation 2.33.2 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -637,7 +637,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>A list of allowed actions that an API key resource grants permissions to perform</p><note><p>Currently, the only valid action is <code>geo:GetMap*</code> as an input to the list. For example, <code>[&quot;geo:GetMap*&quot;]</code> is valid but <code>[&quot;geo:GetMapTile&quot;]</code> is not.</p></note></p>
+                        <p><p>A list of allowed actions that an API key resource grants permissions to perform. You must have at least one action for each type of resource. For example, if you have a place resource, you must include at least one place action.</p><p>The following are valid values for the actions.</p><ul><li><p><b>Map actions</b></p><ul><li><p><code>geo:GetMap*</code> - Allows all actions needed for map rendering.</p></li></ul></li><li><p><b>Place actions</b></p><ul><li><p><code>geo:SearchPlaceIndexForText</code> - Allows geocoding.</p></li><li><p><code>geo:SearchPlaceIndexForPosition</code> - Allows reverse geocoding.</p></li><li><p><code>geo:SearchPlaceIndexForSuggestions</code> - Allows generating suggestions from text.</p></li><li><p><code>GetPlace</code> - Allows finding a place by place ID.</p></li></ul></li><li><p><b>Route actions</b></p><ul><li><p><code>geo:CalculateRoute</code> - Allows point to point routing.</p></li><li><p><code>geo:CalculateRouteMatrix</code> - Allows calculating a matrix of routes.</p></li></ul></li></ul><note><p>You must use these strings exactly. For example, to provide access to map rendering, the only valid action is <code>geo:GetMap*</code> as an input to the list. <code>[&quot;geo:GetMap*&quot;]</code> is valid but <code>[&quot;geo:GetMapTile&quot;]</code> is not. Similarly, you cannot use <code>[&quot;geo:SearchPlaceIndexFor*&quot;]</code> - you must list each of the Place actions separately.</p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -701,7 +701,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>A list of allowed resource ARNs that a API key bearer can perform actions on</p><p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p><note><p>In this preview, you can allow only map resources.</p></note><p>Requirements:</p><ul><li><p>Must be prefixed with <code>arn</code>.</p></li><li><p><code>partition</code> and <code>service</code> must not be empty and should begin with only alphanumeric characters (A–Z, a–z, 0–9) and contain only alphanumeric numbers, hyphens (-) and periods (.).</p></li><li><p><code>region</code> and <code>account-id</code> can be empty or should begin with only alphanumeric characters (A–Z, a–z, 0–9) and contain only alphanumeric numbers, hyphens (-) and periods (.).</p></li><li><p><code>resource-id</code> can begin with any character except for forward slash (/) and contain any characters after, including forward slashes to form a path.</p><p><code>resource-id</code> can also include wildcard characters, denoted by an asterisk (<em>).</p></li><li><p><code>arn</code>, <code>partition</code>, <code>service</code>, <code>region</code>, <code>account-id</code> and <code>resource-id</code> must be delimited by a colon (:).</p></li><li><p>No spaces allowed. For example, <code>arn:aws:geo:region:<i>account-id</i>:map/ExampleMap</em></code>.</p></li></ul></p>
+                        <p>A list of allowed resource ARNs that a API key bearer can perform actions on.</p><ul><li><p>The ARN must be the correct ARN for a map, place, or route ARN. You may include wildcards in the resource-id to match multiple resources of the same type.</p></li><li><p>The resources must be in the same <code>partition</code>, <code>region</code>, and <code>account-id</code> as the key that is being created.</p></li><li><p>Other than wildcards, you must include the full ARN, including the <code>arn</code>, <code>partition</code>, <code>service</code>, <code>region</code>, <code>account-id</code> and <code>resource-id</code>, delimited by colons (:).</p></li><li><p>No spaces allowed, even with wildcards. For example, <code>arn:aws:geo:region:<i>account-id</i>:map/ExampleMap*</code>.</p></li></ul><p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -725,7 +725,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-07-06)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-07-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
