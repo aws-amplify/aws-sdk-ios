@@ -17,7 +17,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSEC2 2.33.1 Docs</a> (78% documented)</p>
+        <p><a href="index.html">AWSEC2 2.33.2 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -4319,6 +4319,9 @@
                 <a href="Classes/AWSEC2NetworkInterfacePrivateIpAddress.html">AWSEC2NetworkInterfacePrivateIpAddress</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSEC2NitroTpmInfo.html">AWSEC2NitroTpmInfo</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSEC2OidcOptions.html">AWSEC2OidcOptions</a>
               </li>
               <li class="nav-group-task">
@@ -6130,6 +6133,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSEC2NetworkInterfaceType.html">AWSEC2NetworkInterfaceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSEC2NitroEnclavesSupport.html">AWSEC2NitroEnclavesSupport</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSEC2NitroTpmSupport.html">AWSEC2NitroTpmSupport</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSEC2OfferingClassType.html">AWSEC2OfferingClassType</a>
@@ -12343,6 +12352,17 @@
     <span class="n">AWSEC2InstanceTypeI4G_4xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeI4G_8xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeI4G_16xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeHPC7g_4xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeHPC7g_8xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeHPC7g_16xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC7Gn_medium</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC7Gn_large</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC7Gn_xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC7Gn_2xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC7Gn_4xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC7Gn_8xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC7Gn_12xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC7Gn_16xlarge</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                         </div>
@@ -14494,6 +14514,80 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSEC2NetworkInterfaceType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSEC2NitroEnclavesSupport"></a>
+                    <a name="//apple_ref/objc/Enum/AWSEC2NitroEnclavesSupport" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2NitroEnclavesSupport">AWSEC2NitroEnclavesSupport</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSEC2NitroEnclavesSupport.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSEC2NitroEnclavesSupport</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSEC2NitroEnclavesSupportUnknown</span><span class="p">,</span>
+    <span class="n">AWSEC2NitroEnclavesSupportUnsupported</span><span class="p">,</span>
+    <span class="n">AWSEC2NitroEnclavesSupportSupported</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSEC2NitroEnclavesSupport</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSEC2NitroTpmSupport"></a>
+                    <a name="//apple_ref/objc/Enum/AWSEC2NitroTpmSupport" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2NitroTpmSupport">AWSEC2NitroTpmSupport</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSEC2NitroTpmSupport.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSEC2NitroTpmSupport</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSEC2NitroTpmSupportUnknown</span><span class="p">,</span>
+    <span class="n">AWSEC2NitroTpmSupportUnsupported</span><span class="p">,</span>
+    <span class="n">AWSEC2NitroTpmSupportSupported</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSEC2NitroTpmSupport</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -19120,7 +19214,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-07-06)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-07-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

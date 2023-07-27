@@ -17,7 +17,7 @@
     <a title="AWSEC2RunInstancesRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSEC2 2.33.1 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSEC2 2.33.2 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -4319,6 +4319,9 @@
                 <a href="../Classes/AWSEC2NetworkInterfacePrivateIpAddress.html">AWSEC2NetworkInterfacePrivateIpAddress</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2NitroTpmInfo.html">AWSEC2NitroTpmInfo</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2OidcOptions.html">AWSEC2OidcOptions</a>
               </li>
               <li class="nav-group-task">
@@ -6132,6 +6135,12 @@
                 <a href="../Enums/AWSEC2NetworkInterfaceType.html">AWSEC2NetworkInterfaceType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSEC2NitroEnclavesSupport.html">AWSEC2NitroEnclavesSupport</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSEC2NitroTpmSupport.html">AWSEC2NitroTpmSupport</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSEC2OfferingClassType.html">AWSEC2OfferingClassType</a>
               </li>
               <li class="nav-group-task">
@@ -6910,7 +6919,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"> What is Amazon Web Services Nitro Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p><p>You can&rsquo;t enable Amazon Web Services Nitro Enclaves and hibernation on the same instance.</p>
+                        <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">What is Amazon Web Services Nitro Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p><p>You can&rsquo;t enable Amazon Web Services Nitro Enclaves and hibernation on the same instance.</p>
 
                       </div>
                       <div class="declaration">
@@ -6942,7 +6951,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Indicates whether an instance is enabled for hibernation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon EC2 User Guide</i>.</p><p>You can&rsquo;t enable hibernation and Amazon Web Services Nitro Enclaves on the same instance.</p>
+                        <p>Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon EC2 User Guide</i>.</p><p>You can&rsquo;t enable hibernation and Amazon Web Services Nitro Enclaves on the same instance.</p>
 
                       </div>
                       <div class="declaration">
@@ -7102,7 +7111,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p><p>When you change your EBS-backed instance type, instance restart or replacement behavior depends on the instance type compatibility between the old and new types. An instance that&rsquo;s backed by an instance store volume is always replaced. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html">Change the instance type</a> in the <i>Amazon EC2 User Guide</i>.</p><p>Default: <code>m1.small</code></p>
+                        <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
                       </div>
                       <div class="declaration">
@@ -7550,7 +7559,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The options for the instance hostname. The default values are inherited from the subnet.</p>
+                        <p>The options for the instance hostname. The default values are inherited from the subnet. Applies only if creating a network interface, not attaching an existing one.</p>
 
                       </div>
                       <div class="declaration">
@@ -7798,7 +7807,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-07-06)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-07-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

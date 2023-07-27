@@ -17,7 +17,7 @@
     <a title="AWSEC2InstanceTypeInfo Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSEC2 2.33.1 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSEC2 2.33.2 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -4319,6 +4319,9 @@
                 <a href="../Classes/AWSEC2NetworkInterfacePrivateIpAddress.html">AWSEC2NetworkInterfacePrivateIpAddress</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2NitroTpmInfo.html">AWSEC2NitroTpmInfo</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2OidcOptions.html">AWSEC2OidcOptions</a>
               </li>
               <li class="nav-group-task">
@@ -6132,6 +6135,12 @@
                 <a href="../Enums/AWSEC2NetworkInterfaceType.html">AWSEC2NetworkInterfaceType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSEC2NitroEnclavesSupport.html">AWSEC2NitroEnclavesSupport</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSEC2NitroTpmSupport.html">AWSEC2NitroTpmSupport</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSEC2OfferingClassType.html">AWSEC2OfferingClassType</a>
               </li>
               <li class="nav-group-task">
@@ -6591,7 +6600,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Indicates whether the instance type is a burstable performance instance type.</p>
+                        <p>Indicates whether the instance type is a burstable performance T instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable performance instances</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -7061,6 +7070,102 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSEC2InstanceTypeInfo(py)nitroEnclavesSupport"></a>
+                    <a name="//apple_ref/objc/Property/nitroEnclavesSupport" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2InstanceTypeInfo(py)nitroEnclavesSupport">nitroEnclavesSupport</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates whether Nitro Enclaves is supported.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSEC2NitroEnclavesSupport.html">AWSEC2NitroEnclavesSupport</a></span> <span class="n">nitroEnclavesSupport</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">nitroEnclavesSupport</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSEC2NitroEnclavesSupport.html">AWSEC2NitroEnclavesSupport</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSEC2InstanceTypeInfo(py)nitroTpmInfo"></a>
+                    <a name="//apple_ref/objc/Property/nitroTpmInfo" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2InstanceTypeInfo(py)nitroTpmInfo">nitroTpmInfo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Describes the supported NitroTPM versions for the instance type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSEC2NitroTpmInfo.html">AWSEC2NitroTpmInfo</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">nitroTpmInfo</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">nitroTpmInfo</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSEC2NitroTpmInfo.html">AWSEC2NitroTpmInfo</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSEC2InstanceTypeInfo(py)nitroTpmSupport"></a>
+                    <a name="//apple_ref/objc/Property/nitroTpmSupport" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2InstanceTypeInfo(py)nitroTpmSupport">nitroTpmSupport</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates whether NitroTPM is supported.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSEC2NitroTpmSupport.html">AWSEC2NitroTpmSupport</a></span> <span class="n">nitroTpmSupport</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">nitroTpmSupport</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSEC2NitroTpmSupport.html">AWSEC2NitroTpmSupport</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSEC2InstanceTypeInfo(py)placementGroupInfo"></a>
                     <a name="//apple_ref/objc/Property/placementGroupInfo" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSEC2InstanceTypeInfo(py)placementGroupInfo">placementGroupInfo</a>
@@ -7287,7 +7392,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-07-06)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-07-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

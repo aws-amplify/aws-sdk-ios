@@ -17,7 +17,7 @@
     <a title="AWSEC2RevokeSecurityGroupIngressRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSEC2 2.33.1 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSEC2 2.33.2 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -4319,6 +4319,9 @@
                 <a href="../Classes/AWSEC2NetworkInterfacePrivateIpAddress.html">AWSEC2NetworkInterfacePrivateIpAddress</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2NitroTpmInfo.html">AWSEC2NitroTpmInfo</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2OidcOptions.html">AWSEC2OidcOptions</a>
               </li>
               <li class="nav-group-task">
@@ -6132,6 +6135,12 @@
                 <a href="../Enums/AWSEC2NetworkInterfaceType.html">AWSEC2NetworkInterfaceType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSEC2NitroEnclavesSupport.html">AWSEC2NitroEnclavesSupport</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSEC2NitroTpmSupport.html">AWSEC2NitroTpmSupport</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSEC2OfferingClassType.html">AWSEC2OfferingClassType</a>
               </li>
               <li class="nav-group-task">
@@ -6622,7 +6631,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.</p>
+                        <p>The ID of the security group.</p>
 
                       </div>
                       <div class="declaration">
@@ -6654,7 +6663,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>[EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.</p>
+                        <p>[Default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.</p>
 
                       </div>
                       <div class="declaration">
@@ -6782,7 +6791,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>[EC2-Classic, default VPC] The name of the source security group. You can&rsquo;t specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. For EC2-VPC, the source security group must be in the same VPC. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.</p>
+                        <p>[Default VPC] The name of the source security group. You can&rsquo;t specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. The source security group must be in the same VPC. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.</p>
 
                       </div>
                       <div class="declaration">
@@ -6814,7 +6823,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>[EC2-Classic] The Amazon Web Services account ID of the source security group, if the source security group is in a different account. You can&rsquo;t specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.</p>
+                        <p>Not supported.</p>
 
                       </div>
                       <div class="declaration">
@@ -6870,7 +6879,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-07-06)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-07-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
