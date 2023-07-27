@@ -1,6 +1,10 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## Unreleased  
+## Unreleased
+
+-Features for next release
+
+## 2.33.2  
 
 ### Bug Fixes
 - **AWSAuthUI**
