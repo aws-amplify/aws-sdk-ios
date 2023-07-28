@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -3410,7 +3410,8 @@
     \"ChallengeResponsesType\":{\
       \"type\":\"map\",\
       \"key\":{\"shape\":\"StringType\"},\
-      \"value\":{\"shape\":\"StringType\"}\
+      \"value\":{\"shape\":\"StringType\"},\
+      \"sensitive\":true\
     },\
     \"ChangePasswordRequest\":{\
       \"type\":\"structure\",\
@@ -6722,7 +6723,8 @@
     \"SessionType\":{\
       \"type\":\"string\",\
       \"max\":2048,\
-      \"min\":20\
+      \"min\":20,\
+      \"sensitive\":true\
     },\
     \"SetRiskConfigurationRequest\":{\
       \"type\":\"structure\",\
@@ -7003,7 +7005,8 @@
       \"type\":\"string\",\
       \"max\":6,\
       \"min\":6,\
-      \"pattern\":\"[0-9]+\"\
+      \"pattern\":\"[0-9]+\",\
+      \"sensitive\":true\
     },\
     \"SoftwareTokenMfaConfigType\":{\
       \"type\":\"structure\",\
@@ -7774,7 +7777,8 @@
           \"documentation\":\"<p>Encoded device-fingerprint details that your app collected with the Amazon Cognito context data collection library. For more information, see <a href=\\\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint\\\">Adding user device and session data to API requests</a>.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Contextual data, such as the user's device fingerprint, IP address, or location, used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>\"\
+      \"documentation\":\"<p>Contextual data, such as the user's device fingerprint, IP address, or location, used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>\",\
+      \"sensitive\":true\
     },\
     \"UserFilterType\":{\
       \"type\":\"string\",\

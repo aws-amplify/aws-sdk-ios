@@ -325,7 +325,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)batchPutGeofence:(AWSLocationBatchPutGeofenceRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationBatchPutGeofenceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Uploads position update data for one or more devices to a tracker resource. Amazon Location uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30 days.</p><note><p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker. When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections, and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than every 30 seconds, only one update per 30 seconds is stored for each unique device ID.</p><p>When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than 30 m (98.4 ft).</p><p>When <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than the measured accuracy. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is neither stored or evaluated if the device has moved less than 15 m. If <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, Amazon Location uses the default value <code>{ "Horizontal": 0}</code> when accuracy is not provided on a <code>DevicePositionUpdate</code>.</p></note>
+ <p>Uploads position update data for one or more devices to a tracker resource (up to 10 devices per batch). Amazon Location uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30 days.</p><note><p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker. When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections, and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than every 30 seconds, only one update per 30 seconds is stored for each unique device ID.</p><p>When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than 30 m (98.4 ft).</p><p>When <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than the measured accuracy. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is neither stored or evaluated if the device has moved less than 15 m. If <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, Amazon Location uses the default value <code>{ "Horizontal": 0}</code> when accuracy is not provided on a <code>DevicePositionUpdate</code>.</p></note>
  
  @param request A container for the necessary parameters to execute the BatchUpdateDevicePosition service method.
 
@@ -337,7 +337,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationBatchUpdateDevicePositionResponse *> *)batchUpdateDevicePosition:(AWSLocationBatchUpdateDevicePositionRequest *)request;
 
 /**
- <p>Uploads position update data for one or more devices to a tracker resource. Amazon Location uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30 days.</p><note><p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker. When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections, and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than every 30 seconds, only one update per 30 seconds is stored for each unique device ID.</p><p>When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than 30 m (98.4 ft).</p><p>When <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than the measured accuracy. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is neither stored or evaluated if the device has moved less than 15 m. If <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, Amazon Location uses the default value <code>{ "Horizontal": 0}</code> when accuracy is not provided on a <code>DevicePositionUpdate</code>.</p></note>
+ <p>Uploads position update data for one or more devices to a tracker resource (up to 10 devices per batch). Amazon Location uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30 days.</p><note><p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker. When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections, and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than every 30 seconds, only one update per 30 seconds is stored for each unique device ID.</p><p>When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than 30 m (98.4 ft).</p><p>When <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than the measured accuracy. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is neither stored or evaluated if the device has moved less than 15 m. If <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, Amazon Location uses the default value <code>{ "Horizontal": 0}</code> when accuracy is not provided on a <code>DevicePositionUpdate</code>.</p></note>
  
  @param request A container for the necessary parameters to execute the BatchUpdateDevicePosition service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -425,7 +425,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)createGeofenceCollection:(AWSLocationCreateGeofenceCollectionRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationCreateGeofenceCollectionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an API key resource in your Amazon Web Services account, which lets you grant <code>geo:GetMap*</code> actions for Amazon Location Map resources to the API key bearer.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important>
+ <p>Creates an API key resource in your Amazon Web Services account, which lets you grant actions for Amazon Location resources to the API key bearer.</p><note><p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateKey service method.
 
@@ -437,7 +437,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationCreateKeyResponse *> *)createKey:(AWSLocationCreateKeyRequest *)request;
 
 /**
- <p>Creates an API key resource in your Amazon Web Services account, which lets you grant <code>geo:GetMap*</code> actions for Amazon Location Map resources to the API key bearer.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important>
+ <p>Creates an API key resource in your Amazon Web Services account, which lets you grant actions for Amazon Location resources to the API key bearer.</p><note><p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateKey service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -529,7 +529,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
  
  @param request A container for the necessary parameters to execute the CreateTracker service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLocationCreateTrackerResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLocationCreateTrackerResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorServiceQuotaExceeded`, `AWSLocationErrorThrottling`.
  
  @see AWSLocationCreateTrackerRequest
  @see AWSLocationCreateTrackerResponse
@@ -542,7 +542,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
  @param request A container for the necessary parameters to execute the CreateTracker service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorServiceQuotaExceeded`, `AWSLocationErrorThrottling`.
  
  @see AWSLocationCreateTrackerRequest
  @see AWSLocationCreateTrackerResponse
@@ -725,7 +725,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)describeGeofenceCollection:(AWSLocationDescribeGeofenceCollectionRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationDescribeGeofenceCollectionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Retrieves the API key resource details.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important>
+ <p>Retrieves the API key resource details.</p>
  
  @param request A container for the necessary parameters to execute the DescribeKey service method.
 
@@ -737,7 +737,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationDescribeKeyResponse *> *)describeKey:(AWSLocationDescribeKeyRequest *)request;
 
 /**
- <p>Retrieves the API key resource details.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important>
+ <p>Retrieves the API key resource details.</p>
  
  @param request A container for the necessary parameters to execute the DescribeKey service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1150,7 +1150,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)listGeofences:(AWSLocationListGeofencesRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationListGeofencesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists API key resources in your Amazon Web Services account.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important>
+ <p>Lists API key resources in your Amazon Web Services account.</p>
  
  @param request A container for the necessary parameters to execute the ListKeys service method.
 
@@ -1162,7 +1162,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationListKeysResponse *> *)listKeys:(AWSLocationListKeysRequest *)request;
 
 /**
- <p>Lists API key resources in your Amazon Web Services account.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important>
+ <p>Lists API key resources in your Amazon Web Services account.</p>
  
  @param request A container for the necessary parameters to execute the ListKeys service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1500,7 +1500,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)updateGeofenceCollection:(AWSLocationUpdateGeofenceCollectionRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationUpdateGeofenceCollectionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the specified properties of a given API key resource.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important>
+ <p>Updates the specified properties of a given API key resource.</p>
  
  @param request A container for the necessary parameters to execute the UpdateKey service method.
 
@@ -1512,7 +1512,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationUpdateKeyResponse *> *)updateKey:(AWSLocationUpdateKeyRequest *)request;
 
 /**
- <p>Updates the specified properties of a given API key resource.</p><important><p>The API keys feature is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p></important>
+ <p>Updates the specified properties of a given API key resource.</p>
  
  @param request A container for the necessary parameters to execute the UpdateKey service method.
  @param completionHandler The completion handler to call when the load request is complete.

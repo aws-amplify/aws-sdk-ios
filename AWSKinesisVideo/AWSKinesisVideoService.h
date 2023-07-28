@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -225,6 +225,31 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (void)createStream:(AWSKinesisVideoCreateStreamInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoCreateStreamOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>An asynchronous API that deletes a stream’s existing edge configuration, as well as the corresponding media from the Edge Agent.</p><p>When you invoke this API, the sync status is set to <code>DELETING</code>. A deletion process starts, in which active edge jobs are stopped and all media is deleted from the edge device. The time to delete varies, depending on the total amount of stored media. If the deletion process fails, the sync status changes to <code>DELETE_FAILED</code>. You will need to re-try the deletion.</p><p>When the deletion process has completed successfully, the edge configuration is no longer accessible.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteEdgeConfiguration service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoDeleteEdgeConfigurationOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorStreamEdgeConfigurationNotFound`.
+ 
+ @see AWSKinesisVideoDeleteEdgeConfigurationInput
+ @see AWSKinesisVideoDeleteEdgeConfigurationOutput
+ */
+- (AWSTask<AWSKinesisVideoDeleteEdgeConfigurationOutput *> *)deleteEdgeConfiguration:(AWSKinesisVideoDeleteEdgeConfigurationInput *)request;
+
+/**
+ <p>An asynchronous API that deletes a stream’s existing edge configuration, as well as the corresponding media from the Edge Agent.</p><p>When you invoke this API, the sync status is set to <code>DELETING</code>. A deletion process starts, in which active edge jobs are stopped and all media is deleted from the edge device. The time to delete varies, depending on the total amount of stored media. If the deletion process fails, the sync status changes to <code>DELETE_FAILED</code>. You will need to re-try the deletion.</p><p>When the deletion process has completed successfully, the edge configuration is no longer accessible.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteEdgeConfiguration service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorStreamEdgeConfigurationNotFound`.
+ 
+ @see AWSKinesisVideoDeleteEdgeConfigurationInput
+ @see AWSKinesisVideoDeleteEdgeConfigurationOutput
+ */
+- (void)deleteEdgeConfiguration:(AWSKinesisVideoDeleteEdgeConfigurationInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoDeleteEdgeConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Deletes a specified signaling channel. <code>DeleteSignalingChannel</code> is an asynchronous operation. If you don't specify the channel's current version, the most recent version is deleted.</p>
  
  @param request A container for the necessary parameters to execute the DeleteSignalingChannel service method.
@@ -275,7 +300,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (void)deleteStream:(AWSKinesisVideoDeleteStreamInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoDeleteStreamOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes a stream’s edge configuration that was set using the <code>StartEdgeConfigurationUpdate</code> API. Use this API to get the status of the configuration if the configuration is in sync with the Edge Agent.</p>
+ <p>Describes a stream’s edge configuration that was set using the <code>StartEdgeConfigurationUpdate</code> API and the latest status of the edge agent's recorder and uploader jobs. Use this API to get the status of the configuration to determine if the configuration is in sync with the Edge Agent. Use this API to evaluate the health of the Edge Agent.</p>
  
  @param request A container for the necessary parameters to execute the DescribeEdgeConfiguration service method.
 
@@ -287,7 +312,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (AWSTask<AWSKinesisVideoDescribeEdgeConfigurationOutput *> *)describeEdgeConfiguration:(AWSKinesisVideoDescribeEdgeConfigurationInput *)request;
 
 /**
- <p>Describes a stream’s edge configuration that was set using the <code>StartEdgeConfigurationUpdate</code> API. Use this API to get the status of the configuration if the configuration is in sync with the Edge Agent.</p>
+ <p>Describes a stream’s edge configuration that was set using the <code>StartEdgeConfigurationUpdate</code> API and the latest status of the edge agent's recorder and uploader jobs. Use this API to get the status of the configuration to determine if the configuration is in sync with the Edge Agent. Use this API to evaluate the health of the Edge Agent.</p>
  
  @param request A container for the necessary parameters to execute the DescribeEdgeConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -325,7 +350,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (void)describeImageGenerationConfiguration:(AWSKinesisVideoDescribeImageGenerationConfigurationInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoDescribeImageGenerationConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns the most current information about the stream. Either streamName or streamARN should be provided in the input.</p><p>Returns the most current information about the stream. The <code>streamName</code> or <code>streamARN</code> should be provided in the input.</p>
+ <p>Returns the most current information about the stream. The <code>streamName</code> or <code>streamARN</code> should be provided in the input.</p>
  
  @param request A container for the necessary parameters to execute the DescribeMappedResourceConfiguration service method.
 
@@ -337,7 +362,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (AWSTask<AWSKinesisVideoDescribeMappedResourceConfigurationOutput *> *)describeMappedResourceConfiguration:(AWSKinesisVideoDescribeMappedResourceConfigurationInput *)request;
 
 /**
- <p>Returns the most current information about the stream. Either streamName or streamARN should be provided in the input.</p><p>Returns the most current information about the stream. The <code>streamName</code> or <code>streamARN</code> should be provided in the input.</p>
+ <p>Returns the most current information about the stream. The <code>streamName</code> or <code>streamARN</code> should be provided in the input.</p>
  
  @param request A container for the necessary parameters to execute the DescribeMappedResourceConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -498,6 +523,31 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
  @see AWSKinesisVideoGetSignalingChannelEndpointOutput
  */
 - (void)getSignalingChannelEndpoint:(AWSKinesisVideoGetSignalingChannelEndpointInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoGetSignalingChannelEndpointOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Returns an array of edge configurations associated with the specified Edge Agent.</p><p>In the request, you must specify the Edge Agent <code>HubDeviceArn</code>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListEdgeAgentConfigurations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoListEdgeAgentConfigurationsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorNotAuthorized`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorInvalidArgument`.
+ 
+ @see AWSKinesisVideoListEdgeAgentConfigurationsInput
+ @see AWSKinesisVideoListEdgeAgentConfigurationsOutput
+ */
+- (AWSTask<AWSKinesisVideoListEdgeAgentConfigurationsOutput *> *)listEdgeAgentConfigurations:(AWSKinesisVideoListEdgeAgentConfigurationsInput *)request;
+
+/**
+ <p>Returns an array of edge configurations associated with the specified Edge Agent.</p><p>In the request, you must specify the Edge Agent <code>HubDeviceArn</code>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListEdgeAgentConfigurations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorNotAuthorized`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorInvalidArgument`.
+ 
+ @see AWSKinesisVideoListEdgeAgentConfigurationsInput
+ @see AWSKinesisVideoListEdgeAgentConfigurationsOutput
+ */
+- (void)listEdgeAgentConfigurations:(AWSKinesisVideoListEdgeAgentConfigurationsInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoListEdgeAgentConfigurationsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Returns an array of <code>ChannelInfo</code> objects. Each object describes a signaling channel. To retrieve only those channels that satisfy a specific condition, you can specify a <code>ChannelNameCondition</code>.</p>

@@ -25,7 +25,7 @@
 #import "AWSKMSResources.h"
 
 static NSString *const AWSInfoKMS = @"KMS";
-NSString *const AWSKMSSDKVersion = @"2.33.0";
+NSString *const AWSKMSSDKVersion = @"2.33.2";
 
 
 @interface AWSKMSResponseSerializer : AWSJSONResponseSerializer
@@ -51,6 +51,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"CustomKeyStoreNotFoundException" : @(AWSKMSErrorCustomKeyStoreNotFound),
                             @"DependencyTimeoutException" : @(AWSKMSErrorDependencyTimeout),
                             @"DisabledException" : @(AWSKMSErrorDisabled),
+                            @"DryRunOperationException" : @(AWSKMSErrorDryRunOperation),
                             @"ExpiredImportTokenException" : @(AWSKMSErrorExpiredImportToken),
                             @"IncorrectKeyException" : @(AWSKMSErrorIncorrectKey),
                             @"IncorrectKeyMaterialException" : @(AWSKMSErrorIncorrectKeyMaterial),

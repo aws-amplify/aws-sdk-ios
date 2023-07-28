@@ -25,7 +25,7 @@
 #import "AWSSQSResources.h"
 
 static NSString *const AWSInfoSQS = @"SQS";
-NSString *const AWSSQSSDKVersion = @"2.33.0";
+NSString *const AWSSQSSDKVersion = @"2.33.2";
 
 
 @interface AWSSQSResponseSerializer : AWSXMLResponseSerializer
@@ -53,6 +53,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"AWS.SimpleQueueService.NonExistentQueue" : @(AWSSQSErrorQueueDoesNotExist),
                             @"QueueAlreadyExists" : @(AWSSQSErrorQueueNameExists),
                             @"ReceiptHandleIsInvalid" : @(AWSSQSErrorReceiptHandleIsInvalid),
+                            @"ResourceNotFoundException" : @(AWSSQSErrorResourceNotFound),
                             @"AWS.SimpleQueueService.TooManyEntriesInBatchRequest" : @(AWSSQSErrorTooManyEntriesInBatchRequest),
                             @"AWS.SimpleQueueService.UnsupportedOperation" : @(AWSSQSErrorUnsupportedOperation),
                             };
@@ -309,6 +310,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSSQSCancelMessageMoveTaskResult *> *)cancelMessageMoveTask:(AWSSQSCancelMessageMoveTaskRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CancelMessageMoveTask"
+                   outputClass:[AWSSQSCancelMessageMoveTaskResult class]];
+}
+
+- (void)cancelMessageMoveTask:(AWSSQSCancelMessageMoveTaskRequest *)request
+     completionHandler:(void (^)(AWSSQSCancelMessageMoveTaskResult *response, NSError *error))completionHandler {
+    [[self cancelMessageMoveTask:request] continueWithBlock:^id _Nullable(AWSTask<AWSSQSCancelMessageMoveTaskResult *> * _Nonnull task) {
+        AWSSQSCancelMessageMoveTaskResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)changeMessageVisibility:(AWSSQSChangeMessageVisibilityRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -513,6 +537,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSSQSListMessageMoveTasksResult *> *)listMessageMoveTasks:(AWSSQSListMessageMoveTasksRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ListMessageMoveTasks"
+                   outputClass:[AWSSQSListMessageMoveTasksResult class]];
+}
+
+- (void)listMessageMoveTasks:(AWSSQSListMessageMoveTasksRequest *)request
+     completionHandler:(void (^)(AWSSQSListMessageMoveTasksResult *response, NSError *error))completionHandler {
+    [[self listMessageMoveTasks:request] continueWithBlock:^id _Nullable(AWSTask<AWSSQSListMessageMoveTasksResult *> * _Nonnull task) {
+        AWSSQSListMessageMoveTasksResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSSQSListQueueTagsResult *> *)listQueueTags:(AWSSQSListQueueTagsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -688,6 +735,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSQSStartMessageMoveTaskResult *> *)startMessageMoveTask:(AWSSQSStartMessageMoveTaskRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"StartMessageMoveTask"
+                   outputClass:[AWSSQSStartMessageMoveTaskResult class]];
+}
+
+- (void)startMessageMoveTask:(AWSSQSStartMessageMoveTaskRequest *)request
+     completionHandler:(void (^)(AWSSQSStartMessageMoveTaskResult *response, NSError *error))completionHandler {
+    [[self startMessageMoveTask:request] continueWithBlock:^id _Nullable(AWSTask<AWSSQSStartMessageMoveTaskResult *> * _Nonnull task) {
+        AWSSQSStartMessageMoveTaskResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;

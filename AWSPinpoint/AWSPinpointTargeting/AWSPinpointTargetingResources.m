@@ -12249,6 +12249,10 @@
         \"ClosedDays\": {\
             \"shape\": \"ClosedDays\",\
             \"documentation\": \"<p>The time when a journey will not send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>\"\
+        },\
+        \"TimezoneEstimationMethods\": {\
+          \"shape\": \"ListOf__TimezoneEstimationMethodsElement\",\
+          \"documentation\": \"<p>An array of time zone estimation methods, if any, to use for determining an <a href=\\\"https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html\\\">Endpoints</a> time zone if the Endpoint does not have a value for the Demographic.Timezone attribute.</p> <ul> <li><p>PHONE_NUMBER - A time zone is determined based on the Endpoint.Address and Endpoint.Location.Country.</p></li> <li><p>POSTAL_CODE - A time zone is determined based on the Endpoint.Location.PostalCode and Endpoint.Location.Country.</p> <note><p>POSTAL_CODE detection is only supported in the United States, United Kingdom, Australia, New Zealand, Canada, France, Italy, Spain, Germany and in regions where Amazon Pinpoint is available.</p></note></li> </ul>\"\
         }\
       },\
       \"documentation\": \"<p>Provides information about the status, configuration, and other settings for a journey.</p>\",\
@@ -16109,6 +16113,10 @@
         \"ClosedDays\": {\
             \"shape\": \"ClosedDays\",\
             \"documentation\": \"<p>The time when journey will stop sending messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>\"\
+        },\
+        \"TimezoneEstimationMethods\": {\
+          \"shape\": \"ListOf__TimezoneEstimationMethodsElement\",\
+          \"documentation\": \"<p>An array of time zone estimation methods, if any, to use for determining an <a href=\\\"https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html\\\">Endpoints</a> time zone if the Endpoint does not have a value for the Demographic.Timezone attribute.</p> <ul> <li><p>PHONE_NUMBER - A time zone is determined based on the Endpoint.Address and Endpoint.Location.Country.</p></li> <li><p>POSTAL_CODE - A time zone is determined based on the Endpoint.Location.PostalCode and Endpoint.Location.Country.</p> <note><p>POSTAL_CODE detection is only supported in the United States, United Kingdom, Australia, New Zealand, Canada, France, Italy, Spain, Germany and in regions where Amazon Pinpoint is available.</p></note></li> </ul>\"\
         }\
       },\
       \"documentation\": \"<p>Specifies the configuration and other settings for a journey.</p>\",\
@@ -16192,6 +16200,13 @@
         \"BAIDU\",\
         \"CUSTOM\",\
         \"IN_APP\"\
+      ]\
+    },\
+    \"__TimezoneEstimationMethodsElement\": {\
+      \"type\": \"string\",\
+      \"enum\": [\
+        \"PHONE_NUMBER\",\
+        \"POSTAL_CODE\"\
       ]\
     },\
     \"__boolean\": {\
@@ -16357,6 +16372,12 @@
       \"type\": \"list\",\
       \"member\": {\
         \"shape\": \"__EndpointTypesElement\"\
+      }\
+    },\
+    \"ListOf__TimezoneEstimationMethodsElement\": {\
+      \"type\": \"list\",\
+      \"member\": {\
+        \"shape\": \"__TimezoneEstimationMethodsElement\"\
       }\
     },\
     \"ListOf__string\": {\

@@ -25,7 +25,7 @@
 #import "AWSConnectResources.h"
 
 static NSString *const AWSInfoConnect = @"Connect";
-NSString *const AWSConnectSDKVersion = @"2.33.0";
+NSString *const AWSConnectSDKVersion = @"2.33.2";
 
 
 @interface AWSConnectResponseSerializer : AWSJSONResponseSerializer
@@ -51,6 +51,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidParameterException" : @(AWSConnectErrorInvalidParameter),
                             @"InvalidRequestException" : @(AWSConnectErrorInvalidRequest),
                             @"LimitExceededException" : @(AWSConnectErrorLimitExceeded),
+                            @"MaximumResultReturnedException" : @(AWSConnectErrorMaximumResultReturned),
                             @"OutboundContactNotPermittedException" : @(AWSConnectErrorOutboundContactNotPermitted),
                             @"PropertyValidationException" : @(AWSConnectErrorPropertyValidation),
                             @"ResourceConflictException" : @(AWSConnectErrorResourceConflict),
@@ -1226,6 +1227,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)deleteQueue:(AWSConnectDeleteQueueRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/queues/{InstanceId}/{QueueId}"
+                  targetPrefix:@""
+                 operationName:@"DeleteQueue"
+                   outputClass:nil];
+}
+
+- (void)deleteQueue:(AWSConnectDeleteQueueRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteQueue:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deleteQuickConnect:(AWSConnectDeleteQuickConnectRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -1238,6 +1261,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)deleteQuickConnect:(AWSConnectDeleteQuickConnectRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteQuickConnect:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteRoutingProfile:(AWSConnectDeleteRoutingProfileRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/routing-profiles/{InstanceId}/{RoutingProfileId}"
+                  targetPrefix:@""
+                 operationName:@"DeleteRoutingProfile"
+                   outputClass:nil];
+}
+
+- (void)deleteRoutingProfile:(AWSConnectDeleteRoutingProfileRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteRoutingProfile:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -3303,6 +3348,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectSearchHoursOfOperationsResponse *> *)searchHoursOfOperations:(AWSConnectSearchHoursOfOperationsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/search-hours-of-operations"
+                  targetPrefix:@""
+                 operationName:@"SearchHoursOfOperations"
+                   outputClass:[AWSConnectSearchHoursOfOperationsResponse class]];
+}
+
+- (void)searchHoursOfOperations:(AWSConnectSearchHoursOfOperationsRequest *)request
+     completionHandler:(void (^)(AWSConnectSearchHoursOfOperationsResponse *response, NSError *error))completionHandler {
+    [[self searchHoursOfOperations:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectSearchHoursOfOperationsResponse *> * _Nonnull task) {
+        AWSConnectSearchHoursOfOperationsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectSearchPromptsResponse *> *)searchPrompts:(AWSConnectSearchPromptsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/search-prompts"
+                  targetPrefix:@""
+                 operationName:@"SearchPrompts"
+                   outputClass:[AWSConnectSearchPromptsResponse class]];
+}
+
+- (void)searchPrompts:(AWSConnectSearchPromptsRequest *)request
+     completionHandler:(void (^)(AWSConnectSearchPromptsResponse *response, NSError *error))completionHandler {
+    [[self searchPrompts:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectSearchPromptsResponse *> * _Nonnull task) {
+        AWSConnectSearchPromptsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectSearchQueuesResponse *> *)searchQueues:(AWSConnectSearchQueuesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -3316,6 +3407,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectSearchQueuesResponse *response, NSError *error))completionHandler {
     [[self searchQueues:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectSearchQueuesResponse *> * _Nonnull task) {
         AWSConnectSearchQueuesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectSearchQuickConnectsResponse *> *)searchQuickConnects:(AWSConnectSearchQuickConnectsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/search-quick-connects"
+                  targetPrefix:@""
+                 operationName:@"SearchQuickConnects"
+                   outputClass:[AWSConnectSearchQuickConnectsResponse class]];
+}
+
+- (void)searchQuickConnects:(AWSConnectSearchQuickConnectsRequest *)request
+     completionHandler:(void (^)(AWSConnectSearchQuickConnectsResponse *response, NSError *error))completionHandler {
+    [[self searchQuickConnects:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectSearchQuickConnectsResponse *> * _Nonnull task) {
+        AWSConnectSearchQuickConnectsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectSearchResourceTagsResponse *> *)searchResourceTags:(AWSConnectSearchResourceTagsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/search-resource-tags"
+                  targetPrefix:@""
+                 operationName:@"SearchResourceTags"
+                   outputClass:[AWSConnectSearchResourceTagsResponse class]];
+}
+
+- (void)searchResourceTags:(AWSConnectSearchResourceTagsRequest *)request
+     completionHandler:(void (^)(AWSConnectSearchResourceTagsResponse *response, NSError *error))completionHandler {
+    [[self searchResourceTags:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectSearchResourceTagsResponse *> * _Nonnull task) {
+        AWSConnectSearchResourceTagsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

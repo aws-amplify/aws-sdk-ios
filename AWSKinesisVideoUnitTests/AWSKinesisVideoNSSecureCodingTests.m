@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -25,6 +25,8 @@
 - (void) test_AWSKinesisVideoCreateSignalingChannelOutput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoCreateStreamInput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoCreateStreamOutput API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoDeleteEdgeConfigurationInput API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoDeleteEdgeConfigurationOutput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoDeleteSignalingChannelInput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoDeleteSignalingChannelOutput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoDeleteStreamInput API_AVAILABLE(ios(11));
@@ -44,6 +46,7 @@
 - (void) test_AWSKinesisVideoDescribeSignalingChannelOutput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoDescribeStreamInput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoDescribeStreamOutput API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoEdgeAgentStatus API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoEdgeConfig API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoGetDataEndpointInput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoGetDataEndpointOutput API_AVAILABLE(ios(11));
@@ -51,6 +54,11 @@
 - (void) test_AWSKinesisVideoGetSignalingChannelEndpointOutput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoImageGenerationConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoImageGenerationDestinationConfig API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoLastRecorderStatus API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoLastUploaderStatus API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoListEdgeAgentConfigurationsEdgeConfig API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoListEdgeAgentConfigurationsInput API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoListEdgeAgentConfigurationsOutput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoListSignalingChannelsInput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoListSignalingChannelsOutput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoListStreamsInput API_AVAILABLE(ios(11));
@@ -123,6 +131,14 @@
 
 - (void) test_AWSKinesisVideoCreateStreamOutput {
     [self validateSecureCodingForClass:[AWSKinesisVideoCreateStreamOutput class]];
+}
+
+- (void) test_AWSKinesisVideoDeleteEdgeConfigurationInput {
+    [self validateSecureCodingForClass:[AWSKinesisVideoDeleteEdgeConfigurationInput class]];
+}
+
+- (void) test_AWSKinesisVideoDeleteEdgeConfigurationOutput {
+    [self validateSecureCodingForClass:[AWSKinesisVideoDeleteEdgeConfigurationOutput class]];
 }
 
 - (void) test_AWSKinesisVideoDeleteSignalingChannelInput {
@@ -201,6 +217,10 @@
     [self validateSecureCodingForClass:[AWSKinesisVideoDescribeStreamOutput class]];
 }
 
+- (void) test_AWSKinesisVideoEdgeAgentStatus {
+    [self validateSecureCodingForClass:[AWSKinesisVideoEdgeAgentStatus class]];
+}
+
 - (void) test_AWSKinesisVideoEdgeConfig {
     [self validateSecureCodingForClass:[AWSKinesisVideoEdgeConfig class]];
 }
@@ -227,6 +247,26 @@
 
 - (void) test_AWSKinesisVideoImageGenerationDestinationConfig {
     [self validateSecureCodingForClass:[AWSKinesisVideoImageGenerationDestinationConfig class]];
+}
+
+- (void) test_AWSKinesisVideoLastRecorderStatus {
+    [self validateSecureCodingForClass:[AWSKinesisVideoLastRecorderStatus class]];
+}
+
+- (void) test_AWSKinesisVideoLastUploaderStatus {
+    [self validateSecureCodingForClass:[AWSKinesisVideoLastUploaderStatus class]];
+}
+
+- (void) test_AWSKinesisVideoListEdgeAgentConfigurationsEdgeConfig {
+    [self validateSecureCodingForClass:[AWSKinesisVideoListEdgeAgentConfigurationsEdgeConfig class]];
+}
+
+- (void) test_AWSKinesisVideoListEdgeAgentConfigurationsInput {
+    [self validateSecureCodingForClass:[AWSKinesisVideoListEdgeAgentConfigurationsInput class]];
+}
+
+- (void) test_AWSKinesisVideoListEdgeAgentConfigurationsOutput {
+    [self validateSecureCodingForClass:[AWSKinesisVideoListEdgeAgentConfigurationsOutput class]];
 }
 
 - (void) test_AWSKinesisVideoListSignalingChannelsInput {

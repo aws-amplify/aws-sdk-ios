@@ -1656,6 +1656,17 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeI4G_4xlarge,
     AWSEC2InstanceTypeI4G_8xlarge,
     AWSEC2InstanceTypeI4G_16xlarge,
+    AWSEC2InstanceTypeHPC7g_4xlarge,
+    AWSEC2InstanceTypeHPC7g_8xlarge,
+    AWSEC2InstanceTypeHPC7g_16xlarge,
+    AWSEC2InstanceTypeC7Gn_medium,
+    AWSEC2InstanceTypeC7Gn_large,
+    AWSEC2InstanceTypeC7Gn_xlarge,
+    AWSEC2InstanceTypeC7Gn_2xlarge,
+    AWSEC2InstanceTypeC7Gn_4xlarge,
+    AWSEC2InstanceTypeC7Gn_8xlarge,
+    AWSEC2InstanceTypeC7Gn_12xlarge,
+    AWSEC2InstanceTypeC7Gn_16xlarge,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {
@@ -2096,6 +2107,18 @@ typedef NS_ENUM(NSInteger, AWSEC2NetworkInterfaceType) {
     AWSEC2NetworkInterfaceTypeGatewayLoadBalancerEndpoint,
     AWSEC2NetworkInterfaceTypeIotRulesManaged,
     AWSEC2NetworkInterfaceTypeAwsCodestarConnectionsManaged,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2NitroEnclavesSupport) {
+    AWSEC2NitroEnclavesSupportUnknown,
+    AWSEC2NitroEnclavesSupportUnsupported,
+    AWSEC2NitroEnclavesSupportSupported,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2NitroTpmSupport) {
+    AWSEC2NitroTpmSupportUnknown,
+    AWSEC2NitroTpmSupportUnsupported,
+    AWSEC2NitroTpmSupportSupported,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2OfferingClassType) {
@@ -4486,6 +4509,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2NetworkInterfacePermissionState;
 @class AWSEC2NetworkInterfacePrivateIpAddress;
 @class AWSEC2LatestDhcpConfiguration;
+@class AWSEC2NitroTpmInfo;
 @class AWSEC2OidcOptions;
 @class AWSEC2OnDemandOptions;
 @class AWSEC2OnDemandOptionsRequest;
@@ -5716,6 +5740,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
+ <p>The IDs of the Outpost hardware assets on which to allocate the Dedicated Hosts. Targeting specific hardware assets on an Outpost can help to minimize latency between your workloads. This parameter is supported only if you specify <b>OutpostArn</b>. If you are allocating the Dedicated Hosts in a Region, omit this parameter.</p><ul><li><p>If you specify this parameter, you can omit <b>Quantity</b>. In this case, Amazon EC2 allocates a Dedicated Host on each specified hardware asset.</p></li><li><p>If you specify both <b>AssetIds</b> and <b>Quantity</b>, then the value for <b>Quantity</b> must be equal to the number of asset IDs specified.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable assetIds;
+
+/**
  <p>Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding"> Understanding auto-placement and affinity</a> in the <i>Amazon EC2 User Guide</i>.</p><p>Default: <code>on</code></p>
  */
 @property (nonatomic, assign) AWSEC2AutoPlacement autoPlacement;
@@ -5751,12 +5780,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable instanceType;
 
 /**
- <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.</p>
+ <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host. If you specify <b>OutpostArn</b>, you can optionally specify <b>AssetIds</b>.</p><p>If you are allocating the Dedicated Host in a Region, omit this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outpostArn;
 
 /**
- <p>The number of Dedicated Hosts to allocate to your account with these parameters.</p>
+ <p>The number of Dedicated Hosts to allocate to your account with these parameters. If you are allocating the Dedicated Hosts on an Outpost, and you specify <b>AssetIds</b>, you can omit this parameter. In this case, Amazon EC2 allocates a Dedicated Host on each specified hardware asset. If you specify both <b>AssetIds</b> and <b>Quantity</b>, then the value that you specify for <b>Quantity</b> must be equal to the number of asset IDs specified.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable quantity;
 
@@ -6319,7 +6348,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The NAT gateway ID.</p>
+ <p>The ID of the NAT gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable natGatewayId;
 
@@ -6347,7 +6376,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2NatGatewayAddress *> * _Nullable natGatewayAddresses;
 
 /**
- <p>The NAT gateway ID.</p>
+ <p>The ID of the NAT gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable natGatewayId;
 
@@ -6667,7 +6696,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The NAT gateway ID.</p>
+ <p>The ID of the NAT gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable natGatewayId;
 
@@ -6690,7 +6719,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2NatGatewayAddress *> * _Nullable natGatewayAddresses;
 
 /**
- <p>The NAT gateway ID.</p>
+ <p>The ID of the NAT gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable natGatewayId;
 
@@ -7133,17 +7162,17 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.</p>
+ <p>The IDs of the security groups. You cannot specify security groups from a different VPC.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groups;
 
 /**
- <p>The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.</p>
+ <p>The ID of the EC2-Classic instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The ID of a ClassicLink-enabled VPC.</p>
+ <p>The ID of the ClassicLink-enabled VPC.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vpcId;
 
@@ -7607,7 +7636,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable groupId;
 
 /**
- <p>[EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.</p>
+ <p>[Default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable groupName;
 
@@ -7617,17 +7646,17 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2IpPermission *> * _Nullable ipPermissions;
 
 /**
- <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). To specify <code>icmpv6</code>, use a set of IP permissions.</p><p>[VPC only] Use <code>-1</code> to specify all protocols. If you specify <code>-1</code> or a protocol other than <code>tcp</code>, <code>udp</code>, or <code>icmp</code>, traffic on all ports is allowed, regardless of any ports you specify.</p><p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
+ <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). To specify <code>icmpv6</code>, use a set of IP permissions.</p><p>Use <code>-1</code> to specify all protocols. If you specify <code>-1</code> or a protocol other than <code>tcp</code>, <code>udp</code>, or <code>icmp</code>, traffic on all ports is allowed, regardless of any ports you specify.</p><p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipProtocol;
 
 /**
- <p>[EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. For EC2-VPC, the source security group must be in the same VPC.</p>
+ <p>[Default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. The source security group must be in the same VPC.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceSecurityGroupName;
 
 /**
- <p>[nondefault VPC] The Amazon Web Services account ID for the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.</p>
+ <p>[Nondefault VPC] The Amazon Web Services account ID for the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceSecurityGroupOwnerId;
 
@@ -8811,7 +8840,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes the ClassicLink DNS support status of a VPC.</p>
+ <note><p>Deprecated.</p></note><p>Describes the ClassicLink DNS support status of a VPC.</p>
  */
 @interface AWSEC2ClassicLinkDnsSupport : AWSModel
 
@@ -8829,13 +8858,13 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <note><p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note><p>Describes a linked EC2-Classic instance.</p>
+ <note><p>Deprecated.</p></note><p>Describes a linked EC2-Classic instance.</p>
  */
 @interface AWSEC2ClassicLinkInstance : AWSModel
 
 
 /**
- <p>A list of security groups.</p>
+ <p>The security groups.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2GroupIdentifier *> * _Nullable groups;
 
@@ -9904,7 +9933,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Indicates whether the instance is enabled for AMD SEV-SNP.</p>
+ <p>Indicates whether the instance is enabled for AMD SEV-SNP. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html">AMD SEV-SNP</a>.</p>
  */
 @property (nonatomic, assign) AWSEC2AmdSevSnpSpecification amdSevSnp;
 
@@ -9927,7 +9956,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.</p>
+ <p>Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html">AMD SEV-SNP</a>.</p>
  */
 @property (nonatomic, assign) AWSEC2AmdSevSnpSpecification amdSevSnp;
 
@@ -11007,7 +11036,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can take snapshots of the attached volumes while data is at rest, in order to ensure a consistent state. You can set the <code>NoReboot</code> parameter to <code>true</code> in the API request, or use the <code>--no-reboot</code> option in the CLI to prevent Amazon EC2 from shutting down and rebooting the instance.</p><important><p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code> parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code> option in the CLI, we can't guarantee the file system integrity of the created image.</p></important><p>Default: <code>false</code> (follow standard reboot process)</p>
+ <p>Indicates whether or not the instance should be automatically rebooted before creating the image. Specify one of the following values:</p><ul><li><p><code>true</code> - The instance is not rebooted before creating the image. This creates crash-consistent snapshots that include only the data that has been written to the volumes at the time the snapshots are created. Buffered data and data in memory that has not yet been written to the volumes is not included in the snapshots.</p></li><li><p><code>false</code> - The instance is rebooted before creating the image. This ensures that all buffered data and data in memory is written to the volumes before the snapshots are created.</p></li></ul><p>Default: <code>false</code></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable noReboot;
 
@@ -11866,17 +11895,17 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable privateIpAddress;
 
 /**
- <p>Secondary EIP allocation IDs. For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Secondary EIP allocation IDs. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon VPC User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable secondaryAllocationIds;
 
 /**
- <p>[Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>[Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon VPC User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable secondaryPrivateIpAddressCount;
 
 /**
- <p>Secondary private IPv4 addresses. For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Secondary private IPv4 addresses. For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon VPC User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable secondaryPrivateIpAddresses;
 
@@ -12654,7 +12683,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>A description for the security group.</p><p>Constraints: Up to 255 characters in length</p><p>Constraints for EC2-Classic: ASCII characters</p><p>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</p>
+ <p>A description for the security group.</p><p>Constraints: Up to 255 characters in length</p><p>Valid characters: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
 
@@ -12664,7 +12693,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The name of the security group.</p><p>Constraints: Up to 255 characters in length. Cannot start with <code>sg-</code>.</p><p>Constraints for EC2-Classic: ASCII characters</p><p>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</p>
+ <p>The name of the security group.</p><p>Constraints: Up to 255 characters in length. Cannot start with <code>sg-</code>.</p><p>Valid characters: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</p>
  */
 @property (nonatomic, strong) NSString * _Nullable groupName;
 
@@ -12674,7 +12703,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
 
 /**
- <p>[EC2-VPC] The ID of the VPC. Required for EC2-VPC.</p>
+ <p>The ID of the VPC. Required for a nondefault VPC.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vpcId;
 
@@ -12918,7 +12947,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The Availability Zone or Local Zone for the subnet.</p><p>Default: Amazon Web Services selects one for you. If you create more than one subnet in your VPC, we do not necessarily select a different zone for each subnet.</p><p>To create a subnet in a Local Zone, set this value to the Local Zone ID, for example <code>us-west-2-lax-1a</code>. For information about the Regions that support Local Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions">Available Regions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>To create a subnet in an Outpost, set this value to the Availability Zone for the Outpost and specify the Outpost ARN.</p>
+ <p>The Availability Zone or Local Zone for the subnet.</p><p>Default: Amazon Web Services selects one for you. If you create more than one subnet in your VPC, we do not necessarily select a different zone for each subnet.</p><p>To create a subnet in a Local Zone, set this value to the Local Zone ID, for example <code>us-west-2-lax-1a</code>. For information about the Regions that support Local Zones, see <a href="http://aws.amazon.com/about-aws/global-infrastructure/localzones/locations/">Local Zones locations</a>.</p><p>To create a subnet in an Outpost, set this value to the Availability Zone for the Outpost and specify the Outpost ARN.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable availabilityZone;
 
@@ -14237,7 +14266,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The Availability Zone in which to create the volume.</p>
+ <p>The ID of the Availability Zone in which to create the volume. For example, <code>us-east-1a</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable availabilityZone;
 
@@ -14406,7 +14435,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
 
 /**
- <p>The service name.</p>
+ <p>The name of the endpoint service.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable serviceName;
 
@@ -14426,7 +14455,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2VpcEndpointType vpcEndpointType;
 
 /**
- <p>The ID of the VPC for the endpoint.</p>
+ <p>The ID of the VPC.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vpcId;
 
@@ -16285,12 +16314,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The ID of the security group. Required for a nondefault VPC.</p>
+ <p>The ID of the security group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable groupId;
 
 /**
- <p>[EC2-Classic, default VPC] The name of the security group. You can specify either the security group name or the security group ID. For security groups in a nondefault VPC, you must specify the security group ID.</p>
+ <p>[Default VPC] The name of the security group. You can specify either the security group name or the security group ID. For security groups in a nondefault VPC, you must specify the security group ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable groupName;
 
@@ -18027,12 +18056,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>group-id</code> - The ID of a VPC security group that's associated with the instance.</p></li><li><p><code>instance-id</code> - The ID of the instance.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-id</code> - The ID of the VPC to which the instance is linked.</p><p><code>vpc-id</code> - The ID of the VPC that the instance is linked to.</p></li></ul>
+ <p>The filters.</p><ul><li><p><code>group-id</code> - The ID of a VPC security group that's associated with the instance.</p></li><li><p><code>instance-id</code> - The ID of the instance.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-id</code> - The ID of the VPC to which the instance is linked.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>One or more instance IDs. Must be instances linked to a VPC through ClassicLink.</p>
+ <p>The instance IDs. Must be instances linked to a VPC through ClassicLink.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable instanceIds;
 
@@ -18461,7 +18490,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>dhcp-options-id</code> - The ID of a DHCP options set.</p></li><li><p><code>key</code> - The key for one of the options (for example, <code>domain-name</code>).</p></li><li><p><code>value</code> - The value for one of the options.</p></li><li><p><code>owner-id</code> - The ID of the Amazon Web Services account that owns the DHCP options set.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
+ <p>The filters.</p><ul><li><p><code>dhcp-options-id</code> - The ID of a DHCP options set.</p></li><li><p><code>key</code> - The key for one of the options (for example, <code>domain-name</code>).</p></li><li><p><code>value</code> - The value for one of the options.</p></li><li><p><code>owner-id</code> - The ID of the Amazon Web Services account that owns the DHCP options set.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -18507,12 +18536,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more egress-only internet gateway IDs.</p>
+ <p>The IDs of the egress-only internet gateways.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable egressOnlyInternetGatewayIds;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
+ <p>The filters.</p><ul><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -19571,7 +19600,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable executableUsers;
 
 /**
- <p>The filters.</p><ul><li><p><code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p></li><li><p><code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates whether the Amazon EBS volume is deleted on instance termination.</p></li><li><p><code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p></li><li><p><code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS volume.</p></li><li><p><code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in GiB.</p></li><li><p><code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS volume (<code>io1</code> | <code>io2</code> | <code>gp2</code> | <code>gp3</code> | <code>sc1 </code>| <code>st1</code> | <code>standard</code>).</p></li><li><p><code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS volume is encrypted.</p></li><li><p><code>creation-date</code> - The time when the image was created, in the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which matches an entire day.</p></li><li><p><code>description</code> - The description of the image (provided during image creation).</p></li><li><p><code>ena-support</code> - A Boolean that indicates whether enhanced networking with ENA is enabled.</p></li><li><p><code>hypervisor</code> - The hypervisor type (<code>ovm</code> | <code>xen</code>).</p></li><li><p><code>image-id</code> - The ID of the image.</p></li><li><p><code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> | <code>ramdisk</code>).</p></li><li><p><code>is-public</code> - A Boolean that indicates whether the image is public.</p></li><li><p><code>kernel-id</code> - The kernel ID.</p></li><li><p><code>manifest-location</code> - The location of the image manifest.</p></li><li><p><code>name</code> - The name of the AMI (provided during image creation).</p></li><li><p><code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-marketplace</code>). The valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be set using the IAM console. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p></li><li><p><code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p></li><li><p><code>platform</code> - The platform. The only supported value is <code>windows</code>.</p></li><li><p><code>product-code</code> - The product code.</p></li><li><p><code>product-code.type</code> - The type of the product code (<code>marketplace</code>).</p></li><li><p><code>ramdisk-id</code> - The RAM disk ID.</p></li><li><p><code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p></li><li><p><code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p></li><li><p><code>state</code> - The state of the image (<code>available</code> | <code>pending</code> | <code>failed</code>).</p></li><li><p><code>state-reason-code</code> - The reason code for the state change.</p></li><li><p><code>state-reason-message</code> - The message for the state change.</p></li><li><p><code>sriov-net-support</code> - A value of <code>simple</code> indicates that enhanced networking with the Intel 82599 VF interface is enabled.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> | <code>hvm</code>).</p></li></ul>
+ <p>The filters.</p><ul><li><p><code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code> | <code>x86_64_mac</code> | <code>arm64_mac</code>).</p></li><li><p><code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates whether the Amazon EBS volume is deleted on instance termination.</p></li><li><p><code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p></li><li><p><code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS volume.</p></li><li><p><code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in GiB.</p></li><li><p><code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS volume (<code>io1</code> | <code>io2</code> | <code>gp2</code> | <code>gp3</code> | <code>sc1 </code>| <code>st1</code> | <code>standard</code>).</p></li><li><p><code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS volume is encrypted.</p></li><li><p><code>creation-date</code> - The time when the image was created, in the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which matches an entire day.</p></li><li><p><code>description</code> - The description of the image (provided during image creation).</p></li><li><p><code>ena-support</code> - A Boolean that indicates whether enhanced networking with ENA is enabled.</p></li><li><p><code>hypervisor</code> - The hypervisor type (<code>ovm</code> | <code>xen</code>).</p></li><li><p><code>image-id</code> - The ID of the image.</p></li><li><p><code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> | <code>ramdisk</code>).</p></li><li><p><code>is-public</code> - A Boolean that indicates whether the image is public.</p></li><li><p><code>kernel-id</code> - The kernel ID.</p></li><li><p><code>manifest-location</code> - The location of the image manifest.</p></li><li><p><code>name</code> - The name of the AMI (provided during image creation).</p></li><li><p><code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-marketplace</code>). The valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be set using the IAM console. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p></li><li><p><code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p></li><li><p><code>platform</code> - The platform. The only supported value is <code>windows</code>.</p></li><li><p><code>product-code</code> - The product code.</p></li><li><p><code>product-code.type</code> - The type of the product code (<code>marketplace</code>).</p></li><li><p><code>ramdisk-id</code> - The RAM disk ID.</p></li><li><p><code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p></li><li><p><code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p></li><li><p><code>state</code> - The state of the image (<code>available</code> | <code>pending</code> | <code>failed</code>).</p></li><li><p><code>state-reason-code</code> - The reason code for the state change.</p></li><li><p><code>state-reason-message</code> - The message for the state change.</p></li><li><p><code>sriov-net-support</code> - A value of <code>simple</code> indicates that enhanced networking with the Intel 82599 VF interface is enabled.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> | <code>hvm</code>).</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -20043,7 +20072,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. Filter names and values are case-sensitive.</p><ul><li><p><code>auto-recovery-supported</code> - Indicates whether Amazon CloudWatch action based recovery is supported (<code>true</code> | <code>false</code>).</p></li><li><p><code>bare-metal</code> - Indicates whether it is a bare metal instance type (<code>true</code> | <code>false</code>).</p></li><li><p><code>burstable-performance-supported</code> - Indicates whether it is a burstable performance instance type (<code>true</code> | <code>false</code>).</p></li><li><p><code>current-generation</code> - Indicates whether this instance type is the latest generation instance type of an instance family (<code>true</code> | <code>false</code>).</p></li><li><p><code>ebs-info.ebs-optimized-info.baseline-bandwidth-in-mbps</code> - The baseline bandwidth performance for an EBS-optimized instance type, in Mbps.</p></li><li><p><code>ebs-info.ebs-optimized-info.baseline-iops</code> - The baseline input/output storage operations per second for an EBS-optimized instance type.</p></li><li><p><code>ebs-info.ebs-optimized-info.baseline-throughput-in-mbps</code> - The baseline throughput performance for an EBS-optimized instance type, in MB/s.</p></li><li><p><code>ebs-info.ebs-optimized-info.maximum-bandwidth-in-mbps</code> - The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.</p></li><li><p><code>ebs-info.ebs-optimized-info.maximum-iops</code> - The maximum input/output storage operations per second for an EBS-optimized instance type.</p></li><li><p><code>ebs-info.ebs-optimized-info.maximum-throughput-in-mbps</code> - The maximum throughput performance for an EBS-optimized instance type, in MB/s.</p></li><li><p><code>ebs-info.ebs-optimized-support</code> - Indicates whether the instance type is EBS-optimized (<code>supported</code> | <code>unsupported</code> | <code>default</code>).</p></li><li><p><code>ebs-info.encryption-support</code> - Indicates whether EBS encryption is supported (<code>supported</code> | <code>unsupported</code>).</p></li><li><p><code>ebs-info.nvme-support</code> - Indicates whether non-volatile memory express (NVMe) is supported for EBS volumes (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</p></li><li><p><code>free-tier-eligible</code> - Indicates whether the instance type is eligible to use in the free tier (<code>true</code> | <code>false</code>).</p></li><li><p><code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported (<code>true</code> | <code>false</code>).</p></li><li><p><code>hypervisor</code> - The hypervisor (<code>nitro</code> | <code>xen</code>).</p></li><li><p><code>instance-storage-info.disk.count</code> - The number of local disks.</p></li><li><p><code>instance-storage-info.disk.size-in-gb</code> - The storage size of each instance storage disk, in GB.</p></li><li><p><code>instance-storage-info.disk.type</code> - The storage technology for the local instance storage disks (<code>hdd</code> | <code>ssd</code>).</p></li><li><p><code>instance-storage-info.encryption-support</code> - Indicates whether data is encrypted at rest (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</p></li><li><p><code>instance-storage-info.nvme-support</code> - Indicates whether non-volatile memory express (NVMe) is supported for instance store (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</p></li><li><p><code>instance-storage-info.total-size-in-gb</code> - The total amount of storage available from all local instance storage, in GB.</p></li><li><p><code>instance-storage-supported</code> - Indicates whether the instance type has local instance storage (<code>true</code> | <code>false</code>).</p></li><li><p><code>instance-type</code> - The instance type (for example <code>c5.2xlarge</code> or c5*).</p></li><li><p><code>memory-info.size-in-mib</code> - The memory size.</p></li><li><p><code>network-info.efa-info.maximum-efa-interfaces</code> - The maximum number of Elastic Fabric Adapters (EFAs) per instance.</p></li><li><p><code>network-info.efa-supported</code> - Indicates whether the instance type supports Elastic Fabric Adapter (EFA) (<code>true</code> | <code>false</code>).</p></li><li><p><code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter (ENA) is supported or required (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</p></li><li><p><code>network-info.encryption-in-transit-supported</code> - Indicates whether the instance type automatically encrypts in-transit traffic between instances (<code>true</code> | <code>false</code>).</p></li><li><p><code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private IPv4 addresses per network interface.</p></li><li><p><code>network-info.ipv6-addresses-per-interface</code> - The maximum number of private IPv6 addresses per network interface.</p></li><li><p><code>network-info.ipv6-supported</code> - Indicates whether the instance type supports IPv6 (<code>true</code> | <code>false</code>).</p></li><li><p><code>network-info.maximum-network-cards</code> - The maximum number of network cards per instance.</p></li><li><p><code>network-info.maximum-network-interfaces</code> - The maximum number of network interfaces per instance.</p></li><li><p><code>network-info.network-performance</code> - The network performance (for example, "25 Gigabit").</p></li><li><p><code>processor-info.supported-architecture</code> - The CPU architecture (<code>arm64</code> | <code>i386</code> | <code>x86_64</code>).</p></li><li><p><code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in GHz.</p></li><li><p><code>supported-boot-mode</code> - The boot mode (<code>legacy-bios</code> | <code>uefi</code>).</p></li><li><p><code>supported-root-device-type</code> - The root device type (<code>ebs</code> | <code>instance-store</code>).</p></li><li><p><code>supported-usage-class</code> - The usage class (<code>on-demand</code> | <code>spot</code>).</p></li><li><p><code>supported-virtualization-type</code> - The virtualization type (<code>hvm</code> | <code>paravirtual</code>).</p></li><li><p><code>vcpu-info.default-cores</code> - The default number of cores for the instance type.</p></li><li><p><code>vcpu-info.default-threads-per-core</code> - The default number of threads per core for the instance type.</p></li><li><p><code>vcpu-info.default-vcpus</code> - The default number of vCPUs for the instance type.</p></li><li><p><code>vcpu-info.valid-cores</code> - The number of cores that can be configured for the instance type.</p></li><li><p><code>vcpu-info.valid-threads-per-core</code> - The number of threads per core that can be configured for the instance type. For example, "1" or "1,2".</p></li></ul>
+ <p>One or more filters. Filter names and values are case-sensitive.</p><ul><li><p><code>auto-recovery-supported</code> - Indicates whether Amazon CloudWatch action based recovery is supported (<code>true</code> | <code>false</code>).</p></li><li><p><code>bare-metal</code> - Indicates whether it is a bare metal instance type (<code>true</code> | <code>false</code>).</p></li><li><p><code>burstable-performance-supported</code> - Indicates whether the instance type is a burstable performance T instance type (<code>true</code> | <code>false</code>).</p></li><li><p><code>current-generation</code> - Indicates whether this instance type is the latest generation instance type of an instance family (<code>true</code> | <code>false</code>).</p></li><li><p><code>ebs-info.ebs-optimized-info.baseline-bandwidth-in-mbps</code> - The baseline bandwidth performance for an EBS-optimized instance type, in Mbps.</p></li><li><p><code>ebs-info.ebs-optimized-info.baseline-iops</code> - The baseline input/output storage operations per second for an EBS-optimized instance type.</p></li><li><p><code>ebs-info.ebs-optimized-info.baseline-throughput-in-mbps</code> - The baseline throughput performance for an EBS-optimized instance type, in MB/s.</p></li><li><p><code>ebs-info.ebs-optimized-info.maximum-bandwidth-in-mbps</code> - The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.</p></li><li><p><code>ebs-info.ebs-optimized-info.maximum-iops</code> - The maximum input/output storage operations per second for an EBS-optimized instance type.</p></li><li><p><code>ebs-info.ebs-optimized-info.maximum-throughput-in-mbps</code> - The maximum throughput performance for an EBS-optimized instance type, in MB/s.</p></li><li><p><code>ebs-info.ebs-optimized-support</code> - Indicates whether the instance type is EBS-optimized (<code>supported</code> | <code>unsupported</code> | <code>default</code>).</p></li><li><p><code>ebs-info.encryption-support</code> - Indicates whether EBS encryption is supported (<code>supported</code> | <code>unsupported</code>).</p></li><li><p><code>ebs-info.nvme-support</code> - Indicates whether non-volatile memory express (NVMe) is supported for EBS volumes (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</p></li><li><p><code>free-tier-eligible</code> - Indicates whether the instance type is eligible to use in the free tier (<code>true</code> | <code>false</code>).</p></li><li><p><code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported (<code>true</code> | <code>false</code>).</p></li><li><p><code>hypervisor</code> - The hypervisor (<code>nitro</code> | <code>xen</code>).</p></li><li><p><code>instance-storage-info.disk.count</code> - The number of local disks.</p></li><li><p><code>instance-storage-info.disk.size-in-gb</code> - The storage size of each instance storage disk, in GB.</p></li><li><p><code>instance-storage-info.disk.type</code> - The storage technology for the local instance storage disks (<code>hdd</code> | <code>ssd</code>).</p></li><li><p><code>instance-storage-info.encryption-support</code> - Indicates whether data is encrypted at rest (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</p></li><li><p><code>instance-storage-info.nvme-support</code> - Indicates whether non-volatile memory express (NVMe) is supported for instance store (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</p></li><li><p><code>instance-storage-info.total-size-in-gb</code> - The total amount of storage available from all local instance storage, in GB.</p></li><li><p><code>instance-storage-supported</code> - Indicates whether the instance type has local instance storage (<code>true</code> | <code>false</code>).</p></li><li><p><code>instance-type</code> - The instance type (for example <code>c5.2xlarge</code> or c5*).</p></li><li><p><code>memory-info.size-in-mib</code> - The memory size.</p></li><li><p><code>network-info.efa-info.maximum-efa-interfaces</code> - The maximum number of Elastic Fabric Adapters (EFAs) per instance.</p></li><li><p><code>network-info.efa-supported</code> - Indicates whether the instance type supports Elastic Fabric Adapter (EFA) (<code>true</code> | <code>false</code>).</p></li><li><p><code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter (ENA) is supported or required (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</p></li><li><p><code>network-info.encryption-in-transit-supported</code> - Indicates whether the instance type automatically encrypts in-transit traffic between instances (<code>true</code> | <code>false</code>).</p></li><li><p><code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private IPv4 addresses per network interface.</p></li><li><p><code>network-info.ipv6-addresses-per-interface</code> - The maximum number of private IPv6 addresses per network interface.</p></li><li><p><code>network-info.ipv6-supported</code> - Indicates whether the instance type supports IPv6 (<code>true</code> | <code>false</code>).</p></li><li><p><code>network-info.maximum-network-cards</code> - The maximum number of network cards per instance.</p></li><li><p><code>network-info.maximum-network-interfaces</code> - The maximum number of network interfaces per instance.</p></li><li><p><code>network-info.network-performance</code> - The network performance (for example, "25 Gigabit").</p></li><li><p><code>nitro-enclaves-support</code> - Indicates whether Nitro Enclaves is supported (<code>supported</code> | <code>unsupported</code>).</p></li><li><p><code>nitro-tpm-support</code> - Indicates whether NitroTPM is supported (<code>supported</code> | <code>unsupported</code>).</p></li><li><p><code>nitro-tpm-info.supported-versions</code> - The supported NitroTPM version (<code>2.0</code>).</p></li><li><p><code>processor-info.supported-architecture</code> - The CPU architecture (<code>arm64</code> | <code>i386</code> | <code>x86_64</code>).</p></li><li><p><code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in GHz.</p></li><li><p><code>processor-info.supported-features</code> - The supported CPU features (<code>amd-sev-snp</code>).</p></li><li><p><code>supported-boot-mode</code> - The boot mode (<code>legacy-bios</code> | <code>uefi</code>).</p></li><li><p><code>supported-root-device-type</code> - The root device type (<code>ebs</code> | <code>instance-store</code>).</p></li><li><p><code>supported-usage-class</code> - The usage class (<code>on-demand</code> | <code>spot</code>).</p></li><li><p><code>supported-virtualization-type</code> - The virtualization type (<code>hvm</code> | <code>paravirtual</code>).</p></li><li><p><code>vcpu-info.default-cores</code> - The default number of cores for the instance type.</p></li><li><p><code>vcpu-info.default-threads-per-core</code> - The default number of threads per core for the instance type.</p></li><li><p><code>vcpu-info.default-vcpus</code> - The default number of vCPUs for the instance type.</p></li><li><p><code>vcpu-info.valid-cores</code> - The number of cores that can be configured for the instance type.</p></li><li><p><code>vcpu-info.valid-threads-per-core</code> - The number of threads per core that can be configured for the instance type. For example, "1" or "1,2".</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -20145,12 +20174,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>attachment.state</code> - The current state of the attachment between the gateway and the VPC (<code>available</code>). Present only if a VPC is attached.</p></li><li><p><code>attachment.vpc-id</code> - The ID of an attached VPC.</p></li><li><p><code>internet-gateway-id</code> - The ID of the Internet gateway.</p></li><li><p><code>owner-id</code> - The ID of the Amazon Web Services account that owns the internet gateway.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
+ <p>The filters.</p><ul><li><p><code>attachment.state</code> - The current state of the attachment between the gateway and the VPC (<code>available</code>). Present only if a VPC is attached.</p></li><li><p><code>attachment.vpc-id</code> - The ID of an attached VPC.</p></li><li><p><code>internet-gateway-id</code> - The ID of the Internet gateway.</p></li><li><p><code>owner-id</code> - The ID of the Amazon Web Services account that owns the internet gateway.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>One or more internet gateway IDs.</p><p>Default: Describes all your internet gateways.</p>
+ <p>The IDs of the internet gateways.</p><p>Default: Describes all your internet gateways.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable internetGatewayIds;
 
@@ -21088,7 +21117,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>nat-gateway-id</code> - The ID of the NAT gateway.</p></li><li><p><code>state</code> - The state of the NAT gateway (<code>pending</code> | <code>failed</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p></li><li><p><code>subnet-id</code> - The ID of the subnet in which the NAT gateway resides.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-id</code> - The ID of the VPC in which the NAT gateway resides.</p></li></ul>
+ <p>The filters.</p><ul><li><p><code>nat-gateway-id</code> - The ID of the NAT gateway.</p></li><li><p><code>state</code> - The state of the NAT gateway (<code>pending</code> | <code>failed</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p></li><li><p><code>subnet-id</code> - The ID of the subnet in which the NAT gateway resides.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-id</code> - The ID of the VPC in which the NAT gateway resides.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filter;
 
@@ -21098,7 +21127,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>One or more NAT gateway IDs.</p>
+ <p>The IDs of the NAT gateways.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable natGatewayIds;
 
@@ -21139,7 +21168,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>association.association-id</code> - The ID of an association ID for the ACL.</p></li><li><p><code>association.network-acl-id</code> - The ID of the network ACL involved in the association.</p></li><li><p><code>association.subnet-id</code> - The ID of the subnet involved in the association.</p></li><li><p><code>default</code> - Indicates whether the ACL is the default network ACL for the VPC.</p></li><li><p><code>entry.cidr</code> - The IPv4 CIDR range specified in the entry.</p></li><li><p><code>entry.icmp.code</code> - The ICMP code specified in the entry, if any.</p></li><li><p><code>entry.icmp.type</code> - The ICMP type specified in the entry, if any.</p></li><li><p><code>entry.ipv6-cidr</code> - The IPv6 CIDR range specified in the entry.</p></li><li><p><code>entry.port-range.from</code> - The start of the port range specified in the entry. </p></li><li><p><code>entry.port-range.to</code> - The end of the port range specified in the entry. </p></li><li><p><code>entry.protocol</code> - The protocol specified in the entry (<code>tcp</code> | <code>udp</code> | <code>icmp</code> or a protocol number).</p></li><li><p><code>entry.rule-action</code> - Allows or denies the matching traffic (<code>allow</code> | <code>deny</code>).</p></li><li><p><code>entry.egress</code> - A Boolean that indicates the type of rule. Specify <code>true</code> for egress rules, or <code>false</code> for ingress rules.</p></li><li><p><code>entry.rule-number</code> - The number of an entry (in other words, rule) in the set of ACL entries.</p></li><li><p><code>network-acl-id</code> - The ID of the network ACL.</p></li><li><p><code>owner-id</code> - The ID of the Amazon Web Services account that owns the network ACL.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-id</code> - The ID of the VPC for the network ACL.</p></li></ul>
+ <p>The filters.</p><ul><li><p><code>association.association-id</code> - The ID of an association ID for the ACL.</p></li><li><p><code>association.network-acl-id</code> - The ID of the network ACL involved in the association.</p></li><li><p><code>association.subnet-id</code> - The ID of the subnet involved in the association.</p></li><li><p><code>default</code> - Indicates whether the ACL is the default network ACL for the VPC.</p></li><li><p><code>entry.cidr</code> - The IPv4 CIDR range specified in the entry.</p></li><li><p><code>entry.icmp.code</code> - The ICMP code specified in the entry, if any.</p></li><li><p><code>entry.icmp.type</code> - The ICMP type specified in the entry, if any.</p></li><li><p><code>entry.ipv6-cidr</code> - The IPv6 CIDR range specified in the entry.</p></li><li><p><code>entry.port-range.from</code> - The start of the port range specified in the entry. </p></li><li><p><code>entry.port-range.to</code> - The end of the port range specified in the entry. </p></li><li><p><code>entry.protocol</code> - The protocol specified in the entry (<code>tcp</code> | <code>udp</code> | <code>icmp</code> or a protocol number).</p></li><li><p><code>entry.rule-action</code> - Allows or denies the matching traffic (<code>allow</code> | <code>deny</code>).</p></li><li><p><code>entry.egress</code> - A Boolean that indicates the type of rule. Specify <code>true</code> for egress rules, or <code>false</code> for ingress rules.</p></li><li><p><code>entry.rule-number</code> - The number of an entry (in other words, rule) in the set of ACL entries.</p></li><li><p><code>network-acl-id</code> - The ID of the network ACL.</p></li><li><p><code>owner-id</code> - The ID of the Amazon Web Services account that owns the network ACL.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-id</code> - The ID of the VPC for the network ACL.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -21149,7 +21178,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>One or more network ACL IDs.</p><p>Default: Describes all your network ACLs.</p>
+ <p>The IDs of the network ACLs.</p><p>Default: Describes all your network ACLs.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable networkAclIds;
 
@@ -22078,7 +22107,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>association.route-table-association-id</code> - The ID of an association ID for the route table.</p></li><li><p><code>association.route-table-id</code> - The ID of the route table involved in the association.</p></li><li><p><code>association.subnet-id</code> - The ID of the subnet involved in the association.</p></li><li><p><code>association.main</code> - Indicates whether the route table is the main route table for the VPC (<code>true</code> | <code>false</code>). Route tables that do not have an association ID are not returned in the response.</p></li><li><p><code>owner-id</code> - The ID of the Amazon Web Services account that owns the route table.</p></li><li><p><code>route-table-id</code> - The ID of the route table.</p></li><li><p><code>route.destination-cidr-block</code> - The IPv4 CIDR range specified in a route in the table.</p></li><li><p><code>route.destination-ipv6-cidr-block</code> - The IPv6 CIDR range specified in a route in the route table.</p></li><li><p><code>route.destination-prefix-list-id</code> - The ID (prefix) of the Amazon Web Service specified in a route in the table.</p></li><li><p><code>route.egress-only-internet-gateway-id</code> - The ID of an egress-only Internet gateway specified in a route in the route table.</p></li><li><p><code>route.gateway-id</code> - The ID of a gateway specified in a route in the table.</p></li><li><p><code>route.instance-id</code> - The ID of an instance specified in a route in the table.</p></li><li><p><code>route.nat-gateway-id</code> - The ID of a NAT gateway.</p></li><li><p><code>route.transit-gateway-id</code> - The ID of a transit gateway.</p></li><li><p><code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code> indicates that the route was automatically created when the route table was created; <code>CreateRoute</code> indicates that the route was manually added to the route table; <code>EnableVgwRoutePropagation</code> indicates that the route was propagated by route propagation.</p></li><li><p><code>route.state</code> - The state of a route in the route table (<code>active</code> | <code>blackhole</code>). The blackhole state indicates that the route's target isn't available (for example, the specified gateway isn't attached to the VPC, the specified NAT instance has been terminated, and so on).</p></li><li><p><code>route.vpc-peering-connection-id</code> - The ID of a VPC peering connection specified in a route in the table.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-id</code> - The ID of the VPC for the route table.</p></li></ul>
+ <p>The filters.</p><ul><li><p><code>association.route-table-association-id</code> - The ID of an association ID for the route table.</p></li><li><p><code>association.route-table-id</code> - The ID of the route table involved in the association.</p></li><li><p><code>association.subnet-id</code> - The ID of the subnet involved in the association.</p></li><li><p><code>association.main</code> - Indicates whether the route table is the main route table for the VPC (<code>true</code> | <code>false</code>). Route tables that do not have an association ID are not returned in the response.</p></li><li><p><code>owner-id</code> - The ID of the Amazon Web Services account that owns the route table.</p></li><li><p><code>route-table-id</code> - The ID of the route table.</p></li><li><p><code>route.destination-cidr-block</code> - The IPv4 CIDR range specified in a route in the table.</p></li><li><p><code>route.destination-ipv6-cidr-block</code> - The IPv6 CIDR range specified in a route in the route table.</p></li><li><p><code>route.destination-prefix-list-id</code> - The ID (prefix) of the Amazon Web Service specified in a route in the table.</p></li><li><p><code>route.egress-only-internet-gateway-id</code> - The ID of an egress-only Internet gateway specified in a route in the route table.</p></li><li><p><code>route.gateway-id</code> - The ID of a gateway specified in a route in the table.</p></li><li><p><code>route.instance-id</code> - The ID of an instance specified in a route in the table.</p></li><li><p><code>route.nat-gateway-id</code> - The ID of a NAT gateway.</p></li><li><p><code>route.transit-gateway-id</code> - The ID of a transit gateway.</p></li><li><p><code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code> indicates that the route was automatically created when the route table was created; <code>CreateRoute</code> indicates that the route was manually added to the route table; <code>EnableVgwRoutePropagation</code> indicates that the route was propagated by route propagation.</p></li><li><p><code>route.state</code> - The state of a route in the route table (<code>active</code> | <code>blackhole</code>). The blackhole state indicates that the route's target isn't available (for example, the specified gateway isn't attached to the VPC, the specified NAT instance has been terminated, and so on).</p></li><li><p><code>route.vpc-peering-connection-id</code> - The ID of a VPC peering connection specified in a route in the table.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-id</code> - The ID of the VPC for the route table.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -22093,7 +22122,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>One or more route table IDs.</p><p>Default: Describes all your route tables.</p>
+ <p>The IDs of the route tables.</p><p>Default: Describes all your route tables.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable routeTableIds;
 
@@ -22344,7 +22373,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groupIds;
 
 /**
- <p>[EC2-Classic and default VPC only] The names of the security groups. You can specify either the security group name or the security group ID. For security groups in a nondefault VPC, use the <code>group-name</code> filter to describe security groups by name.</p><p>Default: Describes all of your security groups.</p>
+ <p>[Default VPC] The names of the security groups. You can specify either the security group name or the security group ID.</p><p>Default: Describes all of your security groups.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groupNames;
 
@@ -22958,7 +22987,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>availability-zone</code> - The Availability Zone for the subnet. You can also use <code>availabilityZone</code> as the filter name.</p></li><li><p><code>availability-zone-id</code> - The ID of the Availability Zone for the subnet. You can also use <code>availabilityZoneId</code> as the filter name.</p></li><li><p><code>available-ip-address-count</code> - The number of IPv4 addresses in the subnet that are available.</p></li><li><p><code>cidr-block</code> - The IPv4 CIDR block of the subnet. The CIDR block you specify must exactly match the subnet's CIDR block for information to be returned for the subnet. You can also use <code>cidr</code> or <code>cidrBlock</code> as the filter names.</p></li><li><p><code>customer-owned-ipv4-pool</code> - The customer-owned IPv4 address pool associated with the subnet.</p></li><li><p><code>default-for-az</code> - Indicates whether this is the default subnet for the Availability Zone (<code>true</code> | <code>false</code>). You can also use <code>defaultForAz</code> as the filter name.</p></li><li><p><code>enable-dns64</code> - Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.</p></li><li><p><code>enable-lni-at-device-index</code> - Indicates the device position for local network interfaces in this subnet. For example, <code>1</code> indicates local network interfaces in this subnet are the secondary network interface (eth1). </p></li><li><p><code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR block associated with the subnet.</p></li><li><p><code>ipv6-cidr-block-association.association-id</code> - An association ID for an IPv6 CIDR block associated with the subnet.</p></li><li><p><code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR block associated with the subnet.</p></li><li><p><code>ipv6-native</code> - Indicates whether this is an IPv6 only subnet (<code>true</code> | <code>false</code>).</p></li><li><p><code>map-customer-owned-ip-on-launch</code> - Indicates whether a network interface created in this subnet (including a network interface created by <a>RunInstances</a>) receives a customer-owned IPv4 address.</p></li><li><p><code>map-public-ip-on-launch</code> - Indicates whether instances launched in this subnet receive a public IPv4 address.</p></li><li><p><code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p></li><li><p><code>owner-id</code> - The ID of the Amazon Web Services account that owns the subnet.</p></li><li><p><code>private-dns-name-options-on-launch.hostname-type</code> - The type of hostname to assign to instances in the subnet at launch. For IPv4-only and dual-stack (IPv4 and IPv6) subnets, an instance DNS name can be based on the instance IPv4 address (ip-name) or the instance ID (resource-name). For IPv6 only subnets, an instance DNS name must be based on the instance ID (resource-name).</p></li><li><p><code>private-dns-name-options-on-launch.enable-resource-name-dns-a-record</code> - Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p></li><li><p><code>private-dns-name-options-on-launch.enable-resource-name-dns-aaaa-record</code> - Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p></li><li><p><code>state</code> - The state of the subnet (<code>pending</code> | <code>available</code>).</p></li><li><p><code>subnet-arn</code> - The Amazon Resource Name (ARN) of the subnet.</p></li><li><p><code>subnet-id</code> - The ID of the subnet.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-id</code> - The ID of the VPC for the subnet.</p></li></ul>
+ <p>The filters.</p><ul><li><p><code>availability-zone</code> - The Availability Zone for the subnet. You can also use <code>availabilityZone</code> as the filter name.</p></li><li><p><code>availability-zone-id</code> - The ID of the Availability Zone for the subnet. You can also use <code>availabilityZoneId</code> as the filter name.</p></li><li><p><code>available-ip-address-count</code> - The number of IPv4 addresses in the subnet that are available.</p></li><li><p><code>cidr-block</code> - The IPv4 CIDR block of the subnet. The CIDR block you specify must exactly match the subnet's CIDR block for information to be returned for the subnet. You can also use <code>cidr</code> or <code>cidrBlock</code> as the filter names.</p></li><li><p><code>customer-owned-ipv4-pool</code> - The customer-owned IPv4 address pool associated with the subnet.</p></li><li><p><code>default-for-az</code> - Indicates whether this is the default subnet for the Availability Zone (<code>true</code> | <code>false</code>). You can also use <code>defaultForAz</code> as the filter name.</p></li><li><p><code>enable-dns64</code> - Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.</p></li><li><p><code>enable-lni-at-device-index</code> - Indicates the device position for local network interfaces in this subnet. For example, <code>1</code> indicates local network interfaces in this subnet are the secondary network interface (eth1). </p></li><li><p><code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR block associated with the subnet.</p></li><li><p><code>ipv6-cidr-block-association.association-id</code> - An association ID for an IPv6 CIDR block associated with the subnet.</p></li><li><p><code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR block associated with the subnet.</p></li><li><p><code>ipv6-native</code> - Indicates whether this is an IPv6 only subnet (<code>true</code> | <code>false</code>).</p></li><li><p><code>map-customer-owned-ip-on-launch</code> - Indicates whether a network interface created in this subnet (including a network interface created by <a>RunInstances</a>) receives a customer-owned IPv4 address.</p></li><li><p><code>map-public-ip-on-launch</code> - Indicates whether instances launched in this subnet receive a public IPv4 address.</p></li><li><p><code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p></li><li><p><code>owner-id</code> - The ID of the Amazon Web Services account that owns the subnet.</p></li><li><p><code>private-dns-name-options-on-launch.hostname-type</code> - The type of hostname to assign to instances in the subnet at launch. For IPv4-only and dual-stack (IPv4 and IPv6) subnets, an instance DNS name can be based on the instance IPv4 address (ip-name) or the instance ID (resource-name). For IPv6 only subnets, an instance DNS name must be based on the instance ID (resource-name).</p></li><li><p><code>private-dns-name-options-on-launch.enable-resource-name-dns-a-record</code> - Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p></li><li><p><code>private-dns-name-options-on-launch.enable-resource-name-dns-aaaa-record</code> - Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p></li><li><p><code>state</code> - The state of the subnet (<code>pending</code> | <code>available</code>).</p></li><li><p><code>subnet-arn</code> - The Amazon Resource Name (ARN) of the subnet.</p></li><li><p><code>subnet-id</code> - The ID of the subnet.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-id</code> - The ID of the VPC for the subnet.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -22973,7 +23002,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>One or more subnet IDs.</p><p>Default: Describes all your subnets.</p>
+ <p>The IDs of the subnets.</p><p>Default: Describes all your subnets.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable subnetIds;
 
@@ -24294,7 +24323,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>One or more VPC IDs.</p>
+ <p>The IDs of the VPCs.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable vpcIds;
 
@@ -24330,12 +24359,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>is-classic-link-enabled</code> - Whether the VPC is enabled for ClassicLink (<code>true</code> | <code>false</code>).</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
+ <p>The filters.</p><ul><li><p><code>is-classic-link-enabled</code> - Whether the VPC is enabled for ClassicLink (<code>true</code> | <code>false</code>).</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>One or more VPCs for which you want to describe the ClassicLink status.</p>
+ <p>The VPCs for which you want to describe the ClassicLink status.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable vpcIds;
 
@@ -24348,7 +24377,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The ClassicLink status of one or more VPCs.</p>
+ <p>The ClassicLink status of the VPCs.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2VpcClassicLink *> * _Nullable vpcs;
 
@@ -24672,7 +24701,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>accepter-vpc-info.cidr-block</code> - The IPv4 CIDR block of the accepter VPC.</p></li><li><p><code>accepter-vpc-info.owner-id</code> - The ID of the Amazon Web Services account that owns the accepter VPC.</p></li><li><p><code>accepter-vpc-info.vpc-id</code> - The ID of the accepter VPC.</p></li><li><p><code>expiration-time</code> - The expiration date and time for the VPC peering connection.</p></li><li><p><code>requester-vpc-info.cidr-block</code> - The IPv4 CIDR block of the requester's VPC.</p></li><li><p><code>requester-vpc-info.owner-id</code> - The ID of the Amazon Web Services account that owns the requester VPC.</p></li><li><p><code>requester-vpc-info.vpc-id</code> - The ID of the requester VPC.</p></li><li><p><code>status-code</code> - The status of the VPC peering connection (<code>pending-acceptance</code> | <code>failed</code> | <code>expired</code> | <code>provisioning</code> | <code>active</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code>).</p></li><li><p><code>status-message</code> - A message that provides more information about the status of the VPC peering connection, if applicable.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-peering-connection-id</code> - The ID of the VPC peering connection.</p></li></ul>
+ <p>The filters.</p><ul><li><p><code>accepter-vpc-info.cidr-block</code> - The IPv4 CIDR block of the accepter VPC.</p></li><li><p><code>accepter-vpc-info.owner-id</code> - The ID of the Amazon Web Services account that owns the accepter VPC.</p></li><li><p><code>accepter-vpc-info.vpc-id</code> - The ID of the accepter VPC.</p></li><li><p><code>expiration-time</code> - The expiration date and time for the VPC peering connection.</p></li><li><p><code>requester-vpc-info.cidr-block</code> - The IPv4 CIDR block of the requester's VPC.</p></li><li><p><code>requester-vpc-info.owner-id</code> - The ID of the Amazon Web Services account that owns the requester VPC.</p></li><li><p><code>requester-vpc-info.vpc-id</code> - The ID of the requester VPC.</p></li><li><p><code>status-code</code> - The status of the VPC peering connection (<code>pending-acceptance</code> | <code>failed</code> | <code>expired</code> | <code>provisioning</code> | <code>active</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code>).</p></li><li><p><code>status-message</code> - A message that provides more information about the status of the VPC peering connection, if applicable.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-peering-connection-id</code> - The ID of the VPC peering connection.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -24687,7 +24716,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>One or more VPC peering connection IDs.</p><p>Default: Describes all your VPC peering connections.</p>
+ <p>The IDs of the VPC peering connections.</p><p>Default: Describes all your VPC peering connections.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable vpcPeeringConnectionIds;
 
@@ -24723,7 +24752,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>cidr</code> - The primary IPv4 CIDR block of the VPC. The CIDR block you specify must exactly match the VPC's CIDR block for information to be returned for the VPC. Must contain the slash followed by one or two digits (for example, <code>/28</code>).</p></li><li><p><code>cidr-block-association.cidr-block</code> - An IPv4 CIDR block associated with the VPC.</p></li><li><p><code>cidr-block-association.association-id</code> - The association ID for an IPv4 CIDR block associated with the VPC.</p></li><li><p><code>cidr-block-association.state</code> - The state of an IPv4 CIDR block associated with the VPC.</p></li><li><p><code>dhcp-options-id</code> - The ID of a set of DHCP options.</p></li><li><p><code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR block associated with the VPC.</p></li><li><p><code>ipv6-cidr-block-association.ipv6-pool</code> - The ID of the IPv6 address pool from which the IPv6 CIDR block is allocated.</p></li><li><p><code>ipv6-cidr-block-association.association-id</code> - The association ID for an IPv6 CIDR block associated with the VPC.</p></li><li><p><code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR block associated with the VPC.</p></li><li><p><code>is-default</code> - Indicates whether the VPC is the default VPC.</p></li><li><p><code>owner-id</code> - The ID of the Amazon Web Services account that owns the VPC.</p></li><li><p><code>state</code> - The state of the VPC (<code>pending</code> | <code>available</code>).</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-id</code> - The ID of the VPC.</p></li></ul>
+ <p>The filters.</p><ul><li><p><code>cidr</code> - The primary IPv4 CIDR block of the VPC. The CIDR block you specify must exactly match the VPC's CIDR block for information to be returned for the VPC. Must contain the slash followed by one or two digits (for example, <code>/28</code>).</p></li><li><p><code>cidr-block-association.cidr-block</code> - An IPv4 CIDR block associated with the VPC.</p></li><li><p><code>cidr-block-association.association-id</code> - The association ID for an IPv4 CIDR block associated with the VPC.</p></li><li><p><code>cidr-block-association.state</code> - The state of an IPv4 CIDR block associated with the VPC.</p></li><li><p><code>dhcp-options-id</code> - The ID of a set of DHCP options.</p></li><li><p><code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR block associated with the VPC.</p></li><li><p><code>ipv6-cidr-block-association.ipv6-pool</code> - The ID of the IPv6 address pool from which the IPv6 CIDR block is allocated.</p></li><li><p><code>ipv6-cidr-block-association.association-id</code> - The association ID for an IPv6 CIDR block associated with the VPC.</p></li><li><p><code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR block associated with the VPC.</p></li><li><p><code>is-default</code> - Indicates whether the VPC is the default VPC.</p></li><li><p><code>owner-id</code> - The ID of the Amazon Web Services account that owns the VPC.</p></li><li><p><code>state</code> - The state of the VPC (<code>pending</code> | <code>available</code>).</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-id</code> - The ID of the VPC.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -24738,7 +24767,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>One or more VPC IDs.</p><p>Default: Describes all your VPCs.</p>
+ <p>The IDs of the VPCs.</p><p>Default: Describes all your VPCs.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable vpcIds;
 
@@ -25091,20 +25120,20 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable key;
 
 /**
- <p>One or more values for the DHCP option.</p>
+ <p>The values for the DHCP option.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2AttributeValue *> * _Nullable values;
 
 @end
 
 /**
- <p>Describes a set of DHCP options.</p>
+ <p>The set of DHCP options.</p>
  */
 @interface AWSEC2DhcpOptions : AWSModel
 
 
 /**
- <p>One or more DHCP options in the set.</p>
+ <p>The DHCP options in the set.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2DhcpConfiguration *> * _Nullable dhcpConfigurations;
 
@@ -25913,7 +25942,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable maxDrainDurationSeconds;
 
 /**
- <p>The NAT gateway ID.</p>
+ <p>The ID of the NAT gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable natGatewayId;
 
@@ -25931,7 +25960,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2NatGatewayAddress *> * _Nullable natGatewayAddresses;
 
 /**
- <p>The NAT gateway ID.</p>
+ <p>The ID of the NAT gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable natGatewayId;
 
@@ -28674,7 +28703,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable availabilityZone;
 
 /**
- <p>The ID of the AMI. An AMI is required to launch an instance. The AMI ID must be specified here or in the launch template.</p>
+ <p>The ID of the AMI. An AMI is required to launch an instance. This parameter is only available for fleets of type <code>instant</code>. For fleets of type <code>maintain</code> and <code>request</code>, you must specify the AMI ID in the launch template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable imageId;
 
@@ -28727,7 +28756,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable availabilityZone;
 
 /**
- <p>The ID of the AMI. An AMI is required to launch an instance. The AMI ID must be specified here or in the launch template.</p>
+ <p>The ID of the AMI. An AMI is required to launch an instance. This parameter is only available for fleets of type <code>instant</code>. For fleets of type <code>maintain</code> and <code>request</code>, you must specify the AMI ID in the launch template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable imageId;
 
@@ -31309,26 +31338,26 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Indicates whether your instance is configured for hibernation. This parameter is valid only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Indicates whether your instance is configured for hibernation. This parameter is valid only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 @interface AWSEC2HibernationOptions : AWSModel
 
 
 /**
- <p>If this parameter is set to <code>true</code>, your instance is enabled for hibernation; otherwise, it is not enabled for hibernation.</p>
+ <p>If <code>true</code>, your instance is enabled for hibernation; otherwise, it is not enabled for hibernation.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable configured;
 
 @end
 
 /**
- <p>Indicates whether your instance is configured for hibernation. This parameter is valid only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Indicates whether your instance is configured for hibernation. This parameter is valid only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 @interface AWSEC2HibernationOptionsRequest : AWSModel
 
 
 /**
- <p>If you set this parameter to <code>true</code>, your instance is enabled for hibernation.</p><p>Default: <code>false</code></p>
+ <p>Set to <code>true</code> to enable your instance for hibernation.</p><p>Default: <code>false</code></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable configured;
 
@@ -31395,6 +31424,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Indicates whether the Dedicated Host supports multiple instance types of the same instance family. If the value is <code>on</code>, the Dedicated Host supports multiple instance types in the instance family. If the value is <code>off</code>, the Dedicated Host supports a single instance type only.</p>
  */
 @property (nonatomic, assign) AWSEC2AllowsMultipleInstanceTypes allowsMultipleInstanceTypes;
+
+/**
+ <p>The ID of the Outpost hardware asset on which the Dedicated Host is allocated.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable assetId;
 
 /**
  <p>Whether auto-placement is on or off.</p>
@@ -32212,7 +32246,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable hypervisor;
 
 /**
- <p>An identifier for the symmetric KMS key to use when creating the encrypted AMI. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag must also be set. </p><p>The KMS key identifier may be provided in any of the following formats: </p><ul><li><p>Key ID</p></li><li><p>Key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p></li><li><p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>key</code> namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p></li><li><p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p></li></ul><p>Amazon Web Services parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. This action will eventually report failure. </p><p>The specified KMS key must exist in the Region that the AMI is being copied to.</p><p>Amazon EBS does not support asymmetric KMS keys.</p>
+ <p>An identifier for the symmetric KMS key to use when creating the encrypted AMI. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag must also be set. </p><p>The KMS key identifier may be provided in any of the following formats: </p><ul><li><p>Key ID</p></li><li><p>Key alias</p></li><li><p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>key</code> namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p></li><li><p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p></li></ul><p>Amazon Web Services parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. This action will eventually report failure. </p><p>The specified KMS key must exist in the Region that the AMI is being copied to.</p><p>Amazon EBS does not support asymmetric KMS keys.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
@@ -32227,7 +32261,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable licenseType;
 
 /**
- <p>The operating system of the virtual machine.</p><p>Valid values: <code>Windows</code> | <code>Linux</code></p>
+ <p>The operating system of the virtual machine. If you import a VM that is compatible with Unified Extensible Firmware Interface (UEFI) using an EBS snapshot, you must specify a value for the platform.</p><p>Valid values: <code>Windows</code> | <code>Linux</code></p>
  */
 @property (nonatomic, strong) NSString * _Nullable platform;
 
@@ -32702,7 +32736,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable encrypted;
 
 /**
- <p>An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag must also be set. </p><p>The KMS key identifier may be provided in any of the following formats: </p><ul><li><p>Key ID</p></li><li><p>Key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p></li><li><p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>key</code> namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p></li><li><p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p></li></ul><p>Amazon Web Services parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. This action will eventually report failure. </p><p>The specified KMS key must exist in the Region that the snapshot is being copied to.</p><p>Amazon EBS does not support asymmetric KMS keys.</p>
+ <p>An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag must also be set. </p><p>The KMS key identifier may be provided in any of the following formats: </p><ul><li><p>Key ID</p></li><li><p>Key alias</p></li><li><p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>key</code> namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p></li><li><p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p></li></ul><p>Amazon Web Services parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. This action will eventually report failure. </p><p>The specified KMS key must exist in the Region that the snapshot is being copied to.</p><p>Amazon EBS does not support asymmetric KMS keys.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
@@ -34107,7 +34141,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p><p>When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.</p><p>To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:</p><ul><li><p><code>AllowedInstanceTypes</code> - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.</p></li><li><p><code>ExcludedInstanceTypes</code> - The instance types to exclude from the list, even if they match your specified attributes.</p></li></ul><note><p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes are optional. Any unspecified optional attribute is set to its default.</p></note><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p><p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes are optional. Any unspecified optional attribute is set to its default.</p><p>When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.</p><p>To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:</p><ul><li><p><code>AllowedInstanceTypes</code> - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.</p></li><li><p><code>ExcludedInstanceTypes</code> - The instance types to exclude from the list, even if they match your specified attributes.</p></li></ul><note><p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p><p>Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html">launch instance wizard</a> or with the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances API</a>, you can't specify <code>InstanceRequirements</code>.</p></note><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 @interface AWSEC2InstanceRequirements : AWSModel
 
@@ -34230,7 +34264,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p><p>When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.</p><p>To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:</p><ul><li><p><code>AllowedInstanceTypes</code> - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.</p></li><li><p><code>ExcludedInstanceTypes</code> - The instance types to exclude from the list, even if they match your specified attributes.</p></li></ul><note><p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes are optional. Any unspecified optional attribute is set to its default.</p></note><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p><p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes are optional. Any unspecified optional attribute is set to its default.</p><p>When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.</p><p>To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:</p><ul><li><p><code>AllowedInstanceTypes</code> - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.</p></li><li><p><code>ExcludedInstanceTypes</code> - The instance types to exclude from the list, even if they match your specified attributes.</p></li></ul><note><p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p><p>Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html">launch instance wizard</a>, or with the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> API or <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html">AWS::EC2::Instance</a> Amazon Web Services CloudFormation resource, you can't specify <code>InstanceRequirements</code>.</p></note><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
  Required parameters: [VCpuCount, MemoryMiB]
  */
 @interface AWSEC2InstanceRequirementsRequest : AWSModel
@@ -34317,7 +34351,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2MemoryMiBRequest * _Nullable memoryMiB;
 
 /**
- <p>The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).</p><p>Default: No minimum or maximum limits</p>
+ <p>The minimum and maximum amount of baseline network bandwidth, in gigabits per second (Gbps). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html">Amazon EC2 instance network bandwidth</a> in the <i>Amazon EC2 User Guide</i>.</p><p>Default: No minimum or maximum limits</p>
  */
 @property (nonatomic, strong) AWSEC2NetworkBandwidthGbpsRequest * _Nullable networkBandwidthGbps;
 
@@ -34626,7 +34660,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable bareMetal;
 
 /**
- <p>Indicates whether the instance type is a burstable performance instance type.</p>
+ <p>Indicates whether the instance type is a burstable performance T instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable performance instances</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable burstablePerformanceSupported;
 
@@ -34699,6 +34733,21 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Describes the network settings for the instance type.</p>
  */
 @property (nonatomic, strong) AWSEC2NetworkInfo * _Nullable networkInfo;
+
+/**
+ <p>Indicates whether Nitro Enclaves is supported.</p>
+ */
+@property (nonatomic, assign) AWSEC2NitroEnclavesSupport nitroEnclavesSupport;
+
+/**
+ <p>Describes the supported NitroTPM versions for the instance type.</p>
+ */
+@property (nonatomic, strong) AWSEC2NitroTpmInfo * _Nullable nitroTpmInfo;
+
+/**
+ <p>Indicates whether NitroTPM is supported.</p>
+ */
+@property (nonatomic, assign) AWSEC2NitroTpmSupport nitroTpmSupport;
 
 /**
  <p>Describes the placement group settings for the instance type.</p>
@@ -34862,7 +34911,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable fromPort;
 
 /**
- <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, <code>icmpv6</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>).</p><p>[VPC only] Use <code>-1</code> to specify all protocols. When authorizing security group rules, specifying <code>-1</code> or a protocol number other than <code>tcp</code>, <code>udp</code>, <code>icmp</code>, or <code>icmpv6</code> allows traffic on all ports, regardless of any port range you specify. For <code>tcp</code>, <code>udp</code>, and <code>icmp</code>, you must specify a port range. For <code>icmpv6</code>, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.</p>
+ <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, <code>icmpv6</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>).</p><p>Use <code>-1</code> to specify all protocols. When authorizing security group rules, specifying <code>-1</code> or a protocol number other than <code>tcp</code>, <code>udp</code>, <code>icmp</code>, or <code>icmpv6</code> allows traffic on all ports, regardless of any port range you specify. For <code>tcp</code>, <code>udp</code>, and <code>icmp</code>, you must specify a port range. For <code>icmpv6</code>, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipProtocol;
 
@@ -34872,12 +34921,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2IpRange *> * _Nullable ipRanges;
 
 /**
- <p>[VPC only] The IPv6 ranges.</p>
+ <p>The IPv6 ranges.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Ipv6Range *> * _Nullable ipv6Ranges;
 
 /**
- <p>[VPC only] The prefix list IDs.</p>
+ <p>The prefix list IDs.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2PrefixListId *> * _Nullable prefixListIds;
 
@@ -35827,7 +35876,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>[EC2-VPC only] Describes an IPv6 range.</p>
+ <p>Describes an IPv6 range.</p>
  */
 @interface AWSEC2Ipv6Range : AWSModel
 
@@ -36227,7 +36276,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The launch template.</p>
+ <p>The launch template to use. Make sure that the launch template does not contain the <code>NetworkInterfaceId</code> parameter because you can't specify a network interface ID in a Spot Fleet.</p>
  */
 @property (nonatomic, strong) AWSEC2FleetLaunchTemplateSpecification * _Nullable launchTemplateSpecification;
 
@@ -36245,7 +36294,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Indicates whether the instance is enabled for AMD SEV-SNP.</p>
+ <p>Indicates whether the instance is enabled for AMD SEV-SNP. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html">AMD SEV-SNP</a>.</p>
  */
 @property (nonatomic, assign) AWSEC2AmdSevSnpSpecification amdSevSnp;
 
@@ -36268,7 +36317,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.</p>
+ <p>Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html">AMD SEV-SNP</a>.</p>
  */
 @property (nonatomic, assign) AWSEC2AmdSevSnpSpecification amdSevSnp;
 
@@ -38920,7 +38969,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2InstanceMetadataEndpointState httpEndpoint;
 
 /**
- <p>Enables or disables the IPv6 endpoint for the instance metadata service. This setting applies only if you have enabled the HTTP metadata endpoint.</p>
+ <p>Enables or disables the IPv6 endpoint for the instance metadata service. Applies only if you enabled the HTTP metadata endpoint.</p>
  */
 @property (nonatomic, assign) AWSEC2InstanceMetadataProtocolState httpProtocolIpv6;
 
@@ -38991,7 +39040,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable hostId;
 
 /**
- <p>The ARN of the host resource group in which to place the instance.</p>
+ <p>The ARN of the host resource group in which to place the instance. The instance must have a tenancy of <code>host</code> to specify this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable hostResourceGroupArn;
 
@@ -39006,7 +39055,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable partitionNumber;
 
 /**
- <p>The tenancy for the instance.</p><note><p>For T3 instances, you can't change the tenancy from <code>dedicated</code> to <code>host</code>, or from <code>host</code> to <code>dedicated</code>. Attempting to make one of these unsupported tenancy changes results in the <code>InvalidTenancy</code> error code.</p></note>
+ <p>The tenancy for the instance.</p><note><p>For T3 instances, you must launch the instance on a Dedicated Host to use a tenancy of <code>host</code>. You can't change the tenancy from <code>host</code> to <code>dedicated</code> or <code>default</code>. Attempting to make one of these unsupported tenancy changes results in an <code>InvalidRequest</code> error code.</p></note>
  */
 @property (nonatomic, assign) AWSEC2HostTenancy tenancy;
 
@@ -41641,7 +41690,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2NetworkAclAssociation *> * _Nullable associations;
 
 /**
- <p>One or more entries (rules) in the network ACL.</p>
+ <p>The entries (rules) in the network ACL.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2NetworkAclEntry *> * _Nullable entries;
 
@@ -42564,6 +42613,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Describes the supported NitroTPM versions for the instance type.</p>
+ */
+@interface AWSEC2NitroTpmInfo : AWSModel
+
+
+/**
+ <p>Indicates the supported NitroTPM versions.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedVersions;
+
+@end
+
+/**
  <p>Describes the options for an OpenID Connect-compatible user-identity trust provider.</p>
  */
 @interface AWSEC2OidcOptions : AWSModel
@@ -43015,7 +43077,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <note><p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note><p>Describes the VPC peering connection options.</p>
+ <p>Describes the VPC peering connection options.</p>
  */
 @interface AWSEC2PeeringConnectionOptions : AWSModel
 
@@ -43026,19 +43088,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable allowDnsResolutionFromRemoteVpc;
 
 /**
- <p>If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC using ClassicLink to instances in a peer VPC.</p>
+ <p>Deprecated.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable allowEgressFromLocalClassicLinkToRemoteVpc;
 
 /**
- <p>If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC using ClassicLink.</p>
+ <p>Deprecated.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable allowEgressFromLocalVpcToRemoteClassicLink;
 
 @end
 
 /**
- <note><p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note><p>The VPC peering connection options.</p>
+ <p>The VPC peering connection options.</p>
  */
 @interface AWSEC2PeeringConnectionOptionsRequest : AWSModel
 
@@ -43049,12 +43111,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable allowDnsResolutionFromRemoteVpc;
 
 /**
- <p>If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC using ClassicLink to instances in a peer VPC.</p>
+ <p>Deprecated.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable allowEgressFromLocalClassicLinkToRemoteVpc;
 
 /**
- <p>If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC using ClassicLink.</p>
+ <p>Deprecated.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable allowEgressFromLocalVpcToRemoteClassicLink;
 
@@ -43706,7 +43768,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedArchitectures;
 
 /**
- <p>Indicates whether the instance type supports AMD SEV-SNP. If the request returns <code>amd-sev-snp</code>, AMD SEV-SNP is supported. Otherwise, it is not supported.</p>
+ <p>Indicates whether the instance type supports AMD SEV-SNP. If the request returns <code>amd-sev-snp</code>, AMD SEV-SNP is supported. Otherwise, it is not supported. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html"> AMD SEV-SNP</a>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedFeatures;
 
@@ -45437,7 +45499,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2LaunchTemplateInstanceMarketOptionsRequest * _Nullable instanceMarketOptions;
 
 /**
- <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p><p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p>
+ <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p><p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes are optional. Any unspecified optional attribute is set to its default.</p><p>When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.</p><p>To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:</p><ul><li><p><code>AllowedInstanceTypes</code> - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.</p></li><li><p><code>ExcludedInstanceTypes</code> - The instance types to exclude from the list, even if they match your specified attributes.</p></li></ul><note><p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p><p>Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html">launch instance wizard</a>, or with the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> API or <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html">AWS::EC2::Instance</a> Amazon Web Services CloudFormation resource, you can't specify <code>InstanceRequirements</code>.</p></note><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSEC2InstanceRequirementsRequest * _Nullable instanceRequirements;
 
@@ -47008,12 +47070,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable fromPort;
 
 /**
- <p>The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.</p>
+ <p>The ID of the security group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable groupId;
 
 /**
- <p>[EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.</p>
+ <p>[Default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable groupName;
 
@@ -47033,12 +47095,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupRuleIds;
 
 /**
- <p>[EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. For EC2-VPC, the source security group must be in the same VPC. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.</p>
+ <p>[Default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. The source security group must be in the same VPC. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceSecurityGroupName;
 
 /**
- <p>[EC2-Classic] The Amazon Web Services account ID of the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.</p>
+ <p>Not supported.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceSecurityGroupOwnerId;
 
@@ -47389,12 +47451,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2ElasticInferenceAccelerator *> * _Nullable elasticInferenceAccelerators;
 
 /**
- <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"> What is Amazon Web Services Nitro Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p><p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same instance.</p>
+ <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">What is Amazon Web Services Nitro Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p><p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same instance.</p>
  */
 @property (nonatomic, strong) AWSEC2EnclaveOptionsRequest * _Nullable enclaveOptions;
 
 /**
- <p>Indicates whether an instance is enabled for hibernation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon EC2 User Guide</i>.</p><p>You can't enable hibernation and Amazon Web Services Nitro Enclaves on the same instance.</p>
+ <p>Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon EC2 User Guide</i>.</p><p>You can't enable hibernation and Amazon Web Services Nitro Enclaves on the same instance.</p>
  */
 @property (nonatomic, strong) AWSEC2HibernationOptionsRequest * _Nullable hibernationOptions;
 
@@ -47419,7 +47481,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2InstanceMarketOptionsRequest * _Nullable instanceMarketOptions;
 
 /**
- <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p><p>Default: <code>m1.small</code></p>
+ <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 @property (nonatomic, assign) AWSEC2InstanceType instanceType;
 
@@ -47489,7 +47551,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2Placement * _Nullable placement;
 
 /**
- <p>The options for the instance hostname. The default values are inherited from the subnet.</p>
+ <p>The options for the instance hostname. The default values are inherited from the subnet. Applies only if creating a network interface, not attaching an existing one.</p>
  */
 @property (nonatomic, strong) AWSEC2PrivateDnsNameOptionsRequest * _Nullable privateDnsNameOptions;
 
@@ -48318,7 +48380,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2IpPermission *> * _Nullable ipPermissions;
 
 /**
- <p>[VPC only] The outbound rules associated with the security group.</p>
+ <p>The outbound rules associated with the security group.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2IpPermission *> * _Nullable ipPermissionsEgress;
 
@@ -48333,7 +48395,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
 
 /**
- <p>[VPC only] The ID of the VPC for the security group.</p>
+ <p>The ID of the VPC for the security group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vpcId;
 
@@ -52858,7 +52920,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable maxDrainDurationSeconds;
 
 /**
- <p>The NAT gateway ID.</p>
+ <p>The ID of the NAT gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable natGatewayId;
 
@@ -52881,7 +52943,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2NatGatewayAddress *> * _Nullable natGatewayAddresses;
 
 /**
- <p>The NAT gateway ID.</p>
+ <p>The ID of the NAT gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable natGatewayId;
 
@@ -53007,7 +53069,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable groupId;
 
 /**
- <p>[Default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.</p>
+ <p>[Default VPC] The name of the security group. You must specify either the security group ID or the security group name.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable groupName;
 
@@ -53053,7 +53115,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable groupId;
 
 /**
- <p>[EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.</p>
+ <p>[Default VPC] The name of the security group. You must specify either the security group ID or the security group name. For security groups in a nondefault VPC, you must specify the security group ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable groupName;
 
@@ -53063,7 +53125,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2IpPermission *> * _Nullable ipPermissions;
 
 /**
- <p>[VPC only] The description for the ingress security group rules. You must specify either a description or IP permissions.</p>
+ <p>The description for the ingress security group rules. You must specify either a description or IP permissions.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2SecurityGroupRuleDescription *> * _Nullable securityGroupRuleDescriptions;
 
@@ -53132,7 +53194,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes a security group and Amazon Web Services account ID pair.</p><note><p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note>
+ <p>Describes a security group and Amazon Web Services account ID pair.</p>
  */
 @interface AWSEC2UserIdGroupPair : AWSModel
 
@@ -53148,7 +53210,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable groupId;
 
 /**
- <p>The name of the security group. In a request, use this parameter for a security group in EC2-Classic or a default VPC only. For a security group in a nondefault VPC, use the security group ID. </p><p>For a referenced security group in another VPC, this value is not returned if the referenced security group is deleted.</p>
+ <p>[Default VPC] The name of the security group. For a security group in a nondefault VPC, use the security group ID. </p><p>For a referenced security group in another VPC, this value is not returned if the referenced security group is deleted.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable groupName;
 
@@ -53158,7 +53220,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable peeringStatus;
 
 /**
- <p>The ID of an Amazon Web Services account.</p><p>For a referenced security group in another VPC, the account ID of the referenced security group is returned in the response. If the referenced security group is deleted, this value is not returned.</p><p>[EC2-Classic] Required when adding or removing rules that reference a security group in another Amazon Web Services account.</p>
+ <p>The ID of an Amazon Web Services account.</p><p>For a referenced security group in another VPC, the account ID of the referenced security group is returned in the response. If the referenced security group is deleted, this value is not returned.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userId;
 
@@ -53654,7 +53716,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes the destinations for Verified Access logs.</p>
+ <p>Options for Verified Access logs.</p>
  */
 @interface AWSEC2VerifiedAccessLogOptions : AWSModel
 
@@ -53665,9 +53727,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2VerifiedAccessLogCloudWatchLogsDestinationOptions * _Nullable cloudWatchLogs;
 
 /**
+ <p> Include trust data sent by trust providers into the logs. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable includeTrustContext;
+
+/**
  <p>Sends Verified Access logs to Kinesis.</p>
  */
 @property (nonatomic, strong) AWSEC2VerifiedAccessLogKinesisDataFirehoseDestinationOptions * _Nullable kinesisDataFirehose;
+
+/**
+ <p> The logging version to use. </p><p>Valid values: <code>ocsf-0.1</code> | <code>ocsf-1.0.0-rc.2</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable logVersion;
 
 /**
  <p>Sends Verified Access logs to Amazon S3.</p>
@@ -53739,7 +53811,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes the destinations for Verified Access logs.</p>
+ <p>Describes the options for Verified Access logs.</p>
  */
 @interface AWSEC2VerifiedAccessLogs : AWSModel
 
@@ -53750,9 +53822,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2VerifiedAccessLogCloudWatchLogsDestination * _Nullable cloudWatchLogs;
 
 /**
+ <p> Describes current setting for including trust data into the logs. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable includeTrustContext;
+
+/**
  <p>Kinesis logging destination.</p>
  */
 @property (nonatomic, strong) AWSEC2VerifiedAccessLogKinesisDataFirehoseDestination * _Nullable kinesisDataFirehose;
+
+/**
+ <p> Describes current setting for the logging version. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable logVersion;
 
 /**
  <p>Amazon S3 logging options.</p>
@@ -54404,7 +54486,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <note><p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note><p>Describes whether a VPC is enabled for ClassicLink.</p>
+ <note><p>Deprecated.</p></note><p>Describes whether a VPC is enabled for ClassicLink.</p>
  */
 @interface AWSEC2VpcClassicLink : AWSModel
 
@@ -54664,7 +54746,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <note><p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note><p>Describes the VPC peering connection options.</p>
+ <p>Describes the VPC peering connection options.</p>
  */
 @interface AWSEC2VpcPeeringConnectionOptionsDescription : AWSModel
 
@@ -54675,12 +54757,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable allowDnsResolutionFromRemoteVpc;
 
 /**
- <p>Indicates whether a local ClassicLink connection can communicate with the peer VPC over the VPC peering connection.</p>
+ <p>Deprecated.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable allowEgressFromLocalClassicLinkToRemoteVpc;
 
 /**
- <p>Indicates whether a local VPC can communicate with a ClassicLink connection in the peer VPC over the VPC peering connection.</p>
+ <p>Deprecated.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable allowEgressFromLocalVpcToRemoteClassicLink;
 

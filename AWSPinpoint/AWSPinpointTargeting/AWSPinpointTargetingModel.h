@@ -259,6 +259,12 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
     AWSPinpointTargeting__EndpointTypesElementInApp,
 };
 
+typedef NS_ENUM(NSInteger, AWSPinpointTargeting__TimezoneEstimationMethodsElement) {
+    AWSPinpointTargeting__TimezoneEstimationMethodsElementUnknown,
+    AWSPinpointTargeting__TimezoneEstimationMethodsElementPhoneNumber,
+    AWSPinpointTargeting__TimezoneEstimationMethodsElementPostalCode,
+};
+
 typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
     AWSPinpointTargetingDayOfWeekUnknown,
     AWSPinpointTargetingDayOfWeekMonday,
@@ -7823,6 +7829,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, assign) AWSPinpointTargetingState state;
 
 /**
+ <p>An array of time zone estimation methods, if any, to use for determining an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html">Endpoints</a> time zone if the Endpoint does not have a value for the Demographic.Timezone attribute.</p><ul><li><p>PHONE_NUMBER - A time zone is determined based on the Endpoint.Address and Endpoint.Location.Country.</p></li><li><p>POSTAL_CODE - A time zone is determined based on the Endpoint.Location.PostalCode and Endpoint.Location.Country.</p><note><p>POSTAL_CODE detection is only supported in the United States, United Kingdom, Australia, New Zealand, Canada, France, Italy, Spain, Germany and in regions where Amazon Pinpoint is available.</p></note></li></ul>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable timezoneEstimationMethods;
+
+/**
  <p>Indicates whether endpoints in quiet hours should enter a wait activity until quiet hours have elapsed.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable waitForQuietTime;
@@ -11934,6 +11945,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
  <p>The status of the journey. Valid values are:</p><ul><li><p>DRAFT - Saves the journey and doesn't publish it.</p></li><li><p>ACTIVE - Saves and publishes the journey. Depending on the journey's schedule, the journey starts running immediately or at the scheduled start time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.</p></li></ul><p>PAUSED, CANCELLED, COMPLETED, and CLOSED states are not supported in requests to create or update a journey. To cancel, pause, or resume a journey, use the <linklinkend="apps-application-id-journeys-journey-id-state">Journey State</link> resource.</p>
  */
 @property (nonatomic, assign) AWSPinpointTargetingState state;
+
+/**
+ <p>An array of time zone estimation methods, if any, to use for determining an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html">Endpoints</a> time zone if the Endpoint does not have a value for the Demographic.Timezone attribute.</p><ul><li><p>PHONE_NUMBER - A time zone is determined based on the Endpoint.Address and Endpoint.Location.Country.</p></li><li><p>POSTAL_CODE - A time zone is determined based on the Endpoint.Location.PostalCode and Endpoint.Location.Country.</p><note><p>POSTAL_CODE detection is only supported in the United States, United Kingdom, Australia, New Zealand, Canada, France, Italy, Spain, Germany and in regions where Amazon Pinpoint is available.</p></note></li></ul>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable timezoneEstimationMethods;
 
 /**
  <p>Specifies whether endpoints in quiet hours should enter a wait till the end of their quiet hours.</p>

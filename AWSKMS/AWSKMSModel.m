@@ -209,6 +209,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"constraints" : @"Constraints",
+             @"dryRun" : @"DryRun",
              @"grantTokens" : @"GrantTokens",
              @"granteePrincipal" : @"GranteePrincipal",
              @"keyId" : @"KeyId",
@@ -695,6 +696,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ciphertextBlob" : @"CiphertextBlob",
+             @"dryRun" : @"DryRun",
              @"encryptionAlgorithm" : @"EncryptionAlgorithm",
              @"encryptionContext" : @"EncryptionContext",
              @"grantTokens" : @"GrantTokens",
@@ -994,6 +996,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"encryptionAlgorithm" : @"EncryptionAlgorithm",
              @"encryptionContext" : @"EncryptionContext",
              @"grantTokens" : @"GrantTokens",
@@ -1090,6 +1093,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"encryptionContext" : @"EncryptionContext",
              @"grantTokens" : @"GrantTokens",
              @"keyId" : @"KeyId",
@@ -1233,6 +1237,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"encryptionContext" : @"EncryptionContext",
              @"grantTokens" : @"GrantTokens",
              @"keyId" : @"KeyId",
@@ -1369,6 +1374,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"encryptionContext" : @"EncryptionContext",
              @"grantTokens" : @"GrantTokens",
              @"keyId" : @"KeyId",
@@ -1430,6 +1436,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"encryptionContext" : @"EncryptionContext",
              @"grantTokens" : @"GrantTokens",
              @"keyId" : @"KeyId",
@@ -1484,6 +1491,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"grantTokens" : @"GrantTokens",
              @"keyId" : @"KeyId",
              @"macAlgorithm" : @"MacAlgorithm",
@@ -1688,6 +1696,12 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"RSAES_OAEP_SHA_256"] == NSOrderedSame) {
             return @(AWSKMSAlgorithmSpecRsaesOaepSha256);
         }
+        if ([value caseInsensitiveCompare:@"RSA_AES_KEY_WRAP_SHA_1"] == NSOrderedSame) {
+            return @(AWSKMSAlgorithmSpecRsaAesKeyWrapSha1);
+        }
+        if ([value caseInsensitiveCompare:@"RSA_AES_KEY_WRAP_SHA_256"] == NSOrderedSame) {
+            return @(AWSKMSAlgorithmSpecRsaAesKeyWrapSha256);
+        }
         return @(AWSKMSAlgorithmSpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1697,6 +1711,10 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"RSAES_OAEP_SHA_1";
             case AWSKMSAlgorithmSpecRsaesOaepSha256:
                 return @"RSAES_OAEP_SHA_256";
+            case AWSKMSAlgorithmSpecRsaAesKeyWrapSha1:
+                return @"RSA_AES_KEY_WRAP_SHA_1";
+            case AWSKMSAlgorithmSpecRsaAesKeyWrapSha256:
+                return @"RSA_AES_KEY_WRAP_SHA_256";
             default:
                 return nil;
         }
@@ -1708,11 +1726,21 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"RSA_2048"] == NSOrderedSame) {
             return @(AWSKMSWrappingKeySpecRsa2048);
         }
+        if ([value caseInsensitiveCompare:@"RSA_3072"] == NSOrderedSame) {
+            return @(AWSKMSWrappingKeySpecRsa3072);
+        }
+        if ([value caseInsensitiveCompare:@"RSA_4096"] == NSOrderedSame) {
+            return @(AWSKMSWrappingKeySpecRsa4096);
+        }
         return @(AWSKMSWrappingKeySpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSKMSWrappingKeySpecRsa2048:
                 return @"RSA_2048";
+            case AWSKMSWrappingKeySpecRsa3072:
+                return @"RSA_3072";
+            case AWSKMSWrappingKeySpecRsa4096:
+                return @"RSA_4096";
             default:
                 return nil;
         }
@@ -2731,6 +2759,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
              @"destinationEncryptionAlgorithm" : @"DestinationEncryptionAlgorithm",
              @"destinationEncryptionContext" : @"DestinationEncryptionContext",
              @"destinationKeyId" : @"DestinationKeyId",
+             @"dryRun" : @"DryRun",
              @"grantTokens" : @"GrantTokens",
              @"sourceEncryptionAlgorithm" : @"SourceEncryptionAlgorithm",
              @"sourceEncryptionContext" : @"SourceEncryptionContext",
@@ -2968,6 +2997,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"grantId" : @"GrantId",
              @"grantToken" : @"GrantToken",
              @"keyId" : @"KeyId",
@@ -2984,6 +3014,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"grantId" : @"GrantId",
              @"keyId" : @"KeyId",
              };
@@ -3090,6 +3121,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"grantTokens" : @"GrantTokens",
              @"keyId" : @"KeyId",
              @"message" : @"Message",
@@ -3416,6 +3448,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"grantTokens" : @"GrantTokens",
              @"keyId" : @"KeyId",
              @"mac" : @"Mac",
@@ -3512,6 +3545,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"grantTokens" : @"GrantTokens",
              @"keyId" : @"KeyId",
              @"message" : @"Message",

@@ -1,22 +1,64 @@
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
-  - AWSTranslate
-  - AWSPinpoint
-  - AWSEC2
-  - AWSConnect
-  - AWSSTS
-  - AWSRekognition
-  - AWSDynamoDB
-
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
 -Features for next release
+
+## 2.33.2  
+
+### Bug Fixes
+- **AWSAuthUI**
+  - Fixed spacing and color issues in `AWSSignInViewController` when displaying social providers.
+
+- **AWSFacebookSignIn** & **AWSAuthGoogleSignIn**
+  - Added support for Dark Mode colors
+
+- **AWSTranscribeStreaming**
+  - Fixed assigning of host for CN regions in AWSTranscribeStreaming
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSCloudWatchLogs
+  - AWSCognitoIdentityProvider
+  - AWSEC2
+  - AWSLocation
+  - AWSConnect
+  - AWSTranslate
+  - AWSTranscribe
+  - AWSCognitoIdentityProvider
+
+## 2.33.1
+
+### Misc. Updates
+- **AWSComprehend**
+  - Updating text used in the `testDetectSentimentNeutral` integration test.
+
+- Model updates for the following services
+  - AWSChimeSDKIdentity
+  - AWSChimeSDKMessaging
+  - AWSCloudWatchLogs
+  - AWSConnect
+  - AWSDynamoDB
+  - AWSEC2
+  - AWSIoT
+  - AWSIoTDataPlane
+  - AWSKinesisVideo
+  - AWSKMS
+  - AWSLambda
+  - AWSLocation
+  - AWSPinpoint
+  - AWSPolly
+  - AWSRekognition
+  - AWSSQS
+  - AWSSTS
+  - AWSTranslate
+
+### Bug Fixes
+- **AWSAuthUI**
+  - Fix ability to hide keyboard in `AWSSignInViewController`, using `keyboardDismissMode`
+  - Fix black navigation bar in `AWSSignInViewController`, using view controllers option to 'Extend edges Under Opaque Bars'.  
+   [Issue #2321](https://github.com/aws-amplify/aws-sdk-ios/issues/2321)
 
 ## 2.33.0
 

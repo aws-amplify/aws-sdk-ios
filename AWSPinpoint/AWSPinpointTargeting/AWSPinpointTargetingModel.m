@@ -6752,6 +6752,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"startActivity" : @"StartActivity",
              @"startCondition" : @"StartCondition",
              @"state" : @"State",
+             @"timezoneEstimationMethods" : @"TimezoneEstimationMethods",
              @"waitForQuietTime" : @"WaitForQuietTime",
              @"tags" : @"tags",
              };
@@ -10835,6 +10836,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"startActivity" : @"StartActivity",
              @"startCondition" : @"StartCondition",
              @"state" : @"State",
+             @"timezoneEstimationMethods" : @"TimezoneEstimationMethods",
              @"waitForQuietTime" : @"WaitForQuietTime",
              };
 }

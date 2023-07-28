@@ -118,7 +118,9 @@
 - (void) test_AWSConnectDeleteInstanceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteIntegrationAssociationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeletePromptRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDeleteQueueRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteQuickConnectRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDeleteRoutingProfileRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteRuleRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteSecurityProfileRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteTaskTemplateRequest API_AVAILABLE(ios(11));
@@ -249,6 +251,8 @@
 - (void) test_AWSConnectHistoricalMetricResult API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHoursOfOperation API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHoursOfOperationConfig API_AVAILABLE(ios(11));
+- (void) test_AWSConnectHoursOfOperationSearchCriteria API_AVAILABLE(ios(11));
+- (void) test_AWSConnectHoursOfOperationSearchFilter API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHoursOfOperationSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHoursOfOperationTimeSlice API_AVAILABLE(ios(11));
 - (void) test_AWSConnectInstance API_AVAILABLE(ios(11));
@@ -356,6 +360,8 @@
 - (void) test_AWSConnectPhoneNumberSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectProblemDetail API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPrompt API_AVAILABLE(ios(11));
+- (void) test_AWSConnectPromptSearchCriteria API_AVAILABLE(ios(11));
+- (void) test_AWSConnectPromptSearchFilter API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPromptSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPropertyValidationExceptionProperty API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPutUserStatusRequest API_AVAILABLE(ios(11));
@@ -369,6 +375,8 @@
 - (void) test_AWSConnectQueueSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectQuickConnect API_AVAILABLE(ios(11));
 - (void) test_AWSConnectQuickConnectConfig API_AVAILABLE(ios(11));
+- (void) test_AWSConnectQuickConnectSearchCriteria API_AVAILABLE(ios(11));
+- (void) test_AWSConnectQuickConnectSearchFilter API_AVAILABLE(ios(11));
 - (void) test_AWSConnectQuickConnectSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectReadOnlyFieldInfo API_AVAILABLE(ios(11));
 - (void) test_AWSConnectReference API_AVAILABLE(ios(11));
@@ -377,6 +385,7 @@
 - (void) test_AWSConnectReplicateInstanceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectReplicateInstanceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectRequiredFieldInfo API_AVAILABLE(ios(11));
+- (void) test_AWSConnectResourceTagsSearchCriteria API_AVAILABLE(ios(11));
 - (void) test_AWSConnectResumeContactRecordingRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectResumeContactRecordingResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectRoutingProfile API_AVAILABLE(ios(11));
@@ -394,8 +403,16 @@
 - (void) test_AWSConnectS3Config API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSearchAvailablePhoneNumbersRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSearchAvailablePhoneNumbersResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSearchHoursOfOperationsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSearchHoursOfOperationsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSearchPromptsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSearchPromptsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSearchQueuesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSearchQueuesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSearchQuickConnectsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSearchQuickConnectsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSearchResourceTagsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSearchResourceTagsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSearchRoutingProfilesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSearchRoutingProfilesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSearchSecurityProfilesRequest API_AVAILABLE(ios(11));
@@ -438,6 +455,8 @@
 - (void) test_AWSConnectSuspendContactRecordingResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTagCondition API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTagResourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectTagSearchCondition API_AVAILABLE(ios(11));
+- (void) test_AWSConnectTagSet API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTaskActionDefinition API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTaskTemplateConstraints API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTaskTemplateDefaultFieldValue API_AVAILABLE(ios(11));
@@ -927,8 +946,16 @@
     [self validateSecureCodingForClass:[AWSConnectDeletePromptRequest class]];
 }
 
+- (void) test_AWSConnectDeleteQueueRequest {
+    [self validateSecureCodingForClass:[AWSConnectDeleteQueueRequest class]];
+}
+
 - (void) test_AWSConnectDeleteQuickConnectRequest {
     [self validateSecureCodingForClass:[AWSConnectDeleteQuickConnectRequest class]];
+}
+
+- (void) test_AWSConnectDeleteRoutingProfileRequest {
+    [self validateSecureCodingForClass:[AWSConnectDeleteRoutingProfileRequest class]];
 }
 
 - (void) test_AWSConnectDeleteRuleRequest {
@@ -1451,6 +1478,14 @@
     [self validateSecureCodingForClass:[AWSConnectHoursOfOperationConfig class]];
 }
 
+- (void) test_AWSConnectHoursOfOperationSearchCriteria {
+    [self validateSecureCodingForClass:[AWSConnectHoursOfOperationSearchCriteria class]];
+}
+
+- (void) test_AWSConnectHoursOfOperationSearchFilter {
+    [self validateSecureCodingForClass:[AWSConnectHoursOfOperationSearchFilter class]];
+}
+
 - (void) test_AWSConnectHoursOfOperationSummary {
     [self validateSecureCodingForClass:[AWSConnectHoursOfOperationSummary class]];
 }
@@ -1879,6 +1914,14 @@
     [self validateSecureCodingForClass:[AWSConnectPrompt class]];
 }
 
+- (void) test_AWSConnectPromptSearchCriteria {
+    [self validateSecureCodingForClass:[AWSConnectPromptSearchCriteria class]];
+}
+
+- (void) test_AWSConnectPromptSearchFilter {
+    [self validateSecureCodingForClass:[AWSConnectPromptSearchFilter class]];
+}
+
 - (void) test_AWSConnectPromptSummary {
     [self validateSecureCodingForClass:[AWSConnectPromptSummary class]];
 }
@@ -1931,6 +1974,14 @@
     [self validateSecureCodingForClass:[AWSConnectQuickConnectConfig class]];
 }
 
+- (void) test_AWSConnectQuickConnectSearchCriteria {
+    [self validateSecureCodingForClass:[AWSConnectQuickConnectSearchCriteria class]];
+}
+
+- (void) test_AWSConnectQuickConnectSearchFilter {
+    [self validateSecureCodingForClass:[AWSConnectQuickConnectSearchFilter class]];
+}
+
 - (void) test_AWSConnectQuickConnectSummary {
     [self validateSecureCodingForClass:[AWSConnectQuickConnectSummary class]];
 }
@@ -1961,6 +2012,10 @@
 
 - (void) test_AWSConnectRequiredFieldInfo {
     [self validateSecureCodingForClass:[AWSConnectRequiredFieldInfo class]];
+}
+
+- (void) test_AWSConnectResourceTagsSearchCriteria {
+    [self validateSecureCodingForClass:[AWSConnectResourceTagsSearchCriteria class]];
 }
 
 - (void) test_AWSConnectResumeContactRecordingRequest {
@@ -2031,12 +2086,44 @@
     [self validateSecureCodingForClass:[AWSConnectSearchAvailablePhoneNumbersResponse class]];
 }
 
+- (void) test_AWSConnectSearchHoursOfOperationsRequest {
+    [self validateSecureCodingForClass:[AWSConnectSearchHoursOfOperationsRequest class]];
+}
+
+- (void) test_AWSConnectSearchHoursOfOperationsResponse {
+    [self validateSecureCodingForClass:[AWSConnectSearchHoursOfOperationsResponse class]];
+}
+
+- (void) test_AWSConnectSearchPromptsRequest {
+    [self validateSecureCodingForClass:[AWSConnectSearchPromptsRequest class]];
+}
+
+- (void) test_AWSConnectSearchPromptsResponse {
+    [self validateSecureCodingForClass:[AWSConnectSearchPromptsResponse class]];
+}
+
 - (void) test_AWSConnectSearchQueuesRequest {
     [self validateSecureCodingForClass:[AWSConnectSearchQueuesRequest class]];
 }
 
 - (void) test_AWSConnectSearchQueuesResponse {
     [self validateSecureCodingForClass:[AWSConnectSearchQueuesResponse class]];
+}
+
+- (void) test_AWSConnectSearchQuickConnectsRequest {
+    [self validateSecureCodingForClass:[AWSConnectSearchQuickConnectsRequest class]];
+}
+
+- (void) test_AWSConnectSearchQuickConnectsResponse {
+    [self validateSecureCodingForClass:[AWSConnectSearchQuickConnectsResponse class]];
+}
+
+- (void) test_AWSConnectSearchResourceTagsRequest {
+    [self validateSecureCodingForClass:[AWSConnectSearchResourceTagsRequest class]];
+}
+
+- (void) test_AWSConnectSearchResourceTagsResponse {
+    [self validateSecureCodingForClass:[AWSConnectSearchResourceTagsResponse class]];
 }
 
 - (void) test_AWSConnectSearchRoutingProfilesRequest {
@@ -2205,6 +2292,14 @@
 
 - (void) test_AWSConnectTagResourceRequest {
     [self validateSecureCodingForClass:[AWSConnectTagResourceRequest class]];
+}
+
+- (void) test_AWSConnectTagSearchCondition {
+    [self validateSecureCodingForClass:[AWSConnectTagSearchCondition class]];
+}
+
+- (void) test_AWSConnectTagSet {
+    [self validateSecureCodingForClass:[AWSConnectTagSet class]];
 }
 
 - (void) test_AWSConnectTaskActionDefinition {
