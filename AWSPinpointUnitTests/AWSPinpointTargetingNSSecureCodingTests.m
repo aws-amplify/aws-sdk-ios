@@ -39,6 +39,7 @@
 - (void) test_AWSPinpointTargetingAndroidPushNotificationTemplate API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingApplicationDateRangeKpiResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingApplicationResponse API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingApplicationSettingsJourneyLimits API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingApplicationSettingsResource API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingApplicationsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingAttributeDimension API_AVAILABLE(ios(11));
@@ -309,6 +310,7 @@
 - (void) test_AWSPinpointTargetingJourneySMSMessage API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingJourneySchedule API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingJourneyStateRequest API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingJourneyTimeframeCap API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingJourneysResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingListJourneysRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingListJourneysResponse API_AVAILABLE(ios(11));
@@ -550,6 +552,10 @@
 
 - (void) test_AWSPinpointTargetingApplicationResponse {
     [self validateSecureCodingForClass:[AWSPinpointTargetingApplicationResponse class]];
+}
+
+- (void) test_AWSPinpointTargetingApplicationSettingsJourneyLimits {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingApplicationSettingsJourneyLimits class]];
 }
 
 - (void) test_AWSPinpointTargetingApplicationSettingsResource {
@@ -1630,6 +1636,10 @@
 
 - (void) test_AWSPinpointTargetingJourneyStateRequest {
     [self validateSecureCodingForClass:[AWSPinpointTargetingJourneyStateRequest class]];
+}
+
+- (void) test_AWSPinpointTargetingJourneyTimeframeCap {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingJourneyTimeframeCap class]];
 }
 
 - (void) test_AWSPinpointTargetingJourneysResponse {
