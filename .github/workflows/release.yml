@@ -221,7 +221,7 @@ jobs:
         env:
           RELEASE_FOLDER: ${{ steps.make-release-folder.outputs.releaseFolder }}
           RELEASE_BUCKET: ${{ secrets.RELEASE_BUCKET }}
-          XCF_RELEASE_DISTRIBUTION_ID: $${{ secrets.XCF_RELEASE_DISTRIBUTION_ID }}
+
         run: |
           aws s3api put-object \
             --bucket "$RELEASE_BUCKET" \
@@ -236,6 +236,8 @@ jobs:
             --content-disposition "attachment;filename=${RELEASE_FOLDER}.zip"
 
       - name: Invalidate cloudfront
+        env:
+          XCF_RELEASE_DISTRIBUTION_ID: $${{ secrets.XCF_RELEASE_DISTRIBUTION_ID }}
         run: |
           python3 CircleciScripts/cloudfront_invalidate.py \
           "$XCF_RELEASE_DISTRIBUTION_ID" \
