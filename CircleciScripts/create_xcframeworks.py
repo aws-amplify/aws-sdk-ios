@@ -125,11 +125,11 @@ if __name__ == '__main__':
     # and the build scripts will fail if they're not archived /
     # created in the proper order.
     # *** This may need to be updated when dependencies change ***
-    base_frameworks = xcframeworks[:1]
+    base_frameworks = xcframeworks[:5]
 
     # The remaining_frameworks are archived and built concurrently
     # because they are dependent only on base_frameworks.
-    remaining_frameworks = [] # xcframeworks[5:]
+    remaining_frameworks = xcframeworks[5:]
 
     # To build the remaining_frameworks concurrently, we're using
     # a Pool(). By omitting an explicit input into the Pool constructor

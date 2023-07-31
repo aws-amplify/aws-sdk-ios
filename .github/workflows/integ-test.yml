@@ -17,35 +17,35 @@ jobs:
     strategy:
       matrix:
         scheme:
-          # - AWSMobileClient
-          # - AWSAutoScaling
-          # - AWSCloudWatch
-          # - AWSComprehend
-          # - AWSCore
-          # - AWSDynamoDB
-          # - AWSEC2
-          # - AWSElasticLoadBalancing
-          # - AWSIoT
-          # - AWSKMS
-          # - AWSKinesis
-          # - AWSKinesisVideoSignaling
-          # - AWSLambda
-          # - AWSLex
-          # - AWSPinpoint
-          # - AWSPolly
-          # - AWSRekognition
-          # - AWSS3
-          # - AWSSES
-          # - AWSSNS
-          # - AWSSQS
+          - AWSMobileClient
+          - AWSAutoScaling
+          - AWSCloudWatch
+          - AWSComprehend
+          - AWSCore
+          - AWSDynamoDB
+          - AWSEC2
+          - AWSElasticLoadBalancing
+          - AWSIoT
+          - AWSKMS
+          - AWSKinesis
+          - AWSKinesisVideoSignaling
+          - AWSLambda
+          - AWSLex
+          - AWSPinpoint
+          - AWSPolly
+          - AWSRekognition
+          - AWSS3
+          - AWSSES
+          - AWSSNS
+          - AWSSQS
           - AWSTextract
           - AWSTranscribe
           - AWSTranscribeStreaming
           - AWSTranslate
         include:
           - project: AWSiOSSDKv2.xcodeproj
-          # - project: AWSAuthSDK/AWSAuthSDK.xcodeproj
-          #   scheme: AWSMobileClient
+          - project: AWSAuthSDK/AWSAuthSDK.xcodeproj
+            scheme: AWSMobileClient
 
     runs-on: macos-latest
     steps:

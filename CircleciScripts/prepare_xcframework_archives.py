@@ -10,7 +10,7 @@ from functions import run_command, setup_logging
 
 def create_archives(xcframework_path, archive_path, version):
     os.makedirs(archive_path, exist_ok=True)
-    for framework in xcframeworks[:1]:
+    for framework in xcframeworks:
 
         xcframework_sdk = f"{framework}.xcframework"
         xcframework_sdk_path = os.path.join(xcframework_path, xcframework_sdk)
@@ -34,7 +34,7 @@ def create_archives(xcframework_path, archive_path, version):
 
 def create_checksum(archive_path, spm_manifest_repo, version):
     framework_to_checksum = {}
-    for framework in xcframeworks[:1]:
+    for framework in xcframeworks:
         final_archive_name_with_ext = f"{framework}-{version}.zip"
         zipfile_path = os.path.join(archive_path, final_archive_name_with_ext)
         cmd = [
@@ -59,7 +59,7 @@ def update_spm_manifest(framework_to_checksum, spm_manifest_repo, version):
     with open (f"{spm_manifest_repo}/Package.swift", 'r+') as package_manifest_file:
         content = package_manifest_file.read()
         # Update the checksum
-        for framework in xcframeworks[:1]:
+        for framework in xcframeworks:
             checksum = framework_to_checksum[framework]
             content = re.sub('(^ +"'+framework+'"\: ")([\w.]+)', r'\g<1>' + checksum, content, flags=re.M)
 

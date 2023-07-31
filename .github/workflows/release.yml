@@ -108,7 +108,7 @@ jobs:
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
         with:
           path: aws-sdk-ios-spm
-          repository: 5d/aws-sdk-ios-spm
+          repository: aws-amplify/aws-sdk-ios-spm
 
       - name: Prepare xcframework archives
         working-directory: ${{ github.workspace }}
@@ -144,7 +144,7 @@ jobs:
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
         with:
           persist-credentials: false
-          repository: 5d/aws-sdk-ios-spm
+          repository: aws-amplify/aws-sdk-ios-spm
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@5fd3084fc36e372ff1fff382a39b10d03659f355 # v2.2.0
@@ -169,7 +169,7 @@ jobs:
           cp /tmp/spm-checksum/Package.swift ${{ github.workspace }}/Package.swift
           git add Package.swift
           git commit -m "[release-spm]: Version and checksum update for $RELEASE_VERSION"
-          git push "https://${PAT}@github.com/5d/aws-sdk-ios-spm" pre-release-$RELEASE_VERSION
+          git push "https://${PAT}@github.com/aws-amplify/aws-sdk-ios-spm" pre-release-$RELEASE_VERSION
 
   release-combined-xcframeworks:
     name: Release combine xcframeworks
@@ -221,6 +221,7 @@ jobs:
         env:
           RELEASE_FOLDER: ${{ steps.make-release-folder.outputs.releaseFolder }}
           RELEASE_BUCKET: ${{ secrets.RELEASE_BUCKET }}
+          XCF_RELEASE_DISTRIBUTION_ID: $${{ secrets.XCF_RELEASE_DISTRIBUTION_ID }}
         run: |
           aws s3api put-object \
             --bucket "$RELEASE_BUCKET" \
@@ -236,10 +237,9 @@ jobs:
 
       - name: Invalidate cloudfront
         run: |
-          echo 'TODO: invalidate cloudfront'
-          # python3 CircleciScripts/cloudfront_invalidate.py \
-          # "$XCF_RELEASE_DISTRIBUTION_ID" \
-          # "aws-sdk-ios/latest/aws-ios-sdk.zip"
+          python3 CircleciScripts/cloudfront_invalidate.py \
+          "$XCF_RELEASE_DISTRIBUTION_ID" \
+          "aws-sdk-ios/latest/aws-ios-sdk.zip"
 
   release-tag:
     name: Rlease tag
@@ -393,9 +393,7 @@ jobs:
 
       - name: Publisher new version to CocoaPods
         run: |
-          echo 'TODO: CocoaPods release'
-          pod env
-          # python3 ./CircleciScripts/cocoapods_release.py
+          python3 ./CircleciScripts/cocoapods_release.py
 
   release-carthage:
     name: Release Carthage

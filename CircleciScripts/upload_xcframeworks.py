@@ -34,7 +34,7 @@ if not re.match("^[a-zA-Z0-9-]*$", bucket):
 
 logging.info(f"Uploading xcframeworks from {archive_path}")
 
-for framework in xcframeworks[:1]:
+for framework in xcframeworks:
     filename = f"{framework}-{version}.zip"
     archived_sdk_path = f"{archive_path}/{filename}"
     upload_file(archived_sdk_path, bucket, f"aws-sdk-ios/{filename}")

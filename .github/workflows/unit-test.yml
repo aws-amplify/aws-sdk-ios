@@ -15,50 +15,50 @@ jobs:
     strategy:
       matrix:
         scheme:
-          # - AWSAPIGateway
-          # - AWSAutoScaling
-          # - AWSCloudWatch
-          # - AWSCognitoAuth
-          # - AWSCognitoIdentityProvider
-          # - AWSComprehend
-          # - AWSConnect
-          # - AWSConnectParticipant
-          # - AWSCore
-          # - AWSDynamoDB
-          # - AWSEC2
-          # - AWSElasticLoadBalancing
-          # - AWSIoT
-          # - AWSKMS
-          # - AWSKinesis
-          # - AWSKinesisVideo
-          # - AWSKinesisVideoArchivedMedia
-          # - AWSKinesisVideoSignaling
-          # - AWSKinesisVideoWebRTCStorage
-          # - AWSLambda
-          # - AWSLex
-          # - AWSLogs
-          # - AWSMachineLearning
-          # - AWSMobileClient
-          # - AWSPinpoint
-          # - AWSPolly
-          # - AWSRekognition
-          # - AWSS3
-          # - AWSSES
-          # - AWSSNS
-          # - AWSSQS
-          # - AWSSageMakerRuntime
-          # - AWSSimpleDB
-          # - AWSTextract
-          # - AWSTranscribe
-          # - AWSTranscribeStreaming
+          - AWSAPIGateway
+          - AWSAutoScaling
+          - AWSCloudWatch
+          - AWSCognitoAuth
+          - AWSCognitoIdentityProvider
+          - AWSComprehend
+          - AWSConnect
+          - AWSConnectParticipant
+          - AWSCore
+          - AWSDynamoDB
+          - AWSEC2
+          - AWSElasticLoadBalancing
+          - AWSIoT
+          - AWSKMS
+          - AWSKinesis
+          - AWSKinesisVideo
+          - AWSKinesisVideoArchivedMedia
+          - AWSKinesisVideoSignaling
+          - AWSKinesisVideoWebRTCStorage
+          - AWSLambda
+          - AWSLex
+          - AWSLogs
+          - AWSMachineLearning
+          - AWSMobileClient
+          - AWSPinpoint
+          - AWSPolly
+          - AWSRekognition
+          - AWSS3
+          - AWSSES
+          - AWSSNS
+          - AWSSQS
+          - AWSSageMakerRuntime
+          - AWSSimpleDB
+          - AWSTextract
+          - AWSTranscribe
+          - AWSTranscribeStreaming
           - AWSTranslate
           - AWSLocation
           - AWSChimeSDKMessaging
           - AWSChimeSDKIdentity
         include:
           - project: AWSiOSSDKv2.xcodeproj
-          # - project: AWSAuthSDK/AWSAuthSDK.xcodeproj
-          #   scheme: AWSMobileClient
+          - project: AWSAuthSDK/AWSAuthSDK.xcodeproj
+            scheme: AWSMobileClient
 
     runs-on: macos-latest
 
