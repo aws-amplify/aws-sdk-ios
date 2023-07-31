@@ -253,7 +253,6 @@ static NSString *const AWSRegionNameEUWest3 = @"eu-west-3";
 static NSString *const AWSRegionNameEUCentral1 = @"eu-central-1";
 static NSString *const AWSRegionNameEUCentral2 = @"eu-central-2";
 static NSString *const AWSRegionNameEUNorth1 = @"eu-north-1";
-static NSString *const AWSRegionNameILCentral1 = @"il-central-1";
 static NSString *const AWSRegionNameAPEast1 = @"ap-east-1";
 static NSString *const AWSRegionNameAPSoutheast1 = @"ap-southeast-1";
 static NSString *const AWSRegionNameAPNortheast1 = @"ap-northeast-1";
@@ -274,6 +273,7 @@ static NSString *const AWSRegionNameMESouth1 = @"me-south-1";
 static NSString *const AWSRegionNameAFSouth1 = @"af-south-1";
 static NSString *const AWSRegionNameEUSouth1 = @"eu-south-1";
 static NSString *const AWSRegionNameEUSouth2 = @"eu-south-2";
+static NSString *const AWSRegionNameILCentral1 = @"il-central-1";
 
 static NSString *const AWSServiceNameAPIGateway = @"execute-api";
 static NSString *const AWSServiceNameAutoScaling = @"autoscaling";
@@ -468,7 +468,7 @@ static NSString *const AWSServiceNameChimeSDKIdentity = @"chime";
         case AWSRegionEUCentral2:
             return AWSRegionNameEUCentral2;
         case AWSRegionILCentral1:
-                    return AWSRegionNameILCentral1;
+            return AWSRegionNameILCentral1;
         case AWSRegionAPSoutheast1:
             return AWSRegionNameAPSoutheast1;
         case AWSRegionAPSoutheast2:
