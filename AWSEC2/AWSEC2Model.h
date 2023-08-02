@@ -2526,6 +2526,7 @@ typedef NS_ENUM(NSInteger, AWSEC2SpotInstanceState) {
     AWSEC2SpotInstanceStateClosed,
     AWSEC2SpotInstanceStateCancelled,
     AWSEC2SpotInstanceStateFailed,
+    AWSEC2SpotInstanceStateDisabled,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2SpotInstanceType) {

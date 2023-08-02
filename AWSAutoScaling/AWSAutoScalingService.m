@@ -25,7 +25,7 @@
 #import "AWSAutoScalingResources.h"
 
 static NSString *const AWSInfoAutoScaling = @"AutoScaling";
-NSString *const AWSAutoScalingSDKVersion = @"2.33.1";
+NSString *const AWSAutoScalingSDKVersion = @"2.33.3";
 
 
 @interface AWSAutoScalingResponseSerializer : AWSXMLResponseSerializer

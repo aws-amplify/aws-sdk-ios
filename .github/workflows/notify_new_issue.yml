@@ -25,5 +25,7 @@ jobs:
         env:
           WEBHOOK_URL: ${{ secrets.SLACK_ISSUE_WEBHOOK_URL }}
           ISSUE: ${{toJson(github.event.issue.title)}}
+          ISSUE_URL: ${{github.event.issue.html_url}}
+          USER: ${{github.event.issue.user.login}}
         shell: bash
-        run: echo $ISSUE | sed 's/[^a-zA-Z0-9 &().,:]//g' | xargs -I {} curl -s POST "$WEBHOOK_URL" -H "Content-Type:application/json" --data '{"issue":"{}", "issueUrl":"${{github.event.issue.html_url}}", "user":"${{github.event.issue.user.login}}"}'
+        run: echo $ISSUE | sed 's/[^a-zA-Z0-9 &().,:]//g' | xargs -I {} curl -s POST "$WEBHOOK_URL" -H "Content-Type:application/json" --data '{"issue":"{}", "issueUrl":"'$ISSUE_URL'", "user":"'$USER'"}'

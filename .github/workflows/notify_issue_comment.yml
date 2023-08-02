@@ -27,5 +27,7 @@ jobs:
         env:
           WEBHOOK_URL: ${{ secrets.SLACK_COMMENT_WEBHOOK_URL }}
           COMMENT: ${{toJson(github.event.comment.body)}}
+          USER: ${{github.event.issue.user.login}}
+          COMMENT_URL: ${{github.event.comment.html_url}}
         shell: bash
-        run: echo $COMMENT | sed "s/\\\n/. /g; s/\\\r//g; s/[^a-zA-Z0-9 &().,:]//g" | xargs -I {} curl -s POST "$WEBHOOK_URL" -H "Content-Type:application/json" --data '{"comment":"{}", "commentUrl":"${{github.event.comment.html_url}}", "user":"${{github.event.comment.user.login}}"}'
+        run: echo $COMMENT | sed "s/\\\n/. /g; s/\\\r//g; s/[^a-zA-Z0-9 &().,:]//g" | xargs -I {} curl -s POST "$WEBHOOK_URL" -H "Content-Type:application/json" --data '{"comment":"{}", "commentUrl":"'$COMMENT_URL'", "user":"'$USER'"}'
