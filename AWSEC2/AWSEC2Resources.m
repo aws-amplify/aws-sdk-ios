@@ -51535,7 +51535,8 @@
         \"active\",\
         \"closed\",\
         \"cancelled\",\
-        \"failed\"\
+        \"failed\",\
+        \"disabled\"\
       ]\
     },\
     \"SpotInstanceStateFault\":{\
