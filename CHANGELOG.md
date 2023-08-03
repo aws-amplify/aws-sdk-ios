@@ -5,6 +5,15 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ### Misc. Updates
 
 - Model updates for the following services
+---AWSAutoScaling
+---AWSEC2
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
 ---AWSEC2
 # AWS Mobile SDK for iOS CHANGELOG
 
