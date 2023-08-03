@@ -1140,6 +1140,7 @@
 - (void) test_AWSEC2ImportVolumeTaskDetails API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InferenceAcceleratorInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InferenceDeviceInfo API_AVAILABLE(ios(11));
+- (void) test_AWSEC2InferenceDeviceMemoryInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2Instance API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InstanceAttribute API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InstanceBlockDeviceMapping API_AVAILABLE(ios(11));
@@ -6338,6 +6339,10 @@
 
 - (void) test_AWSEC2InferenceDeviceInfo {
     [self validateSecureCodingForClass:[AWSEC2InferenceDeviceInfo class]];
+}
+
+- (void) test_AWSEC2InferenceDeviceMemoryInfo {
+    [self validateSecureCodingForClass:[AWSEC2InferenceDeviceMemoryInfo class]];
 }
 
 - (void) test_AWSEC2Instance {
