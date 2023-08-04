@@ -4568,6 +4568,28 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)updateQuickConnectName:(AWSConnectUpdateQuickConnectNameRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Whether agents with this routing profile will have their routing order calculated based on <i>time since their last inbound contact</i> or <i>longest idle time</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateRoutingProfileAgentAvailabilityTimer service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectUpdateRoutingProfileAgentAvailabilityTimerRequest
+ */
+- (AWSTask *)updateRoutingProfileAgentAvailabilityTimer:(AWSConnectUpdateRoutingProfileAgentAvailabilityTimerRequest *)request;
+
+/**
+ <p>Whether agents with this routing profile will have their routing order calculated based on <i>time since their last inbound contact</i> or <i>longest idle time</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateRoutingProfileAgentAvailabilityTimer service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectUpdateRoutingProfileAgentAvailabilityTimerRequest
+ */
+- (void)updateRoutingProfileAgentAvailabilityTimer:(AWSConnectUpdateRoutingProfileAgentAvailabilityTimerRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p>Updates the channels that agents can handle in the Contact Control Panel (CCP) for a routing profile.</p>
  
  @param request A container for the necessary parameters to execute the UpdateRoutingProfileConcurrency service method.
