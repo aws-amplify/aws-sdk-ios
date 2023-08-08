@@ -1,0 +1,84 @@
+name: Integration Test
+
+on:
+  workflow_call:
+  pull_request_target:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  integration-test:
+    name: Integration Test
+    environment: IntegrationTest
+    strategy:
+      matrix:
+        scheme:
+          - AWSMobileClient
+          - AWSAutoScaling
+          - AWSCloudWatch
+          - AWSComprehend
+          - AWSCore
+          - AWSDynamoDB
+          - AWSEC2
+          - AWSElasticLoadBalancing
+          - AWSIoT
+          - AWSKMS
+          - AWSKinesis
+          - AWSKinesisVideoSignaling
+          - AWSLambda
+          - AWSLex
+          - AWSPinpoint
+          - AWSPolly
+          - AWSRekognition
+          - AWSS3
+          - AWSSES
+          - AWSSNS
+          - AWSSQS
+          - AWSTextract
+          - AWSTranscribe
+          - AWSTranscribeStreaming
+          - AWSTranslate
+        include:
+          - project: AWSiOSSDKv2.xcodeproj
+          - project: AWSAuthSDK/AWSAuthSDK.xcodeproj
+            scheme: AWSMobileClient
+
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          persist-credentials: false
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@5fd3084fc36e372ff1fff382a39b10d03659f355 # v2.2.0
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          role-duration-seconds: 3600
+          aws-region: us-east-1
+          role-session-name: "integ-test.${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}"
+
+      - name: Build testconfiguration
+        run: ./Scripts/generate-test-config.sh -p ios -v
+        shell: bash
+
+      - name: ${{ matrix.scheme }}
+        run: |
+          xcodebuild test -project ${{ matrix.project }} \
+          -scheme ${{ matrix.scheme }} \
+          -sdk iphonesimulator \
+          -destination "platform=iOS Simulator,name=iPhone 14,OS=latest" \
+          -only-testing:"${{ matrix.scheme }}Tests" | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
+
+      - name: Additional AWSMobileClient integration test targets
+        if: ${{ matrix.scheme == 'AWSMobileClient' }}
+        run: |
+          xcodebuild test -project ${{ matrix.project }} \
+          -scheme ${{ matrix.scheme }} \
+          -sdk iphonesimulator \
+          -destination "platform=iOS Simulator,name=iPhone 14,OS=latest" \
+          -only-testing:AWSMobileClientCustomAuthTests | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
