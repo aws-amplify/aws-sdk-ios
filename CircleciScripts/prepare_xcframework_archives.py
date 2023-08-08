@@ -4,30 +4,30 @@ import shutil
 import re
 import logging
 
-from semver_util import validate_version 
+from semver_util import validate_version
 from framework_list import xcframeworks
 from functions import run_command, setup_logging
 
 def create_archives(xcframework_path, archive_path, version):
     os.makedirs(archive_path, exist_ok=True)
     for framework in xcframeworks:
-        
+
         xcframework_sdk = f"{framework}.xcframework"
         xcframework_sdk_path = os.path.join(xcframework_path, xcframework_sdk)
-        
+
         archive_name = f"{framework}-{version}"
         final_archive_name_with_ext = f"{archive_name}.zip"
         logging.info(f"Creating zip file for {archive_name}")
-        
+
         temp_folder = os.path.join(xcframework_path, framework)
         logging.info(f"Copying the zip to a temp location {temp_folder}")
-        shutil.copytree(xcframework_sdk_path, os.path.join(temp_folder, xcframework_sdk))  
+        shutil.copytree(xcframework_sdk_path, os.path.join(temp_folder, xcframework_sdk))
 
         logging.info(f"Generate the archive and move it to the archive directory")
         shutil.make_archive(archive_name, "zip", root_dir=temp_folder, base_dir=xcframework_sdk)
-        
+
         final_archived_path = os.path.join(archive_path, final_archive_name_with_ext)
-        shutil.move(final_archive_name_with_ext, final_archived_path)  
+        shutil.move(final_archive_name_with_ext, final_archived_path)
 
         logging.info(f"Remove the temp folder")
         shutil.rmtree(temp_folder)
@@ -44,8 +44,8 @@ def create_checksum(archive_path, spm_manifest_repo, version):
             spm_manifest_repo,
             "compute-checksum",
             zipfile_path
-        ] 
-        
+        ]
+
         (exit_code, out, err) = run_command(cmd, keepalive_interval=300, timeout=7200)
         if exit_code == 0:
             logging.info(f"Created check sum for archive {framework} {out}")
@@ -59,10 +59,10 @@ def update_spm_manifest(framework_to_checksum, spm_manifest_repo, version):
     with open (f"{spm_manifest_repo}/Package.swift", 'r+') as package_manifest_file:
         content = package_manifest_file.read()
         # Update the checksum
-        for framework in xcframeworks:  
+        for framework in xcframeworks:
             checksum = framework_to_checksum[framework]
             content = re.sub('(^ +"'+framework+'"\: ")([\w.]+)', r'\g<1>' + checksum, content, flags=re.M)
-        
+
         # Update the version
         content = re.sub('(^let latestVersion = \")([\w.]+)', r'\g<1>' + version, content, flags=re.M)
         package_manifest_file.seek(0)

@@ -1,14 +1,25 @@
 ---
 
-MOVE THIS SECTION TO THE CORRECT LOCATION
+# AWS Mobile SDK for iOS CHANGELOG
+
+## Unreleased
 
 ### Misc. Updates
 
 - Model updates for the following services
----AWSPolly
-# AWS Mobile SDK for iOS CHANGELOG
+ - AWSDynamoDB
+ - AWSEC2
+ - AWSSTS
+ - AWSLambda
+ - AWSPolly
 
-## Unreleased  
+## 2.33.3
+
+### New features
+- **AWSCore**
+  - Support for `il-central-1` - Israel (Tel Aviv) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
+
+## 2.33.2  
 
 ### Bug Fixes
 - **AWSAuthUI**
