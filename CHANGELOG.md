@@ -11,6 +11,7 @@
  - AWSEC2
  - AWSSTS
  - AWSLambda
+ - AWSPolly
 
 ## 2.33.3
 
