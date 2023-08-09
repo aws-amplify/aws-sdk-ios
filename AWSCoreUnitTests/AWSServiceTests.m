@@ -18,6 +18,18 @@
 #import "AWSCore.h"
 #import "AWSTestUtility.h"
 
+@interface AWSService (AWSServiceTests)
+
++ (NSString *)regionNameFromType:(AWSRegionType)regionType;
+
+@end
+
+@interface NSString (AWSServiceTests)
+
+- (AWSRegionType)aws_regionTypeValue;
+
+@end
+
 @interface AWSServiceTests : XCTestCase
 
 @end
@@ -477,6 +489,151 @@
                                                                                 credentialsProvider:credentialsProvider];
     XCTAssertEqual(serviceConfiguration.regionType, AWSRegionUSWest2);
     XCTAssertEqualObjects(serviceConfiguration.credentialsProvider, credentialsProvider);
+}
+
+- (void)testRegionTypeNames {
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionUSEast1], @"us-east-1");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionUSEast2], @"us-east-2");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionUSWest1], @"us-west-1");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionUSWest2], @"us-west-2");
+
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionEUCentral1], @"eu-central-1");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionEUCentral2], @"eu-central-2");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionEUNorth1], @"eu-north-1");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionEUSouth1], @"eu-south-1");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionEUSouth2], @"eu-south-2");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionEUWest1], @"eu-west-1");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionEUWest2], @"eu-west-2");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionEUWest3], @"eu-west-3");
+
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionAPEast1], @"ap-east-1");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionAPNortheast1], @"ap-northeast-1");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionAPNortheast2], @"ap-northeast-2");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionAPSouth1], @"ap-south-1");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionAPSouth2], @"ap-south-2");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionAPSoutheast1], @"ap-southeast-1");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionAPSoutheast2], @"ap-southeast-2");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionAPSoutheast3], @"ap-southeast-3");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionAPSoutheast4], @"ap-southeast-4");
+
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionCNNorth1], @"cn-north-1");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionCNNorthWest1], @"cn-northwest-1");
+
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionUSGovEast1], @"us-gov-east-1");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionUSGovWest1], @"us-gov-west-1");
+
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionMECentral1], @"me-central-1");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionMESouth1], @"me-south-1");
+
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionAFSouth1], @"af-south-1");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionCACentral1], @"ca-central-1");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionILCentral1], @"il-central-1");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionSAEast1], @"sa-east-1");
+}
+
+- (void)testStringRegionTypeValue {
+    XCTAssertEqual([@"AWSRegionUSEast1" aws_regionTypeValue], AWSRegionUSEast1);
+    XCTAssertEqual([@"USEast1" aws_regionTypeValue], AWSRegionUSEast1);
+    XCTAssertEqual([@"us-east-1" aws_regionTypeValue], AWSRegionUSEast1);
+    XCTAssertEqual([@"AWSRegionUSEast2" aws_regionTypeValue], AWSRegionUSEast2);
+    XCTAssertEqual([@"USEast2" aws_regionTypeValue], AWSRegionUSEast2);
+    XCTAssertEqual([@"us-east-2" aws_regionTypeValue], AWSRegionUSEast2);
+    XCTAssertEqual([@"AWSRegionUSWest1" aws_regionTypeValue], AWSRegionUSWest1);
+    XCTAssertEqual([@"USWest1" aws_regionTypeValue], AWSRegionUSWest1);
+    XCTAssertEqual([@"us-west-1" aws_regionTypeValue], AWSRegionUSWest1);
+    XCTAssertEqual([@"AWSRegionUSWest2" aws_regionTypeValue], AWSRegionUSWest2);
+    XCTAssertEqual([@"USWest2" aws_regionTypeValue], AWSRegionUSWest2);
+    XCTAssertEqual([@"us-west-2" aws_regionTypeValue], AWSRegionUSWest2);
+
+    XCTAssertEqual([@"AWSRegionEUCentral1" aws_regionTypeValue], AWSRegionEUCentral1);
+    XCTAssertEqual([@"EUCentral1" aws_regionTypeValue], AWSRegionEUCentral1);
+    XCTAssertEqual([@"eu-central-1" aws_regionTypeValue], AWSRegionEUCentral1);
+    XCTAssertEqual([@"AWSRegionEUCentral2" aws_regionTypeValue], AWSRegionEUCentral2);
+    XCTAssertEqual([@"EUCentral2" aws_regionTypeValue], AWSRegionEUCentral2);
+    XCTAssertEqual([@"eu-central-2" aws_regionTypeValue], AWSRegionEUCentral2);
+    XCTAssertEqual([@"AWSRegionEUNorth1" aws_regionTypeValue], AWSRegionEUNorth1);
+    XCTAssertEqual([@"EUNorth1" aws_regionTypeValue], AWSRegionEUNorth1);
+    XCTAssertEqual([@"eu-north-1" aws_regionTypeValue], AWSRegionEUNorth1);
+    XCTAssertEqual([@"AWSRegionEUSouth1" aws_regionTypeValue], AWSRegionEUSouth1);
+    XCTAssertEqual([@"EUSouth1" aws_regionTypeValue], AWSRegionEUSouth1);
+    XCTAssertEqual([@"eu-south-1" aws_regionTypeValue], AWSRegionEUSouth1);
+    XCTAssertEqual([@"AWSRegionEUSouth2" aws_regionTypeValue], AWSRegionEUSouth2);
+    XCTAssertEqual([@"EUSouth2" aws_regionTypeValue], AWSRegionEUSouth2);
+    XCTAssertEqual([@"eu-south-2" aws_regionTypeValue], AWSRegionEUSouth2);
+    XCTAssertEqual([@"AWSRegionEUWest1" aws_regionTypeValue], AWSRegionEUWest1);
+    XCTAssertEqual([@"EUWest1" aws_regionTypeValue], AWSRegionEUWest1);
+    XCTAssertEqual([@"eu-west-1" aws_regionTypeValue], AWSRegionEUWest1);
+    XCTAssertEqual([@"AWSRegionEUWest2" aws_regionTypeValue], AWSRegionEUWest2);
+    XCTAssertEqual([@"EUWest2" aws_regionTypeValue], AWSRegionEUWest2);
+    XCTAssertEqual([@"eu-west-2" aws_regionTypeValue], AWSRegionEUWest2);
+    XCTAssertEqual([@"AWSRegionEUWest3" aws_regionTypeValue], AWSRegionEUWest3);
+    XCTAssertEqual([@"EUWest3" aws_regionTypeValue], AWSRegionEUWest3);
+    XCTAssertEqual([@"eu-west-3" aws_regionTypeValue], AWSRegionEUWest3);
+
+    XCTAssertEqual([@"AWSRegionAPEast1" aws_regionTypeValue], AWSRegionAPEast1);
+    XCTAssertEqual([@"APEast1" aws_regionTypeValue], AWSRegionAPEast1);
+    XCTAssertEqual([@"ap-east-1" aws_regionTypeValue], AWSRegionAPEast1);
+    XCTAssertEqual([@"AWSRegionAPNortheast1" aws_regionTypeValue], AWSRegionAPNortheast1);
+    XCTAssertEqual([@"APNortheast1" aws_regionTypeValue], AWSRegionAPNortheast1);
+    XCTAssertEqual([@"ap-northeast-1" aws_regionTypeValue], AWSRegionAPNortheast1);
+    XCTAssertEqual([@"AWSRegionAPNortheast2" aws_regionTypeValue], AWSRegionAPNortheast2);
+    XCTAssertEqual([@"APNortheast2" aws_regionTypeValue], AWSRegionAPNortheast2);
+    XCTAssertEqual([@"ap-northeast-2" aws_regionTypeValue], AWSRegionAPNortheast2);
+    XCTAssertEqual([@"AWSRegionAPSouth1" aws_regionTypeValue], AWSRegionAPSouth1);
+    XCTAssertEqual([@"APSouth1" aws_regionTypeValue], AWSRegionAPSouth1);
+    XCTAssertEqual([@"ap-south-1" aws_regionTypeValue], AWSRegionAPSouth1);
+    XCTAssertEqual([@"AWSRegionAPSouth2" aws_regionTypeValue], AWSRegionAPSouth2);
+    XCTAssertEqual([@"APSouth2" aws_regionTypeValue], AWSRegionAPSouth2);
+    XCTAssertEqual([@"ap-south-2" aws_regionTypeValue], AWSRegionAPSouth2);
+    XCTAssertEqual([@"AWSRegionAPSoutheast1" aws_regionTypeValue], AWSRegionAPSoutheast1);
+    XCTAssertEqual([@"APSoutheast1" aws_regionTypeValue], AWSRegionAPSoutheast1);
+    XCTAssertEqual([@"ap-southeast-1" aws_regionTypeValue], AWSRegionAPSoutheast1);
+    XCTAssertEqual([@"AWSRegionAPSoutheast2" aws_regionTypeValue], AWSRegionAPSoutheast2);
+    XCTAssertEqual([@"APSoutheast2" aws_regionTypeValue], AWSRegionAPSoutheast2);
+    XCTAssertEqual([@"ap-southeast-2" aws_regionTypeValue], AWSRegionAPSoutheast2);
+    XCTAssertEqual([@"AWSRegionAPSoutheast3" aws_regionTypeValue], AWSRegionAPSoutheast3);
+    XCTAssertEqual([@"APSoutheast3" aws_regionTypeValue], AWSRegionAPSoutheast3);
+    XCTAssertEqual([@"ap-southeast-3" aws_regionTypeValue], AWSRegionAPSoutheast3);
+    XCTAssertEqual([@"AWSRegionAPSoutheast4" aws_regionTypeValue], AWSRegionAPSoutheast4);
+    XCTAssertEqual([@"APSoutheast4" aws_regionTypeValue], AWSRegionAPSoutheast4);
+    XCTAssertEqual([@"ap-southeast-4" aws_regionTypeValue], AWSRegionAPSoutheast4);
+
+    XCTAssertEqual([@"AWSRegionCNNorth1" aws_regionTypeValue], AWSRegionCNNorth1);
+    XCTAssertEqual([@"CNNorth1" aws_regionTypeValue], AWSRegionCNNorth1);
+    XCTAssertEqual([@"cn-north-1" aws_regionTypeValue], AWSRegionCNNorth1);
+    XCTAssertEqual([@"AWSRegionCNNorthWest1" aws_regionTypeValue], AWSRegionCNNorthWest1);
+    XCTAssertEqual([@"CNNorthWest1" aws_regionTypeValue], AWSRegionCNNorthWest1);
+    XCTAssertEqual([@"cn-northwest-1" aws_regionTypeValue], AWSRegionCNNorthWest1);
+
+    XCTAssertEqual([@"AWSRegionUSGovEast1" aws_regionTypeValue], AWSRegionUSGovEast1);
+    XCTAssertEqual([@"USGovEast1" aws_regionTypeValue], AWSRegionUSGovEast1);
+    XCTAssertEqual([@"us-gov-east-1" aws_regionTypeValue], AWSRegionUSGovEast1);
+    XCTAssertEqual([@"AWSRegionUSGovWest1" aws_regionTypeValue], AWSRegionUSGovWest1);
+    XCTAssertEqual([@"USGovWest1" aws_regionTypeValue], AWSRegionUSGovWest1);
+    XCTAssertEqual([@"us-gov-west-1" aws_regionTypeValue], AWSRegionUSGovWest1);
+
+    XCTAssertEqual([@"AWSRegionMECentral1" aws_regionTypeValue], AWSRegionMECentral1);
+    XCTAssertEqual([@"MECentral1" aws_regionTypeValue], AWSRegionMECentral1);
+    XCTAssertEqual([@"me-central-1" aws_regionTypeValue], AWSRegionMECentral1);
+    XCTAssertEqual([@"AWSRegionMESouth1" aws_regionTypeValue], AWSRegionMESouth1);
+    XCTAssertEqual([@"MESouth1" aws_regionTypeValue], AWSRegionMESouth1);
+    XCTAssertEqual([@"me-south-1" aws_regionTypeValue], AWSRegionMESouth1);
+
+    XCTAssertEqual([@"AWSRegionAFSouth1" aws_regionTypeValue], AWSRegionAFSouth1);
+    XCTAssertEqual([@"AFSouth1" aws_regionTypeValue], AWSRegionAFSouth1);
+    XCTAssertEqual([@"af-south-1" aws_regionTypeValue], AWSRegionAFSouth1);
+
+    XCTAssertEqual([@"AWSRegionCACentral1" aws_regionTypeValue], AWSRegionCACentral1);
+    XCTAssertEqual([@"CACentral1" aws_regionTypeValue], AWSRegionCACentral1);
+    XCTAssertEqual([@"ca-central-1" aws_regionTypeValue], AWSRegionCACentral1);
+
+    XCTAssertEqual([@"AWSRegionILCentral1" aws_regionTypeValue], AWSRegionILCentral1);
+    XCTAssertEqual([@"ILCentral1" aws_regionTypeValue], AWSRegionILCentral1);
+    XCTAssertEqual([@"il-central-1" aws_regionTypeValue], AWSRegionILCentral1);
+
+    XCTAssertEqual([@"AWSRegionSAEast1" aws_regionTypeValue], AWSRegionSAEast1);
+    XCTAssertEqual([@"SAEast1" aws_regionTypeValue], AWSRegionSAEast1);
+    XCTAssertEqual([@"sa-east-1" aws_regionTypeValue], AWSRegionSAEast1);
 }
 
 @end
