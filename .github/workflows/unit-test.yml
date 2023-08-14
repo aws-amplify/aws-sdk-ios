@@ -1,0 +1,86 @@
+name: Unit Test
+
+on:
+  workflow_call:
+  pull_request:
+    branches:
+      - main
+
+permissions: { }
+
+jobs:
+
+  unit-test:
+    name: Unit Test
+    strategy:
+      matrix:
+        scheme:
+          - AWSAPIGateway
+          - AWSAutoScaling
+          - AWSCloudWatch
+          - AWSCognitoAuth
+          - AWSCognitoIdentityProvider
+          - AWSComprehend
+          - AWSConnect
+          - AWSConnectParticipant
+          - AWSCore
+          - AWSDynamoDB
+          - AWSEC2
+          - AWSElasticLoadBalancing
+          - AWSIoT
+          - AWSKMS
+          - AWSKinesis
+          - AWSKinesisVideo
+          - AWSKinesisVideoArchivedMedia
+          - AWSKinesisVideoSignaling
+          - AWSKinesisVideoWebRTCStorage
+          - AWSLambda
+          - AWSLex
+          - AWSLogs
+          - AWSMachineLearning
+          - AWSMobileClient
+          - AWSPinpoint
+          - AWSPolly
+          - AWSRekognition
+          - AWSS3
+          - AWSSES
+          - AWSSNS
+          - AWSSQS
+          - AWSSageMakerRuntime
+          - AWSSimpleDB
+          - AWSTextract
+          - AWSTranscribe
+          - AWSTranscribeStreaming
+          - AWSTranslate
+          - AWSLocation
+          - AWSChimeSDKMessaging
+          - AWSChimeSDKIdentity
+        include:
+          - project: AWSiOSSDKv2.xcodeproj
+          - project: AWSAuthSDK/AWSAuthSDK.xcodeproj
+            scheme: AWSMobileClient
+
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        with:
+          persist-credentials: false
+
+      - name: ${{ matrix.scheme }}
+        run: |
+          xcodebuild test -project "${{ matrix.project }}" \
+          -scheme ${{ matrix.scheme }} \
+          -destination "platform=iOS Simulator,name=iPhone 14,OS=latest" \
+          -sdk iphonesimulator \
+          -only-testing:"${{ matrix.scheme }}UnitTests" | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
+
+      - name: Additional AWSCore unit test
+        if: ${{ matrix.scheme == 'AWSCore' }}
+        run: |
+          xcodebuild test -project "${{ matrix.project }}" \
+          -scheme ${{ matrix.scheme }} \
+          -destination "platform=iOS Simulator,name=iPhone 14,OS=latest" \
+          -sdk iphonesimulator \
+          -only-testing:AWSCoreServiceConfigurationTest \
+          -only-testing:AWSCoreConfigurationTest | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
