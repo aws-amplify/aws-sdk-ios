@@ -1,17 +1,24 @@
 ---
 
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSEC2
----AWSAutoScaling
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+
+- Model updates for the following services
+ - AWSDynamoDB
+ - AWSEC2
+ - AWSSTS
+ - AWSLambda
+ - AWSPolly
+ - AWSAutoScaling
+
+## 2.33.3
+
+### New features
+- **AWSCore**
+  - Support for `il-central-1` - Israel (Tel Aviv) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
 
 ## 2.33.2  
 

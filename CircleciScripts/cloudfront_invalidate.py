@@ -3,9 +3,8 @@ import sys
 
 from functions import log, run_command
 
-awsprofile = sys.argv[1]
-distribution_id = sys.argv[2]
-path = sys.argv[3]
+distribution_id = sys.argv[1]
+path = sys.argv[2]
 invalidation = '{{"Paths":{{"Quantity":1,"Items":["/{0}"]}},"CallerReference":"{0}{1}"}}'.format(
     path, datetime.datetime.now()
 )
@@ -24,8 +23,6 @@ exit_code, out, err = run_command(
         distribution_id,
         "--invalidation-batch",
         invalidation,
-        "--profile",
-        awsprofile,
     ]
 )
 
