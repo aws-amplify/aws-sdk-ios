@@ -2454,6 +2454,13 @@ typedef NS_ENUM(NSInteger, AWSEC2RuleAction) {
     AWSEC2RuleActionDeny,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2SSEType) {
+    AWSEC2SSETypeUnknown,
+    AWSEC2SSETypeSseEbs,
+    AWSEC2SSETypeSseKms,
+    AWSEC2SSETypeNone,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2SelfServicePortal) {
     AWSEC2SelfServicePortalUnknown,
     AWSEC2SelfServicePortalEnabled,
@@ -4200,6 +4207,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ImportVolumeTaskDetails;
 @class AWSEC2InferenceAcceleratorInfo;
 @class AWSEC2InferenceDeviceInfo;
+@class AWSEC2InferenceDeviceMemoryInfo;
 @class AWSEC2Instance;
 @class AWSEC2InstanceAttribute;
 @class AWSEC2InstanceBlockDeviceMapping;
@@ -29620,6 +29628,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @property (nonatomic, strong) NSNumber * _Nullable ebsEncryptionByDefault;
 
+/**
+ <p>Reserved for future use.</p>
+ */
+@property (nonatomic, assign) AWSEC2SSEType sseType;
+
 @end
 
 /**
@@ -32899,6 +32912,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @property (nonatomic, strong) NSArray<AWSEC2InferenceDeviceInfo *> * _Nullable accelerators;
 
+/**
+ <p>The total size of the memory for the inference accelerators for the instance type, in MiB.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable totalInferenceMemoryInMiB;
+
 @end
 
 /**
@@ -32918,9 +32936,27 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable manufacturer;
 
 /**
+ <p>Describes the memory available to the inference accelerator.</p>
+ */
+@property (nonatomic, strong) AWSEC2InferenceDeviceMemoryInfo * _Nullable memoryInfo;
+
+/**
  <p>The name of the Inference accelerator.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ <p>Describes the memory available to the inference accelerator.</p>
+ */
+@interface AWSEC2InferenceDeviceMemoryInfo : AWSModel
+
+
+/**
+ <p>The size of the memory available to the inference accelerator, in MiB.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable sizeInMiB;
 
 @end
 
@@ -41836,6 +41872,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
+ <p>The baseline network performance of the network card, in Gbps.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable baselineBandwidthInGbps;
+
+/**
  <p>The maximum number of network interfaces for the network card.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumNetworkInterfaces;
@@ -41849,6 +41890,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The network performance of the network card.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable networkPerformance;
+
+/**
+ <p>The peak (burst) network performance of the network card, in Gbps.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable peakBandwidthInGbps;
 
 @end
 
@@ -46850,6 +46896,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable snapshotId;
 
 /**
+ <p>Reserved for future use.</p>
+ */
+@property (nonatomic, assign) AWSEC2SSEType sseType;
+
+/**
  <p>The time stamp when the snapshot was initiated.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable startTime;
@@ -48892,6 +48943,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable snapshotId;
 
 /**
+ <p>Reserved for future use.</p>
+ */
+@property (nonatomic, assign) AWSEC2SSEType sseType;
+
+/**
  <p>The time stamp when the snapshot was initiated.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable startTime;
@@ -49049,6 +49105,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Snapshot id that can be used to describe this snapshot.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable snapshotId;
+
+/**
+ <p>Reserved for future use.</p>
+ */
+@property (nonatomic, assign) AWSEC2SSEType sseType;
 
 /**
  <p>Time this snapshot was started. This is the same for all snapshots initiated by the same request.</p>
@@ -54038,6 +54099,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The snapshot from which the volume was created, if applicable.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable snapshotId;
+
+/**
+ <p>Reserved for future use.</p>
+ */
+@property (nonatomic, assign) AWSEC2SSEType sseType;
 
 /**
  <p>The volume state.</p>
