@@ -1,14 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSSES
----AWSEC2
----
-
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -21,6 +10,18 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
  - AWSSTS
  - AWSLambda
  - AWSPolly
+ - AWSSES
+ - AWSEC2
+ - AWSConnect
+ - AWSElasticLoadBalancingv2
+ - AWSKinesisVideo
+ - AWSRekognition
+ - AWSKinesisVideoArchivedMedia
+ - AWSAutoScaling
+ - AWSCognitoIdentityProvider
+ - AWSPolly
+ - AWSPinpoint
+ - AWSSQS
 
 ## 2.33.3
 
