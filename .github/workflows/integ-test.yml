@@ -19,6 +19,7 @@ jobs:
     name: Integration Test
     environment: IntegrationTest
     strategy:
+      fail-fast: false
       matrix:
         scheme:
           - AWSMobileClient
