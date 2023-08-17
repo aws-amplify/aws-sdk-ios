@@ -37,6 +37,12 @@
     _sharedKeyMetadata = [self createKey];
     
     XCTAssertNotNil(_sharedKeyMetadata);
+
+    // wait for KMS to propagate changes. KMS APIs are eventually consistent.
+    // ref: https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html
+    XCTestExpectation *delay = [self expectationWithDescription:@"delay"];
+    [delay setInverted:YES];
+    [self waitForExpectations:@[delay] timeout:5];
 }
 
 - (void)tearDown {
@@ -54,17 +60,18 @@
     createRequest.origin = AWSKMSOriginTypeAwsKms;
     
     __block AWSKMSKeyMetadata *keyMetadata = nil;
-    
-    [[[self.kms createKey:createRequest] continueWithBlock:^id _Nullable(AWSTask<AWSKMSCreateKeyResponse *> * _Nonnull t) {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"key is created"];
+    [[self.kms createKey:createRequest] continueWithBlock:^id _Nullable(AWSTask<AWSKMSCreateKeyResponse *> * _Nonnull t) {
         XCTAssertNil(t.error);
         XCTAssertNotNil(t.result);
         
         AWSKMSCreateKeyResponse *response = t.result;
         keyMetadata = response.keyMetadata;
-        
+        [expectation fulfill];
         return nil;
-    }] waitUntilFinished];
-    
+    }];
+
+    [self waitForExpectations:@[expectation] timeout:10];
     return keyMetadata;
 }
 
@@ -85,26 +92,31 @@
     AWSKMSCreateAliasRequest *createAliasRequest = [AWSKMSCreateAliasRequest new];
     createAliasRequest.targetKeyId = self.sharedKeyMetadata.keyId;
     createAliasRequest.aliasName = [NSString stringWithFormat:@"alias/testKey%@", self.sharedKeyMetadata.keyId];
-    
-    [[[self.kms createAlias:createAliasRequest] continueWithBlock:^id _Nullable(AWSTask * _Nonnull t) {
+
+    XCTestExpectation *operationFinished = [self expectationWithDescription:@"createAlias operation finished"];
+    [[self.kms createAlias:createAliasRequest] continueWithBlock:^id _Nullable(AWSTask * _Nonnull t) {
         XCTAssertNil(t.error);
         XCTAssertNotNil(t.result);
-        
+        [operationFinished fulfill];
         return nil;
-    }] waitUntilFinished];
+    }];
+
+    [self waitForExpectations:@[operationFinished] timeout:10];
 }
 
 - (void)testDeleteKey {
     AWSKMSScheduleKeyDeletionRequest *deleteRequest = [AWSKMSScheduleKeyDeletionRequest new];
     deleteRequest.keyId = self.sharedKeyMetadata.keyId;
     deleteRequest.pendingWindowInDays = [NSNumber numberWithInt:7];
-    
-    [[[self.kms scheduleKeyDeletion:deleteRequest] continueWithBlock:^id _Nullable(AWSTask<AWSKMSScheduleKeyDeletionResponse *> * _Nonnull t) {
+
+    XCTestExpectation *operationFinished = [self expectationWithDescription:@"scheduleKeyDeletion operation finished"];
+    [[self.kms scheduleKeyDeletion:deleteRequest] continueWithBlock:^id _Nullable(AWSTask<AWSKMSScheduleKeyDeletionResponse *> * _Nonnull t) {
         XCTAssertNil(t.error);
         XCTAssertNotNil(t.result);
-        
+        [operationFinished fulfill];
         return nil;
-    }] waitUntilFinished];
+    }];
+    [self waitForExpectations:@[operationFinished] timeout:10];
 }
 
 
@@ -112,59 +124,70 @@
     AWSKMSScheduleKeyDeletionRequest *deleteRequest = [AWSKMSScheduleKeyDeletionRequest new];
     deleteRequest.keyId = self.sharedKeyMetadata.keyId;
     deleteRequest.pendingWindowInDays = [NSNumber numberWithInt:7];
-    
-    [[[self.kms scheduleKeyDeletion:deleteRequest] continueWithBlock:^id _Nullable(AWSTask<AWSKMSScheduleKeyDeletionResponse *> * _Nonnull t) {
+
+    XCTestExpectation *scheduleKeyDeletion = [self expectationWithDescription:@"scheduleKeyDeletion operation finished"];
+    [[self.kms scheduleKeyDeletion:deleteRequest] continueWithBlock:^id _Nullable(AWSTask<AWSKMSScheduleKeyDeletionResponse *> * _Nonnull t) {
         XCTAssertNil(t.error);
         XCTAssertNotNil(t.result);
-        
+        [scheduleKeyDeletion fulfill];
         return nil;
-    }] waitUntilFinished];
-    
+    }];
+    [self waitForExpectations:@[scheduleKeyDeletion] timeout:10];
+
+
+    XCTestExpectation *cancelKeyDeletion = [self expectationWithDescription:@"cancelKeyDeletion operation finished"];
     AWSKMSCancelKeyDeletionRequest *cancelDeleteRequest = [AWSKMSCancelKeyDeletionRequest new];
     cancelDeleteRequest.keyId = self.sharedKeyMetadata.keyId;
     
-    [[[self.kms cancelKeyDeletion:cancelDeleteRequest] continueWithBlock:^id _Nullable(AWSTask<AWSKMSCancelKeyDeletionResponse *> * _Nonnull t) {
+    [[self.kms cancelKeyDeletion:cancelDeleteRequest] continueWithBlock:^id _Nullable(AWSTask<AWSKMSCancelKeyDeletionResponse *> * _Nonnull t) {
         XCTAssertNil(t.error);
         XCTAssertNotNil(t.result);
-        
+        [cancelKeyDeletion fulfill];
         return nil;
-    }] waitUntilFinished];
-    
+    }];
+    [self waitForExpectations:@[cancelKeyDeletion] timeout:10];
+
+    XCTestExpectation *describeKey = [self expectationWithDescription:@"describeKey operation finished"];
     AWSKMSDescribeKeyRequest *describeRequest = [AWSKMSDescribeKeyRequest new];
     describeRequest.keyId = self.sharedKeyMetadata.keyId;
     
-    [[[self.kms describeKey:describeRequest] continueWithBlock:^id _Nullable(AWSTask<AWSKMSDescribeKeyResponse *> * _Nonnull t) {
+    [[self.kms describeKey:describeRequest] continueWithBlock:^id _Nullable(AWSTask<AWSKMSDescribeKeyResponse *> * _Nonnull t) {
         XCTAssertNil(t.error);
         XCTAssertNotNil(t.result);
         
         XCTAssertTrue([[NSNumber numberWithInt:0] isEqualToNumber:t.result.keyMetadata.enabled]);
-        
+        [describeKey fulfill];
         return nil;
-    }] waitUntilFinished];
+    }];
+    [self waitForExpectations:@[describeKey] timeout:10];
 }
 
 - (void)testDescribeKey {
     AWSKMSDescribeKeyRequest *describeRequest = [AWSKMSDescribeKeyRequest new];
     describeRequest.keyId = self.sharedKeyMetadata.keyId;
-    
-    [[[self.kms describeKey:describeRequest] continueWithBlock:^id _Nullable(AWSTask<AWSKMSDescribeKeyResponse *> * _Nonnull t) {
+
+    XCTestExpectation *describeKey = [self expectationWithDescription:@"describeKey operation finished"];
+    [[self.kms describeKey:describeRequest] continueWithBlock:^id _Nullable(AWSTask<AWSKMSDescribeKeyResponse *> * _Nonnull t) {
         XCTAssertNil(t.error);
         XCTAssertNotNil(t.result);
-        
+        [describeKey fulfill];
         return nil;
-    }] waitUntilFinished];
+    }];
+    [self waitForExpectations:@[describeKey] timeout:10];
 }
 
 - (void)testDisableKeyRotation {
     AWSKMSDisableKeyRotationRequest *disableRotationRequest = [AWSKMSDisableKeyRotationRequest new];
     disableRotationRequest.keyId = self.sharedKeyMetadata.keyId;
-    
-    [[[self.kms disableKeyRotation:disableRotationRequest] continueWithBlock:^id _Nullable(AWSTask * _Nonnull t) {
+
+    XCTestExpectation *operationFinished = [self expectationWithDescription:@"disableKeyRotation operation finished"];
+    [[self.kms disableKeyRotation:disableRotationRequest] continueWithBlock:^id _Nullable(AWSTask * _Nonnull t) {
         XCTAssertNil(t.error);
         XCTAssertNotNil(t.result);
-        
+        [operationFinished fulfill];
         return nil;
-    }] waitUntilFinished];
+    }];
+    [self waitForExpectations:@[operationFinished] timeout:10];
 }
 
 -(void)testEncryptDecrypt {
@@ -174,8 +197,8 @@
     encryptRequest.keyId = self.sharedKeyMetadata.keyId;
     
     __block NSData *encryptedData = nil; // Set inside encrypt block
-    
-    [[[self.kms encrypt:encryptRequest] continueWithBlock:^id _Nullable(AWSTask<AWSKMSEncryptResponse *> * _Nonnull t) {
+    XCTestExpectation *encrypt = [self expectationWithDescription:@"encrypt operation finished"];
+    [[self.kms encrypt:encryptRequest] continueWithBlock:^id _Nullable(AWSTask<AWSKMSEncryptResponse *> * _Nonnull t) {
         XCTAssertNil(t.error);
         XCTAssertNotNil(t.result);
         
@@ -185,21 +208,25 @@
         
         NSString *keyIdEnding = [NSString stringWithFormat:@"/%@", self.sharedKeyMetadata.keyId];
         XCTAssertTrue([response.keyId hasSuffix:keyIdEnding]);
+        [encrypt fulfill];
         return nil;
-    }] waitUntilFinished];
+    }];
+    [self waitForExpectations:@[encrypt] timeout:10];
     
     AWSKMSDecryptRequest * decryptRequest = [AWSKMSDecryptRequest new];
     decryptRequest.ciphertextBlob = encryptedData;
-    
-    [[[self.kms decrypt:decryptRequest] continueWithBlock:^id _Nullable(AWSTask<AWSKMSDecryptResponse *> * _Nonnull t) {
+    XCTestExpectation *decrypt = [self expectationWithDescription:@"decrypt operation finished"];
+    [[self.kms decrypt:decryptRequest] continueWithBlock:^id _Nullable(AWSTask<AWSKMSDecryptResponse *> * _Nonnull t) {
         XCTAssertNil(t.error);
         XCTAssertNotNil(t.result);
         
         NSString *decryptedString = [[NSString alloc] initWithData:t.result.plaintext encoding:NSUTF8StringEncoding];
         XCTAssertNotNil(decryptedString);
         XCTAssertTrue([decryptedString isEqualToString:text]);
+        [decrypt fulfill];
         return nil;
-    }] waitUntilFinished];
+    }];
+    [self waitForExpectations:@[decrypt] timeout:10];
 }
 
 @end
