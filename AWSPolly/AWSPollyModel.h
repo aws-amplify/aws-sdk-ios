@@ -252,7 +252,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @class AWSPollyVoice;
 
 /**
- 
+
  */
 @interface AWSPollyDeleteLexiconInput : AWSRequest
 
@@ -265,7 +265,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
- 
+
  */
 @interface AWSPollyDeleteLexiconOutput : AWSModel
 
@@ -273,7 +273,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
- 
+
  */
 @interface AWSPollyDescribeVoicesInput : AWSRequest
 
@@ -301,7 +301,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
- 
+
  */
 @interface AWSPollyDescribeVoicesOutput : AWSModel
 
@@ -319,7 +319,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
- 
+
  */
 @interface AWSPollyGetLexiconInput : AWSRequest
 
@@ -332,7 +332,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
- 
+
  */
 @interface AWSPollyGetLexiconOutput : AWSModel
 
@@ -350,7 +350,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
- 
+
  */
 @interface AWSPollyGetSpeechSynthesisTaskInput : AWSRequest
 
@@ -363,7 +363,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
- 
+
  */
 @interface AWSPollyGetSpeechSynthesisTaskOutput : AWSModel
 
@@ -450,7 +450,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
- 
+
  */
 @interface AWSPollyListLexiconsInput : AWSRequest
 
@@ -463,7 +463,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
- 
+
  */
 @interface AWSPollyListLexiconsOutput : AWSModel
 
@@ -481,7 +481,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
- 
+
  */
 @interface AWSPollyListSpeechSynthesisTasksInput : AWSRequest
 
@@ -504,7 +504,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
- 
+
  */
 @interface AWSPollyListSpeechSynthesisTasksOutput : AWSModel
 
@@ -522,7 +522,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
- 
+
  */
 @interface AWSPollyPutLexiconInput : AWSRequest
 
@@ -540,7 +540,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
- 
+
  */
 @interface AWSPollyPutLexiconOutput : AWSModel
 
@@ -548,7 +548,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
- 
+
  */
 @interface AWSPollyStartSpeechSynthesisTaskInput : AWSRequest
 
@@ -616,7 +616,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
- 
+
  */
 @interface AWSPollyStartSpeechSynthesisTaskOutput : AWSModel
 
@@ -712,7 +712,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
- 
+
  */
 @interface AWSPollySynthesizeSpeechInput : AWSRequest
 
@@ -765,7 +765,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
- 
+
  */
 @interface AWSPollySynthesizeSpeechOutput : AWSModel
 
