@@ -29458,6 +29458,11 @@
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Indicates whether encryption by default is enabled.</p>\",\
           \"locationName\":\"ebsEncryptionByDefault\"\
+        },\
+        \"SseType\":{\
+          \"shape\":\"SSEType\",\
+          \"documentation\":\"<p>Reserved for future use.</p>\",\
+          \"locationName\":\"sseType\"\
         }\
       }\
     },\
@@ -48548,6 +48553,11 @@
           \"shape\":\"Integer\",\
           \"documentation\":\"<p>The size of the volume, in GiB.</p>\",\
           \"locationName\":\"volumeSize\"\
+        },\
+        \"SseType\":{\
+          \"shape\":\"SSEType\",\
+          \"documentation\":\"<p>Reserved for future use.</p>\",\
+          \"locationName\":\"sseType\"\
         }\
       }\
     },\
@@ -49400,6 +49410,14 @@
         }\
       },\
       \"documentation\":\"<p>Describes the storage parameters for Amazon S3 and Amazon S3 buckets for an instance store-backed AMI.</p>\"\
+    },\
+    \"SSEType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"sse-ebs\",\
+        \"sse-kms\",\
+        \"none\"\
+      ]\
     },\
     \"ScheduledInstance\":{\
       \"type\":\"structure\",\
@@ -50701,6 +50719,11 @@
           \"shape\":\"MillisecondDateTime\",\
           \"documentation\":\"<p>Only for archived snapshots that are temporarily restored. Indicates the date and time when a temporarily restored snapshot will be automatically re-archived.</p>\",\
           \"locationName\":\"restoreExpiryTime\"\
+        },\
+        \"SseType\":{\
+          \"shape\":\"SSEType\",\
+          \"documentation\":\"<p>Reserved for future use.</p>\",\
+          \"locationName\":\"sseType\"\
         }\
       },\
       \"documentation\":\"<p>Describes a snapshot.</p>\"\
@@ -50862,6 +50885,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html\\\">Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\",\
           \"locationName\":\"outpostArn\"\
+        },\
+        \"SseType\":{\
+          \"shape\":\"SSEType\",\
+          \"documentation\":\"<p>Reserved for future use.</p>\",\
+          \"locationName\":\"sseType\"\
         }\
       },\
       \"documentation\":\"<p>Information about a snapshot.</p>\"\
@@ -56723,6 +56751,11 @@
           \"shape\":\"Integer\",\
           \"documentation\":\"<p>The throughput that the volume supports, in MiB/s.</p>\",\
           \"locationName\":\"throughput\"\
+        },\
+        \"SseType\":{\
+          \"shape\":\"SSEType\",\
+          \"documentation\":\"<p>Reserved for future use.</p>\",\
+          \"locationName\":\"sseType\"\
         }\
       },\
       \"documentation\":\"<p>Describes a volume.</p>\"\

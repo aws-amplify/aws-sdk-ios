@@ -2454,6 +2454,13 @@ typedef NS_ENUM(NSInteger, AWSEC2RuleAction) {
     AWSEC2RuleActionDeny,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2SSEType) {
+    AWSEC2SSETypeUnknown,
+    AWSEC2SSETypeSseEbs,
+    AWSEC2SSETypeSseKms,
+    AWSEC2SSETypeNone,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2SelfServicePortal) {
     AWSEC2SelfServicePortalUnknown,
     AWSEC2SelfServicePortalEnabled,
@@ -29621,6 +29628,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @property (nonatomic, strong) NSNumber * _Nullable ebsEncryptionByDefault;
 
+/**
+ <p>Reserved for future use.</p>
+ */
+@property (nonatomic, assign) AWSEC2SSEType sseType;
+
 @end
 
 /**
@@ -46884,6 +46896,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable snapshotId;
 
 /**
+ <p>Reserved for future use.</p>
+ */
+@property (nonatomic, assign) AWSEC2SSEType sseType;
+
+/**
  <p>The time stamp when the snapshot was initiated.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable startTime;
@@ -48926,6 +48943,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable snapshotId;
 
 /**
+ <p>Reserved for future use.</p>
+ */
+@property (nonatomic, assign) AWSEC2SSEType sseType;
+
+/**
  <p>The time stamp when the snapshot was initiated.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable startTime;
@@ -49083,6 +49105,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Snapshot id that can be used to describe this snapshot.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable snapshotId;
+
+/**
+ <p>Reserved for future use.</p>
+ */
+@property (nonatomic, assign) AWSEC2SSEType sseType;
 
 /**
  <p>Time this snapshot was started. This is the same for all snapshots initiated by the same request.</p>
@@ -54072,6 +54099,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The snapshot from which the volume was created, if applicable.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable snapshotId;
+
+/**
+ <p>Reserved for future use.</p>
+ */
+@property (nonatomic, assign) AWSEC2SSEType sseType;
 
 /**
  <p>The volume state.</p>
