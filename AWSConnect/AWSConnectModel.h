@@ -55,6 +55,12 @@ typedef NS_ENUM(NSInteger, AWSConnectActionType) {
     AWSConnectActionTypeSendNotification,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectAgentAvailabilityTimer) {
+    AWSConnectAgentAvailabilityTimerUnknown,
+    AWSConnectAgentAvailabilityTimerTimeSinceLastActivity,
+    AWSConnectAgentAvailabilityTimerTimeSinceLastInbound,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectAgentStatusState) {
     AWSConnectAgentStatusStateUnknown,
     AWSConnectAgentStatusStateEnabled,
@@ -616,6 +622,10 @@ typedef NS_ENUM(NSInteger, AWSConnectPhoneNumberType) {
     AWSConnectPhoneNumberTypeUnknown,
     AWSConnectPhoneNumberTypeTollFree,
     AWSConnectPhoneNumberTypeDid,
+    AWSConnectPhoneNumberTypeUifn,
+    AWSConnectPhoneNumberTypeShared,
+    AWSConnectPhoneNumberTypeThirdPartyTf,
+    AWSConnectPhoneNumberTypeThirdPartyDid,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectPhoneNumberWorkflowStatus) {
@@ -1334,6 +1344,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUpdateQueueStatusRequest;
 @class AWSConnectUpdateQuickConnectConfigRequest;
 @class AWSConnectUpdateQuickConnectNameRequest;
+@class AWSConnectUpdateRoutingProfileAgentAvailabilityTimerRequest;
 @class AWSConnectUpdateRoutingProfileConcurrencyRequest;
 @class AWSConnectUpdateRoutingProfileDefaultOutboundQueueRequest;
 @class AWSConnectUpdateRoutingProfileNameRequest;
@@ -2972,6 +2983,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  */
 @interface AWSConnectCreateRoutingProfileRequest : AWSRequest
 
+
+/**
+ <p>Whether agents with this routing profile will have their routing order calculated based on <i>time since their last inbound contact</i> or <i>longest idle time</i>. </p>
+ */
+@property (nonatomic, assign) AWSConnectAgentAvailabilityTimer agentAvailabilityTimer;
 
 /**
  <p>The default outbound queue for the routing profile.</p>
@@ -9836,6 +9852,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
+ <p>Whether agents with this routing profile will have their routing order calculated based on <i>time since their last inbound contact</i> or <i>longest idle time</i>. </p>
+ */
+@property (nonatomic, assign) AWSConnectAgentAvailabilityTimer agentAvailabilityTimer;
+
+/**
  <p>The identifier of the default outbound queue for this routing profile.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable defaultOutboundQueueId;
@@ -12875,6 +12896,29 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier for the quick connect.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable quickConnectId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateRoutingProfileAgentAvailabilityTimerRequest : AWSRequest
+
+
+/**
+ <p>Whether agents with this routing profile will have their routing order calculated based on <i>time since their last inbound contact</i> or <i>longest idle time</i>. </p>
+ */
+@property (nonatomic, assign) AWSConnectAgentAvailabilityTimer agentAvailabilityTimer;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier of the routing profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable routingProfileId;
 
 @end
 
