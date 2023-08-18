@@ -825,7 +825,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (void)updateImageGenerationConfiguration:(AWSKinesisVideoUpdateImageGenerationConfigurationInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoUpdateImageGenerationConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Associates a <code>SignalingChannel</code> to a stream to store the media. There are two signaling modes that can specified :</p><ul><li><p>If the <code>StorageStatus</code> is disabled, no data will be stored, and the <code>StreamARN</code> parameter will not be needed. </p></li><li><p>If the <code>StorageStatus</code> is enabled, the data will be stored in the <code>StreamARN</code> provided. </p></li></ul>
+ <p>Associates a <code>SignalingChannel</code> to a stream to store the media. There are two signaling modes that can specified :</p><ul><li><p>If the <code>StorageStatus</code> is disabled, no data will be stored, and the <code>StreamARN</code> parameter will not be needed. </p></li><li><p>If the <code>StorageStatus</code> is enabled, the data will be stored in the <code>StreamARN</code> provided. </p></li></ul><important><p>If <code>StorageStatus</code> is enabled, direct peer-to-peer (master-viewer) connections no longer occur. Peers connect directly to the storage session. You must call the <code>JoinStorageSession</code> API to trigger an SDP offer send and establish a connection between a peer and the storage session. </p></important>
  
  @param request A container for the necessary parameters to execute the UpdateMediaStorageConfiguration service method.
 
@@ -837,7 +837,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (AWSTask<AWSKinesisVideoUpdateMediaStorageConfigurationOutput *> *)updateMediaStorageConfiguration:(AWSKinesisVideoUpdateMediaStorageConfigurationInput *)request;
 
 /**
- <p>Associates a <code>SignalingChannel</code> to a stream to store the media. There are two signaling modes that can specified :</p><ul><li><p>If the <code>StorageStatus</code> is disabled, no data will be stored, and the <code>StreamARN</code> parameter will not be needed. </p></li><li><p>If the <code>StorageStatus</code> is enabled, the data will be stored in the <code>StreamARN</code> provided. </p></li></ul>
+ <p>Associates a <code>SignalingChannel</code> to a stream to store the media. There are two signaling modes that can specified :</p><ul><li><p>If the <code>StorageStatus</code> is disabled, no data will be stored, and the <code>StreamARN</code> parameter will not be needed. </p></li><li><p>If the <code>StorageStatus</code> is enabled, the data will be stored in the <code>StreamARN</code> provided. </p></li></ul><important><p>If <code>StorageStatus</code> is enabled, direct peer-to-peer (master-viewer) connections no longer occur. Peers connect directly to the storage session. You must call the <code>JoinStorageSession</code> API to trigger an SDP offer send and establish a connection between a peer and the storage session. </p></important>
  
  @param request A container for the necessary parameters to execute the UpdateMediaStorageConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
