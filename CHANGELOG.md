@@ -1,3 +1,4 @@
+
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -19,7 +20,6 @@
  - AWSKinesisVideoArchivedMedia
  - AWSAutoScaling
  - AWSCognitoIdentityProvider
- - AWSPolly
  - AWSPinpoint
  - AWSSQS
 
