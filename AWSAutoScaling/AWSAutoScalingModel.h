@@ -261,6 +261,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @class AWSAutoScalingActivityType;
 @class AWSAutoScalingAdjustmentType;
 @class AWSAutoScalingAlarm;
+@class AWSAutoScalingAlarmSpecification;
 @class AWSAutoScalingAttachInstancesQuery;
 @class AWSAutoScalingAttachLoadBalancerTargetGroupsResultType;
 @class AWSAutoScalingAttachLoadBalancerTargetGroupsType;
@@ -595,6 +596,19 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
  <p>The name of the alarm.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable alarmName;
+
+@end
+
+/**
+ <p>Specifies the CloudWatch alarm specification to use in an instance refresh.</p>
+ */
+@interface AWSAutoScalingAlarmSpecification : AWSModel
+
+
+/**
+ <p>The names of one or more CloudWatch alarms to monitor for the instance refresh. You can specify up to 10 alarms.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable alarms;
 
 @end
 
@@ -4009,7 +4023,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) AWSAutoScalingPredictiveScalingConfiguration * _Nullable predictiveScalingConfiguration;
 
 /**
- <p>The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value.</p><p>Required if the policy type is <code>SimpleScaling</code>. (Not used with any other policy type.) </p>
+ <p>The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a non-negative value.</p><p>Required if the policy type is <code>SimpleScaling</code>. (Not used with any other policy type.) </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable scalingAdjustment;
 
@@ -4167,7 +4181,12 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 
 
 /**
- <p>(Optional) Indicates whether to roll back the Auto Scaling group to its previous configuration if the instance refresh fails. The default is <code>false</code>.</p><p>A rollback is not supported in the following situations: </p><ul><li><p>There is no desired configuration specified for the instance refresh.</p></li><li><p>The Auto Scaling group has a launch template that uses an Amazon Web Services Systems Manager parameter instead of an AMI ID for the <code>ImageId</code> property.</p></li><li><p>The Auto Scaling group uses the launch template's <code>$Latest</code> or <code>$Default</code> version.</p></li></ul>
+ <p>(Optional) The CloudWatch alarm specification. CloudWatch alarms can be used to identify any issues and fail the operation if an alarm threshold is met.</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingAlarmSpecification * _Nullable alarmSpecification;
+
+/**
+ <p>(Optional) Indicates whether to roll back the Auto Scaling group to its previous configuration if the instance refresh fails or a CloudWatch alarm threshold is met. The default is <code>false</code>.</p><p>A rollback is not supported in the following situations: </p><ul><li><p>There is no desired configuration specified for the instance refresh.</p></li><li><p>The Auto Scaling group has a launch template that uses an Amazon Web Services Systems Manager parameter instead of an AMI ID for the <code>ImageId</code> property.</p></li><li><p>The Auto Scaling group uses the launch template's <code>$Latest</code> or <code>$Default</code> version.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/instance-refresh-rollback.html">Undo changes with a rollback</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable autoRollback;
 
@@ -4610,7 +4629,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) AWSAutoScalingDesiredConfiguration * _Nullable desiredConfiguration;
 
 /**
- <p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p><ul><li><p>Auto rollback</p></li><li><p>Checkpoints</p></li><li><p>Skip matching</p></li></ul>
+ <p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p><ul><li><p>Auto rollback</p></li><li><p>Checkpoints</p></li><li><p>CloudWatch alarms</p></li><li><p>Skip matching</p></li></ul>
  */
 @property (nonatomic, strong) AWSAutoScalingRefreshPreferences * _Nullable preferences;
 
@@ -4639,7 +4658,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable metricIntervalUpperBound;
 
 /**
- <p>The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity.</p><p>The amount by which to scale. The adjustment is based on the value that you specified in the <code>AdjustmentType</code> property (either an absolute number or a percentage). A positive value adds to the current capacity and a negative number subtracts from the current capacity. </p>
+ <p>The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a non-negative value.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable scalingAdjustment;
 

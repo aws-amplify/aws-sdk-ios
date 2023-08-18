@@ -10,11 +10,16 @@ permissions:
   id-token: write
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   integration-test:
     name: Integration Test
     environment: IntegrationTest
     strategy:
+      fail-fast: false
       matrix:
         scheme:
           - AWSMobileClient

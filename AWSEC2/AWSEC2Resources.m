@@ -13558,6 +13558,10 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">Ensuring Idempotency</a>.</p>\",\
           \"idempotencyToken\":true\
+        },\
+        \"EnablePrimaryIpv6\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>If youâre creating a network interface in a dual-stack or IPv6-only subnet, you have the option to assign a primary IPv6 IP address. A primary IPv6 address is an IPv6 GUA address associated with an ENI that you have enabled to use a primary IPv6 address. Use this option if the instance that this ENI will be attached to relies on its IPv6 address not changing. Amazon Web Services will automatically assign an IPv6 address associated with the ENI attached to your instance to be the primary IPv6 address. Once you enable an IPv6 GUA address to be a primary IPv6, you cannot disable it. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. If you have multiple IPv6 addresses associated with an ENI attached to your instance and you enable a primary IPv6 address, the first IPv6 GUA address associated with the ENI becomes the primary IPv6 address.</p>\"\
         }\
       }\
     },\
@@ -26050,7 +26054,7 @@
         },\
         \"OutpostArn\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The ARN of the Outpost on which the snapshot is stored.</p> <p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called by <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html\\\"> CreateImage</a>.</p>\",\
+          \"documentation\":\"<p>The ARN of the Outpost on which the snapshot is stored.</p> <p>This parameter is not supported when using <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html\\\">CreateImage</a>.</p>\",\
           \"locationName\":\"outpostArn\"\
         },\
         \"Encrypted\":{\
@@ -29458,6 +29462,11 @@
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Indicates whether encryption by default is enabled.</p>\",\
           \"locationName\":\"ebsEncryptionByDefault\"\
+        },\
+        \"SseType\":{\
+          \"shape\":\"SSEType\",\
+          \"documentation\":\"<p>Reserved for future use.</p>\",\
+          \"locationName\":\"sseType\"\
         }\
       }\
     },\
@@ -33651,6 +33660,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The IPv6 address.</p>\",\
           \"locationName\":\"ipv6Address\"\
+        },\
+        \"IsPrimaryIpv6\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Determines if an IPv6 address associated with a network interface is the primary IPv6 address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html\\\">RunInstances</a>.</p>\",\
+          \"locationName\":\"isPrimaryIpv6\"\
         }\
       },\
       \"documentation\":\"<p>Describes an IPv6 address.</p>\"\
@@ -34137,6 +34151,10 @@
         \"Ipv6PrefixCount\":{\
           \"shape\":\"Integer\",\
           \"documentation\":\"<p>The number of IPv6 delegated prefixes to be automatically assigned to the network interface. You cannot use this option if you use the <code>Ipv6Prefix</code> option.</p>\"\
+        },\
+        \"PrimaryIpv6\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html\\\">RunInstances</a>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes a network interface.</p>\"\
@@ -35366,7 +35384,22 @@
         \"c7gn.4xlarge\",\
         \"c7gn.8xlarge\",\
         \"c7gn.12xlarge\",\
-        \"c7gn.16xlarge\"\
+        \"c7gn.16xlarge\",\
+        \"p5.48xlarge\",\
+        \"m7i.large\",\
+        \"m7i.xlarge\",\
+        \"m7i.2xlarge\",\
+        \"m7i.4xlarge\",\
+        \"m7i.8xlarge\",\
+        \"m7i.12xlarge\",\
+        \"m7i.16xlarge\",\
+        \"m7i.24xlarge\",\
+        \"m7i.48xlarge\",\
+        \"m7i-flex.large\",\
+        \"m7i-flex.xlarge\",\
+        \"m7i-flex.2xlarge\",\
+        \"m7i-flex.4xlarge\",\
+        \"m7i-flex.8xlarge\"\
       ]\
     },\
     \"InstanceTypeHypervisor\":{\
@@ -38052,6 +38085,11 @@
           \"shape\":\"Integer\",\
           \"documentation\":\"<p>The number of IPv6 prefixes that Amazon Web Services automatically assigned to the network interface.</p>\",\
           \"locationName\":\"ipv6PrefixCount\"\
+        },\
+        \"PrimaryIpv6\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html\\\">RunInstances</a>.</p>\",\
+          \"locationName\":\"primaryIpv6\"\
         }\
       },\
       \"documentation\":\"<p>Describes a network interface.</p>\"\
@@ -38144,6 +38182,10 @@
         \"Ipv6PrefixCount\":{\
           \"shape\":\"Integer\",\
           \"documentation\":\"<p>The number of IPv6 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the <code>Ipv6Prefix</code> option.</p>\"\
+        },\
+        \"PrimaryIpv6\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html\\\">RunInstances</a>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The parameters for a network interface.</p>\"\
@@ -40758,6 +40800,10 @@
         \"EnaSrdSpecification\":{\
           \"shape\":\"EnaSrdSpecification\",\
           \"documentation\":\"<p>Updates the ENA Express configuration for the network interface thatâs attached to the instance.</p>\"\
+        },\
+        \"EnablePrimaryIpv6\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>If youâre modifying a network interface in a dual-stack or IPv6-only subnet, you have the option to assign a primary IPv6 IP address. A primary IPv6 address is an IPv6 GUA address associated with an ENI that you have enabled to use a primary IPv6 address. Use this option if the instance that this ENI will be attached to relies on its IPv6 address not changing. Amazon Web Services will automatically assign an IPv6 address associated with the ENI attached to your instance to be the primary IPv6 address. Once you enable an IPv6 GUA address to be a primary IPv6, you cannot disable it. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. If you have multiple IPv6 addresses associated with an ENI attached to your instance and you enable a primary IPv6 address, the first IPv6 GUA address associated with the ENI becomes the primary IPv6 address.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains the parameters for ModifyNetworkInterfaceAttribute.</p>\"\
@@ -43582,6 +43628,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The IPv6 address.</p>\",\
           \"locationName\":\"ipv6Address\"\
+        },\
+        \"IsPrimaryIpv6\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Determines if an IPv6 address associated with a network interface is the primary IPv6 address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyNetworkInterfaceAttribute.html\\\">ModifyNetworkInterfaceAttribute</a>.</p>\",\
+          \"locationName\":\"isPrimaryIpv6\"\
         }\
       },\
       \"documentation\":\"<p>Describes an IPv6 address associated with a network interface.</p>\"\
@@ -48548,6 +48599,11 @@
           \"shape\":\"Integer\",\
           \"documentation\":\"<p>The size of the volume, in GiB.</p>\",\
           \"locationName\":\"volumeSize\"\
+        },\
+        \"SseType\":{\
+          \"shape\":\"SSEType\",\
+          \"documentation\":\"<p>Reserved for future use.</p>\",\
+          \"locationName\":\"sseType\"\
         }\
       }\
     },\
@@ -49301,6 +49357,10 @@
         \"DisableApiStop\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Indicates whether an instance is enabled for stop protection. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection\\\">Stop protection</a>. </p>\"\
+        },\
+        \"EnablePrimaryIpv6\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>If youâre launching an instance into a dual-stack or IPv6-only subnet, you can enable assigning a primary IPv6 address. A primary IPv6 address is an IPv6 GUA address associated with an ENI that you have enabled to use a primary IPv6 address. Use this option if an instance relies on its IPv6 address not changing. When you launch the instance, Amazon Web Services will automatically assign an IPv6 address associated with the ENI attached to your instance to be the primary IPv6 address. Once you enable an IPv6 GUA address to be a primary IPv6, you cannot disable it. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. If you have multiple IPv6 addresses associated with an ENI attached to your instance and you enable a primary IPv6 address, the first IPv6 GUA address associated with the ENI becomes the primary IPv6 address.</p>\"\
         }\
       }\
     },\
@@ -49400,6 +49460,14 @@
         }\
       },\
       \"documentation\":\"<p>Describes the storage parameters for Amazon S3 and Amazon S3 buckets for an instance store-backed AMI.</p>\"\
+    },\
+    \"SSEType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"sse-ebs\",\
+        \"sse-kms\",\
+        \"none\"\
+      ]\
     },\
     \"ScheduledInstance\":{\
       \"type\":\"structure\",\
@@ -50701,6 +50769,11 @@
           \"shape\":\"MillisecondDateTime\",\
           \"documentation\":\"<p>Only for archived snapshots that are temporarily restored. Indicates the date and time when a temporarily restored snapshot will be automatically re-archived.</p>\",\
           \"locationName\":\"restoreExpiryTime\"\
+        },\
+        \"SseType\":{\
+          \"shape\":\"SSEType\",\
+          \"documentation\":\"<p>Reserved for future use.</p>\",\
+          \"locationName\":\"sseType\"\
         }\
       },\
       \"documentation\":\"<p>Describes a snapshot.</p>\"\
@@ -50862,6 +50935,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html\\\">Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\",\
           \"locationName\":\"outpostArn\"\
+        },\
+        \"SseType\":{\
+          \"shape\":\"SSEType\",\
+          \"documentation\":\"<p>Reserved for future use.</p>\",\
+          \"locationName\":\"sseType\"\
         }\
       },\
       \"documentation\":\"<p>Information about a snapshot.</p>\"\
@@ -56723,6 +56801,11 @@
           \"shape\":\"Integer\",\
           \"documentation\":\"<p>The throughput that the volume supports, in MiB/s.</p>\",\
           \"locationName\":\"throughput\"\
+        },\
+        \"SseType\":{\
+          \"shape\":\"SSEType\",\
+          \"documentation\":\"<p>Reserved for future use.</p>\",\
+          \"locationName\":\"sseType\"\
         }\
       },\
       \"documentation\":\"<p>Describes a volume.</p>\"\
