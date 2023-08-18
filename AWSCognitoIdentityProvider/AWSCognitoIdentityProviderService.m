@@ -1683,6 +1683,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse *> *)getLogDeliveryConfiguration:(AWSCognitoIdentityProviderGetLogDeliveryConfigurationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"GetLogDeliveryConfiguration"
+                   outputClass:[AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse class]];
+}
+
+- (void)getLogDeliveryConfiguration:(AWSCognitoIdentityProviderGetLogDeliveryConfigurationRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse *response, NSError *error))completionHandler {
+    [[self getLogDeliveryConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSCognitoIdentityProviderGetSigningCertificateResponse *> *)getSigningCertificate:(AWSCognitoIdentityProviderGetSigningCertificateRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -2133,6 +2156,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSCognitoIdentityProviderRevokeTokenResponse *response, NSError *error))completionHandler {
     [[self revokeToken:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderRevokeTokenResponse *> * _Nonnull task) {
         AWSCognitoIdentityProviderRevokeTokenResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse *> *)setLogDeliveryConfiguration:(AWSCognitoIdentityProviderSetLogDeliveryConfigurationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"SetLogDeliveryConfiguration"
+                   outputClass:[AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse class]];
+}
+
+- (void)setLogDeliveryConfiguration:(AWSCognitoIdentityProviderSetLogDeliveryConfigurationRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse *response, NSError *error))completionHandler {
+    [[self setLogDeliveryConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

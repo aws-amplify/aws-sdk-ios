@@ -1584,6 +1584,20 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderCloudWatchLogsConfigurationType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logGroupArn" : @"LogGroupArn",
+             };
+}
+
+@end
+
 @implementation AWSCognitoIdentityProviderCodeDeliveryDetailsType
 
 + (BOOL)supportsSecureCoding {
@@ -3192,6 +3206,38 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderGetLogDeliveryConfigurationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logDeliveryConfiguration" : @"LogDeliveryConfiguration",
+             };
+}
+
++ (NSValueTransformer *)logDeliveryConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderLogDeliveryConfigurationType class]];
+}
+
+@end
+
 @implementation AWSCognitoIdentityProviderGetSigningCertificateRequest
 
 + (BOOL)supportsSecureCoding {
@@ -4076,6 +4122,77 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderLogConfigurationType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cloudWatchLogsConfiguration" : @"CloudWatchLogsConfiguration",
+             @"eventSource" : @"EventSource",
+             @"logLevel" : @"LogLevel",
+             };
+}
+
++ (NSValueTransformer *)cloudWatchLogsConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderCloudWatchLogsConfigurationType class]];
+}
+
++ (NSValueTransformer *)eventSourceJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"userNotification"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderEventSourceNameUserNotification);
+        }
+        return @(AWSCognitoIdentityProviderEventSourceNameUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityProviderEventSourceNameUserNotification:
+                return @"userNotification";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)logLevelJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ERROR"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderLogLevelError);
+        }
+        return @(AWSCognitoIdentityProviderLogLevelUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityProviderLogLevelError:
+                return @"ERROR";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderLogDeliveryConfigurationType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logConfigurations" : @"LogConfigurations",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
++ (NSValueTransformer *)logConfigurationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCognitoIdentityProviderLogConfigurationType class]];
+}
+
+@end
+
 @implementation AWSCognitoIdentityProviderMFAOptionType
 
 + (BOOL)supportsSecureCoding {
@@ -4755,6 +4872,43 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSValueTransformer *)stringAttributeConstraintsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderStringAttributeConstraintsType class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderSetLogDeliveryConfigurationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logConfigurations" : @"LogConfigurations",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
++ (NSValueTransformer *)logConfigurationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCognitoIdentityProviderLogConfigurationType class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logDeliveryConfiguration" : @"LogDeliveryConfiguration",
+             };
+}
+
++ (NSValueTransformer *)logDeliveryConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderLogDeliveryConfigurationType class]];
 }
 
 @end
