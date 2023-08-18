@@ -481,7 +481,8 @@
         \"ar-AE\",\
         \"fi-FI\",\
         \"en-IE\",\
-        \"nl-BE\"\
+        \"nl-BE\",\
+        \"fr-BE\"\
       ]\
     },\
     \"LanguageCodeList\":{\
@@ -1164,7 +1165,8 @@
         \"Tomoko\",\
         \"Niamh\",\
         \"Sofie\",\
-        \"Lisa\"\
+        \"Lisa\",\
+        \"Isabelle\"\
       ]\
     },\
     \"VoiceList\":{\
