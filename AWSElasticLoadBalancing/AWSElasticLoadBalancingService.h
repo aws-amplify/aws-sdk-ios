@@ -425,7 +425,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (void)deleteTargetGroup:(AWSElasticLoadBalancingDeleteTargetGroupInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingDeleteTargetGroupOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deregisters the specified targets from the specified target group. After the targets are deregistered, they no longer receive traffic from the load balancer.</p>
+ <p>Deregisters the specified targets from the specified target group. After the targets are deregistered, they no longer receive traffic from the load balancer.</p><p>Note: If the specified target does not exist, the action returns successfully.</p>
  
  @param request A container for the necessary parameters to execute the DeregisterTargets service method.
 
@@ -437,7 +437,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (AWSTask<AWSElasticLoadBalancingDeregisterTargetsOutput *> *)deregisterTargets:(AWSElasticLoadBalancingDeregisterTargetsInput *)request;
 
 /**
- <p>Deregisters the specified targets from the specified target group. After the targets are deregistered, they no longer receive traffic from the load balancer.</p>
+ <p>Deregisters the specified targets from the specified target group. After the targets are deregistered, they no longer receive traffic from the load balancer.</p><p>Note: If the specified target does not exist, the action returns successfully.</p>
  
  @param request A container for the necessary parameters to execute the DeregisterTargets service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -975,7 +975,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (void)setRulePriorities:(AWSElasticLoadBalancingSetRulePrioritiesInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingSetRulePrioritiesOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Associates the specified security groups with the specified Application Load Balancer. The specified security groups override the previously associated security groups.</p><p>You can't specify a security group for a Network Load Balancer or Gateway Load Balancer.</p>
+ <p>Associates the specified security groups with the specified Application Load Balancer or Network Load Balancer. The specified security groups override the previously associated security groups.</p><p>You can't perform this operation on a Network Load Balancer unless you specified a security group for the load balancer when you created it.</p><p>You can't associate a security group with a Gateway Load Balancer.</p>
  
  @param request A container for the necessary parameters to execute the SetSecurityGroups service method.
 
@@ -987,7 +987,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (AWSTask<AWSElasticLoadBalancingSetSecurityGroupsOutput *> *)setSecurityGroups:(AWSElasticLoadBalancingSetSecurityGroupsInput *)request;
 
 /**
- <p>Associates the specified security groups with the specified Application Load Balancer. The specified security groups override the previously associated security groups.</p><p>You can't specify a security group for a Network Load Balancer or Gateway Load Balancer.</p>
+ <p>Associates the specified security groups with the specified Application Load Balancer or Network Load Balancer. The specified security groups override the previously associated security groups.</p><p>You can't perform this operation on a Network Load Balancer unless you specified a security group for the load balancer when you created it.</p><p>You can't associate a security group with a Gateway Load Balancer.</p>
  
  @param request A container for the necessary parameters to execute the SetSecurityGroups service method.
  @param completionHandler The completion handler to call when the load request is complete.
