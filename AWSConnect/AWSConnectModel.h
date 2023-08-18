@@ -856,6 +856,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectActionSummary;
 @class AWSConnectActivateEvaluationFormRequest;
 @class AWSConnectActivateEvaluationFormResponse;
+@class AWSConnectAgentConfig;
 @class AWSConnectAgentContactReference;
 @class AWSConnectAgentInfo;
 @class AWSConnectAgentStatus;
@@ -876,6 +877,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectAssociateRoutingProfileQueuesRequest;
 @class AWSConnectAssociateSecurityKeyRequest;
 @class AWSConnectAssociateSecurityKeyResponse;
+@class AWSConnectAssociateTrafficDistributionGroupUserRequest;
+@class AWSConnectAssociateTrafficDistributionGroupUserResponse;
 @class AWSConnectAttachmentReference;
 @class AWSConnectAttribute;
 @class AWSConnectAvailableNumberSummary;
@@ -1020,6 +1023,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDisassociateQueueQuickConnectsRequest;
 @class AWSConnectDisassociateRoutingProfileQueuesRequest;
 @class AWSConnectDisassociateSecurityKeyRequest;
+@class AWSConnectDisassociateTrafficDistributionGroupUserRequest;
+@class AWSConnectDisassociateTrafficDistributionGroupUserResponse;
 @class AWSConnectDismissUserContactRequest;
 @class AWSConnectDismissUserContactResponse;
 @class AWSConnectDistribution;
@@ -1164,6 +1169,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectListTagsForResourceResponse;
 @class AWSConnectListTaskTemplatesRequest;
 @class AWSConnectListTaskTemplatesResponse;
+@class AWSConnectListTrafficDistributionGroupUsersRequest;
+@class AWSConnectListTrafficDistributionGroupUsersResponse;
 @class AWSConnectListTrafficDistributionGroupsRequest;
 @class AWSConnectListTrafficDistributionGroupsResponse;
 @class AWSConnectListUseCasesRequest;
@@ -1262,6 +1269,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectSecurityProfileSummary;
 @class AWSConnectSecurityProfilesSearchFilter;
 @class AWSConnectSendNotificationActionDefinition;
+@class AWSConnectSignInConfig;
+@class AWSConnectSignInDistribution;
 @class AWSConnectSingleSelectQuestionRuleCategoryAutomation;
 @class AWSConnectStartChatContactRequest;
 @class AWSConnectStartChatContactResponse;
@@ -1303,6 +1312,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectThresholdV2;
 @class AWSConnectTrafficDistributionGroup;
 @class AWSConnectTrafficDistributionGroupSummary;
+@class AWSConnectTrafficDistributionGroupUserSummary;
 @class AWSConnectTransferContactRequest;
 @class AWSConnectTransferContactResponse;
 @class AWSConnectUntagResourceRequest;
@@ -1438,6 +1448,20 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>A version of the evaluation form.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable evaluationFormVersion;
+
+@end
+
+/**
+ <p>The distribution of agents between the instance and its replica(s).</p>
+ Required parameters: [Distributions]
+ */
+@interface AWSConnectAgentConfig : AWSModel
+
+
+/**
+ <p>Information about traffic distributions.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectDistribution *> * _Nullable distributions;
 
 @end
 
@@ -1868,6 +1892,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable associationId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectAssociateTrafficDistributionGroupUserRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier of the traffic distribution group. This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created. The ARN must be provided if the call is from the replicated Region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficDistributionGroupId;
+
+/**
+ <p>The identifier of the user account. This can be the ID or the ARN of the user. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectAssociateTrafficDistributionGroupUserResponse : AWSModel
+
 
 @end
 
@@ -2985,7 +3040,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>Whether agents with this routing profile will have their routing order calculated based on <i>time since their last inbound contact</i> or <i>longest idle time</i>. </p>
+ <p>Whether agents with this routing profile will have their routing order calculated based on <i>longest idle time</i> or <i>time since their last inbound contact</i>. </p>
  */
 @property (nonatomic, assign) AWSConnectAgentAvailabilityTimer agentAvailabilityTimer;
 
@@ -5011,6 +5066,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectDisassociateTrafficDistributionGroupUserRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier of the traffic distribution group. This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created. The ARN must be provided if the call is from the replicated Region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficDistributionGroupId;
+
+/**
+ <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDisassociateTrafficDistributionGroupUserResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectDismissUserContactRequest : AWSRequest
 
 
@@ -6100,7 +6186,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable userArn;
 
 /**
- <p>The identifier for the user.</p>
+ <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userId;
 
@@ -6385,6 +6471,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
+ <p>The distribution of agents between the instance and its replica(s).</p>
+ */
+@property (nonatomic, strong) AWSConnectAgentConfig * _Nullable agentConfig;
+
+/**
  <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable arn;
@@ -6393,6 +6484,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of the traffic distribution group. This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created. The ARN must be provided if the call is from the replicated Region.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The distribution of allowing signing in to the instance and its replica(s).</p>
+ */
+@property (nonatomic, strong) AWSConnectSignInConfig * _Nullable signInConfig;
 
 /**
  <p>The distribution of traffic between the instance and its replicas.</p>
@@ -8613,6 +8709,47 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>Provides details about a list of task templates belonging to an instance.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectTaskTemplateMetadata *> * _Nullable taskTemplates;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListTrafficDistributionGroupUsersRequest : AWSRequest
+
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The identifier of the traffic distribution group. This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created. The ARN must be provided if the call is from the replicated Region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficDistributionGroupId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListTrafficDistributionGroupUsersResponse : AWSModel
+
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>A list of traffic distribution group users.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectTrafficDistributionGroupUserSummary *> * _Nullable trafficDistributionGroupUserSummaryList;
 
 @end
 
@@ -11015,6 +11152,39 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>The distribution of allowing signing in to the instance and its replica(s).</p>
+ Required parameters: [Distributions]
+ */
+@interface AWSConnectSignInConfig : AWSModel
+
+
+/**
+ <p>Information about traffic distributions.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectSignInDistribution *> * _Nullable distributions;
+
+@end
+
+/**
+ <p>The distribution of sign in traffic between the instance and its replica(s).</p>
+ Required parameters: [Region, Enabled]
+ */
+@interface AWSConnectSignInDistribution : AWSModel
+
+
+/**
+ <p>Whether sign in distribution is enabled.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ <p>The Amazon Web Services Region of the sign in distribution.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable region;
+
+@end
+
+/**
  <p>Information about the automation option based on a rule category for a single select question.</p>
  Required parameters: [Category, Condition, OptionRefId]
  */
@@ -11932,6 +12102,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceArn;
 
 /**
+ <p>Whether this is the default traffic distribution group created during instance replication. The default traffic distribution group cannot be deleted by the <code>DeleteTrafficDistributionGroup</code> API. The default traffic distribution group is deleted as part of the process for deleting a replica.</p><note><p>You can change the <code>SignInConfig</code> only for a default <code>TrafficDistributionGroup</code>. If you call <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>, an <code>InvalidRequestException</code> is returned.</p></note>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable isDefault;
+
+/**
  <p>The name of the traffic distribution group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
@@ -11970,6 +12145,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceArn;
 
 /**
+ <p>Whether this is the default traffic distribution group created during instance replication. The default traffic distribution group cannot be deleted by the <code>DeleteTrafficDistributionGroup</code> API. The default traffic distribution group is deleted as part of the process for deleting a replica.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable isDefault;
+
+/**
  <p>The name of the traffic distribution group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
@@ -11978,6 +12158,19 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The status of the traffic distribution group. </p><ul><li><p><code>CREATION_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation is still in progress and has not yet completed.</p></li><li><p><code>ACTIVE</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation has succeeded.</p></li><li><p><code>CREATION_FAILED</code> indicates that the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation has failed.</p></li><li><p><code>PENDING_DELETION</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html">DeleteTrafficDistributionGroup</a> operation is still in progress and has not yet completed.</p></li><li><p><code>DELETION_FAILED</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html">DeleteTrafficDistributionGroup</a> operation has failed.</p></li><li><p><code>UPDATE_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistributionGroup.html">UpdateTrafficDistributionGroup</a> operation is still in progress and has not yet completed.</p></li></ul>
  */
 @property (nonatomic, assign) AWSConnectTrafficDistributionGroupStatus status;
+
+@end
+
+/**
+ <p>Summary information about a traffic distribution group user.</p>
+ */
+@interface AWSConnectTrafficDistributionGroupUserSummary : AWSModel
+
+
+/**
+ <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userId;
 
 @end
 
@@ -12013,7 +12206,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable queueId;
 
 /**
- <p>The identifier for the user.</p>
+ <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userId;
 
@@ -13223,9 +13416,19 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
+ <p>The distribution of agents between the instance and its replica(s).</p>
+ */
+@property (nonatomic, strong) AWSConnectAgentConfig * _Nullable agentConfig;
+
+/**
  <p>The identifier of the traffic distribution group. This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created. The ARN must be provided if the call is from the replicated Region.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The distribution of allowing signing in to the instance and its replica(s).</p>
+ */
+@property (nonatomic, strong) AWSConnectSignInConfig * _Nullable signInConfig;
 
 /**
  <p>The distribution of traffic between the instance and its replica(s).</p>

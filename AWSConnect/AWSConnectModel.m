@@ -95,6 +95,24 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectAgentConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"distributions" : @"Distributions",
+             };
+}
+
++ (NSValueTransformer *)distributionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectDistribution class]];
+}
+
+@end
+
 @implementation AWSConnectAgentContactReference
 
 + (BOOL)supportsSecureCoding {
@@ -849,6 +867,30 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"associationId" : @"AssociationId",
              };
+}
+
+@end
+
+@implementation AWSConnectAssociateTrafficDistributionGroupUserRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"trafficDistributionGroupId" : @"TrafficDistributionGroupId",
+             @"userId" : @"UserId",
+             };
+}
+
+@end
+
+@implementation AWSConnectAssociateTrafficDistributionGroupUserResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
 }
 
 @end
@@ -7212,6 +7254,30 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectDisassociateTrafficDistributionGroupUserRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"trafficDistributionGroupId" : @"TrafficDistributionGroupId",
+             @"userId" : @"UserId",
+             };
+}
+
+@end
+
+@implementation AWSConnectDisassociateTrafficDistributionGroupUserResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
 @implementation AWSConnectDismissUserContactRequest
 
 + (BOOL)supportsSecureCoding {
@@ -8578,10 +8644,20 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"agentConfig" : @"AgentConfig",
              @"arn" : @"Arn",
              @"identifier" : @"Id",
+             @"signInConfig" : @"SignInConfig",
              @"telephonyConfig" : @"TelephonyConfig",
              };
+}
+
++ (NSValueTransformer *)agentConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectAgentConfig class]];
+}
+
++ (NSValueTransformer *)signInConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectSignInConfig class]];
 }
 
 + (NSValueTransformer *)telephonyConfigJSONTransformer {
@@ -12434,6 +12510,41 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)taskTemplatesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectTaskTemplateMetadata class]];
+}
+
+@end
+
+@implementation AWSConnectListTrafficDistributionGroupUsersRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"trafficDistributionGroupId" : @"TrafficDistributionGroupId",
+             };
+}
+
+@end
+
+@implementation AWSConnectListTrafficDistributionGroupUsersResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"trafficDistributionGroupUserSummaryList" : @"TrafficDistributionGroupUserSummaryList",
+             };
+}
+
++ (NSValueTransformer *)trafficDistributionGroupUserSummaryListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectTrafficDistributionGroupUserSummary class]];
 }
 
 @end
@@ -17695,6 +17806,39 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectSignInConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"distributions" : @"Distributions",
+             };
+}
+
++ (NSValueTransformer *)distributionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectSignInDistribution class]];
+}
+
+@end
+
+@implementation AWSConnectSignInDistribution
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"enabled" : @"Enabled",
+             @"region" : @"Region",
+             };
+}
+
+@end
+
 @implementation AWSConnectSingleSelectQuestionRuleCategoryAutomation
 
 + (BOOL)supportsSecureCoding {
@@ -18640,6 +18784,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"detail" : @"Description",
              @"identifier" : @"Id",
              @"instanceArn" : @"InstanceArn",
+             @"isDefault" : @"IsDefault",
              @"name" : @"Name",
              @"status" : @"Status",
              @"tags" : @"Tags",
@@ -18700,6 +18845,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"arn" : @"Arn",
              @"identifier" : @"Id",
              @"instanceArn" : @"InstanceArn",
+             @"isDefault" : @"IsDefault",
              @"name" : @"Name",
              @"status" : @"Status",
              };
@@ -18744,6 +18890,20 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSConnectTrafficDistributionGroupUserSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"userId" : @"UserId",
+             };
 }
 
 @end
@@ -19934,9 +20094,19 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"agentConfig" : @"AgentConfig",
              @"identifier" : @"Id",
+             @"signInConfig" : @"SignInConfig",
              @"telephonyConfig" : @"TelephonyConfig",
              };
+}
+
++ (NSValueTransformer *)agentConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectAgentConfig class]];
+}
+
++ (NSValueTransformer *)signInConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectSignInConfig class]];
 }
 
 + (NSValueTransformer *)telephonyConfigJSONTransformer {

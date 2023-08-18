@@ -22,6 +22,7 @@
 - (void) test_AWSConnectActionSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectActivateEvaluationFormRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectActivateEvaluationFormResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectAgentConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAgentContactReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAgentInfo API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAgentStatus API_AVAILABLE(ios(11));
@@ -42,6 +43,8 @@
 - (void) test_AWSConnectAssociateRoutingProfileQueuesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateSecurityKeyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateSecurityKeyResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectAssociateTrafficDistributionGroupUserRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectAssociateTrafficDistributionGroupUserResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAttachmentReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAttribute API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAvailableNumberSummary API_AVAILABLE(ios(11));
@@ -186,6 +189,8 @@
 - (void) test_AWSConnectDisassociateQueueQuickConnectsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateRoutingProfileQueuesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateSecurityKeyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDisassociateTrafficDistributionGroupUserRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDisassociateTrafficDistributionGroupUserResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDismissUserContactRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDismissUserContactResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDistribution API_AVAILABLE(ios(11));
@@ -330,6 +335,8 @@
 - (void) test_AWSConnectListTagsForResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListTaskTemplatesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListTaskTemplatesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListTrafficDistributionGroupUsersRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListTrafficDistributionGroupUsersResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListTrafficDistributionGroupsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListTrafficDistributionGroupsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListUseCasesRequest API_AVAILABLE(ios(11));
@@ -428,6 +435,8 @@
 - (void) test_AWSConnectSecurityProfileSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSecurityProfilesSearchFilter API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSendNotificationActionDefinition API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSignInConfig API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSignInDistribution API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSingleSelectQuestionRuleCategoryAutomation API_AVAILABLE(ios(11));
 - (void) test_AWSConnectStartChatContactRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectStartChatContactResponse API_AVAILABLE(ios(11));
@@ -469,6 +478,7 @@
 - (void) test_AWSConnectThresholdV2 API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTrafficDistributionGroup API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTrafficDistributionGroupSummary API_AVAILABLE(ios(11));
+- (void) test_AWSConnectTrafficDistributionGroupUserSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTransferContactRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTransferContactResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUntagResourceRequest API_AVAILABLE(ios(11));
@@ -563,6 +573,10 @@
     [self validateSecureCodingForClass:[AWSConnectActivateEvaluationFormResponse class]];
 }
 
+- (void) test_AWSConnectAgentConfig {
+    [self validateSecureCodingForClass:[AWSConnectAgentConfig class]];
+}
+
 - (void) test_AWSConnectAgentContactReference {
     [self validateSecureCodingForClass:[AWSConnectAgentContactReference class]];
 }
@@ -641,6 +655,14 @@
 
 - (void) test_AWSConnectAssociateSecurityKeyResponse {
     [self validateSecureCodingForClass:[AWSConnectAssociateSecurityKeyResponse class]];
+}
+
+- (void) test_AWSConnectAssociateTrafficDistributionGroupUserRequest {
+    [self validateSecureCodingForClass:[AWSConnectAssociateTrafficDistributionGroupUserRequest class]];
+}
+
+- (void) test_AWSConnectAssociateTrafficDistributionGroupUserResponse {
+    [self validateSecureCodingForClass:[AWSConnectAssociateTrafficDistributionGroupUserResponse class]];
 }
 
 - (void) test_AWSConnectAttachmentReference {
@@ -1219,6 +1241,14 @@
     [self validateSecureCodingForClass:[AWSConnectDisassociateSecurityKeyRequest class]];
 }
 
+- (void) test_AWSConnectDisassociateTrafficDistributionGroupUserRequest {
+    [self validateSecureCodingForClass:[AWSConnectDisassociateTrafficDistributionGroupUserRequest class]];
+}
+
+- (void) test_AWSConnectDisassociateTrafficDistributionGroupUserResponse {
+    [self validateSecureCodingForClass:[AWSConnectDisassociateTrafficDistributionGroupUserResponse class]];
+}
+
 - (void) test_AWSConnectDismissUserContactRequest {
     [self validateSecureCodingForClass:[AWSConnectDismissUserContactRequest class]];
 }
@@ -1795,6 +1825,14 @@
     [self validateSecureCodingForClass:[AWSConnectListTaskTemplatesResponse class]];
 }
 
+- (void) test_AWSConnectListTrafficDistributionGroupUsersRequest {
+    [self validateSecureCodingForClass:[AWSConnectListTrafficDistributionGroupUsersRequest class]];
+}
+
+- (void) test_AWSConnectListTrafficDistributionGroupUsersResponse {
+    [self validateSecureCodingForClass:[AWSConnectListTrafficDistributionGroupUsersResponse class]];
+}
+
 - (void) test_AWSConnectListTrafficDistributionGroupsRequest {
     [self validateSecureCodingForClass:[AWSConnectListTrafficDistributionGroupsRequest class]];
 }
@@ -2187,6 +2225,14 @@
     [self validateSecureCodingForClass:[AWSConnectSendNotificationActionDefinition class]];
 }
 
+- (void) test_AWSConnectSignInConfig {
+    [self validateSecureCodingForClass:[AWSConnectSignInConfig class]];
+}
+
+- (void) test_AWSConnectSignInDistribution {
+    [self validateSecureCodingForClass:[AWSConnectSignInDistribution class]];
+}
+
 - (void) test_AWSConnectSingleSelectQuestionRuleCategoryAutomation {
     [self validateSecureCodingForClass:[AWSConnectSingleSelectQuestionRuleCategoryAutomation class]];
 }
@@ -2349,6 +2395,10 @@
 
 - (void) test_AWSConnectTrafficDistributionGroupSummary {
     [self validateSecureCodingForClass:[AWSConnectTrafficDistributionGroupSummary class]];
+}
+
+- (void) test_AWSConnectTrafficDistributionGroupUserSummary {
+    [self validateSecureCodingForClass:[AWSConnectTrafficDistributionGroupUserSummary class]];
 }
 
 - (void) test_AWSConnectTransferContactRequest {
