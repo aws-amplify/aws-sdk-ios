@@ -616,6 +616,10 @@ typedef NS_ENUM(NSInteger, AWSConnectPhoneNumberType) {
     AWSConnectPhoneNumberTypeUnknown,
     AWSConnectPhoneNumberTypeTollFree,
     AWSConnectPhoneNumberTypeDid,
+    AWSConnectPhoneNumberTypeUifn,
+    AWSConnectPhoneNumberTypeShared,
+    AWSConnectPhoneNumberTypeThirdPartyTf,
+    AWSConnectPhoneNumberTypeThirdPartyDid,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectPhoneNumberWorkflowStatus) {
