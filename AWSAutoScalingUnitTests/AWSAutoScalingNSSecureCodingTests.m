@@ -26,6 +26,7 @@
 - (void) test_AWSAutoScalingActivityType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingAdjustmentType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingAlarm API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingAlarmSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingAttachInstancesQuery API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingAttachLoadBalancerTargetGroupsResultType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingAttachLoadBalancerTargetGroupsType API_AVAILABLE(ios(11));
@@ -226,6 +227,10 @@
 
 - (void) test_AWSAutoScalingAlarm {
     [self validateSecureCodingForClass:[AWSAutoScalingAlarm class]];
+}
+
+- (void) test_AWSAutoScalingAlarmSpecification {
+    [self validateSecureCodingForClass:[AWSAutoScalingAlarmSpecification class]];
 }
 
 - (void) test_AWSAutoScalingAttachInstancesQuery {
