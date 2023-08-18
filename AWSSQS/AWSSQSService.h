@@ -197,7 +197,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
 - (void)addPermission:(AWSSQSAddPermissionRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Cancels a specified message movement task.</p><note><ul><li><p>A message movement can only be cancelled when the current status is RUNNING.</p></li><li><p>Cancelling a message movement task does not revert the messages that have already been moved. It can only stop the messages that have not been moved yet.</p></li></ul></note>
+ <p>Cancels a specified message movement task. A message movement can only be cancelled when the current status is RUNNING. Cancelling a message movement task does not revert the messages that have already been moved. It can only stop the messages that have not been moved yet.</p><note><ul><li><p>This action is currently limited to supporting message redrive from <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues (DLQs)</a> only. In this context, the source queue is the dead-letter queue (DLQ), while the destination queue can be the original source queue (from which the messages were driven to the dead-letter-queue), or a custom destination queue. </p></li><li><p>Currently, only standard queues are supported.</p></li><li><p>Only one active message movement task is supported per queue at any given time.</p></li></ul></note>
  
  @param request A container for the necessary parameters to execute the CancelMessageMoveTask service method.
 
@@ -209,7 +209,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
 - (AWSTask<AWSSQSCancelMessageMoveTaskResult *> *)cancelMessageMoveTask:(AWSSQSCancelMessageMoveTaskRequest *)request;
 
 /**
- <p>Cancels a specified message movement task.</p><note><ul><li><p>A message movement can only be cancelled when the current status is RUNNING.</p></li><li><p>Cancelling a message movement task does not revert the messages that have already been moved. It can only stop the messages that have not been moved yet.</p></li></ul></note>
+ <p>Cancels a specified message movement task. A message movement can only be cancelled when the current status is RUNNING. Cancelling a message movement task does not revert the messages that have already been moved. It can only stop the messages that have not been moved yet.</p><note><ul><li><p>This action is currently limited to supporting message redrive from <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues (DLQs)</a> only. In this context, the source queue is the dead-letter queue (DLQ), while the destination queue can be the original source queue (from which the messages were driven to the dead-letter-queue), or a custom destination queue. </p></li><li><p>Currently, only standard queues are supported.</p></li><li><p>Only one active message movement task is supported per queue at any given time.</p></li></ul></note>
  
  @param request A container for the necessary parameters to execute the CancelMessageMoveTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -438,7 +438,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
 - (void)listDeadLetterSourceQueues:(AWSSQSListDeadLetterSourceQueuesRequest *)request completionHandler:(void (^ _Nullable)(AWSSQSListDeadLetterSourceQueuesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets the most recent message movement tasks (up to 10) under a specific source queue.</p>
+ <p>Gets the most recent message movement tasks (up to 10) under a specific source queue.</p><note><ul><li><p>This action is currently limited to supporting message redrive from <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues (DLQs)</a> only. In this context, the source queue is the dead-letter queue (DLQ), while the destination queue can be the original source queue (from which the messages were driven to the dead-letter-queue), or a custom destination queue. </p></li><li><p>Currently, only standard queues are supported.</p></li><li><p>Only one active message movement task is supported per queue at any given time.</p></li></ul></note>
  
  @param request A container for the necessary parameters to execute the ListMessageMoveTasks service method.
 
@@ -450,7 +450,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
 - (AWSTask<AWSSQSListMessageMoveTasksResult *> *)listMessageMoveTasks:(AWSSQSListMessageMoveTasksRequest *)request;
 
 /**
- <p>Gets the most recent message movement tasks (up to 10) under a specific source queue.</p>
+ <p>Gets the most recent message movement tasks (up to 10) under a specific source queue.</p><note><ul><li><p>This action is currently limited to supporting message redrive from <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues (DLQs)</a> only. In this context, the source queue is the dead-letter queue (DLQ), while the destination queue can be the original source queue (from which the messages were driven to the dead-letter-queue), or a custom destination queue. </p></li><li><p>Currently, only standard queues are supported.</p></li><li><p>Only one active message movement task is supported per queue at any given time.</p></li></ul></note>
  
  @param request A container for the necessary parameters to execute the ListMessageMoveTasks service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -513,7 +513,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
 - (void)listQueues:(AWSSQSListQueuesRequest *)request completionHandler:(void (^ _Nullable)(AWSSQSListQueuesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the messages in a queue specified by the <code>QueueURL</code> parameter.</p><important><p>When you use the <code>PurgeQueue</code> action, you can't retrieve any messages deleted from a queue.</p><p>The message deletion process takes up to 60 seconds. We recommend waiting for 60 seconds regardless of your queue's size. </p></important><p>Messages sent to the queue <i>before</i> you call <code>PurgeQueue</code> might be received but are deleted within the next minute.</p><p>Messages sent to the queue <i>after</i> you call <code>PurgeQueue</code> might be deleted while the queue is being purged.</p>
+ <p>Deletes available messages in a queue (including in-flight messages) specified by the <code>QueueURL</code> parameter.</p><important><p>When you use the <code>PurgeQueue</code> action, you can't retrieve any messages deleted from a queue.</p><p>The message deletion process takes up to 60 seconds. We recommend waiting for 60 seconds regardless of your queue's size. </p></important><p>Messages sent to the queue <i>before</i> you call <code>PurgeQueue</code> might be received but are deleted within the next minute.</p><p>Messages sent to the queue <i>after</i> you call <code>PurgeQueue</code> might be deleted while the queue is being purged.</p>
  
  @param request A container for the necessary parameters to execute the PurgeQueue service method.
 
@@ -524,7 +524,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
 - (AWSTask *)purgeQueue:(AWSSQSPurgeQueueRequest *)request;
 
 /**
- <p>Deletes the messages in a queue specified by the <code>QueueURL</code> parameter.</p><important><p>When you use the <code>PurgeQueue</code> action, you can't retrieve any messages deleted from a queue.</p><p>The message deletion process takes up to 60 seconds. We recommend waiting for 60 seconds regardless of your queue's size. </p></important><p>Messages sent to the queue <i>before</i> you call <code>PurgeQueue</code> might be received but are deleted within the next minute.</p><p>Messages sent to the queue <i>after</i> you call <code>PurgeQueue</code> might be deleted while the queue is being purged.</p>
+ <p>Deletes available messages in a queue (including in-flight messages) specified by the <code>QueueURL</code> parameter.</p><important><p>When you use the <code>PurgeQueue</code> action, you can't retrieve any messages deleted from a queue.</p><p>The message deletion process takes up to 60 seconds. We recommend waiting for 60 seconds regardless of your queue's size. </p></important><p>Messages sent to the queue <i>before</i> you call <code>PurgeQueue</code> might be received but are deleted within the next minute.</p><p>Messages sent to the queue <i>after</i> you call <code>PurgeQueue</code> might be deleted while the queue is being purged.</p>
  
  @param request A container for the necessary parameters to execute the PurgeQueue service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -654,7 +654,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
 - (void)setQueueAttributes:(AWSSQSSetQueueAttributesRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Starts an asynchronous task to move messages from a specified source queue to a specified destination queue.</p><note><ul><li><p>This action is currently limited to supporting message redrive from dead-letter queues (DLQs) only. In this context, the source queue is the dead-letter queue (DLQ), while the destination queue can be the original source queue (from which the messages were driven to the dead-letter-queue), or a custom destination queue. </p></li><li><p>Currently, only standard queues are supported.</p></li><li><p>Only one active message movement task is supported per queue at any given time.</p></li></ul></note>
+ <p>Starts an asynchronous task to move messages from a specified source queue to a specified destination queue.</p><note><ul><li><p>This action is currently limited to supporting message redrive from queues that are configured as <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues (DLQs)</a> of other Amazon SQS queues only. Non-SQS queue sources of dead-letter queues, such as Lambda or Amazon SNS topics, are currently not supported.</p></li><li><p>In dead-letter queues redrive context, the <code>StartMessageMoveTask</code> the source queue is the DLQ, while the destination queue can be the original source queue (from which the messages were driven to the dead-letter-queue), or a custom destination queue.</p></li><li><p>Currently, only standard queues support redrive. FIFO queues don't support redrive.</p></li><li><p>Only one active message movement task is supported per queue at any given time.</p></li></ul></note>
  
  @param request A container for the necessary parameters to execute the StartMessageMoveTask service method.
 
@@ -666,7 +666,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
 - (AWSTask<AWSSQSStartMessageMoveTaskResult *> *)startMessageMoveTask:(AWSSQSStartMessageMoveTaskRequest *)request;
 
 /**
- <p>Starts an asynchronous task to move messages from a specified source queue to a specified destination queue.</p><note><ul><li><p>This action is currently limited to supporting message redrive from dead-letter queues (DLQs) only. In this context, the source queue is the dead-letter queue (DLQ), while the destination queue can be the original source queue (from which the messages were driven to the dead-letter-queue), or a custom destination queue. </p></li><li><p>Currently, only standard queues are supported.</p></li><li><p>Only one active message movement task is supported per queue at any given time.</p></li></ul></note>
+ <p>Starts an asynchronous task to move messages from a specified source queue to a specified destination queue.</p><note><ul><li><p>This action is currently limited to supporting message redrive from queues that are configured as <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues (DLQs)</a> of other Amazon SQS queues only. Non-SQS queue sources of dead-letter queues, such as Lambda or Amazon SNS topics, are currently not supported.</p></li><li><p>In dead-letter queues redrive context, the <code>StartMessageMoveTask</code> the source queue is the DLQ, while the destination queue can be the original source queue (from which the messages were driven to the dead-letter-queue), or a custom destination queue.</p></li><li><p>Currently, only standard queues support redrive. FIFO queues don't support redrive.</p></li><li><p>Only one active message movement task is supported per queue at any given time.</p></li></ul></note>
  
  @param request A container for the necessary parameters to execute the StartMessageMoveTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
