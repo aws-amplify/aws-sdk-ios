@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -250,7 +250,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoArchivedMediaImageSelectorType) {
 @property (nonatomic, strong) NSDate * _Nullable producerTimestamp;
 
 /**
- <p>The timestamp from the AWS server corresponding to the fragment.</p>
+ <p>The timestamp from the Amazon Web Services server corresponding to the fragment.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable serverTimestamp;
 
@@ -450,7 +450,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoArchivedMediaImageSelectorType) {
 
 
 /**
- <p>The end timestamp for the range of images to be generated.</p>
+ <p>The end timestamp for the range of images to be generated. If the time range between <code>StartTimestamp</code> and <code>EndTimestamp</code> is more than 300 seconds above <code>StartTimestamp</code>, you will receive an <code>IllegalArgumentException</code>.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable endTimestamp;
 
@@ -475,7 +475,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoArchivedMediaImageSelectorType) {
 @property (nonatomic, assign) AWSKinesisVideoArchivedMediaImageSelectorType imageSelectorType;
 
 /**
- <p>The maximum number of images to be returned by the API. </p><note><p>The default limit is 100 images per API response. The additional results will be paginated. </p></note>
+ <p>The maximum number of images to be returned by the API. </p><note><p>The default limit is 25 images per API response. Providing a <code>MaxResults</code> greater than this value will result in a page size of 25. Any additional results will be paginated. </p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -485,7 +485,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoArchivedMediaImageSelectorType) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The time interval in milliseconds (ms) at which the images need to be generated from the stream. The minimum value that can be provided is 3000 ms. If the timestamp range is less than the sampling interval, the Image from the <code>startTimestamp</code> will be returned if available. </p><note><p>The minimum value of 3000 ms is a soft limit. If needed, a lower sampling frequency can be requested.</p></note>
+ <p>The time interval in milliseconds (ms) at which the images need to be generated from the stream, with a default of 3000 ms. The minimum value that can be provided is 200 ms. If the timestamp range is less than the sampling interval, the Image from the <code>startTimestamp</code> will be returned if available. </p><note><p>The minimum value of 200 ms is a hard limit.</p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable samplingInterval;
 
@@ -564,7 +564,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoArchivedMediaImageSelectorType) {
 @property (nonatomic, strong) NSString * _Nullable contentType;
 
 /**
- <p>The payload that Kinesis Video Streams returns is a sequence of chunks from the specified stream. For information about the chunks, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_PutMedia.html">PutMedia</a>. The chunks that Kinesis Video Streams returns in the <code>GetMediaForFragmentList</code> call also include the following additional Matroska (MKV) tags: </p><ul><li><p>AWS_KINESISVIDEO_FRAGMENT_NUMBER - Fragment number returned in the chunk.</p></li><li><p>AWS_KINESISVIDEO_SERVER_SIDE_TIMESTAMP - Server-side timestamp of the fragment.</p></li><li><p>AWS_KINESISVIDEO_PRODUCER_SIDE_TIMESTAMP - Producer-side timestamp of the fragment.</p></li></ul><p>The following tags will be included if an exception occurs:</p><ul><li><p>AWS_KINESISVIDEO_FRAGMENT_NUMBER - The number of the fragment that threw the exception</p></li><li><p>AWS_KINESISVIDEO_EXCEPTION_ERROR_CODE - The integer code of the exception</p></li><li><p>AWS_KINESISVIDEO_EXCEPTION_MESSAGE - A text description of the exception</p></li></ul>
+ <p>The payload that Kinesis Video Streams returns is a sequence of chunks from the specified stream. For information about the chunks, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_PutMedia.html">PutMedia</a>. The chunks that Kinesis Video Streams returns in the <code>GetMediaForFragmentList</code> call also include the following additional Matroska (MKV) tags: </p><ul><li><p>AWS_KINESISVIDEO_FRAGMENT_NUMBER - Fragment number returned in the chunk.</p></li><li><p>AWS_KINESISVIDEO_SERVER_SIDE_TIMESTAMP - Server-side timestamp of the fragment.</p></li><li><p>AWS_KINESISVIDEO_PRODUCER_SIDE_TIMESTAMP - Producer-side timestamp of the fragment.</p></li></ul><p>The following tags will be included if an exception occurs:</p><ul><li><p>AWS_KINESISVIDEO_FRAGMENT_NUMBER - The number of the fragment that threw the exception </p></li><li><p>AWS_KINESISVIDEO_EXCEPTION_ERROR_CODE - The integer code of the </p></li><li><p>AWS_KINESISVIDEO_EXCEPTION_MESSAGE - A text description of the exception </p></li></ul>
  */
 @property (nonatomic, strong) NSData * _Nullable payload;
 
