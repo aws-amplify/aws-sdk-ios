@@ -231,6 +231,20 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSAutoScalingAlarmSpecification
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"alarms" : @"Alarms",
+             };
+}
+
+@end
+
 @implementation AWSAutoScalingAttachInstancesQuery
 
 + (BOOL)supportsSecureCoding {
@@ -3481,6 +3495,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"alarmSpecification" : @"AlarmSpecification",
              @"autoRollback" : @"AutoRollback",
              @"checkpointDelay" : @"CheckpointDelay",
              @"checkpointPercentages" : @"CheckpointPercentages",
@@ -3490,6 +3505,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"skipMatching" : @"SkipMatching",
              @"standbyInstances" : @"StandbyInstances",
              };
+}
+
++ (NSValueTransformer *)alarmSpecificationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingAlarmSpecification class]];
 }
 
 + (NSValueTransformer *)scaleInProtectedInstancesJSONTransformer {
