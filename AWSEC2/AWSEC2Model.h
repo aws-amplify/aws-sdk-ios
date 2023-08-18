@@ -4785,6 +4785,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2SubnetAssociation;
 @class AWSEC2SubnetCidrBlockState;
 @class AWSEC2SubnetCidrReservation;
+@class AWSEC2SubnetConfiguration;
 @class AWSEC2SubnetIpv6CidrBlockAssociation;
 @class AWSEC2Subscription;
 @class AWSEC2SuccessfulInstanceCreditSpecificationItem;
@@ -14459,7 +14460,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable routeTableIds;
 
 /**
- <p>(Interface endpoint) The IDs of the security groups to associate with the endpoint network interface. If this parameter is not specified, we use the default security group for the VPC.</p>
+ <p>(Interface endpoint) The IDs of the security groups to associate with the endpoint network interfaces. If this parameter is not specified, we use the default security group for the VPC.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
 
@@ -14469,7 +14470,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable serviceName;
 
 /**
- <p>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to create an endpoint network interface. For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>
+ <p>The subnet configurations for the endpoint.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2SubnetConfiguration *> * _Nullable subnetConfigurations;
+
+/**
+ <p>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to create endpoint network interfaces. For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable subnetIds;
 
@@ -40904,7 +40910,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable addRouteTableIds;
 
 /**
- <p>(Interface endpoint) The IDs of the security groups to associate with the network interface.</p>
+ <p>(Interface endpoint) The IDs of the security groups to associate with the endpoint network interfaces.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable addSecurityGroupIds;
 
@@ -40944,7 +40950,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable removeRouteTableIds;
 
 /**
- <p>(Interface endpoint) The IDs of the security groups to disassociate from the network interface.</p>
+ <p>(Interface endpoint) The IDs of the security groups to disassociate from the endpoint network interfaces.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable removeSecurityGroupIds;
 
@@ -40957,6 +40963,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>(Gateway endpoint) Specify <code>true</code> to reset the policy document to the default policy. The default policy allows full access to the service.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable resetPolicy;
+
+/**
+ <p>The subnet configurations for the endpoint.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2SubnetConfiguration *> * _Nullable subnetConfigurations;
 
 /**
  <p>The ID of the endpoint.</p>
@@ -50641,6 +50652,29 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The tags assigned to the subnet CIDR reservation.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+@end
+
+/**
+ <p>Describes the configuration of a subnet for a VPC endpoint.</p>
+ */
+@interface AWSEC2SubnetConfiguration : AWSModel
+
+
+/**
+ <p>The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.</p><p>If you specify an IPv4 address when modifying a VPC endpoint, we replace the existing endpoint network interface with a new endpoint network interface with this IP address. This process temporarily disconnects the subnet and the VPC endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipv4;
+
+/**
+ <p>The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.</p><p>If you specify an IPv6 address when modifying a VPC endpoint, we replace the existing endpoint network interface with a new endpoint network interface with this IP address. This process temporarily disconnects the subnet and the VPC endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipv6;
+
+/**
+ <p>The ID of the subnet.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable subnetId;
 
 @end
 
