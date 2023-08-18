@@ -1,4 +1,3 @@
----
 
 # AWS Mobile SDK for iOS CHANGELOG
 
@@ -12,6 +11,17 @@
  - AWSSTS
  - AWSLambda
  - AWSPolly
+ - AWSSES
+ - AWSEC2
+ - AWSConnect
+ - AWSElasticLoadBalancingv2
+ - AWSKinesisVideo
+ - AWSRekognition
+ - AWSKinesisVideoArchivedMedia
+ - AWSAutoScaling
+ - AWSCognitoIdentityProvider
+ - AWSPinpoint
+ - AWSSQS
 
 ## 2.33.3
 

@@ -37,6 +37,12 @@
     _sharedKeyMetadata = [self createKey];
     
     XCTAssertNotNil(_sharedKeyMetadata);
+
+    // wait for KMS to propagate changes. KMS APIs are eventually consistent.
+    // ref: https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html
+    XCTestExpectation *delay = [self expectationWithDescription:@"delay"];
+    [delay setInverted:YES];
+    [self waitForExpectations:@[delay] timeout:5];
 }
 
 - (void)tearDown {
