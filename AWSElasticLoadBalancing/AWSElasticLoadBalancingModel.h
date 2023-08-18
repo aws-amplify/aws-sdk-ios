@@ -85,6 +85,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingAuthenticateOidcActionConditio
     AWSElasticLoadBalancingAuthenticateOidcActionConditionalBehaviorEnumAuthenticate,
 };
 
+typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum) {
+    AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumUnknown,
+    AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumOn,
+    AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumOff,
+};
+
 typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingIpAddressType) {
     AWSElasticLoadBalancingIpAddressTypeUnknown,
     AWSElasticLoadBalancingIpAddressTypeIpv4,
@@ -651,7 +657,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, assign) AWSElasticLoadBalancingLoadBalancerSchemeEnum scheme;
 
 /**
- <p>[Application Load Balancers] The IDs of the security groups for the load balancer.</p>
+ <p>[Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroups;
 
@@ -1460,7 +1466,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @end
 
 /**
- <p>Information about an Elastic Load Balancing resource limit for your Amazon Web Services account.</p>
+ <p>Information about an Elastic Load Balancing resource limit for your Amazon Web Services account.</p><p>For more information, see the following:</p><ul><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Quotas for your Application Load Balancers</a></p></li><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html">Quotas for your Network Load Balancers</a></p></li><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/quotas-limits.html">Quotas for your Gateway Load Balancers</a></p></li></ul>
  */
 @interface AWSElasticLoadBalancingLimit : AWSModel
 
@@ -1555,6 +1561,11 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
  <p>The public DNS name of the load balancer.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable DNSName;
+
+/**
+ <p>Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through Amazon Web Services PrivateLink.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
 
 /**
  <p>The type of IP addresses used by the subnets for your load balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6 addresses).</p>
@@ -2100,7 +2111,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @end
 
 /**
- <p>Information about a condition for a rule.</p><p>Each rule can optionally include up to one of each of the following conditions: <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>, and <code>source-ip</code>. Each rule can also optionally include one or more of each of the following conditions: <code>http-header</code> and <code>query-string</code>. Note that the value for a condition cannot be empty.</p>
+ <p>Information about a condition for a rule.</p><p>Each rule can optionally include up to one of each of the following conditions: <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>, and <code>source-ip</code>. Each rule can also optionally include one or more of each of the following conditions: <code>http-header</code> and <code>query-string</code>. Note that the value for a condition cannot be empty.</p><p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Quotas for your Application Load Balancers</a>.</p>
  */
 @interface AWSElasticLoadBalancingRuleCondition : AWSModel
 
@@ -2229,6 +2240,11 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 
 
 /**
+ <p>Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through Amazon Web Services PrivateLink. The default is <code>on</code>.</p>
+ */
+@property (nonatomic, assign) AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+
+/**
  <p>The Amazon Resource Name (ARN) of the load balancer.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable loadBalancerArn;
@@ -2247,6 +2263,11 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 
 
 /**
+ <p>Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through Amazon Web Services PrivateLink.</p>
+ */
+@property (nonatomic, assign) AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+
+/**
  <p>The IDs of the security groups associated with the load balancer.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
@@ -2260,7 +2281,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 
 
 /**
- <p>[Network Load Balancers] The type of IP addresses used by the subnets for your load balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6 addresses). You can’t specify <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener. .</p>
+ <p>[Network Load Balancers] The type of IP addresses used by the subnets for your load balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6 addresses). You can’t specify <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.</p>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingIpAddressType ipAddressType;
 
@@ -2423,7 +2444,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is <code>alb</code>, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.</p>
+ <p>The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is <code>alb</code>, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. This parameter is not used if the target is a Lambda function.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable port;
 
@@ -2476,7 +2497,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, assign) AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum ipAddressType;
 
 /**
- <p>The Amazon Resource Names (ARN) of the load balancers that route traffic to this target group.</p>
+ <p>The Amazon Resource Name (ARN) of the load balancer that routes traffic to this target group. You can use each target group with only one load balancer.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable loadBalancerArns;
 
@@ -2486,7 +2507,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) AWSElasticLoadBalancingMatcher * _Nullable matcher;
 
 /**
- <p>The port on which the targets are listening. Not used if the target is a Lambda function.</p>
+ <p>The port on which the targets are listening. This parameter is not used if the target is a Lambda function.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable port;
 
