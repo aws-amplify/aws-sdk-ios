@@ -606,7 +606,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 
 
 /**
- <p>The names of one or more CloudWatch alarms to monitor for the instance refresh.</p>
+ <p>The names of one or more CloudWatch alarms to monitor for the instance refresh. You can specify up to 10 alarms.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable alarms;
 
