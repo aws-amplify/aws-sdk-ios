@@ -4623,6 +4623,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"agentAvailabilityTimer" : @"AgentAvailabilityTimer",
              @"defaultOutboundQueueId" : @"DefaultOutboundQueueId",
              @"detail" : @"Description",
              @"instanceId" : @"InstanceId",
@@ -4631,6 +4632,27 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"queueConfigs" : @"QueueConfigs",
              @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)agentAvailabilityTimerJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"TIME_SINCE_LAST_ACTIVITY"] == NSOrderedSame) {
+            return @(AWSConnectAgentAvailabilityTimerTimeSinceLastActivity);
+        }
+        if ([value caseInsensitiveCompare:@"TIME_SINCE_LAST_INBOUND"] == NSOrderedSame) {
+            return @(AWSConnectAgentAvailabilityTimerTimeSinceLastInbound);
+        }
+        return @(AWSConnectAgentAvailabilityTimerUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectAgentAvailabilityTimerTimeSinceLastActivity:
+                return @"TIME_SINCE_LAST_ACTIVITY";
+            case AWSConnectAgentAvailabilityTimerTimeSinceLastInbound:
+                return @"TIME_SINCE_LAST_INBOUND";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)mediaConcurrenciesJSONTransformer {
@@ -15113,6 +15135,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"agentAvailabilityTimer" : @"AgentAvailabilityTimer",
              @"defaultOutboundQueueId" : @"DefaultOutboundQueueId",
              @"detail" : @"Description",
              @"instanceId" : @"InstanceId",
@@ -15124,6 +15147,27 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"routingProfileId" : @"RoutingProfileId",
              @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)agentAvailabilityTimerJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"TIME_SINCE_LAST_ACTIVITY"] == NSOrderedSame) {
+            return @(AWSConnectAgentAvailabilityTimerTimeSinceLastActivity);
+        }
+        if ([value caseInsensitiveCompare:@"TIME_SINCE_LAST_INBOUND"] == NSOrderedSame) {
+            return @(AWSConnectAgentAvailabilityTimerTimeSinceLastInbound);
+        }
+        return @(AWSConnectAgentAvailabilityTimerUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectAgentAvailabilityTimerTimeSinceLastActivity:
+                return @"TIME_SINCE_LAST_ACTIVITY";
+            case AWSConnectAgentAvailabilityTimerTimeSinceLastInbound:
+                return @"TIME_SINCE_LAST_INBOUND";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)mediaConcurrenciesJSONTransformer {
@@ -19576,6 +19620,43 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"name" : @"Name",
              @"quickConnectId" : @"QuickConnectId",
              };
+}
+
+@end
+
+@implementation AWSConnectUpdateRoutingProfileAgentAvailabilityTimerRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"agentAvailabilityTimer" : @"AgentAvailabilityTimer",
+             @"instanceId" : @"InstanceId",
+             @"routingProfileId" : @"RoutingProfileId",
+             };
+}
+
++ (NSValueTransformer *)agentAvailabilityTimerJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"TIME_SINCE_LAST_ACTIVITY"] == NSOrderedSame) {
+            return @(AWSConnectAgentAvailabilityTimerTimeSinceLastActivity);
+        }
+        if ([value caseInsensitiveCompare:@"TIME_SINCE_LAST_INBOUND"] == NSOrderedSame) {
+            return @(AWSConnectAgentAvailabilityTimerTimeSinceLastInbound);
+        }
+        return @(AWSConnectAgentAvailabilityTimerUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectAgentAvailabilityTimerTimeSinceLastActivity:
+                return @"TIME_SINCE_LAST_ACTIVITY";
+            case AWSConnectAgentAvailabilityTimerTimeSinceLastInbound:
+                return @"TIME_SINCE_LAST_INBOUND";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
