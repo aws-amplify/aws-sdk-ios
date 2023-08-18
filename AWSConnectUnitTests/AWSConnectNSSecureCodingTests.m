@@ -510,6 +510,7 @@
 - (void) test_AWSConnectUpdateQueueStatusRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateQuickConnectConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateQuickConnectNameRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdateRoutingProfileAgentAvailabilityTimerRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateRoutingProfileConcurrencyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateRoutingProfileDefaultOutboundQueueRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateRoutingProfileNameRequest API_AVAILABLE(ios(11));
@@ -2512,6 +2513,10 @@
 
 - (void) test_AWSConnectUpdateQuickConnectNameRequest {
     [self validateSecureCodingForClass:[AWSConnectUpdateQuickConnectNameRequest class]];
+}
+
+- (void) test_AWSConnectUpdateRoutingProfileAgentAvailabilityTimerRequest {
+    [self validateSecureCodingForClass:[AWSConnectUpdateRoutingProfileAgentAvailabilityTimerRequest class]];
 }
 
 - (void) test_AWSConnectUpdateRoutingProfileConcurrencyRequest {
