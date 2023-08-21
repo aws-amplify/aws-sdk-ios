@@ -263,6 +263,25 @@
       ],\
       \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Associates a security key to the instance.</p>\"\
     },\
+    \"AssociateTrafficDistributionGroupUser\":{\
+      \"name\":\"AssociateTrafficDistributionGroupUser\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/traffic-distribution-group/{TrafficDistributionGroupId}/user\"\
+      },\
+      \"input\":{\"shape\":\"AssociateTrafficDistributionGroupUserRequest\"},\
+      \"output\":{\"shape\":\"AssociateTrafficDistributionGroupUserResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ResourceConflictException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Associates an agent with a traffic distribution group.</p>\",\
+      \"idempotent\":true\
+    },\
     \"ClaimPhoneNumber\":{\
       \"name\":\"ClaimPhoneNumber\",\
       \"http\":{\
@@ -804,6 +823,23 @@
       ],\
       \"documentation\":\"<p>Deletes a prompt.</p>\"\
     },\
+    \"DeleteQueue\":{\
+      \"name\":\"DeleteQueue\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/queues/{InstanceId}/{QueueId}\"\
+      },\
+      \"input\":{\"shape\":\"DeleteQueueRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ResourceInUseException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes a queue.</p>\"\
+    },\
     \"DeleteQuickConnect\":{\
       \"name\":\"DeleteQuickConnect\",\
       \"http\":{\
@@ -819,6 +855,23 @@
         {\"shape\":\"InternalServiceException\"}\
       ],\
       \"documentation\":\"<p>Deletes a quick connect.</p>\"\
+    },\
+    \"DeleteRoutingProfile\":{\
+      \"name\":\"DeleteRoutingProfile\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/routing-profiles/{InstanceId}/{RoutingProfileId}\"\
+      },\
+      \"input\":{\"shape\":\"DeleteRoutingProfileRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ResourceInUseException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes a routing profile.</p>\"\
     },\
     \"DeleteRule\":{\
       \"name\":\"DeleteRule\",\
@@ -1469,6 +1522,25 @@
       ],\
       \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Deletes the specified security key.</p>\"\
     },\
+    \"DisassociateTrafficDistributionGroupUser\":{\
+      \"name\":\"DisassociateTrafficDistributionGroupUser\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/traffic-distribution-group/{TrafficDistributionGroupId}/user\"\
+      },\
+      \"input\":{\"shape\":\"DisassociateTrafficDistributionGroupUserRequest\"},\
+      \"output\":{\"shape\":\"DisassociateTrafficDistributionGroupUserResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ResourceConflictException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Disassociates an agent from a traffic distribution group.</p>\",\
+      \"idempotent\":true\
+    },\
     \"DismissUserContact\":{\
       \"name\":\"DismissUserContact\",\
       \"http\":{\
@@ -1952,7 +2024,7 @@
         {\"shape\":\"InternalServiceException\"},\
         {\"shape\":\"AccessDeniedException\"}\
       ],\
-      \"documentation\":\"<p>Lists phone numbers claimed to your Amazon Connect instance or traffic distribution group. If the provided <code>TargetArn</code> is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with traffic distribution group.</p> <p>For more information about phone numbers, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html\\\">Set Up Phone Numbers for Your Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+      \"documentation\":\"<p>Lists phone numbers claimed to your Amazon Connect instance or traffic distribution group. If the provided <code>TargetArn</code> is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with traffic distribution group.</p> <p>For more information about phone numbers, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html\\\">Set Up Phone Numbers for Your Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p> <note> <ul> <li> <p>When given an instance ARN, <code>ListPhoneNumbersV2</code> returns only the phone numbers claimed to the instance.</p> </li> <li> <p>When given a traffic distribution group ARN <code>ListPhoneNumbersV2</code> returns only the phone numbers claimed to the traffic distribution group.</p> </li> </ul> </note>\"\
     },\
     \"ListPrompts\":{\
       \"name\":\"ListPrompts\",\
@@ -2157,6 +2229,23 @@
         {\"shape\":\"InternalServiceException\"}\
       ],\
       \"documentation\":\"<p>Lists task templates for the specified Amazon Connect instance.</p>\"\
+    },\
+    \"ListTrafficDistributionGroupUsers\":{\
+      \"name\":\"ListTrafficDistributionGroupUsers\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/traffic-distribution-group/{TrafficDistributionGroupId}/user\"\
+      },\
+      \"input\":{\"shape\":\"ListTrafficDistributionGroupUsersRequest\"},\
+      \"output\":{\"shape\":\"ListTrafficDistributionGroupUsersResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Lists traffic distribution group users.</p>\"\
     },\
     \"ListTrafficDistributionGroups\":{\
       \"name\":\"ListTrafficDistributionGroups\",\
@@ -3132,6 +3221,22 @@
       ],\
       \"documentation\":\"<p>Updates the name and description of a quick connect. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>\"\
     },\
+    \"UpdateRoutingProfileAgentAvailabilityTimer\":{\
+      \"name\":\"UpdateRoutingProfileAgentAvailabilityTimer\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/routing-profiles/{InstanceId}/{RoutingProfileId}/agent-availability-timer\"\
+      },\
+      \"input\":{\"shape\":\"UpdateRoutingProfileAgentAvailabilityTimerRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Whether agents with this routing profile will have their routing order calculated based on <i>time since their last inbound contact</i> or <i>longest idle time</i>. </p>\"\
+    },\
     \"UpdateRoutingProfileConcurrency\":{\
       \"name\":\"UpdateRoutingProfileConcurrency\",\
       \"http\":{\
@@ -3264,7 +3369,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Updates the traffic distribution for a given traffic distribution group. </p> <p>For more information about updating a traffic distribution group, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html\\\">Update telephony traffic distribution across Amazon Web Services Regions </a> in the <i>Amazon Connect Administrator Guide</i>. </p>\"\
+      \"documentation\":\"<p>Updates the traffic distribution for a given traffic distribution group. </p> <note> <p>You can change the <code>SignInConfig</code> only for a default <code>TrafficDistributionGroup</code>. If you call <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>, an <code>InvalidRequestException</code> is returned.</p> </note> <p>For more information about updating a traffic distribution group, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html\\\">Update telephony traffic distribution across Amazon Web Services Regions </a> in the <i>Amazon Connect Administrator Guide</i>. </p>\"\
     },\
     \"UpdateUserHierarchy\":{\
       \"name\":\"UpdateUserHierarchy\",\
@@ -3467,6 +3572,24 @@
     \"AfterContactWorkTimeLimit\":{\
       \"type\":\"integer\",\
       \"min\":0\
+    },\
+    \"AgentAvailabilityTimer\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"TIME_SINCE_LAST_ACTIVITY\",\
+        \"TIME_SINCE_LAST_INBOUND\"\
+      ]\
+    },\
+    \"AgentConfig\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Distributions\"],\
+      \"members\":{\
+        \"Distributions\":{\
+          \"shape\":\"DistributionList\",\
+          \"documentation\":\"<p>Information about traffic distributions.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The distribution of agents between the instance and its replica(s).</p>\"\
     },\
     \"AgentContactReference\":{\
       \"type\":\"structure\",\
@@ -3937,6 +4060,35 @@
           \"shape\":\"AssociationId\",\
           \"documentation\":\"<p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>\"\
         }\
+      }\
+    },\
+    \"AssociateTrafficDistributionGroupUserRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"TrafficDistributionGroupId\",\
+        \"UserId\",\
+        \"InstanceId\"\
+      ],\
+      \"members\":{\
+        \"TrafficDistributionGroupId\":{\
+          \"shape\":\"TrafficDistributionGroupIdOrArn\",\
+          \"documentation\":\"<p>The identifier of the traffic distribution group. This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created. The ARN must be provided if the call is from the replicated Region.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"TrafficDistributionGroupId\"\
+        },\
+        \"UserId\":{\
+          \"shape\":\"UserId\",\
+          \"documentation\":\"<p>The identifier of the user account. This can be the ID or the ARN of the user. </p>\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>\"\
+        }\
+      }\
+    },\
+    \"AssociateTrafficDistributionGroupUserResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
       }\
     },\
     \"AssociationId\":{\
@@ -5183,6 +5335,10 @@
         \"Tags\":{\
           \"shape\":\"TagMap\",\
           \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+        },\
+        \"AgentAvailabilityTimer\":{\
+          \"shape\":\"AgentAvailabilityTimer\",\
+          \"documentation\":\"<p>Whether agents with this routing profile will have their routing order calculated based on <i>longest idle time</i> or <i>time since their last inbound contact</i>. </p>\"\
         }\
       }\
     },\
@@ -6035,6 +6191,27 @@
         }\
       }\
     },\
+    \"DeleteQueueRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"QueueId\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"QueueId\":{\
+          \"shape\":\"QueueId\",\
+          \"documentation\":\"<p>The identifier for the queue.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"QueueId\"\
+        }\
+      }\
+    },\
     \"DeleteQuickConnectRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -6053,6 +6230,27 @@
           \"documentation\":\"<p>The identifier for the quick connect.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"QuickConnectId\"\
+        }\
+      }\
+    },\
+    \"DeleteRoutingProfileRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"RoutingProfileId\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"RoutingProfileId\":{\
+          \"shape\":\"RoutingProfileId\",\
+          \"documentation\":\"<p>The identifier of the routing profile.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"RoutingProfileId\"\
         }\
       }\
     },\
@@ -7176,6 +7374,39 @@
           \"location\":\"uri\",\
           \"locationName\":\"AssociationId\"\
         }\
+      }\
+    },\
+    \"DisassociateTrafficDistributionGroupUserRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"TrafficDistributionGroupId\",\
+        \"UserId\",\
+        \"InstanceId\"\
+      ],\
+      \"members\":{\
+        \"TrafficDistributionGroupId\":{\
+          \"shape\":\"TrafficDistributionGroupIdOrArn\",\
+          \"documentation\":\"<p>The identifier of the traffic distribution group. This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created. The ARN must be provided if the call is from the replicated Region.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"TrafficDistributionGroupId\"\
+        },\
+        \"UserId\":{\
+          \"shape\":\"UserId\",\
+          \"documentation\":\"<p>The identifier for the user. This can be the ID or the ARN of the user.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"UserId\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"InstanceId\"\
+        }\
+      }\
+    },\
+    \"DisassociateTrafficDistributionGroupUserResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
       }\
     },\
     \"DismissUserContactRequest\":{\
@@ -8375,7 +8606,7 @@
         },\
         \"UserId\":{\
           \"shape\":\"AgentResourceId\",\
-          \"documentation\":\"<p>The identifier for the user.</p>\"\
+          \"documentation\":\"<p>The identifier for the user. This can be the ID or the ARN of the user.</p>\"\
         }\
       }\
     },\
@@ -8463,7 +8694,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FiltersV2List\",\
-          \"documentation\":\"<p>The filters to apply to returned metrics. You can filter on the following resources:</p> <ul> <li> <p>Queues</p> </li> <li> <p>Routing profiles</p> </li> <li> <p>Agents</p> </li> <li> <p>Channels</p> </li> <li> <p>User hierarchy groups</p> </li> </ul> <p>At least one filter must be passed from queues, routing profiles, agents, or user hierarchy groups.</p> <p>To filter by phone number, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/create-historical-metrics-report.html\\\">Create a historical metrics report</a> in the <i>Amazon Connect Administrator's Guide</i>.</p> <p>Note the following limits:</p> <ul> <li> <p> <b>Filter keys</b>: A maximum of 5 filter keys are supported in a single request. Valid filter keys: <code>QUEUE</code> | <code>ROUTING_PROFILE</code> | <code>AGENT</code> | <code>CHANNEL</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> </p> </li> <li> <p> <b>Filter values</b>: A maximum of 100 filter values are supported in a single request. VOICE, CHAT, and TASK are valid <code>filterValue</code> for the CHANNEL filter key. They do not count towards limitation of 100 filter values. For example, a GetMetricDataV2 request can filter by 50 queues, 35 agents, and 15 routing profiles for a total of 100 filter values, along with 3 channel filters.</p> </li> </ul>\"\
+          \"documentation\":\"<p>The filters to apply to returned metrics. You can filter on the following resources:</p> <ul> <li> <p>Queues</p> </li> <li> <p>Routing profiles</p> </li> <li> <p>Agents</p> </li> <li> <p>Channels</p> </li> <li> <p>User hierarchy groups</p> </li> <li> <p>Feature</p> </li> </ul> <p>At least one filter must be passed from queues, routing profiles, agents, or user hierarchy groups.</p> <p>To filter by phone number, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/create-historical-metrics-report.html\\\">Create a historical metrics report</a> in the <i>Amazon Connect Administrator's Guide</i>.</p> <p>Note the following limits:</p> <ul> <li> <p> <b>Filter keys</b>: A maximum of 5 filter keys are supported in a single request. Valid filter keys: <code>QUEUE</code> | <code>ROUTING_PROFILE</code> | <code>AGENT</code> | <code>CHANNEL</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>FEATURE</code> </p> </li> <li> <p> <b>Filter values</b>: A maximum of 100 filter values are supported in a single request. VOICE, CHAT, and TASK are valid <code>filterValue</code> for the CHANNEL filter key. They do not count towards limitation of 100 filter values. For example, a GetMetricDataV2 request can filter by 50 queues, 35 agents, and 15 routing profiles for a total of 100 filter values, along with 3 channel filters. </p> <p> <code>contact_lens_conversational_analytics</code> is a valid filterValue for the <code>FEATURE</code> filter key. It is available only to contacts analyzed by Contact Lens conversational analytics.</p> </li> </ul>\"\
         },\
         \"Groupings\":{\
           \"shape\":\"GroupingsV2\",\
@@ -8471,7 +8702,7 @@
         },\
         \"Metrics\":{\
           \"shape\":\"MetricsV2\",\
-          \"documentation\":\"<p>The metrics to retrieve. Specify the name, groupings, and filters for each metric. The following historical metrics are available. For a description of each metric, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html\\\">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.</p> <dl> <dt>AGENT_ADHERENT_TIME</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_NON_RESPONSE</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_OCCUPANCY</dt> <dd> <p>Unit: Percentage</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_SCHEDULE_ADHERENCE</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AGENT_SCHEDULED_TIME</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_ABANDON_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_AFTER_CONTACT_WORK_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_AGENT_CONNECTING_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_HANDLE_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_INTERACTION_AND_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_INTERACTION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> </dd> <dt>AVG_QUEUE_ANSWER_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> </dd> <dt>CONTACTS_ABANDONED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_CREATED</dt> <dd> <p>Unit: Count</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> </dd> <dt>CONTACTS_HANDLED</dt> <dd> <p>Unit: Count</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_HOLD_ABANDONS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_QUEUED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_BY_AGENT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>MAX_QUEUED_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SERVICE_LEVEL</dt> <dd> <p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_CONTACTS_ANSWERED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_CONTACTS_ABANDONED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_CONTACTS_DISCONNECTED </dt> <dd> <p>Valid metric filter key: <code>DISCONNECT_REASON</code> </p> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> </dd> <dt>SUM_RETRY_CALLBACK_ATTEMPTS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> </dd> </dl>\"\
+          \"documentation\":\"<p>The metrics to retrieve. Specify the name, groupings, and filters for each metric. The following historical metrics are available. For a description of each metric, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html\\\">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.</p> <dl> <dt>AGENT_ADHERENT_TIME</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_NON_RESPONSE</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_OCCUPANCY</dt> <dd> <p>Unit: Percentage</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_SCHEDULE_ADHERENCE</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AGENT_SCHEDULED_TIME</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_ABANDON_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_AFTER_CONTACT_WORK_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_AGENT_CONNECTING_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_AGENT_CONNECTING_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_CONTACT_DURATION</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_CONVERSATION_DURATION</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_GREETING_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_HANDLE_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_HOLDS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_INTERACTION_AND_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_INTERACTION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_INTERRUPTIONS_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_INTERRUPTION_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_NON_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_QUEUE_ANSWER_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_TALK_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_TALK_TIME_CUSTOMER</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_ABANDONED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_CREATED</dt> <dd> <p>Unit: Count</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_HANDLED</dt> <dd> <p>Unit: Count</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_HOLD_ABANDONS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_QUEUED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_TRANSFERRED_OUT_BY_AGENT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>MAX_QUEUED_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SERVICE_LEVEL</dt> <dd> <p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_CONTACTS_ANSWERED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_CONTACTS_ABANDONED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_CONTACTS_DISCONNECTED </dt> <dd> <p>Valid metric filter key: <code>DISCONNECT_REASON</code> </p> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> </dd> <dt>SUM_RETRY_CALLBACK_ATTEMPTS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> </dd> </dl>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken2500\",\
@@ -8642,6 +8873,14 @@
         \"Arn\":{\
           \"shape\":\"TrafficDistributionGroupArn\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>\"\
+        },\
+        \"SignInConfig\":{\
+          \"shape\":\"SignInConfig\",\
+          \"documentation\":\"<p>The distribution of allowing signing in to the instance and its replica(s).</p>\"\
+        },\
+        \"AgentConfig\":{\
+          \"shape\":\"AgentConfig\",\
+          \"documentation\":\"<p>The distribution of agents between the instance and its replica(s).</p>\"\
         }\
       }\
     },\
@@ -9206,7 +9445,7 @@
         },\
         \"InstanceAccessUrl\":{\
           \"shape\":\"Url\",\
-          \"documentation\":\"<p>This URL allows contact center users to access Amazon Connect admin website.</p>\"\
+          \"documentation\":\"<p>This URL allows contact center users to access the Amazon Connect admin website.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The Amazon Connect instance.</p>\"\
@@ -9355,7 +9594,7 @@
         },\
         \"InstanceAccessUrl\":{\
           \"shape\":\"Url\",\
-          \"documentation\":\"<p>This URL allows contact center users to access Amazon Connect admin website.</p>\"\
+          \"documentation\":\"<p>This URL allows contact center users to access the Amazon Connect admin website.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about the instance.</p>\"\
@@ -10953,6 +11192,44 @@
         }\
       }\
     },\
+    \"ListTrafficDistributionGroupUsersRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"TrafficDistributionGroupId\"],\
+      \"members\":{\
+        \"TrafficDistributionGroupId\":{\
+          \"shape\":\"TrafficDistributionGroupIdOrArn\",\
+          \"documentation\":\"<p>The identifier of the traffic distribution group. This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created. The ARN must be provided if the call is from the replicated Region.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"TrafficDistributionGroupId\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResult10\",\
+          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"box\":true,\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        }\
+      }\
+    },\
+    \"ListTrafficDistributionGroupUsersResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>If there are additional results, this is the token for the next set of results.</p>\"\
+        },\
+        \"TrafficDistributionGroupUserSummaryList\":{\
+          \"shape\":\"TrafficDistributionGroupUserSummaryList\",\
+          \"documentation\":\"<p>A list of traffic distribution group users.</p>\"\
+        }\
+      }\
+    },\
     \"ListTrafficDistributionGroupsRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -11919,13 +12196,17 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"TOLL_FREE\",\
-        \"DID\"\
+        \"DID\",\
+        \"UIFN\",\
+        \"SHARED\",\
+        \"THIRD_PARTY_TF\",\
+        \"THIRD_PARTY_DID\"\
       ]\
     },\
     \"PhoneNumberTypes\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"PhoneNumberType\"},\
-      \"max\":2\
+      \"max\":6\
     },\
     \"PhoneNumberWorkflowMessage\":{\
       \"type\":\"string\",\
@@ -12833,6 +13114,10 @@
         \"NumberOfAssociatedUsers\":{\
           \"shape\":\"Long\",\
           \"documentation\":\"<p>The number of associated users in routing profile.</p>\"\
+        },\
+        \"AgentAvailabilityTimer\":{\
+          \"shape\":\"AgentAvailabilityTimer\",\
+          \"documentation\":\"<p>Whether agents with this routing profile will have their routing order calculated based on <i>time since their last inbound contact</i> or <i>longest idle time</i>. </p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a routing profile.</p>\"\
@@ -13879,6 +14164,39 @@
       \"error\":{\"httpStatusCode\":402},\
       \"exception\":true\
     },\
+    \"SignInConfig\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Distributions\"],\
+      \"members\":{\
+        \"Distributions\":{\
+          \"shape\":\"SignInDistributionList\",\
+          \"documentation\":\"<p>Information about traffic distributions.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The distribution of allowing signing in to the instance and its replica(s).</p>\"\
+    },\
+    \"SignInDistribution\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Region\",\
+        \"Enabled\"\
+      ],\
+      \"members\":{\
+        \"Region\":{\
+          \"shape\":\"AwsRegion\",\
+          \"documentation\":\"<p>The Amazon Web Services Region of the sign in distribution.</p>\"\
+        },\
+        \"Enabled\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Whether sign in distribution is enabled.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The distribution of sign in traffic between the instance and its replica(s).</p>\"\
+    },\
+    \"SignInDistributionList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"SignInDistribution\"}\
+    },\
     \"SingleSelectOptions\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"TaskTemplateSingleSelectOption\"}\
@@ -14918,6 +15236,10 @@
         \"Tags\":{\
           \"shape\":\"TagMap\",\
           \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+        },\
+        \"IsDefault\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Whether this is the default traffic distribution group created during instance replication. The default traffic distribution group cannot be deleted by the <code>DeleteTrafficDistributionGroup</code> API. The default traffic distribution group is deleted as part of the process for deleting a replica.</p> <note> <p>You can change the <code>SignInConfig</code> only for a default <code>TrafficDistributionGroup</code>. If you call <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>, an <code>InvalidRequestException</code> is returned.</p> </note>\"\
         }\
       },\
       \"documentation\":\"<p>Information about a traffic distribution group.</p>\"\
@@ -14967,6 +15289,10 @@
         \"Status\":{\
           \"shape\":\"TrafficDistributionGroupStatus\",\
           \"documentation\":\"<p>The status of the traffic distribution group. </p> <ul> <li> <p> <code>CREATION_IN_PROGRESS</code> means the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html\\\">CreateTrafficDistributionGroup</a> operation is still in progress and has not yet completed.</p> </li> <li> <p> <code>ACTIVE</code> means the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html\\\">CreateTrafficDistributionGroup</a> operation has succeeded.</p> </li> <li> <p> <code>CREATION_FAILED</code> indicates that the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html\\\">CreateTrafficDistributionGroup</a> operation has failed.</p> </li> <li> <p> <code>PENDING_DELETION</code> means the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html\\\">DeleteTrafficDistributionGroup</a> operation is still in progress and has not yet completed.</p> </li> <li> <p> <code>DELETION_FAILED</code> means the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html\\\">DeleteTrafficDistributionGroup</a> operation has failed.</p> </li> <li> <p> <code>UPDATE_IN_PROGRESS</code> means the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistributionGroup.html\\\">UpdateTrafficDistributionGroup</a> operation is still in progress and has not yet completed.</p> </li> </ul>\"\
+        },\
+        \"IsDefault\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Whether this is the default traffic distribution group created during instance replication. The default traffic distribution group cannot be deleted by the <code>DeleteTrafficDistributionGroup</code> API. The default traffic distribution group is deleted as part of the process for deleting a replica.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about traffic distribution groups.</p>\"\
@@ -14974,6 +15300,22 @@
     \"TrafficDistributionGroupSummaryList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"TrafficDistributionGroupSummary\"},\
+      \"max\":10,\
+      \"min\":0\
+    },\
+    \"TrafficDistributionGroupUserSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"UserId\":{\
+          \"shape\":\"UserId\",\
+          \"documentation\":\"<p>The identifier for the user. This can be the ID or the ARN of the user.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Summary information about a traffic distribution group user.</p>\"\
+    },\
+    \"TrafficDistributionGroupUserSummaryList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"TrafficDistributionGroupUserSummary\"},\
       \"max\":10,\
       \"min\":0\
     },\
@@ -15006,7 +15348,7 @@
         },\
         \"UserId\":{\
           \"shape\":\"AgentResourceId\",\
-          \"documentation\":\"<p>The identifier for the user.</p>\"\
+          \"documentation\":\"<p>The identifier for the user. This can be the ID or the ARN of the user.</p>\"\
         },\
         \"ContactFlowId\":{\
           \"shape\":\"ContactFlowId\",\
@@ -15914,6 +16256,32 @@
         }\
       }\
     },\
+    \"UpdateRoutingProfileAgentAvailabilityTimerRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"RoutingProfileId\",\
+        \"AgentAvailabilityTimer\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"RoutingProfileId\":{\
+          \"shape\":\"RoutingProfileId\",\
+          \"documentation\":\"<p>The identifier of the routing profile.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"RoutingProfileId\"\
+        },\
+        \"AgentAvailabilityTimer\":{\
+          \"shape\":\"AgentAvailabilityTimer\",\
+          \"documentation\":\"<p>Whether agents with this routing profile will have their routing order calculated based on <i>time since their last inbound contact</i> or <i>longest idle time</i>. </p>\"\
+        }\
+      }\
+    },\
     \"UpdateRoutingProfileConcurrencyRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -16214,6 +16582,14 @@
         \"TelephonyConfig\":{\
           \"shape\":\"TelephonyConfig\",\
           \"documentation\":\"<p>The distribution of traffic between the instance and its replica(s).</p>\"\
+        },\
+        \"SignInConfig\":{\
+          \"shape\":\"SignInConfig\",\
+          \"documentation\":\"<p>The distribution of allowing signing in to the instance and its replica(s).</p>\"\
+        },\
+        \"AgentConfig\":{\
+          \"shape\":\"AgentConfig\",\
+          \"documentation\":\"<p>The distribution of agents between the instance and its replica(s).</p>\"\
         }\
       }\
     },\

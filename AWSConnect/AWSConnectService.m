@@ -25,7 +25,7 @@
 #import "AWSConnectResources.h"
 
 static NSString *const AWSInfoConnect = @"Connect";
-NSString *const AWSConnectSDKVersion = @"2.33.1";
+NSString *const AWSConnectSDKVersion = @"2.33.4";
 
 
 @interface AWSConnectResponseSerializer : AWSJSONResponseSerializer
@@ -533,6 +533,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectAssociateSecurityKeyResponse *response, NSError *error))completionHandler {
     [[self associateSecurityKey:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectAssociateSecurityKeyResponse *> * _Nonnull task) {
         AWSConnectAssociateSecurityKeyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectAssociateTrafficDistributionGroupUserResponse *> *)associateTrafficDistributionGroupUser:(AWSConnectAssociateTrafficDistributionGroupUserRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/traffic-distribution-group/{TrafficDistributionGroupId}/user"
+                  targetPrefix:@""
+                 operationName:@"AssociateTrafficDistributionGroupUser"
+                   outputClass:[AWSConnectAssociateTrafficDistributionGroupUserResponse class]];
+}
+
+- (void)associateTrafficDistributionGroupUser:(AWSConnectAssociateTrafficDistributionGroupUserRequest *)request
+     completionHandler:(void (^)(AWSConnectAssociateTrafficDistributionGroupUserResponse *response, NSError *error))completionHandler {
+    [[self associateTrafficDistributionGroupUser:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectAssociateTrafficDistributionGroupUserResponse *> * _Nonnull task) {
+        AWSConnectAssociateTrafficDistributionGroupUserResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1227,6 +1250,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)deleteQueue:(AWSConnectDeleteQueueRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/queues/{InstanceId}/{QueueId}"
+                  targetPrefix:@""
+                 operationName:@"DeleteQueue"
+                   outputClass:nil];
+}
+
+- (void)deleteQueue:(AWSConnectDeleteQueueRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteQueue:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deleteQuickConnect:(AWSConnectDeleteQuickConnectRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -1239,6 +1284,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)deleteQuickConnect:(AWSConnectDeleteQuickConnectRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteQuickConnect:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteRoutingProfile:(AWSConnectDeleteRoutingProfileRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/routing-profiles/{InstanceId}/{RoutingProfileId}"
+                  targetPrefix:@""
+                 operationName:@"DeleteRoutingProfile"
+                   outputClass:nil];
+}
+
+- (void)deleteRoutingProfile:(AWSConnectDeleteRoutingProfileRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteRoutingProfile:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2126,6 +2193,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectDisassociateTrafficDistributionGroupUserResponse *> *)disassociateTrafficDistributionGroupUser:(AWSConnectDisassociateTrafficDistributionGroupUserRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/traffic-distribution-group/{TrafficDistributionGroupId}/user"
+                  targetPrefix:@""
+                 operationName:@"DisassociateTrafficDistributionGroupUser"
+                   outputClass:[AWSConnectDisassociateTrafficDistributionGroupUserResponse class]];
+}
+
+- (void)disassociateTrafficDistributionGroupUser:(AWSConnectDisassociateTrafficDistributionGroupUserRequest *)request
+     completionHandler:(void (^)(AWSConnectDisassociateTrafficDistributionGroupUserResponse *response, NSError *error))completionHandler {
+    [[self disassociateTrafficDistributionGroupUser:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDisassociateTrafficDistributionGroupUserResponse *> * _Nonnull task) {
+        AWSConnectDisassociateTrafficDistributionGroupUserResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -3065,6 +3155,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectListTaskTemplatesResponse *response, NSError *error))completionHandler {
     [[self listTaskTemplates:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListTaskTemplatesResponse *> * _Nonnull task) {
         AWSConnectListTaskTemplatesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectListTrafficDistributionGroupUsersResponse *> *)listTrafficDistributionGroupUsers:(AWSConnectListTrafficDistributionGroupUsersRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/traffic-distribution-group/{TrafficDistributionGroupId}/user"
+                  targetPrefix:@""
+                 operationName:@"ListTrafficDistributionGroupUsers"
+                   outputClass:[AWSConnectListTrafficDistributionGroupUsersResponse class]];
+}
+
+- (void)listTrafficDistributionGroupUsers:(AWSConnectListTrafficDistributionGroupUsersRequest *)request
+     completionHandler:(void (^)(AWSConnectListTrafficDistributionGroupUsersResponse *response, NSError *error))completionHandler {
+    [[self listTrafficDistributionGroupUsers:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListTrafficDistributionGroupUsersResponse *> * _Nonnull task) {
+        AWSConnectListTrafficDistributionGroupUsersResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -4362,6 +4475,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)updateQuickConnectName:(AWSConnectUpdateQuickConnectNameRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self updateQuickConnectName:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)updateRoutingProfileAgentAvailabilityTimer:(AWSConnectUpdateRoutingProfileAgentAvailabilityTimerRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/routing-profiles/{InstanceId}/{RoutingProfileId}/agent-availability-timer"
+                  targetPrefix:@""
+                 operationName:@"UpdateRoutingProfileAgentAvailabilityTimer"
+                   outputClass:nil];
+}
+
+- (void)updateRoutingProfileAgentAvailabilityTimer:(AWSConnectUpdateRoutingProfileAgentAvailabilityTimerRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self updateRoutingProfileAgentAvailabilityTimer:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {

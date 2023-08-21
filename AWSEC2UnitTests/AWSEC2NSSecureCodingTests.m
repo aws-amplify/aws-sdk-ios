@@ -1140,6 +1140,7 @@
 - (void) test_AWSEC2ImportVolumeTaskDetails API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InferenceAcceleratorInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InferenceDeviceInfo API_AVAILABLE(ios(11));
+- (void) test_AWSEC2InferenceDeviceMemoryInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2Instance API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InstanceAttribute API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InstanceBlockDeviceMapping API_AVAILABLE(ios(11));
@@ -1450,6 +1451,7 @@
 - (void) test_AWSEC2NetworkInterfacePermissionState API_AVAILABLE(ios(11));
 - (void) test_AWSEC2NetworkInterfacePrivateIpAddress API_AVAILABLE(ios(11));
 - (void) test_AWSEC2LatestDhcpConfiguration API_AVAILABLE(ios(11));
+- (void) test_AWSEC2NitroTpmInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2OidcOptions API_AVAILABLE(ios(11));
 - (void) test_AWSEC2OnDemandOptions API_AVAILABLE(ios(11));
 - (void) test_AWSEC2OnDemandOptionsRequest API_AVAILABLE(ios(11));
@@ -1701,6 +1703,7 @@
 - (void) test_AWSEC2SubnetAssociation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SubnetCidrBlockState API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SubnetCidrReservation API_AVAILABLE(ios(11));
+- (void) test_AWSEC2SubnetConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SubnetIpv6CidrBlockAssociation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2Subscription API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SuccessfulInstanceCreditSpecificationItem API_AVAILABLE(ios(11));
@@ -6339,6 +6342,10 @@
     [self validateSecureCodingForClass:[AWSEC2InferenceDeviceInfo class]];
 }
 
+- (void) test_AWSEC2InferenceDeviceMemoryInfo {
+    [self validateSecureCodingForClass:[AWSEC2InferenceDeviceMemoryInfo class]];
+}
+
 - (void) test_AWSEC2Instance {
     [self validateSecureCodingForClass:[AWSEC2Instance class]];
 }
@@ -7579,6 +7586,10 @@
     [self validateSecureCodingForClass:[AWSEC2LatestDhcpConfiguration class]];
 }
 
+- (void) test_AWSEC2NitroTpmInfo {
+    [self validateSecureCodingForClass:[AWSEC2NitroTpmInfo class]];
+}
+
 - (void) test_AWSEC2OidcOptions {
     [self validateSecureCodingForClass:[AWSEC2OidcOptions class]];
 }
@@ -8581,6 +8592,10 @@
 
 - (void) test_AWSEC2SubnetCidrReservation {
     [self validateSecureCodingForClass:[AWSEC2SubnetCidrReservation class]];
+}
+
+- (void) test_AWSEC2SubnetConfiguration {
+    [self validateSecureCodingForClass:[AWSEC2SubnetConfiguration class]];
 }
 
 - (void) test_AWSEC2SubnetIpv6CidrBlockAssociation {

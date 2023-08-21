@@ -709,6 +709,26 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingApplicationSettingsJourneyLimits
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dailyCap" : @"DailyCap",
+             @"timeframeCap" : @"TimeframeCap",
+             @"totalCap" : @"TotalCap",
+             };
+}
+
++ (NSValueTransformer *)timeframeCapJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneyTimeframeCap class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingApplicationSettingsResource
 
 + (BOOL)supportsSecureCoding {
@@ -719,6 +739,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 	return @{
              @"applicationId" : @"ApplicationId",
              @"campaignHook" : @"CampaignHook",
+             @"journeyLimits" : @"JourneyLimits",
              @"lastModifiedDate" : @"LastModifiedDate",
              @"limits" : @"Limits",
              @"quietTime" : @"QuietTime",
@@ -727,6 +748,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSValueTransformer *)campaignHookJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingCampaignHook class]];
+}
+
++ (NSValueTransformer *)journeyLimitsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingApplicationSettingsJourneyLimits class]];
 }
 
 + (NSValueTransformer *)limitsJSONTransformer {
@@ -4078,7 +4103,9 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"apiKey" : @"ApiKey",
+             @"defaultAuthenticationMethod" : @"DefaultAuthenticationMethod",
              @"enabled" : @"Enabled",
+             @"serviceJson" : @"ServiceJson",
              };
 }
 
@@ -4095,8 +4122,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"applicationId" : @"ApplicationId",
              @"creationDate" : @"CreationDate",
              @"credential" : @"Credential",
+             @"defaultAuthenticationMethod" : @"DefaultAuthenticationMethod",
              @"enabled" : @"Enabled",
              @"hasCredential" : @"HasCredential",
+             @"hasFcmServiceCredentials" : @"HasFcmServiceCredentials",
              @"identifier" : @"Id",
              @"isArchived" : @"IsArchived",
              @"lastModifiedBy" : @"LastModifiedBy",
@@ -4123,6 +4152,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"iconReference" : @"IconReference",
              @"imageIconUrl" : @"ImageIconUrl",
              @"imageUrl" : @"ImageUrl",
+             @"preferredAuthenticationMethod" : @"PreferredAuthenticationMethod",
              @"priority" : @"Priority",
              @"rawContent" : @"RawContent",
              @"restrictedPackageName" : @"RestrictedPackageName",
@@ -6691,7 +6721,13 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"endpointReentryCap" : @"EndpointReentryCap",
              @"endpointReentryInterval" : @"EndpointReentryInterval",
              @"messagesPerSecond" : @"MessagesPerSecond",
+             @"timeframeCap" : @"TimeframeCap",
+             @"totalCap" : @"TotalCap",
              };
+}
+
++ (NSValueTransformer *)timeframeCapJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneyTimeframeCap class]];
 }
 
 @end
@@ -7064,6 +7100,21 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingJourneyTimeframeCap
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cap" : @"Cap",
+             @"days" : @"Days",
+             };
 }
 
 @end
@@ -9317,6 +9368,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"emailTemplate" : @"EmailTemplate",
+             @"inAppTemplate" : @"InAppTemplate",
              @"pushTemplate" : @"PushTemplate",
              @"SMSTemplate" : @"SMSTemplate",
              @"voiceTemplate" : @"VoiceTemplate",
@@ -9324,6 +9376,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 }
 
 + (NSValueTransformer *)emailTemplateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingTemplate class]];
+}
+
++ (NSValueTransformer *)inAppTemplateJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingTemplate class]];
 }
 
@@ -10719,6 +10775,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"campaignHook" : @"CampaignHook",
              @"cloudWatchMetricsEnabled" : @"CloudWatchMetricsEnabled",
              @"eventTaggingEnabled" : @"EventTaggingEnabled",
+             @"journeyLimits" : @"JourneyLimits",
              @"limits" : @"Limits",
              @"quietTime" : @"QuietTime",
              };
@@ -10726,6 +10783,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSValueTransformer *)campaignHookJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingCampaignHook class]];
+}
+
++ (NSValueTransformer *)journeyLimitsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingApplicationSettingsJourneyLimits class]];
 }
 
 + (NSValueTransformer *)limitsJSONTransformer {

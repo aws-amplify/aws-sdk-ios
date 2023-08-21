@@ -431,7 +431,7 @@ class AWSIoTDataManagerTests: XCTestCase {
     func testMultiBroker(useWebSocket: Bool, burst: Bool, totalMessages: Int, messagesPerSecond: Int) {
 
         //Variables and Expectations for Broker 1
-        var messageCountBroker1 = 0
+        var messageCountBroker1 = Counter()
         var broker1Disconnected = false
         var broker1Connected = false
         let broker1SubConfirmed  = self.expectation(description: "Subscription to broker 1 has been established")
@@ -440,7 +440,7 @@ class AWSIoTDataManagerTests: XCTestCase {
         var disconnectForBroker1Issued = false
 
         //Variables and Expectations for Broker 2
-        var messageCountBroker2 = 0
+        var messageCountBroker2 = Counter()
         var broker2Disconnected = false
         var broker2Connected = false
         let broker2SubConfirmed  = self.expectation(description: "Subscription to broker 2 has been established")
@@ -569,7 +569,7 @@ class AWSIoTDataManagerTests: XCTestCase {
             (payload) ->Void in
             let stringValue:String = NSString(data: payload, encoding: String.Encoding.utf8.rawValue)! as String
             XCTAssertEqual(testMessageBroker1, stringValue)
-            messageCountBroker1 = messageCountBroker1+1
+            messageCountBroker1.increment()
             print("Broker1 received: ", messageCountBroker1)
         },  ackCallback: {
             broker1SubConfirmed.fulfill()
@@ -581,7 +581,7 @@ class AWSIoTDataManagerTests: XCTestCase {
             (payload) ->Void in
             let stringValue:String = NSString(data: payload, encoding: String.Encoding.utf8.rawValue)! as String
             XCTAssertEqual(testMessageBroker2, stringValue)
-            messageCountBroker2 = messageCountBroker2+1
+            messageCountBroker2.increment()
             //print("Broker2 received: ", messageCountBroker2)
         },  ackCallback: {
             broker2SubConfirmed.fulfill()
@@ -611,8 +611,8 @@ class AWSIoTDataManagerTests: XCTestCase {
                 sleep(1)
                 print("Published batch of \(messagesPerSecond) to each broker")
 
-                print("Received \(messageCountBroker1) so far from Broker1")
-                print("Received \(messageCountBroker2) so far from Broker2")
+                print("Received \(messageCountBroker1.count) so far from Broker1")
+                print("Received \(messageCountBroker2.count) so far from Broker2")
             }
         }
 
@@ -621,12 +621,12 @@ class AWSIoTDataManagerTests: XCTestCase {
         print("sleeping for 30 seconds for the client retry to happen if necessary")
         sleep(30)
 
-        print("Total message count from Broker1:", messageCountBroker1)
-        print("Total message count from Broker2:", messageCountBroker2)
+        print("Total message count from Broker1:", messageCountBroker1.count)
+        print("Total message count from Broker2:", messageCountBroker2.count)
 
-        XCTAssertGreaterThanOrEqual(messageCountBroker1, messagesToSend, "Received \(messagesToSend) plus messages on Broker1")
+        XCTAssertGreaterThanOrEqual(messageCountBroker1.count, messagesToSend, "Received \(messagesToSend) plus messages on Broker1")
         // allows for some leeway since some messages could be delayed
-        XCTAssertGreaterThanOrEqual(messageCountBroker2, messagesToSend - 3, "Received \(messagesToSend) plus messages on Broker2")
+        XCTAssertGreaterThanOrEqual(messageCountBroker2.count, messagesToSend - 3, "Received \(messagesToSend) plus messages on Broker2")
 
         //Disconnect
         iotDataManagerBroker1.disconnect()
@@ -1685,3 +1685,20 @@ class AWSIoTDataManagerTests: XCTestCase {
 
 }
 
+fileprivate class Counter {
+    private let queue = DispatchQueue(label: "atomic-counter")
+    private (set) var count: Int = 0
+
+    public func increment() {
+        queue.sync {
+            self.count += 1
+        }
+    }
+
+    public func decrement() {
+        queue.sync {
+            self.count -= 1
+        }
+    }
+
+}
