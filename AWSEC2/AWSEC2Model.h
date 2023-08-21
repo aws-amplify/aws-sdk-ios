@@ -3514,6 +3514,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DeleteIpamScopeRequest;
 @class AWSEC2DeleteIpamScopeResult;
 @class AWSEC2DeleteKeyPairRequest;
+@class AWSEC2DeleteKeyPairResult;
 @class AWSEC2DeleteLaunchTemplateRequest;
 @class AWSEC2DeleteLaunchTemplateResult;
 @class AWSEC2DeleteLaunchTemplateVersionsRequest;
@@ -15625,6 +15626,24 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the key pair.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyPairId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteKeyPairResult : AWSModel
+
+
+/**
+ <p>The ID of the key pair.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyPairId;
+
+/**
+ <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable returned;
 
 @end
 
