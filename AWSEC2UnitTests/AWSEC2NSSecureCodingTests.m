@@ -432,6 +432,7 @@
 - (void) test_AWSEC2DeleteIpamScopeRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteIpamScopeResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteKeyPairRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DeleteKeyPairResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteLaunchTemplateRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteLaunchTemplateResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteLaunchTemplateVersionsRequest API_AVAILABLE(ios(11));
@@ -3508,6 +3509,10 @@
 
 - (void) test_AWSEC2DeleteKeyPairRequest {
     [self validateSecureCodingForClass:[AWSEC2DeleteKeyPairRequest class]];
+}
+
+- (void) test_AWSEC2DeleteKeyPairResult {
+    [self validateSecureCodingForClass:[AWSEC2DeleteKeyPairResult class]];
 }
 
 - (void) test_AWSEC2DeleteLaunchTemplateRequest {

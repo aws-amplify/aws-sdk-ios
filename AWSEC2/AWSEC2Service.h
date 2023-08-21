@@ -3999,22 +3999,25 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteKeyPair service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteKeyPairResult`.
  
  @see AWSEC2DeleteKeyPairRequest
+ @see AWSEC2DeleteKeyPairResult
  */
-- (AWSTask *)deleteKeyPair:(AWSEC2DeleteKeyPairRequest *)request;
+- (AWSTask<AWSEC2DeleteKeyPairResult *> *)deleteKeyPair:(AWSEC2DeleteKeyPairRequest *)request;
 
 /**
  <p>Deletes the specified key pair, by removing the public key from Amazon EC2.</p>
  
  @param request A container for the necessary parameters to execute the DeleteKeyPair service method.
  @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
                           `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
  
  @see AWSEC2DeleteKeyPairRequest
+ @see AWSEC2DeleteKeyPairResult
  */
-- (void)deleteKeyPair:(AWSEC2DeleteKeyPairRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+- (void)deleteKeyPair:(AWSEC2DeleteKeyPairRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteKeyPairResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes a launch template. Deleting a launch template deletes all of its versions.</p>
