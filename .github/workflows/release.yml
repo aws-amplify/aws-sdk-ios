@@ -241,7 +241,7 @@ jobs:
 
       - name: Invalidate cloudfront
         env:
-          XCF_RELEASE_DISTRIBUTION_ID: $${{ secrets.XCF_RELEASE_DISTRIBUTION_ID }}
+          XCF_RELEASE_DISTRIBUTION_ID: ${{ secrets.XCF_RELEASE_DISTRIBUTION_ID }}
         run: |
           python3 CircleciScripts/cloudfront_invalidate.py \
           "$XCF_RELEASE_DISTRIBUTION_ID" \
