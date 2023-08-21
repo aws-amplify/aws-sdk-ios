@@ -41,12 +41,16 @@ jobs:
     needs:
       - validate-version-format
     uses: ./.github/workflows/unit-test.yml
+    with:
+      identifier: workflow-call-unit-test
 
   integration-test:
     name: Integration Tests
     needs:
       - validate-version-format
     uses: ./.github/workflows/integ-test.yml
+    with:
+      identifier: workflow-call-integration-test
     secrets: inherit
 
   build-xcframeworks:

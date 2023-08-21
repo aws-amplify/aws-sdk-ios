@@ -2,6 +2,11 @@ name: Unit Test
 
 on:
   workflow_call:
+    inputs:
+      identifier:
+        required: true
+        type: string
+
   pull_request:
     branches:
       - main
@@ -9,7 +14,7 @@ on:
 permissions: { }
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  group: ${{ inputs.identifier || github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
