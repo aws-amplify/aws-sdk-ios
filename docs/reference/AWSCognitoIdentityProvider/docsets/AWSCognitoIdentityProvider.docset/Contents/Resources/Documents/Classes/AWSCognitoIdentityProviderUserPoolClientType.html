@@ -17,7 +17,7 @@
     <a title="AWSCognitoIdentityProviderUserPoolClientType Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCognitoIdentityProvider 2.33.3 Docs</a> (77% documented)</p>
+        <p><a href="../index.html">AWSCognitoIdentityProvider 2.33.4 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -263,6 +263,9 @@
                 <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderChangePasswordResponse">AWSCognitoIdentityProviderChangePasswordResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCloudWatchLogsConfigurationType.html">AWSCognitoIdentityProviderCloudWatchLogsConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderCodeDeliveryDetailsType.html">AWSCognitoIdentityProviderCodeDeliveryDetailsType</a>
               </li>
               <li class="nav-group-task">
@@ -473,6 +476,12 @@
                 <a href="../Classes/AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse.html">AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetLogDeliveryConfigurationRequest.html">AWSCognitoIdentityProviderGetLogDeliveryConfigurationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse.html">AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderGetSigningCertificateRequest.html">AWSCognitoIdentityProviderGetSigningCertificateRequest</a>
               </li>
               <li class="nav-group-task">
@@ -590,6 +599,12 @@
                 <a href="../Classes/AWSCognitoIdentityProviderListUsersResponse.html">AWSCognitoIdentityProviderListUsersResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderLogConfigurationType.html">AWSCognitoIdentityProviderLogConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderLogDeliveryConfigurationType.html">AWSCognitoIdentityProviderLogDeliveryConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderMFAOptionType.html">AWSCognitoIdentityProviderMFAOptionType</a>
               </li>
               <li class="nav-group-task">
@@ -654,6 +669,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderSchemaAttributeType.html">AWSCognitoIdentityProviderSchemaAttributeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSetLogDeliveryConfigurationRequest.html">AWSCognitoIdentityProviderSetLogDeliveryConfigurationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse.html">AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderSetRiskConfigurationRequest.html">AWSCognitoIdentityProviderSetRiskConfigurationRequest</a>
@@ -1023,6 +1044,9 @@
                 <a href="../Enums/AWSCognitoIdentityProviderEventResponseType.html">AWSCognitoIdentityProviderEventResponseType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderEventSourceName.html">AWSCognitoIdentityProviderEventSourceName</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSCognitoIdentityProviderEventType.html">AWSCognitoIdentityProviderEventType</a>
               </li>
               <li class="nav-group-task">
@@ -1033,6 +1057,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSCognitoIdentityProviderIdentityProviderTypeType.html">AWSCognitoIdentityProviderIdentityProviderTypeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderLogLevel.html">AWSCognitoIdentityProviderLogLevel</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSCognitoIdentityProviderMessageActionType.html">AWSCognitoIdentityProviderMessageActionType</a>
@@ -1211,7 +1238,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set to true if the client is allowed to follow the OAuth protocol when interacting with Amazon Cognito user pools.</p>
+                        <p>Set to <code>true</code> to use OAuth 2.0 features in your user pool app client.</p><p><code>AllowedOAuthFlowsUserPoolClient</code> must be <code>true</code> before you can configure the following features in your app client.</p><ul><li><p><code>CallBackURLs</code>: Callback URLs.</p></li><li><p><code>LogoutURLs</code>: Sign-out redirect URLs.</p></li><li><p><code>AllowedOAuthScopes</code>: OAuth 2.0 scopes.</p></li><li><p><code>AllowedOAuthFlows</code>: Support for authorization code, implicit, and client credentials OAuth 2.0 grants.</p></li></ul><p>To use OAuth 2.0 features, configure one of these features in the Amazon Cognito console or set <code>AllowedOAuthFlowsUserPoolClient</code> to <code>true</code> in a <code>CreateUserPoolClient</code> or <code>UpdateUserPoolClient</code> API request. If you don&rsquo;t set a value for <code>AllowedOAuthFlowsUserPoolClient</code> in a request with the CLI or SDKs, it defaults to <code>false</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -1467,7 +1494,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The date the user pool client was created.</p>
+                        <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was created.</p>
 
                       </div>
                       <div class="declaration">
@@ -1627,7 +1654,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ID token time limit. After this limit expires, your user can&rsquo;t use their ID token. To specify the time unit for <code>IdTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p><p>For example, when you set <code>IdTokenValidity</code> as <code>10</code> and <code>TokenValidityUnits</code> as <code>hours</code>, your user can authenticate their session with their ID token for 10 hours.</p><p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours. <i>Valid range</i> is displayed below in seconds.</p><p>If you don&rsquo;t specify otherwise in the configuration of your app client, your ID tokens are valid for one hour.</p>
+                        <p>The ID token time limit. After this limit expires, your user can&rsquo;t use their ID token. To specify the time unit for <code>IdTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p><p>For example, when you set <code>IdTokenValidity</code> as <code>10</code> and <code>TokenValidityUnits</code> as <code>hours</code>, your user can authenticate their session with their ID token for 10 hours.</p><p>The default time unit for <code>IdTokenValidity</code> in an API request is hours. <i>Valid range</i> is displayed below in seconds.</p><p>If you don&rsquo;t specify otherwise in the configuration of your app client, your ID tokens are valid for one hour.</p>
 
                       </div>
                       <div class="declaration">
@@ -1659,7 +1686,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The date the user pool client was last modified.</p>
+                        <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was modified.</p>
 
                       </div>
                       <div class="declaration">
@@ -1939,7 +1966,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-01)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

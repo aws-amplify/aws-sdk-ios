@@ -17,7 +17,7 @@
     <a title="AWSCognitoIdentityProviderUserAttributeUpdateSettingsType Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCognitoIdentityProvider 2.33.3 Docs</a> (77% documented)</p>
+        <p><a href="../index.html">AWSCognitoIdentityProvider 2.33.4 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -263,6 +263,9 @@
                 <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderChangePasswordResponse">AWSCognitoIdentityProviderChangePasswordResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCloudWatchLogsConfigurationType.html">AWSCognitoIdentityProviderCloudWatchLogsConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderCodeDeliveryDetailsType.html">AWSCognitoIdentityProviderCodeDeliveryDetailsType</a>
               </li>
               <li class="nav-group-task">
@@ -473,6 +476,12 @@
                 <a href="../Classes/AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse.html">AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetLogDeliveryConfigurationRequest.html">AWSCognitoIdentityProviderGetLogDeliveryConfigurationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse.html">AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderGetSigningCertificateRequest.html">AWSCognitoIdentityProviderGetSigningCertificateRequest</a>
               </li>
               <li class="nav-group-task">
@@ -590,6 +599,12 @@
                 <a href="../Classes/AWSCognitoIdentityProviderListUsersResponse.html">AWSCognitoIdentityProviderListUsersResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderLogConfigurationType.html">AWSCognitoIdentityProviderLogConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderLogDeliveryConfigurationType.html">AWSCognitoIdentityProviderLogDeliveryConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderMFAOptionType.html">AWSCognitoIdentityProviderMFAOptionType</a>
               </li>
               <li class="nav-group-task">
@@ -654,6 +669,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderSchemaAttributeType.html">AWSCognitoIdentityProviderSchemaAttributeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSetLogDeliveryConfigurationRequest.html">AWSCognitoIdentityProviderSetLogDeliveryConfigurationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse.html">AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderSetRiskConfigurationRequest.html">AWSCognitoIdentityProviderSetRiskConfigurationRequest</a>
@@ -1023,6 +1044,9 @@
                 <a href="../Enums/AWSCognitoIdentityProviderEventResponseType.html">AWSCognitoIdentityProviderEventResponseType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderEventSourceName.html">AWSCognitoIdentityProviderEventSourceName</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSCognitoIdentityProviderEventType.html">AWSCognitoIdentityProviderEventType</a>
               </li>
               <li class="nav-group-task">
@@ -1033,6 +1057,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSCognitoIdentityProviderIdentityProviderTypeType.html">AWSCognitoIdentityProviderIdentityProviderTypeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderLogLevel.html">AWSCognitoIdentityProviderLogLevel</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSCognitoIdentityProviderMessageActionType.html">AWSCognitoIdentityProviderMessageActionType</a>
@@ -1147,7 +1174,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.</p><p>You can verify an updated email address or phone number with a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.html">VerifyUserAttribute</a> API request. You can also call the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html">UpdateUserAttributes</a> or <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html">AdminUpdateUserAttributes</a> API and set <code>email_verified</code> or <code>phone_number_verified</code> to true.</p><p>When <code>AttributesRequireVerificationBeforeUpdate</code> is false, your user pool doesn&rsquo;t require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where <code>AttributesRequireVerificationBeforeUpdate</code> is false, API operations that change attribute values can immediately update a user’s <code>email</code> or <code>phone_number</code> attribute.</p>
+                        <p>Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.</p><p>You can verify an updated email address or phone number with a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.html">VerifyUserAttribute</a> API request. You can also call the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html">AdminUpdateUserAttributes</a> API and set <code>email_verified</code> or <code>phone_number_verified</code> to true.</p><p>When <code>AttributesRequireVerificationBeforeUpdate</code> is false, your user pool doesn&rsquo;t require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where <code>AttributesRequireVerificationBeforeUpdate</code> is false, API operations that change attribute values can immediately update a user’s <code>email</code> or <code>phone_number</code> attribute.</p>
 
                       </div>
                       <div class="declaration">
@@ -1171,7 +1198,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-01)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

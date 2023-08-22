@@ -17,7 +17,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSCognitoIdentityProvider 2.33.3 Docs</a> (77% documented)</p>
+        <p><a href="index.html">AWSCognitoIdentityProvider 2.33.4 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -263,6 +263,9 @@
                 <a href="Classes.html#/c:objc(cs)AWSCognitoIdentityProviderChangePasswordResponse">AWSCognitoIdentityProviderChangePasswordResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSCognitoIdentityProviderCloudWatchLogsConfigurationType.html">AWSCognitoIdentityProviderCloudWatchLogsConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSCognitoIdentityProviderCodeDeliveryDetailsType.html">AWSCognitoIdentityProviderCodeDeliveryDetailsType</a>
               </li>
               <li class="nav-group-task">
@@ -473,6 +476,12 @@
                 <a href="Classes/AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse.html">AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSCognitoIdentityProviderGetLogDeliveryConfigurationRequest.html">AWSCognitoIdentityProviderGetLogDeliveryConfigurationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse.html">AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSCognitoIdentityProviderGetSigningCertificateRequest.html">AWSCognitoIdentityProviderGetSigningCertificateRequest</a>
               </li>
               <li class="nav-group-task">
@@ -590,6 +599,12 @@
                 <a href="Classes/AWSCognitoIdentityProviderListUsersResponse.html">AWSCognitoIdentityProviderListUsersResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSCognitoIdentityProviderLogConfigurationType.html">AWSCognitoIdentityProviderLogConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSCognitoIdentityProviderLogDeliveryConfigurationType.html">AWSCognitoIdentityProviderLogDeliveryConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSCognitoIdentityProviderMFAOptionType.html">AWSCognitoIdentityProviderMFAOptionType</a>
               </li>
               <li class="nav-group-task">
@@ -654,6 +669,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSCognitoIdentityProviderSchemaAttributeType.html">AWSCognitoIdentityProviderSchemaAttributeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSCognitoIdentityProviderSetLogDeliveryConfigurationRequest.html">AWSCognitoIdentityProviderSetLogDeliveryConfigurationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse.html">AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSCognitoIdentityProviderSetRiskConfigurationRequest.html">AWSCognitoIdentityProviderSetRiskConfigurationRequest</a>
@@ -1023,6 +1044,9 @@
                 <a href="Enums/AWSCognitoIdentityProviderEventResponseType.html">AWSCognitoIdentityProviderEventResponseType</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSCognitoIdentityProviderEventSourceName.html">AWSCognitoIdentityProviderEventSourceName</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSCognitoIdentityProviderEventType.html">AWSCognitoIdentityProviderEventType</a>
               </li>
               <li class="nav-group-task">
@@ -1033,6 +1057,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSCognitoIdentityProviderIdentityProviderTypeType.html">AWSCognitoIdentityProviderIdentityProviderTypeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSCognitoIdentityProviderLogLevel.html">AWSCognitoIdentityProviderLogLevel</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSCognitoIdentityProviderMessageActionType.html">AWSCognitoIdentityProviderMessageActionType</a>
@@ -1191,7 +1218,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderErrorType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderErrorType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1230,7 +1257,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderAccountTakeoverEventActionType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderAccountTakeoverEventActionType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1268,7 +1295,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderAdvancedSecurityModeType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderAdvancedSecurityModeType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1306,7 +1333,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderAliasAttributeType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderAliasAttributeType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1345,7 +1372,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderAttributeDataType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderAttributeDataType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1387,7 +1414,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderAuthFlowType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderAuthFlowType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1424,7 +1451,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderChallengeName</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderChallengeName</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1469,7 +1496,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderChallengeNameType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderChallengeNameType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1506,7 +1533,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderChallengeResponse</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderChallengeResponse</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1543,7 +1570,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderCompromisedCredentialsEventActionType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderCompromisedCredentialsEventActionType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1579,7 +1606,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderCustomEmailSenderLambdaVersionType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderCustomEmailSenderLambdaVersionType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1615,7 +1642,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderCustomSMSSenderLambdaVersionType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderCustomSMSSenderLambdaVersionType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1652,7 +1679,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderDefaultEmailOptionType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderDefaultEmailOptionType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1689,7 +1716,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderDeletionProtectionType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderDeletionProtectionType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1726,7 +1753,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderDeliveryMediumType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderDeliveryMediumType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1763,7 +1790,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderDeviceRememberedStatusType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderDeviceRememberedStatusType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1803,7 +1830,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderDomainStatusType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderDomainStatusType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1840,7 +1867,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderEmailSendingAccountType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderEmailSendingAccountType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1878,7 +1905,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderEventFilterType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderEventFilterType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1916,7 +1943,43 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderEventResponseType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderEventResponseType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSCognitoIdentityProviderEventSourceName"></a>
+                    <a name="//apple_ref/objc/Enum/AWSCognitoIdentityProviderEventSourceName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSCognitoIdentityProviderEventSourceName">AWSCognitoIdentityProviderEventSourceName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSCognitoIdentityProviderEventSourceName.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSCognitoIdentityProviderEventSourceName</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSCognitoIdentityProviderEventSourceNameUnknown</span><span class="p">,</span>
+    <span class="n">AWSCognitoIdentityProviderEventSourceNameUserNotification</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderEventSourceName</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1956,7 +2019,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderEventType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderEventType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1999,7 +2062,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderExplicitAuthFlowsType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderExplicitAuthFlowsType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -2036,7 +2099,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderFeedbackValueType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderFeedbackValueType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -2077,7 +2140,43 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderIdentityProviderTypeType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderIdentityProviderTypeType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSCognitoIdentityProviderLogLevel"></a>
+                    <a name="//apple_ref/objc/Enum/AWSCognitoIdentityProviderLogLevel" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSCognitoIdentityProviderLogLevel">AWSCognitoIdentityProviderLogLevel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSCognitoIdentityProviderLogLevel.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSCognitoIdentityProviderLogLevel</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSCognitoIdentityProviderLogLevelUnknown</span><span class="p">,</span>
+    <span class="n">AWSCognitoIdentityProviderLogLevelError</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderLogLevel</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -2114,7 +2213,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderMessageActionType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderMessageActionType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -2152,7 +2251,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderOAuthFlowType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderOAuthFlowType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -2189,7 +2288,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderPreventUserExistenceErrorTypes</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderPreventUserExistenceErrorTypes</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -2227,7 +2326,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderRecoveryOptionNameType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderRecoveryOptionNameType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -2265,7 +2364,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderRiskDecisionType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderRiskDecisionType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -2303,7 +2402,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderRiskLevelType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderRiskLevelType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -2340,7 +2439,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderStatusType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderStatusType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -2379,7 +2478,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderTimeUnitsType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderTimeUnitsType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -2422,7 +2521,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderUserImportJobStatusType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderUserImportJobStatusType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -2460,7 +2559,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderUserPoolMfaType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderUserPoolMfaType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -2501,7 +2600,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderUserStatusType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderUserStatusType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -2538,7 +2637,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderUsernameAttributeType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderUsernameAttributeType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -2575,7 +2674,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderVerifiedAttributeType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderVerifiedAttributeType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -2612,7 +2711,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderVerifySoftwareTokenResponseType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityProviderVerifySoftwareTokenResponseType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -2651,7 +2750,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityUserStatus</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityUserStatus</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -2691,7 +2790,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityClientErrorType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityClientErrorType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -2703,7 +2802,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-01)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSCognitoIdentityProvider 2.33.3 Docs</a> (77% documented)</p>
+        <p><a href="index.html">AWSCognitoIdentityProvider 2.33.4 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -263,6 +263,9 @@
                 <a href="Classes.html#/c:objc(cs)AWSCognitoIdentityProviderChangePasswordResponse">AWSCognitoIdentityProviderChangePasswordResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSCognitoIdentityProviderCloudWatchLogsConfigurationType.html">AWSCognitoIdentityProviderCloudWatchLogsConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSCognitoIdentityProviderCodeDeliveryDetailsType.html">AWSCognitoIdentityProviderCodeDeliveryDetailsType</a>
               </li>
               <li class="nav-group-task">
@@ -473,6 +476,12 @@
                 <a href="Classes/AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse.html">AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSCognitoIdentityProviderGetLogDeliveryConfigurationRequest.html">AWSCognitoIdentityProviderGetLogDeliveryConfigurationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse.html">AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSCognitoIdentityProviderGetSigningCertificateRequest.html">AWSCognitoIdentityProviderGetSigningCertificateRequest</a>
               </li>
               <li class="nav-group-task">
@@ -590,6 +599,12 @@
                 <a href="Classes/AWSCognitoIdentityProviderListUsersResponse.html">AWSCognitoIdentityProviderListUsersResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSCognitoIdentityProviderLogConfigurationType.html">AWSCognitoIdentityProviderLogConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSCognitoIdentityProviderLogDeliveryConfigurationType.html">AWSCognitoIdentityProviderLogDeliveryConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSCognitoIdentityProviderMFAOptionType.html">AWSCognitoIdentityProviderMFAOptionType</a>
               </li>
               <li class="nav-group-task">
@@ -654,6 +669,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSCognitoIdentityProviderSchemaAttributeType.html">AWSCognitoIdentityProviderSchemaAttributeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSCognitoIdentityProviderSetLogDeliveryConfigurationRequest.html">AWSCognitoIdentityProviderSetLogDeliveryConfigurationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse.html">AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSCognitoIdentityProviderSetRiskConfigurationRequest.html">AWSCognitoIdentityProviderSetRiskConfigurationRequest</a>
@@ -1023,6 +1044,9 @@
                 <a href="Enums/AWSCognitoIdentityProviderEventResponseType.html">AWSCognitoIdentityProviderEventResponseType</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSCognitoIdentityProviderEventSourceName.html">AWSCognitoIdentityProviderEventSourceName</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSCognitoIdentityProviderEventType.html">AWSCognitoIdentityProviderEventType</a>
               </li>
               <li class="nav-group-task">
@@ -1033,6 +1057,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSCognitoIdentityProviderIdentityProviderTypeType.html">AWSCognitoIdentityProviderIdentityProviderTypeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSCognitoIdentityProviderLogLevel.html">AWSCognitoIdentityProviderLogLevel</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSCognitoIdentityProviderMessageActionType.html">AWSCognitoIdentityProviderMessageActionType</a>
@@ -1370,7 +1397,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Represents the request to confirm user registration.</p>
+                        <p>Confirm a user&rsquo;s registration as a user pool administrator.</p>
 
 <p>Required parameters: [UserPoolId, Username]</p>
 
@@ -2963,7 +2990,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The Amazon Pinpoint analytics configuration necessary to collect metrics for a user pool.</p><note><p>In Regions where Amazon Pinpointisn&rsquo;t available, user pools only support sending events to Amazon Pinpoint projects in us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.</p></note></p>
+                        <p><p>The Amazon Pinpoint analytics configuration necessary to collect metrics for a user pool.</p><note><p>In Regions where Amazon Pinpoint isn&rsquo;t available, user pools only support sending events to Amazon Pinpoint projects in us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.</p></note></p>
 
                         <a href="Classes/AWSCognitoIdentityProviderAnalyticsConfigurationType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3275,6 +3302,39 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSCognitoIdentityProviderChangePasswordResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityProviderCloudWatchLogsConfigurationType"></a>
+                    <a name="//apple_ref/objc/Class/AWSCognitoIdentityProviderCloudWatchLogsConfigurationType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityProviderCloudWatchLogsConfigurationType">AWSCognitoIdentityProviderCloudWatchLogsConfigurationType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The CloudWatch logging destination of a user pool detailed activity logging configuration.</p>
+
+                        <a href="Classes/AWSCognitoIdentityProviderCloudWatchLogsConfigurationType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSCognitoIdentityProviderCloudWatchLogsConfigurationType</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSCognitoIdentityProviderCloudWatchLogsConfigurationType</span></code></pre>
 
                         </div>
                       </div>
@@ -5615,6 +5675,70 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityProviderGetLogDeliveryConfigurationRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSCognitoIdentityProviderGetLogDeliveryConfigurationRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityProviderGetLogDeliveryConfigurationRequest">AWSCognitoIdentityProviderGetLogDeliveryConfigurationRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSCognitoIdentityProviderGetLogDeliveryConfigurationRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSCognitoIdentityProviderGetLogDeliveryConfigurationRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSCognitoIdentityProviderGetLogDeliveryConfigurationRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse"></a>
+                    <a name="//apple_ref/objc/Class/AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse">AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSCognitoIdentityProviderGetSigningCertificateRequest"></a>
                     <a name="//apple_ref/objc/Class/AWSCognitoIdentityProviderGetSigningCertificateRequest" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSCognitoIdentityProviderGetSigningCertificateRequest">AWSCognitoIdentityProviderGetSigningCertificateRequest</a>
@@ -6876,6 +7000,76 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityProviderLogConfigurationType"></a>
+                    <a name="//apple_ref/objc/Class/AWSCognitoIdentityProviderLogConfigurationType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityProviderLogConfigurationType">AWSCognitoIdentityProviderLogConfigurationType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The logging parameters of a user pool.</p>
+
+<p>Required parameters: [LogLevel, EventSource]</p>
+
+                        <a href="Classes/AWSCognitoIdentityProviderLogConfigurationType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSCognitoIdentityProviderLogConfigurationType</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSCognitoIdentityProviderLogConfigurationType</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityProviderLogDeliveryConfigurationType"></a>
+                    <a name="//apple_ref/objc/Class/AWSCognitoIdentityProviderLogDeliveryConfigurationType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityProviderLogDeliveryConfigurationType">AWSCognitoIdentityProviderLogDeliveryConfigurationType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The logging parameters of a user pool.</p>
+
+<p>Required parameters: [UserPoolId, LogConfigurations]</p>
+
+                        <a href="Classes/AWSCognitoIdentityProviderLogDeliveryConfigurationType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSCognitoIdentityProviderLogDeliveryConfigurationType</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSCognitoIdentityProviderLogDeliveryConfigurationType</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSCognitoIdentityProviderMFAOptionType"></a>
                     <a name="//apple_ref/objc/Class/AWSCognitoIdentityProviderMFAOptionType" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSCognitoIdentityProviderMFAOptionType">AWSCognitoIdentityProviderMFAOptionType</a>
@@ -7588,7 +7782,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Contains information about the schema attribute.</p>
+                        <p>A list of the user attributes and their properties in your user pool. The attribute schema contains standard attributes, custom attributes with a <code>custom:</code> prefix, and developer attributes with a <code>dev:</code> prefix. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html">User pool attributes</a>.</p><p>Developer-only attributes are a legacy feature of user pools, are read-only to all app clients. You can create and update developer-only attributes only with IAM-authenticated API operations. Use app client read/write permissions instead.</p>
 
                         <a href="Classes/AWSCognitoIdentityProviderSchemaAttributeType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -7602,6 +7796,70 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSCognitoIdentityProviderSchemaAttributeType</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityProviderSetLogDeliveryConfigurationRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSCognitoIdentityProviderSetLogDeliveryConfigurationRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityProviderSetLogDeliveryConfigurationRequest">AWSCognitoIdentityProviderSetLogDeliveryConfigurationRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSCognitoIdentityProviderSetLogDeliveryConfigurationRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSCognitoIdentityProviderSetLogDeliveryConfigurationRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSCognitoIdentityProviderSetLogDeliveryConfigurationRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse"></a>
+                    <a name="//apple_ref/objc/Class/AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse">AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse</span></code></pre>
 
                         </div>
                       </div>
@@ -9200,7 +9458,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The user pool add-ons type.</p>
+                        <p>User pool add-ons. Contains settings for activation of advanced security features. To log user security information but take no action, set to <code>AUDIT</code>. To configure automatic security responses to risky traffic to your user pool, set to <code>ENFORCED</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">Adding advanced security to a user pool</a>.</p>
 
 <p>Required parameters: [AdvancedSecurityMode]</p>
 
@@ -9671,7 +9929,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Using the Amazon Cognito user pools API, you can create a user pool to manage directories and users. You can authenticate a user to obtain tokens related to user identity and access policies.</p><p>This API reference provides information about user pools in Amazon Cognito user pools.</p><p>For more information, see the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html">Amazon Cognito Documentation</a>.</p>
+                        <p>With the Amazon Cognito user pools API, you can set up user pools and app clients, and authenticate users. To authenticate users from third-party identity providers (IdPs) in this API, you can <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html">link IdP users to native user profiles</a>. Learn more about the authentication and authorization of federated users in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-userpools-server-contract-reference.html">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p><p>This API reference provides detailed information about API operations and object types in Amazon Cognito. At the bottom of the page for each API operation and object, under <i>See Also</i>, you can learn how to use it in an Amazon Web Services SDK in the language of your choice.</p><p>Along with resource management operations, the Amazon Cognito user pools API includes classes of operations and authorization models for client-side and server-side user operations. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito native and OIDC APIs</a> in the <i>Amazon Cognito Developer Guide</i>.</p><p>You can also start reading about the <code>CognitoIdentityProvider</code> client in the following SDK guides.</p><ul><li><p><a href="https://docs.aws.amazon.com/cli/latest/reference/cognito-idp/index.html#cli-aws-cognito-idp">Amazon Web Services Command Line Interface</a></p></li><li><p><a href="https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/CognitoIdentityProvider/TCognitoIdentityProviderClient.html">Amazon Web Services SDK for .NET</a></p></li><li><p><a href="https://sdk.amazonaws.com/cpp/api/LATEST/aws-cpp-sdk-cognito-idp/html/class_aws_1_1_cognito_identity_provider_1_1_cognito_identity_provider_client.html">Amazon Web Services SDK for C++</a></p></li><li><p><a href="https://docs.aws.amazon.com/sdk-for-go/api/service/cognitoidentityprovider/#CognitoIdentityProvider">Amazon Web Services SDK for Go</a></p></li><li><p><a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cognitoidentityprovider/CognitoIdentityProviderClient.html">Amazon Web Services SDK for Java V2</a></p></li><li><p><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CognitoIdentityServiceProvider.html">Amazon Web Services SDK for JavaScript</a></p></li><li><p><a href="https://docs.aws.amazon.com/aws-sdk-php/v3/api/api-cognito-idp-2016-04-18.html">Amazon Web Services SDK for PHP V3</a></p></li><li><p><a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-idp.html">Amazon Web Services SDK for Python</a></p></li><li><p><a href="https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/CognitoIdentityProvider/Client.html">Amazon Web Services SDK for Ruby V3</a></p></li></ul><p>To get started with an Amazon Web Services SDK, see <a href="http://aws.amazon.com/developer/tools/">Tools to Build on Amazon Web Services</a>. For example actions and scenarios, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/service_code_examples_cognito-identity-provider.html">Code examples for Amazon Cognito Identity Provider using Amazon Web Services SDKs</a>.</p>
 
                         <a href="Classes/AWSCognitoIdentityProvider.html" class="slightly-smaller">See more</a>
                       </div>
@@ -11402,7 +11660,7 @@ destination and delivery medium</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-01)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

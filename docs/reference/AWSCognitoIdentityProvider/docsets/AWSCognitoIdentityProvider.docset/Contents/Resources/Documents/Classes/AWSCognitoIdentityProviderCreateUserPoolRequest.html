@@ -17,7 +17,7 @@
     <a title="AWSCognitoIdentityProviderCreateUserPoolRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCognitoIdentityProvider 2.33.3 Docs</a> (77% documented)</p>
+        <p><a href="../index.html">AWSCognitoIdentityProvider 2.33.4 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -263,6 +263,9 @@
                 <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderChangePasswordResponse">AWSCognitoIdentityProviderChangePasswordResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCloudWatchLogsConfigurationType.html">AWSCognitoIdentityProviderCloudWatchLogsConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderCodeDeliveryDetailsType.html">AWSCognitoIdentityProviderCodeDeliveryDetailsType</a>
               </li>
               <li class="nav-group-task">
@@ -473,6 +476,12 @@
                 <a href="../Classes/AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse.html">AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetLogDeliveryConfigurationRequest.html">AWSCognitoIdentityProviderGetLogDeliveryConfigurationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse.html">AWSCognitoIdentityProviderGetLogDeliveryConfigurationResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderGetSigningCertificateRequest.html">AWSCognitoIdentityProviderGetSigningCertificateRequest</a>
               </li>
               <li class="nav-group-task">
@@ -590,6 +599,12 @@
                 <a href="../Classes/AWSCognitoIdentityProviderListUsersResponse.html">AWSCognitoIdentityProviderListUsersResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderLogConfigurationType.html">AWSCognitoIdentityProviderLogConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderLogDeliveryConfigurationType.html">AWSCognitoIdentityProviderLogDeliveryConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderMFAOptionType.html">AWSCognitoIdentityProviderMFAOptionType</a>
               </li>
               <li class="nav-group-task">
@@ -654,6 +669,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderSchemaAttributeType.html">AWSCognitoIdentityProviderSchemaAttributeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSetLogDeliveryConfigurationRequest.html">AWSCognitoIdentityProviderSetLogDeliveryConfigurationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse.html">AWSCognitoIdentityProviderSetLogDeliveryConfigurationResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderSetRiskConfigurationRequest.html">AWSCognitoIdentityProviderSetRiskConfigurationRequest</a>
@@ -1023,6 +1044,9 @@
                 <a href="../Enums/AWSCognitoIdentityProviderEventResponseType.html">AWSCognitoIdentityProviderEventResponseType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderEventSourceName.html">AWSCognitoIdentityProviderEventSourceName</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSCognitoIdentityProviderEventType.html">AWSCognitoIdentityProviderEventType</a>
               </li>
               <li class="nav-group-task">
@@ -1033,6 +1057,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSCognitoIdentityProviderIdentityProviderTypeType.html">AWSCognitoIdentityProviderIdentityProviderTypeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderLogLevel.html">AWSCognitoIdentityProviderLogLevel</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSCognitoIdentityProviderMessageActionType.html">AWSCognitoIdentityProviderMessageActionType</a>
@@ -1725,7 +1752,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Enables advanced security risk detection. Set the key <code>AdvancedSecurityMode</code> to the value &ldquo;AUDIT&rdquo;.</p>
+                        <p>User pool add-ons. Contains settings for activation of advanced security features. To log user security information but take no action, set to <code>AUDIT</code>. To configure automatic security responses to risky traffic to your user pool, set to <code>ENFORCED</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">Adding advanced security to a user pool</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -1821,7 +1848,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Case sensitivity on the username input for the selected sign-in option. For example, when case sensitivity is set to <code>False</code>, users can sign in using either &ldquo;username&rdquo; or &ldquo;Username&rdquo;. This configuration is immutable once it has been set. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html">UsernameConfigurationType</a>.</p>
+                        <p>Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to <code>False</code> (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, <code>username</code>, <code>USERNAME</code>, or <code>UserName</code>, or for email, <code>email@example.com</code> or <code>EMaiL@eXamplE.Com</code>. For most use cases, set case sensitivity to <code>False</code> (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.</p><p>This configuration is immutable after you set it. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html">UsernameConfigurationType</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -1877,7 +1904,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-01)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
