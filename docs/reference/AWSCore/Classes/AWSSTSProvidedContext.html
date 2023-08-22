@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSCognitoIdentityDeleteIdentitiesResponse Class Reference</title>
+    <title>AWSSTSProvidedContext Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSCognitoIdentityDeleteIdentitiesResponse" class="dashAnchor"></a>
-    <a title="AWSCognitoIdentityDeleteIdentitiesResponse Class Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSSTSProvidedContext" class="dashAnchor"></a>
+    <a title="AWSSTSProvidedContext Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSCore 2.33.4 Docs</a> (45% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSCore Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSCognitoIdentityDeleteIdentitiesResponse Class Reference
+        AWSSTSProvidedContext Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -995,20 +995,20 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSCognitoIdentityDeleteIdentitiesResponse</h1>
+            <h1>AWSSTSProvidedContext</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSCognitoIdentityDeleteIdentitiesResponse</span> <span class="p">:</span> <span class="nc"><a href="../Classes.html#/c:objc(cs)AWSModel">AWSModel</a></span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSSTSProvidedContext</span> <span class="p">:</span> <span class="nc"><a href="../Classes.html#/c:objc(cs)AWSModel">AWSModel</a></span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSCognitoIdentityDeleteIdentitiesResponse</span> <span class="p">:</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSModel">AWSModel</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSSTSProvidedContext</span> <span class="p">:</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSModel">AWSModel</a></span></code></pre>
 
                 </div>
               </div>
-            <p>Returned in response to a successful <code>DeleteIdentities</code> operation.</p>
+            <p>Reserved for future use.</p>
 
           </section>
           <section class="section task-group-section">
@@ -1017,9 +1017,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSCognitoIdentityDeleteIdentitiesResponse(py)unprocessedIdentityIds"></a>
-                    <a name="//apple_ref/objc/Property/unprocessedIdentityIds" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityDeleteIdentitiesResponse(py)unprocessedIdentityIds">unprocessedIdentityIds</a>
+                    <a name="/c:objc(cs)AWSSTSProvidedContext(py)contextAssertion"></a>
+                    <a name="//apple_ref/objc/Property/contextAssertion" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSSTSProvidedContext(py)contextAssertion">contextAssertion</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1027,19 +1027,51 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and IdentityId.</p>
+                        <p>Reserved for future use.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSCognitoIdentityUnprocessedIdentityId.html">AWSCognitoIdentityUnprocessedIdentityId</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">unprocessedIdentityIds</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">contextAssertion</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">unprocessedIdentityIds</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AWSCognitoIdentityUnprocessedIdentityId.html">AWSCognitoIdentityUnprocessedIdentityId</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">contextAssertion</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSSTSProvidedContext(py)providerArn"></a>
+                    <a name="//apple_ref/objc/Property/providerArn" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSSTSProvidedContext(py)providerArn">providerArn</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reserved for future use.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">providerArn</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">providerArn</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
