@@ -1,551 +1,551 @@
 {
   "warnings": [
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentity.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentity.h",
       "line": 28,
       "symbol": "AWSChimeSDKIdentityVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentity.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentity.h",
       "line": 39,
       "symbol": "AWSChimeSDKIdentityVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 22,
       "symbol": "AWSChimeSDKIdentityErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 24,
       "symbol": "AWSChimeSDKIdentityErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 24,
       "symbol": "AWSChimeSDKIdentityErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 25,
       "symbol": "AWSChimeSDKIdentityErrorType.AWSChimeSDKIdentityErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 26,
       "symbol": "AWSChimeSDKIdentityErrorType.AWSChimeSDKIdentityErrorBadRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 27,
       "symbol": "AWSChimeSDKIdentityErrorType.AWSChimeSDKIdentityErrorConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 28,
       "symbol": "AWSChimeSDKIdentityErrorType.AWSChimeSDKIdentityErrorForbidden",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 29,
       "symbol": "AWSChimeSDKIdentityErrorType.AWSChimeSDKIdentityErrorNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 30,
       "symbol": "AWSChimeSDKIdentityErrorType.AWSChimeSDKIdentityErrorResourceLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 31,
       "symbol": "AWSChimeSDKIdentityErrorType.AWSChimeSDKIdentityErrorServiceFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 32,
       "symbol": "AWSChimeSDKIdentityErrorType.AWSChimeSDKIdentityErrorServiceUnavailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 33,
       "symbol": "AWSChimeSDKIdentityErrorType.AWSChimeSDKIdentityErrorThrottledClient",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 34,
       "symbol": "AWSChimeSDKIdentityErrorType.AWSChimeSDKIdentityErrorUnauthorizedClient",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 37,
       "symbol": "AWSChimeSDKIdentityAllowMessages",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 37,
       "symbol": "AWSChimeSDKIdentityAllowMessages",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 38,
       "symbol": "AWSChimeSDKIdentityAllowMessages.AWSChimeSDKIdentityAllowMessagesUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 39,
       "symbol": "AWSChimeSDKIdentityAllowMessages.AWSChimeSDKIdentityAllowMessagesAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 40,
       "symbol": "AWSChimeSDKIdentityAllowMessages.AWSChimeSDKIdentityAllowMessagesNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 43,
       "symbol": "AWSChimeSDKIdentityAppInstanceUserEndpointType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 43,
       "symbol": "AWSChimeSDKIdentityAppInstanceUserEndpointType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 44,
       "symbol": "AWSChimeSDKIdentityAppInstanceUserEndpointType.AWSChimeSDKIdentityAppInstanceUserEndpointTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 45,
       "symbol": "AWSChimeSDKIdentityAppInstanceUserEndpointType.AWSChimeSDKIdentityAppInstanceUserEndpointTypeApns",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 46,
       "symbol": "AWSChimeSDKIdentityAppInstanceUserEndpointType.AWSChimeSDKIdentityAppInstanceUserEndpointTypeApnsSandbox",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 47,
       "symbol": "AWSChimeSDKIdentityAppInstanceUserEndpointType.AWSChimeSDKIdentityAppInstanceUserEndpointTypeGcm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 50,
       "symbol": "AWSChimeSDKIdentityEndpointStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 50,
       "symbol": "AWSChimeSDKIdentityEndpointStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 51,
       "symbol": "AWSChimeSDKIdentityEndpointStatus.AWSChimeSDKIdentityEndpointStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 52,
       "symbol": "AWSChimeSDKIdentityEndpointStatus.AWSChimeSDKIdentityEndpointStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 53,
       "symbol": "AWSChimeSDKIdentityEndpointStatus.AWSChimeSDKIdentityEndpointStatusInactive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 56,
       "symbol": "AWSChimeSDKIdentityEndpointStatusReason",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 56,
       "symbol": "AWSChimeSDKIdentityEndpointStatusReason",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 57,
       "symbol": "AWSChimeSDKIdentityEndpointStatusReason.AWSChimeSDKIdentityEndpointStatusReasonUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 58,
       "symbol": "AWSChimeSDKIdentityEndpointStatusReason.AWSChimeSDKIdentityEndpointStatusReasonInvalidDeviceToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 59,
       "symbol": "AWSChimeSDKIdentityEndpointStatusReason.AWSChimeSDKIdentityEndpointStatusReasonInvalidPinpointArn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 62,
       "symbol": "AWSChimeSDKIdentityErrorCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 62,
       "symbol": "AWSChimeSDKIdentityErrorCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 63,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 64,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeBadRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 65,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 66,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeForbidden",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 67,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 68,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodePreconditionFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 69,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeResourceLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 70,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeServiceFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 71,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeAccessDenied",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 72,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeServiceUnavailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 73,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeThrottled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 74,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeThrottling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 75,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeUnauthorized",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 76,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeUnprocessable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 77,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeVoiceConnectorGroupAssociationsExist",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 78,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodePhoneNumberAssociationsExist",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 81,
       "symbol": "AWSChimeSDKIdentityExpirationCriterion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 81,
       "symbol": "AWSChimeSDKIdentityExpirationCriterion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 82,
       "symbol": "AWSChimeSDKIdentityExpirationCriterion.AWSChimeSDKIdentityExpirationCriterionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 83,
       "symbol": "AWSChimeSDKIdentityExpirationCriterion.AWSChimeSDKIdentityExpirationCriterionCreatedTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 86,
       "symbol": "AWSChimeSDKIdentityRespondsTo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 86,
       "symbol": "AWSChimeSDKIdentityRespondsTo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 87,
       "symbol": "AWSChimeSDKIdentityRespondsTo.AWSChimeSDKIdentityRespondsToUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 88,
       "symbol": "AWSChimeSDKIdentityRespondsTo.AWSChimeSDKIdentityRespondsToStandardMessages",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 91,
       "symbol": "AWSChimeSDKIdentityStandardMessages",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 91,
       "symbol": "AWSChimeSDKIdentityStandardMessages",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 92,
       "symbol": "AWSChimeSDKIdentityStandardMessages.AWSChimeSDKIdentityStandardMessagesUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 93,
       "symbol": "AWSChimeSDKIdentityStandardMessages.AWSChimeSDKIdentityStandardMessagesAuto",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 94,
       "symbol": "AWSChimeSDKIdentityStandardMessages.AWSChimeSDKIdentityStandardMessagesAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 95,
       "symbol": "AWSChimeSDKIdentityStandardMessages.AWSChimeSDKIdentityStandardMessagesMentions",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 96,
       "symbol": "AWSChimeSDKIdentityStandardMessages.AWSChimeSDKIdentityStandardMessagesNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 99,
       "symbol": "AWSChimeSDKIdentityTargetedMessages",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 99,
       "symbol": "AWSChimeSDKIdentityTargetedMessages",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 100,
       "symbol": "AWSChimeSDKIdentityTargetedMessages.AWSChimeSDKIdentityTargetedMessagesUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 101,
       "symbol": "AWSChimeSDKIdentityTargetedMessages.AWSChimeSDKIdentityTargetedMessagesAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 102,
       "symbol": "AWSChimeSDKIdentityTargetedMessages.AWSChimeSDKIdentityTargetedMessagesNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityResources.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityResources.h",
       "line": 18,
       "symbol": "AWSChimeSDKIdentityResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityResources.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityResources.h",
       "line": 20,
       "symbol": "AWSChimeSDKIdentityResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityResources.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityResources.h",
       "line": 22,
       "symbol": "AWSChimeSDKIdentityResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityService.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityService.h",
       "line": 24,
       "symbol": "AWSChimeSDKIdentitySDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/distiller/project"
+  "source_directory": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios"
 }
