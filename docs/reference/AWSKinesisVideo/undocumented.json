@@ -1,873 +1,873 @@
 {
   "warnings": [
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideo.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideo.h",
       "line": 28,
       "symbol": "AWSKinesisVideoVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideo.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideo.h",
       "line": 39,
       "symbol": "AWSKinesisVideoVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 22,
       "symbol": "AWSKinesisVideoErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 24,
       "symbol": "AWSKinesisVideoErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 24,
       "symbol": "AWSKinesisVideoErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 25,
       "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 26,
       "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorAccessDenied",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 27,
       "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorAccountChannelLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 28,
       "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorAccountStreamLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 29,
       "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorClientLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 30,
       "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorDeviceStreamLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 31,
       "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorInvalidArgument",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 32,
       "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorInvalidDevice",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 33,
       "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorInvalidResourceFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 34,
       "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorNoDataRetention",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 35,
       "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorNotAuthorized",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 36,
       "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorResourceInUse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 37,
       "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorResourceNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 38,
       "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorStreamEdgeConfigurationNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 39,
       "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorTagsPerResourceExceededLimit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 40,
       "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorVersionMismatch",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 43,
       "symbol": "AWSKinesisVideoAPIName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 43,
       "symbol": "AWSKinesisVideoAPIName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 44,
       "symbol": "AWSKinesisVideoAPIName.AWSKinesisVideoAPINameUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 45,
       "symbol": "AWSKinesisVideoAPIName.AWSKinesisVideoAPINamePutMedia",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 46,
       "symbol": "AWSKinesisVideoAPIName.AWSKinesisVideoAPINameGetMedia",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 47,
       "symbol": "AWSKinesisVideoAPIName.AWSKinesisVideoAPINameListFragments",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 48,
       "symbol": "AWSKinesisVideoAPIName.AWSKinesisVideoAPINameGetMediaForFragmentList",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 49,
       "symbol": "AWSKinesisVideoAPIName.AWSKinesisVideoAPINameGetHlsStreamingSessionUrl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 50,
       "symbol": "AWSKinesisVideoAPIName.AWSKinesisVideoAPINameGetDashStreamingSessionUrl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 51,
       "symbol": "AWSKinesisVideoAPIName.AWSKinesisVideoAPINameGetClip",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 52,
       "symbol": "AWSKinesisVideoAPIName.AWSKinesisVideoAPINameGetImages",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 55,
       "symbol": "AWSKinesisVideoChannelProtocol",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 55,
       "symbol": "AWSKinesisVideoChannelProtocol",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 56,
       "symbol": "AWSKinesisVideoChannelProtocol.AWSKinesisVideoChannelProtocolUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 57,
       "symbol": "AWSKinesisVideoChannelProtocol.AWSKinesisVideoChannelProtocolWss",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 58,
       "symbol": "AWSKinesisVideoChannelProtocol.AWSKinesisVideoChannelProtocolHttps",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 59,
       "symbol": "AWSKinesisVideoChannelProtocol.AWSKinesisVideoChannelProtocolWebrtc",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 62,
       "symbol": "AWSKinesisVideoChannelRole",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 62,
       "symbol": "AWSKinesisVideoChannelRole",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 63,
       "symbol": "AWSKinesisVideoChannelRole.AWSKinesisVideoChannelRoleUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 64,
       "symbol": "AWSKinesisVideoChannelRole.AWSKinesisVideoChannelRoleMaster",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 65,
       "symbol": "AWSKinesisVideoChannelRole.AWSKinesisVideoChannelRoleViewer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 68,
       "symbol": "AWSKinesisVideoChannelType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 68,
       "symbol": "AWSKinesisVideoChannelType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 69,
       "symbol": "AWSKinesisVideoChannelType.AWSKinesisVideoChannelTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 70,
       "symbol": "AWSKinesisVideoChannelType.AWSKinesisVideoChannelTypeSingleMaster",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 71,
       "symbol": "AWSKinesisVideoChannelType.AWSKinesisVideoChannelTypeFullMesh",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 74,
       "symbol": "AWSKinesisVideoComparisonOperator",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 74,
       "symbol": "AWSKinesisVideoComparisonOperator",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 75,
       "symbol": "AWSKinesisVideoComparisonOperator.AWSKinesisVideoComparisonOperatorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 76,
       "symbol": "AWSKinesisVideoComparisonOperator.AWSKinesisVideoComparisonOperatorBeginsWith",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 79,
       "symbol": "AWSKinesisVideoConfigurationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 79,
       "symbol": "AWSKinesisVideoConfigurationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 80,
       "symbol": "AWSKinesisVideoConfigurationStatus.AWSKinesisVideoConfigurationStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 81,
       "symbol": "AWSKinesisVideoConfigurationStatus.AWSKinesisVideoConfigurationStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 82,
       "symbol": "AWSKinesisVideoConfigurationStatus.AWSKinesisVideoConfigurationStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 85,
       "symbol": "AWSKinesisVideoFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 85,
       "symbol": "AWSKinesisVideoFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 86,
       "symbol": "AWSKinesisVideoFormat.AWSKinesisVideoFormatUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 87,
       "symbol": "AWSKinesisVideoFormat.AWSKinesisVideoFormatJpeg",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 88,
       "symbol": "AWSKinesisVideoFormat.AWSKinesisVideoFormatPng",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 91,
       "symbol": "AWSKinesisVideoFormatConfigKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 91,
       "symbol": "AWSKinesisVideoFormatConfigKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 92,
       "symbol": "AWSKinesisVideoFormatConfigKey.AWSKinesisVideoFormatConfigKeyUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 93,
       "symbol": "AWSKinesisVideoFormatConfigKey.AWSKinesisVideoFormatConfigKeyJPEGQuality",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 96,
       "symbol": "AWSKinesisVideoImageSelectorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 96,
       "symbol": "AWSKinesisVideoImageSelectorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 97,
       "symbol": "AWSKinesisVideoImageSelectorType.AWSKinesisVideoImageSelectorTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 98,
       "symbol": "AWSKinesisVideoImageSelectorType.AWSKinesisVideoImageSelectorTypeServerTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 99,
       "symbol": "AWSKinesisVideoImageSelectorType.AWSKinesisVideoImageSelectorTypeProducerTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 102,
       "symbol": "AWSKinesisVideoMediaStorageConfigurationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 102,
       "symbol": "AWSKinesisVideoMediaStorageConfigurationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 103,
       "symbol": "AWSKinesisVideoMediaStorageConfigurationStatus.AWSKinesisVideoMediaStorageConfigurationStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 104,
       "symbol": "AWSKinesisVideoMediaStorageConfigurationStatus.AWSKinesisVideoMediaStorageConfigurationStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 105,
       "symbol": "AWSKinesisVideoMediaStorageConfigurationStatus.AWSKinesisVideoMediaStorageConfigurationStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 108,
       "symbol": "AWSKinesisVideoMediaUriType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 108,
       "symbol": "AWSKinesisVideoMediaUriType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 109,
       "symbol": "AWSKinesisVideoMediaUriType.AWSKinesisVideoMediaUriTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 110,
       "symbol": "AWSKinesisVideoMediaUriType.AWSKinesisVideoMediaUriTypeRtspUri",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 111,
       "symbol": "AWSKinesisVideoMediaUriType.AWSKinesisVideoMediaUriTypeFileUri",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 114,
       "symbol": "AWSKinesisVideoRecorderStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 114,
       "symbol": "AWSKinesisVideoRecorderStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 115,
       "symbol": "AWSKinesisVideoRecorderStatus.AWSKinesisVideoRecorderStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 116,
       "symbol": "AWSKinesisVideoRecorderStatus.AWSKinesisVideoRecorderStatusSuccess",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 117,
       "symbol": "AWSKinesisVideoRecorderStatus.AWSKinesisVideoRecorderStatusUserError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 118,
       "symbol": "AWSKinesisVideoRecorderStatus.AWSKinesisVideoRecorderStatusSystemError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 121,
       "symbol": "AWSKinesisVideoStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 121,
       "symbol": "AWSKinesisVideoStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 122,
       "symbol": "AWSKinesisVideoStatus.AWSKinesisVideoStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 123,
       "symbol": "AWSKinesisVideoStatus.AWSKinesisVideoStatusCreating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 124,
       "symbol": "AWSKinesisVideoStatus.AWSKinesisVideoStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 125,
       "symbol": "AWSKinesisVideoStatus.AWSKinesisVideoStatusUpdating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 126,
       "symbol": "AWSKinesisVideoStatus.AWSKinesisVideoStatusDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 129,
       "symbol": "AWSKinesisVideoStrategyOnFullSize",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 129,
       "symbol": "AWSKinesisVideoStrategyOnFullSize",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 130,
       "symbol": "AWSKinesisVideoStrategyOnFullSize.AWSKinesisVideoStrategyOnFullSizeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 131,
       "symbol": "AWSKinesisVideoStrategyOnFullSize.AWSKinesisVideoStrategyOnFullSizeDeleteOldestMedia",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 132,
       "symbol": "AWSKinesisVideoStrategyOnFullSize.AWSKinesisVideoStrategyOnFullSizeDenyNewMedia",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 135,
       "symbol": "AWSKinesisVideoSyncStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 135,
       "symbol": "AWSKinesisVideoSyncStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 136,
       "symbol": "AWSKinesisVideoSyncStatus.AWSKinesisVideoSyncStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 137,
       "symbol": "AWSKinesisVideoSyncStatus.AWSKinesisVideoSyncStatusSyncing",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 138,
       "symbol": "AWSKinesisVideoSyncStatus.AWSKinesisVideoSyncStatusAcknowledged",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 139,
       "symbol": "AWSKinesisVideoSyncStatus.AWSKinesisVideoSyncStatusInSync",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 140,
       "symbol": "AWSKinesisVideoSyncStatus.AWSKinesisVideoSyncStatusSyncFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 141,
       "symbol": "AWSKinesisVideoSyncStatus.AWSKinesisVideoSyncStatusDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 142,
       "symbol": "AWSKinesisVideoSyncStatus.AWSKinesisVideoSyncStatusDeleteFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 143,
       "symbol": "AWSKinesisVideoSyncStatus.AWSKinesisVideoSyncStatusDeletingAcknowledged",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 146,
       "symbol": "AWSKinesisVideoUpdateDataRetentionOperation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 146,
       "symbol": "AWSKinesisVideoUpdateDataRetentionOperation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 147,
       "symbol": "AWSKinesisVideoUpdateDataRetentionOperation.AWSKinesisVideoUpdateDataRetentionOperationUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 148,
       "symbol": "AWSKinesisVideoUpdateDataRetentionOperation.AWSKinesisVideoUpdateDataRetentionOperationIncreaseDataRetention",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 149,
       "symbol": "AWSKinesisVideoUpdateDataRetentionOperation.AWSKinesisVideoUpdateDataRetentionOperationDecreaseDataRetention",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 152,
       "symbol": "AWSKinesisVideoUploaderStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 152,
       "symbol": "AWSKinesisVideoUploaderStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 153,
       "symbol": "AWSKinesisVideoUploaderStatus.AWSKinesisVideoUploaderStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 154,
       "symbol": "AWSKinesisVideoUploaderStatus.AWSKinesisVideoUploaderStatusSuccess",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 155,
       "symbol": "AWSKinesisVideoUploaderStatus.AWSKinesisVideoUploaderStatusUserError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
       "line": 156,
       "symbol": "AWSKinesisVideoUploaderStatus.AWSKinesisVideoUploaderStatusSystemError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoResources.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoResources.h",
       "line": 18,
       "symbol": "AWSKinesisVideoResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoResources.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoResources.h",
       "line": 20,
       "symbol": "AWSKinesisVideoResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoResources.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoResources.h",
       "line": 22,
       "symbol": "AWSKinesisVideoResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSKinesisVideo/AWSKinesisVideoService.h",
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoService.h",
       "line": 24,
       "symbol": "AWSKinesisVideoSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/distiller/project"
+  "source_directory": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios"
 }
