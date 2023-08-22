@@ -17,7 +17,7 @@
     <a title="DeviceOperations Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSMobileClient 2.33.3 Docs</a> (55% documented)</p>
+        <p><a href="../index.html">AWSMobileClient 2.33.4 Docs</a> (0% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSMobileClient.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -81,7 +81,19 @@
             <a href="../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Extensions.html#/FetchUserPoolTokensOperation">FetchUserPoolTokensOperation</a>
+                <a href="../Extensions/FetchUserPoolTokensOperation.html">FetchUserPoolTokensOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/FetchUserPoolTokensOperation.html#/TokenFetchState">– TokenFetchState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/FetchUserPoolTokensOperation.html#/TokenFetchEvent">– TokenFetchEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/FetchUserPoolTokensOperation.html#/TokenFetchError">– TokenFetchError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UserPoolOperationsHandler.html">UserPoolOperationsHandler</a>
               </li>
             </ul>
           </li>
@@ -119,7 +131,7 @@
                 <a href="../Structs/Tokens.html">Tokens</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs.html#/s:15AWSMobileClient24UpdateDeviceStatusResultV">UpdateDeviceStatusResult</a>
+                <a href="../Structs.html#/UpdateDeviceStatusResult">UpdateDeviceStatusResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/UserCodeDeliveryDetails.html">UserCodeDeliveryDetails</a>
@@ -130,10 +142,10 @@
             <a href="../Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:15AWSMobileClient15TokenCompletiona">TokenCompletion</a>
+                <a href="../Typealiases.html#/TokenCompletion">TokenCompletion</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:15AWSMobileClient23UserStateChangeCallbacka">UserStateChangeCallback</a>
+                <a href="../Typealiases.html#/UserStateChangeCallback">UserStateChangeCallback</a>
               </li>
             </ul>
           </li>
@@ -143,13 +155,6 @@
         <section>
           <section class="section">
             <h1>DeviceOperations</h1>
-              <div class="declaration">
-                <div class="language">
-                  
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">DeviceOperations</span></code></pre>
-
-                </div>
-              </div>
             <p>DeviceOperations is responsible for handling mobile device related operations for logged in user.</p>
 
           </section>
@@ -159,9 +164,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient16DeviceOperationsC4list5limit15paginationToken17completionHandlerySi_SSSgyAA17ListDevicesResultVSg_s5Error_pSgtctF"></a>
+                    <a name="/"></a>
                     <a name="//apple_ref/swift/Method/list(limit:paginationToken:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient16DeviceOperationsC4list5limit15paginationToken17completionHandlerySi_SSSgyAA17ListDevicesResultVSg_s5Error_pSgtctF">list(limit:<wbr>paginationToken:<wbr>completionHandler:<wbr>)</a>
+                    <a class="token" href="#/">list(limit:<wbr>paginationToken:<wbr>completionHandler:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -172,66 +177,15 @@
                         <p>List all devices for current user.</p>
 
                       </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">list</span><span class="p">(</span><span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span> <span class="nv">paginationToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/ListDevicesResult.html">ListDevicesResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>limit</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The number of devices to list in current call. Defaults to 60(max possible value)</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>paginationToken</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The pagination token returned in previous list call to get more devices.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completionHandler</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>completion handler for result or error.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient16DeviceOperationsC12updateStatus8deviceId10remembered17completionHandlerySS_SbyAA06UpdatecF6ResultVSg_s5Error_pSgtctF"></a>
+                    <a name="/"></a>
                     <a name="//apple_ref/swift/Method/updateStatus(deviceId:remembered:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient16DeviceOperationsC12updateStatus8deviceId10remembered17completionHandlerySS_SbyAA06UpdatecF6ResultVSg_s5Error_pSgtctF">updateStatus(deviceId:<wbr>remembered:<wbr>completionHandler:<wbr>)</a>
+                    <a class="token" href="#/">updateStatus(deviceId:<wbr>remembered:<wbr>completionHandler:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -242,66 +196,15 @@
                         <p>Update status for specified device id.</p>
 
                       </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateStatus</span><span class="p">(</span><span class="nv">deviceId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">remembered</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs.html#/s:15AWSMobileClient24UpdateDeviceStatusResultV">UpdateDeviceStatusResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>deviceId</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>the device id which needs to be updated.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>remembered</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>true if device has to be remembered. false to set it to not remembered.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completionHandler</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>completion handler for result or error.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient16DeviceOperationsC12updateStatus10remembered17completionHandlerySb_yAA06UpdatecF6ResultVSg_s5Error_pSgtctF"></a>
+                    <a name="/"></a>
                     <a name="//apple_ref/swift/Method/updateStatus(remembered:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient16DeviceOperationsC12updateStatus10remembered17completionHandlerySb_yAA06UpdatecF6ResultVSg_s5Error_pSgtctF">updateStatus(remembered:<wbr>completionHandler:<wbr>)</a>
+                    <a class="token" href="#/">updateStatus(remembered:<wbr>completionHandler:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -312,54 +215,15 @@
                         <p>Update status for current device.</p>
 
                       </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateStatus</span><span class="p">(</span><span class="nv">remembered</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs.html#/s:15AWSMobileClient24UpdateDeviceStatusResultV">UpdateDeviceStatusResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>remembered</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>true if device has to be remembered. false to set it to not remembered.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completionHandler</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>completion handler for result or error.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient16DeviceOperationsC3get8deviceId17completionHandlerySS_yAA0C0VSg_s5Error_pSgtctF"></a>
+                    <a name="/"></a>
                     <a name="//apple_ref/swift/Method/get(deviceId:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient16DeviceOperationsC3get8deviceId17completionHandlerySS_yAA0C0VSg_s5Error_pSgtctF">get(deviceId:<wbr>completionHandler:<wbr>)</a>
+                    <a class="token" href="#/">get(deviceId:<wbr>completionHandler:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -370,54 +234,15 @@
                         <p>Get details for specified device id.</p>
 
                       </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="nv">deviceId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/Device.html">Device</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>deviceId</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>deviceId for device whose details need to be fetched.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completionHandler</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>completion handler for result or error.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient16DeviceOperationsC3getyyyAA0C0VSg_s5Error_pSgtcF"></a>
+                    <a name="/"></a>
                     <a name="//apple_ref/swift/Method/get(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient16DeviceOperationsC3getyyyAA0C0VSg_s5Error_pSgtcF">get(_:<wbr>)</a>
+                    <a class="token" href="#/">get(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -428,42 +253,15 @@
                         <p>Get details of current device.</p>
 
                       </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="n">_</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/Device.html">Device</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completionHandler</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>completion handler for result or error.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient16DeviceOperationsC6forget8deviceId17completionHandlerySS_ys5Error_pSgctF"></a>
+                    <a name="/"></a>
                     <a name="//apple_ref/swift/Method/forget(deviceId:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient16DeviceOperationsC6forget8deviceId17completionHandlerySS_ys5Error_pSgctF">forget(deviceId:<wbr>completionHandler:<wbr>)</a>
+                    <a class="token" href="#/">forget(deviceId:<wbr>completionHandler:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -474,54 +272,15 @@
                         <p>Forget specified device.</p>
 
                       </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">forget</span><span class="p">(</span><span class="nv">deviceId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>deviceId</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The deviceId of device which needs to be stopped being tracked.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completionHandler</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>completion handler for result or error.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient16DeviceOperationsC6forgetyyys5Error_pSgcF"></a>
+                    <a name="/"></a>
                     <a name="//apple_ref/swift/Method/forget(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient16DeviceOperationsC6forgetyyys5Error_pSgcF">forget(_:<wbr>)</a>
+                    <a class="token" href="#/">forget(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -532,33 +291,6 @@
                         <p>Forget current device. The device will no longer be tracked. Note: Calling <code>updateStatus</code> to remember the device after calling forget device will result in error. To remember a forgotten device, the user needs to re-login.</p>
 
                       </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">forget</span><span class="p">(</span><span class="n">_</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completionHandler</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>completion handler for result or error.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
                     </section>
                   </div>
                 </li>
@@ -567,7 +299,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-01)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

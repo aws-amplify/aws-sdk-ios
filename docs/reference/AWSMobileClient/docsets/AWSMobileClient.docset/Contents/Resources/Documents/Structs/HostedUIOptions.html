@@ -17,7 +17,7 @@
     <a title="HostedUIOptions Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSMobileClient 2.33.3 Docs</a> (55% documented)</p>
+        <p><a href="../index.html">AWSMobileClient 2.33.4 Docs</a> (0% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSMobileClient.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -81,7 +81,19 @@
             <a href="../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Extensions.html#/FetchUserPoolTokensOperation">FetchUserPoolTokensOperation</a>
+                <a href="../Extensions/FetchUserPoolTokensOperation.html">FetchUserPoolTokensOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/FetchUserPoolTokensOperation.html#/TokenFetchState">– TokenFetchState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/FetchUserPoolTokensOperation.html#/TokenFetchEvent">– TokenFetchEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/FetchUserPoolTokensOperation.html#/TokenFetchError">– TokenFetchError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UserPoolOperationsHandler.html">UserPoolOperationsHandler</a>
               </li>
             </ul>
           </li>
@@ -119,7 +131,7 @@
                 <a href="../Structs/Tokens.html">Tokens</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs.html#/s:15AWSMobileClient24UpdateDeviceStatusResultV">UpdateDeviceStatusResult</a>
+                <a href="../Structs.html#/UpdateDeviceStatusResult">UpdateDeviceStatusResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/UserCodeDeliveryDetails.html">UserCodeDeliveryDetails</a>
@@ -130,10 +142,10 @@
             <a href="../Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:15AWSMobileClient15TokenCompletiona">TokenCompletion</a>
+                <a href="../Typealiases.html#/TokenCompletion">TokenCompletion</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:15AWSMobileClient23UserStateChangeCallbacka">UserStateChangeCallback</a>
+                <a href="../Typealiases.html#/UserStateChangeCallback">UserStateChangeCallback</a>
               </li>
             </ul>
           </li>
@@ -143,13 +155,6 @@
         <section>
           <section class="section">
             <h1>HostedUIOptions</h1>
-              <div class="declaration">
-                <div class="language">
-                  
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">HostedUIOptions</span></code></pre>
-
-                </div>
-              </div>
             <p>The options object for <code>showSignIn</code> API when using Hosted Auth solution like Amazon Cognito UserPools or AUth0.</p>
 
 <p>NOTE: If specified, some of the values in this type will override the corresponding values in <code>awsconfiguration.json</code>. See
@@ -162,9 +167,9 @@ the <code>init</code> method below.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient15HostedUIOptionsV17disableFederation6scopes16identityProvider13idpIdentifier010federationI4Name24signInURIQueryParameters05tokenpQ00n3OutpQ00nO14PrivateSessionACSb_SaySSGSgSSSgA2OSDyS2SGSgA2QSbtcfc"></a>
+                    <a name="/"></a>
                     <a name="//apple_ref/swift/Method/init(disableFederation:scopes:identityProvider:idpIdentifier:federationProviderName:signInURIQueryParameters:tokenURIQueryParameters:signOutURIQueryParameters:signInPrivateSession:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient15HostedUIOptionsV17disableFederation6scopes16identityProvider13idpIdentifier010federationI4Name24signInURIQueryParameters05tokenpQ00n3OutpQ00nO14PrivateSessionACSb_SaySSGSgSSSgA2OSDyS2SGSgA2QSbtcfc">init(disableFederation:<wbr>scopes:<wbr>identityProvider:<wbr>idpIdentifier:<wbr>federationProviderName:<wbr>signInURIQueryParameters:<wbr>tokenURIQueryParameters:<wbr>signOutURIQueryParameters:<wbr>signInPrivateSession:<wbr>)</a>
+                    <a class="token" href="#/">init(disableFederation:<wbr>scopes:<wbr>identityProvider:<wbr>idpIdentifier:<wbr>federationProviderName:<wbr>signInURIQueryParameters:<wbr>tokenURIQueryParameters:<wbr>signOutURIQueryParameters:<wbr>signInPrivateSession:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -175,125 +180,6 @@ the <code>init</code> method below.</p>
                         <p>Initializer for hosted UI options.</p>
 
                       </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">disableFederation</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="nv">scopes</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-            <span class="nv">identityProvider</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-            <span class="nv">idpIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-            <span class="nv">federationProviderName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-            <span class="nv">signInURIQueryParameters</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-            <span class="nv">tokenURIQueryParameters</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-            <span class="nv">signOutURIQueryParameters</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-            <span class="nv">signInPrivateSession</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>disableFederation</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>If set to true, will not federate with Cognito Identity service to fetch AWSCredentials. <code>true</code> by default.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>scopes</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The scopes for the current login session. If specified here, the scopes specified in <code>awsconfiguration.json</code> would be over-ridden.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>identityProvider</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The IdentityProvider to be used for hosted UI. If using Cognito UserPools it could be <code>Google</code>, <code>Facebook</code>, etc.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>idpIdentifier</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The IdentityProvider identifier if using multiple instances of same identity provider.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>federationProviderName</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>If federating with Cognito Identity and using a provider like Auth0 specify the provider name, e.g. <your_domain>.auth0.com.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>signInURIQueryParameters</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The additional query parameters apart from standard OAuth w/ open id connect parameters for signInURI. If specified here, the signInURIQueryParameters specified in <code>awsconfiguration.json</code> would be over-ridden.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>tokenURIQueryParameters</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The additional query parameters apart from standard OAuth w/ open id connect parameters for tokenURI. If specified here, the tokenURIQueryParameters specified in <code>awsconfiguration.json</code> would be over-ridden.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>signOutURIQueryParameters</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The additional query parameters apart from standard OAuth w/ open id connect parameters for signOutURI. If specified here, the signOutURIQueryParameters specified in <code>awsconfiguration.json</code> would be over-ridden.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
                     </section>
                   </div>
                 </li>
@@ -302,7 +188,7 @@ the <code>init</code> method below.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-01)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

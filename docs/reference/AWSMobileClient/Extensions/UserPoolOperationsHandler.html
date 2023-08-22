@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Tokens Structure Reference</title>
+    <title>UserPoolOperationsHandler Extension Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/Tokens" class="dashAnchor"></a>
-    <a title="Tokens Structure Reference"></a>
+    <a name="//apple_ref/swift/Extension/UserPoolOperationsHandler" class="dashAnchor"></a>
+    <a title="UserPoolOperationsHandler Extension Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSMobileClient 2.33.4 Docs</a> (0% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSMobileClient Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        Tokens Structure Reference
+        UserPoolOperationsHandler Extension Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -154,9 +154,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Tokens</h1>
-            <p>Contains the tokens for an active sign in session.</p>
-
+            <h1>UserPoolOperationsHandler</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  
+                </div>
+              </div>
+            
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -165,8 +170,8 @@
                   <div>
                     <code>
                     <a name="/"></a>
-                    <a name="//apple_ref/swift/Property/idToken" class="dashAnchor"></a>
-                    <a class="token" href="#/">idToken</a>
+                    <a name="//apple_ref/swift/Method/getDetails(_:passwordAuthenticationCompletionSource:)" class="dashAnchor"></a>
+                    <a class="token" href="#/">getDetails(_:<wbr>passwordAuthenticationCompletionSource:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -174,8 +179,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ID token.</p>
-
+                        
                       </div>
                     </section>
                   </div>
@@ -184,8 +188,8 @@
                   <div>
                     <code>
                     <a name="/"></a>
-                    <a name="//apple_ref/swift/Property/accessToken" class="dashAnchor"></a>
-                    <a class="token" href="#/">accessToken</a>
+                    <a name="//apple_ref/swift/Method/didCompleteStepWithError(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/">didCompleteStepWithError(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -193,8 +197,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The access token.</p>
-
+                        
                       </div>
                     </section>
                   </div>
@@ -203,8 +206,8 @@
                   <div>
                     <code>
                     <a name="/"></a>
-                    <a name="//apple_ref/swift/Property/refreshToken" class="dashAnchor"></a>
-                    <a class="token" href="#/">refreshToken</a>
+                    <a name="//apple_ref/swift/Method/getNewPasswordDetails(_:newPasswordRequiredCompletionSource:)" class="dashAnchor"></a>
+                    <a class="token" href="#/">getNewPasswordDetails(_:<wbr>newPasswordRequiredCompletionSource:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -212,8 +215,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The refresh token.</p>
-
+                        
                       </div>
                     </section>
                   </div>
@@ -222,8 +224,8 @@
                   <div>
                     <code>
                     <a name="/"></a>
-                    <a name="//apple_ref/swift/Property/expiration" class="dashAnchor"></a>
-                    <a class="token" href="#/">expiration</a>
+                    <a name="//apple_ref/swift/Method/didCompleteNewPasswordStepWithError(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/">didCompleteNewPasswordStepWithError(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -231,8 +233,43 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Expiration date if available.</p>
-
+                        
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/"></a>
+                    <a name="//apple_ref/swift/Method/getCode_v2(_:mfaCodeCompletionSource:)" class="dashAnchor"></a>
+                    <a class="token" href="#/">getCode_v2(_:<wbr>mfaCodeCompletionSource:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/"></a>
+                    <a name="//apple_ref/swift/Method/didCompleteMultifactorAuthenticationStepWithError(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/">didCompleteMultifactorAuthenticationStepWithError(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
                       </div>
                     </section>
                   </div>

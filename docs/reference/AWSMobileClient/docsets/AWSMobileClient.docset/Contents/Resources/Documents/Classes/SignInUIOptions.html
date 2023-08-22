@@ -17,7 +17,7 @@
     <a title="SignInUIOptions Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSMobileClient 2.33.3 Docs</a> (55% documented)</p>
+        <p><a href="../index.html">AWSMobileClient 2.33.4 Docs</a> (0% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSMobileClient.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -81,7 +81,19 @@
             <a href="../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Extensions.html#/FetchUserPoolTokensOperation">FetchUserPoolTokensOperation</a>
+                <a href="../Extensions/FetchUserPoolTokensOperation.html">FetchUserPoolTokensOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/FetchUserPoolTokensOperation.html#/TokenFetchState">– TokenFetchState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/FetchUserPoolTokensOperation.html#/TokenFetchEvent">– TokenFetchEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/FetchUserPoolTokensOperation.html#/TokenFetchError">– TokenFetchError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UserPoolOperationsHandler.html">UserPoolOperationsHandler</a>
               </li>
             </ul>
           </li>
@@ -119,7 +131,7 @@
                 <a href="../Structs/Tokens.html">Tokens</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs.html#/s:15AWSMobileClient24UpdateDeviceStatusResultV">UpdateDeviceStatusResult</a>
+                <a href="../Structs.html#/UpdateDeviceStatusResult">UpdateDeviceStatusResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/UserCodeDeliveryDetails.html">UserCodeDeliveryDetails</a>
@@ -130,10 +142,10 @@
             <a href="../Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:15AWSMobileClient15TokenCompletiona">TokenCompletion</a>
+                <a href="../Typealiases.html#/TokenCompletion">TokenCompletion</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:15AWSMobileClient23UserStateChangeCallbacka">UserStateChangeCallback</a>
+                <a href="../Typealiases.html#/UserStateChangeCallback">UserStateChangeCallback</a>
               </li>
             </ul>
           </li>
@@ -143,14 +155,6 @@
         <section>
           <section class="section">
             <h1>SignInUIOptions</h1>
-              <div class="declaration">
-                <div class="language">
-                  
-                  <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="kt">SignInUIOptions</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
-
-                </div>
-              </div>
             <p>The options object for drop-in UI which allows changing properties like logo image and background color.</p>
 
           </section>
@@ -160,9 +164,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(py)canCancel"></a>
+                    <a name="/"></a>
                     <a name="//apple_ref/swift/Property/canCancel" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(py)canCancel">canCancel</a>
+                    <a class="token" href="#/">canCancel</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -173,24 +177,15 @@
                         <p>If true, the end user can cancel the sign-in operation and go back to previous view controller.</p>
 
                       </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">public</span> <span class="k">let</span> <span class="nv">canCancel</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(py)logoImage"></a>
+                    <a name="/"></a>
                     <a name="//apple_ref/swift/Property/logoImage" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(py)logoImage">logoImage</a>
+                    <a class="token" href="#/">logoImage</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -201,24 +196,15 @@
                         <p>The logo image to be displayed on the sign-in screen.</p>
 
                       </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">public</span> <span class="k">let</span> <span class="nv">logoImage</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(py)backgroundColor"></a>
+                    <a name="/"></a>
                     <a name="//apple_ref/swift/Property/backgroundColor" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(py)backgroundColor">backgroundColor</a>
+                    <a class="token" href="#/">backgroundColor</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -229,24 +215,15 @@
                         <p>The background color of the sign-in screen.</p>
 
                       </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">public</span> <span class="k">let</span> <span class="nv">backgroundColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(py)secondaryBackgroundColor"></a>
+                    <a name="/"></a>
                     <a name="//apple_ref/swift/Property/secondaryBackgroundColor" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(py)secondaryBackgroundColor">secondaryBackgroundColor</a>
+                    <a class="token" href="#/">secondaryBackgroundColor</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -257,24 +234,15 @@
                         <p>The secondary background color. It&rsquo;s applied to the bottom panel of the sign-in screen.</p>
 
                       </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">public</span> <span class="k">let</span> <span class="nv">secondaryBackgroundColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(py)primaryColor"></a>
+                    <a name="/"></a>
                     <a name="//apple_ref/swift/Property/primaryColor" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(py)primaryColor">primaryColor</a>
+                    <a class="token" href="#/">primaryColor</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -285,24 +253,15 @@
                         <p>The view primary color used for highlighted elements (button background, links).</p>
 
                       </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">public</span> <span class="k">let</span> <span class="nv">primaryColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(py)disableSignUpButton"></a>
+                    <a name="/"></a>
                     <a name="//apple_ref/swift/Property/disableSignUpButton" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(py)disableSignUpButton">disableSignUpButton</a>
+                    <a class="token" href="#/">disableSignUpButton</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -313,24 +272,15 @@
                         <p>If set to true the sign up button is hidden from the UI.</p>
 
                       </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">public</span> <span class="k">let</span> <span class="nv">disableSignUpButton</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(im)initWithCanCancel:logoImage:backgroundColor:secondaryBackgroundColor:primaryColor:disableSignUpButton:"></a>
+                    <a name="/"></a>
                     <a name="//apple_ref/swift/Method/init(canCancel:logoImage:backgroundColor:secondaryBackgroundColor:primaryColor:disableSignUpButton:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(im)initWithCanCancel:logoImage:backgroundColor:secondaryBackgroundColor:primaryColor:disableSignUpButton:">init(canCancel:<wbr>logoImage:<wbr>backgroundColor:<wbr>secondaryBackgroundColor:<wbr>primaryColor:<wbr>disableSignUpButton:<wbr>)</a>
+                    <a class="token" href="#/">init(canCancel:<wbr>logoImage:<wbr>backgroundColor:<wbr>secondaryBackgroundColor:<wbr>primaryColor:<wbr>disableSignUpButton:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -341,29 +291,15 @@
                         <p>Initializer for the drop-in UI configuration.</p>
 
                       </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">canCancel</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="nv">logoImage</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-            <span class="nv">backgroundColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-            <span class="nv">secondaryBackgroundColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-            <span class="nv">primaryColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">systemBlue</span><span class="p">,</span>
-            <span class="nv">disableSignUpButton</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(im)init"></a>
+                    <a name="/"></a>
                     <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(im)init">init()</a>
+                    <a class="token" href="#/">init()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -371,16 +307,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
-
-                        </div>
+                        
                       </div>
                     </section>
                   </div>
@@ -390,7 +317,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-01)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
