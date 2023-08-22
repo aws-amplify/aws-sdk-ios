@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSAutoScalingTargetTrackingMetricStat Class Reference</title>
+    <title>AWSAutoScalingAlarmSpecification Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSAutoScalingTargetTrackingMetricStat" class="dashAnchor"></a>
-    <a title="AWSAutoScalingTargetTrackingMetricStat Class Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSAutoScalingAlarmSpecification" class="dashAnchor"></a>
+    <a title="AWSAutoScalingAlarmSpecification Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSAutoScaling 2.33.4 Docs</a> (81% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSAutoScaling Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSAutoScalingTargetTrackingMetricStat Class Reference
+        AWSAutoScalingAlarmSpecification Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -687,22 +687,20 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSAutoScalingTargetTrackingMetricStat</h1>
+            <h1>AWSAutoScalingAlarmSpecification</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSAutoScalingTargetTrackingMetricStat</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSAutoScalingAlarmSpecification</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSAutoScalingTargetTrackingMetricStat</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSAutoScalingAlarmSpecification</span></code></pre>
 
                 </div>
               </div>
-            <p>This structure defines the CloudWatch metric to return, along with the statistic and unit.</p><p>For more information about the CloudWatch terminology below, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch concepts</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
-
-<p>Required parameters: [Metric, Stat]</p>
+            <p>Specifies the CloudWatch alarm specification to use in an instance refresh.</p>
 
           </section>
           <section class="section task-group-section">
@@ -711,9 +709,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSAutoScalingTargetTrackingMetricStat(py)metric"></a>
-                    <a name="//apple_ref/objc/Property/metric" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSAutoScalingTargetTrackingMetricStat(py)metric">metric</a>
+                    <a name="/c:objc(cs)AWSAutoScalingAlarmSpecification(py)alarms"></a>
+                    <a name="//apple_ref/objc/Property/alarms" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSAutoScalingAlarmSpecification(py)alarms">alarms</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -721,83 +719,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The metric to use.</p>
+                        <p>The names of one or more CloudWatch alarms to monitor for the instance refresh. You can specify up to 10 alarms.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSAutoScalingMetric.html">AWSAutoScalingMetric</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">metric</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">alarms</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">metric</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingMetric.html">AWSAutoScalingMetric</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)AWSAutoScalingTargetTrackingMetricStat(py)stat"></a>
-                    <a name="//apple_ref/objc/Property/stat" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSAutoScalingTargetTrackingMetricStat(py)stat">stat</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic">Statistics</a> in the <i>Amazon CloudWatch User Guide</i>.</p><p>The most commonly used metric for scaling is <code>Average</code>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">stat</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">stat</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)AWSAutoScalingTargetTrackingMetricStat(py)unit"></a>
-                    <a name="//apple_ref/objc/Property/unit" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSAutoScalingTargetTrackingMetricStat(py)unit">unit</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The unit to use for the returned data points. For a complete list of the units that CloudWatch supports, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">MetricDatum</a> data type in the <i>Amazon CloudWatch API Reference</i>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">unit</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">unit</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">alarms</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
