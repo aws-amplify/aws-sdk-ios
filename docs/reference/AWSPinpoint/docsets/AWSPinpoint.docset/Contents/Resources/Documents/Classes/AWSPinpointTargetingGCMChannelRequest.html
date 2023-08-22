@@ -17,7 +17,7 @@
     <a title="AWSPinpointTargetingGCMChannelRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSPinpoint 2.33.3 Docs</a> (89% documented)</p>
+        <p><a href="../index.html">AWSPinpoint 2.33.4 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSPinpoint.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -141,6 +141,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingApplicationResponse.html">AWSPinpointTargetingApplicationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingApplicationSettingsJourneyLimits.html">AWSPinpointTargetingApplicationSettingsJourneyLimits</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingApplicationSettingsResource.html">AWSPinpointTargetingApplicationSettingsResource</a>
@@ -962,6 +965,9 @@
                 <a href="../Classes/AWSPinpointTargetingJourneyStateRequest.html">AWSPinpointTargetingJourneyStateRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingJourneyTimeframeCap.html">AWSPinpointTargetingJourneyTimeframeCap</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingJourneysResponse.html">AWSPinpointTargetingJourneysResponse</a>
               </li>
               <li class="nav-group-task">
@@ -1634,8 +1640,6 @@
               </div>
             <p>Specifies the status and settings of the GCM channel for an application. This channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
 
-<p>Required parameters: [ApiKey]</p>
-
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -1675,6 +1679,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSPinpointTargetingGCMChannelRequest(py)defaultAuthenticationMethod"></a>
+                    <a name="//apple_ref/objc/Property/defaultAuthenticationMethod" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointTargetingGCMChannelRequest(py)defaultAuthenticationMethod">defaultAuthenticationMethod</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The default authentication method used for GCM. Values are either &ldquo;TOKEN&rdquo; or &ldquo;KEY&rdquo;. Defaults to &ldquo;KEY&rdquo;.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">defaultAuthenticationMethod</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">defaultAuthenticationMethod</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSPinpointTargetingGCMChannelRequest(py)enabled"></a>
                     <a name="//apple_ref/objc/Property/enabled" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSPinpointTargetingGCMChannelRequest(py)enabled">enabled</a>
@@ -1704,12 +1740,44 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPinpointTargetingGCMChannelRequest(py)serviceJson"></a>
+                    <a name="//apple_ref/objc/Property/serviceJson" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointTargetingGCMChannelRequest(py)serviceJson">serviceJson</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The contents of the JSON file provided by Google during registration in order to generate an access token for authentication. For more information see <a href="https://firebase.google.com/docs/cloud-messaging/migrate-v1">Migrate from legacy FCM APIs to HTTP v1</a>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">serviceJson</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">serviceJson</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-01)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
