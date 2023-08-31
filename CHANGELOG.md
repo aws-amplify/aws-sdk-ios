@@ -7,6 +7,7 @@
 - Model updates for the following services
   - AWSEC2
   - AWSPolly
+  - AWSCognitoIdentityProvider
 
 ## 2.33.4
 
