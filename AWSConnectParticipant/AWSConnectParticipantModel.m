@@ -139,6 +139,39 @@ NSString *const AWSConnectParticipantErrorDomain = @"com.amazonaws.AWSConnectPar
 
 @end
 
+@implementation AWSConnectParticipantDescribeViewRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"connectionToken" : @"ConnectionToken",
+             @"viewToken" : @"ViewToken",
+             };
+}
+
+@end
+
+@implementation AWSConnectParticipantDescribeViewResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"view" : @"View",
+             };
+}
+
++ (NSValueTransformer *)viewJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectParticipantView class]];
+}
+
+@end
+
 @implementation AWSConnectParticipantDisconnectParticipantRequest
 
 + (BOOL)supportsSecureCoding {
@@ -320,6 +353,9 @@ NSString *const AWSConnectParticipantErrorDomain = @"com.amazonaws.AWSConnectPar
         if ([value caseInsensitiveCompare:@"SYSTEM"] == NSOrderedSame) {
             return @(AWSConnectParticipantParticipantRoleSystem);
         }
+        if ([value caseInsensitiveCompare:@"CUSTOM_BOT"] == NSOrderedSame) {
+            return @(AWSConnectParticipantParticipantRoleCustomBot);
+        }
         return @(AWSConnectParticipantParticipantRoleUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -329,6 +365,8 @@ NSString *const AWSConnectParticipantErrorDomain = @"com.amazonaws.AWSConnectPar
                 return @"CUSTOMER";
             case AWSConnectParticipantParticipantRoleSystem:
                 return @"SYSTEM";
+            case AWSConnectParticipantParticipantRoleCustomBot:
+                return @"CUSTOM_BOT";
             default:
                 return nil;
         }
@@ -571,6 +609,44 @@ NSString *const AWSConnectParticipantErrorDomain = @"com.amazonaws.AWSConnectPar
              @"headersToInclude" : @"HeadersToInclude",
              @"url" : @"Url",
              @"urlExpiry" : @"UrlExpiry",
+             };
+}
+
+@end
+
+@implementation AWSConnectParticipantView
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             @"content" : @"Content",
+             @"identifier" : @"Id",
+             @"name" : @"Name",
+             @"version" : @"Version",
+             };
+}
+
++ (NSValueTransformer *)contentJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectParticipantViewContent class]];
+}
+
+@end
+
+@implementation AWSConnectParticipantViewContent
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"actions" : @"Actions",
+             @"inputSchema" : @"InputSchema",
+             @"template" : @"Template",
              };
 }
 
