@@ -1,5 +1,3 @@
----
-
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
