@@ -25,8 +25,10 @@ typedef NS_ENUM(NSInteger, AWSSageMakerRuntimeErrorType) {
     AWSSageMakerRuntimeErrorUnknown,
     AWSSageMakerRuntimeErrorInternalDependency,
     AWSSageMakerRuntimeErrorInternalFailure,
+    AWSSageMakerRuntimeErrorInternalStreamFailure,
     AWSSageMakerRuntimeErrorModel,
     AWSSageMakerRuntimeErrorModelNotReady,
+    AWSSageMakerRuntimeErrorModelStream,
     AWSSageMakerRuntimeErrorServiceUnavailable,
     AWSSageMakerRuntimeErrorValidation,
 };
@@ -35,6 +37,10 @@ typedef NS_ENUM(NSInteger, AWSSageMakerRuntimeErrorType) {
 @class AWSSageMakerRuntimeInvokeEndpointAsyncOutput;
 @class AWSSageMakerRuntimeInvokeEndpointInput;
 @class AWSSageMakerRuntimeInvokeEndpointOutput;
+@class AWSSageMakerRuntimeInvokeEndpointWithResponseStreamInput;
+@class AWSSageMakerRuntimeInvokeEndpointWithResponseStreamOutput;
+@class AWSSageMakerRuntimePayloadPart;
+@class AWSSageMakerRuntimeResponseStream;
 
 /**
  
@@ -43,7 +49,7 @@ typedef NS_ENUM(NSInteger, AWSSageMakerRuntimeErrorType) {
 
 
 /**
- <p>The desired MIME type of the inference in the response.</p>
+ <p>The desired MIME type of the inference response from the model container.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable accept;
 
@@ -53,12 +59,12 @@ typedef NS_ENUM(NSInteger, AWSSageMakerRuntimeErrorType) {
 @property (nonatomic, strong) NSString * _Nullable contentType;
 
 /**
- <p>Provides additional information about a request for an inference submitted to a model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded verbatim. You could use this value, for example, to provide an ID that you can use to track a request or to provide other metadata that a service endpoint was programmed to process. The value must consist of no more than 1024 visible US-ASCII characters as specified in <a href="https://datatracker.ietf.org/doc/html/rfc7230#section-3.2.6">Section 3.3.6. Field Value Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). </p><p>The code in your model is responsible for setting or updating any custom attributes in the response. If your code does not set this value in the response, an empty value is returned. For example, if a custom attribute represents the trace ID, your model can prepend the custom attribute with <code>Trace ID</code>: in your post-processing function. </p><p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker Python SDK. </p>
+ <p>Provides additional information about a request for an inference submitted to a model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded verbatim. You could use this value, for example, to provide an ID that you can use to track a request or to provide other metadata that a service endpoint was programmed to process. The value must consist of no more than 1024 visible US-ASCII characters as specified in <a href="https://datatracker.ietf.org/doc/html/rfc7230#section-3.2.6">Section 3.3.6. Field Value Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). </p><p>The code in your model is responsible for setting or updating any custom attributes in the response. If your code does not set this value in the response, an empty value is returned. For example, if a custom attribute represents the trace ID, your model can prepend the custom attribute with <code>Trace ID:</code> in your post-processing function. </p><p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker Python SDK. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable customAttributes;
 
 /**
- <p>The name of the endpoint that you specified when you created the endpoint using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html"><code>CreateEndpoint</code></a> API.</p>
+ <p>The name of the endpoint that you specified when you created the endpoint using the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a> API.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable endpointName;
 
@@ -114,7 +120,7 @@ typedef NS_ENUM(NSInteger, AWSSageMakerRuntimeErrorType) {
 
 
 /**
- <p>The desired MIME type of the inference in the response.</p>
+ <p>The desired MIME type of the inference response from the model container.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable accept;
 
@@ -129,7 +135,7 @@ typedef NS_ENUM(NSInteger, AWSSageMakerRuntimeErrorType) {
 @property (nonatomic, strong) NSString * _Nullable contentType;
 
 /**
- <p>Provides additional information about a request for an inference submitted to a model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded verbatim. You could use this value, for example, to provide an ID that you can use to track a request or to provide other metadata that a service endpoint was programmed to process. The value must consist of no more than 1024 visible US-ASCII characters as specified in <a href="https://tools.ietf.org/html/rfc7230#section-3.2.6">Section 3.3.6. Field Value Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). </p><p>The code in your model is responsible for setting or updating any custom attributes in the response. If your code does not set this value in the response, an empty value is returned. For example, if a custom attribute represents the trace ID, your model can prepend the custom attribute with <code>Trace ID:</code> in your post-processing function.</p><p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker Python SDK.</p>
+ <p>Provides additional information about a request for an inference submitted to a model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded verbatim. You could use this value, for example, to provide an ID that you can use to track a request or to provide other metadata that a service endpoint was programmed to process. The value must consist of no more than 1024 visible US-ASCII characters as specified in <a href="https://datatracker.ietf.org/doc/html/rfc7230#section-3.2.6">Section 3.3.6. Field Value Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). </p><p>The code in your model is responsible for setting or updating any custom attributes in the response. If your code does not set this value in the response, an empty value is returned. For example, if a custom attribute represents the trace ID, your model can prepend the custom attribute with <code>Trace ID:</code> in your post-processing function. </p><p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker Python SDK. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable customAttributes;
 
@@ -139,7 +145,7 @@ typedef NS_ENUM(NSInteger, AWSSageMakerRuntimeErrorType) {
 @property (nonatomic, strong) NSString * _Nullable enableExplanations;
 
 /**
- <p>The name of the endpoint that you specified when you created the endpoint using the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a> API. </p>
+ <p>The name of the endpoint that you specified when you created the endpoint using the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a> API.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable endpointName;
 
@@ -177,7 +183,7 @@ typedef NS_ENUM(NSInteger, AWSSageMakerRuntimeErrorType) {
 @property (nonatomic, strong) NSData * _Nullable body;
 
 /**
- <p>The MIME type of the inference returned in the response body.</p>
+ <p>The MIME type of the inference returned from the model container.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
 
@@ -190,6 +196,118 @@ typedef NS_ENUM(NSInteger, AWSSageMakerRuntimeErrorType) {
  <p>Identifies the production variant that was invoked.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable invokedProductionVariant;
+
+@end
+
+/**
+ 
+ */
+@interface AWSSageMakerRuntimeInvokeEndpointWithResponseStreamInput : AWSRequest
+
+
+/**
+ <p>The desired MIME type of the inference response from the model container.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable accept;
+
+/**
+ <p>Provides input data, in the format specified in the <code>ContentType</code> request header. Amazon SageMaker passes all of the data in the body to the model. </p><p>For information about the format of the request body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data Formats-Inference</a>.</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable body;
+
+/**
+ <p>The MIME type of the input data in the request body.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contentType;
+
+/**
+ <p>Provides additional information about a request for an inference submitted to a model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded verbatim. You could use this value, for example, to provide an ID that you can use to track a request or to provide other metadata that a service endpoint was programmed to process. The value must consist of no more than 1024 visible US-ASCII characters as specified in <a href="https://datatracker.ietf.org/doc/html/rfc7230#section-3.2.6">Section 3.3.6. Field Value Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). </p><p>The code in your model is responsible for setting or updating any custom attributes in the response. If your code does not set this value in the response, an empty value is returned. For example, if a custom attribute represents the trace ID, your model can prepend the custom attribute with <code>Trace ID:</code> in your post-processing function. </p><p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker Python SDK. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable customAttributes;
+
+/**
+ <p>The name of the endpoint that you specified when you created the endpoint using the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a> API.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endpointName;
+
+/**
+ <p>An identifier that you assign to your request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable inferenceId;
+
+/**
+ <p>If the endpoint hosts multiple containers and is configured to use direct invocation, this parameter specifies the host name of the container to invoke.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable targetContainerHostname;
+
+/**
+ <p>Specify the production variant to send the inference request to when invoking an endpoint that is running two or more variants. Note that this parameter overrides the default behavior for the endpoint, which is to distribute the invocation traffic based on the variant weights.</p><p>For information about how to use variant targeting to perform a/b testing, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-ab-testing.html">Test models in production</a></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable targetVariant;
+
+@end
+
+/**
+ 
+ */
+@interface AWSSageMakerRuntimeInvokeEndpointWithResponseStreamOutput : AWSModel
+
+
+/**
+ <p>A stream of payload parts. Each part contains a portion of the response for a streaming inference request.</p>
+ */
+@property (nonatomic, strong) AWSSageMakerRuntimeResponseStream * _Nullable body;
+
+/**
+ <p>The MIME type of the inference returned from the model container.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contentType;
+
+/**
+ <p>Provides additional information in the response about the inference returned by a model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded verbatim. You could use this value, for example, to return an ID received in the <code>CustomAttributes</code> header of a request or other metadata that a service endpoint was programmed to produce. The value must consist of no more than 1024 visible US-ASCII characters as specified in <a href="https://tools.ietf.org/html/rfc7230#section-3.2.6">Section 3.3.6. Field Value Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). If the customer wants the custom attribute returned, the model must set the custom attribute to be included on the way back. </p><p>The code in your model is responsible for setting or updating any custom attributes in the response. If your code does not set this value in the response, an empty value is returned. For example, if a custom attribute represents the trace ID, your model can prepend the custom attribute with <code>Trace ID:</code> in your post-processing function.</p><p>This feature is currently supported in the Amazon Web Services SDKs but not in the Amazon SageMaker Python SDK.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable customAttributes;
+
+/**
+ <p>Identifies the production variant that was invoked.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable invokedProductionVariant;
+
+@end
+
+/**
+ <p>A wrapper for pieces of the payload that's returned in response to a streaming inference request. A streaming inference response consists of one or more payload parts. </p>
+ */
+@interface AWSSageMakerRuntimePayloadPart : AWSModel
+
+
+/**
+ <p>A blob that contains part of the response for your streaming inference request.</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable bytes;
+
+@end
+
+/**
+ <p>A stream of payload parts. Each part contains a portion of the response for a streaming inference request.</p>
+ */
+@interface AWSSageMakerRuntimeResponseStream : AWSModel
+
+
+/**
+ <p>The stream processing failed because of an unknown error, exception or failure. Try your request again.</p>
+ */
+@property (nonatomic, strong)  _Nullable internalStreamFailure;
+
+/**
+ <p> An error occurred while streaming the response body. This error can have the following error codes:</p><dl><dt>ModelInvocationTimeExceeded</dt><dd><p>The model failed to finish sending the response within the timeout period allowed by Amazon SageMaker.</p></dd><dt>StreamBroken</dt><dd><p>The Transmission Control Protocol (TCP) connection between the client and the model was reset or closed.</p></dd></dl>
+ */
+@property (nonatomic, strong)  _Nullable modelStreamError;
+
+/**
+ <p>A wrapper for pieces of the payload that's returned in response to a streaming inference request. A streaming inference response consists of one or more payload parts. </p>
+ */
+@property (nonatomic, strong) AWSSageMakerRuntimePayloadPart * _Nullable payloadPart;
 
 @end
 
