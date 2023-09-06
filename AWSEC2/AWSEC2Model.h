@@ -1698,6 +1698,30 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeHPC7a_24xlarge,
     AWSEC2InstanceTypeHPC7a_48xlarge,
     AWSEC2InstanceTypeHPC7a_96xlarge,
+    AWSEC2InstanceTypeC7Gd_medium,
+    AWSEC2InstanceTypeC7Gd_large,
+    AWSEC2InstanceTypeC7Gd_xlarge,
+    AWSEC2InstanceTypeC7Gd_2xlarge,
+    AWSEC2InstanceTypeC7Gd_4xlarge,
+    AWSEC2InstanceTypeC7Gd_8xlarge,
+    AWSEC2InstanceTypeC7Gd_12xlarge,
+    AWSEC2InstanceTypeC7Gd_16xlarge,
+    AWSEC2InstanceTypeM7Gd_medium,
+    AWSEC2InstanceTypeM7Gd_large,
+    AWSEC2InstanceTypeM7Gd_xlarge,
+    AWSEC2InstanceTypeM7Gd_2xlarge,
+    AWSEC2InstanceTypeM7Gd_4xlarge,
+    AWSEC2InstanceTypeM7Gd_8xlarge,
+    AWSEC2InstanceTypeM7Gd_12xlarge,
+    AWSEC2InstanceTypeM7Gd_16xlarge,
+    AWSEC2InstanceTypeR7Gd_medium,
+    AWSEC2InstanceTypeR7Gd_large,
+    AWSEC2InstanceTypeR7Gd_xlarge,
+    AWSEC2InstanceTypeR7Gd_2xlarge,
+    AWSEC2InstanceTypeR7Gd_4xlarge,
+    AWSEC2InstanceTypeR7Gd_8xlarge,
+    AWSEC2InstanceTypeR7Gd_12xlarge,
+    AWSEC2InstanceTypeR7Gd_16xlarge,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {
@@ -2017,6 +2041,7 @@ typedef NS_ENUM(NSInteger, AWSEC2LocationType) {
     AWSEC2LocationTypeRegion,
     AWSEC2LocationTypeAvailabilityZone,
     AWSEC2LocationTypeAvailabilityZoneId,
+    AWSEC2LocationTypeOutpost,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2LogDestinationType) {
