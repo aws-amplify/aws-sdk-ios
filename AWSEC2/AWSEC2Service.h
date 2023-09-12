@@ -9410,6 +9410,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)disableFastSnapshotRestores:(AWSEC2DisableFastSnapshotRestoresRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisableFastSnapshotRestoresResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Disables <i>block public access for AMIs</i> at the account level in the specified Amazon Web Services Region. This removes the <i>block public access</i> restriction from your account. With the restriction removed, you can publicly share your AMIs in the specified Amazon Web Services Region.</p><p>The API can take up to 10 minutes to configure this setting. During this time, if you run <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageBlockPublicAccessState.html">GetImageBlockPublicAccessState</a>, the response will be <code>block-new-sharing</code>. When the API has completed the configuration, the response will be <code>unblocked</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis">Block public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisableImageBlockPublicAccess service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DisableImageBlockPublicAccessResult`.
+ 
+ @see AWSEC2DisableImageBlockPublicAccessRequest
+ @see AWSEC2DisableImageBlockPublicAccessResult
+ */
+- (AWSTask<AWSEC2DisableImageBlockPublicAccessResult *> *)disableImageBlockPublicAccess:(AWSEC2DisableImageBlockPublicAccessRequest *)request;
+
+/**
+ <p>Disables <i>block public access for AMIs</i> at the account level in the specified Amazon Web Services Region. This removes the <i>block public access</i> restriction from your account. With the restriction removed, you can publicly share your AMIs in the specified Amazon Web Services Region.</p><p>The API can take up to 10 minutes to configure this setting. During this time, if you run <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageBlockPublicAccessState.html">GetImageBlockPublicAccessState</a>, the response will be <code>block-new-sharing</code>. When the API has completed the configuration, the response will be <code>unblocked</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis">Block public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisableImageBlockPublicAccess service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DisableImageBlockPublicAccessRequest
+ @see AWSEC2DisableImageBlockPublicAccessResult
+ */
+- (void)disableImageBlockPublicAccess:(AWSEC2DisableImageBlockPublicAccessRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisableImageBlockPublicAccessResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Cancels the deprecation of the specified AMI.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DisableImageDeprecation service method.
@@ -10049,6 +10074,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2EnableFastSnapshotRestoresResult
  */
 - (void)enableFastSnapshotRestores:(AWSEC2EnableFastSnapshotRestoresRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableFastSnapshotRestoresResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Enables <i>block public access for AMIs</i> at the account level in the specified Amazon Web Services Region. This prevents the public sharing of your AMIs. However, if you already have public AMIs, they will remain publicly available.</p><p>The API can take up to 10 minutes to configure this setting. During this time, if you run <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageBlockPublicAccessState.html">GetImageBlockPublicAccessState</a>, the response will be <code>unblocked</code>. When the API has completed the configuration, the response will be <code>block-new-sharing</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis">Block public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the EnableImageBlockPublicAccess service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2EnableImageBlockPublicAccessResult`.
+ 
+ @see AWSEC2EnableImageBlockPublicAccessRequest
+ @see AWSEC2EnableImageBlockPublicAccessResult
+ */
+- (AWSTask<AWSEC2EnableImageBlockPublicAccessResult *> *)enableImageBlockPublicAccess:(AWSEC2EnableImageBlockPublicAccessRequest *)request;
+
+/**
+ <p>Enables <i>block public access for AMIs</i> at the account level in the specified Amazon Web Services Region. This prevents the public sharing of your AMIs. However, if you already have public AMIs, they will remain publicly available.</p><p>The API can take up to 10 minutes to configure this setting. During this time, if you run <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageBlockPublicAccessState.html">GetImageBlockPublicAccessState</a>, the response will be <code>unblocked</code>. When the API has completed the configuration, the response will be <code>block-new-sharing</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis">Block public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the EnableImageBlockPublicAccess service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2EnableImageBlockPublicAccessRequest
+ @see AWSEC2EnableImageBlockPublicAccessResult
+ */
+- (void)enableImageBlockPublicAccess:(AWSEC2EnableImageBlockPublicAccessRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableImageBlockPublicAccessResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Enables deprecation of the specified AMI at the specified date and time.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -10693,6 +10743,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2GetHostReservationPurchasePreviewResult
  */
 - (void)getHostReservationPurchasePreview:(AWSEC2GetHostReservationPurchasePreviewRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetHostReservationPurchasePreviewResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets the current state of <i>block public access for AMIs</i> at the account level in the specified Amazon Web Services Region.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis">Block public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetImageBlockPublicAccessState service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetImageBlockPublicAccessStateResult`.
+ 
+ @see AWSEC2GetImageBlockPublicAccessStateRequest
+ @see AWSEC2GetImageBlockPublicAccessStateResult
+ */
+- (AWSTask<AWSEC2GetImageBlockPublicAccessStateResult *> *)getImageBlockPublicAccessState:(AWSEC2GetImageBlockPublicAccessStateRequest *)request;
+
+/**
+ <p>Gets the current state of <i>block public access for AMIs</i> at the account level in the specified Amazon Web Services Region.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis">Block public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetImageBlockPublicAccessState service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetImageBlockPublicAccessStateRequest
+ @see AWSEC2GetImageBlockPublicAccessStateResult
+ */
+- (void)getImageBlockPublicAccessState:(AWSEC2GetImageBlockPublicAccessStateRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetImageBlockPublicAccessStateResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Returns a list of instance types with the specified instance attributes. You can use the response to preview the instance types without launching instances. Note that the response does not consider capacity.</p><p>When you specify multiple parameters, you get instance types that satisfy all of the specified parameters. If you specify multiple values for a parameter, you get instance types that satisfy any of the specified values.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html#spotfleet-get-instance-types-from-instance-requirements">Preview instance types with specified attributes</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>, and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating an Auto Scaling group using attribute-based instance type selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>

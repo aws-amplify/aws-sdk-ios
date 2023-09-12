@@ -865,6 +865,8 @@
 - (void) test_AWSEC2DisableFastSnapshotRestoreSuccessItem API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableFastSnapshotRestoresRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableFastSnapshotRestoresResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisableImageBlockPublicAccessRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisableImageBlockPublicAccessResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableImageDeprecationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableImageDeprecationResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableIpamOrganizationAdminAccountRequest API_AVAILABLE(ios(11));
@@ -944,6 +946,8 @@
 - (void) test_AWSEC2EnableFastSnapshotRestoreSuccessItem API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableFastSnapshotRestoresRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableFastSnapshotRestoresResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableImageBlockPublicAccessRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableImageBlockPublicAccessResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableImageDeprecationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableImageDeprecationResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableIpamOrganizationAdminAccountRequest API_AVAILABLE(ios(11));
@@ -1035,6 +1039,8 @@
 - (void) test_AWSEC2GetGroupsForCapacityReservationResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetHostReservationPurchasePreviewRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetHostReservationPurchasePreviewResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetImageBlockPublicAccessStateRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetImageBlockPublicAccessStateResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetInstanceTypesFromInstanceRequirementsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetInstanceTypesFromInstanceRequirementsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetInstanceUefiDataRequest API_AVAILABLE(ios(11));
@@ -5243,6 +5249,14 @@
     [self validateSecureCodingForClass:[AWSEC2DisableFastSnapshotRestoresResult class]];
 }
 
+- (void) test_AWSEC2DisableImageBlockPublicAccessRequest {
+    [self validateSecureCodingForClass:[AWSEC2DisableImageBlockPublicAccessRequest class]];
+}
+
+- (void) test_AWSEC2DisableImageBlockPublicAccessResult {
+    [self validateSecureCodingForClass:[AWSEC2DisableImageBlockPublicAccessResult class]];
+}
+
 - (void) test_AWSEC2DisableImageDeprecationRequest {
     [self validateSecureCodingForClass:[AWSEC2DisableImageDeprecationRequest class]];
 }
@@ -5557,6 +5571,14 @@
 
 - (void) test_AWSEC2EnableFastSnapshotRestoresResult {
     [self validateSecureCodingForClass:[AWSEC2EnableFastSnapshotRestoresResult class]];
+}
+
+- (void) test_AWSEC2EnableImageBlockPublicAccessRequest {
+    [self validateSecureCodingForClass:[AWSEC2EnableImageBlockPublicAccessRequest class]];
+}
+
+- (void) test_AWSEC2EnableImageBlockPublicAccessResult {
+    [self validateSecureCodingForClass:[AWSEC2EnableImageBlockPublicAccessResult class]];
 }
 
 - (void) test_AWSEC2EnableImageDeprecationRequest {
@@ -5921,6 +5943,14 @@
 
 - (void) test_AWSEC2GetHostReservationPurchasePreviewResult {
     [self validateSecureCodingForClass:[AWSEC2GetHostReservationPurchasePreviewResult class]];
+}
+
+- (void) test_AWSEC2GetImageBlockPublicAccessStateRequest {
+    [self validateSecureCodingForClass:[AWSEC2GetImageBlockPublicAccessStateRequest class]];
+}
+
+- (void) test_AWSEC2GetImageBlockPublicAccessStateResult {
+    [self validateSecureCodingForClass:[AWSEC2GetImageBlockPublicAccessStateResult class]];
 }
 
 - (void) test_AWSEC2GetInstanceTypesFromInstanceRequirementsRequest {
