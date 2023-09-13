@@ -44,6 +44,7 @@ typedef NS_ENUM(NSInteger, AWSConnectErrorType) {
     AWSConnectErrorResourceNotReady,
     AWSConnectErrorServiceQuotaExceeded,
     AWSConnectErrorThrottling,
+    AWSConnectErrorTooManyRequests,
     AWSConnectErrorUserNotFound,
 };
 
@@ -811,6 +812,18 @@ typedef NS_ENUM(NSInteger, AWSConnectUseCaseType) {
     AWSConnectUseCaseTypeConnectCampaigns,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectViewStatus) {
+    AWSConnectViewStatusUnknown,
+    AWSConnectViewStatusPublished,
+    AWSConnectViewStatusSaved,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectViewType) {
+    AWSConnectViewTypeUnknown,
+    AWSConnectViewTypeCustomerManaged,
+    AWSConnectViewTypeAwsManaged,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectVocabularyLanguageCode) {
     AWSConnectVocabularyLanguageCodeUnknown,
     AWSConnectVocabularyLanguageCodeArAE,
@@ -933,6 +946,10 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectCreateUserHierarchyGroupResponse;
 @class AWSConnectCreateUserRequest;
 @class AWSConnectCreateUserResponse;
+@class AWSConnectCreateViewRequest;
+@class AWSConnectCreateViewResponse;
+@class AWSConnectCreateViewVersionRequest;
+@class AWSConnectCreateViewVersionResponse;
 @class AWSConnectCreateVocabularyRequest;
 @class AWSConnectCreateVocabularyResponse;
 @class AWSConnectCredentials;
@@ -967,6 +984,10 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDeleteUseCaseRequest;
 @class AWSConnectDeleteUserHierarchyGroupRequest;
 @class AWSConnectDeleteUserRequest;
+@class AWSConnectDeleteViewRequest;
+@class AWSConnectDeleteViewResponse;
+@class AWSConnectDeleteViewVersionRequest;
+@class AWSConnectDeleteViewVersionResponse;
 @class AWSConnectDeleteVocabularyRequest;
 @class AWSConnectDeleteVocabularyResponse;
 @class AWSConnectDescribeAgentStatusRequest;
@@ -1011,6 +1032,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDescribeUserHierarchyStructureResponse;
 @class AWSConnectDescribeUserRequest;
 @class AWSConnectDescribeUserResponse;
+@class AWSConnectDescribeViewRequest;
+@class AWSConnectDescribeViewResponse;
 @class AWSConnectDescribeVocabularyRequest;
 @class AWSConnectDescribeVocabularyResponse;
 @class AWSConnectDimensions;
@@ -1179,6 +1202,10 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectListUserHierarchyGroupsResponse;
 @class AWSConnectListUsersRequest;
 @class AWSConnectListUsersResponse;
+@class AWSConnectListViewVersionsRequest;
+@class AWSConnectListViewVersionsResponse;
+@class AWSConnectListViewsRequest;
+@class AWSConnectListViewsResponse;
 @class AWSConnectMediaConcurrency;
 @class AWSConnectMetricDataV2;
 @class AWSConnectMetricFilterV2;
@@ -1372,6 +1399,10 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUpdateUserPhoneConfigRequest;
 @class AWSConnectUpdateUserRoutingProfileRequest;
 @class AWSConnectUpdateUserSecurityProfilesRequest;
+@class AWSConnectUpdateViewContentRequest;
+@class AWSConnectUpdateViewContentResponse;
+@class AWSConnectUpdateViewMetadataRequest;
+@class AWSConnectUpdateViewMetadataResponse;
 @class AWSConnectUrlReference;
 @class AWSConnectUseCase;
 @class AWSConnectUser;
@@ -1386,6 +1417,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUserSearchFilter;
 @class AWSConnectUserSearchSummary;
 @class AWSConnectUserSummary;
+@class AWSConnectView;
+@class AWSConnectViewContent;
+@class AWSConnectViewInputContent;
+@class AWSConnectViewSummary;
+@class AWSConnectViewVersionSummary;
 @class AWSConnectVocabulary;
 @class AWSConnectVocabularySummary;
 @class AWSConnectVoiceRecordingConfiguration;
@@ -3514,6 +3550,103 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectCreateViewRequest : AWSRequest
+
+
+/**
+ <p>A unique Id for each create view request to avoid duplicate view creation. For example, the view is idempotent ClientToken is provided.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>View content containing all content necessary to render a view except for runtime input data.</p><p>The total uncompressed content has a maximum file size of 400kB.</p>
+ */
+@property (nonatomic, strong) AWSConnectViewInputContent * _Nullable content;
+
+/**
+ <p>The description of the view.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The name of the view.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The <code>PUBLISHED</code> status will initiate validation on the content.</p>
+ */
+@property (nonatomic, assign) AWSConnectViewStatus status;
+
+/**
+ <p>The tags associated with the view resource (not specific to view version).These tags can be used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateViewResponse : AWSModel
+
+
+/**
+ <p>A view resource object. Contains metadata and content necessary to render the view.</p>
+ */
+@property (nonatomic, strong) AWSConnectView * _Nullable view;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateViewVersionRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The description for the version being published.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable versionDescription;
+
+/**
+ <p>Indicates the checksum value of the latest published view content.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable viewContentSha256;
+
+/**
+ <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable viewId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateViewVersionResponse : AWSModel
+
+
+/**
+ <p>All view data is contained within the View object.</p>
+ */
+@property (nonatomic, strong) AWSConnectView * _Nullable view;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectCreateVocabularyRequest : AWSRequest
 
 
@@ -4132,6 +4265,63 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of the user.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDeleteViewRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable viewId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDeleteViewResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDeleteViewVersionRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable viewId;
+
+/**
+ <p>The version number of the view.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable viewVersion;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDeleteViewVersionResponse : AWSModel
+
 
 @end
 
@@ -4819,6 +5009,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>Information about the user account and configuration settings.</p>
  */
 @property (nonatomic, strong) AWSConnectUser * _Nullable user;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeViewRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The ViewId of the view. This must be an ARN for Amazon Web Services managed views.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable viewId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeViewResponse : AWSModel
+
+
+/**
+ <p>All view data is contained within the View object.</p>
+ */
+@property (nonatomic, strong) AWSConnectView * _Nullable view;
 
 @end
 
@@ -8924,6 +9145,98 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ 
+ */
+@interface AWSConnectListViewVersionsRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable viewId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListViewVersionsResponse : AWSModel
+
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>A list of view version summaries.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectViewVersionSummary *> * _Nullable viewVersionSummaryList;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListViewsRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The type of the view.</p>
+ */
+@property (nonatomic, assign) AWSConnectViewType types;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListViewsResponse : AWSModel
+
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>A list of view summaries.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectViewSummary *> * _Nullable viewsSummaryList;
+
+@end
+
+/**
  <p>Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.</p>
  Required parameters: [Channel, Concurrency]
  */
@@ -12102,7 +12415,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceArn;
 
 /**
- <p>Whether this is the default traffic distribution group created during instance replication. The default traffic distribution group cannot be deleted by the <code>DeleteTrafficDistributionGroup</code> API. The default traffic distribution group is deleted as part of the process for deleting a replica.</p><note><p>You can change the <code>SignInConfig</code> only for a default <code>TrafficDistributionGroup</code>. If you call <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>, an <code>InvalidRequestException</code> is returned.</p></note>
+ <p>Whether this is the default traffic distribution group created during instance replication. The default traffic distribution group cannot be deleted by the <code>DeleteTrafficDistributionGroup</code> API. The default traffic distribution group is deleted as part of the process for deleting a replica.</p><note><p>You can change the <code>SignInConfig</code> distribution only for a default <code>TrafficDistributionGroup</code> (see the <code>IsDefault</code> parameter in the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html">TrafficDistributionGroup</a> data type). If you call <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>, an <code>InvalidRequestException</code> is returned.</p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable isDefault;
 
@@ -13602,6 +13915,83 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ 
+ */
+@interface AWSConnectUpdateViewContentRequest : AWSRequest
+
+
+/**
+ <p>View content containing all content necessary to render a view except for runtime input data and the runtime input schema, which is auto-generated by this operation.</p><p>The total uncompressed content has a maximum file size of 400kB.</p>
+ */
+@property (nonatomic, strong) AWSConnectViewInputContent * _Nullable content;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The <code>PUBLISHED</code> status will initiate validation on the content.</p>
+ */
+@property (nonatomic, assign) AWSConnectViewStatus status;
+
+/**
+ <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable viewId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateViewContentResponse : AWSModel
+
+
+/**
+ <p>A view resource object. Contains metadata and content necessary to render the view.</p>
+ */
+@property (nonatomic, strong) AWSConnectView * _Nullable view;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateViewMetadataRequest : AWSRequest
+
+
+/**
+ <p>The description of the view.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The name of the view.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable viewId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateViewMetadataResponse : AWSModel
+
+
+@end
+
+/**
  <p>The URL reference.</p>
  */
 @interface AWSConnectUrlReference : AWSModel
@@ -14022,6 +14412,201 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The Amazon Connect user name of the user account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
+
+@end
+
+/**
+ <p>A view resource object. Contains metadata and content necessary to render the view.</p>
+ */
+@interface AWSConnectView : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the view.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>View content containing all content necessary to render a view except for runtime input data.</p>
+ */
+@property (nonatomic, strong) AWSConnectViewContent * _Nullable content;
+
+/**
+ <p>The timestamp of when the view was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable createdTime;
+
+/**
+ <p>The description of the view.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the view.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>Latest timestamp of the <code>UpdateViewContent</code> or <code>CreateViewVersion</code> operations.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModifiedTime;
+
+/**
+ <p>The name of the view.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The <code>PUBLISHED</code> status will initiate validation on the content.</p>
+ */
+@property (nonatomic, assign) AWSConnectViewStatus status;
+
+/**
+ <p>The tags associated with the view resource (not specific to view version).</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+/**
+ <p>The type of the view - <code>CUSTOMER_MANAGED</code>.</p>
+ */
+@property (nonatomic, assign) AWSConnectViewType types;
+
+/**
+ <p>Current version of the view.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable version;
+
+/**
+ <p>The description of the version.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable versionDescription;
+
+/**
+ <p>Indicates the checksum value of the latest published view content.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable viewContentSha256;
+
+@end
+
+/**
+ <p>View content containing all content necessary to render a view except for runtime input data.</p>
+ */
+@interface AWSConnectViewContent : AWSModel
+
+
+/**
+ <p>A list of possible actions from the view.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable actions;
+
+/**
+ <p>The data schema matching data that the view template must be provided to render.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable inputSchema;
+
+/**
+ <p>The view template representing the structure of the view.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable template;
+
+@end
+
+/**
+ <p>View content containing all content necessary to render a view except for runtime input data and the runtime input schema, which is auto-generated by this operation.</p>
+ */
+@interface AWSConnectViewInputContent : AWSModel
+
+
+/**
+ <p>A list of possible actions from the view.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable actions;
+
+/**
+ <p>The view template representing the structure of the view.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable template;
+
+@end
+
+/**
+ <p>A summary of a view's metadata.</p>
+ */
+@interface AWSConnectViewSummary : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the view.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The description of the view.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the view.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The name of the view.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The <code>PUBLISHED</code> status will initiate validation on the content.</p>
+ */
+@property (nonatomic, assign) AWSConnectViewStatus status;
+
+/**
+ <p>The type of the view.</p>
+ */
+@property (nonatomic, assign) AWSConnectViewType types;
+
+@end
+
+/**
+ <p>A summary of a view version's metadata.</p>
+ */
+@interface AWSConnectViewVersionSummary : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the view version.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The description of the view version.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the view version.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The name of the view version.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The type of the view version.</p>
+ */
+@property (nonatomic, assign) AWSConnectViewType types;
+
+/**
+ <p>The sequentially incremented version of the view version.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable version;
+
+/**
+ <p>The description of the view version.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable versionDescription;
 
 @end
 
