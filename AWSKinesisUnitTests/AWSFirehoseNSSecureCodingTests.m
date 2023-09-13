@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -44,6 +44,7 @@
 - (void) test_AWSFirehoseDescribeDeliveryStreamOutput API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseDeserializer API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseDestinationDescription API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseDocumentIdOptions API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseDynamicPartitioningConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseElasticsearchBufferingHints API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseElasticsearchDestinationConfiguration API_AVAILABLE(ios(11));
@@ -217,6 +218,10 @@
 
 - (void) test_AWSFirehoseDestinationDescription {
     [self validateSecureCodingForClass:[AWSFirehoseDestinationDescription class]];
+}
+
+- (void) test_AWSFirehoseDocumentIdOptions {
+    [self validateSecureCodingForClass:[AWSFirehoseDocumentIdOptions class]];
 }
 
 - (void) test_AWSFirehoseDynamicPartitioningConfiguration {

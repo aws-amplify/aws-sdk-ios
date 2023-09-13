@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -66,6 +66,12 @@ typedef NS_ENUM(NSInteger, AWSFirehoseContentEncoding) {
     AWSFirehoseContentEncodingUnknown,
     AWSFirehoseContentEncodingNone,
     AWSFirehoseContentEncodingGzip,
+};
+
+typedef NS_ENUM(NSInteger, AWSFirehoseDefaultDocumentIdFormat) {
+    AWSFirehoseDefaultDocumentIdFormatUnknown,
+    AWSFirehoseDefaultDocumentIdFormatFirehoseDefault,
+    AWSFirehoseDefaultDocumentIdFormatNoDocumentId,
 };
 
 typedef NS_ENUM(NSInteger, AWSFirehoseDeliveryStreamEncryptionStatus) {
@@ -240,6 +246,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @class AWSFirehoseDescribeDeliveryStreamOutput;
 @class AWSFirehoseDeserializer;
 @class AWSFirehoseDestinationDescription;
+@class AWSFirehoseDocumentIdOptions;
 @class AWSFirehoseDynamicPartitioningConfiguration;
 @class AWSFirehoseElasticsearchBufferingHints;
 @class AWSFirehoseElasticsearchDestinationConfiguration;
@@ -382,7 +389,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) AWSFirehoseS3DestinationConfiguration * _Nullable s3Configuration;
 
 /**
- <p>The details of the VPC of the Amazon ES destination.</p>
+ <p>The details of the VPC of the Amazon OpenSearch or Amazon OpenSearch Serverless destination.</p>
  */
 @property (nonatomic, strong) AWSFirehoseVpcConfiguration * _Nullable vpcConfiguration;
 
@@ -425,7 +432,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) AWSFirehoseAmazonOpenSearchServerlessRetryOptions * _Nullable retryOptions;
 
 /**
- <p>The Amazon Resource Name (ARN) of the AWS credentials.</p>
+ <p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable roleARN;
 
@@ -548,6 +555,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) NSString * _Nullable clusterEndpoint;
 
 /**
+ <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data Firehose generated document ID and OpenSearch Service generated document ID.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseDocumentIdOptions * _Nullable documentIdOptions;
+
+/**
  <p>The ARN of the Amazon OpenSearch Service domain. The IAM role must have permissions for DescribeElasticsearchDomain, DescribeElasticsearchDomains, and DescribeElasticsearchDomainConfig after assuming the role specified in RoleARN. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable domainARN;
@@ -593,7 +605,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) NSString * _Nullable typeName;
 
 /**
- <p>The details of the VPC of the Amazon ES destination.</p>
+ <p>The details of the VPC of the Amazon OpenSearch or Amazon OpenSearch Serverless destination.</p>
  */
 @property (nonatomic, strong) AWSFirehoseVpcConfiguration * _Nullable vpcConfiguration;
 
@@ -619,6 +631,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>The endpoint to use when communicating with the cluster. Kinesis Data Firehose uses either this ClusterEndpoint or the DomainARN field to send data to Amazon OpenSearch Service. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable clusterEndpoint;
+
+/**
+ <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data Firehose generated document ID and OpenSearch Service generated document ID.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseDocumentIdOptions * _Nullable documentIdOptions;
 
 /**
  <p>The ARN of the Amazon OpenSearch Service domain.</p>
@@ -692,6 +709,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>The endpoint to use when communicating with the cluster. Specify either this ClusterEndpoint or the DomainARN field. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable clusterEndpoint;
+
+/**
+ <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data Firehose generated document ID and OpenSearch Service generated document ID.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseDocumentIdOptions * _Nullable documentIdOptions;
 
 /**
  <p>The ARN of the Amazon OpenSearch Service domain. The IAM role must have permissions for DescribeDomain, DescribeDomains, and DescribeDomainConfig after assuming the IAM role specified in RoleARN.</p>
@@ -1178,6 +1200,20 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @end
 
 /**
+ <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data Firehose generated document ID and OpenSearch Service generated document ID.</p><p/>
+ Required parameters: [DefaultDocumentIdFormat]
+ */
+@interface AWSFirehoseDocumentIdOptions : AWSModel
+
+
+/**
+ <p>When the <code>FIREHOSE_DEFAULT</code> option is chosen, Kinesis Data Firehose generates a unique document ID for each record based on a unique internal identifier. The generated document ID is stable across multiple delivery attempts, which helps prevent the same record from being indexed multiple times with different document IDs.</p><p>When the <code>NO_DOCUMENT_ID</code> option is chosen, Kinesis Data Firehose does not include any document IDs in the requests it sends to the Amazon OpenSearch Service. This causes the Amazon OpenSearch Service domain to generate document IDs. In case of multiple delivery attempts, this may cause the same record to be indexed more than once with different document IDs. This option enables write-heavy operations, such as the ingestion of logs and observability data, to consume less resources in the Amazon OpenSearch Service domain, resulting in improved performance.</p>
+ */
+@property (nonatomic, assign) AWSFirehoseDefaultDocumentIdFormat defaultDocumentIdFormat;
+
+@end
+
+/**
  <p>The configuration of the dynamic partitioning mechanism that creates smaller data sets from the streaming data by partitioning it based on partition keys. Currently, dynamic partitioning is only supported for Amazon S3 destinations. </p>
  */
 @interface AWSFirehoseDynamicPartitioningConfiguration : AWSModel
@@ -1236,6 +1272,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) NSString * _Nullable clusterEndpoint;
 
 /**
+ <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data Firehose generated document ID and OpenSearch Service generated document ID.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseDocumentIdOptions * _Nullable documentIdOptions;
+
+/**
  <p>The ARN of the Amazon ES domain. The IAM role must have permissions for <code>DescribeDomain</code>, <code>DescribeDomains</code>, and <code>DescribeDomainConfig</code> after assuming the role specified in <b>RoleARN</b>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p><p>Specify either <code>ClusterEndpoint</code> or <code>DomainARN</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable domainARN;
@@ -1281,7 +1322,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) NSString * _Nullable typeName;
 
 /**
- <p>The details of the VPC of the Amazon ES destination.</p>
+ <p>The details of the VPC of the Amazon destination.</p>
  */
 @property (nonatomic, strong) AWSFirehoseVpcConfiguration * _Nullable vpcConfiguration;
 
@@ -1307,6 +1348,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>The endpoint to use when communicating with the cluster. Kinesis Data Firehose uses either this <code>ClusterEndpoint</code> or the <code>DomainARN</code> field to send data to Amazon ES.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clusterEndpoint;
+
+/**
+ <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data Firehose generated document ID and OpenSearch Service generated document ID.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseDocumentIdOptions * _Nullable documentIdOptions;
 
 /**
  <p>The ARN of the Amazon ES domain. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p><p>Kinesis Data Firehose uses either <code>ClusterEndpoint</code> or <code>DomainARN</code> to send data to Amazon ES.</p>
@@ -1354,7 +1400,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) NSString * _Nullable typeName;
 
 /**
- <p>The details of the VPC of the Amazon ES destination.</p>
+ <p>The details of the VPC of the Amazon OpenSearch or the Amazon OpenSearch Serverless destination.</p>
  */
 @property (nonatomic, strong) AWSFirehoseVpcConfigurationDescription * _Nullable vpcConfigurationDescription;
 
@@ -1380,6 +1426,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>The endpoint to use when communicating with the cluster. Specify either this <code>ClusterEndpoint</code> or the <code>DomainARN</code> field.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clusterEndpoint;
+
+/**
+ <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data Firehose generated document ID and OpenSearch Service generated document ID.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseDocumentIdOptions * _Nullable documentIdOptions;
 
 /**
  <p>The ARN of the Amazon ES domain. The IAM role must have permissions for <code>DescribeDomain</code>, <code>DescribeDomains</code>, and <code>DescribeDomainConfig</code> after assuming the IAM role specified in <code>RoleARN</code>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p><p>Specify either <code>ClusterEndpoint</code> or <code>DomainARN</code>.</p>
@@ -3220,7 +3271,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @end
 
 /**
- <p>The details of the VPC of the Amazon ES destination.</p>
+ <p>The details of the VPC of the Amazon OpenSearch or Amazon OpenSearch Serverless destination.</p>
  Required parameters: [SubnetIds, RoleARN, SecurityGroupIds]
  */
 @interface AWSFirehoseVpcConfiguration : AWSModel

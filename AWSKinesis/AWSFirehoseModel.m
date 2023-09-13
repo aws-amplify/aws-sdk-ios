@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -250,6 +250,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"bufferingHints" : @"BufferingHints",
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
              @"clusterEndpoint" : @"ClusterEndpoint",
+             @"documentIdOptions" : @"DocumentIdOptions",
              @"domainARN" : @"DomainARN",
              @"indexName" : @"IndexName",
              @"indexRotationPeriod" : @"IndexRotationPeriod",
@@ -269,6 +270,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)cloudWatchLoggingOptionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseCloudWatchLoggingOptions class]];
+}
+
++ (NSValueTransformer *)documentIdOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseDocumentIdOptions class]];
 }
 
 + (NSValueTransformer *)indexRotationPeriodJSONTransformer {
@@ -357,6 +362,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"bufferingHints" : @"BufferingHints",
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
              @"clusterEndpoint" : @"ClusterEndpoint",
+             @"documentIdOptions" : @"DocumentIdOptions",
              @"domainARN" : @"DomainARN",
              @"indexName" : @"IndexName",
              @"indexRotationPeriod" : @"IndexRotationPeriod",
@@ -376,6 +382,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)cloudWatchLoggingOptionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseCloudWatchLoggingOptions class]];
+}
+
++ (NSValueTransformer *)documentIdOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseDocumentIdOptions class]];
 }
 
 + (NSValueTransformer *)indexRotationPeriodJSONTransformer {
@@ -464,6 +474,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"bufferingHints" : @"BufferingHints",
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
              @"clusterEndpoint" : @"ClusterEndpoint",
+             @"documentIdOptions" : @"DocumentIdOptions",
              @"domainARN" : @"DomainARN",
              @"indexName" : @"IndexName",
              @"indexRotationPeriod" : @"IndexRotationPeriod",
@@ -481,6 +492,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)cloudWatchLoggingOptionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseCloudWatchLoggingOptions class]];
+}
+
++ (NSValueTransformer *)documentIdOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseDocumentIdOptions class]];
 }
 
 + (NSValueTransformer *)indexRotationPeriodJSONTransformer {
@@ -1095,6 +1110,41 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 @end
 
+@implementation AWSFirehoseDocumentIdOptions
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"defaultDocumentIdFormat" : @"DefaultDocumentIdFormat",
+             };
+}
+
++ (NSValueTransformer *)defaultDocumentIdFormatJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"FIREHOSE_DEFAULT"] == NSOrderedSame) {
+            return @(AWSFirehoseDefaultDocumentIdFormatFirehoseDefault);
+        }
+        if ([value caseInsensitiveCompare:@"NO_DOCUMENT_ID"] == NSOrderedSame) {
+            return @(AWSFirehoseDefaultDocumentIdFormatNoDocumentId);
+        }
+        return @(AWSFirehoseDefaultDocumentIdFormatUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSFirehoseDefaultDocumentIdFormatFirehoseDefault:
+                return @"FIREHOSE_DEFAULT";
+            case AWSFirehoseDefaultDocumentIdFormatNoDocumentId:
+                return @"NO_DOCUMENT_ID";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSFirehoseDynamicPartitioningConfiguration
 
 + (BOOL)supportsSecureCoding {
@@ -1140,6 +1190,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"bufferingHints" : @"BufferingHints",
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
              @"clusterEndpoint" : @"ClusterEndpoint",
+             @"documentIdOptions" : @"DocumentIdOptions",
              @"domainARN" : @"DomainARN",
              @"indexName" : @"IndexName",
              @"indexRotationPeriod" : @"IndexRotationPeriod",
@@ -1159,6 +1210,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)cloudWatchLoggingOptionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseCloudWatchLoggingOptions class]];
+}
+
++ (NSValueTransformer *)documentIdOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseDocumentIdOptions class]];
 }
 
 + (NSValueTransformer *)indexRotationPeriodJSONTransformer {
@@ -1247,6 +1302,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"bufferingHints" : @"BufferingHints",
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
              @"clusterEndpoint" : @"ClusterEndpoint",
+             @"documentIdOptions" : @"DocumentIdOptions",
              @"domainARN" : @"DomainARN",
              @"indexName" : @"IndexName",
              @"indexRotationPeriod" : @"IndexRotationPeriod",
@@ -1266,6 +1322,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)cloudWatchLoggingOptionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseCloudWatchLoggingOptions class]];
+}
+
++ (NSValueTransformer *)documentIdOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseDocumentIdOptions class]];
 }
 
 + (NSValueTransformer *)indexRotationPeriodJSONTransformer {
@@ -1354,6 +1414,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"bufferingHints" : @"BufferingHints",
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
              @"clusterEndpoint" : @"ClusterEndpoint",
+             @"documentIdOptions" : @"DocumentIdOptions",
              @"domainARN" : @"DomainARN",
              @"indexName" : @"IndexName",
              @"indexRotationPeriod" : @"IndexRotationPeriod",
@@ -1371,6 +1432,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)cloudWatchLoggingOptionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseCloudWatchLoggingOptions class]];
+}
+
++ (NSValueTransformer *)documentIdOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseDocumentIdOptions class]];
 }
 
 + (NSValueTransformer *)indexRotationPeriodJSONTransformer {
