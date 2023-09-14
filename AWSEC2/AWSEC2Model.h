@@ -860,6 +860,16 @@ typedef NS_ENUM(NSInteger, AWSEC2ImageAttributeName) {
     AWSEC2ImageAttributeNameImdsSupport,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2ImageBlockPublicAccessDisabledState) {
+    AWSEC2ImageBlockPublicAccessDisabledStateUnknown,
+    AWSEC2ImageBlockPublicAccessDisabledStateUnblocked,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2ImageBlockPublicAccessEnabledState) {
+    AWSEC2ImageBlockPublicAccessEnabledStateUnknown,
+    AWSEC2ImageBlockPublicAccessEnabledStateBlockNewSharing,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2ImageState) {
     AWSEC2ImageStateUnknown,
     AWSEC2ImageStatePending,
@@ -1698,6 +1708,30 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeHPC7a_24xlarge,
     AWSEC2InstanceTypeHPC7a_48xlarge,
     AWSEC2InstanceTypeHPC7a_96xlarge,
+    AWSEC2InstanceTypeC7Gd_medium,
+    AWSEC2InstanceTypeC7Gd_large,
+    AWSEC2InstanceTypeC7Gd_xlarge,
+    AWSEC2InstanceTypeC7Gd_2xlarge,
+    AWSEC2InstanceTypeC7Gd_4xlarge,
+    AWSEC2InstanceTypeC7Gd_8xlarge,
+    AWSEC2InstanceTypeC7Gd_12xlarge,
+    AWSEC2InstanceTypeC7Gd_16xlarge,
+    AWSEC2InstanceTypeM7Gd_medium,
+    AWSEC2InstanceTypeM7Gd_large,
+    AWSEC2InstanceTypeM7Gd_xlarge,
+    AWSEC2InstanceTypeM7Gd_2xlarge,
+    AWSEC2InstanceTypeM7Gd_4xlarge,
+    AWSEC2InstanceTypeM7Gd_8xlarge,
+    AWSEC2InstanceTypeM7Gd_12xlarge,
+    AWSEC2InstanceTypeM7Gd_16xlarge,
+    AWSEC2InstanceTypeR7Gd_medium,
+    AWSEC2InstanceTypeR7Gd_large,
+    AWSEC2InstanceTypeR7Gd_xlarge,
+    AWSEC2InstanceTypeR7Gd_2xlarge,
+    AWSEC2InstanceTypeR7Gd_4xlarge,
+    AWSEC2InstanceTypeR7Gd_8xlarge,
+    AWSEC2InstanceTypeR7Gd_12xlarge,
+    AWSEC2InstanceTypeR7Gd_16xlarge,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {
@@ -2017,6 +2051,7 @@ typedef NS_ENUM(NSInteger, AWSEC2LocationType) {
     AWSEC2LocationTypeRegion,
     AWSEC2LocationTypeAvailabilityZone,
     AWSEC2LocationTypeAvailabilityZoneId,
+    AWSEC2LocationTypeOutpost,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2LogDestinationType) {
@@ -3963,6 +3998,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DisableFastSnapshotRestoreSuccessItem;
 @class AWSEC2DisableFastSnapshotRestoresRequest;
 @class AWSEC2DisableFastSnapshotRestoresResult;
+@class AWSEC2DisableImageBlockPublicAccessRequest;
+@class AWSEC2DisableImageBlockPublicAccessResult;
 @class AWSEC2DisableImageDeprecationRequest;
 @class AWSEC2DisableImageDeprecationResult;
 @class AWSEC2DisableIpamOrganizationAdminAccountRequest;
@@ -4042,6 +4079,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2EnableFastSnapshotRestoreSuccessItem;
 @class AWSEC2EnableFastSnapshotRestoresRequest;
 @class AWSEC2EnableFastSnapshotRestoresResult;
+@class AWSEC2EnableImageBlockPublicAccessRequest;
+@class AWSEC2EnableImageBlockPublicAccessResult;
 @class AWSEC2EnableImageDeprecationRequest;
 @class AWSEC2EnableImageDeprecationResult;
 @class AWSEC2EnableIpamOrganizationAdminAccountRequest;
@@ -4133,6 +4172,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2GetGroupsForCapacityReservationResult;
 @class AWSEC2GetHostReservationPurchasePreviewRequest;
 @class AWSEC2GetHostReservationPurchasePreviewResult;
+@class AWSEC2GetImageBlockPublicAccessStateRequest;
+@class AWSEC2GetImageBlockPublicAccessStateResult;
 @class AWSEC2GetInstanceTypesFromInstanceRequirementsRequest;
 @class AWSEC2GetInstanceTypesFromInstanceRequirementsResult;
 @class AWSEC2GetInstanceUefiDataRequest;
@@ -25590,6 +25631,32 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DisableImageBlockPublicAccessRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DisableImageBlockPublicAccessResult : AWSModel
+
+
+/**
+ <p>Returns <code>unblocked</code> if the request succeeds; otherwise, it returns an error.</p>
+ */
+@property (nonatomic, assign) AWSEC2ImageBlockPublicAccessDisabledState imageBlockPublicAccessState;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DisableImageDeprecationRequest : AWSRequest
 
 
@@ -27290,6 +27357,37 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the snapshots for which fast snapshot restores could not be enabled.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2EnableFastSnapshotRestoreErrorItem *> * _Nullable unsuccessful;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2EnableImageBlockPublicAccessRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>Specify <code>block-new-sharing</code> to enable block public access for AMIs at the account level in the specified Region. This will block any attempt to publicly share your AMIs in the specified Region.</p>
+ */
+@property (nonatomic, assign) AWSEC2ImageBlockPublicAccessEnabledState imageBlockPublicAccessState;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2EnableImageBlockPublicAccessResult : AWSModel
+
+
+/**
+ <p>Returns <code>block-new-sharing</code> if the request succeeds; otherwise, it returns an error.</p>
+ */
+@property (nonatomic, assign) AWSEC2ImageBlockPublicAccessEnabledState imageBlockPublicAccessState;
 
 @end
 
@@ -29826,6 +29924,32 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The potential total upfront price. This is billed immediately.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable totalUpfrontPrice;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetImageBlockPublicAccessStateRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetImageBlockPublicAccessStateResult : AWSModel
+
+
+/**
+ <p>The current state of block public access for AMIs at the account level in the specified Amazon Web Services Region.</p><p>Possible values:</p><ul><li><p><code>block-new-sharing</code> - Any attempt to publicly share your AMIs in the specified Region is blocked.</p></li><li><p><code>unblocked</code> - Your AMIs in the specified Region can be publicly shared.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable imageBlockPublicAccessState;
 
 @end
 
