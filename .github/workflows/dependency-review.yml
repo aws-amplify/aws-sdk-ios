@@ -21,4 +21,4 @@ jobs:
       - name: Dependency Review
         uses: actions/dependency-review-action@7d90b4f05fea31dde1c4a1fb3fa787e197ea93ab # v3.0.7
         with:
-          config-file: aws-amplify/amplify-ci-support/.github/dependency-review-config.yml@5d/dependency-review
+          config-file: aws-amplify/amplify-ci-support/.github/dependency-review-config.yml
