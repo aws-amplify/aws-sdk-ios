@@ -5,9 +5,13 @@
 ### Misc. Updates
 
 - Model updates for the following services
-  - AWSEC2
-  - AWSPolly
   - AWSCognitoIdentityProvider
+  - AWSConnect
+  - AWSConnectParticipant
+  - AWSElasticLoadBalancingv2
+  - AWSEC2
+  - AWSFirehose
+  - AWSPolly
 
 ## 2.33.4
 
