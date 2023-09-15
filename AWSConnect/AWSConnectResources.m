@@ -8735,7 +8735,8 @@
         \"OnZendeskTicketCreate\",\
         \"OnZendeskTicketStatusUpdate\",\
         \"OnSalesforceCaseCreate\",\
-        \"OnContactEvaluationSubmit\"\
+        \"OnContactEvaluationSubmit\",\
+        \"OnMetricDataUpdate\"\
       ]\
     },\
     \"FilterV2\":{\

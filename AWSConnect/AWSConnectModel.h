@@ -225,6 +225,7 @@ typedef NS_ENUM(NSInteger, AWSConnectEventSourceName) {
     AWSConnectEventSourceNameOnZendeskTicketStatusUpdate,
     AWSConnectEventSourceNameOnSalesforceCaseCreate,
     AWSConnectEventSourceNameOnContactEvaluationSubmit,
+    AWSConnectEventSourceNameOnMetricDataUpdate,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectGrouping) {
