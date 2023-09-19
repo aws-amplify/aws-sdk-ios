@@ -12439,6 +12439,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"OnContactEvaluationSubmit"] == NSOrderedSame) {
             return @(AWSConnectEventSourceNameOnContactEvaluationSubmit);
         }
+        if ([value caseInsensitiveCompare:@"OnMetricDataUpdate"] == NSOrderedSame) {
+            return @(AWSConnectEventSourceNameOnMetricDataUpdate);
+        }
         return @(AWSConnectEventSourceNameUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -12456,6 +12459,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"OnSalesforceCaseCreate";
             case AWSConnectEventSourceNameOnContactEvaluationSubmit:
                 return @"OnContactEvaluationSubmit";
+            case AWSConnectEventSourceNameOnMetricDataUpdate:
+                return @"OnMetricDataUpdate";
             default:
                 return nil;
         }
@@ -15929,6 +15934,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"OnContactEvaluationSubmit"] == NSOrderedSame) {
             return @(AWSConnectEventSourceNameOnContactEvaluationSubmit);
         }
+        if ([value caseInsensitiveCompare:@"OnMetricDataUpdate"] == NSOrderedSame) {
+            return @(AWSConnectEventSourceNameOnMetricDataUpdate);
+        }
         return @(AWSConnectEventSourceNameUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -15946,6 +15954,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"OnSalesforceCaseCreate";
             case AWSConnectEventSourceNameOnContactEvaluationSubmit:
                 return @"OnContactEvaluationSubmit";
+            case AWSConnectEventSourceNameOnMetricDataUpdate:
+                return @"OnMetricDataUpdate";
             default:
                 return nil;
         }
@@ -16019,6 +16029,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"OnContactEvaluationSubmit"] == NSOrderedSame) {
             return @(AWSConnectEventSourceNameOnContactEvaluationSubmit);
         }
+        if ([value caseInsensitiveCompare:@"OnMetricDataUpdate"] == NSOrderedSame) {
+            return @(AWSConnectEventSourceNameOnMetricDataUpdate);
+        }
         return @(AWSConnectEventSourceNameUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -16036,6 +16049,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"OnSalesforceCaseCreate";
             case AWSConnectEventSourceNameOnContactEvaluationSubmit:
                 return @"OnContactEvaluationSubmit";
+            case AWSConnectEventSourceNameOnMetricDataUpdate:
+                return @"OnMetricDataUpdate";
             default:
                 return nil;
         }
