@@ -2046,6 +2046,11 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 
 
 /**
+ <p>Used as an idempotency token, to avoid returning an exception if the service receives the same request twice because of a network error.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
  <p>Use this parameter to include specific log groups as part of your query definition.</p><p>If you are updating a query definition and you omit this parameter, then the updated definition will contain no log groups.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable logGroupNames;
