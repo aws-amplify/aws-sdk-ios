@@ -29,6 +29,7 @@
 - (void) test_AWSConnectAgentStatusReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAgentStatusSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAnswerMachineDetectionConfig API_AVAILABLE(ios(11));
+- (void) test_AWSConnectApplication API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssignContactCategoryActionDefinition API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateApprovedOriginRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateBotRequest API_AVAILABLE(ios(11));
@@ -337,6 +338,8 @@
 - (void) test_AWSConnectListRulesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListSecurityKeysRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListSecurityKeysResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListSecurityProfileApplicationsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListSecurityProfileApplicationsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListSecurityProfilePermissionsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListSecurityProfilePermissionsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListSecurityProfilesRequest API_AVAILABLE(ios(11));
@@ -622,6 +625,10 @@
 
 - (void) test_AWSConnectAnswerMachineDetectionConfig {
     [self validateSecureCodingForClass:[AWSConnectAnswerMachineDetectionConfig class]];
+}
+
+- (void) test_AWSConnectApplication {
+    [self validateSecureCodingForClass:[AWSConnectApplication class]];
 }
 
 - (void) test_AWSConnectAssignContactCategoryActionDefinition {
@@ -1854,6 +1861,14 @@
 
 - (void) test_AWSConnectListSecurityKeysResponse {
     [self validateSecureCodingForClass:[AWSConnectListSecurityKeysResponse class]];
+}
+
+- (void) test_AWSConnectListSecurityProfileApplicationsRequest {
+    [self validateSecureCodingForClass:[AWSConnectListSecurityProfileApplicationsRequest class]];
+}
+
+- (void) test_AWSConnectListSecurityProfileApplicationsResponse {
+    [self validateSecureCodingForClass:[AWSConnectListSecurityProfileApplicationsResponse class]];
 }
 
 - (void) test_AWSConnectListSecurityProfilePermissionsRequest {

@@ -3189,6 +3189,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectListSecurityProfileApplicationsResponse *> *)listSecurityProfileApplications:(AWSConnectListSecurityProfileApplicationsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/security-profiles-applications/{InstanceId}/{SecurityProfileId}"
+                  targetPrefix:@""
+                 operationName:@"ListSecurityProfileApplications"
+                   outputClass:[AWSConnectListSecurityProfileApplicationsResponse class]];
+}
+
+- (void)listSecurityProfileApplications:(AWSConnectListSecurityProfileApplicationsRequest *)request
+     completionHandler:(void (^)(AWSConnectListSecurityProfileApplicationsResponse *response, NSError *error))completionHandler {
+    [[self listSecurityProfileApplications:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListSecurityProfileApplicationsResponse *> * _Nonnull task) {
+        AWSConnectListSecurityProfileApplicationsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectListSecurityProfilePermissionsResponse *> *)listSecurityProfilePermissions:(AWSConnectListSecurityProfilePermissionsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET

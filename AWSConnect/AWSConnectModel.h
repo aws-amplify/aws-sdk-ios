@@ -324,6 +324,7 @@ typedef NS_ENUM(NSInteger, AWSConnectIntegrationType) {
     AWSConnectIntegrationTypeWisdomAssistant,
     AWSConnectIntegrationTypeWisdomKnowledgeBase,
     AWSConnectIntegrationTypeCasesDomain,
+    AWSConnectIntegrationTypeApplication,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectLexVersion) {
@@ -877,6 +878,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectAgentStatusReference;
 @class AWSConnectAgentStatusSummary;
 @class AWSConnectAnswerMachineDetectionConfig;
+@class AWSConnectApplication;
 @class AWSConnectAssignContactCategoryActionDefinition;
 @class AWSConnectAssociateApprovedOriginRequest;
 @class AWSConnectAssociateBotRequest;
@@ -1185,6 +1187,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectListRulesResponse;
 @class AWSConnectListSecurityKeysRequest;
 @class AWSConnectListSecurityKeysResponse;
+@class AWSConnectListSecurityProfileApplicationsRequest;
+@class AWSConnectListSecurityProfileApplicationsResponse;
 @class AWSConnectListSecurityProfilePermissionsRequest;
 @class AWSConnectListSecurityProfilePermissionsResponse;
 @class AWSConnectListSecurityProfilesRequest;
@@ -1677,6 +1681,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The flag to indicate if answer machine detection analysis needs to be performed for a voice call. If set to <code>true</code>, <code>TrafficType</code> must be set as <code>CAMPAIGN</code>. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enableAnswerMachineDetection;
+
+@end
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>A third party application's metadata.</p>
+ */
+@interface AWSConnectApplication : AWSModel
+
+
+/**
+ <p>The permissions that the agent is granted on the application. Only the <code>ACCESS</code> permission is supported.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable applicationPermissions;
+
+/**
+ <p>Namespace of the application that you want to give access to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable namespace;
 
 @end
 
@@ -3036,7 +3058,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The name of the quick connect.</p>
+ <p>A unique name of the quick connect.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
@@ -3207,6 +3229,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The list of tags that a security profile uses to restrict access to resources in Amazon Connect.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable allowedAccessControlTags;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>A list of third party applications that the security profile will give access to.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectApplication *> * _Nullable applications;
 
 /**
  <p>The description of the security profile.</p>
@@ -8294,7 +8321,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable phoneNumberCountryCodes;
 
 /**
- <p>The type of phone number.</p>
+ <p>The type of phone number.</p><note><p>We recommend using <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html">ListPhoneNumbersV2</a> to return phone number types. While ListPhoneNumbers returns number types <code>UIFN</code>, <code>SHARED</code>, <code>THIRD_PARTY_TF</code>, and <code>THIRD_PARTY_DID</code>, it incorrectly lists them as <code>TOLL_FREE</code> or <code>DID</code>. </p></note>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable phoneNumberTypes;
 
@@ -8767,6 +8794,52 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The security keys.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectSecurityKey *> * _Nullable securityKeys;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListSecurityProfileApplicationsRequest : AWSRequest
+
+
+/**
+ <p>The instance identifier.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. The next set of results can be retrieved by using the token value returned in the previous response when making the next request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The security profile identifier.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable securityProfileId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListSecurityProfileApplicationsResponse : AWSModel
+
+
+/**
+ <p>A list of the third party application's metadata.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectApplication *> * _Nullable applications;
+
+/**
+ <p>The token for the next set of results. The next set of results can be retrieved by using the token value returned in the previous response when making the next request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
@@ -10595,17 +10668,17 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectActionType actionType;
 
 /**
- <p>Information about the contact category action.</p>
+ <p>Information about the contact category action.</p><p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code></p>
  */
 @property (nonatomic, strong) AWSConnectAssignContactCategoryActionDefinition * _Nullable assignContactCategoryAction;
 
 /**
- <p>Information about the EventBridge action.</p>
+ <p>Information about the EventBridge action.</p><p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code></p>
  */
 @property (nonatomic, strong) AWSConnectEventBridgeActionDefinition * _Nullable eventBridgeAction;
 
 /**
- <p>Information about the send notification action.</p>
+ <p>Information about the send notification action.</p><p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code></p>
  */
 @property (nonatomic, strong) AWSConnectSendNotificationActionDefinition * _Nullable sendNotificationAction;
 
@@ -10666,7 +10739,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>The name of the event source. This field is required if <code>TriggerEventSource</code> is one of the following values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code></p>
+ <p>The name of the event source. This field is required if <code>TriggerEventSource</code> is one of the following values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code> | <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code>.</p>
  Required parameters: [EventSourceName]
  */
 @interface AWSConnectRuleTriggerEventSource : AWSModel
@@ -13574,6 +13647,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The list of tags that a security profile uses to restrict access to resources in Amazon Connect.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable allowedAccessControlTags;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>A list of the third party application's metadata.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectApplication *> * _Nullable applications;
 
 /**
  <p>The description of the security profile.</p>

@@ -3260,6 +3260,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listSecurityKeys:(AWSConnectListSecurityKeysRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListSecurityKeysResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Returns a list of third party applications in a specific security profile.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListSecurityProfileApplications service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectListSecurityProfileApplicationsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListSecurityProfileApplicationsRequest
+ @see AWSConnectListSecurityProfileApplicationsResponse
+ */
+- (AWSTask<AWSConnectListSecurityProfileApplicationsResponse *> *)listSecurityProfileApplications:(AWSConnectListSecurityProfileApplicationsRequest *)request;
+
+/**
+ <p>Returns a list of third party applications in a specific security profile.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListSecurityProfileApplications service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListSecurityProfileApplicationsRequest
+ @see AWSConnectListSecurityProfileApplicationsResponse
+ */
+- (void)listSecurityProfileApplications:(AWSConnectListSecurityProfileApplicationsRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListSecurityProfileApplicationsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Lists the permissions granted to a security profile.</p>
  
  @param request A container for the necessary parameters to execute the ListSecurityProfilePermissions service method.

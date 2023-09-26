@@ -464,6 +464,21 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectApplication
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationPermissions" : @"ApplicationPermissions",
+             @"namespace" : @"Namespace",
+             };
+}
+
+@end
+
 @implementation AWSConnectAssignContactCategoryActionDefinition
 
 + (BOOL)supportsSecureCoding {
@@ -4448,6 +4463,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"CASES_DOMAIN"] == NSOrderedSame) {
             return @(AWSConnectIntegrationTypeCasesDomain);
         }
+        if ([value caseInsensitiveCompare:@"APPLICATION"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypeApplication);
+        }
         return @(AWSConnectIntegrationTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4463,6 +4481,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"WISDOM_KNOWLEDGE_BASE";
             case AWSConnectIntegrationTypeCasesDomain:
                 return @"CASES_DOMAIN";
+            case AWSConnectIntegrationTypeApplication:
+                return @"APPLICATION";
             default:
                 return nil;
         }
@@ -4795,6 +4815,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"allowedAccessControlTags" : @"AllowedAccessControlTags",
+             @"applications" : @"Applications",
              @"detail" : @"Description",
              @"instanceId" : @"InstanceId",
              @"permissions" : @"Permissions",
@@ -4802,6 +4823,10 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"tagRestrictedResources" : @"TagRestrictedResources",
              @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)applicationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectApplication class]];
 }
 
 @end
@@ -9828,6 +9853,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"CASES_DOMAIN"] == NSOrderedSame) {
             return @(AWSConnectIntegrationTypeCasesDomain);
         }
+        if ([value caseInsensitiveCompare:@"APPLICATION"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypeApplication);
+        }
         return @(AWSConnectIntegrationTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -9843,6 +9871,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"WISDOM_KNOWLEDGE_BASE";
             case AWSConnectIntegrationTypeCasesDomain:
                 return @"CASES_DOMAIN";
+            case AWSConnectIntegrationTypeApplication:
+                return @"APPLICATION";
             default:
                 return nil;
         }
@@ -10747,6 +10777,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"CASES_DOMAIN"] == NSOrderedSame) {
             return @(AWSConnectIntegrationTypeCasesDomain);
         }
+        if ([value caseInsensitiveCompare:@"APPLICATION"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypeApplication);
+        }
         return @(AWSConnectIntegrationTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -10762,6 +10795,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"WISDOM_KNOWLEDGE_BASE";
             case AWSConnectIntegrationTypeCasesDomain:
                 return @"CASES_DOMAIN";
+            case AWSConnectIntegrationTypeApplication:
+                return @"APPLICATION";
             default:
                 return nil;
         }
@@ -12540,6 +12575,42 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)securityKeysJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectSecurityKey class]];
+}
+
+@end
+
+@implementation AWSConnectListSecurityProfileApplicationsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"securityProfileId" : @"SecurityProfileId",
+             };
+}
+
+@end
+
+@implementation AWSConnectListSecurityProfileApplicationsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applications" : @"Applications",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)applicationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectApplication class]];
 }
 
 @end
@@ -20233,12 +20304,17 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"allowedAccessControlTags" : @"AllowedAccessControlTags",
+             @"applications" : @"Applications",
              @"detail" : @"Description",
              @"instanceId" : @"InstanceId",
              @"permissions" : @"Permissions",
              @"securityProfileId" : @"SecurityProfileId",
              @"tagRestrictedResources" : @"TagRestrictedResources",
              };
+}
+
++ (NSValueTransformer *)applicationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectApplication class]];
 }
 
 @end
