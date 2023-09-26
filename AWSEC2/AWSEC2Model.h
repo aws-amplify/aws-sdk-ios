@@ -1732,6 +1732,27 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeR7Gd_8xlarge,
     AWSEC2InstanceTypeR7Gd_12xlarge,
     AWSEC2InstanceTypeR7Gd_16xlarge,
+    AWSEC2InstanceTypeR7A_medium,
+    AWSEC2InstanceTypeR7A_large,
+    AWSEC2InstanceTypeR7A_xlarge,
+    AWSEC2InstanceTypeR7A_2xlarge,
+    AWSEC2InstanceTypeR7A_4xlarge,
+    AWSEC2InstanceTypeR7A_8xlarge,
+    AWSEC2InstanceTypeR7A_12xlarge,
+    AWSEC2InstanceTypeR7A_16xlarge,
+    AWSEC2InstanceTypeR7A_24xlarge,
+    AWSEC2InstanceTypeR7A_32xlarge,
+    AWSEC2InstanceTypeR7A_48xlarge,
+    AWSEC2InstanceTypeC7I_large,
+    AWSEC2InstanceTypeC7I_xlarge,
+    AWSEC2InstanceTypeC7I_2xlarge,
+    AWSEC2InstanceTypeC7I_4xlarge,
+    AWSEC2InstanceTypeC7I_8xlarge,
+    AWSEC2InstanceTypeC7I_12xlarge,
+    AWSEC2InstanceTypeC7I_16xlarge,
+    AWSEC2InstanceTypeC7I_24xlarge,
+    AWSEC2InstanceTypeC7I_48xlarge,
+    AWSEC2InstanceTypeMAC2_m2pro_metal,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {
@@ -14163,6 +14184,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p> Choose to enable or disable support for Federal Information Processing Standards (FIPS) on the instance. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable FIPSEnabled;
 
 /**
  <p>The tags to assign to the Verified Access instance.</p>
@@ -53882,6 +53908,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>A description for the Amazon Web Services Verified Access instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p> Describes if support for Federal Information Processing Standards (FIPS) is enabled on the instance. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable fipsEnabled;
 
 /**
  <p>The last updated time.</p>
