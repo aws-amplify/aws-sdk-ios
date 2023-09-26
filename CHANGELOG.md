@@ -1,3 +1,14 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSDynamoDB
+---AWSConnect
+---AWSPinpoint
+---AWSEC2
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
