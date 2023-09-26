@@ -172,6 +172,18 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBExportStatus) {
     AWSDynamoDBExportStatusFailed,
 };
 
+typedef NS_ENUM(NSInteger, AWSDynamoDBExportType) {
+    AWSDynamoDBExportTypeUnknown,
+    AWSDynamoDBExportTypeFullExport,
+    AWSDynamoDBExportTypeIncrementalExport,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBExportViewType) {
+    AWSDynamoDBExportViewTypeUnknown,
+    AWSDynamoDBExportViewTypeNewImage,
+    AWSDynamoDBExportViewTypeNewAndOldImages,
+};
+
 typedef NS_ENUM(NSInteger, AWSDynamoDBGlobalTableStatus) {
     AWSDynamoDBGlobalTableStatusUnknown,
     AWSDynamoDBGlobalTableStatusCreating,
@@ -441,6 +453,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBImportTableDescription;
 @class AWSDynamoDBImportTableInput;
 @class AWSDynamoDBImportTableOutput;
+@class AWSDynamoDBIncrementalExportSpecification;
 @class AWSDynamoDBInputFormatOptions;
 @class AWSDynamoDBItemCollectionMetrics;
 @class AWSDynamoDBItemResponse;
@@ -2417,6 +2430,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDate * _Nullable exportTime;
 
 /**
+ <p>Choice of whether to execute as a full export or incremental export. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>. If <code>INCREMENTAL_EXPORT</code> is provided, the <code>IncrementalExportSpecification</code> must also be used.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBExportType exportType;
+
+/**
  <p>Status code for the result of the failed export.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable failureCode;
@@ -2425,6 +2443,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Export failure reason description.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable failureMessage;
+
+/**
+ <p>Optional object containing the parameters specific to an incremental export.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBIncrementalExportSpecification * _Nullable incrementalExportSpecification;
 
 /**
  <p>The number of items exported.</p>
@@ -2489,6 +2512,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  */
 @property (nonatomic, assign) AWSDynamoDBExportStatus exportStatus;
 
+/**
+ <p>Choice of whether to execute as a full export or incremental export. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>. If <code>INCREMENTAL_EXPORT</code> is provided, the <code>IncrementalExportSpecification</code> must also be used.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBExportType exportType;
+
 @end
 
 /**
@@ -2511,6 +2539,16 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Time in the past from which to export table data, counted in seconds from the start of the Unix epoch. The table export will be a snapshot of the table's state at this point in time.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable exportTime;
+
+/**
+ <p>Choice of whether to execute as a full export or incremental export. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>. If <code>INCREMENTAL_EXPORT</code> is provided, the <code>IncrementalExportSpecification</code> must also be used.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBExportType exportType;
+
+/**
+ <p>Optional object containing the parameters specific to an incremental export.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBIncrementalExportSpecification * _Nullable incrementalExportSpecification;
 
 /**
  <p>The name of the Amazon S3 bucket to export the snapshot to.</p>
@@ -3091,6 +3129,29 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p> Represents the properties of the table created for the import, and parameters of the import. The import parameters include import status, how many items were processed, and how many errors were encountered. </p>
  */
 @property (nonatomic, strong) AWSDynamoDBImportTableDescription * _Nullable importTableDescription;
+
+@end
+
+/**
+ <p>Optional object containing the parameters specific to an incremental export.</p>
+ */
+@interface AWSDynamoDBIncrementalExportSpecification : AWSModel
+
+
+/**
+ <p>Time in the past which provides the inclusive start range for the export table's data, counted in seconds from the start of the Unix epoch. The incremental export will reflect the table's state including and after this point in time.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable exportFromTime;
+
+/**
+ <p>Time in the past which provides the exclusive end range for the export table's data, counted in seconds from the start of the Unix epoch. The incremental export will reflect the table's state just prior to this point in time. If this is not provided, the latest time with data available will be used.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable exportToTime;
+
+/**
+ <p>Choice of whether to output the previous item image prior to the start time of the incremental export. Valid values are <code>NEW_AND_OLD_IMAGES</code> and <code>NEW_IMAGES</code>.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBExportViewType exportViewType;
 
 @end
 
