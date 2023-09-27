@@ -249,6 +249,36 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
         if ([value caseInsensitiveCompare:@"TABLE_FOOTER"] == NSOrderedSame) {
             return @(AWSTextractBlockTypeTableFooter);
         }
+        if ([value caseInsensitiveCompare:@"LAYOUT_TEXT"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeLayoutText);
+        }
+        if ([value caseInsensitiveCompare:@"LAYOUT_TITLE"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeLayoutTitle);
+        }
+        if ([value caseInsensitiveCompare:@"LAYOUT_HEADER"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeLayoutHeader);
+        }
+        if ([value caseInsensitiveCompare:@"LAYOUT_FOOTER"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeLayoutFooter);
+        }
+        if ([value caseInsensitiveCompare:@"LAYOUT_SECTION_HEADER"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeLayoutSectionHeader);
+        }
+        if ([value caseInsensitiveCompare:@"LAYOUT_PAGE_NUMBER"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeLayoutPageNumber);
+        }
+        if ([value caseInsensitiveCompare:@"LAYOUT_LIST"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeLayoutList);
+        }
+        if ([value caseInsensitiveCompare:@"LAYOUT_FIGURE"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeLayoutFigure);
+        }
+        if ([value caseInsensitiveCompare:@"LAYOUT_TABLE"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeLayoutTable);
+        }
+        if ([value caseInsensitiveCompare:@"LAYOUT_KEY_VALUE"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeLayoutKeyValue);
+        }
         return @(AWSTextractBlockTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -280,6 +310,26 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
                 return @"TABLE_TITLE";
             case AWSTextractBlockTypeTableFooter:
                 return @"TABLE_FOOTER";
+            case AWSTextractBlockTypeLayoutText:
+                return @"LAYOUT_TEXT";
+            case AWSTextractBlockTypeLayoutTitle:
+                return @"LAYOUT_TITLE";
+            case AWSTextractBlockTypeLayoutHeader:
+                return @"LAYOUT_HEADER";
+            case AWSTextractBlockTypeLayoutFooter:
+                return @"LAYOUT_FOOTER";
+            case AWSTextractBlockTypeLayoutSectionHeader:
+                return @"LAYOUT_SECTION_HEADER";
+            case AWSTextractBlockTypeLayoutPageNumber:
+                return @"LAYOUT_PAGE_NUMBER";
+            case AWSTextractBlockTypeLayoutList:
+                return @"LAYOUT_LIST";
+            case AWSTextractBlockTypeLayoutFigure:
+                return @"LAYOUT_FIGURE";
+            case AWSTextractBlockTypeLayoutTable:
+                return @"LAYOUT_TABLE";
+            case AWSTextractBlockTypeLayoutKeyValue:
+                return @"LAYOUT_KEY_VALUE";
             default:
                 return nil;
         }

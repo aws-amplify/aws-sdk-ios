@@ -55,6 +55,16 @@ typedef NS_ENUM(NSInteger, AWSTextractBlockType) {
     AWSTextractBlockTypeSignature,
     AWSTextractBlockTypeTableTitle,
     AWSTextractBlockTypeTableFooter,
+    AWSTextractBlockTypeLayoutText,
+    AWSTextractBlockTypeLayoutTitle,
+    AWSTextractBlockTypeLayoutHeader,
+    AWSTextractBlockTypeLayoutFooter,
+    AWSTextractBlockTypeLayoutSectionHeader,
+    AWSTextractBlockTypeLayoutPageNumber,
+    AWSTextractBlockTypeLayoutList,
+    AWSTextractBlockTypeLayoutFigure,
+    AWSTextractBlockTypeLayoutTable,
+    AWSTextractBlockTypeLayoutKeyValue,
 };
 
 typedef NS_ENUM(NSInteger, AWSTextractContentClassifier) {
@@ -82,6 +92,7 @@ typedef NS_ENUM(NSInteger, AWSTextractFeatureType) {
     AWSTextractFeatureTypeForms,
     AWSTextractFeatureTypeQueries,
     AWSTextractFeatureTypeSignatures,
+    AWSTextractFeatureTypeLayout,
 };
 
 typedef NS_ENUM(NSInteger, AWSTextractJobStatus) {
@@ -203,7 +214,7 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 @property (nonatomic, strong) AWSTextractDocument * _Nullable document;
 
 /**
- <p>A list of the types of analysis to perform. Add TABLES to the list to return information about the tables that are detected in the input document. Add FORMS to return detected form data. Add SIGNATURES to return the locations of detected signatures. To perform both forms and table analysis, add TABLES and FORMS to <code>FeatureTypes</code>. To detect signatures within form data and table data, add SIGNATURES to either TABLES or FORMS. All lines and words detected in the document are included in the response (including text that isn't related to the value of <code>FeatureTypes</code>). </p>
+ <p>A list of the types of analysis to perform. Add TABLES to the list to return information about the tables that are detected in the input document. Add FORMS to return detected form data. Add SIGNATURES to return the locations of detected signatures. Add LAYOUT to the list to return information about the layout of the document. To perform both forms and table analysis, add TABLES and FORMS to <code>FeatureTypes</code>. To detect signatures within the document and within form data and table data, add SIGNATURES to either TABLES or FORMS. All lines and words detected in the document are included in the response (including text that isn't related to the value of <code>FeatureTypes</code>). </p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable featureTypes;
 
@@ -345,7 +356,7 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 
 
 /**
- <p>The type of text item that's recognized. In operations for text detection, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of the LINE <code>Block</code> objects that are detected on a document page.</p></li><li><p><i>WORD</i> - A word detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p></li></ul><p>In text analysis operations, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of child <code>Block</code> objects that are detected on a document page.</p></li><li><p><i>KEY_VALUE_SET</i> - Stores the KEY and VALUE <code>Block</code> objects for linked text that's detected on a document page. Use the <code>EntityType</code> field to determine if a KEY_VALUE_SET object is a KEY <code>Block</code> object or a VALUE <code>Block</code> object. </p></li><li><p><i>WORD</i> - A word that's detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p></li><li><p><i>TABLE</i> - A table that's detected on a document page. A table is grid-based information with two or more rows or columns, with a cell span of one row and one column each. </p></li><li><p><i>TABLE_TITLE</i> - The title of a table. A title is typically a line of text above or below a table, or embedded as the first row of a table. </p></li><li><p><i>TABLE_FOOTER</i> - The footer associated with a table. A footer is typically a line or lines of text below a table or embedded as the last row of a table. </p></li><li><p><i>CELL</i> - A cell within a detected table. The cell is the parent of the block that contains the text in the cell.</p></li><li><p><i>MERGED_CELL</i> - A cell in a table whose content spans more than one row or column. The <code>Relationships</code> array for this cell contain data from individual cells.</p></li><li><p><i>SELECTION_ELEMENT</i> - A selection element such as an option button (radio button) or a check box that's detected on a document page. Use the value of <code>SelectionStatus</code> to determine the status of the selection element.</p></li><li><p><i>SIGNATURE</i> - The location and confidene score of a signature detected on a document page. Can be returned as part of a Key-Value pair or a detected cell.</p></li><li><p><i>QUERY</i> - A question asked during the call of AnalyzeDocument. Contains an alias and an ID that attaches it to its answer.</p></li><li><p><i>QUERY_RESULT</i> - A response to a question asked during the call of analyze document. Comes with an alias and ID for ease of locating in a response. Also contains location and confidence score.</p></li></ul>
+ <p>The type of text item that's recognized. In operations for text detection, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of the LINE <code>Block</code> objects that are detected on a document page.</p></li><li><p><i>WORD</i> - A word detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p></li></ul><p>In text analysis operations, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of child <code>Block</code> objects that are detected on a document page.</p></li><li><p><i>KEY_VALUE_SET</i> - Stores the KEY and VALUE <code>Block</code> objects for linked text that's detected on a document page. Use the <code>EntityType</code> field to determine if a KEY_VALUE_SET object is a KEY <code>Block</code> object or a VALUE <code>Block</code> object. </p></li><li><p><i>WORD</i> - A word that's detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p></li><li><p><i>TABLE</i> - A table that's detected on a document page. A table is grid-based information with two or more rows or columns, with a cell span of one row and one column each. </p></li><li><p><i>TABLE_TITLE</i> - The title of a table. A title is typically a line of text above or below a table, or embedded as the first row of a table. </p></li><li><p><i>TABLE_FOOTER</i> - The footer associated with a table. A footer is typically a line or lines of text below a table or embedded as the last row of a table. </p></li><li><p><i>CELL</i> - A cell within a detected table. The cell is the parent of the block that contains the text in the cell.</p></li><li><p><i>MERGED_CELL</i> - A cell in a table whose content spans more than one row or column. The <code>Relationships</code> array for this cell contain data from individual cells.</p></li><li><p><i>SELECTION_ELEMENT</i> - A selection element such as an option button (radio button) or a check box that's detected on a document page. Use the value of <code>SelectionStatus</code> to determine the status of the selection element.</p></li><li><p><i>SIGNATURE</i> - The location and confidence score of a signature detected on a document page. Can be returned as part of a Key-Value pair or a detected cell.</p></li><li><p><i>QUERY</i> - A question asked during the call of AnalyzeDocument. Contains an alias and an ID that attaches it to its answer.</p></li><li><p><i>QUERY_RESULT</i> - A response to a question asked during the call of analyze document. Comes with an alias and ID for ease of locating in a response. Also contains location and confidence score.</p></li></ul>
  */
 @property (nonatomic, assign) AWSTextractBlockType blockType;
 
@@ -380,7 +391,7 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>The page on which a block was detected. <code>Page</code> is returned by synchronous and asynchronous operations. Page values greater than 1 are only returned for multipage documents that are in PDF or TIFF format. A scanned image (JPEG/PNG) provided to an asynchronous operation, even if it contains multiple document pages, is considered a single-page document. This means that for scanned images the value of <code>Page</code> is always 1. Synchronous operations will also return a <code>Page</code> value of 1 because every input document is considered to be a single-page document.</p>
+ <p>The page on which a block was detected. <code>Page</code> is returned by synchronous and asynchronous operations. Page values greater than 1 are only returned for multipage documents that are in PDF or TIFF format. A scanned image (JPEG/PNG) provided to an asynchronous operation, even if it contains multiple document pages, is considered a single-page document. This means that for scanned images the value of <code>Page</code> is always 1. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable page;
 
