@@ -1732,6 +1732,35 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeR7Gd_8xlarge,
     AWSEC2InstanceTypeR7Gd_12xlarge,
     AWSEC2InstanceTypeR7Gd_16xlarge,
+    AWSEC2InstanceTypeR7A_medium,
+    AWSEC2InstanceTypeR7A_large,
+    AWSEC2InstanceTypeR7A_xlarge,
+    AWSEC2InstanceTypeR7A_2xlarge,
+    AWSEC2InstanceTypeR7A_4xlarge,
+    AWSEC2InstanceTypeR7A_8xlarge,
+    AWSEC2InstanceTypeR7A_12xlarge,
+    AWSEC2InstanceTypeR7A_16xlarge,
+    AWSEC2InstanceTypeR7A_24xlarge,
+    AWSEC2InstanceTypeR7A_32xlarge,
+    AWSEC2InstanceTypeR7A_48xlarge,
+    AWSEC2InstanceTypeC7I_large,
+    AWSEC2InstanceTypeC7I_xlarge,
+    AWSEC2InstanceTypeC7I_2xlarge,
+    AWSEC2InstanceTypeC7I_4xlarge,
+    AWSEC2InstanceTypeC7I_8xlarge,
+    AWSEC2InstanceTypeC7I_12xlarge,
+    AWSEC2InstanceTypeC7I_16xlarge,
+    AWSEC2InstanceTypeC7I_24xlarge,
+    AWSEC2InstanceTypeC7I_48xlarge,
+    AWSEC2InstanceTypeMAC2_m2pro_metal,
+    AWSEC2InstanceTypeR7Iz_large,
+    AWSEC2InstanceTypeR7Iz_xlarge,
+    AWSEC2InstanceTypeR7Iz_2xlarge,
+    AWSEC2InstanceTypeR7Iz_4xlarge,
+    AWSEC2InstanceTypeR7Iz_8xlarge,
+    AWSEC2InstanceTypeR7Iz_12xlarge,
+    AWSEC2InstanceTypeR7Iz_16xlarge,
+    AWSEC2InstanceTypeR7Iz_32xlarge,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {
@@ -4957,6 +4986,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2VerifiedAccessLogS3Destination;
 @class AWSEC2VerifiedAccessLogS3DestinationOptions;
 @class AWSEC2VerifiedAccessLogs;
+@class AWSEC2VerifiedAccessSseSpecificationRequest;
+@class AWSEC2VerifiedAccessSseSpecificationResponse;
 @class AWSEC2VerifiedAccessTrustProvider;
 @class AWSEC2VerifiedAccessTrustProviderCondensed;
 @class AWSEC2VgwTelemetry;
@@ -14068,6 +14099,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
 
 /**
+ <p> Options for server side encryption. </p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessSseSpecificationRequest * _Nullable sseSpecification;
+
+/**
  <p>The tags to assign to the Verified Access endpoint.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
@@ -14119,6 +14155,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable policyDocument;
 
 /**
+ <p> Options for server side encryption. </p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessSseSpecificationRequest * _Nullable sseSpecification;
+
+/**
  <p>The tags to assign to the Verified Access group.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
@@ -14163,6 +14204,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>Enable or disable support for Federal Information Processing Standards (FIPS) on the instance.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable FIPSEnabled;
 
 /**
  <p>The tags to assign to the Verified Access instance.</p>
@@ -14280,6 +14326,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The identifier to be used when working with policy rules.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable policyReferenceName;
+
+/**
+ <p> Options for server side encryption. </p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessSseSpecificationRequest * _Nullable sseSpecification;
 
 /**
  <p>The tags to assign to the Verified Access trust provider.</p>
@@ -40561,6 +40612,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable policyEnabled;
 
 /**
+ <p> Options for server side encryption. </p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessSseSpecificationRequest * _Nullable sseSpecification;
+
+/**
  <p>The ID of the Verified Access endpoint.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable verifiedAccessEndpointId;
@@ -40582,6 +40638,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The status of the Verified Access policy.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable policyEnabled;
+
+/**
+ <p> Describes the options in use for server side encryption. </p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessSseSpecificationResponse * _Nullable sseSpecification;
 
 @end
 
@@ -40668,6 +40729,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable policyEnabled;
 
 /**
+ <p> Options for server side encryption. </p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessSseSpecificationRequest * _Nullable sseSpecification;
+
+/**
  <p>The ID of the Verified Access group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable verifiedAccessGroupId;
@@ -40689,6 +40755,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The status of the Verified Access policy.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable policyEnabled;
+
+/**
+ <p> Describes the options in use for server side encryption. </p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessSseSpecificationResponse * _Nullable sseSpecification;
 
 @end
 
@@ -40888,6 +40959,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The options for an OpenID Connect-compatible user-identity trust provider.</p>
  */
 @property (nonatomic, strong) AWSEC2ModifyVerifiedAccessTrustProviderOidcOptions * _Nullable oidcOptions;
+
+/**
+ <p> Options for server side encryption. </p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessSseSpecificationRequest * _Nullable sseSpecification;
 
 /**
  <p>The ID of the Verified Access trust provider.</p>
@@ -53719,6 +53795,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
 
 /**
+ <p> Describes the options in use for server side encryption. </p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessSseSpecificationResponse * _Nullable sseSpecification;
+
+/**
  <p>The endpoint status.</p>
  */
 @property (nonatomic, strong) AWSEC2VerifiedAccessEndpointStatus * _Nullable status;
@@ -53846,6 +53927,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable owner;
 
 /**
+ <p> Describes the options in use for server side encryption. </p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessSseSpecificationResponse * _Nullable sseSpecification;
+
+/**
  <p>The tags.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
@@ -53882,6 +53968,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>A description for the Amazon Web Services Verified Access instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>Describes whether support for Federal Information Processing Standards (FIPS) is enabled on the instance.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable fipsEnabled;
 
 /**
  <p>The last updated time.</p>
@@ -54154,6 +54245,42 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p> Verified Access provides server side encryption by default to data at rest using Amazon Web Services-owned KMS keys. You also have the option of using customer managed KMS keys, which can be specified using the options below. </p>
+ */
+@interface AWSEC2VerifiedAccessSseSpecificationRequest : AWSModel
+
+
+/**
+ <p> Enable or disable the use of customer managed KMS keys for server side encryption. </p><p>Valid values: <code>True</code> | <code>False</code></p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable customerManagedKeyEnabled;
+
+/**
+ <p> The ARN of the KMS key. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kmsKeyArn;
+
+@end
+
+/**
+ <p> Describes the options in use for server side encryption. </p>
+ */
+@interface AWSEC2VerifiedAccessSseSpecificationResponse : AWSModel
+
+
+/**
+ <p> Describes the use of customer managed KMS keys for server side encryption. </p><p>Valid values: <code>True</code> | <code>False</code></p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable customerManagedKeyEnabled;
+
+/**
+ <p> Describes the ARN of the KMS key. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kmsKeyArn;
+
+@end
+
+/**
  <p>Describes a Verified Access trust provider.</p>
  */
 @interface AWSEC2VerifiedAccessTrustProvider : AWSModel
@@ -54193,6 +54320,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The identifier to be used when working with policy rules.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable policyReferenceName;
+
+/**
+ <p> Describes the options in use for server side encryption. </p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessSseSpecificationResponse * _Nullable sseSpecification;
 
 /**
  <p>The tags.</p>

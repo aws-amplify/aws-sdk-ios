@@ -1824,6 +1824,8 @@
 - (void) test_AWSEC2VerifiedAccessLogS3Destination API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VerifiedAccessLogS3DestinationOptions API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VerifiedAccessLogs API_AVAILABLE(ios(11));
+- (void) test_AWSEC2VerifiedAccessSseSpecificationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2VerifiedAccessSseSpecificationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VerifiedAccessTrustProvider API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VerifiedAccessTrustProviderCondensed API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VgwTelemetry API_AVAILABLE(ios(11));
@@ -9083,6 +9085,14 @@
 
 - (void) test_AWSEC2VerifiedAccessLogs {
     [self validateSecureCodingForClass:[AWSEC2VerifiedAccessLogs class]];
+}
+
+- (void) test_AWSEC2VerifiedAccessSseSpecificationRequest {
+    [self validateSecureCodingForClass:[AWSEC2VerifiedAccessSseSpecificationRequest class]];
+}
+
+- (void) test_AWSEC2VerifiedAccessSseSpecificationResponse {
+    [self validateSecureCodingForClass:[AWSEC2VerifiedAccessSseSpecificationResponse class]];
 }
 
 - (void) test_AWSEC2VerifiedAccessTrustProvider {

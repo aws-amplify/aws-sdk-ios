@@ -5785,7 +5785,7 @@
       },\
       \"input\":{\"shape\":\"RevokeSecurityGroupIngressRequest\"},\
       \"output\":{\"shape\":\"RevokeSecurityGroupIngressResult\"},\
-      \"documentation\":\"<p>Removes the specified inbound (ingress) rules from a security group.</p> <p>You can specify rules using either rule IDs or security group rule properties. If you use rule properties, the values that you specify (for example, ports) must match the existing rule's values exactly. Each rule has a protocol, from and to ports, and source (CIDR range, security group, or prefix list). For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not need to specify the description to revoke the rule.</p> <p>For a default VPC, if the values you specify do not match the existing rule's values, no error is returned, and the output describes the security group rules that were not revoked.</p> <p>Amazon Web Services recommends that you describe the security group to verify that the rules were removed.</p> <p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>\"\
+      \"documentation\":\"<p>Removes the specified inbound (ingress) rules from a security group.</p> <p>You can specify rules using either rule IDs or security group rule properties. If you use rule properties, the values that you specify (for example, ports) must match the existing rule's values exactly. Each rule has a protocol, from and to ports, and source (CIDR range, security group, or prefix list). For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not need to specify the description to revoke the rule.</p> <p>For a default VPC, if the values you specify do not match the existing rule's values, no error is returned, and the output describes the security group rules that were not revoked.</p> <p>For a non-default VPC, if the values you specify do not match the existing rule's values, an <code>InvalidPermission.NotFound</code> client error is returned, and no rules are revoked.</p> <p>Amazon Web Services recommends that you describe the security group to verify that the rules were removed.</p> <p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>\"\
     },\
     \"RunInstances\":{\
       \"name\":\"RunInstances\",\
@@ -12059,7 +12059,7 @@
       \"required\":[\"AvailabilityZone\"],\
       \"members\":{\
         \"AvailabilityZone\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"AvailabilityZoneName\",\
           \"documentation\":\"<p>The Availability Zone in which to create the default subnet.</p>\"\
         },\
         \"DryRun\":{\
@@ -15050,6 +15050,10 @@
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"SseSpecification\":{\
+          \"shape\":\"VerifiedAccessSseSpecificationRequest\",\
+          \"documentation\":\"<p> Options for server side encryption. </p>\"\
         }\
       }\
     },\
@@ -15099,6 +15103,10 @@
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"SseSpecification\":{\
+          \"shape\":\"VerifiedAccessSseSpecificationRequest\",\
+          \"documentation\":\"<p> Options for server side encryption. </p>\"\
         }\
       }\
     },\
@@ -15132,6 +15140,10 @@
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"FIPSEnabled\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Enable or disable support for Federal Information Processing Standards (FIPS) on the instance.</p>\"\
         }\
       }\
     },\
@@ -15237,6 +15249,10 @@
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"SseSpecification\":{\
+          \"shape\":\"VerifiedAccessSseSpecificationRequest\",\
+          \"documentation\":\"<p> Options for server side encryption. </p>\"\
         }\
       }\
     },\
@@ -35560,7 +35576,36 @@
         \"r7gd.4xlarge\",\
         \"r7gd.8xlarge\",\
         \"r7gd.12xlarge\",\
-        \"r7gd.16xlarge\"\
+        \"r7gd.16xlarge\",\
+        \"r7a.medium\",\
+        \"r7a.large\",\
+        \"r7a.xlarge\",\
+        \"r7a.2xlarge\",\
+        \"r7a.4xlarge\",\
+        \"r7a.8xlarge\",\
+        \"r7a.12xlarge\",\
+        \"r7a.16xlarge\",\
+        \"r7a.24xlarge\",\
+        \"r7a.32xlarge\",\
+        \"r7a.48xlarge\",\
+        \"c7i.large\",\
+        \"c7i.xlarge\",\
+        \"c7i.2xlarge\",\
+        \"c7i.4xlarge\",\
+        \"c7i.8xlarge\",\
+        \"c7i.12xlarge\",\
+        \"c7i.16xlarge\",\
+        \"c7i.24xlarge\",\
+        \"c7i.48xlarge\",\
+        \"mac2-m2pro.metal\",\
+        \"r7iz.large\",\
+        \"r7iz.xlarge\",\
+        \"r7iz.2xlarge\",\
+        \"r7iz.4xlarge\",\
+        \"r7iz.8xlarge\",\
+        \"r7iz.12xlarge\",\
+        \"r7iz.16xlarge\",\
+        \"r7iz.32xlarge\"\
       ]\
     },\
     \"InstanceTypeHypervisor\":{\
@@ -37408,6 +37453,7 @@
         \"ed25519\"\
       ]\
     },\
+    \"KmsKeyArn\":{\"type\":\"string\"},\
     \"KmsKeyId\":{\"type\":\"string\"},\
     \"LastError\":{\
       \"type\":\"structure\",\
@@ -41599,10 +41645,7 @@
     },\
     \"ModifyVerifiedAccessEndpointPolicyRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"VerifiedAccessEndpointId\",\
-        \"PolicyEnabled\"\
-      ],\
+      \"required\":[\"VerifiedAccessEndpointId\"],\
       \"members\":{\
         \"VerifiedAccessEndpointId\":{\
           \"shape\":\"VerifiedAccessEndpointId\",\
@@ -41624,6 +41667,10 @@
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"SseSpecification\":{\
+          \"shape\":\"VerifiedAccessSseSpecificationRequest\",\
+          \"documentation\":\"<p> Options for server side encryption. </p>\"\
         }\
       }\
     },\
@@ -41639,6 +41686,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The Verified Access policy document.</p>\",\
           \"locationName\":\"policyDocument\"\
+        },\
+        \"SseSpecification\":{\
+          \"shape\":\"VerifiedAccessSseSpecificationResponse\",\
+          \"documentation\":\"<p> Describes the options in use for server side encryption. </p>\",\
+          \"locationName\":\"sseSpecification\"\
         }\
       }\
     },\
@@ -41696,10 +41748,7 @@
     },\
     \"ModifyVerifiedAccessGroupPolicyRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"VerifiedAccessGroupId\",\
-        \"PolicyEnabled\"\
-      ],\
+      \"required\":[\"VerifiedAccessGroupId\"],\
       \"members\":{\
         \"VerifiedAccessGroupId\":{\
           \"shape\":\"VerifiedAccessGroupId\",\
@@ -41721,6 +41770,10 @@
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"SseSpecification\":{\
+          \"shape\":\"VerifiedAccessSseSpecificationRequest\",\
+          \"documentation\":\"<p> Options for server side encryption. </p>\"\
         }\
       }\
     },\
@@ -41736,6 +41789,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The Verified Access policy document.</p>\",\
           \"locationName\":\"policyDocument\"\
+        },\
+        \"SseSpecification\":{\
+          \"shape\":\"VerifiedAccessSseSpecificationResponse\",\
+          \"documentation\":\"<p> Describes the options in use for server side encryption. </p>\",\
+          \"locationName\":\"sseSpecification\"\
         }\
       }\
     },\
@@ -41903,6 +41961,10 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">Ensuring Idempotency</a>.</p>\",\
           \"idempotencyToken\":true\
+        },\
+        \"SseSpecification\":{\
+          \"shape\":\"VerifiedAccessSseSpecificationRequest\",\
+          \"documentation\":\"<p> Options for server side encryption. </p>\"\
         }\
       }\
     },\
@@ -56263,6 +56325,11 @@
           \"shape\":\"TagList\",\
           \"documentation\":\"<p>The tags.</p>\",\
           \"locationName\":\"tagSet\"\
+        },\
+        \"SseSpecification\":{\
+          \"shape\":\"VerifiedAccessSseSpecificationResponse\",\
+          \"documentation\":\"<p> Describes the options in use for server side encryption. </p>\",\
+          \"locationName\":\"sseSpecification\"\
         }\
       },\
       \"documentation\":\"<p>An Amazon Web Services Verified Access endpoint specifies the application that Amazon Web Services Verified Access provides access to. It must be attached to an Amazon Web Services Verified Access group. An Amazon Web Services Verified Access endpoint must also have an attached access policy before you attached it to a group.</p>\"\
@@ -56432,6 +56499,11 @@
           \"shape\":\"TagList\",\
           \"documentation\":\"<p>The tags.</p>\",\
           \"locationName\":\"tagSet\"\
+        },\
+        \"SseSpecification\":{\
+          \"shape\":\"VerifiedAccessSseSpecificationResponse\",\
+          \"documentation\":\"<p> Describes the options in use for server side encryption. </p>\",\
+          \"locationName\":\"sseSpecification\"\
         }\
       },\
       \"documentation\":\"<p>Describes a Verified Access group.</p>\"\
@@ -56483,6 +56555,11 @@
           \"shape\":\"TagList\",\
           \"documentation\":\"<p>The tags.</p>\",\
           \"locationName\":\"tagSet\"\
+        },\
+        \"FipsEnabled\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Describes whether support for Federal Information Processing Standards (FIPS) is enabled on the instance.</p>\",\
+          \"locationName\":\"fipsEnabled\"\
         }\
       },\
       \"documentation\":\"<p>Describes a Verified Access instance.</p>\"\
@@ -56731,6 +56808,36 @@
       },\
       \"documentation\":\"<p>Describes the options for Verified Access logs.</p>\"\
     },\
+    \"VerifiedAccessSseSpecificationRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CustomerManagedKeyEnabled\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p> Enable or disable the use of customer managed KMS keys for server side encryption. </p> <p>Valid values: <code>True</code> | <code>False</code> </p>\"\
+        },\
+        \"KmsKeyArn\":{\
+          \"shape\":\"KmsKeyArn\",\
+          \"documentation\":\"<p> The ARN of the KMS key. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p> Verified Access provides server side encryption by default to data at rest using Amazon Web Services-owned KMS keys. You also have the option of using customer managed KMS keys, which can be specified using the options below. </p>\"\
+    },\
+    \"VerifiedAccessSseSpecificationResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CustomerManagedKeyEnabled\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p> Describes the use of customer managed KMS keys for server side encryption. </p> <p>Valid values: <code>True</code> | <code>False</code> </p>\",\
+          \"locationName\":\"customerManagedKeyEnabled\"\
+        },\
+        \"KmsKeyArn\":{\
+          \"shape\":\"KmsKeyArn\",\
+          \"documentation\":\"<p> Describes the ARN of the KMS key. </p>\",\
+          \"locationName\":\"kmsKeyArn\"\
+        }\
+      },\
+      \"documentation\":\"<p> Describes the options in use for server side encryption. </p>\"\
+    },\
     \"VerifiedAccessTrustProvider\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -56788,6 +56895,11 @@
           \"shape\":\"TagList\",\
           \"documentation\":\"<p>The tags.</p>\",\
           \"locationName\":\"tagSet\"\
+        },\
+        \"SseSpecification\":{\
+          \"shape\":\"VerifiedAccessSseSpecificationResponse\",\
+          \"documentation\":\"<p> Describes the options in use for server side encryption. </p>\",\
+          \"locationName\":\"sseSpecification\"\
         }\
       },\
       \"documentation\":\"<p>Describes a Verified Access trust provider.</p>\"\
