@@ -29,6 +29,7 @@
 - (void) test_AWSConnectAgentStatusReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAgentStatusSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAnswerMachineDetectionConfig API_AVAILABLE(ios(11));
+- (void) test_AWSConnectApplication API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssignContactCategoryActionDefinition API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateApprovedOriginRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateBotRequest API_AVAILABLE(ios(11));
@@ -275,6 +276,7 @@
 - (void) test_AWSConnectInstanceStorageConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectInstanceSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectIntegrationAssociationSummary API_AVAILABLE(ios(11));
+- (void) test_AWSConnectIntervalDetails API_AVAILABLE(ios(11));
 - (void) test_AWSConnectInvisibleFieldInfo API_AVAILABLE(ios(11));
 - (void) test_AWSConnectKinesisFirehoseConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectKinesisStreamConfig API_AVAILABLE(ios(11));
@@ -337,6 +339,8 @@
 - (void) test_AWSConnectListRulesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListSecurityKeysRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListSecurityKeysResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListSecurityProfileApplicationsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListSecurityProfileApplicationsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListSecurityProfilePermissionsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListSecurityProfilePermissionsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListSecurityProfilesRequest API_AVAILABLE(ios(11));
@@ -362,6 +366,7 @@
 - (void) test_AWSConnectMediaConcurrency API_AVAILABLE(ios(11));
 - (void) test_AWSConnectMetricDataV2 API_AVAILABLE(ios(11));
 - (void) test_AWSConnectMetricFilterV2 API_AVAILABLE(ios(11));
+- (void) test_AWSConnectMetricInterval API_AVAILABLE(ios(11));
 - (void) test_AWSConnectMetricResultV2 API_AVAILABLE(ios(11));
 - (void) test_AWSConnectMetricV2 API_AVAILABLE(ios(11));
 - (void) test_AWSConnectMonitorContactRequest API_AVAILABLE(ios(11));
@@ -622,6 +627,10 @@
 
 - (void) test_AWSConnectAnswerMachineDetectionConfig {
     [self validateSecureCodingForClass:[AWSConnectAnswerMachineDetectionConfig class]];
+}
+
+- (void) test_AWSConnectApplication {
+    [self validateSecureCodingForClass:[AWSConnectApplication class]];
 }
 
 - (void) test_AWSConnectAssignContactCategoryActionDefinition {
@@ -1608,6 +1617,10 @@
     [self validateSecureCodingForClass:[AWSConnectIntegrationAssociationSummary class]];
 }
 
+- (void) test_AWSConnectIntervalDetails {
+    [self validateSecureCodingForClass:[AWSConnectIntervalDetails class]];
+}
+
 - (void) test_AWSConnectInvisibleFieldInfo {
     [self validateSecureCodingForClass:[AWSConnectInvisibleFieldInfo class]];
 }
@@ -1856,6 +1869,14 @@
     [self validateSecureCodingForClass:[AWSConnectListSecurityKeysResponse class]];
 }
 
+- (void) test_AWSConnectListSecurityProfileApplicationsRequest {
+    [self validateSecureCodingForClass:[AWSConnectListSecurityProfileApplicationsRequest class]];
+}
+
+- (void) test_AWSConnectListSecurityProfileApplicationsResponse {
+    [self validateSecureCodingForClass:[AWSConnectListSecurityProfileApplicationsResponse class]];
+}
+
 - (void) test_AWSConnectListSecurityProfilePermissionsRequest {
     [self validateSecureCodingForClass:[AWSConnectListSecurityProfilePermissionsRequest class]];
 }
@@ -1954,6 +1975,10 @@
 
 - (void) test_AWSConnectMetricFilterV2 {
     [self validateSecureCodingForClass:[AWSConnectMetricFilterV2 class]];
+}
+
+- (void) test_AWSConnectMetricInterval {
+    [self validateSecureCodingForClass:[AWSConnectMetricInterval class]];
 }
 
 - (void) test_AWSConnectMetricResultV2 {
