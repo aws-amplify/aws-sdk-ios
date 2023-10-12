@@ -1000,7 +1000,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (void)setSecurityGroups:(AWSElasticLoadBalancingSetSecurityGroupsInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingSetSecurityGroupsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Enables the Availability Zones for the specified public subnets for the specified Application Load Balancer or Network Load Balancer. The specified subnets replace the previously enabled subnets.</p><p>When you specify subnets for a Network Load Balancer, you must include all subnets that were enabled previously, with their existing configurations, plus any additional subnets.</p>
+ <p>Enables the Availability Zones for the specified public subnets for the specified Application Load Balancer, Network Load Balancer or Gateway Load Balancer. The specified subnets replace the previously enabled subnets.</p><p>When you specify subnets for a Network Load Balancer, or Gateway Load Balancer you must include all subnets that were enabled previously, with their existing configurations, plus any additional subnets.</p>
  
  @param request A container for the necessary parameters to execute the SetSubnets service method.
 
@@ -1012,7 +1012,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (AWSTask<AWSElasticLoadBalancingSetSubnetsOutput *> *)setSubnets:(AWSElasticLoadBalancingSetSubnetsInput *)request;
 
 /**
- <p>Enables the Availability Zones for the specified public subnets for the specified Application Load Balancer or Network Load Balancer. The specified subnets replace the previously enabled subnets.</p><p>When you specify subnets for a Network Load Balancer, you must include all subnets that were enabled previously, with their existing configurations, plus any additional subnets.</p>
+ <p>Enables the Availability Zones for the specified public subnets for the specified Application Load Balancer, Network Load Balancer or Gateway Load Balancer. The specified subnets replace the previously enabled subnets.</p><p>When you specify subnets for a Network Load Balancer, or Gateway Load Balancer you must include all subnets that were enabled previously, with their existing configurations, plus any additional subnets.</p>
  
  @param request A container for the necessary parameters to execute the SetSubnets service method.
  @param completionHandler The completion handler to call when the load request is complete.
