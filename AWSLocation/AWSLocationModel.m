@@ -1270,6 +1270,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 	return @{
              @"detail" : @"Description",
              @"eventBridgeEnabled" : @"EventBridgeEnabled",
+             @"kmsKeyEnableGeospatialQueries" : @"KmsKeyEnableGeospatialQueries",
              @"kmsKeyId" : @"KmsKeyId",
              @"positionFiltering" : @"PositionFiltering",
              @"pricingPlan" : @"PricingPlan",
@@ -1550,6 +1551,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
              @"collectionName" : @"CollectionName",
              @"createTime" : @"CreateTime",
              @"detail" : @"Description",
+             @"geofenceCount" : @"GeofenceCount",
              @"kmsKeyId" : @"KmsKeyId",
              @"pricingPlan" : @"PricingPlan",
              @"pricingPlanDataSource" : @"PricingPlanDataSource",
@@ -1932,6 +1934,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
              @"createTime" : @"CreateTime",
              @"detail" : @"Description",
              @"eventBridgeEnabled" : @"EventBridgeEnabled",
+             @"kmsKeyEnableGeospatialQueries" : @"KmsKeyEnableGeospatialQueries",
              @"kmsKeyId" : @"KmsKeyId",
              @"positionFiltering" : @"PositionFiltering",
              @"pricingPlan" : @"PricingPlan",
@@ -2500,10 +2503,15 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"filterGeometry" : @"FilterGeometry",
              @"maxResults" : @"MaxResults",
              @"nextToken" : @"NextToken",
              @"trackerName" : @"TrackerName",
              };
+}
+
++ (NSValueTransformer *)filterGeometryJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationTrackingFilterGeometry class]];
 }
 
 @end
@@ -3779,6 +3787,20 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 @end
 
+@implementation AWSLocationTrackingFilterGeometry
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"polygon" : @"Polygon",
+             };
+}
+
+@end
+
 @implementation AWSLocationTruckDimensions
 
 + (BOOL)supportsSecureCoding {
@@ -4216,6 +4238,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 	return @{
              @"detail" : @"Description",
              @"eventBridgeEnabled" : @"EventBridgeEnabled",
+             @"kmsKeyEnableGeospatialQueries" : @"KmsKeyEnableGeospatialQueries",
              @"positionFiltering" : @"PositionFiltering",
              @"pricingPlan" : @"PricingPlan",
              @"pricingPlanDataSource" : @"PricingPlanDataSource",

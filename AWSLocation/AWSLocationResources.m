@@ -89,7 +89,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Creates an association between a geofence collection and a tracker resource. This allows the tracker resource to communicate location data to the linked geofence collection. </p> <p>You can associate up to five geofence collections to each tracker resource.</p> <note> <p>Currently not supported â Cross-account configurations, such as creating associations between a tracker resource in one account and a geofence collection in another account.</p> </note>\",\
-      \"endpoint\":{\"hostPrefix\":\"tracking.\"}\
+      \"endpoint\":{\"hostPrefix\":\"cp.tracking.\"}\
     },\
     \"BatchDeleteDevicePositionHistory\":{\
       \"name\":\"BatchDeleteDevicePositionHistory\",\
@@ -261,7 +261,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Creates a geofence collection, which manages and stores geofences.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"geofencing.\"},\
+      \"endpoint\":{\"hostPrefix\":\"cp.geofencing.\"},\
       \"idempotent\":true\
     },\
     \"CreateKey\":{\
@@ -282,7 +282,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Creates an API key resource in your Amazon Web Services account, which lets you grant actions for Amazon Location resources to the API key bearer.</p> <note> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html\\\">Using API keys</a>.</p> </note>\",\
-      \"endpoint\":{\"hostPrefix\":\"metadata.\"},\
+      \"endpoint\":{\"hostPrefix\":\"cp.metadata.\"},\
       \"idempotent\":true\
     },\
     \"CreateMap\":{\
@@ -303,7 +303,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Creates a map resource in your Amazon Web Services account, which provides map tiles of different styles sourced from global location data providers.</p> <note> <p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href=\\\"http://aws.amazon.com/service-terms\\\">Amazon Web Services service terms</a> for more details.</p> </note>\",\
-      \"endpoint\":{\"hostPrefix\":\"maps.\"},\
+      \"endpoint\":{\"hostPrefix\":\"cp.maps.\"},\
       \"idempotent\":true\
     },\
     \"CreatePlaceIndex\":{\
@@ -324,7 +324,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Creates a place index resource in your Amazon Web Services account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p> <note> <p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href=\\\"http://aws.amazon.com/service-terms\\\">Amazon Web Services service terms</a> for more details.</p> </note>\",\
-      \"endpoint\":{\"hostPrefix\":\"places.\"},\
+      \"endpoint\":{\"hostPrefix\":\"cp.places.\"},\
       \"idempotent\":true\
     },\
     \"CreateRouteCalculator\":{\
@@ -345,7 +345,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Creates a route calculator resource in your Amazon Web Services account.</p> <p>You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.</p> <note> <p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href=\\\"http://aws.amazon.com/service-terms\\\">Amazon Web Services service terms</a> for more details.</p> </note>\",\
-      \"endpoint\":{\"hostPrefix\":\"routes.\"},\
+      \"endpoint\":{\"hostPrefix\":\"cp.routes.\"},\
       \"idempotent\":true\
     },\
     \"CreateTracker\":{\
@@ -366,7 +366,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Creates a tracker resource in your Amazon Web Services account, which lets you retrieve current and historical location of devices.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"tracking.\"},\
+      \"endpoint\":{\"hostPrefix\":\"cp.tracking.\"},\
       \"idempotent\":true\
     },\
     \"DeleteGeofenceCollection\":{\
@@ -386,7 +386,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Deletes a geofence collection from your Amazon Web Services account.</p> <note> <p>This operation deletes the resource permanently. If the geofence collection is the target of a tracker resource, the devices will no longer be monitored.</p> </note>\",\
-      \"endpoint\":{\"hostPrefix\":\"geofencing.\"},\
+      \"endpoint\":{\"hostPrefix\":\"cp.geofencing.\"},\
       \"idempotent\":true\
     },\
     \"DeleteKey\":{\
@@ -406,7 +406,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Deletes the specified API key. The API key must have been deactivated more than 90 days previously.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"metadata.\"},\
+      \"endpoint\":{\"hostPrefix\":\"cp.metadata.\"},\
       \"idempotent\":true\
     },\
     \"DeleteMap\":{\
@@ -426,7 +426,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Deletes a map resource from your Amazon Web Services account.</p> <note> <p>This operation deletes the resource permanently. If the map is being used in an application, the map may not render.</p> </note>\",\
-      \"endpoint\":{\"hostPrefix\":\"maps.\"},\
+      \"endpoint\":{\"hostPrefix\":\"cp.maps.\"},\
       \"idempotent\":true\
     },\
     \"DeletePlaceIndex\":{\
@@ -446,7 +446,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Deletes a place index resource from your Amazon Web Services account.</p> <note> <p>This operation deletes the resource permanently.</p> </note>\",\
-      \"endpoint\":{\"hostPrefix\":\"places.\"},\
+      \"endpoint\":{\"hostPrefix\":\"cp.places.\"},\
       \"idempotent\":true\
     },\
     \"DeleteRouteCalculator\":{\
@@ -466,7 +466,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Deletes a route calculator resource from your Amazon Web Services account.</p> <note> <p>This operation deletes the resource permanently.</p> </note>\",\
-      \"endpoint\":{\"hostPrefix\":\"routes.\"},\
+      \"endpoint\":{\"hostPrefix\":\"cp.routes.\"},\
       \"idempotent\":true\
     },\
     \"DeleteTracker\":{\
@@ -486,7 +486,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Deletes a tracker resource from your Amazon Web Services account.</p> <note> <p>This operation deletes the resource permanently. If the tracker resource is in use, you may encounter an error. Make sure that the target resource isn't a dependency for your applications.</p> </note>\",\
-      \"endpoint\":{\"hostPrefix\":\"tracking.\"},\
+      \"endpoint\":{\"hostPrefix\":\"cp.tracking.\"},\
       \"idempotent\":true\
     },\
     \"DescribeGeofenceCollection\":{\
@@ -506,7 +506,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Retrieves the geofence collection details.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"geofencing.\"}\
+      \"endpoint\":{\"hostPrefix\":\"cp.geofencing.\"}\
     },\
     \"DescribeKey\":{\
       \"name\":\"DescribeKey\",\
@@ -525,7 +525,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Retrieves the API key resource details.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"metadata.\"}\
+      \"endpoint\":{\"hostPrefix\":\"cp.metadata.\"}\
     },\
     \"DescribeMap\":{\
       \"name\":\"DescribeMap\",\
@@ -544,7 +544,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Retrieves the map resource details.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"maps.\"}\
+      \"endpoint\":{\"hostPrefix\":\"cp.maps.\"}\
     },\
     \"DescribePlaceIndex\":{\
       \"name\":\"DescribePlaceIndex\",\
@@ -563,7 +563,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Retrieves the place index resource details.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"places.\"}\
+      \"endpoint\":{\"hostPrefix\":\"cp.places.\"}\
     },\
     \"DescribeRouteCalculator\":{\
       \"name\":\"DescribeRouteCalculator\",\
@@ -582,7 +582,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Retrieves the route calculator resource details.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"routes.\"}\
+      \"endpoint\":{\"hostPrefix\":\"cp.routes.\"}\
     },\
     \"DescribeTracker\":{\
       \"name\":\"DescribeTracker\",\
@@ -601,7 +601,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Retrieves the tracker resource details.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"tracking.\"}\
+      \"endpoint\":{\"hostPrefix\":\"cp.tracking.\"}\
     },\
     \"DisassociateTrackerConsumer\":{\
       \"name\":\"DisassociateTrackerConsumer\",\
@@ -620,7 +620,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Removes the association between a tracker resource and a geofence collection.</p> <note> <p>Once you unlink a tracker resource from a geofence collection, the tracker positions will no longer be automatically evaluated against geofences.</p> </note>\",\
-      \"endpoint\":{\"hostPrefix\":\"tracking.\"}\
+      \"endpoint\":{\"hostPrefix\":\"cp.tracking.\"}\
     },\
     \"GetDevicePosition\":{\
       \"name\":\"GetDevicePosition\",\
@@ -808,7 +808,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Lists geofence collections in your Amazon Web Services account.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"geofencing.\"}\
+      \"endpoint\":{\"hostPrefix\":\"cp.geofencing.\"}\
     },\
     \"ListGeofences\":{\
       \"name\":\"ListGeofences\",\
@@ -845,7 +845,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Lists API key resources in your Amazon Web Services account.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"metadata.\"}\
+      \"endpoint\":{\"hostPrefix\":\"cp.metadata.\"}\
     },\
     \"ListMaps\":{\
       \"name\":\"ListMaps\",\
@@ -863,7 +863,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Lists map resources in your Amazon Web Services account.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"maps.\"}\
+      \"endpoint\":{\"hostPrefix\":\"cp.maps.\"}\
     },\
     \"ListPlaceIndexes\":{\
       \"name\":\"ListPlaceIndexes\",\
@@ -881,7 +881,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Lists place index resources in your Amazon Web Services account.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"places.\"}\
+      \"endpoint\":{\"hostPrefix\":\"cp.places.\"}\
     },\
     \"ListRouteCalculators\":{\
       \"name\":\"ListRouteCalculators\",\
@@ -899,7 +899,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Lists route calculator resources in your Amazon Web Services account.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"routes.\"}\
+      \"endpoint\":{\"hostPrefix\":\"cp.routes.\"}\
     },\
     \"ListTagsForResource\":{\
       \"name\":\"ListTagsForResource\",\
@@ -918,7 +918,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Returns a list of tags that are applied to the specified Amazon Location resource.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"metadata.\"}\
+      \"endpoint\":{\"hostPrefix\":\"cp.metadata.\"}\
     },\
     \"ListTrackerConsumers\":{\
       \"name\":\"ListTrackerConsumers\",\
@@ -937,7 +937,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Lists geofence collections currently associated to the given tracker resource.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"tracking.\"}\
+      \"endpoint\":{\"hostPrefix\":\"cp.tracking.\"}\
     },\
     \"ListTrackers\":{\
       \"name\":\"ListTrackers\",\
@@ -955,7 +955,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Lists tracker resources in your Amazon Web Services account.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"tracking.\"}\
+      \"endpoint\":{\"hostPrefix\":\"cp.tracking.\"}\
     },\
     \"PutGeofence\":{\
       \"name\":\"PutGeofence\",\
@@ -1051,7 +1051,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Assigns one or more tags (key-value pairs) to the specified Amazon Location Service resource.</p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.</p> <p>You can use the <code>TagResource</code> operation with an Amazon Location Service resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the tags already associated with the resource. If you specify a tag key that's already associated with the resource, the new tag value that you specify replaces the previous value for that tag. </p> <p>You can associate up to 50 tags with a resource.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"metadata.\"}\
+      \"endpoint\":{\"hostPrefix\":\"cp.metadata.\"}\
     },\
     \"UntagResource\":{\
       \"name\":\"UntagResource\",\
@@ -1070,7 +1070,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Removes one or more tags from the specified Amazon Location resource.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"metadata.\"},\
+      \"endpoint\":{\"hostPrefix\":\"cp.metadata.\"},\
       \"idempotent\":true\
     },\
     \"UpdateGeofenceCollection\":{\
@@ -1090,7 +1090,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Updates the specified properties of a given geofence collection.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"geofencing.\"},\
+      \"endpoint\":{\"hostPrefix\":\"cp.geofencing.\"},\
       \"idempotent\":true\
     },\
     \"UpdateKey\":{\
@@ -1110,7 +1110,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Updates the specified properties of a given API key resource.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"metadata.\"},\
+      \"endpoint\":{\"hostPrefix\":\"cp.metadata.\"},\
       \"idempotent\":true\
     },\
     \"UpdateMap\":{\
@@ -1130,7 +1130,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Updates the specified properties of a given map resource.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"maps.\"},\
+      \"endpoint\":{\"hostPrefix\":\"cp.maps.\"},\
       \"idempotent\":true\
     },\
     \"UpdatePlaceIndex\":{\
@@ -1150,7 +1150,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Updates the specified properties of a given place index resource.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"places.\"},\
+      \"endpoint\":{\"hostPrefix\":\"cp.places.\"},\
       \"idempotent\":true\
     },\
     \"UpdateRouteCalculator\":{\
@@ -1170,7 +1170,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Updates the specified properties for a given route calculator resource.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"routes.\"},\
+      \"endpoint\":{\"hostPrefix\":\"cp.routes.\"},\
       \"idempotent\":true\
     },\
     \"UpdateTracker\":{\
@@ -1190,7 +1190,7 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Updates the specified properties of a given tracker resource.</p>\",\
-      \"endpoint\":{\"hostPrefix\":\"tracking.\"},\
+      \"endpoint\":{\"hostPrefix\":\"cp.tracking.\"},\
       \"idempotent\":true\
     }\
   },\
@@ -2418,6 +2418,10 @@
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Whether to enable position <code>UPDATE</code> events from this tracker to be sent to EventBridge.</p> <note> <p>You do not need enable this feature to get <code>ENTER</code> and <code>EXIT</code> events for geofences with this tracker. Those events are always sent to EventBridge.</p> </note>\"\
         },\
+        \"KmsKeyEnableGeospatialQueries\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Enables <code>GeospatialQueries</code> for a tracker that uses a <a href=\\\"https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html\\\">Amazon Web Services KMS customer managed key</a>.</p> <p>This parameter is only used if you are using a KMS customer managed key.</p> <note> <p>If you wish to encrypt your data using your own KMS customer managed key, then the Bounding Polygon Queries feature will be disabled by default. This is because by using this feature, a representation of your device positions will not be encrypted using the your KMS managed key. The exact device position, however; is still encrypted using your managed key.</p> <p>You can choose to opt-in to the Bounding Polygon Quseries feature. This is done by setting the <code>KmsKeyEnableGeospatialQueries</code> parameter to true when creating or updating a Tracker.</p> </note>\"\
+        },\
         \"KmsKeyId\":{\
           \"shape\":\"KmsKeyId\",\
           \"documentation\":\"<p>A key identifier for an <a href=\\\"https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html\\\">Amazon Web Services KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.</p>\"\
@@ -2620,6 +2624,10 @@
           \"shape\":\"ResourceDescription\",\
           \"documentation\":\"<p>The optional description for the geofence collection.</p>\"\
         },\
+        \"GeofenceCount\":{\
+          \"shape\":\"DescribeGeofenceCollectionResponseGeofenceCountInteger\",\
+          \"documentation\":\"<p>The number of geofences in the geofence collection.</p>\"\
+        },\
         \"KmsKeyId\":{\
           \"shape\":\"KmsKeyId\",\
           \"documentation\":\"<p>A key identifier for an <a href=\\\"https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html\\\">Amazon Web Services KMS customer managed key</a> assigned to the Amazon Location resource</p>\"\
@@ -2645,6 +2653,11 @@
           \"documentation\":\"<p>The timestamp for when the geofence collection was last updated in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code> </p>\"\
         }\
       }\
+    },\
+    \"DescribeGeofenceCollectionResponseGeofenceCountInteger\":{\
+      \"type\":\"integer\",\
+      \"box\":true,\
+      \"min\":0\
     },\
     \"DescribeKeyRequest\":{\
       \"type\":\"structure\",\
@@ -2925,6 +2938,10 @@
         \"EventBridgeEnabled\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Whether <code>UPDATE</code> events from this tracker in EventBridge are enabled. If set to <code>true</code> these events will be sent to EventBridge.</p>\"\
+        },\
+        \"KmsKeyEnableGeospatialQueries\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Enables <code>GeospatialQueries</code> for a tracker that uses a <a href=\\\"https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html\\\">Amazon Web Services KMS customer managed key</a>.</p> <p>This parameter is only used if you are using a KMS customer managed key.</p> <note> <p>If you wish to encrypt your data using your own KMS customer managed key, then the Bounding Polygon Queries feature will be disabled by default. This is because by using this feature, a representation of your device positions will not be encrypted using the your KMS managed key. The exact device position, however; is still encrypted using your managed key.</p> <p>You can choose to opt-in to the Bounding Polygon Quseries feature. This is done by setting the <code>KmsKeyEnableGeospatialQueries</code> parameter to true when creating or updating a Tracker.</p> </note>\"\
         },\
         \"KmsKeyId\":{\
           \"shape\":\"KmsKeyId\",\
@@ -3283,7 +3300,7 @@
       \"members\":{\
         \"FontStack\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>A comma-separated list of fonts to load glyphs from in order of preference. For example, <code>Noto Sans Regular, Arial Unicode</code>.</p> <p>Valid fonts stacks for <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/esri.html\\\">Esri</a> styles: </p> <ul> <li> <p>VectorEsriDarkGrayCanvas â <code>Ubuntu Medium Italic</code> | <code>Ubuntu Medium</code> | <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code> | <code>Ubuntu Bold</code> </p> </li> <li> <p>VectorEsriLightGrayCanvas â <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code> | <code>Ubuntu Light</code> | <code>Ubuntu Bold</code> </p> </li> <li> <p>VectorEsriTopographic â <code>Noto Sans Italic</code> | <code>Noto Sans Regular</code> | <code>Noto Sans Bold</code> | <code>Noto Serif Regular</code> | <code>Roboto Condensed Light Italic</code> </p> </li> <li> <p>VectorEsriStreets â <code>Arial Regular</code> | <code>Arial Italic</code> | <code>Arial Bold</code> </p> </li> <li> <p>VectorEsriNavigation â <code>Arial Regular</code> | <code>Arial Italic</code> | <code>Arial Bold</code> </p> </li> </ul> <p>Valid font stacks for <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/HERE.html\\\">HERE Technologies</a> styles:</p> <ul> <li> <p>VectorHereContrast â <code>Fira GO Regular</code> | <code>Fira GO Bold</code> </p> </li> <li> <p>VectorHereExplore, VectorHereExploreTruck, HybridHereExploreSatellite â <code>Fira GO Italic</code> | <code>Fira GO Map</code> | <code>Fira GO Map Bold</code> | <code>Noto Sans CJK JP Bold</code> | <code>Noto Sans CJK JP Light</code> | <code>Noto Sans CJK JP Regular</code> </p> </li> </ul> <p>Valid font stacks for <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/grab.html\\\">GrabMaps</a> styles:</p> <ul> <li> <p>VectorGrabStandardLight, VectorGrabStandardDark â <code>Noto Sans Regular</code> | <code>Noto Sans Medium</code> | <code>Noto Sans Bold</code> </p> </li> </ul> <p>Valid font stacks for <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/open-data.html\\\">Open Data</a> styles:</p> <ul> <li> <p>VectorOpenDataStandardLight, VectorOpenDataStandardDark, VectorOpenDataVisualizationLight, VectorOpenDataVisualizationDark â <code>Amazon Ember Regular,Noto Sans Regular</code> | <code>Amazon Ember Bold,Noto Sans Bold</code> | <code>Amazon Ember Medium,Noto Sans Medium</code> | <code>Amazon Ember Regular Italic,Noto Sans Italic</code> | <code>Amazon Ember Condensed RC Regular,Noto Sans Regular</code> | <code>Amazon Ember Condensed RC Bold,Noto Sans Bold</code> | <code>Amazon Ember Regular,Noto Sans Regular,Noto Sans Arabic Regular</code> | <code>Amazon Ember Condensed RC Bold,Noto Sans Bold,Noto Sans Arabic Condensed Bold</code> | <code>Amazon Ember Bold,Noto Sans Bold,Noto Sans Arabic Bold</code> | <code>Amazon Ember Regular Italic,Noto Sans Italic,Noto Sans Arabic Regular</code> | <code>Amazon Ember Condensed RC Regular,Noto Sans Regular,Noto Sans Arabic Condensed Regular</code> | <code>Amazon Ember Medium,Noto Sans Medium,Noto Sans Arabic Medium</code> </p> </li> </ul> <note> <p>The fonts used by the Open Data map styles are combined fonts that use <code>Amazon Ember</code> for most glyphs but <code>Noto Sans</code> for glyphs unsupported by <code>Amazon Ember</code>.</p> </note>\",\
+          \"documentation\":\"<p>A comma-separated list of fonts to load glyphs from in order of preference. For example, <code>Noto Sans Regular, Arial Unicode</code>.</p> <p>Valid font stacks for <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/esri.html\\\">Esri</a> styles: </p> <ul> <li> <p>VectorEsriDarkGrayCanvas â <code>Ubuntu Medium Italic</code> | <code>Ubuntu Medium</code> | <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code> | <code>Ubuntu Bold</code> </p> </li> <li> <p>VectorEsriLightGrayCanvas â <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code> | <code>Ubuntu Light</code> | <code>Ubuntu Bold</code> </p> </li> <li> <p>VectorEsriTopographic â <code>Noto Sans Italic</code> | <code>Noto Sans Regular</code> | <code>Noto Sans Bold</code> | <code>Noto Serif Regular</code> | <code>Roboto Condensed Light Italic</code> </p> </li> <li> <p>VectorEsriStreets â <code>Arial Regular</code> | <code>Arial Italic</code> | <code>Arial Bold</code> </p> </li> <li> <p>VectorEsriNavigation â <code>Arial Regular</code> | <code>Arial Italic</code> | <code>Arial Bold</code> </p> </li> </ul> <p>Valid font stacks for <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/HERE.html\\\">HERE Technologies</a> styles:</p> <ul> <li> <p>VectorHereContrast â <code>Fira GO Regular</code> | <code>Fira GO Bold</code> </p> </li> <li> <p>VectorHereExplore, VectorHereExploreTruck, HybridHereExploreSatellite â <code>Fira GO Italic</code> | <code>Fira GO Map</code> | <code>Fira GO Map Bold</code> | <code>Noto Sans CJK JP Bold</code> | <code>Noto Sans CJK JP Light</code> | <code>Noto Sans CJK JP Regular</code> </p> </li> </ul> <p>Valid font stacks for <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/grab.html\\\">GrabMaps</a> styles:</p> <ul> <li> <p>VectorGrabStandardLight, VectorGrabStandardDark â <code>Noto Sans Regular</code> | <code>Noto Sans Medium</code> | <code>Noto Sans Bold</code> </p> </li> </ul> <p>Valid font stacks for <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/open-data.html\\\">Open Data</a> styles:</p> <ul> <li> <p>VectorOpenDataStandardLight, VectorOpenDataStandardDark, VectorOpenDataVisualizationLight, VectorOpenDataVisualizationDark â <code>Amazon Ember Regular,Noto Sans Regular</code> | <code>Amazon Ember Bold,Noto Sans Bold</code> | <code>Amazon Ember Medium,Noto Sans Medium</code> | <code>Amazon Ember Regular Italic,Noto Sans Italic</code> | <code>Amazon Ember Condensed RC Regular,Noto Sans Regular</code> | <code>Amazon Ember Condensed RC Bold,Noto Sans Bold</code> | <code>Amazon Ember Regular,Noto Sans Regular,Noto Sans Arabic Regular</code> | <code>Amazon Ember Condensed RC Bold,Noto Sans Bold,Noto Sans Arabic Condensed Bold</code> | <code>Amazon Ember Bold,Noto Sans Bold,Noto Sans Arabic Bold</code> | <code>Amazon Ember Regular Italic,Noto Sans Italic,Noto Sans Arabic Regular</code> | <code>Amazon Ember Condensed RC Regular,Noto Sans Regular,Noto Sans Arabic Condensed Regular</code> | <code>Amazon Ember Medium,Noto Sans Medium,Noto Sans Arabic Medium</code> </p> </li> </ul> <note> <p>The fonts used by the Open Data map styles are combined fonts that use <code>Amazon Ember</code> for most glyphs but <code>Noto Sans</code> for glyphs unsupported by <code>Amazon Ember</code>.</p> </note>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FontStack\"\
         },\
@@ -3666,6 +3683,10 @@
       \"type\":\"structure\",\
       \"required\":[\"TrackerName\"],\
       \"members\":{\
+        \"FilterGeometry\":{\
+          \"shape\":\"TrackingFilterGeometry\",\
+          \"documentation\":\"<p>The geomerty used to filter device positions.</p>\"\
+        },\
         \"MaxResults\":{\
           \"shape\":\"ListDevicePositionsRequestMaxResultsInteger\",\
           \"documentation\":\"<p>An optional limit for the number of entries returned in a single call.</p> <p>Default value: <code>100</code> </p>\"\
@@ -3694,7 +3715,7 @@
       \"members\":{\
         \"Entries\":{\
           \"shape\":\"ListDevicePositionsResponseEntryList\",\
-          \"documentation\":\"<p>Contains details about each device's last known position. These details includes the device ID, the time when the position was sampled on the device, the time that the service received the update, and the most recent coordinates.</p>\"\
+          \"documentation\":\"<p>Contains details about each device's last known position.</p>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"Token\",\
@@ -5258,6 +5279,16 @@
       \"max\":2000,\
       \"min\":1\
     },\
+    \"TrackingFilterGeometry\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Polygon\":{\
+          \"shape\":\"LinearRings\",\
+          \"documentation\":\"<p>The set of arrays which define the polygon. A polygon can have between 4 and 1000 vertices.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The geomerty used to filter device positions.</p>\"\
+    },\
     \"TravelMode\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -5605,6 +5636,10 @@
         \"EventBridgeEnabled\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Whether to enable position <code>UPDATE</code> events from this tracker to be sent to EventBridge.</p> <note> <p>You do not need enable this feature to get <code>ENTER</code> and <code>EXIT</code> events for geofences with this tracker. Those events are always sent to EventBridge.</p> </note>\"\
+        },\
+        \"KmsKeyEnableGeospatialQueries\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Enables <code>GeospatialQueries</code> for a tracker that uses a <a href=\\\"https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html\\\">Amazon Web Services KMS customer managed key</a>.</p> <p>This parameter is only used if you are using a KMS customer managed key.</p>\"\
         },\
         \"PositionFiltering\":{\
           \"shape\":\"PositionFiltering\",\
