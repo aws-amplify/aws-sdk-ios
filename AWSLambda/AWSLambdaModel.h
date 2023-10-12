@@ -4545,6 +4545,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 
 
 /**
+ <p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable ipv6AllowedForDualStack;
+
+/**
  <p>A list of VPC security group IDs.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
@@ -4561,6 +4566,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
  */
 @interface AWSLambdaVpcConfigResponse : AWSModel
 
+
+/**
+ <p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable ipv6AllowedForDualStack;
 
 /**
  <p>A list of VPC security group IDs.</p>

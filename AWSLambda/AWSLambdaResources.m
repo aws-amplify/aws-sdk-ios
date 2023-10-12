@@ -4637,6 +4637,7 @@
       \"type\":\"integer\",\
       \"min\":0\
     },\
+    \"NullableBoolean\":{\"type\":\"boolean\"},\
     \"OnFailure\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -6113,6 +6114,10 @@
         \"SecurityGroupIds\":{\
           \"shape\":\"SecurityGroupIds\",\
           \"documentation\":\"<p>A list of VPC security group IDs.</p>\"\
+        },\
+        \"Ipv6AllowedForDualStack\":{\
+          \"shape\":\"NullableBoolean\",\
+          \"documentation\":\"<p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The VPC security groups and subnets that are attached to a Lambda function. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html\\\">Configuring a Lambda function to access resources in a VPC</a>.</p>\"\
@@ -6131,6 +6136,10 @@
         \"VpcId\":{\
           \"shape\":\"VpcId\",\
           \"documentation\":\"<p>The ID of the VPC.</p>\"\
+        },\
+        \"Ipv6AllowedForDualStack\":{\
+          \"shape\":\"NullableBoolean\",\
+          \"documentation\":\"<p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The VPC security groups and subnets that are attached to a Lambda function.</p>\"\
