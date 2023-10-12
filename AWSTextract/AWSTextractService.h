@@ -250,6 +250,106 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
 - (void)analyzeID:(AWSTextractAnalyzeIDRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractAnalyzeIDResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Creates an adapter, which can be fine-tuned for enhanced performance on user provided documents. Takes an AdapterName and FeatureType. Currently the only supported feature type is <code>QUERIES</code>. You can also provide a Description, Tags, and a ClientRequestToken. You can choose whether or not the adapter should be AutoUpdated with the AutoUpdate argument. By default, AutoUpdate is set to DISABLED.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateAdapter service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractCreateAdapterResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorConflict`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorIdempotentParameterMismatch`, `AWSTextractErrorThrottling`, `AWSTextractErrorLimitExceeded`, `AWSTextractErrorValidation`, `AWSTextractErrorServiceQuotaExceeded`.
+ 
+ @see AWSTextractCreateAdapterRequest
+ @see AWSTextractCreateAdapterResponse
+ */
+- (AWSTask<AWSTextractCreateAdapterResponse *> *)createAdapter:(AWSTextractCreateAdapterRequest *)request;
+
+/**
+ <p>Creates an adapter, which can be fine-tuned for enhanced performance on user provided documents. Takes an AdapterName and FeatureType. Currently the only supported feature type is <code>QUERIES</code>. You can also provide a Description, Tags, and a ClientRequestToken. You can choose whether or not the adapter should be AutoUpdated with the AutoUpdate argument. By default, AutoUpdate is set to DISABLED.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateAdapter service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorConflict`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorIdempotentParameterMismatch`, `AWSTextractErrorThrottling`, `AWSTextractErrorLimitExceeded`, `AWSTextractErrorValidation`, `AWSTextractErrorServiceQuotaExceeded`.
+ 
+ @see AWSTextractCreateAdapterRequest
+ @see AWSTextractCreateAdapterResponse
+ */
+- (void)createAdapter:(AWSTextractCreateAdapterRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractCreateAdapterResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates a new version of an adapter. Operates on a provided AdapterId and a specified dataset provided via the DatasetConfig argument. Requires that you specify an Amazon S3 bucket with the OutputConfig argument. You can provide an optional KMSKeyId, an optional ClientRequestToken, and optional tags.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateAdapterVersion service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractCreateAdapterVersionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorInvalidKMSKey`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorIdempotentParameterMismatch`, `AWSTextractErrorThrottling`, `AWSTextractErrorLimitExceeded`, `AWSTextractErrorValidation`, `AWSTextractErrorServiceQuotaExceeded`, `AWSTextractErrorResourceNotFound`, `AWSTextractErrorConflict`.
+ 
+ @see AWSTextractCreateAdapterVersionRequest
+ @see AWSTextractCreateAdapterVersionResponse
+ */
+- (AWSTask<AWSTextractCreateAdapterVersionResponse *> *)createAdapterVersion:(AWSTextractCreateAdapterVersionRequest *)request;
+
+/**
+ <p>Creates a new version of an adapter. Operates on a provided AdapterId and a specified dataset provided via the DatasetConfig argument. Requires that you specify an Amazon S3 bucket with the OutputConfig argument. You can provide an optional KMSKeyId, an optional ClientRequestToken, and optional tags.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateAdapterVersion service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorInvalidKMSKey`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorIdempotentParameterMismatch`, `AWSTextractErrorThrottling`, `AWSTextractErrorLimitExceeded`, `AWSTextractErrorValidation`, `AWSTextractErrorServiceQuotaExceeded`, `AWSTextractErrorResourceNotFound`, `AWSTextractErrorConflict`.
+ 
+ @see AWSTextractCreateAdapterVersionRequest
+ @see AWSTextractCreateAdapterVersionResponse
+ */
+- (void)createAdapterVersion:(AWSTextractCreateAdapterVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractCreateAdapterVersionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes an Amazon Textract adapter. Takes an AdapterId and deletes the adapter specified by the ID.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteAdapter service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractDeleteAdapterResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorConflict`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorValidation`, `AWSTextractErrorResourceNotFound`.
+ 
+ @see AWSTextractDeleteAdapterRequest
+ @see AWSTextractDeleteAdapterResponse
+ */
+- (AWSTask<AWSTextractDeleteAdapterResponse *> *)deleteAdapter:(AWSTextractDeleteAdapterRequest *)request;
+
+/**
+ <p>Deletes an Amazon Textract adapter. Takes an AdapterId and deletes the adapter specified by the ID.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteAdapter service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorConflict`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorValidation`, `AWSTextractErrorResourceNotFound`.
+ 
+ @see AWSTextractDeleteAdapterRequest
+ @see AWSTextractDeleteAdapterResponse
+ */
+- (void)deleteAdapter:(AWSTextractDeleteAdapterRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractDeleteAdapterResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes an Amazon Textract adapter version. Requires that you specify both an AdapterId and a AdapterVersion. Deletes the adapter version specified by the AdapterId and the AdapterVersion.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteAdapterVersion service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractDeleteAdapterVersionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorConflict`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorValidation`, `AWSTextractErrorResourceNotFound`.
+ 
+ @see AWSTextractDeleteAdapterVersionRequest
+ @see AWSTextractDeleteAdapterVersionResponse
+ */
+- (AWSTask<AWSTextractDeleteAdapterVersionResponse *> *)deleteAdapterVersion:(AWSTextractDeleteAdapterVersionRequest *)request;
+
+/**
+ <p>Deletes an Amazon Textract adapter version. Requires that you specify both an AdapterId and a AdapterVersion. Deletes the adapter version specified by the AdapterId and the AdapterVersion.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteAdapterVersion service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorConflict`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorValidation`, `AWSTextractErrorResourceNotFound`.
+ 
+ @see AWSTextractDeleteAdapterVersionRequest
+ @see AWSTextractDeleteAdapterVersionResponse
+ */
+- (void)deleteAdapterVersion:(AWSTextractDeleteAdapterVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractDeleteAdapterVersionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Detects text in the input document. Amazon Textract can detect lines of text and the words that make up a line of text. The input document must be in one of the following image formats: JPEG, PNG, PDF, or TIFF. <code>DetectDocumentText</code> returns the detected text in an array of <a>Block</a> objects. </p><p>Each document page has as an associated <code>Block</code> of type PAGE. Each PAGE <code>Block</code> object is the parent of LINE <code>Block</code> objects that represent the lines of detected text on a page. A LINE <code>Block</code> object is a parent for each word that makes up the line. Words are represented by <code>Block</code> objects of type WORD.</p><p><code>DetectDocumentText</code> is a synchronous operation. To analyze documents asynchronously, use <a>StartDocumentTextDetection</a>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html">Document Text Detection</a>.</p>
  
  @param request A container for the necessary parameters to execute the DetectDocumentText service method.
@@ -273,6 +373,56 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
  @see AWSTextractDetectDocumentTextResponse
  */
 - (void)detectDocumentText:(AWSTextractDetectDocumentTextRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractDetectDocumentTextResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets configuration information for an adapter specified by an AdapterId, returning information on AdapterName, Description, CreationTime, AutoUpdate status, and FeatureTypes.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetAdapter service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractGetAdapterResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorValidation`, `AWSTextractErrorResourceNotFound`.
+ 
+ @see AWSTextractGetAdapterRequest
+ @see AWSTextractGetAdapterResponse
+ */
+- (AWSTask<AWSTextractGetAdapterResponse *> *)getAdapter:(AWSTextractGetAdapterRequest *)request;
+
+/**
+ <p>Gets configuration information for an adapter specified by an AdapterId, returning information on AdapterName, Description, CreationTime, AutoUpdate status, and FeatureTypes.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetAdapter service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorValidation`, `AWSTextractErrorResourceNotFound`.
+ 
+ @see AWSTextractGetAdapterRequest
+ @see AWSTextractGetAdapterResponse
+ */
+- (void)getAdapter:(AWSTextractGetAdapterRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractGetAdapterResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets configuration information for the specified adapter version, including: AdapterId, AdapterVersion, FeatureTypes, Status, StatusMessage, DatasetConfig, KMSKeyId, OutputConfig, Tags and EvaluationMetrics.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetAdapterVersion service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractGetAdapterVersionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorValidation`, `AWSTextractErrorResourceNotFound`.
+ 
+ @see AWSTextractGetAdapterVersionRequest
+ @see AWSTextractGetAdapterVersionResponse
+ */
+- (AWSTask<AWSTextractGetAdapterVersionResponse *> *)getAdapterVersion:(AWSTextractGetAdapterVersionRequest *)request;
+
+/**
+ <p>Gets configuration information for the specified adapter version, including: AdapterId, AdapterVersion, FeatureTypes, Status, StatusMessage, DatasetConfig, KMSKeyId, OutputConfig, Tags and EvaluationMetrics.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetAdapterVersion service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorValidation`, `AWSTextractErrorResourceNotFound`.
+ 
+ @see AWSTextractGetAdapterVersionRequest
+ @see AWSTextractGetAdapterVersionResponse
+ */
+- (void)getAdapterVersion:(AWSTextractGetAdapterVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractGetAdapterVersionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Gets the results for an Amazon Textract asynchronous operation that analyzes text in a document.</p><p>You start asynchronous text analysis by calling <a>StartDocumentAnalysis</a>, which returns a job identifier (<code>JobId</code>). When the text analysis operation finishes, Amazon Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS) topic that's registered in the initial call to <code>StartDocumentAnalysis</code>. To get the results of the text-detection operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetDocumentAnalysis</code>, and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartDocumentAnalysis</code>.</p><p><code>GetDocumentAnalysis</code> returns an array of <a>Block</a> objects. The following types of information are returned: </p><ul><li><p>Form data (key-value pairs). The related information is returned in two <a>Block</a> objects, each of type <code>KEY_VALUE_SET</code>: a KEY <code>Block</code> object and a VALUE <code>Block</code> object. For example, <i>Name: Ana Silva Carolina</i> contains a key and value. <i>Name:</i> is the key. <i>Ana Silva Carolina</i> is the value.</p></li><li><p>Table and table cell data. A TABLE <code>Block</code> object contains information about a detected table. A CELL <code>Block</code> object is returned for each cell in a table.</p></li><li><p>Lines and words of text. A LINE <code>Block</code> object contains one or more WORD <code>Block</code> objects. All lines and words that are detected in the document are returned (including text that doesn't have a relationship with the value of the <code>StartDocumentAnalysis</code><code>FeatureTypes</code> input parameter). </p></li><li><p>Query. A QUERY Block object contains the query text, alias and link to the associated Query results block object.</p></li><li><p>Query Results. A QUERY_RESULT Block object contains the answer to the query and an ID that connects it to the query asked. This Block also contains a confidence score.</p></li></ul><note><p>While processing a document with queries, look out for <code>INVALID_REQUEST_PARAMETERS</code> output. This indicates that either the per page query limit has been exceeded or that the operation is trying to query a page in the document which doesn’t exist. </p></note><p>Selection elements such as check boxes and option buttons (radio buttons) can be detected in form data and in tables. A SELECTION_ELEMENT <code>Block</code> object contains information about a selection element, including the selection status.</p><p>Use the <code>MaxResults</code> parameter to limit the number of blocks that are returned. If there are more results than specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains a pagination token for getting the next set of results. To get the next page of results, call <code>GetDocumentAnalysis</code>, and populate the <code>NextToken</code> request parameter with the token value that's returned from the previous call to <code>GetDocumentAnalysis</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html">Document Text Analysis</a>.</p>
@@ -400,6 +550,81 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
 - (void)getLendingAnalysisSummary:(AWSTextractGetLendingAnalysisSummaryRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractGetLendingAnalysisSummaryResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>List all version of an adapter that meet the specified filtration criteria.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListAdapterVersions service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractListAdapterVersionsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorValidation`, `AWSTextractErrorResourceNotFound`.
+ 
+ @see AWSTextractListAdapterVersionsRequest
+ @see AWSTextractListAdapterVersionsResponse
+ */
+- (AWSTask<AWSTextractListAdapterVersionsResponse *> *)listAdapterVersions:(AWSTextractListAdapterVersionsRequest *)request;
+
+/**
+ <p>List all version of an adapter that meet the specified filtration criteria.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListAdapterVersions service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorValidation`, `AWSTextractErrorResourceNotFound`.
+ 
+ @see AWSTextractListAdapterVersionsRequest
+ @see AWSTextractListAdapterVersionsResponse
+ */
+- (void)listAdapterVersions:(AWSTextractListAdapterVersionsRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractListAdapterVersionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Lists all adapters that match the specified filtration criteria.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListAdapters service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractListAdaptersResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorValidation`.
+ 
+ @see AWSTextractListAdaptersRequest
+ @see AWSTextractListAdaptersResponse
+ */
+- (AWSTask<AWSTextractListAdaptersResponse *> *)listAdapters:(AWSTextractListAdaptersRequest *)request;
+
+/**
+ <p>Lists all adapters that match the specified filtration criteria.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListAdapters service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorValidation`.
+ 
+ @see AWSTextractListAdaptersRequest
+ @see AWSTextractListAdaptersResponse
+ */
+- (void)listAdapters:(AWSTextractListAdaptersRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractListAdaptersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Lists all tags for an Amazon Textract resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTagsForResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractListTagsForResourceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorResourceNotFound`, `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorValidation`.
+ 
+ @see AWSTextractListTagsForResourceRequest
+ @see AWSTextractListTagsForResourceResponse
+ */
+- (AWSTask<AWSTextractListTagsForResourceResponse *> *)listTagsForResource:(AWSTextractListTagsForResourceRequest *)request;
+
+/**
+ <p>Lists all tags for an Amazon Textract resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTagsForResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorResourceNotFound`, `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorValidation`.
+ 
+ @see AWSTextractListTagsForResourceRequest
+ @see AWSTextractListTagsForResourceResponse
+ */
+- (void)listTagsForResource:(AWSTextractListTagsForResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractListTagsForResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Starts the asynchronous analysis of an input document for relationships between detected items such as key-value pairs, tables, and selection elements.</p><p><code>StartDocumentAnalysis</code> can analyze text in documents that are in JPEG, PNG, TIFF, and PDF format. The documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a> to specify the bucket name and file name of the document. </p><p><code>StartDocumentAnalysis</code> returns a job identifier (<code>JobId</code>) that you use to get the results of the operation. When text analysis is finished, Amazon Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS) topic that you specify in <code>NotificationChannel</code>. To get the results of the text analysis operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetDocumentAnalysis</a>, and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartDocumentAnalysis</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html">Document Text Analysis</a>.</p>
  
  @param request A container for the necessary parameters to execute the StartDocumentAnalysis service method.
@@ -498,6 +723,81 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
  @see AWSTextractStartLendingAnalysisResponse
  */
 - (void)startLendingAnalysis:(AWSTextractStartLendingAnalysisRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractStartLendingAnalysisResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Adds one or more tags to the specified resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the TagResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractTagResourceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorResourceNotFound`, `AWSTextractErrorInvalidParameter`, `AWSTextractErrorServiceQuotaExceeded`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorValidation`.
+ 
+ @see AWSTextractTagResourceRequest
+ @see AWSTextractTagResourceResponse
+ */
+- (AWSTask<AWSTextractTagResourceResponse *> *)tagResource:(AWSTextractTagResourceRequest *)request;
+
+/**
+ <p>Adds one or more tags to the specified resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the TagResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorResourceNotFound`, `AWSTextractErrorInvalidParameter`, `AWSTextractErrorServiceQuotaExceeded`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorValidation`.
+ 
+ @see AWSTextractTagResourceRequest
+ @see AWSTextractTagResourceResponse
+ */
+- (void)tagResource:(AWSTextractTagResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractTagResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Removes any tags with the specified keys from the specified resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the UntagResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractUntagResourceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorResourceNotFound`, `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorValidation`.
+ 
+ @see AWSTextractUntagResourceRequest
+ @see AWSTextractUntagResourceResponse
+ */
+- (AWSTask<AWSTextractUntagResourceResponse *> *)untagResource:(AWSTextractUntagResourceRequest *)request;
+
+/**
+ <p>Removes any tags with the specified keys from the specified resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the UntagResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorResourceNotFound`, `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorValidation`.
+ 
+ @see AWSTextractUntagResourceRequest
+ @see AWSTextractUntagResourceResponse
+ */
+- (void)untagResource:(AWSTextractUntagResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractUntagResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Update the configuration for an adapter. FeatureTypes configurations cannot be updated. At least one new parameter must be specified as an argument.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateAdapter service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractUpdateAdapterResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorConflict`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorValidation`, `AWSTextractErrorResourceNotFound`.
+ 
+ @see AWSTextractUpdateAdapterRequest
+ @see AWSTextractUpdateAdapterResponse
+ */
+- (AWSTask<AWSTextractUpdateAdapterResponse *> *)updateAdapter:(AWSTextractUpdateAdapterRequest *)request;
+
+/**
+ <p>Update the configuration for an adapter. FeatureTypes configurations cannot be updated. At least one new parameter must be specified as an argument.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateAdapter service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorConflict`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorValidation`, `AWSTextractErrorResourceNotFound`.
+ 
+ @see AWSTextractUpdateAdapterRequest
+ @see AWSTextractUpdateAdapterResponse
+ */
+- (void)updateAdapter:(AWSTextractUpdateAdapterRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractUpdateAdapterResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 @end
 
