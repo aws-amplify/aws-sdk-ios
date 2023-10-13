@@ -480,7 +480,9 @@
         \"yue-CN\",\
         \"ar-AE\",\
         \"fi-FI\",\
-        \"en-IE\"\
+        \"en-IE\",\
+        \"nl-BE\",\
+        \"fr-BE\"\
       ]\
     },\
     \"LanguageCodeList\":{\
@@ -1162,7 +1164,10 @@
         \"Kazuha\",\
         \"Tomoko\",\
         \"Niamh\",\
-        \"Sofie\"\
+        \"Sofie\",\
+        \"Lisa\",\
+        \"Isabelle\",\
+        \"Zayd\"\
       ]\
     },\
     \"VoiceList\":{\

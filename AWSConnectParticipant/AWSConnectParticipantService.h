@@ -225,6 +225,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (void)createParticipantConnection:(AWSConnectParticipantCreateParticipantConnectionRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectParticipantCreateParticipantConnectionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Retrieves the view for the specified view token.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeView service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectParticipantDescribeViewResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectParticipantErrorDomain` domain and the following error code: `AWSConnectParticipantErrorAccessDenied`, `AWSConnectParticipantErrorInternalServer`, `AWSConnectParticipantErrorThrottling`, `AWSConnectParticipantErrorResourceNotFound`, `AWSConnectParticipantErrorValidation`.
+ 
+ @see AWSConnectParticipantDescribeViewRequest
+ @see AWSConnectParticipantDescribeViewResponse
+ */
+- (AWSTask<AWSConnectParticipantDescribeViewResponse *> *)describeView:(AWSConnectParticipantDescribeViewRequest *)request;
+
+/**
+ <p>Retrieves the view for the specified view token.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeView service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectParticipantErrorDomain` domain and the following error code: `AWSConnectParticipantErrorAccessDenied`, `AWSConnectParticipantErrorInternalServer`, `AWSConnectParticipantErrorThrottling`, `AWSConnectParticipantErrorResourceNotFound`, `AWSConnectParticipantErrorValidation`.
+ 
+ @see AWSConnectParticipantDescribeViewRequest
+ @see AWSConnectParticipantDescribeViewResponse
+ */
+- (void)describeView:(AWSConnectParticipantDescribeViewRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectParticipantDescribeViewResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Disconnects a participant. </p><note><p><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p></note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the DisconnectParticipant service method.

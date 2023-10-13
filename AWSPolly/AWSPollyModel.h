@@ -97,6 +97,8 @@ typedef NS_ENUM(NSInteger, AWSPollyLanguageCode) {
     AWSPollyLanguageCodeArAE,
     AWSPollyLanguageCodeFiFI,
     AWSPollyLanguageCodeEnIE,
+    AWSPollyLanguageCodeNlBE,
+    AWSPollyLanguageCodeFrBE,
 };
 
 typedef NS_ENUM(NSInteger, AWSPollyOutputFormat) {
@@ -221,6 +223,9 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
     AWSPollyVoiceIdTomoko,
     AWSPollyVoiceIdNiamh,
     AWSPollyVoiceIdSofie,
+    AWSPollyVoiceIdLisa,
+    AWSPollyVoiceIdIsabelle,
+    AWSPollyVoiceIdZayd,
 };
 
 @class AWSPollyDeleteLexiconInput;

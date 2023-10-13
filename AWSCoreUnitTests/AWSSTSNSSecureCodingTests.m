@@ -39,6 +39,7 @@
 - (void) test_AWSSTSGetSessionTokenRequest API_AVAILABLE(ios(11));
 - (void) test_AWSSTSGetSessionTokenResponse API_AVAILABLE(ios(11));
 - (void) test_AWSSTSPolicyDescriptorType API_AVAILABLE(ios(11));
+- (void) test_AWSSTSProvidedContext API_AVAILABLE(ios(11));
 - (void) test_AWSSTSTag API_AVAILABLE(ios(11));
 
 @end
@@ -123,6 +124,10 @@
 
 - (void) test_AWSSTSPolicyDescriptorType {
     [self validateSecureCodingForClass:[AWSSTSPolicyDescriptorType class]];
+}
+
+- (void) test_AWSSTSProvidedContext {
+    [self validateSecureCodingForClass:[AWSSTSProvidedContext class]];
 }
 
 - (void) test_AWSSTSTag {

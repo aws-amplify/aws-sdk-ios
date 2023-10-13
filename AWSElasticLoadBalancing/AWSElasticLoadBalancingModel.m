@@ -1478,6 +1478,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
              @"createdTime" : @"CreatedTime",
              @"customerOwnedIpv4Pool" : @"CustomerOwnedIpv4Pool",
              @"DNSName" : @"DNSName",
+             @"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic" : @"EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic",
              @"ipAddressType" : @"IpAddressType",
              @"loadBalancerArn" : @"LoadBalancerArn",
              @"loadBalancerName" : @"LoadBalancerName",
@@ -2332,9 +2333,31 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic" : @"EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic",
              @"loadBalancerArn" : @"LoadBalancerArn",
              @"securityGroups" : @"SecurityGroups",
              };
+}
+
++ (NSValueTransformer *)enforceSecurityGroupInboundRulesOnPrivateLinkTrafficJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"on"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumOn);
+        }
+        if ([value caseInsensitiveCompare:@"off"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumOff);
+        }
+        return @(AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumOn:
+                return @"on";
+            case AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumOff:
+                return @"off";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -2347,8 +2370,30 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic" : @"EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic",
              @"securityGroupIds" : @"SecurityGroupIds",
              };
+}
+
++ (NSValueTransformer *)enforceSecurityGroupInboundRulesOnPrivateLinkTrafficJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"on"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumOn);
+        }
+        if ([value caseInsensitiveCompare:@"off"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumOff);
+        }
+        return @(AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumOn:
+                return @"on";
+            case AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumOff:
+                return @"off";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end

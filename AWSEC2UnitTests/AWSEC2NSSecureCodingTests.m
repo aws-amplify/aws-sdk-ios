@@ -432,6 +432,7 @@
 - (void) test_AWSEC2DeleteIpamScopeRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteIpamScopeResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteKeyPairRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DeleteKeyPairResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteLaunchTemplateRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteLaunchTemplateResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteLaunchTemplateVersionsRequest API_AVAILABLE(ios(11));
@@ -864,6 +865,8 @@
 - (void) test_AWSEC2DisableFastSnapshotRestoreSuccessItem API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableFastSnapshotRestoresRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableFastSnapshotRestoresResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisableImageBlockPublicAccessRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisableImageBlockPublicAccessResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableImageDeprecationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableImageDeprecationResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableIpamOrganizationAdminAccountRequest API_AVAILABLE(ios(11));
@@ -943,6 +946,8 @@
 - (void) test_AWSEC2EnableFastSnapshotRestoreSuccessItem API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableFastSnapshotRestoresRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableFastSnapshotRestoresResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableImageBlockPublicAccessRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableImageBlockPublicAccessResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableImageDeprecationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableImageDeprecationResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableIpamOrganizationAdminAccountRequest API_AVAILABLE(ios(11));
@@ -1034,6 +1039,8 @@
 - (void) test_AWSEC2GetGroupsForCapacityReservationResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetHostReservationPurchasePreviewRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetHostReservationPurchasePreviewResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetImageBlockPublicAccessStateRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetImageBlockPublicAccessStateResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetInstanceTypesFromInstanceRequirementsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetInstanceTypesFromInstanceRequirementsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetInstanceUefiDataRequest API_AVAILABLE(ios(11));
@@ -1140,6 +1147,7 @@
 - (void) test_AWSEC2ImportVolumeTaskDetails API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InferenceAcceleratorInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InferenceDeviceInfo API_AVAILABLE(ios(11));
+- (void) test_AWSEC2InferenceDeviceMemoryInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2Instance API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InstanceAttribute API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InstanceBlockDeviceMapping API_AVAILABLE(ios(11));
@@ -1702,6 +1710,7 @@
 - (void) test_AWSEC2SubnetAssociation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SubnetCidrBlockState API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SubnetCidrReservation API_AVAILABLE(ios(11));
+- (void) test_AWSEC2SubnetConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SubnetIpv6CidrBlockAssociation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2Subscription API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SuccessfulInstanceCreditSpecificationItem API_AVAILABLE(ios(11));
@@ -3508,6 +3517,10 @@
     [self validateSecureCodingForClass:[AWSEC2DeleteKeyPairRequest class]];
 }
 
+- (void) test_AWSEC2DeleteKeyPairResult {
+    [self validateSecureCodingForClass:[AWSEC2DeleteKeyPairResult class]];
+}
+
 - (void) test_AWSEC2DeleteLaunchTemplateRequest {
     [self validateSecureCodingForClass:[AWSEC2DeleteLaunchTemplateRequest class]];
 }
@@ -5236,6 +5249,14 @@
     [self validateSecureCodingForClass:[AWSEC2DisableFastSnapshotRestoresResult class]];
 }
 
+- (void) test_AWSEC2DisableImageBlockPublicAccessRequest {
+    [self validateSecureCodingForClass:[AWSEC2DisableImageBlockPublicAccessRequest class]];
+}
+
+- (void) test_AWSEC2DisableImageBlockPublicAccessResult {
+    [self validateSecureCodingForClass:[AWSEC2DisableImageBlockPublicAccessResult class]];
+}
+
 - (void) test_AWSEC2DisableImageDeprecationRequest {
     [self validateSecureCodingForClass:[AWSEC2DisableImageDeprecationRequest class]];
 }
@@ -5550,6 +5571,14 @@
 
 - (void) test_AWSEC2EnableFastSnapshotRestoresResult {
     [self validateSecureCodingForClass:[AWSEC2EnableFastSnapshotRestoresResult class]];
+}
+
+- (void) test_AWSEC2EnableImageBlockPublicAccessRequest {
+    [self validateSecureCodingForClass:[AWSEC2EnableImageBlockPublicAccessRequest class]];
+}
+
+- (void) test_AWSEC2EnableImageBlockPublicAccessResult {
+    [self validateSecureCodingForClass:[AWSEC2EnableImageBlockPublicAccessResult class]];
 }
 
 - (void) test_AWSEC2EnableImageDeprecationRequest {
@@ -5914,6 +5943,14 @@
 
 - (void) test_AWSEC2GetHostReservationPurchasePreviewResult {
     [self validateSecureCodingForClass:[AWSEC2GetHostReservationPurchasePreviewResult class]];
+}
+
+- (void) test_AWSEC2GetImageBlockPublicAccessStateRequest {
+    [self validateSecureCodingForClass:[AWSEC2GetImageBlockPublicAccessStateRequest class]];
+}
+
+- (void) test_AWSEC2GetImageBlockPublicAccessStateResult {
+    [self validateSecureCodingForClass:[AWSEC2GetImageBlockPublicAccessStateResult class]];
 }
 
 - (void) test_AWSEC2GetInstanceTypesFromInstanceRequirementsRequest {
@@ -6338,6 +6375,10 @@
 
 - (void) test_AWSEC2InferenceDeviceInfo {
     [self validateSecureCodingForClass:[AWSEC2InferenceDeviceInfo class]];
+}
+
+- (void) test_AWSEC2InferenceDeviceMemoryInfo {
+    [self validateSecureCodingForClass:[AWSEC2InferenceDeviceMemoryInfo class]];
 }
 
 - (void) test_AWSEC2Instance {
@@ -8586,6 +8627,10 @@
 
 - (void) test_AWSEC2SubnetCidrReservation {
     [self validateSecureCodingForClass:[AWSEC2SubnetCidrReservation class]];
+}
+
+- (void) test_AWSEC2SubnetConfiguration {
+    [self validateSecureCodingForClass:[AWSEC2SubnetConfiguration class]];
 }
 
 - (void) test_AWSEC2SubnetIpv6CidrBlockAssociation {

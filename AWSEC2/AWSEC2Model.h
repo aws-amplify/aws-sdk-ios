@@ -860,6 +860,16 @@ typedef NS_ENUM(NSInteger, AWSEC2ImageAttributeName) {
     AWSEC2ImageAttributeNameImdsSupport,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2ImageBlockPublicAccessDisabledState) {
+    AWSEC2ImageBlockPublicAccessDisabledStateUnknown,
+    AWSEC2ImageBlockPublicAccessDisabledStateUnblocked,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2ImageBlockPublicAccessEnabledState) {
+    AWSEC2ImageBlockPublicAccessEnabledStateUnknown,
+    AWSEC2ImageBlockPublicAccessEnabledStateBlockNewSharing,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2ImageState) {
     AWSEC2ImageStateUnknown,
     AWSEC2ImageStatePending,
@@ -1667,6 +1677,61 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeC7Gn_8xlarge,
     AWSEC2InstanceTypeC7Gn_12xlarge,
     AWSEC2InstanceTypeC7Gn_16xlarge,
+    AWSEC2InstanceTypeP5_48xlarge,
+    AWSEC2InstanceTypeM7I_large,
+    AWSEC2InstanceTypeM7I_xlarge,
+    AWSEC2InstanceTypeM7I_2xlarge,
+    AWSEC2InstanceTypeM7I_4xlarge,
+    AWSEC2InstanceTypeM7I_8xlarge,
+    AWSEC2InstanceTypeM7I_12xlarge,
+    AWSEC2InstanceTypeM7I_16xlarge,
+    AWSEC2InstanceTypeM7I_24xlarge,
+    AWSEC2InstanceTypeM7I_48xlarge,
+    AWSEC2InstanceTypeM7I_flex_large,
+    AWSEC2InstanceTypeM7I_flex_xlarge,
+    AWSEC2InstanceTypeM7I_flex_2xlarge,
+    AWSEC2InstanceTypeM7I_flex_4xlarge,
+    AWSEC2InstanceTypeM7I_flex_8xlarge,
+    AWSEC2InstanceTypeM7A_medium,
+    AWSEC2InstanceTypeM7A_large,
+    AWSEC2InstanceTypeM7A_xlarge,
+    AWSEC2InstanceTypeM7A_2xlarge,
+    AWSEC2InstanceTypeM7A_4xlarge,
+    AWSEC2InstanceTypeM7A_8xlarge,
+    AWSEC2InstanceTypeM7A_12xlarge,
+    AWSEC2InstanceTypeM7A_16xlarge,
+    AWSEC2InstanceTypeM7A_24xlarge,
+    AWSEC2InstanceTypeM7A_32xlarge,
+    AWSEC2InstanceTypeM7A_48xlarge,
+    AWSEC2InstanceTypeM7A_metal_48xl,
+    AWSEC2InstanceTypeHPC7a_12xlarge,
+    AWSEC2InstanceTypeHPC7a_24xlarge,
+    AWSEC2InstanceTypeHPC7a_48xlarge,
+    AWSEC2InstanceTypeHPC7a_96xlarge,
+    AWSEC2InstanceTypeC7Gd_medium,
+    AWSEC2InstanceTypeC7Gd_large,
+    AWSEC2InstanceTypeC7Gd_xlarge,
+    AWSEC2InstanceTypeC7Gd_2xlarge,
+    AWSEC2InstanceTypeC7Gd_4xlarge,
+    AWSEC2InstanceTypeC7Gd_8xlarge,
+    AWSEC2InstanceTypeC7Gd_12xlarge,
+    AWSEC2InstanceTypeC7Gd_16xlarge,
+    AWSEC2InstanceTypeM7Gd_medium,
+    AWSEC2InstanceTypeM7Gd_large,
+    AWSEC2InstanceTypeM7Gd_xlarge,
+    AWSEC2InstanceTypeM7Gd_2xlarge,
+    AWSEC2InstanceTypeM7Gd_4xlarge,
+    AWSEC2InstanceTypeM7Gd_8xlarge,
+    AWSEC2InstanceTypeM7Gd_12xlarge,
+    AWSEC2InstanceTypeM7Gd_16xlarge,
+    AWSEC2InstanceTypeR7Gd_medium,
+    AWSEC2InstanceTypeR7Gd_large,
+    AWSEC2InstanceTypeR7Gd_xlarge,
+    AWSEC2InstanceTypeR7Gd_2xlarge,
+    AWSEC2InstanceTypeR7Gd_4xlarge,
+    AWSEC2InstanceTypeR7Gd_8xlarge,
+    AWSEC2InstanceTypeR7Gd_12xlarge,
+    AWSEC2InstanceTypeR7Gd_16xlarge,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {
@@ -1986,6 +2051,7 @@ typedef NS_ENUM(NSInteger, AWSEC2LocationType) {
     AWSEC2LocationTypeRegion,
     AWSEC2LocationTypeAvailabilityZone,
     AWSEC2LocationTypeAvailabilityZoneId,
+    AWSEC2LocationTypeOutpost,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2LogDestinationType) {
@@ -2454,6 +2520,13 @@ typedef NS_ENUM(NSInteger, AWSEC2RuleAction) {
     AWSEC2RuleActionDeny,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2SSEType) {
+    AWSEC2SSETypeUnknown,
+    AWSEC2SSETypeSseEbs,
+    AWSEC2SSETypeSseKms,
+    AWSEC2SSETypeNone,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2SelfServicePortal) {
     AWSEC2SelfServicePortalUnknown,
     AWSEC2SelfServicePortalEnabled,
@@ -2526,6 +2599,7 @@ typedef NS_ENUM(NSInteger, AWSEC2SpotInstanceState) {
     AWSEC2SpotInstanceStateClosed,
     AWSEC2SpotInstanceStateCancelled,
     AWSEC2SpotInstanceStateFailed,
+    AWSEC2SpotInstanceStateDisabled,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2SpotInstanceType) {
@@ -3491,6 +3565,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DeleteIpamScopeRequest;
 @class AWSEC2DeleteIpamScopeResult;
 @class AWSEC2DeleteKeyPairRequest;
+@class AWSEC2DeleteKeyPairResult;
 @class AWSEC2DeleteLaunchTemplateRequest;
 @class AWSEC2DeleteLaunchTemplateResult;
 @class AWSEC2DeleteLaunchTemplateVersionsRequest;
@@ -3923,6 +3998,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DisableFastSnapshotRestoreSuccessItem;
 @class AWSEC2DisableFastSnapshotRestoresRequest;
 @class AWSEC2DisableFastSnapshotRestoresResult;
+@class AWSEC2DisableImageBlockPublicAccessRequest;
+@class AWSEC2DisableImageBlockPublicAccessResult;
 @class AWSEC2DisableImageDeprecationRequest;
 @class AWSEC2DisableImageDeprecationResult;
 @class AWSEC2DisableIpamOrganizationAdminAccountRequest;
@@ -4002,6 +4079,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2EnableFastSnapshotRestoreSuccessItem;
 @class AWSEC2EnableFastSnapshotRestoresRequest;
 @class AWSEC2EnableFastSnapshotRestoresResult;
+@class AWSEC2EnableImageBlockPublicAccessRequest;
+@class AWSEC2EnableImageBlockPublicAccessResult;
 @class AWSEC2EnableImageDeprecationRequest;
 @class AWSEC2EnableImageDeprecationResult;
 @class AWSEC2EnableIpamOrganizationAdminAccountRequest;
@@ -4093,6 +4172,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2GetGroupsForCapacityReservationResult;
 @class AWSEC2GetHostReservationPurchasePreviewRequest;
 @class AWSEC2GetHostReservationPurchasePreviewResult;
+@class AWSEC2GetImageBlockPublicAccessStateRequest;
+@class AWSEC2GetImageBlockPublicAccessStateResult;
 @class AWSEC2GetInstanceTypesFromInstanceRequirementsRequest;
 @class AWSEC2GetInstanceTypesFromInstanceRequirementsResult;
 @class AWSEC2GetInstanceUefiDataRequest;
@@ -4199,6 +4280,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ImportVolumeTaskDetails;
 @class AWSEC2InferenceAcceleratorInfo;
 @class AWSEC2InferenceDeviceInfo;
+@class AWSEC2InferenceDeviceMemoryInfo;
 @class AWSEC2Instance;
 @class AWSEC2InstanceAttribute;
 @class AWSEC2InstanceBlockDeviceMapping;
@@ -4761,6 +4843,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2SubnetAssociation;
 @class AWSEC2SubnetCidrBlockState;
 @class AWSEC2SubnetCidrReservation;
+@class AWSEC2SubnetConfiguration;
 @class AWSEC2SubnetIpv6CidrBlockAssociation;
 @class AWSEC2Subscription;
 @class AWSEC2SuccessfulInstanceCreditSpecificationItem;
@@ -10884,7 +10967,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2LogDestinationType logDestinationType;
 
 /**
- <p>The fields to include in the flow log record. List the fields in the order in which they should appear. If you omit this parameter, the flow log is created using the default format. If you specify this parameter, you must include at least one field. For more information about the available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow log records</a> in the <i>Amazon VPC User Guide</i> or <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records">Transit Gateway Flow Log records</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p><p>Specify the fields using the <code>${field-id}</code> format, separated by spaces. For the CLI, surround this parameter value with single quotes on Linux or double quotes on Windows.</p>
+ <p>The fields to include in the flow log record. List the fields in the order in which they should appear. If you omit this parameter, the flow log is created using the default format. If you specify this parameter, you must include at least one field. For more information about the available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow log records</a> in the <i>Amazon VPC User Guide</i> or <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records">Transit Gateway Flow Log records</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p><p>Specify the fields using the <code>${field-id}</code> format, separated by spaces.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable logFormat;
 
@@ -12229,6 +12312,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
+ <p>If you’re creating a network interface in a dual-stack or IPv6-only subnet, you have the option to assign a primary IPv6 IP address. A primary IPv6 address is an IPv6 GUA address associated with an ENI that you have enabled to use a primary IPv6 address. Use this option if the instance that this ENI will be attached to relies on its IPv6 address not changing. Amazon Web Services will automatically assign an IPv6 address associated with the ENI attached to your instance to be the primary IPv6 address. Once you enable an IPv6 GUA address to be a primary IPv6, you cannot disable it. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. If you have multiple IPv6 addresses associated with an ENI attached to your instance and you enable a primary IPv6 address, the first IPv6 GUA address associated with the ENI becomes the primary IPv6 address.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enablePrimaryIpv6;
+
+/**
  <p>The IDs of one or more security groups.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groups;
@@ -12911,7 +12999,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The type of reservation.</p><p>The following are valid values:</p><ul><li><p><code>prefix</code>: The Amazon EC2 Prefix Delegation feature assigns the IP addresses to network interfaces that are associated with an instance. For information about Prefix Delegation, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-delegation.html">Prefix Delegation for Amazon EC2 network interfaces</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></li><li><p><code>explicit</code>: You manually assign the IP addresses to resources that reside in your subnet. </p></li></ul>
+ <p>The type of reservation. The reservation type determines how the reserved IP addresses are assigned to resources.</p><ul><li><p><code>prefix</code> - Amazon Web Services assigns the reserved IP addresses to network interfaces.</p></li><li><p><code>explicit</code> - You assign the reserved IP addresses to network interfaces.</p></li></ul>
  */
 @property (nonatomic, assign) AWSEC2SubnetCidrReservationType reservationType;
 
@@ -13188,7 +13276,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
 
 /**
- <p>The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target.</p><p>If you do not want to mirror the entire packet, use the <code>PacketLength</code> parameter to specify the number of bytes in each packet to mirror.</p>
+ <p>The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target.</p><p>If you do not want to mirror the entire packet, use the <code>PacketLength</code> parameter to specify the number of bytes in each packet to mirror.</p><p>For sessions with Network Load Balancer (NLB) Traffic Mirror targets the default <code>PacketLength</code> will be set to 8500. Valid values are 1-8500. Setting a <code>PacketLength</code> greater than 8500 will result in an error response.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable packetLength;
 
@@ -14430,7 +14518,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable routeTableIds;
 
 /**
- <p>(Interface endpoint) The IDs of the security groups to associate with the endpoint network interface. If this parameter is not specified, we use the default security group for the VPC.</p>
+ <p>(Interface endpoint) The IDs of the security groups to associate with the endpoint network interfaces. If this parameter is not specified, we use the default security group for the VPC.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
 
@@ -14440,7 +14528,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable serviceName;
 
 /**
- <p>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to create an endpoint network interface. For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>
+ <p>The subnet configurations for the endpoint.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2SubnetConfiguration *> * _Nullable subnetConfigurations;
+
+/**
+ <p>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to create endpoint network interfaces. For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable subnetIds;
 
@@ -15596,6 +15689,24 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DeleteKeyPairResult : AWSModel
+
+
+/**
+ <p>The ID of the key pair.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyPairId;
+
+/**
+ <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable returned;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DeleteLaunchTemplateRequest : AWSRequest
 
 
@@ -15651,7 +15762,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable launchTemplateName;
 
 /**
- <p>The version numbers of one or more launch template versions to delete.</p>
+ <p>The version numbers of one or more launch template versions to delete. You can specify up to 200 launch template version numbers.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable versions;
 
@@ -20123,7 +20234,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The filters.</p><ul><li><p><code>affinity</code> - The affinity setting for an instance running on a Dedicated Host (<code>default</code> | <code>host</code>).</p></li><li><p><code>architecture</code> - The instance architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p></li><li><p><code>availability-zone</code> - The Availability Zone of the instance.</p></li><li><p><code>block-device-mapping.attach-time</code> - The attach time for an EBS volume mapped to the instance, for example, <code>2010-09-15T17:15:20.000Z</code>.</p></li><li><p><code>block-device-mapping.delete-on-termination</code> - A Boolean that indicates whether the EBS volume is deleted on instance termination.</p></li><li><p><code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p></li><li><p><code>block-device-mapping.status</code> - The status for the EBS volume (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p></li><li><p><code>block-device-mapping.volume-id</code> - The volume ID of the EBS volume.</p></li><li><p><code>capacity-reservation-id</code> - The ID of the Capacity Reservation into which the instance was launched.</p></li><li><p><code>client-token</code> - The idempotency token you provided when you launched the instance.</p></li><li><p><code>dns-name</code> - The public DNS name of the instance.</p></li><li><p><code>hibernation-options.configured</code> - A Boolean that indicates whether the instance is enabled for hibernation. A value of <code>true</code> means that the instance is enabled for hibernation. </p></li><li><p><code>host-id</code> - The ID of the Dedicated Host on which the instance is running, if applicable.</p></li><li><p><code>hypervisor</code> - The hypervisor type of the instance (<code>ovm</code> | <code>xen</code>). The value <code>xen</code> is used for both Xen and Nitro hypervisors.</p></li><li><p><code>iam-instance-profile.arn</code> - The instance profile associated with the instance. Specified as an ARN.</p></li><li><p><code>image-id</code> - The ID of the image used to launch the instance.</p></li><li><p><code>instance-id</code> - The ID of the instance.</p></li><li><p><code>instance-lifecycle</code> - Indicates whether this is a Spot Instance or a Scheduled Instance (<code>spot</code> | <code>scheduled</code>).</p></li><li><p><code>instance-state-code</code> - The state of the instance, as a 16-bit unsigned integer. The high byte is used for internal purposes and should be ignored. The low byte is set based on the state represented. The valid values are: 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).</p></li><li><p><code>instance-state-name</code> - The state of the instance (<code>pending</code> | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code> | <code>stopped</code>).</p></li><li><p><code>instance-type</code> - The type of instance (for example, <code>t2.micro</code>).</p></li><li><p><code>instance.group-id</code> - The ID of the security group for the instance. </p></li><li><p><code>instance.group-name</code> - The name of the security group for the instance. </p></li><li><p><code>ip-address</code> - The public IPv4 address of the instance.</p></li><li><p><code>kernel-id</code> - The kernel ID.</p></li><li><p><code>key-name</code> - The name of the key pair used when the instance was launched.</p></li><li><p><code>launch-index</code> - When launching multiple instances, this is the index for the instance in the launch group (for example, 0, 1, 2, and so on). </p></li><li><p><code>launch-time</code> - The time when the instance was launched, in the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which matches an entire day.</p></li><li><p><code>metadata-options.http-tokens</code> - The metadata request authorization state (<code>optional</code> | <code>required</code>)</p></li><li><p><code>metadata-options.http-put-response-hop-limit</code> - The HTTP metadata request put response hop limit (integer, possible values <code>1</code> to <code>64</code>)</p></li><li><p><code>metadata-options.http-endpoint</code> - The status of access to the HTTP metadata endpoint on your instance (<code>enabled</code> | <code>disabled</code>)</p></li><li><p><code>metadata-options.instance-metadata-tags</code> - The status of access to instance tags from the instance metadata (<code>enabled</code> | <code>disabled</code>)</p></li><li><p><code>monitoring-state</code> - Indicates whether detailed monitoring is enabled (<code>disabled</code> | <code>enabled</code>).</p></li><li><p><code>network-interface.addresses.private-ip-address</code> - The private IPv4 address associated with the network interface.</p></li><li><p><code>network-interface.addresses.primary</code> - Specifies whether the IPv4 address of the network interface is the primary private IPv4 address.</p></li><li><p><code>network-interface.addresses.association.public-ip</code> - The ID of the association of an Elastic IP address (IPv4) with a network interface.</p></li><li><p><code>network-interface.addresses.association.ip-owner-id</code> - The owner ID of the private IPv4 address associated with the network interface.</p></li><li><p><code>network-interface.association.public-ip</code> - The address of the Elastic IP address (IPv4) bound to the network interface.</p></li><li><p><code>network-interface.association.ip-owner-id</code> - The owner of the Elastic IP address (IPv4) associated with the network interface.</p></li><li><p><code>network-interface.association.allocation-id</code> - The allocation ID returned when you allocated the Elastic IP address (IPv4) for your network interface.</p></li><li><p><code>network-interface.association.association-id</code> - The association ID returned when the network interface was associated with an IPv4 address.</p></li><li><p><code>network-interface.attachment.attachment-id</code> - The ID of the interface attachment.</p></li><li><p><code>network-interface.attachment.instance-id</code> - The ID of the instance to which the network interface is attached.</p></li><li><p><code>network-interface.attachment.instance-owner-id</code> - The owner ID of the instance to which the network interface is attached.</p></li><li><p><code>network-interface.attachment.device-index</code> - The device index to which the network interface is attached.</p></li><li><p><code>network-interface.attachment.status</code> - The status of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p></li><li><p><code>network-interface.attachment.attach-time</code> - The time that the network interface was attached to an instance.</p></li><li><p><code>network-interface.attachment.delete-on-termination</code> - Specifies whether the attachment is deleted when an instance is terminated.</p></li><li><p><code>network-interface.availability-zone</code> - The Availability Zone for the network interface.</p></li><li><p><code>network-interface.description</code> - The description of the network interface.</p></li><li><p><code>network-interface.group-id</code> - The ID of a security group associated with the network interface.</p></li><li><p><code>network-interface.group-name</code> - The name of a security group associated with the network interface.</p></li><li><p><code>network-interface.ipv6-addresses.ipv6-address</code> - The IPv6 address associated with the network interface.</p></li><li><p><code>network-interface.mac-address</code> - The MAC address of the network interface.</p></li><li><p><code>network-interface.network-interface-id</code> - The ID of the network interface.</p></li><li><p><code>network-interface.owner-id</code> - The ID of the owner of the network interface.</p></li><li><p><code>network-interface.private-dns-name</code> - The private DNS name of the network interface.</p></li><li><p><code>network-interface.requester-id</code> - The requester ID for the network interface.</p></li><li><p><code>network-interface.requester-managed</code> - Indicates whether the network interface is being managed by Amazon Web Services.</p></li><li><p><code>network-interface.status</code> - The status of the network interface (<code>available</code>) | <code>in-use</code>).</p></li><li><p><code>network-interface.source-dest-check</code> - Whether the network interface performs source/destination checking. A value of <code>true</code> means that checking is enabled, and <code>false</code> means that checking is disabled. The value must be <code>false</code> for the network interface to perform network address translation (NAT) in your VPC.</p></li><li><p><code>network-interface.subnet-id</code> - The ID of the subnet for the network interface.</p></li><li><p><code>network-interface.vpc-id</code> - The ID of the VPC for the network interface.</p></li><li><p><code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p></li><li><p><code>owner-id</code> - The Amazon Web Services account ID of the instance owner.</p></li><li><p><code>placement-group-name</code> - The name of the placement group for the instance.</p></li><li><p><code>placement-partition-number</code> - The partition in which the instance is located.</p></li><li><p><code>platform</code> - The platform. To list only Windows instances, use <code>windows</code>.</p></li><li><p><code>private-dns-name</code> - The private IPv4 DNS name of the instance.</p></li><li><p><code>private-ip-address</code> - The private IPv4 address of the instance.</p></li><li><p><code>product-code</code> - The product code associated with the AMI used to launch the instance.</p></li><li><p><code>product-code.type</code> - The type of product code (<code>devpay</code> | <code>marketplace</code>).</p></li><li><p><code>ramdisk-id</code> - The RAM disk ID.</p></li><li><p><code>reason</code> - The reason for the current state of the instance (for example, shows "User Initiated [date]" when you stop or terminate the instance). Similar to the state-reason-code filter.</p></li><li><p><code>requester-id</code> - The ID of the entity that launched the instance on your behalf (for example, Amazon Web Services Management Console, Auto Scaling, and so on).</p></li><li><p><code>reservation-id</code> - The ID of the instance's reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID.</p></li><li><p><code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p></li><li><p><code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p></li><li><p><code>source-dest-check</code> - Indicates whether the instance performs source/destination checking. A value of <code>true</code> means that checking is enabled, and <code>false</code> means that checking is disabled. The value must be <code>false</code> for the instance to perform network address translation (NAT) in your VPC. </p></li><li><p><code>spot-instance-request-id</code> - The ID of the Spot Instance request.</p></li><li><p><code>state-reason-code</code> - The reason code for the state change.</p></li><li><p><code>state-reason-message</code> - A message that describes the state change.</p></li><li><p><code>subnet-id</code> - The ID of the subnet for the instance.</p></li><li><p><code>tag:&lt;key&gt;</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p></li><li><p><code>tenancy</code> - The tenancy of an instance (<code>dedicated</code> | <code>default</code> | <code>host</code>).</p></li><li><p><code>virtualization-type</code> - The virtualization type of the instance (<code>paravirtual</code> | <code>hvm</code>).</p></li><li><p><code>vpc-id</code> - The ID of the VPC that the instance is running in.</p></li></ul>
+ <p>The filters.</p><ul><li><p><code>affinity</code> - The affinity setting for an instance running on a Dedicated Host (<code>default</code> | <code>host</code>).</p></li><li><p><code>architecture</code> - The instance architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p></li><li><p><code>availability-zone</code> - The Availability Zone of the instance.</p></li><li><p><code>block-device-mapping.attach-time</code> - The attach time for an EBS volume mapped to the instance, for example, <code>2022-09-15T17:15:20.000Z</code>.</p></li><li><p><code>block-device-mapping.delete-on-termination</code> - A Boolean that indicates whether the EBS volume is deleted on instance termination.</p></li><li><p><code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p></li><li><p><code>block-device-mapping.status</code> - The status for the EBS volume (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p></li><li><p><code>block-device-mapping.volume-id</code> - The volume ID of the EBS volume.</p></li><li><p><code>boot-mode</code> - The boot mode that was specified by the AMI (<code>legacy-bios</code> | <code>uefi</code> | <code>uefi-preferred</code>).</p></li><li><p><code>capacity-reservation-id</code> - The ID of the Capacity Reservation into which the instance was launched.</p></li><li><p><code>capacity-reservation-specification.capacity-reservation-preference</code> - The instance's Capacity Reservation preference (<code>open</code> | <code>none</code>).</p></li><li><p><code>capacity-reservation-specification.capacity-reservation-target.capacity-reservation-id</code> - The ID of the targeted Capacity Reservation.</p></li><li><p><code>capacity-reservation-specification.capacity-reservation-target.capacity-reservation-resource-group-arn</code> - The ARN of the targeted Capacity Reservation group.</p></li><li><p><code>client-token</code> - The idempotency token you provided when you launched the instance.</p></li><li><p><code>current-instance-boot-mode</code> - The boot mode that is used to launch the instance at launch or start (<code>legacy-bios</code> | <code>uefi</code>).</p></li><li><p><code>dns-name</code> - The public DNS name of the instance.</p></li><li><p><code>ebs-optimized</code> - A Boolean that indicates whether the instance is optimized for Amazon EBS I/O.</p></li><li><p><code>ena-support</code> - A Boolean that indicates whether the instance is enabled for enhanced networking with ENA.</p></li><li><p><code>enclave-options.enabled</code> - A Boolean that indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p></li><li><p><code>hibernation-options.configured</code> - A Boolean that indicates whether the instance is enabled for hibernation. A value of <code>true</code> means that the instance is enabled for hibernation.</p></li><li><p><code>host-id</code> - The ID of the Dedicated Host on which the instance is running, if applicable.</p></li><li><p><code>hypervisor</code> - The hypervisor type of the instance (<code>ovm</code> | <code>xen</code>). The value <code>xen</code> is used for both Xen and Nitro hypervisors.</p></li><li><p><code>iam-instance-profile.arn</code> - The instance profile associated with the instance. Specified as an ARN.</p></li><li><p><code>iam-instance-profile.id</code> - The instance profile associated with the instance. Specified as an ID.</p></li><li><p><code>iam-instance-profile.name</code> - The instance profile associated with the instance. Specified as an name.</p></li><li><p><code>image-id</code> - The ID of the image used to launch the instance.</p></li><li><p><code>instance-id</code> - The ID of the instance.</p></li><li><p><code>instance-lifecycle</code> - Indicates whether this is a Spot Instance or a Scheduled Instance (<code>spot</code> | <code>scheduled</code>).</p></li><li><p><code>instance-state-code</code> - The state of the instance, as a 16-bit unsigned integer. The high byte is used for internal purposes and should be ignored. The low byte is set based on the state represented. The valid values are: 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).</p></li><li><p><code>instance-state-name</code> - The state of the instance (<code>pending</code> | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code> | <code>stopped</code>).</p></li><li><p><code>instance-type</code> - The type of instance (for example, <code>t2.micro</code>).</p></li><li><p><code>instance.group-id</code> - The ID of the security group for the instance. </p></li><li><p><code>instance.group-name</code> - The name of the security group for the instance. </p></li><li><p><code>ip-address</code> - The public IPv4 address of the instance.</p></li><li><p><code>ipv6-address</code> - The IPv6 address of the instance.</p></li><li><p><code>kernel-id</code> - The kernel ID.</p></li><li><p><code>key-name</code> - The name of the key pair used when the instance was launched.</p></li><li><p><code>launch-index</code> - When launching multiple instances, this is the index for the instance in the launch group (for example, 0, 1, 2, and so on). </p></li><li><p><code>launch-time</code> - The time when the instance was launched, in the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which matches an entire day.</p></li><li><p><code>license-pool</code> - </p></li><li><p><code>maintenance-options.auto-recovery</code> - The current automatic recovery behavior of the instance (<code>disabled</code> | <code>default</code>).</p></li><li><p><code>metadata-options.http-endpoint</code> - The status of access to the HTTP metadata endpoint on your instance (<code>enabled</code> | <code>disabled</code>)</p></li><li><p><code>metadata-options.http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint is enabled (<code>disabled</code> | <code>enabled</code>).</p></li><li><p><code>metadata-options.http-protocol-ipv6</code> - Indicates whether the IPv6 endpoint is enabled (<code>disabled</code> | <code>enabled</code>).</p></li><li><p><code>metadata-options.http-put-response-hop-limit</code> - The HTTP metadata request put response hop limit (integer, possible values <code>1</code> to <code>64</code>)</p></li><li><p><code>metadata-options.http-tokens</code> - The metadata request authorization state (<code>optional</code> | <code>required</code>)</p></li><li><p><code>metadata-options.instance-metadata-tags</code> - The status of access to instance tags from the instance metadata (<code>enabled</code> | <code>disabled</code>)</p></li><li><p><code>metadata-options.state</code> - The state of the metadata option changes (<code>pending</code> | <code>applied</code>).</p></li><li><p><code>monitoring-state</code> - Indicates whether detailed monitoring is enabled (<code>disabled</code> | <code>enabled</code>).</p></li><li><p><code>network-interface.addresses.primary</code> - Specifies whether the IPv4 address of the network interface is the primary private IPv4 address.</p></li><li><p><code>network-interface.addresses.private-ip-address</code> - The private IPv4 address associated with the network interface.</p></li><li><p><code>network-interface.addresses.association.public-ip</code> - The ID of the association of an Elastic IP address (IPv4) with a network interface.</p></li><li><p><code>network-interface.addresses.association.ip-owner-id</code> - The owner ID of the private IPv4 address associated with the network interface.</p></li><li><p><code>network-interface.association.public-ip</code> - The address of the Elastic IP address (IPv4) bound to the network interface.</p></li><li><p><code>network-interface.association.ip-owner-id</code> - The owner of the Elastic IP address (IPv4) associated with the network interface.</p></li><li><p><code>network-interface.association.allocation-id</code> - The allocation ID returned when you allocated the Elastic IP address (IPv4) for your network interface.</p></li><li><p><code>network-interface.association.association-id</code> - The association ID returned when the network interface was associated with an IPv4 address.</p></li><li><p><code>network-interface.attachment.attachment-id</code> - The ID of the interface attachment.</p></li><li><p><code>network-interface.attachment.instance-id</code> - The ID of the instance to which the network interface is attached.</p></li><li><p><code>network-interface.attachment.instance-owner-id</code> - The owner ID of the instance to which the network interface is attached.</p></li><li><p><code>network-interface.attachment.device-index</code> - The device index to which the network interface is attached.</p></li><li><p><code>network-interface.attachment.status</code> - The status of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p></li><li><p><code>network-interface.attachment.attach-time</code> - The time that the network interface was attached to an instance.</p></li><li><p><code>network-interface.attachment.delete-on-termination</code> - Specifies whether the attachment is deleted when an instance is terminated.</p></li><li><p><code>network-interface.availability-zone</code> - The Availability Zone for the network interface.</p></li><li><p><code>network-interface.description</code> - The description of the network interface.</p></li><li><p><code>network-interface.group-id</code> - The ID of a security group associated with the network interface.</p></li><li><p><code>network-interface.group-name</code> - The name of a security group associated with the network interface.</p></li><li><p><code>network-interface.ipv6-addresses.ipv6-address</code> - The IPv6 address associated with the network interface.</p></li><li><p><code>network-interface.mac-address</code> - The MAC address of the network interface.</p></li><li><p><code>network-interface.network-interface-id</code> - The ID of the network interface.</p></li><li><p><code>network-interface.owner-id</code> - The ID of the owner of the network interface.</p></li><li><p><code>network-interface.private-dns-name</code> - The private DNS name of the network interface.</p></li><li><p><code>network-interface.requester-id</code> - The requester ID for the network interface.</p></li><li><p><code>network-interface.requester-managed</code> - Indicates whether the network interface is being managed by Amazon Web Services.</p></li><li><p><code>network-interface.status</code> - The status of the network interface (<code>available</code>) | <code>in-use</code>).</p></li><li><p><code>network-interface.source-dest-check</code> - Whether the network interface performs source/destination checking. A value of <code>true</code> means that checking is enabled, and <code>false</code> means that checking is disabled. The value must be <code>false</code> for the network interface to perform network address translation (NAT) in your VPC.</p></li><li><p><code>network-interface.subnet-id</code> - The ID of the subnet for the network interface.</p></li><li><p><code>network-interface.vpc-id</code> - The ID of the VPC for the network interface.</p></li><li><p><code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p></li><li><p><code>owner-id</code> - The Amazon Web Services account ID of the instance owner.</p></li><li><p><code>placement-group-name</code> - The name of the placement group for the instance.</p></li><li><p><code>placement-partition-number</code> - The partition in which the instance is located.</p></li><li><p><code>platform</code> - The platform. To list only Windows instances, use <code>windows</code>.</p></li><li><p><code>platform-details</code> - The platform (<code>Linux/UNIX</code> | <code>Red Hat BYOL Linux</code> | <code> Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux with HA</code> | <code>Red Hat Enterprise Linux with SQL Server Standard and HA</code> | <code>Red Hat Enterprise Linux with SQL Server Enterprise and HA</code> | <code>Red Hat Enterprise Linux with SQL Server Standard</code> | <code>Red Hat Enterprise Linux with SQL Server Web</code> | <code>Red Hat Enterprise Linux with SQL Server Enterprise</code> | <code>SQL Server Enterprise</code> | <code>SQL Server Standard</code> | <code>SQL Server Web</code> | <code>SUSE Linux</code> | <code>Ubuntu Pro</code> | <code>Windows</code> | <code>Windows BYOL</code> | <code>Windows with SQL Server Enterprise</code> | <code>Windows with SQL Server Standard</code> | <code>Windows with SQL Server Web</code>).</p></li><li><p><code>private-dns-name</code> - The private IPv4 DNS name of the instance.</p></li><li><p><code>private-dns-name-options.enable-resource-name-dns-a-record</code> - A Boolean that indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p></li><li><p><code>private-dns-name-options.enable-resource-name-dns-aaaa-record</code> - A Boolean that indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p></li><li><p><code>private-dns-name-options.hostname-type</code> - The type of hostname (<code>ip-name</code> | <code>resource-name</code>).</p></li><li><p><code>private-ip-address</code> - The private IPv4 address of the instance.</p></li><li><p><code>product-code</code> - The product code associated with the AMI used to launch the instance.</p></li><li><p><code>product-code.type</code> - The type of product code (<code>devpay</code> | <code>marketplace</code>).</p></li><li><p><code>ramdisk-id</code> - The RAM disk ID.</p></li><li><p><code>reason</code> - The reason for the current state of the instance (for example, shows "User Initiated [date]" when you stop or terminate the instance). Similar to the state-reason-code filter.</p></li><li><p><code>requester-id</code> - The ID of the entity that launched the instance on your behalf (for example, Amazon Web Services Management Console, Auto Scaling, and so on).</p></li><li><p><code>reservation-id</code> - The ID of the instance's reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID.</p></li><li><p><code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p></li><li><p><code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p></li><li><p><code>source-dest-check</code> - Indicates whether the instance performs source/destination checking. A value of <code>true</code> means that checking is enabled, and <code>false</code> means that checking is disabled. The value must be <code>false</code> for the instance to perform network address translation (NAT) in your VPC. </p></li><li><p><code>spot-instance-request-id</code> - The ID of the Spot Instance request.</p></li><li><p><code>state-reason-code</code> - The reason code for the state change.</p></li><li><p><code>state-reason-message</code> - A message that describes the state change.</p></li><li><p><code>subnet-id</code> - The ID of the subnet for the instance.</p></li><li><p><code>tag:&lt;key&gt;</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p></li><li><p><code>tenancy</code> - The tenancy of an instance (<code>dedicated</code> | <code>default</code> | <code>host</code>).</p></li><li><p><code>tpm-support</code> - Indicates if the instance is configured for NitroTPM support (<code>v2.0</code>). </p></li><li><p><code>usage-operation</code> - The usage operation value for the instance (<code>RunInstances</code> | <code>RunInstances:00g0</code> | <code>RunInstances:0010</code> | <code>RunInstances:1010</code> | <code>RunInstances:1014</code> | <code>RunInstances:1110</code> | <code>RunInstances:0014</code> | <code>RunInstances:0210</code> | <code>RunInstances:0110</code> | <code>RunInstances:0100</code> | <code>RunInstances:0004</code> | <code>RunInstances:0200</code> | <code>RunInstances:000g</code> | <code>RunInstances:0g00</code> | <code>RunInstances:0002</code> | <code>RunInstances:0800</code> | <code>RunInstances:0102</code> | <code>RunInstances:0006</code> | <code>RunInstances:0202</code>).</p></li><li><p><code>usage-operation-update-time</code> - The time that the usage operation was last updated, for example, <code>2022-09-15T17:15:20.000Z</code>.</p></li><li><p><code>virtualization-type</code> - The virtualization type of the instance (<code>paravirtual</code> | <code>hvm</code>).</p></li><li><p><code>vpc-id</code> - The ID of the VPC that the instance is running in.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -25520,6 +25631,32 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DisableImageBlockPublicAccessRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DisableImageBlockPublicAccessResult : AWSModel
+
+
+/**
+ <p>Returns <code>unblocked</code> if the request succeeds; otherwise, it returns an error.</p>
+ */
+@property (nonatomic, assign) AWSEC2ImageBlockPublicAccessDisabledState imageBlockPublicAccessState;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DisableImageDeprecationRequest : AWSRequest
 
 
@@ -26420,7 +26557,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
- <p>The ARN of the Outpost on which the snapshot is stored.</p><p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html"> CreateImage</a>.</p>
+ <p>The ARN of the Outpost on which the snapshot is stored.</p><p>This parameter is not supported when using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outpostArn;
 
@@ -27220,6 +27357,37 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the snapshots for which fast snapshot restores could not be enabled.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2EnableFastSnapshotRestoreErrorItem *> * _Nullable unsuccessful;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2EnableImageBlockPublicAccessRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>Specify <code>block-new-sharing</code> to enable block public access for AMIs at the account level in the specified Region. This will block any attempt to publicly share your AMIs in the specified Region.</p>
+ */
+@property (nonatomic, assign) AWSEC2ImageBlockPublicAccessEnabledState imageBlockPublicAccessState;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2EnableImageBlockPublicAccessResult : AWSModel
+
+
+/**
+ <p>Returns <code>block-new-sharing</code> if the request succeeds; otherwise, it returns an error.</p>
+ */
+@property (nonatomic, assign) AWSEC2ImageBlockPublicAccessEnabledState imageBlockPublicAccessState;
 
 @end
 
@@ -29619,6 +29787,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @property (nonatomic, strong) NSNumber * _Nullable ebsEncryptionByDefault;
 
+/**
+ <p>Reserved for future use.</p>
+ */
+@property (nonatomic, assign) AWSEC2SSEType sseType;
+
 @end
 
 /**
@@ -29751,6 +29924,32 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The potential total upfront price. This is billed immediately.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable totalUpfrontPrice;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetImageBlockPublicAccessStateRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetImageBlockPublicAccessStateResult : AWSModel
+
+
+/**
+ <p>The current state of block public access for AMIs at the account level in the specified Amazon Web Services Region.</p><p>Possible values:</p><ul><li><p><code>block-new-sharing</code> - Any attempt to publicly share your AMIs in the specified Region is blocked.</p></li><li><p><code>unblocked</code> - Your AMIs in the specified Region can be publicly shared.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable imageBlockPublicAccessState;
 
 @end
 
@@ -32898,6 +33097,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @property (nonatomic, strong) NSArray<AWSEC2InferenceDeviceInfo *> * _Nullable accelerators;
 
+/**
+ <p>The total size of the memory for the inference accelerators for the instance type, in MiB.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable totalInferenceMemoryInMiB;
+
 @end
 
 /**
@@ -32917,9 +33121,27 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable manufacturer;
 
 /**
+ <p>Describes the memory available to the inference accelerator.</p>
+ */
+@property (nonatomic, strong) AWSEC2InferenceDeviceMemoryInfo * _Nullable memoryInfo;
+
+/**
  <p>The name of the Inference accelerator.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ <p>Describes the memory available to the inference accelerator.</p>
+ */
+@interface AWSEC2InferenceDeviceMemoryInfo : AWSModel
+
+
+/**
+ <p>The size of the memory available to the inference accelerator, in MiB.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable sizeInMiB;
 
 @end
 
@@ -33679,6 +33901,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @property (nonatomic, strong) NSString * _Nullable ipv6Address;
 
+/**
+ <p>Determines if an IPv6 address associated with a network interface is the primary IPv6 address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable isPrimaryIpv6;
+
 @end
 
 /**
@@ -34089,6 +34316,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the network interface.</p><p>If you are creating a Spot Fleet, omit this parameter because you can’t specify a network interface ID in a launch specification.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
+
+/**
+ <p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable primaryIpv6;
 
 /**
  <p>The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> request.</p>
@@ -36769,6 +37001,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
 
 /**
+ <p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable primaryIpv6;
+
+/**
  <p>The primary private IPv4 address of the network interface.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable privateIpAddress;
@@ -36870,6 +37107,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the network interface.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
+
+/**
+ <p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable primaryIpv6;
 
 /**
  <p>The primary private IPv4 address of the network interface.</p>
@@ -39510,6 +39752,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2EnaSrdSpecification * _Nullable enaSrdSpecification;
 
 /**
+ <p>If you’re modifying a network interface in a dual-stack or IPv6-only subnet, you have the option to assign a primary IPv6 IP address. A primary IPv6 address is an IPv6 GUA address associated with an ENI that you have enabled to use a primary IPv6 address. Use this option if the instance that this ENI will be attached to relies on its IPv6 address not changing. Amazon Web Services will automatically assign an IPv6 address associated with the ENI attached to your instance to be the primary IPv6 address. Once you enable an IPv6 GUA address to be a primary IPv6, you cannot disable it. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. If you have multiple IPv6 addresses associated with an ENI attached to your instance and you enable a primary IPv6 address, the first IPv6 GUA address associated with the ENI becomes the primary IPv6 address.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enablePrimaryIpv6;
+
+/**
  <p>Changes the security groups for the network interface. The new set of groups you specify replaces the current set. You must specify at least one group, even if it's just the default security group in the VPC. You must specify the ID of the security group, not the name.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groups;
@@ -39983,7 +40230,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The number of bytes in each packet to mirror. These are bytes after the VXLAN header. To mirror a subset, set this to the length (in bytes) to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target. Do not specify this parameter when you want to mirror the entire packet.</p>
+ <p>The number of bytes in each packet to mirror. These are bytes after the VXLAN header. To mirror a subset, set this to the length (in bytes) to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target. Do not specify this parameter when you want to mirror the entire packet.</p><p>For sessions with Network Load Balancer (NLB) traffic mirror targets, the default <code>PacketLength</code> will be set to 8500. Valid values are 1-8500. Setting a <code>PacketLength</code> greater than 8500 will result in an error response.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable packetLength;
 
@@ -40822,7 +41069,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable addRouteTableIds;
 
 /**
- <p>(Interface endpoint) The IDs of the security groups to associate with the network interface.</p>
+ <p>(Interface endpoint) The IDs of the security groups to associate with the endpoint network interfaces.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable addSecurityGroupIds;
 
@@ -40862,7 +41109,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable removeRouteTableIds;
 
 /**
- <p>(Interface endpoint) The IDs of the security groups to disassociate from the network interface.</p>
+ <p>(Interface endpoint) The IDs of the security groups to disassociate from the endpoint network interfaces.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable removeSecurityGroupIds;
 
@@ -40875,6 +41122,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>(Gateway endpoint) Specify <code>true</code> to reset the policy document to the default policy. The default policy allows full access to the service.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable resetPolicy;
+
+/**
+ <p>The subnet configurations for the endpoint.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2SubnetConfiguration *> * _Nullable subnetConfigurations;
 
 /**
  <p>The ID of the endpoint.</p>
@@ -41835,6 +42087,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
+ <p>The baseline network performance of the network card, in Gbps.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable baselineBandwidthInGbps;
+
+/**
  <p>The maximum number of network interfaces for the network card.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumNetworkInterfaces;
@@ -41848,6 +42105,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The network performance of the network card.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable networkPerformance;
+
+/**
+ <p>The peak (burst) network performance of the network card, in Gbps.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable peakBandwidthInGbps;
 
 @end
 
@@ -42507,6 +42769,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The IPv6 address.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipv6Address;
+
+/**
+ <p>Determines if an IPv6 address associated with a network interface is the primary IPv6 address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyNetworkInterfaceAttribute.html">ModifyNetworkInterfaceAttribute</a>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable isPrimaryIpv6;
 
 @end
 
@@ -46849,6 +47116,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable snapshotId;
 
 /**
+ <p>Reserved for future use.</p>
+ */
+@property (nonatomic, assign) AWSEC2SSEType sseType;
+
+/**
  <p>The time stamp when the snapshot was initiated.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable startTime;
@@ -47449,6 +47721,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.</p><p>You cannot specify accelerators from different generations in the same request.</p><note><p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSEC2ElasticInferenceAccelerator *> * _Nullable elasticInferenceAccelerators;
+
+/**
+ <p>If you’re launching an instance into a dual-stack or IPv6-only subnet, you can enable assigning a primary IPv6 address. A primary IPv6 address is an IPv6 GUA address associated with an ENI that you have enabled to use a primary IPv6 address. Use this option if an instance relies on its IPv6 address not changing. When you launch the instance, Amazon Web Services will automatically assign an IPv6 address associated with the ENI attached to your instance to be the primary IPv6 address. Once you enable an IPv6 GUA address to be a primary IPv6, you cannot disable it. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. If you have multiple IPv6 addresses associated with an ENI attached to your instance and you enable a primary IPv6 address, the first IPv6 GUA address associated with the ENI becomes the primary IPv6 address.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enablePrimaryIpv6;
 
 /**
  <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">What is Amazon Web Services Nitro Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p><p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same instance.</p>
@@ -48891,6 +49168,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable snapshotId;
 
 /**
+ <p>Reserved for future use.</p>
+ */
+@property (nonatomic, assign) AWSEC2SSEType sseType;
+
+/**
  <p>The time stamp when the snapshot was initiated.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable startTime;
@@ -49048,6 +49330,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Snapshot id that can be used to describe this snapshot.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable snapshotId;
+
+/**
+ <p>Reserved for future use.</p>
+ */
+@property (nonatomic, assign) AWSEC2SSEType sseType;
 
 /**
  <p>Time this snapshot was started. This is the same for all snapshots initiated by the same request.</p>
@@ -50524,6 +50811,29 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The tags assigned to the subnet CIDR reservation.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+@end
+
+/**
+ <p>Describes the configuration of a subnet for a VPC endpoint.</p>
+ */
+@interface AWSEC2SubnetConfiguration : AWSModel
+
+
+/**
+ <p>The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.</p><p>If you specify an IPv4 address when modifying a VPC endpoint, we replace the existing endpoint network interface with a new endpoint network interface with this IP address. This process temporarily disconnects the subnet and the VPC endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipv4;
+
+/**
+ <p>The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.</p><p>If you specify an IPv6 address when modifying a VPC endpoint, we replace the existing endpoint network interface with a new endpoint network interface with this IP address. This process temporarily disconnects the subnet and the VPC endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipv6;
+
+/**
+ <p>The ID of the subnet.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable subnetId;
 
 @end
 
@@ -54037,6 +54347,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The snapshot from which the volume was created, if applicable.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable snapshotId;
+
+/**
+ <p>Reserved for future use.</p>
+ */
+@property (nonatomic, assign) AWSEC2SSEType sseType;
 
 /**
  <p>The volume state.</p>

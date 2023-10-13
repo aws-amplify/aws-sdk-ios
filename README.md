@@ -3,7 +3,8 @@
 [![Release](https://img.shields.io/github/release/aws/aws-sdk-ios.svg)](../../releases)
 [![CocoaPods](https://img.shields.io/cocoapods/v/AWSCore.svg)](https://cocoapods.org/pods/AWSCore)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![CircleCI](https://circleci.com/gh/aws-amplify/aws-sdk-ios.svg?style=svg)](https://circleci.com/gh/aws-amplify/aws-sdk-ios)
+[![Integration Test](https://github.com/aws-amplify/aws-sdk-ios/actions/workflows/integ-test.yml/badge.svg)](https://github.com/aws-amplify/aws-sdk-ios)
+[![Unit Test](https://github.com/aws-amplify/aws-sdk-ios/actions/workflows/unit-test.yml/badge.svg)](https://github.com/aws-amplify/aws-sdk-ios)
 [![Discord](https://img.shields.io/discord/308323056592486420?logo=discord)](https://discord.gg/jWVbPfC) 
 
 The AWS SDK for iOS provides a library and documentation for developers to build connected mobile applications using AWS.
@@ -436,3 +437,4 @@ Amazon Web Services
 ## License
 
 See the **LICENSE** file for more info.
+

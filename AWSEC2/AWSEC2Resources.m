@@ -1133,7 +1133,7 @@
       },\
       \"input\":{\"shape\":\"CreateSubnetCidrReservationRequest\"},\
       \"output\":{\"shape\":\"CreateSubnetCidrReservationResult\"},\
-      \"documentation\":\"<p>Creates a subnet CIDR reservation. For information about subnet CIDR reservations, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/subnet-cidr-reservation.html\\\">Subnet CIDR reservations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Creates a subnet CIDR reservation. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/subnet-cidr-reservation.html\\\">Subnet CIDR reservations</a> in the <i>Amazon Virtual Private Cloud User Guide</i> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html\\\">Assign prefixes to network interfaces</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"CreateTags\":{\
       \"name\":\"CreateTags\",\
@@ -1607,6 +1607,7 @@
         \"requestUri\":\"/\"\
       },\
       \"input\":{\"shape\":\"DeleteKeyPairRequest\"},\
+      \"output\":{\"shape\":\"DeleteKeyPairResult\"},\
       \"documentation\":\"<p>Deletes the specified key pair, by removing the public key from Amazon EC2.</p>\"\
     },\
     \"DeleteLaunchTemplate\":{\
@@ -1627,7 +1628,7 @@
       },\
       \"input\":{\"shape\":\"DeleteLaunchTemplateVersionsRequest\"},\
       \"output\":{\"shape\":\"DeleteLaunchTemplateVersionsResult\"},\
-      \"documentation\":\"<p>Deletes one or more versions of a launch template. You cannot delete the default version of a launch template; you must first assign a different version as the default. If the default version is the only version for the launch template, you must delete the entire launch template using <a>DeleteLaunchTemplate</a>.</p>\"\
+      \"documentation\":\"<p>Deletes one or more versions of a launch template.</p> <p>You can't delete the default version of a launch template; you must first assign a different version as the default. If the default version is the only version for the launch template, you must delete the entire launch template using <a>DeleteLaunchTemplate</a>.</p> <p>You can delete up to 200 launch template versions in a single request. To delete more than 200 versions in a single request, use <a>DeleteLaunchTemplate</a>, which deletes the launch template and all of its versions.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-launch-template-versions.html#delete-launch-template-version\\\">Delete a launch template version</a> in the <i>EC2 User Guide</i>.</p>\"\
     },\
     \"DeleteLocalGatewayRoute\":{\
       \"name\":\"DeleteLocalGatewayRoute\",\
@@ -3769,6 +3770,16 @@
       \"output\":{\"shape\":\"DisableFastSnapshotRestoresResult\"},\
       \"documentation\":\"<p>Disables fast snapshot restores for the specified snapshots in the specified Availability Zones.</p>\"\
     },\
+    \"DisableImageBlockPublicAccess\":{\
+      \"name\":\"DisableImageBlockPublicAccess\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DisableImageBlockPublicAccessRequest\"},\
+      \"output\":{\"shape\":\"DisableImageBlockPublicAccessResult\"},\
+      \"documentation\":\"<p>Disables <i>block public access for AMIs</i> at the account level in the specified Amazon Web Services Region. This removes the <i>block public access</i> restriction from your account. With the restriction removed, you can publicly share your AMIs in the specified Amazon Web Services Region.</p> <p>The API can take up to 10 minutes to configure this setting. During this time, if you run <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageBlockPublicAccessState.html\\\">GetImageBlockPublicAccessState</a>, the response will be <code>block-new-sharing</code>. When the API has completed the configuration, the response will be <code>unblocked</code>.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis\\\">Block public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
+    },\
     \"DisableImageDeprecation\":{\
       \"name\":\"DisableImageDeprecation\",\
       \"http\":{\
@@ -4025,6 +4036,16 @@
       \"input\":{\"shape\":\"EnableFastSnapshotRestoresRequest\"},\
       \"output\":{\"shape\":\"EnableFastSnapshotRestoresResult\"},\
       \"documentation\":\"<p>Enables fast snapshot restores for the specified snapshots in the specified Availability Zones.</p> <p>You get the full benefit of fast snapshot restores after they enter the <code>enabled</code> state. To get the current state of fast snapshot restores, use <a>DescribeFastSnapshotRestores</a>. To disable fast snapshot restores, use <a>DisableFastSnapshotRestores</a>.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-fast-snapshot-restore.html\\\">Amazon EBS fast snapshot restore</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+    },\
+    \"EnableImageBlockPublicAccess\":{\
+      \"name\":\"EnableImageBlockPublicAccess\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"EnableImageBlockPublicAccessRequest\"},\
+      \"output\":{\"shape\":\"EnableImageBlockPublicAccessResult\"},\
+      \"documentation\":\"<p>Enables <i>block public access for AMIs</i> at the account level in the specified Amazon Web Services Region. This prevents the public sharing of your AMIs. However, if you already have public AMIs, they will remain publicly available.</p> <p>The API can take up to 10 minutes to configure this setting. During this time, if you run <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageBlockPublicAccessState.html\\\">GetImageBlockPublicAccessState</a>, the response will be <code>unblocked</code>. When the API has completed the configuration, the response will be <code>block-new-sharing</code>.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis\\\">Block public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
     },\
     \"EnableImageDeprecation\":{\
       \"name\":\"EnableImageDeprecation\",\
@@ -4283,6 +4304,16 @@
       \"input\":{\"shape\":\"GetHostReservationPurchasePreviewRequest\"},\
       \"output\":{\"shape\":\"GetHostReservationPurchasePreviewResult\"},\
       \"documentation\":\"<p>Preview a reservation purchase with configurations that match those of your Dedicated Host. You must have active Dedicated Hosts in your account before you purchase a reservation.</p> <p>This is a preview of the <a>PurchaseHostReservation</a> action and does not result in the offering being purchased.</p>\"\
+    },\
+    \"GetImageBlockPublicAccessState\":{\
+      \"name\":\"GetImageBlockPublicAccessState\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"GetImageBlockPublicAccessStateRequest\"},\
+      \"output\":{\"shape\":\"GetImageBlockPublicAccessStateResult\"},\
+      \"documentation\":\"<p>Gets the current state of <i>block public access for AMIs</i> at the account level in the specified Amazon Web Services Region.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis\\\">Block public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
     },\
     \"GetInstanceTypesFromInstanceRequirements\":{\
       \"name\":\"GetInstanceTypesFromInstanceRequirements\",\
@@ -9008,6 +9039,7 @@
       ]\
     },\
     \"BareMetalFlag\":{\"type\":\"boolean\"},\
+    \"BaselineBandwidthInGbps\":{\"type\":\"double\"},\
     \"BaselineBandwidthInMbps\":{\"type\":\"integer\"},\
     \"BaselineEbsBandwidthMbps\":{\
       \"type\":\"structure\",\
@@ -12345,7 +12377,7 @@
         },\
         \"LogFormat\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The fields to include in the flow log record. List the fields in the order in which they should appear. If you omit this parameter, the flow log is created using the default format. If you specify this parameter, you must include at least one field. For more information about the available fields, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records\\\">Flow log records</a> in the <i>Amazon VPC User Guide</i> or <a href=\\\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records\\\">Transit Gateway Flow Log records</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p> <p>Specify the fields using the <code>${field-id}</code> format, separated by spaces. For the CLI, surround this parameter value with single quotes on Linux or double quotes on Windows.</p>\"\
+          \"documentation\":\"<p>The fields to include in the flow log record. List the fields in the order in which they should appear. If you omit this parameter, the flow log is created using the default format. If you specify this parameter, you must include at least one field. For more information about the available fields, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records\\\">Flow log records</a> in the <i>Amazon VPC User Guide</i> or <a href=\\\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records\\\">Transit Gateway Flow Log records</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p> <p>Specify the fields using the <code>${field-id}</code> format, separated by spaces.</p>\"\
         },\
         \"TagSpecifications\":{\
           \"shape\":\"TagSpecificationList\",\
@@ -13557,6 +13589,10 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">Ensuring Idempotency</a>.</p>\",\
           \"idempotencyToken\":true\
+        },\
+        \"EnablePrimaryIpv6\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>If youâre creating a network interface in a dual-stack or IPv6-only subnet, you have the option to assign a primary IPv6 IP address. A primary IPv6 address is an IPv6 GUA address associated with an ENI that you have enabled to use a primary IPv6 address. Use this option if the instance that this ENI will be attached to relies on its IPv6 address not changing. Amazon Web Services will automatically assign an IPv6 address associated with the ENI attached to your instance to be the primary IPv6 address. Once you enable an IPv6 GUA address to be a primary IPv6, you cannot disable it. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. If you have multiple IPv6 addresses associated with an ENI attached to your instance and you enable a primary IPv6 address, the first IPv6 GUA address associated with the ENI becomes the primary IPv6 address.</p>\"\
         }\
       }\
     },\
@@ -14095,7 +14131,7 @@
         },\
         \"ReservationType\":{\
           \"shape\":\"SubnetCidrReservationType\",\
-          \"documentation\":\"<p>The type of reservation.</p> <p>The following are valid values:</p> <ul> <li> <p> <code>prefix</code>: The Amazon EC2 Prefix Delegation feature assigns the IP addresses to network interfaces that are associated with an instance. For information about Prefix Delegation, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-delegation.html\\\">Prefix Delegation for Amazon EC2 network interfaces</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </li> <li> <p> <code>explicit</code>: You manually assign the IP addresses to resources that reside in your subnet. </p> </li> </ul>\"\
+          \"documentation\":\"<p>The type of reservation. The reservation type determines how the reserved IP addresses are assigned to resources.</p> <ul> <li> <p> <code>prefix</code> - Amazon Web Services assigns the reserved IP addresses to network interfaces.</p> </li> <li> <p> <code>explicit</code> - You assign the reserved IP addresses to network interfaces.</p> </li> </ul>\"\
         },\
         \"Description\":{\
           \"shape\":\"String\",\
@@ -14338,7 +14374,7 @@
         },\
         \"PacketLength\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target.</p> <p>If you do not want to mirror the entire packet, use the <code>PacketLength</code> parameter to specify the number of bytes in each packet to mirror.</p>\"\
+          \"documentation\":\"<p>The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target.</p> <p>If you do not want to mirror the entire packet, use the <code>PacketLength</code> parameter to specify the number of bytes in each packet to mirror.</p> <p>For sessions with Network Load Balancer (NLB) Traffic Mirror targets the default <code>PacketLength</code> will be set to 8500. Valid values are 1-8500. Setting a <code>PacketLength</code> greater than 8500 will result in an error response.</p>\"\
         },\
         \"SessionNumber\":{\
           \"shape\":\"Integer\",\
@@ -15395,12 +15431,12 @@
         },\
         \"SubnetIds\":{\
           \"shape\":\"VpcEndpointSubnetIdList\",\
-          \"documentation\":\"<p>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to create an endpoint network interface. For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>\",\
+          \"documentation\":\"<p>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to create endpoint network interfaces. For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>\",\
           \"locationName\":\"SubnetId\"\
         },\
         \"SecurityGroupIds\":{\
           \"shape\":\"VpcEndpointSecurityGroupIdList\",\
-          \"documentation\":\"<p>(Interface endpoint) The IDs of the security groups to associate with the endpoint network interface. If this parameter is not specified, we use the default security group for the VPC.</p>\",\
+          \"documentation\":\"<p>(Interface endpoint) The IDs of the security groups to associate with the endpoint network interfaces. If this parameter is not specified, we use the default security group for the VPC.</p>\",\
           \"locationName\":\"SecurityGroupId\"\
         },\
         \"IpAddressType\":{\
@@ -15423,6 +15459,11 @@
           \"shape\":\"TagSpecificationList\",\
           \"documentation\":\"<p>The tags to associate with the endpoint.</p>\",\
           \"locationName\":\"TagSpecification\"\
+        },\
+        \"SubnetConfigurations\":{\
+          \"shape\":\"SubnetConfigurationsList\",\
+          \"documentation\":\"<p>The subnet configurations for the endpoint.</p>\",\
+          \"locationName\":\"SubnetConfiguration\"\
         }\
       }\
     },\
@@ -16480,6 +16521,21 @@
         }\
       }\
     },\
+    \"DeleteKeyPairResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Return\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>\",\
+          \"locationName\":\"return\"\
+        },\
+        \"KeyPairId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the key pair.</p>\",\
+          \"locationName\":\"keyPairId\"\
+        }\
+      }\
+    },\
     \"DeleteLaunchTemplateRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -16525,7 +16581,7 @@
         },\
         \"Versions\":{\
           \"shape\":\"VersionStringList\",\
-          \"documentation\":\"<p>The version numbers of one or more launch template versions to delete.</p>\",\
+          \"documentation\":\"<p>The version numbers of one or more launch template versions to delete. You can specify up to 200 launch template version numbers.</p>\",\
           \"locationName\":\"LaunchTemplateVersion\"\
         }\
       }\
@@ -20392,7 +20448,7 @@
       \"members\":{\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>affinity</code> - The affinity setting for an instance running on a Dedicated Host (<code>default</code> | <code>host</code>).</p> </li> <li> <p> <code>architecture</code> - The instance architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p> </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the instance.</p> </li> <li> <p> <code>block-device-mapping.attach-time</code> - The attach time for an EBS volume mapped to the instance, for example, <code>2010-09-15T17:15:20.000Z</code>.</p> </li> <li> <p> <code>block-device-mapping.delete-on-termination</code> - A Boolean that indicates whether the EBS volume is deleted on instance termination.</p> </li> <li> <p> <code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p> </li> <li> <p> <code>block-device-mapping.status</code> - The status for the EBS volume (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p> </li> <li> <p> <code>block-device-mapping.volume-id</code> - The volume ID of the EBS volume.</p> </li> <li> <p> <code>capacity-reservation-id</code> - The ID of the Capacity Reservation into which the instance was launched.</p> </li> <li> <p> <code>client-token</code> - The idempotency token you provided when you launched the instance.</p> </li> <li> <p> <code>dns-name</code> - The public DNS name of the instance.</p> </li> <li> <p> <code>hibernation-options.configured</code> - A Boolean that indicates whether the instance is enabled for hibernation. A value of <code>true</code> means that the instance is enabled for hibernation. </p> </li> <li> <p> <code>host-id</code> - The ID of the Dedicated Host on which the instance is running, if applicable.</p> </li> <li> <p> <code>hypervisor</code> - The hypervisor type of the instance (<code>ovm</code> | <code>xen</code>). The value <code>xen</code> is used for both Xen and Nitro hypervisors.</p> </li> <li> <p> <code>iam-instance-profile.arn</code> - The instance profile associated with the instance. Specified as an ARN.</p> </li> <li> <p> <code>image-id</code> - The ID of the image used to launch the instance.</p> </li> <li> <p> <code>instance-id</code> - The ID of the instance.</p> </li> <li> <p> <code>instance-lifecycle</code> - Indicates whether this is a Spot Instance or a Scheduled Instance (<code>spot</code> | <code>scheduled</code>).</p> </li> <li> <p> <code>instance-state-code</code> - The state of the instance, as a 16-bit unsigned integer. The high byte is used for internal purposes and should be ignored. The low byte is set based on the state represented. The valid values are: 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).</p> </li> <li> <p> <code>instance-state-name</code> - The state of the instance (<code>pending</code> | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code> | <code>stopped</code>).</p> </li> <li> <p> <code>instance-type</code> - The type of instance (for example, <code>t2.micro</code>).</p> </li> <li> <p> <code>instance.group-id</code> - The ID of the security group for the instance. </p> </li> <li> <p> <code>instance.group-name</code> - The name of the security group for the instance. </p> </li> <li> <p> <code>ip-address</code> - The public IPv4 address of the instance.</p> </li> <li> <p> <code>kernel-id</code> - The kernel ID.</p> </li> <li> <p> <code>key-name</code> - The name of the key pair used when the instance was launched.</p> </li> <li> <p> <code>launch-index</code> - When launching multiple instances, this is the index for the instance in the launch group (for example, 0, 1, 2, and so on). </p> </li> <li> <p> <code>launch-time</code> - The time when the instance was launched, in the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which matches an entire day.</p> </li> <li> <p> <code>metadata-options.http-tokens</code> - The metadata request authorization state (<code>optional</code> | <code>required</code>)</p> </li> <li> <p> <code>metadata-options.http-put-response-hop-limit</code> - The HTTP metadata request put response hop limit (integer, possible values <code>1</code> to <code>64</code>)</p> </li> <li> <p> <code>metadata-options.http-endpoint</code> - The status of access to the HTTP metadata endpoint on your instance (<code>enabled</code> | <code>disabled</code>)</p> </li> <li> <p> <code>metadata-options.instance-metadata-tags</code> - The status of access to instance tags from the instance metadata (<code>enabled</code> | <code>disabled</code>)</p> </li> <li> <p> <code>monitoring-state</code> - Indicates whether detailed monitoring is enabled (<code>disabled</code> | <code>enabled</code>).</p> </li> <li> <p> <code>network-interface.addresses.private-ip-address</code> - The private IPv4 address associated with the network interface.</p> </li> <li> <p> <code>network-interface.addresses.primary</code> - Specifies whether the IPv4 address of the network interface is the primary private IPv4 address.</p> </li> <li> <p> <code>network-interface.addresses.association.public-ip</code> - The ID of the association of an Elastic IP address (IPv4) with a network interface.</p> </li> <li> <p> <code>network-interface.addresses.association.ip-owner-id</code> - The owner ID of the private IPv4 address associated with the network interface.</p> </li> <li> <p> <code>network-interface.association.public-ip</code> - The address of the Elastic IP address (IPv4) bound to the network interface.</p> </li> <li> <p> <code>network-interface.association.ip-owner-id</code> - The owner of the Elastic IP address (IPv4) associated with the network interface.</p> </li> <li> <p> <code>network-interface.association.allocation-id</code> - The allocation ID returned when you allocated the Elastic IP address (IPv4) for your network interface.</p> </li> <li> <p> <code>network-interface.association.association-id</code> - The association ID returned when the network interface was associated with an IPv4 address.</p> </li> <li> <p> <code>network-interface.attachment.attachment-id</code> - The ID of the interface attachment.</p> </li> <li> <p> <code>network-interface.attachment.instance-id</code> - The ID of the instance to which the network interface is attached.</p> </li> <li> <p> <code>network-interface.attachment.instance-owner-id</code> - The owner ID of the instance to which the network interface is attached.</p> </li> <li> <p> <code>network-interface.attachment.device-index</code> - The device index to which the network interface is attached.</p> </li> <li> <p> <code>network-interface.attachment.status</code> - The status of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p> </li> <li> <p> <code>network-interface.attachment.attach-time</code> - The time that the network interface was attached to an instance.</p> </li> <li> <p> <code>network-interface.attachment.delete-on-termination</code> - Specifies whether the attachment is deleted when an instance is terminated.</p> </li> <li> <p> <code>network-interface.availability-zone</code> - The Availability Zone for the network interface.</p> </li> <li> <p> <code>network-interface.description</code> - The description of the network interface.</p> </li> <li> <p> <code>network-interface.group-id</code> - The ID of a security group associated with the network interface.</p> </li> <li> <p> <code>network-interface.group-name</code> - The name of a security group associated with the network interface.</p> </li> <li> <p> <code>network-interface.ipv6-addresses.ipv6-address</code> - The IPv6 address associated with the network interface.</p> </li> <li> <p> <code>network-interface.mac-address</code> - The MAC address of the network interface.</p> </li> <li> <p> <code>network-interface.network-interface-id</code> - The ID of the network interface.</p> </li> <li> <p> <code>network-interface.owner-id</code> - The ID of the owner of the network interface.</p> </li> <li> <p> <code>network-interface.private-dns-name</code> - The private DNS name of the network interface.</p> </li> <li> <p> <code>network-interface.requester-id</code> - The requester ID for the network interface.</p> </li> <li> <p> <code>network-interface.requester-managed</code> - Indicates whether the network interface is being managed by Amazon Web Services.</p> </li> <li> <p> <code>network-interface.status</code> - The status of the network interface (<code>available</code>) | <code>in-use</code>).</p> </li> <li> <p> <code>network-interface.source-dest-check</code> - Whether the network interface performs source/destination checking. A value of <code>true</code> means that checking is enabled, and <code>false</code> means that checking is disabled. The value must be <code>false</code> for the network interface to perform network address translation (NAT) in your VPC.</p> </li> <li> <p> <code>network-interface.subnet-id</code> - The ID of the subnet for the network interface.</p> </li> <li> <p> <code>network-interface.vpc-id</code> - The ID of the VPC for the network interface.</p> </li> <li> <p> <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p> </li> <li> <p> <code>owner-id</code> - The Amazon Web Services account ID of the instance owner.</p> </li> <li> <p> <code>placement-group-name</code> - The name of the placement group for the instance.</p> </li> <li> <p> <code>placement-partition-number</code> - The partition in which the instance is located.</p> </li> <li> <p> <code>platform</code> - The platform. To list only Windows instances, use <code>windows</code>.</p> </li> <li> <p> <code>private-dns-name</code> - The private IPv4 DNS name of the instance.</p> </li> <li> <p> <code>private-ip-address</code> - The private IPv4 address of the instance.</p> </li> <li> <p> <code>product-code</code> - The product code associated with the AMI used to launch the instance.</p> </li> <li> <p> <code>product-code.type</code> - The type of product code (<code>devpay</code> | <code>marketplace</code>).</p> </li> <li> <p> <code>ramdisk-id</code> - The RAM disk ID.</p> </li> <li> <p> <code>reason</code> - The reason for the current state of the instance (for example, shows \\\"User Initiated [date]\\\" when you stop or terminate the instance). Similar to the state-reason-code filter.</p> </li> <li> <p> <code>requester-id</code> - The ID of the entity that launched the instance on your behalf (for example, Amazon Web Services Management Console, Auto Scaling, and so on).</p> </li> <li> <p> <code>reservation-id</code> - The ID of the instance's reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID.</p> </li> <li> <p> <code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p> </li> <li> <p> <code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p> </li> <li> <p> <code>source-dest-check</code> - Indicates whether the instance performs source/destination checking. A value of <code>true</code> means that checking is enabled, and <code>false</code> means that checking is disabled. The value must be <code>false</code> for the instance to perform network address translation (NAT) in your VPC. </p> </li> <li> <p> <code>spot-instance-request-id</code> - The ID of the Spot Instance request.</p> </li> <li> <p> <code>state-reason-code</code> - The reason code for the state change.</p> </li> <li> <p> <code>state-reason-message</code> - A message that describes the state change.</p> </li> <li> <p> <code>subnet-id</code> - The ID of the subnet for the instance.</p> </li> <li> <p> <code>tag:&lt;key&gt;</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>tenancy</code> - The tenancy of an instance (<code>dedicated</code> | <code>default</code> | <code>host</code>).</p> </li> <li> <p> <code>virtualization-type</code> - The virtualization type of the instance (<code>paravirtual</code> | <code>hvm</code>).</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC that the instance is running in.</p> </li> </ul>\",\
+          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>affinity</code> - The affinity setting for an instance running on a Dedicated Host (<code>default</code> | <code>host</code>).</p> </li> <li> <p> <code>architecture</code> - The instance architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p> </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the instance.</p> </li> <li> <p> <code>block-device-mapping.attach-time</code> - The attach time for an EBS volume mapped to the instance, for example, <code>2022-09-15T17:15:20.000Z</code>.</p> </li> <li> <p> <code>block-device-mapping.delete-on-termination</code> - A Boolean that indicates whether the EBS volume is deleted on instance termination.</p> </li> <li> <p> <code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p> </li> <li> <p> <code>block-device-mapping.status</code> - The status for the EBS volume (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p> </li> <li> <p> <code>block-device-mapping.volume-id</code> - The volume ID of the EBS volume.</p> </li> <li> <p> <code>boot-mode</code> - The boot mode that was specified by the AMI (<code>legacy-bios</code> | <code>uefi</code> | <code>uefi-preferred</code>).</p> </li> <li> <p> <code>capacity-reservation-id</code> - The ID of the Capacity Reservation into which the instance was launched.</p> </li> <li> <p> <code>capacity-reservation-specification.capacity-reservation-preference</code> - The instance's Capacity Reservation preference (<code>open</code> | <code>none</code>).</p> </li> <li> <p> <code>capacity-reservation-specification.capacity-reservation-target.capacity-reservation-id</code> - The ID of the targeted Capacity Reservation.</p> </li> <li> <p> <code>capacity-reservation-specification.capacity-reservation-target.capacity-reservation-resource-group-arn</code> - The ARN of the targeted Capacity Reservation group.</p> </li> <li> <p> <code>client-token</code> - The idempotency token you provided when you launched the instance.</p> </li> <li> <p> <code>current-instance-boot-mode</code> - The boot mode that is used to launch the instance at launch or start (<code>legacy-bios</code> | <code>uefi</code>).</p> </li> <li> <p> <code>dns-name</code> - The public DNS name of the instance.</p> </li> <li> <p> <code>ebs-optimized</code> - A Boolean that indicates whether the instance is optimized for Amazon EBS I/O.</p> </li> <li> <p> <code>ena-support</code> - A Boolean that indicates whether the instance is enabled for enhanced networking with ENA.</p> </li> <li> <p> <code>enclave-options.enabled</code> - A Boolean that indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p> </li> <li> <p> <code>hibernation-options.configured</code> - A Boolean that indicates whether the instance is enabled for hibernation. A value of <code>true</code> means that the instance is enabled for hibernation.</p> </li> <li> <p> <code>host-id</code> - The ID of the Dedicated Host on which the instance is running, if applicable.</p> </li> <li> <p> <code>hypervisor</code> - The hypervisor type of the instance (<code>ovm</code> | <code>xen</code>). The value <code>xen</code> is used for both Xen and Nitro hypervisors.</p> </li> <li> <p> <code>iam-instance-profile.arn</code> - The instance profile associated with the instance. Specified as an ARN.</p> </li> <li> <p> <code>iam-instance-profile.id</code> - The instance profile associated with the instance. Specified as an ID.</p> </li> <li> <p> <code>iam-instance-profile.name</code> - The instance profile associated with the instance. Specified as an name.</p> </li> <li> <p> <code>image-id</code> - The ID of the image used to launch the instance.</p> </li> <li> <p> <code>instance-id</code> - The ID of the instance.</p> </li> <li> <p> <code>instance-lifecycle</code> - Indicates whether this is a Spot Instance or a Scheduled Instance (<code>spot</code> | <code>scheduled</code>).</p> </li> <li> <p> <code>instance-state-code</code> - The state of the instance, as a 16-bit unsigned integer. The high byte is used for internal purposes and should be ignored. The low byte is set based on the state represented. The valid values are: 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).</p> </li> <li> <p> <code>instance-state-name</code> - The state of the instance (<code>pending</code> | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code> | <code>stopped</code>).</p> </li> <li> <p> <code>instance-type</code> - The type of instance (for example, <code>t2.micro</code>).</p> </li> <li> <p> <code>instance.group-id</code> - The ID of the security group for the instance. </p> </li> <li> <p> <code>instance.group-name</code> - The name of the security group for the instance. </p> </li> <li> <p> <code>ip-address</code> - The public IPv4 address of the instance.</p> </li> <li> <p> <code>ipv6-address</code> - The IPv6 address of the instance.</p> </li> <li> <p> <code>kernel-id</code> - The kernel ID.</p> </li> <li> <p> <code>key-name</code> - The name of the key pair used when the instance was launched.</p> </li> <li> <p> <code>launch-index</code> - When launching multiple instances, this is the index for the instance in the launch group (for example, 0, 1, 2, and so on). </p> </li> <li> <p> <code>launch-time</code> - The time when the instance was launched, in the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which matches an entire day.</p> </li> <li> <p> <code>license-pool</code> - </p> </li> <li> <p> <code>maintenance-options.auto-recovery</code> - The current automatic recovery behavior of the instance (<code>disabled</code> | <code>default</code>).</p> </li> <li> <p> <code>metadata-options.http-endpoint</code> - The status of access to the HTTP metadata endpoint on your instance (<code>enabled</code> | <code>disabled</code>)</p> </li> <li> <p> <code>metadata-options.http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint is enabled (<code>disabled</code> | <code>enabled</code>).</p> </li> <li> <p> <code>metadata-options.http-protocol-ipv6</code> - Indicates whether the IPv6 endpoint is enabled (<code>disabled</code> | <code>enabled</code>).</p> </li> <li> <p> <code>metadata-options.http-put-response-hop-limit</code> - The HTTP metadata request put response hop limit (integer, possible values <code>1</code> to <code>64</code>)</p> </li> <li> <p> <code>metadata-options.http-tokens</code> - The metadata request authorization state (<code>optional</code> | <code>required</code>)</p> </li> <li> <p> <code>metadata-options.instance-metadata-tags</code> - The status of access to instance tags from the instance metadata (<code>enabled</code> | <code>disabled</code>)</p> </li> <li> <p> <code>metadata-options.state</code> - The state of the metadata option changes (<code>pending</code> | <code>applied</code>).</p> </li> <li> <p> <code>monitoring-state</code> - Indicates whether detailed monitoring is enabled (<code>disabled</code> | <code>enabled</code>).</p> </li> <li> <p> <code>network-interface.addresses.primary</code> - Specifies whether the IPv4 address of the network interface is the primary private IPv4 address.</p> </li> <li> <p> <code>network-interface.addresses.private-ip-address</code> - The private IPv4 address associated with the network interface.</p> </li> <li> <p> <code>network-interface.addresses.association.public-ip</code> - The ID of the association of an Elastic IP address (IPv4) with a network interface.</p> </li> <li> <p> <code>network-interface.addresses.association.ip-owner-id</code> - The owner ID of the private IPv4 address associated with the network interface.</p> </li> <li> <p> <code>network-interface.association.public-ip</code> - The address of the Elastic IP address (IPv4) bound to the network interface.</p> </li> <li> <p> <code>network-interface.association.ip-owner-id</code> - The owner of the Elastic IP address (IPv4) associated with the network interface.</p> </li> <li> <p> <code>network-interface.association.allocation-id</code> - The allocation ID returned when you allocated the Elastic IP address (IPv4) for your network interface.</p> </li> <li> <p> <code>network-interface.association.association-id</code> - The association ID returned when the network interface was associated with an IPv4 address.</p> </li> <li> <p> <code>network-interface.attachment.attachment-id</code> - The ID of the interface attachment.</p> </li> <li> <p> <code>network-interface.attachment.instance-id</code> - The ID of the instance to which the network interface is attached.</p> </li> <li> <p> <code>network-interface.attachment.instance-owner-id</code> - The owner ID of the instance to which the network interface is attached.</p> </li> <li> <p> <code>network-interface.attachment.device-index</code> - The device index to which the network interface is attached.</p> </li> <li> <p> <code>network-interface.attachment.status</code> - The status of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p> </li> <li> <p> <code>network-interface.attachment.attach-time</code> - The time that the network interface was attached to an instance.</p> </li> <li> <p> <code>network-interface.attachment.delete-on-termination</code> - Specifies whether the attachment is deleted when an instance is terminated.</p> </li> <li> <p> <code>network-interface.availability-zone</code> - The Availability Zone for the network interface.</p> </li> <li> <p> <code>network-interface.description</code> - The description of the network interface.</p> </li> <li> <p> <code>network-interface.group-id</code> - The ID of a security group associated with the network interface.</p> </li> <li> <p> <code>network-interface.group-name</code> - The name of a security group associated with the network interface.</p> </li> <li> <p> <code>network-interface.ipv6-addresses.ipv6-address</code> - The IPv6 address associated with the network interface.</p> </li> <li> <p> <code>network-interface.mac-address</code> - The MAC address of the network interface.</p> </li> <li> <p> <code>network-interface.network-interface-id</code> - The ID of the network interface.</p> </li> <li> <p> <code>network-interface.owner-id</code> - The ID of the owner of the network interface.</p> </li> <li> <p> <code>network-interface.private-dns-name</code> - The private DNS name of the network interface.</p> </li> <li> <p> <code>network-interface.requester-id</code> - The requester ID for the network interface.</p> </li> <li> <p> <code>network-interface.requester-managed</code> - Indicates whether the network interface is being managed by Amazon Web Services.</p> </li> <li> <p> <code>network-interface.status</code> - The status of the network interface (<code>available</code>) | <code>in-use</code>).</p> </li> <li> <p> <code>network-interface.source-dest-check</code> - Whether the network interface performs source/destination checking. A value of <code>true</code> means that checking is enabled, and <code>false</code> means that checking is disabled. The value must be <code>false</code> for the network interface to perform network address translation (NAT) in your VPC.</p> </li> <li> <p> <code>network-interface.subnet-id</code> - The ID of the subnet for the network interface.</p> </li> <li> <p> <code>network-interface.vpc-id</code> - The ID of the VPC for the network interface.</p> </li> <li> <p> <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p> </li> <li> <p> <code>owner-id</code> - The Amazon Web Services account ID of the instance owner.</p> </li> <li> <p> <code>placement-group-name</code> - The name of the placement group for the instance.</p> </li> <li> <p> <code>placement-partition-number</code> - The partition in which the instance is located.</p> </li> <li> <p> <code>platform</code> - The platform. To list only Windows instances, use <code>windows</code>.</p> </li> <li> <p> <code>platform-details</code> - The platform (<code>Linux/UNIX</code> | <code>Red Hat BYOL Linux</code> | <code> Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux with HA</code> | <code>Red Hat Enterprise Linux with SQL Server Standard and HA</code> | <code>Red Hat Enterprise Linux with SQL Server Enterprise and HA</code> | <code>Red Hat Enterprise Linux with SQL Server Standard</code> | <code>Red Hat Enterprise Linux with SQL Server Web</code> | <code>Red Hat Enterprise Linux with SQL Server Enterprise</code> | <code>SQL Server Enterprise</code> | <code>SQL Server Standard</code> | <code>SQL Server Web</code> | <code>SUSE Linux</code> | <code>Ubuntu Pro</code> | <code>Windows</code> | <code>Windows BYOL</code> | <code>Windows with SQL Server Enterprise</code> | <code>Windows with SQL Server Standard</code> | <code>Windows with SQL Server Web</code>).</p> </li> <li> <p> <code>private-dns-name</code> - The private IPv4 DNS name of the instance.</p> </li> <li> <p> <code>private-dns-name-options.enable-resource-name-dns-a-record</code> - A Boolean that indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p> </li> <li> <p> <code>private-dns-name-options.enable-resource-name-dns-aaaa-record</code> - A Boolean that indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p> </li> <li> <p> <code>private-dns-name-options.hostname-type</code> - The type of hostname (<code>ip-name</code> | <code>resource-name</code>).</p> </li> <li> <p> <code>private-ip-address</code> - The private IPv4 address of the instance.</p> </li> <li> <p> <code>product-code</code> - The product code associated with the AMI used to launch the instance.</p> </li> <li> <p> <code>product-code.type</code> - The type of product code (<code>devpay</code> | <code>marketplace</code>).</p> </li> <li> <p> <code>ramdisk-id</code> - The RAM disk ID.</p> </li> <li> <p> <code>reason</code> - The reason for the current state of the instance (for example, shows \\\"User Initiated [date]\\\" when you stop or terminate the instance). Similar to the state-reason-code filter.</p> </li> <li> <p> <code>requester-id</code> - The ID of the entity that launched the instance on your behalf (for example, Amazon Web Services Management Console, Auto Scaling, and so on).</p> </li> <li> <p> <code>reservation-id</code> - The ID of the instance's reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID.</p> </li> <li> <p> <code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p> </li> <li> <p> <code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p> </li> <li> <p> <code>source-dest-check</code> - Indicates whether the instance performs source/destination checking. A value of <code>true</code> means that checking is enabled, and <code>false</code> means that checking is disabled. The value must be <code>false</code> for the instance to perform network address translation (NAT) in your VPC. </p> </li> <li> <p> <code>spot-instance-request-id</code> - The ID of the Spot Instance request.</p> </li> <li> <p> <code>state-reason-code</code> - The reason code for the state change.</p> </li> <li> <p> <code>state-reason-message</code> - A message that describes the state change.</p> </li> <li> <p> <code>subnet-id</code> - The ID of the subnet for the instance.</p> </li> <li> <p> <code>tag:&lt;key&gt;</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>tenancy</code> - The tenancy of an instance (<code>dedicated</code> | <code>default</code> | <code>host</code>).</p> </li> <li> <p> <code>tpm-support</code> - Indicates if the instance is configured for NitroTPM support (<code>v2.0</code>). </p> </li> <li> <p> <code>usage-operation</code> - The usage operation value for the instance (<code>RunInstances</code> | <code>RunInstances:00g0</code> | <code>RunInstances:0010</code> | <code>RunInstances:1010</code> | <code>RunInstances:1014</code> | <code>RunInstances:1110</code> | <code>RunInstances:0014</code> | <code>RunInstances:0210</code> | <code>RunInstances:0110</code> | <code>RunInstances:0100</code> | <code>RunInstances:0004</code> | <code>RunInstances:0200</code> | <code>RunInstances:000g</code> | <code>RunInstances:0g00</code> | <code>RunInstances:0002</code> | <code>RunInstances:0800</code> | <code>RunInstances:0102</code> | <code>RunInstances:0006</code> | <code>RunInstances:0202</code>).</p> </li> <li> <p> <code>usage-operation-update-time</code> - The time that the usage operation was last updated, for example, <code>2022-09-15T17:15:20.000Z</code>.</p> </li> <li> <p> <code>virtualization-type</code> - The virtualization type of the instance (<code>paravirtual</code> | <code>hvm</code>).</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC that the instance is running in.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"InstanceIds\":{\
@@ -25186,6 +25242,25 @@
         }\
       }\
     },\
+    \"DisableImageBlockPublicAccessRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DisableImageBlockPublicAccessResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ImageBlockPublicAccessState\":{\
+          \"shape\":\"ImageBlockPublicAccessDisabledState\",\
+          \"documentation\":\"<p>Returns <code>unblocked</code> if the request succeeds; otherwise, it returns an error.</p>\",\
+          \"locationName\":\"imageBlockPublicAccessState\"\
+        }\
+      }\
+    },\
     \"DisableImageDeprecationRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"ImageId\"],\
@@ -26049,7 +26124,7 @@
         },\
         \"OutpostArn\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The ARN of the Outpost on which the snapshot is stored.</p> <p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called by <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html\\\"> CreateImage</a>.</p>\",\
+          \"documentation\":\"<p>The ARN of the Outpost on which the snapshot is stored.</p> <p>This parameter is not supported when using <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html\\\">CreateImage</a>.</p>\",\
           \"locationName\":\"outpostArn\"\
         },\
         \"Encrypted\":{\
@@ -26912,6 +26987,30 @@
           \"shape\":\"EnableFastSnapshotRestoreErrorSet\",\
           \"documentation\":\"<p>Information about the snapshots for which fast snapshot restores could not be enabled.</p>\",\
           \"locationName\":\"unsuccessful\"\
+        }\
+      }\
+    },\
+    \"EnableImageBlockPublicAccessRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"ImageBlockPublicAccessState\"],\
+      \"members\":{\
+        \"ImageBlockPublicAccessState\":{\
+          \"shape\":\"ImageBlockPublicAccessEnabledState\",\
+          \"documentation\":\"<p>Specify <code>block-new-sharing</code> to enable block public access for AMIs at the account level in the specified Region. This will block any attempt to publicly share your AMIs in the specified Region.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"EnableImageBlockPublicAccessResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ImageBlockPublicAccessState\":{\
+          \"shape\":\"ImageBlockPublicAccessEnabledState\",\
+          \"documentation\":\"<p>Returns <code>block-new-sharing</code> if the request succeeds; otherwise, it returns an error.</p>\",\
+          \"locationName\":\"imageBlockPublicAccessState\"\
         }\
       }\
     },\
@@ -29457,6 +29556,11 @@
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Indicates whether encryption by default is enabled.</p>\",\
           \"locationName\":\"ebsEncryptionByDefault\"\
+        },\
+        \"SseType\":{\
+          \"shape\":\"SSEType\",\
+          \"documentation\":\"<p>Reserved for future use.</p>\",\
+          \"locationName\":\"sseType\"\
         }\
       }\
     },\
@@ -29578,6 +29682,25 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The potential total upfront price. This is billed immediately.</p>\",\
           \"locationName\":\"totalUpfrontPrice\"\
+        }\
+      }\
+    },\
+    \"GetImageBlockPublicAccessStateRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"GetImageBlockPublicAccessStateResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ImageBlockPublicAccessState\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The current state of block public access for AMIs at the account level in the specified Amazon Web Services Region.</p> <p>Possible values:</p> <ul> <li> <p> <code>block-new-sharing</code> - Any attempt to publicly share your AMIs in the specified Region is blocked.</p> </li> <li> <p> <code>unblocked</code> - Your AMIs in the specified Region can be publicly shared.</p> </li> </ul>\",\
+          \"locationName\":\"imageBlockPublicAccessState\"\
         }\
       }\
     },\
@@ -30172,7 +30295,7 @@
           \"locationName\":\"instanceId\"\
         },\
         \"PasswordData\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"PasswordData\",\
           \"documentation\":\"<p>The password of the instance. Returns an empty string if the password is not available.</p>\",\
           \"locationName\":\"passwordData\"\
         },\
@@ -31816,6 +31939,14 @@
         \"imdsSupport\"\
       ]\
     },\
+    \"ImageBlockPublicAccessDisabledState\":{\
+      \"type\":\"string\",\
+      \"enum\":[\"unblocked\"]\
+    },\
+    \"ImageBlockPublicAccessEnabledState\":{\
+      \"type\":\"string\",\
+      \"enum\":[\"block-new-sharing\"]\
+    },\
     \"ImageDiskContainer\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -32691,6 +32822,11 @@
           \"shape\":\"InferenceDeviceInfoList\",\
           \"documentation\":\"<p>Describes the Inference accelerators for the instance type.</p>\",\
           \"locationName\":\"accelerators\"\
+        },\
+        \"TotalInferenceMemoryInMiB\":{\
+          \"shape\":\"totalInferenceMemory\",\
+          \"documentation\":\"<p>The total size of the memory for the inference accelerators for the instance type, in MiB.</p>\",\
+          \"locationName\":\"totalInferenceMemoryInMiB\"\
         }\
       },\
       \"documentation\":\"<p>Describes the Inference accelerators for the instance type.</p>\"\
@@ -32713,6 +32849,11 @@
           \"shape\":\"InferenceDeviceManufacturerName\",\
           \"documentation\":\"<p>The manufacturer of the Inference accelerator.</p>\",\
           \"locationName\":\"manufacturer\"\
+        },\
+        \"MemoryInfo\":{\
+          \"shape\":\"InferenceDeviceMemoryInfo\",\
+          \"documentation\":\"<p>Describes the memory available to the inference accelerator.</p>\",\
+          \"locationName\":\"memoryInfo\"\
         }\
       },\
       \"documentation\":\"<p>Describes the Inference accelerators for the instance type.</p>\"\
@@ -32723,6 +32864,18 @@
       \"locationName\":\"item\"\
     },\
     \"InferenceDeviceManufacturerName\":{\"type\":\"string\"},\
+    \"InferenceDeviceMemoryInfo\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"SizeInMiB\":{\
+          \"shape\":\"InferenceDeviceMemorySize\",\
+          \"documentation\":\"<p>The size of the memory available to the inference accelerator, in MiB.</p>\",\
+          \"locationName\":\"sizeInMiB\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the memory available to the inference accelerator.</p>\"\
+    },\
+    \"InferenceDeviceMemorySize\":{\"type\":\"integer\"},\
     \"InferenceDeviceName\":{\"type\":\"string\"},\
     \"InsideCidrBlocksStringList\":{\
       \"type\":\"list\",\
@@ -33628,6 +33781,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The IPv6 address.</p>\",\
           \"locationName\":\"ipv6Address\"\
+        },\
+        \"IsPrimaryIpv6\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Determines if an IPv6 address associated with a network interface is the primary IPv6 address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html\\\">RunInstances</a>.</p>\",\
+          \"locationName\":\"isPrimaryIpv6\"\
         }\
       },\
       \"documentation\":\"<p>Describes an IPv6 address.</p>\"\
@@ -34114,6 +34272,10 @@
         \"Ipv6PrefixCount\":{\
           \"shape\":\"Integer\",\
           \"documentation\":\"<p>The number of IPv6 delegated prefixes to be automatically assigned to the network interface. You cannot use this option if you use the <code>Ipv6Prefix</code> option.</p>\"\
+        },\
+        \"PrimaryIpv6\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html\\\">RunInstances</a>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes a network interface.</p>\"\
@@ -35343,7 +35505,62 @@
         \"c7gn.4xlarge\",\
         \"c7gn.8xlarge\",\
         \"c7gn.12xlarge\",\
-        \"c7gn.16xlarge\"\
+        \"c7gn.16xlarge\",\
+        \"p5.48xlarge\",\
+        \"m7i.large\",\
+        \"m7i.xlarge\",\
+        \"m7i.2xlarge\",\
+        \"m7i.4xlarge\",\
+        \"m7i.8xlarge\",\
+        \"m7i.12xlarge\",\
+        \"m7i.16xlarge\",\
+        \"m7i.24xlarge\",\
+        \"m7i.48xlarge\",\
+        \"m7i-flex.large\",\
+        \"m7i-flex.xlarge\",\
+        \"m7i-flex.2xlarge\",\
+        \"m7i-flex.4xlarge\",\
+        \"m7i-flex.8xlarge\",\
+        \"m7a.medium\",\
+        \"m7a.large\",\
+        \"m7a.xlarge\",\
+        \"m7a.2xlarge\",\
+        \"m7a.4xlarge\",\
+        \"m7a.8xlarge\",\
+        \"m7a.12xlarge\",\
+        \"m7a.16xlarge\",\
+        \"m7a.24xlarge\",\
+        \"m7a.32xlarge\",\
+        \"m7a.48xlarge\",\
+        \"m7a.metal-48xl\",\
+        \"hpc7a.12xlarge\",\
+        \"hpc7a.24xlarge\",\
+        \"hpc7a.48xlarge\",\
+        \"hpc7a.96xlarge\",\
+        \"c7gd.medium\",\
+        \"c7gd.large\",\
+        \"c7gd.xlarge\",\
+        \"c7gd.2xlarge\",\
+        \"c7gd.4xlarge\",\
+        \"c7gd.8xlarge\",\
+        \"c7gd.12xlarge\",\
+        \"c7gd.16xlarge\",\
+        \"m7gd.medium\",\
+        \"m7gd.large\",\
+        \"m7gd.xlarge\",\
+        \"m7gd.2xlarge\",\
+        \"m7gd.4xlarge\",\
+        \"m7gd.8xlarge\",\
+        \"m7gd.12xlarge\",\
+        \"m7gd.16xlarge\",\
+        \"r7gd.medium\",\
+        \"r7gd.large\",\
+        \"r7gd.xlarge\",\
+        \"r7gd.2xlarge\",\
+        \"r7gd.4xlarge\",\
+        \"r7gd.8xlarge\",\
+        \"r7gd.12xlarge\",\
+        \"r7gd.16xlarge\"\
       ]\
     },\
     \"InstanceTypeHypervisor\":{\
@@ -38029,6 +38246,11 @@
           \"shape\":\"Integer\",\
           \"documentation\":\"<p>The number of IPv6 prefixes that Amazon Web Services automatically assigned to the network interface.</p>\",\
           \"locationName\":\"ipv6PrefixCount\"\
+        },\
+        \"PrimaryIpv6\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html\\\">RunInstances</a>.</p>\",\
+          \"locationName\":\"primaryIpv6\"\
         }\
       },\
       \"documentation\":\"<p>Describes a network interface.</p>\"\
@@ -38121,6 +38343,10 @@
         \"Ipv6PrefixCount\":{\
           \"shape\":\"Integer\",\
           \"documentation\":\"<p>The number of IPv6 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the <code>Ipv6Prefix</code> option.</p>\"\
+        },\
+        \"PrimaryIpv6\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html\\\">RunInstances</a>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The parameters for a network interface.</p>\"\
@@ -39244,7 +39470,8 @@
       \"enum\":[\
         \"region\",\
         \"availability-zone\",\
-        \"availability-zone-id\"\
+        \"availability-zone-id\",\
+        \"outpost\"\
       ]\
     },\
     \"LogDestinationType\":{\
@@ -40735,6 +40962,10 @@
         \"EnaSrdSpecification\":{\
           \"shape\":\"EnaSrdSpecification\",\
           \"documentation\":\"<p>Updates the ENA Express configuration for the network interface thatâs attached to the instance.</p>\"\
+        },\
+        \"EnablePrimaryIpv6\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>If youâre modifying a network interface in a dual-stack or IPv6-only subnet, you have the option to assign a primary IPv6 IP address. A primary IPv6 address is an IPv6 GUA address associated with an ENI that you have enabled to use a primary IPv6 address. Use this option if the instance that this ENI will be attached to relies on its IPv6 address not changing. Amazon Web Services will automatically assign an IPv6 address associated with the ENI attached to your instance to be the primary IPv6 address. Once you enable an IPv6 GUA address to be a primary IPv6, you cannot disable it. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. If you have multiple IPv6 addresses associated with an ENI attached to your instance and you enable a primary IPv6 address, the first IPv6 GUA address associated with the ENI becomes the primary IPv6 address.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains the parameters for ModifyNetworkInterfaceAttribute.</p>\"\
@@ -41127,7 +41358,7 @@
         },\
         \"PacketLength\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The number of bytes in each packet to mirror. These are bytes after the VXLAN header. To mirror a subset, set this to the length (in bytes) to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target. Do not specify this parameter when you want to mirror the entire packet.</p>\"\
+          \"documentation\":\"<p>The number of bytes in each packet to mirror. These are bytes after the VXLAN header. To mirror a subset, set this to the length (in bytes) to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target. Do not specify this parameter when you want to mirror the entire packet.</p> <p>For sessions with Network Load Balancer (NLB) traffic mirror targets, the default <code>PacketLength</code> will be set to 8500. Valid values are 1-8500. Setting a <code>PacketLength</code> greater than 8500 will result in an error response.</p>\"\
         },\
         \"SessionNumber\":{\
           \"shape\":\"Integer\",\
@@ -41845,12 +42076,12 @@
         },\
         \"AddSecurityGroupIds\":{\
           \"shape\":\"VpcEndpointSecurityGroupIdList\",\
-          \"documentation\":\"<p>(Interface endpoint) The IDs of the security groups to associate with the network interface.</p>\",\
+          \"documentation\":\"<p>(Interface endpoint) The IDs of the security groups to associate with the endpoint network interfaces.</p>\",\
           \"locationName\":\"AddSecurityGroupId\"\
         },\
         \"RemoveSecurityGroupIds\":{\
           \"shape\":\"VpcEndpointSecurityGroupIdList\",\
-          \"documentation\":\"<p>(Interface endpoint) The IDs of the security groups to disassociate from the network interface.</p>\",\
+          \"documentation\":\"<p>(Interface endpoint) The IDs of the security groups to disassociate from the endpoint network interfaces.</p>\",\
           \"locationName\":\"RemoveSecurityGroupId\"\
         },\
         \"IpAddressType\":{\
@@ -41864,6 +42095,11 @@
         \"PrivateDnsEnabled\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>(Interface endpoint) Indicates whether a private hosted zone is associated with the VPC.</p>\"\
+        },\
+        \"SubnetConfigurations\":{\
+          \"shape\":\"SubnetConfigurationsList\",\
+          \"documentation\":\"<p>The subnet configurations for the endpoint.</p>\",\
+          \"locationName\":\"SubnetConfiguration\"\
         }\
       }\
     },\
@@ -42812,6 +43048,16 @@
           \"shape\":\"MaxNetworkInterfaces\",\
           \"documentation\":\"<p>The maximum number of network interfaces for the network card.</p>\",\
           \"locationName\":\"maximumNetworkInterfaces\"\
+        },\
+        \"BaselineBandwidthInGbps\":{\
+          \"shape\":\"BaselineBandwidthInGbps\",\
+          \"documentation\":\"<p>The baseline network performance of the network card, in Gbps.</p>\",\
+          \"locationName\":\"baselineBandwidthInGbps\"\
+        },\
+        \"PeakBandwidthInGbps\":{\
+          \"shape\":\"PeakBandwidthInGbps\",\
+          \"documentation\":\"<p>The peak (burst) network performance of the network card, in Gbps.</p>\",\
+          \"locationName\":\"peakBandwidthInGbps\"\
         }\
       },\
       \"documentation\":\"<p>Describes the network card support of the instance type.</p>\"\
@@ -43549,6 +43795,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The IPv6 address.</p>\",\
           \"locationName\":\"ipv6Address\"\
+        },\
+        \"IsPrimaryIpv6\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Determines if an IPv6 address associated with a network interface is the primary IPv6 address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyNetworkInterfaceAttribute.html\\\">ModifyNetworkInterfaceAttribute</a>.</p>\",\
+          \"locationName\":\"isPrimaryIpv6\"\
         }\
       },\
       \"documentation\":\"<p>Describes an IPv6 address associated with a network interface.</p>\"\
@@ -44030,6 +44281,10 @@
         \"monthly\"\
       ]\
     },\
+    \"PasswordData\":{\
+      \"type\":\"string\",\
+      \"sensitive\":true\
+    },\
     \"PathComponent\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -44255,6 +44510,7 @@
       },\
       \"documentation\":\"<p>Describes the data that identifies an Amazon FPGA image (AFI) on the PCI bus.</p>\"\
     },\
+    \"PeakBandwidthInGbps\":{\"type\":\"double\"},\
     \"PeeringAttachmentStatus\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -48514,6 +48770,11 @@
           \"shape\":\"Integer\",\
           \"documentation\":\"<p>The size of the volume, in GiB.</p>\",\
           \"locationName\":\"volumeSize\"\
+        },\
+        \"SseType\":{\
+          \"shape\":\"SSEType\",\
+          \"documentation\":\"<p>Reserved for future use.</p>\",\
+          \"locationName\":\"sseType\"\
         }\
       }\
     },\
@@ -49267,6 +49528,10 @@
         \"DisableApiStop\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Indicates whether an instance is enabled for stop protection. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection\\\">Stop protection</a>. </p>\"\
+        },\
+        \"EnablePrimaryIpv6\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>If youâre launching an instance into a dual-stack or IPv6-only subnet, you can enable assigning a primary IPv6 address. A primary IPv6 address is an IPv6 GUA address associated with an ENI that you have enabled to use a primary IPv6 address. Use this option if an instance relies on its IPv6 address not changing. When you launch the instance, Amazon Web Services will automatically assign an IPv6 address associated with the ENI attached to your instance to be the primary IPv6 address. Once you enable an IPv6 GUA address to be a primary IPv6, you cannot disable it. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. If you have multiple IPv6 addresses associated with an ENI attached to your instance and you enable a primary IPv6 address, the first IPv6 GUA address associated with the ENI becomes the primary IPv6 address.</p>\"\
         }\
       }\
     },\
@@ -49360,12 +49625,28 @@
           \"locationName\":\"uploadPolicy\"\
         },\
         \"UploadPolicySignature\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"S3StorageUploadPolicySignature\",\
           \"documentation\":\"<p>The signature of the JSON document.</p>\",\
           \"locationName\":\"uploadPolicySignature\"\
         }\
       },\
       \"documentation\":\"<p>Describes the storage parameters for Amazon S3 and Amazon S3 buckets for an instance store-backed AMI.</p>\"\
+    },\
+    \"S3StorageUploadPolicy\":{\
+      \"type\":\"string\",\
+      \"sensitive\":true\
+    },\
+    \"S3StorageUploadPolicySignature\":{\
+      \"type\":\"string\",\
+      \"sensitive\":true\
+    },\
+    \"SSEType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"sse-ebs\",\
+        \"sse-kms\",\
+        \"none\"\
+      ]\
     },\
     \"ScheduledInstance\":{\
       \"type\":\"structure\",\
@@ -50667,6 +50948,11 @@
           \"shape\":\"MillisecondDateTime\",\
           \"documentation\":\"<p>Only for archived snapshots that are temporarily restored. Indicates the date and time when a temporarily restored snapshot will be automatically re-archived.</p>\",\
           \"locationName\":\"restoreExpiryTime\"\
+        },\
+        \"SseType\":{\
+          \"shape\":\"SSEType\",\
+          \"documentation\":\"<p>Reserved for future use.</p>\",\
+          \"locationName\":\"sseType\"\
         }\
       },\
       \"documentation\":\"<p>Describes a snapshot.</p>\"\
@@ -50828,6 +51114,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html\\\">Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\",\
           \"locationName\":\"outpostArn\"\
+        },\
+        \"SseType\":{\
+          \"shape\":\"SSEType\",\
+          \"documentation\":\"<p>Reserved for future use.</p>\",\
+          \"locationName\":\"sseType\"\
         }\
       },\
       \"documentation\":\"<p>Information about a snapshot.</p>\"\
@@ -51535,7 +51826,8 @@
         \"active\",\
         \"closed\",\
         \"cancelled\",\
-        \"failed\"\
+        \"failed\",\
+        \"disabled\"\
       ]\
     },\
     \"SpotInstanceStateFault\":{\
@@ -52437,6 +52729,31 @@
         \"prefix\",\
         \"explicit\"\
       ]\
+    },\
+    \"SubnetConfiguration\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"SubnetId\":{\
+          \"shape\":\"SubnetId\",\
+          \"documentation\":\"<p>The ID of the subnet.</p>\"\
+        },\
+        \"Ipv4\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.</p> <p>If you specify an IPv4 address when modifying a VPC endpoint, we replace the existing endpoint network interface with a new endpoint network interface with this IP address. This process temporarily disconnects the subnet and the VPC endpoint.</p>\"\
+        },\
+        \"Ipv6\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.</p> <p>If you specify an IPv6 address when modifying a VPC endpoint, we replace the existing endpoint network interface with a new endpoint network interface with this IP address. This process temporarily disconnects the subnet and the VPC endpoint.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the configuration of a subnet for a VPC endpoint.</p>\"\
+    },\
+    \"SubnetConfigurationsList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"SubnetConfiguration\",\
+        \"locationName\":\"item\"\
+      }\
     },\
     \"SubnetId\":{\"type\":\"string\"},\
     \"SubnetIdStringList\":{\
@@ -56688,6 +57005,11 @@
           \"shape\":\"Integer\",\
           \"documentation\":\"<p>The throughput that the volume supports, in MiB/s.</p>\",\
           \"locationName\":\"throughput\"\
+        },\
+        \"SseType\":{\
+          \"shape\":\"SSEType\",\
+          \"documentation\":\"<p>Reserved for future use.</p>\",\
+          \"locationName\":\"sseType\"\
         }\
       },\
       \"documentation\":\"<p>Describes a volume.</p>\"\
@@ -58250,7 +58572,8 @@
       }\
     },\
     \"totalFpgaMemory\":{\"type\":\"integer\"},\
-    \"totalGpuMemory\":{\"type\":\"integer\"}\
+    \"totalGpuMemory\":{\"type\":\"integer\"},\
+    \"totalInferenceMemory\":{\"type\":\"integer\"}\
   },\
   \"documentation\":\"<fullname>Amazon Elastic Compute Cloud</fullname> <p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the Amazon Web Services Cloud. Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and deploy applications faster. Amazon Virtual Private Cloud (Amazon VPC) enables you to provision a logically isolated section of the Amazon Web Services Cloud where you can launch Amazon Web Services resources in a virtual network that you've defined. Amazon Elastic Block Store (Amazon EBS) provides block level storage volumes for use with EC2 instances. EBS volumes are highly available and reliable storage volumes that can be attached to any running instance and used like a hard drive.</p> <p>To learn more, see the following resources:</p> <ul> <li> <p>Amazon EC2: <a href=\\\"http://aws.amazon.com/ec2\\\">Amazon EC2 product page</a>, <a href=\\\"https://docs.aws.amazon.com/ec2/index.html\\\">Amazon EC2 documentation</a> </p> </li> <li> <p>Amazon EBS: <a href=\\\"http://aws.amazon.com/ebs\\\">Amazon EBS product page</a>, <a href=\\\"https://docs.aws.amazon.com/ebs/index.html\\\">Amazon EBS documentation</a> </p> </li> <li> <p>Amazon VPC: <a href=\\\"http://aws.amazon.com/vpc\\\">Amazon VPC product page</a>, <a href=\\\"https://docs.aws.amazon.com/vpc/index.html\\\">Amazon VPC documentation</a> </p> </li> <li> <p>VPN: <a href=\\\"http://aws.amazon.com/vpn\\\">VPN product page</a>, <a href=\\\"https://docs.aws.amazon.com/vpn/index.html\\\">VPN documentation</a> </p> </li> </ul>\"\
 }\
