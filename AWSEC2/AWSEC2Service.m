@@ -8820,6 +8820,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DisableImageResult *> *)disableImage:(AWSEC2DisableImageRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DisableImage"
+                   outputClass:[AWSEC2DisableImageResult class]];
+}
+
+- (void)disableImage:(AWSEC2DisableImageRequest *)request
+     completionHandler:(void (^)(AWSEC2DisableImageResult *response, NSError *error))completionHandler {
+    [[self disableImage:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DisableImageResult *> * _Nonnull task) {
+        AWSEC2DisableImageResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DisableImageBlockPublicAccessResult *> *)disableImageBlockPublicAccess:(AWSEC2DisableImageBlockPublicAccessRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -9428,6 +9451,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2EnableFastSnapshotRestoresResult *response, NSError *error))completionHandler {
     [[self enableFastSnapshotRestores:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2EnableFastSnapshotRestoresResult *> * _Nonnull task) {
         AWSEC2EnableFastSnapshotRestoresResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2EnableImageResult *> *)enableImage:(AWSEC2EnableImageRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"EnableImage"
+                   outputClass:[AWSEC2EnableImageResult class]];
+}
+
+- (void)enableImage:(AWSEC2EnableImageRequest *)request
+     completionHandler:(void (^)(AWSEC2EnableImageResult *response, NSError *error))completionHandler {
+    [[self enableImage:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2EnableImageResult *> * _Nonnull task) {
+        AWSEC2EnableImageResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
