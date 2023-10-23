@@ -4761,6 +4761,12 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
         if ([value caseInsensitiveCompare:@"PRINCIPAL_ID"] == NSOrderedSame) {
             return @(AWSIoTLogTargetTypePrincipalId);
         }
+        if ([value caseInsensitiveCompare:@"EVENT_TYPE"] == NSOrderedSame) {
+            return @(AWSIoTLogTargetTypeEventType);
+        }
+        if ([value caseInsensitiveCompare:@"DEVICE_DEFENDER"] == NSOrderedSame) {
+            return @(AWSIoTLogTargetTypeDeviceDefender);
+        }
         return @(AWSIoTLogTargetTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4774,6 +4780,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return @"SOURCE_IP";
             case AWSIoTLogTargetTypePrincipalId:
                 return @"PRINCIPAL_ID";
+            case AWSIoTLogTargetTypeEventType:
+                return @"EVENT_TYPE";
+            case AWSIoTLogTargetTypeDeviceDefender:
+                return @"DEVICE_DEFENDER";
             default:
                 return nil;
         }
@@ -9117,9 +9127,29 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 	return @{
              @"clientProperties" : @"clientProperties",
              @"destinationArn" : @"destinationArn",
+             @"headers" : @"headers",
              @"key" : @"key",
              @"partition" : @"partition",
              @"topic" : @"topic",
+             };
+}
+
++ (NSValueTransformer *)headersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTKafkaActionHeader class]];
+}
+
+@end
+
+@implementation AWSIoTKafkaActionHeader
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"key" : @"key",
+             @"value" : @"value",
              };
 }
 
@@ -11889,6 +11919,12 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
         if ([value caseInsensitiveCompare:@"PRINCIPAL_ID"] == NSOrderedSame) {
             return @(AWSIoTLogTargetTypePrincipalId);
         }
+        if ([value caseInsensitiveCompare:@"EVENT_TYPE"] == NSOrderedSame) {
+            return @(AWSIoTLogTargetTypeEventType);
+        }
+        if ([value caseInsensitiveCompare:@"DEVICE_DEFENDER"] == NSOrderedSame) {
+            return @(AWSIoTLogTargetTypeDeviceDefender);
+        }
         return @(AWSIoTLogTargetTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -11902,6 +11938,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return @"SOURCE_IP";
             case AWSIoTLogTargetTypePrincipalId:
                 return @"PRINCIPAL_ID";
+            case AWSIoTLogTargetTypeEventType:
+                return @"EVENT_TYPE";
+            case AWSIoTLogTargetTypeDeviceDefender:
+                return @"DEVICE_DEFENDER";
             default:
                 return nil;
         }
@@ -12111,6 +12151,12 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
         if ([value caseInsensitiveCompare:@"PRINCIPAL_ID"] == NSOrderedSame) {
             return @(AWSIoTLogTargetTypePrincipalId);
         }
+        if ([value caseInsensitiveCompare:@"EVENT_TYPE"] == NSOrderedSame) {
+            return @(AWSIoTLogTargetTypeEventType);
+        }
+        if ([value caseInsensitiveCompare:@"DEVICE_DEFENDER"] == NSOrderedSame) {
+            return @(AWSIoTLogTargetTypeDeviceDefender);
+        }
         return @(AWSIoTLogTargetTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -12124,6 +12170,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return @"SOURCE_IP";
             case AWSIoTLogTargetTypePrincipalId:
                 return @"PRINCIPAL_ID";
+            case AWSIoTLogTargetTypeEventType:
+                return @"EVENT_TYPE";
+            case AWSIoTLogTargetTypeDeviceDefender:
+                return @"DEVICE_DEFENDER";
             default:
                 return nil;
         }
