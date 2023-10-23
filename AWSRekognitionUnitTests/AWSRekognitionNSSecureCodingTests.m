@@ -59,6 +59,8 @@
 - (void) test_AWSRekognitionCreateUserRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionCreateUserResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionCustomLabel API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionCustomizationFeatureConfig API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionCustomizationFeatureContentModerationConfig API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDatasetChanges API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDatasetDescription API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDatasetLabelDescription API_AVAILABLE(ios(11));
@@ -461,6 +463,14 @@
 
 - (void) test_AWSRekognitionCustomLabel {
     [self validateSecureCodingForClass:[AWSRekognitionCustomLabel class]];
+}
+
+- (void) test_AWSRekognitionCustomizationFeatureConfig {
+    [self validateSecureCodingForClass:[AWSRekognitionCustomizationFeatureConfig class]];
+}
+
+- (void) test_AWSRekognitionCustomizationFeatureContentModerationConfig {
+    [self validateSecureCodingForClass:[AWSRekognitionCustomizationFeatureContentModerationConfig class]];
 }
 
 - (void) test_AWSRekognitionDatasetChanges {
