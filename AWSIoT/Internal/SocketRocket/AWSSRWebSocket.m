@@ -78,7 +78,7 @@ typedef struct {
 static NSString *const AWSSRWebSocketAppendToSecKeyString = @"258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
 
 static inline int32_t validate_dispatch_data_partial_string(NSData *data);
-static inline void SRFastLog(NSString *format, ...);
+static inline void AWSSRFastLog(NSString *format, ...);
 
 @interface NSData (AWSSRWebSocket)
 
@@ -98,7 +98,7 @@ static inline void SRFastLog(NSString *format, ...);
 
 // The origin isn't really applicable for a native application.
 // So instead, just map ws -> http and wss -> https.
-- (NSString *)SR_origin;
+- (NSString *)AWSSR_origin;
 
 @end
 
@@ -149,7 +149,7 @@ static NSString *newSHA1String(const char *bytes, size_t length) {
 @end
 
 NSString *const AWSSRWebSocketErrorDomain = @"AWSSRWebSocketErrorDomain";
-NSString *const SRHTTPResponseErrorKey = @"HTTPResponseStatusCode";
+NSString *const AWSSRHTTPResponseErrorKey = @"HTTPResponseStatusCode";
 
 // Returns number of bytes consumed. Returning 0 means you didn't match.
 // Sends bytes to callback handler;
@@ -157,7 +157,7 @@ typedef size_t (^stream_scanner)(NSData *collected_data);
 
 typedef void (^data_callback)(AWSSRWebSocket *webSocket,  NSData *data);
 
-@interface SRIOConsumer : NSObject {
+@interface AWSSRIOConsumer : NSObject {
     stream_scanner _scanner;
     data_callback _handler;
     size_t _bytesNeeded;
@@ -173,12 +173,12 @@ typedef void (^data_callback)(AWSSRWebSocket *webSocket,  NSData *data);
 @end
 
 // This class is not thread-safe, and is expected to always be run on the same queue.
-@interface SRIOConsumerPool : NSObject
+@interface AWSSRIOConsumerPool : NSObject
 
 - (id)initWithBufferCapacity:(NSUInteger)poolSize;
 
-- (SRIOConsumer *)consumerWithScanner:(stream_scanner)scanner handler:(data_callback)handler bytesNeeded:(size_t)bytesNeeded readToCurrentFrame:(BOOL)readToCurrentFrame unmaskBytes:(BOOL)unmaskBytes;
-- (void)returnConsumer:(SRIOConsumer *)consumer;
+- (AWSSRIOConsumer *)consumerWithScanner:(stream_scanner)scanner handler:(data_callback)handler bytesNeeded:(size_t)bytesNeeded readToCurrentFrame:(BOOL)readToCurrentFrame unmaskBytes:(BOOL)unmaskBytes;
+- (void)returnConsumer:(AWSSRIOConsumer *)consumer;
 
 @end
 
@@ -252,7 +252,7 @@ typedef void (^data_callback)(AWSSRWebSocket *webSocket,  NSData *data);
     __strong AWSSRWebSocket *_selfRetain;
     
     NSArray *_requestedProtocols;
-    SRIOConsumerPool *_consumerPool;
+    AWSSRIOConsumerPool *_consumerPool;
 }
 
 @synthesize delegate = _delegate;
@@ -339,7 +339,7 @@ static __strong NSData *CRLFCRLF;
 
     _consumers = [[NSMutableArray alloc] init];
     
-    _consumerPool = [[SRIOConsumerPool alloc] init];
+    _consumerPool = [[AWSSRIOConsumerPool alloc] init];
     
     _scheduledRunloops = [[NSMutableSet alloc] init];
     
@@ -403,10 +403,10 @@ static __strong NSData *CRLFCRLF;
 - (void)_performDelegateBlock:(dispatch_block_t)block;
 {
     if (_delegateOperationQueue) {
-        SRFastLog(@"using _delegateOperationQueue.");
+        AWSSRFastLog(@"using _delegateOperationQueue.");
         [_delegateOperationQueue addOperationWithBlock:block];
     } else {
-        SRFastLog(@"using _delegateDispatchQueue.");
+        AWSSRFastLog(@"using _delegateDispatchQueue.");
         assert(_delegateDispatchQueue);
         dispatch_async(_delegateDispatchQueue, block);
     }
@@ -444,8 +444,8 @@ static __strong NSData *CRLFCRLF;
     NSInteger responseCode = CFHTTPMessageGetResponseStatusCode(_receivedHTTPHeaders);
     
     if (responseCode >= 400) {
-        SRFastLog(@"Request failed with response code %d", responseCode);
-        [self _failWithError:[NSError errorWithDomain:AWSSRWebSocketErrorDomain code:2132 userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"received bad response code from server %ld", (long)responseCode], SRHTTPResponseErrorKey:@(responseCode)}]];
+        AWSSRFastLog(@"Request failed with response code %d", responseCode);
+        [self _failWithError:[NSError errorWithDomain:AWSSRWebSocketErrorDomain code:2132 userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"received bad response code from server %ld", (long)responseCode], AWSSRHTTPResponseErrorKey:@(responseCode)}]];
         return;
     }
     
@@ -489,7 +489,7 @@ static __strong NSData *CRLFCRLF;
         CFHTTPMessageAppendBytes(self->_receivedHTTPHeaders, (const UInt8 *)data.bytes, data.length);
         
         if (CFHTTPMessageIsHeaderComplete(self->_receivedHTTPHeaders)) {
-            SRFastLog(@"Finished reading headers %@", CFBridgingRelease(CFHTTPMessageCopyAllHeaderFields(self->_receivedHTTPHeaders)));
+            AWSSRFastLog(@"Finished reading headers %@", CFBridgingRelease(CFHTTPMessageCopyAllHeaderFields(self->_receivedHTTPHeaders)));
             [self _HTTPHeadersDidFinish];
         } else {
             [self _readHTTPHeader];
@@ -499,7 +499,7 @@ static __strong NSData *CRLFCRLF;
 
 - (void)didConnect;
 {
-    SRFastLog(@"Connected");
+    AWSSRFastLog(@"Connected");
     CFHTTPMessageRef request = CFHTTPMessageCreateRequest(NULL, CFSTR("GET"), (__bridge CFURLRef)_url, kCFHTTPVersion1_1);
     
     // Set host first so it defaults
@@ -535,7 +535,7 @@ static __strong NSData *CRLFCRLF;
     CFHTTPMessageSetHeaderFieldValue(request, CFSTR("Connection"), CFSTR("Upgrade"));
     CFHTTPMessageSetHeaderFieldValue(request, CFSTR("Sec-WebSocket-Key"), (__bridge CFStringRef)_secKey);
     CFHTTPMessageSetHeaderFieldValue(request, CFSTR("Sec-WebSocket-Version"), (__bridge CFStringRef)[NSString stringWithFormat:@"%ld", (long)_webSocketVersion]);
-    CFHTTPMessageSetHeaderFieldValue(request, CFSTR("Origin"), (__bridge CFStringRef)_url.SR_origin);
+    CFHTTPMessageSetHeaderFieldValue(request, CFSTR("Origin"), (__bridge CFStringRef)_url.AWSSR_origin);
     
     if (_requestedProtocols) {
         CFHTTPMessageSetHeaderFieldValue(request, CFSTR("Sec-WebSocket-Protocol"), (__bridge CFStringRef)[_requestedProtocols componentsJoinedByString:@", "]);
@@ -547,7 +547,7 @@ static __strong NSData *CRLFCRLF;
     
     NSData *message = CFBridgingRelease(CFHTTPMessageCopySerializedMessage(request));
     
-    SRFastLog(@"%@", [[NSString alloc]initWithData:message encoding:NSUTF8StringEncoding]);
+    AWSSRFastLog(@"%@", [[NSString alloc]initWithData:message encoding:NSUTF8StringEncoding]);
     CFRelease(request);
 
     [self _writeData:message];
@@ -601,7 +601,7 @@ static __strong NSData *CRLFCRLF;
 
         if (self.allowsUntrustedSSLCertificates) {
             [SSLOptions setValue:@NO forKey:(__bridge id)kCFStreamSSLValidatesCertificateChain];
-            SRFastLog(@"Allowing connection to any root cert");
+            AWSSRFastLog(@"Allowing connection to any root cert");
         }
         
         [_outputStream setProperty:SSLOptions
@@ -702,7 +702,7 @@ static __strong NSData *CRLFCRLF;
         
         self.readyState = AWSSR_CLOSING;
         
-        SRFastLog(@"Closing with code %d reason %@", code, reason);
+        AWSSRFastLog(@"Closing with code %d reason %@", code, reason);
         
         if (wasConnecting) {
             [self closeConnection];
@@ -760,7 +760,7 @@ static __strong NSData *CRLFCRLF;
 
             self.readyState = AWSSR_CLOSED;
 
-            SRFastLog(@"Failing with error %@", error.localizedDescription);
+            AWSSRFastLog(@"Failing with error %@", error.localizedDescription);
             
             [self closeConnection];
             [self _scheduleCleanup];
@@ -819,7 +819,7 @@ static __strong NSData *CRLFCRLF;
 
 - (void)handlePong:(NSData *)pongData;
 {
-    SRFastLog(@"Received pong");
+    AWSSRFastLog(@"Received pong");
     [self _performDelegateBlock:^{
         if ([self.delegate respondsToSelector:@selector(webSocket:didReceivePong:)]) {
             [self.delegate webSocket:self didReceivePong:pongData];
@@ -829,7 +829,7 @@ static __strong NSData *CRLFCRLF;
 
 - (void)_handleMessage:(id)message
 {
-    SRFastLog(@"Received message");
+    AWSSRFastLog(@"Received message");
     [self _performDelegateBlock:^{
         [self.delegate webSocket:self didReceiveMessage:message];
     }];
@@ -875,7 +875,7 @@ static inline BOOL closeCodeIsValid(int closeCode) {
     size_t dataSize = data.length;
     __block uint16_t closeCode = 0;
     
-    SRFastLog(@"Received close frame");
+    AWSSRFastLog(@"Received close frame");
     
     if (dataSize == 1) {
         // TODO handle error
@@ -912,7 +912,7 @@ static inline BOOL closeCodeIsValid(int closeCode) {
 - (void)closeConnection;
 {
     [self assertOnWorkQueue];
-    SRFastLog(@"Trying to disconnect");
+    AWSSRFastLog(@"Trying to disconnect");
     _closeWhenFinishedWriting = YES;
     [self _pumpWriting];
 }
@@ -1301,7 +1301,7 @@ static const char CRLFCRLFBytes[] = {'\r', '\n', '\r', '\n'};
         return didWork;
     }
     
-    SRIOConsumer *consumer = [_consumers objectAtIndex:0];
+    AWSSRIOConsumer *consumer = [_consumers objectAtIndex:0];
     
     size_t bytesNeeded = consumer.bytesNeeded;
     
@@ -1543,7 +1543,7 @@ static const size_t SRFrameHeaderOverhead = 32;
 {
         switch (eventCode) {
             case NSStreamEventOpenCompleted: {
-                SRFastLog(@"NSStreamEventOpenCompleted %@", aStream);
+                AWSSRFastLog(@"NSStreamEventOpenCompleted %@", aStream);
                 if (self.readyState >= AWSSR_CLOSING) {
                     return;
                 }
@@ -1564,7 +1564,7 @@ static const size_t SRFrameHeaderOverhead = 32;
             }
                 
             case NSStreamEventErrorOccurred: {
-                SRFastLog(@"NSStreamEventErrorOccurred %@ %@", aStream, [[aStream streamError] copy]);
+                AWSSRFastLog(@"NSStreamEventErrorOccurred %@ %@", aStream, [[aStream streamError] copy]);
                 /// TODO specify error better!
                 [self _failWithError:aStream.streamError];
                 self->_readBufferOffset = 0;
@@ -1575,7 +1575,7 @@ static const size_t SRFrameHeaderOverhead = 32;
                 
             case NSStreamEventEndEncountered: {
                 [self _pumpScanner];
-                SRFastLog(@"NSStreamEventEndEncountered %@", aStream);
+                AWSSRFastLog(@"NSStreamEventEndEncountered %@", aStream);
                 if (aStream.streamError) {
                     [self _failWithError:aStream.streamError];
                 } else {
@@ -1601,7 +1601,7 @@ static const size_t SRFrameHeaderOverhead = 32;
             }
                 
             case NSStreamEventHasBytesAvailable: {
-                SRFastLog(@"NSStreamEventHasBytesAvailable %@", aStream);
+                AWSSRFastLog(@"NSStreamEventHasBytesAvailable %@", aStream);
                 const int bufferSize = 2048;
                 uint8_t buffer[bufferSize];
                 
@@ -1623,13 +1623,13 @@ static const size_t SRFrameHeaderOverhead = 32;
             }
                 
             case NSStreamEventHasSpaceAvailable: {
-                SRFastLog(@"NSStreamEventHasSpaceAvailable %@", aStream);
+                AWSSRFastLog(@"NSStreamEventHasSpaceAvailable %@", aStream);
                 [self _pumpWriting];
                 break;
             }
                 
             default:
-                SRFastLog(@"(default)  %@", aStream);
+                AWSSRFastLog(@"(default)  %@", aStream);
                 break;
         }
 }
@@ -1637,7 +1637,7 @@ static const size_t SRFrameHeaderOverhead = 32;
 @end
 
 
-@implementation SRIOConsumer
+@implementation AWSSRIOConsumer
 
 @synthesize bytesNeeded = _bytesNeeded;
 @synthesize consumer = _scanner;
@@ -1659,7 +1659,7 @@ static const size_t SRFrameHeaderOverhead = 32;
 @end
 
 
-@implementation SRIOConsumerPool {
+@implementation AWSSRIOConsumerPool {
     NSUInteger _poolSize;
     NSMutableArray *_bufferedConsumers;
 }
@@ -1678,14 +1678,14 @@ static const size_t SRFrameHeaderOverhead = 32;
     return [self initWithBufferCapacity:8];
 }
 
-- (SRIOConsumer *)consumerWithScanner:(stream_scanner)scanner handler:(data_callback)handler bytesNeeded:(size_t)bytesNeeded readToCurrentFrame:(BOOL)readToCurrentFrame unmaskBytes:(BOOL)unmaskBytes;
+- (AWSSRIOConsumer *)consumerWithScanner:(stream_scanner)scanner handler:(data_callback)handler bytesNeeded:(size_t)bytesNeeded readToCurrentFrame:(BOOL)readToCurrentFrame unmaskBytes:(BOOL)unmaskBytes;
 {
-    SRIOConsumer *consumer = nil;
+    AWSSRIOConsumer *consumer = nil;
     if (_bufferedConsumers.count) {
         consumer = [_bufferedConsumers lastObject];
         [_bufferedConsumers removeLastObject];
     } else {
-        consumer = [[SRIOConsumer alloc] init];
+        consumer = [[AWSSRIOConsumer alloc] init];
     }
     
     [consumer setupWithScanner:scanner handler:handler bytesNeeded:bytesNeeded readToCurrentFrame:readToCurrentFrame unmaskBytes:unmaskBytes];
@@ -1693,7 +1693,7 @@ static const size_t SRFrameHeaderOverhead = 32;
     return consumer;
 }
 
-- (void)returnConsumer:(SRIOConsumer *)consumer;
+- (void)returnConsumer:(AWSSRIOConsumer *)consumer;
 {
     if (_bufferedConsumers.count < _poolSize) {
         [_bufferedConsumers addObject:consumer];
@@ -1728,7 +1728,7 @@ static const size_t SRFrameHeaderOverhead = 32;
 
 @implementation NSURL (SRWebSocket)
 
-- (NSString *)SR_origin;
+- (NSString *)AWSSR_origin;
 {
     NSString *scheme = [self.scheme lowercaseString];
         
@@ -1753,7 +1753,7 @@ static const size_t SRFrameHeaderOverhead = 32;
 
 #define SR_ENABLE_LOG
 
-static inline void SRFastLog(NSString *format, ...)  {
+static inline void AWSSRFastLog(NSString *format, ...)  {
 #ifdef SR_ENABLE_LOG
     __block va_list arg_list;
     va_start (arg_list, format);
