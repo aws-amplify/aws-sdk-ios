@@ -62,6 +62,12 @@ typedef NS_ENUM(NSInteger, AWSFirehoseCompressionFormat) {
     AWSFirehoseCompressionFormatHadoopSnappy,
 };
 
+typedef NS_ENUM(NSInteger, AWSFirehoseConnectivity) {
+    AWSFirehoseConnectivityUnknown,
+    AWSFirehoseConnectivityPublic,
+    AWSFirehoseConnectivityPrivate,
+};
+
 typedef NS_ENUM(NSInteger, AWSFirehoseContentEncoding) {
     AWSFirehoseContentEncodingUnknown,
     AWSFirehoseContentEncodingNone,
@@ -116,6 +122,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseDeliveryStreamType) {
     AWSFirehoseDeliveryStreamTypeUnknown,
     AWSFirehoseDeliveryStreamTypeDirectPut,
     AWSFirehoseDeliveryStreamTypeKinesisStreamAsSource,
+    AWSFirehoseDeliveryStreamTypeMSKAsSource,
 };
 
 typedef NS_ENUM(NSInteger, AWSFirehoseElasticsearchIndexRotationPeriod) {
@@ -193,11 +200,13 @@ typedef NS_ENUM(NSInteger, AWSFirehoseProcessorParameterName) {
     AWSFirehoseProcessorParameterNameBufferIntervalInSeconds,
     AWSFirehoseProcessorParameterNameSubRecordType,
     AWSFirehoseProcessorParameterNameDelimiter,
+    AWSFirehoseProcessorParameterNameCompressionFormat,
 };
 
 typedef NS_ENUM(NSInteger, AWSFirehoseProcessorType) {
     AWSFirehoseProcessorTypeUnknown,
     AWSFirehoseProcessorTypeRecordDeAggregation,
+    AWSFirehoseProcessorTypeDecompression,
     AWSFirehoseProcessorTypeLambda,
     AWSFirehoseProcessorTypeMetadataExtraction,
     AWSFirehoseProcessorTypeAppendDelimiterToRecord,
@@ -231,6 +240,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @class AWSFirehoseAmazonopensearchserviceDestinationDescription;
 @class AWSFirehoseAmazonopensearchserviceDestinationUpdate;
 @class AWSFirehoseAmazonopensearchserviceRetryOptions;
+@class AWSFirehoseAuthenticationConfiguration;
 @class AWSFirehoseBufferingHints;
 @class AWSFirehoseCloudWatchLoggingOptions;
 @class AWSFirehoseReplicateCommand;
@@ -276,6 +286,8 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @class AWSFirehoseListDeliveryStreamsOutput;
 @class AWSFirehoseListTagsForDeliveryStreamInput;
 @class AWSFirehoseListTagsForDeliveryStreamOutput;
+@class AWSFirehoseMSKSourceConfiguration;
+@class AWSFirehoseMSKSourceDescription;
 @class AWSFirehoseOpenXJsonSerDe;
 @class AWSFirehoseOrcSerDe;
 @class AWSFirehoseOutputFormatConfiguration;
@@ -771,6 +783,25 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @end
 
 /**
+ <p>The authentication configuration of the Amazon MSK cluster.</p>
+ Required parameters: [RoleARN, Connectivity]
+ */
+@interface AWSFirehoseAuthenticationConfiguration : AWSModel
+
+
+/**
+ <p>The type of connectivity used to access the Amazon MSK cluster.</p>
+ */
+@property (nonatomic, assign) AWSFirehoseConnectivity connectivity;
+
+/**
+ <p>The ARN of the role used to access the Amazon MSK cluster.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleARN;
+
+@end
+
+/**
  <p>Describes hints for the buffering to perform before delivering data to the destination. These options are treated as hints, and therefore Kinesis Data Firehose might choose to use different values when it is optimal. The <code>SizeInMBs</code> and <code>IntervalInSeconds</code> parameters are optional. However, if specify a value for one of them, you must also provide a value for the other.</p>
  */
 @interface AWSFirehoseBufferingHints : AWSModel
@@ -885,6 +916,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>When a Kinesis data stream is used as the source for the delivery stream, a <a>KinesisStreamSourceConfiguration</a> containing the Kinesis data stream Amazon Resource Name (ARN) and the role ARN for the source stream.</p>
  */
 @property (nonatomic, strong) AWSFirehoseKinesisStreamSourceConfiguration * _Nullable kinesisStreamSourceConfiguration;
+
+/**
+ <p>The configuration for the Amazon MSK cluster to be used as the source for a delivery stream.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseMSKSourceConfiguration * _Nullable MSKSourceConfiguration;
 
 /**
  <p>The destination in Amazon Redshift. You can specify only one destination.</p>
@@ -2180,6 +2216,58 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @end
 
 /**
+ <p>The configuration for the Amazon MSK cluster to be used as the source for a delivery stream.</p>
+ Required parameters: [MSKClusterARN, TopicName, AuthenticationConfiguration]
+ */
+@interface AWSFirehoseMSKSourceConfiguration : AWSModel
+
+
+/**
+ <p>The authentication configuration of the Amazon MSK cluster.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseAuthenticationConfiguration * _Nullable authenticationConfiguration;
+
+/**
+ <p>The ARN of the Amazon MSK cluster.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable MSKClusterARN;
+
+/**
+ <p>The topic name within the Amazon MSK cluster. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable topicName;
+
+@end
+
+/**
+ <p>Details about the Amazon MSK cluster used as the source for a Kinesis Data Firehose delivery stream.</p>
+ */
+@interface AWSFirehoseMSKSourceDescription : AWSModel
+
+
+/**
+ <p>The authentication configuration of the Amazon MSK cluster.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseAuthenticationConfiguration * _Nullable authenticationConfiguration;
+
+/**
+ <p>Kinesis Data Firehose starts retrieving records from the topic within the Amazon MSK cluster starting with this timestamp.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable deliveryStartTimestamp;
+
+/**
+ <p>The ARN of the Amazon MSK cluster.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable MSKClusterARN;
+
+/**
+ <p>The topic name within the Amazon MSK cluster.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable topicName;
+
+@end
+
+/**
  <p>The OpenX SerDe. Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the native Hive / HCatalog JsonSerDe.</p>
  */
 @interface AWSFirehoseOpenXJsonSerDe : AWSModel
@@ -2905,6 +2993,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>The <a>KinesisStreamSourceDescription</a> value for the source Kinesis data stream.</p>
  */
 @property (nonatomic, strong) AWSFirehoseKinesisStreamSourceDescription * _Nullable kinesisStreamSourceDescription;
+
+/**
+ <p>The configuration description for the Amazon MSK cluster to be used as the source for a delivery stream.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseMSKSourceDescription * _Nullable MSKSourceDescription;
 
 @end
 

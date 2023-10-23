@@ -29,6 +29,7 @@
 - (void) test_AWSFirehoseAmazonopensearchserviceDestinationDescription API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseAmazonopensearchserviceDestinationUpdate API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseAmazonopensearchserviceRetryOptions API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseAuthenticationConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseBufferingHints API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseCloudWatchLoggingOptions API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseReplicateCommand API_AVAILABLE(ios(11));
@@ -74,6 +75,8 @@
 - (void) test_AWSFirehoseListDeliveryStreamsOutput API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseListTagsForDeliveryStreamInput API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseListTagsForDeliveryStreamOutput API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseMSKSourceConfiguration API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseMSKSourceDescription API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseOpenXJsonSerDe API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseOrcSerDe API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseOutputFormatConfiguration API_AVAILABLE(ios(11));
@@ -158,6 +161,10 @@
 
 - (void) test_AWSFirehoseAmazonopensearchserviceRetryOptions {
     [self validateSecureCodingForClass:[AWSFirehoseAmazonopensearchserviceRetryOptions class]];
+}
+
+- (void) test_AWSFirehoseAuthenticationConfiguration {
+    [self validateSecureCodingForClass:[AWSFirehoseAuthenticationConfiguration class]];
 }
 
 - (void) test_AWSFirehoseBufferingHints {
@@ -338,6 +345,14 @@
 
 - (void) test_AWSFirehoseListTagsForDeliveryStreamOutput {
     [self validateSecureCodingForClass:[AWSFirehoseListTagsForDeliveryStreamOutput class]];
+}
+
+- (void) test_AWSFirehoseMSKSourceConfiguration {
+    [self validateSecureCodingForClass:[AWSFirehoseMSKSourceConfiguration class]];
+}
+
+- (void) test_AWSFirehoseMSKSourceDescription {
+    [self validateSecureCodingForClass:[AWSFirehoseMSKSourceDescription class]];
 }
 
 - (void) test_AWSFirehoseOpenXJsonSerDe {
