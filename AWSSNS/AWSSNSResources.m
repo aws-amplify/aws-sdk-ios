@@ -121,7 +121,8 @@
         {\"shape\":\"NotFoundException\"},\
         {\"shape\":\"InternalErrorException\"},\
         {\"shape\":\"AuthorizationErrorException\"},\
-        {\"shape\":\"FilterPolicyLimitExceededException\"}\
+        {\"shape\":\"FilterPolicyLimitExceededException\"},\
+        {\"shape\":\"ReplayLimitExceededException\"}\
       ],\
       \"documentation\":\"<p>Verifies an endpoint owner's intent to receive messages by validating the token sent to the endpoint by an earlier <code>Subscribe</code> action. If the token is valid, the action creates a new subscription and returns its Amazon Resource Name (ARN). This call requires an AWS signature only when the <code>AuthenticateOnUnsubscribe</code> flag is set to \\\"true\\\".</p>\"\
     },\
@@ -265,6 +266,7 @@
       \"input\":{\"shape\":\"DeleteTopicInput\"},\
       \"errors\":[\
         {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"InvalidStateException\"},\
         {\"shape\":\"InternalErrorException\"},\
         {\"shape\":\"AuthorizationErrorException\"},\
         {\"shape\":\"NotFoundException\"},\
@@ -753,6 +755,7 @@
       \"errors\":[\
         {\"shape\":\"InvalidParameterException\"},\
         {\"shape\":\"FilterPolicyLimitExceededException\"},\
+        {\"shape\":\"ReplayLimitExceededException\"},\
         {\"shape\":\"InternalErrorException\"},\
         {\"shape\":\"NotFoundException\"},\
         {\"shape\":\"AuthorizationErrorException\"}\
@@ -789,13 +792,14 @@
       \"errors\":[\
         {\"shape\":\"SubscriptionLimitExceededException\"},\
         {\"shape\":\"FilterPolicyLimitExceededException\"},\
+        {\"shape\":\"ReplayLimitExceededException\"},\
         {\"shape\":\"InvalidParameterException\"},\
         {\"shape\":\"InternalErrorException\"},\
         {\"shape\":\"NotFoundException\"},\
         {\"shape\":\"AuthorizationErrorException\"},\
         {\"shape\":\"InvalidSecurityException\"}\
       ],\
-      \"documentation\":\"<p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or if the endpoint and the topic are not in the same Amazon Web Services account, the endpoint owner must run the <code>ConfirmSubscription</code> action to confirm the subscription.</p> <p>You call the <code>ConfirmSubscription</code> action with the token from the subscription response. Confirmation tokens are valid for three days.</p> <p>This action is throttled at 100 transactions per second (TPS).</p>\"\
+      \"documentation\":\"<p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or if the endpoint and the topic are not in the same Amazon Web Services account, the endpoint owner must run the <code>ConfirmSubscription</code> action to confirm the subscription.</p> <p>You call the <code>ConfirmSubscription</code> action with the token from the subscription response. Confirmation tokens are valid for two days.</p> <p>This action is throttled at 100 transactions per second (TPS).</p>\"\
     },\
     \"TagResource\":{\
       \"name\":\"TagResource\",\
@@ -1151,7 +1155,7 @@
         },\
         \"Attributes\":{\
           \"shape\":\"TopicAttributesMap\",\
-          \"documentation\":\"<p>A map of attributes with their corresponding values.</p> <p>The following lists the names, descriptions, and values of the special request parameters that the <code>CreateTopic</code> action uses:</p> <ul> <li> <p> <code>DeliveryPolicy</code> â The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p> </li> <li> <p> <code>DisplayName</code> â The display name to use for a topic with SMS subscriptions.</p> </li> <li> <p> <code>FifoTopic</code> â Set to true to create a FIFO topic.</p> </li> <li> <p> <code>Policy</code> â The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.</p> </li> <li> <p> <code>SignatureVersion</code> â The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, <code>SignatureVersion</code> is set to <code>1</code>.</p> </li> <li> <p> <code>TracingConfig</code> â Tracing mode of an Amazon SNS topic. By default <code>TracingConfig</code> is set to <code>PassThrough</code>, and the topic passes through the tracing header it receives from an Amazon SNS publisher to its subscriptions. If set to <code>Active</code>, Amazon SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. This is only supported on standard topics.</p> </li> </ul> <p>The following attribute applies only to <a href=\\\"https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html\\\">server-side encryption</a>:</p> <ul> <li> <p> <code>KmsMasterKeyId</code> â The ID of an Amazon Web Services managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href=\\\"https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms\\\">Key Terms</a>. For more examples, see <a href=\\\"https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters\\\">KeyId</a> in the <i>Key Management Service API Reference</i>. </p> </li> </ul> <p>The following attributes apply only to <a href=\\\"https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html\\\">FIFO topics</a>:</p> <ul> <li> <p> <code>FifoTopic</code> â When this is set to <code>true</code>, a FIFO topic is created.</p> </li> <li> <p> <code>ContentBasedDeduplication</code> â Enables content-based deduplication for FIFO topics.</p> <ul> <li> <p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>. If you create a FIFO topic and this attribute is <code>false</code>, you must specify a value for the <code>MessageDeduplicationId</code> parameter for the <a href=\\\"https://docs.aws.amazon.com/sns/latest/api/API_Publish.html\\\">Publish</a> action. </p> </li> <li> <p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p> <p>(Optional) To override the generated value, you can specify a value for the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code> action.</p> </li> </ul> </li> </ul>\"\
+          \"documentation\":\"<p>A map of attributes with their corresponding values.</p> <p>The following lists the names, descriptions, and values of the special request parameters that the <code>CreateTopic</code> action uses:</p> <ul> <li> <p> <code>DeliveryPolicy</code> â The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p> </li> <li> <p> <code>DisplayName</code> â The display name to use for a topic with SMS subscriptions.</p> </li> <li> <p> <code>FifoTopic</code> â Set to true to create a FIFO topic.</p> </li> <li> <p> <code>Policy</code> â The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.</p> </li> <li> <p> <code>SignatureVersion</code> â The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, <code>SignatureVersion</code> is set to <code>1</code>.</p> </li> <li> <p> <code>TracingConfig</code> â Tracing mode of an Amazon SNS topic. By default <code>TracingConfig</code> is set to <code>PassThrough</code>, and the topic passes through the tracing header it receives from an Amazon SNS publisher to its subscriptions. If set to <code>Active</code>, Amazon SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. This is only supported on standard topics.</p> </li> </ul> <p>The following attribute applies only to <a href=\\\"https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html\\\">server-side encryption</a>:</p> <ul> <li> <p> <code>KmsMasterKeyId</code> â The ID of an Amazon Web Services managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href=\\\"https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms\\\">Key Terms</a>. For more examples, see <a href=\\\"https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters\\\">KeyId</a> in the <i>Key Management Service API Reference</i>. </p> </li> </ul> <p>The following attributes apply only to <a href=\\\"https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html\\\">FIFO topics</a>:</p> <ul> <li> <p> <code>ArchivePolicy</code> â Adds or updates an inline policy document to archive messages stored in the specified Amazon SNS topic.</p> </li> <li> <p> <code>BeginningArchiveTime</code> â The earliest starting point at which a message in the topicâs archive can be replayed from. This point in time is based on the configured message retention period set by the topicâs message archiving policy.</p> </li> <li> <p> <code>ContentBasedDeduplication</code> â Enables content-based deduplication for FIFO topics.</p> <ul> <li> <p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>. If you create a FIFO topic and this attribute is <code>false</code>, you must specify a value for the <code>MessageDeduplicationId</code> parameter for the <a href=\\\"https://docs.aws.amazon.com/sns/latest/api/API_Publish.html\\\">Publish</a> action. </p> </li> <li> <p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p> <p>(Optional) To override the generated value, you can specify a value for the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code> action.</p> </li> </ul> </li> </ul>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagList\",\
@@ -1487,6 +1491,19 @@
       },\
       \"exception\":true\
     },\
+    \"InvalidStateException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"string\"}\
+      },\
+      \"documentation\":\"<p>Indicates that the specified state is not a valid state for an event source.</p>\",\
+      \"error\":{\
+        \"code\":\"InvalidState\",\
+        \"httpStatusCode\":400,\
+        \"senderFault\":true\
+      },\
+      \"exception\":true\
+    },\
     \"Iso2CountryCode\":{\
       \"type\":\"string\",\
       \"documentation\":\"The two-character code, in ISO 3166-1 alpha-2 format, for the country or region. For example, GB or US.\",\
@@ -1511,7 +1528,7 @@
       \"members\":{\
         \"message\":{\"shape\":\"string\"}\
       },\
-      \"documentation\":\"<p>The request was rejected because the specified customer master key (CMK) isn't enabled.</p>\",\
+      \"documentation\":\"<p>The request was rejected because the specified Amazon Web Services KMS key isn't enabled.</p>\",\
       \"error\":{\
         \"code\":\"KMSDisabled\",\
         \"httpStatusCode\":400,\
@@ -1524,7 +1541,7 @@
       \"members\":{\
         \"message\":{\"shape\":\"string\"}\
       },\
-      \"documentation\":\"<p>The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <a href=\\\"https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html\\\">How Key State Affects Use of a Customer Master Key</a> in the <i>Key Management Service Developer Guide</i>.</p>\",\
+      \"documentation\":\"<p>The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <a href=\\\"https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html\\\">Key states of Amazon Web Services KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>\",\
       \"error\":{\
         \"code\":\"KMSInvalidState\",\
         \"httpStatusCode\":400,\
@@ -2197,6 +2214,19 @@
       },\
       \"documentation\":\"<p>Input for RemovePermission action.</p>\"\
     },\
+    \"ReplayLimitExceededException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"string\"}\
+      },\
+      \"documentation\":\"<p>Indicates that the request parameter has exceeded the maximum number of concurrent message replays.</p>\",\
+      \"error\":{\
+        \"code\":\"ReplayLimitExceeded\",\
+        \"httpStatusCode\":403,\
+        \"senderFault\":true\
+      },\
+      \"exception\":true\
+    },\
     \"ResourceNotFoundException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -2377,7 +2407,7 @@
         },\
         \"Attributes\":{\
           \"shape\":\"SubscriptionAttributesMap\",\
-          \"documentation\":\"<p>A map of attributes with their corresponding values.</p> <p>The following lists the names, descriptions, and values of the special request parameters that the <code>Subscribe</code> action uses:</p> <ul> <li> <p> <code>DeliveryPolicy</code> â The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p> </li> <li> <p> <code>FilterPolicy</code> â The simple JSON object that lets your subscriber receive only a subset of messages, rather than receiving every message published to the topic.</p> </li> <li> <p> <code>FilterPolicyScope</code> â This attribute lets you choose the filtering scope by using one of the following string value types:</p> <ul> <li> <p> <code>MessageAttributes</code> (default) â The filter is applied on the message attributes.</p> </li> <li> <p> <code>MessageBody</code> â The filter is applied on the message body.</p> </li> </ul> </li> <li> <p> <code>RawMessageDelivery</code> â When set to <code>true</code>, enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints to process JSON formatting, which is otherwise created for Amazon SNS metadata.</p> </li> <li> <p> <code>RedrivePolicy</code> â When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue. Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable) or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held in the dead-letter queue for further analysis or reprocessing.</p> </li> </ul> <p>The following attribute applies only to Amazon Kinesis Data Firehose delivery stream subscriptions:</p> <ul> <li> <p> <code>SubscriptionRoleArn</code> â The ARN of the IAM role that has the following:</p> <ul> <li> <p>Permission to write to the Kinesis Data Firehose delivery stream</p> </li> <li> <p>Amazon SNS listed as a trusted entity</p> </li> </ul> <p>Specifying a valid ARN for this attribute is required for Kinesis Data Firehose delivery stream subscriptions. For more information, see <a href=\\\"https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html\\\">Fanout to Kinesis Data Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p> </li> </ul>\"\
+          \"documentation\":\"<p>A map of attributes with their corresponding values.</p> <p>The following lists the names, descriptions, and values of the special request parameters that the <code>Subscribe</code> action uses:</p> <ul> <li> <p> <code>DeliveryPolicy</code> â The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p> </li> <li> <p> <code>FilterPolicy</code> â The simple JSON object that lets your subscriber receive only a subset of messages, rather than receiving every message published to the topic.</p> </li> <li> <p> <code>FilterPolicyScope</code> â This attribute lets you choose the filtering scope by using one of the following string value types:</p> <ul> <li> <p> <code>MessageAttributes</code> (default) â The filter is applied on the message attributes.</p> </li> <li> <p> <code>MessageBody</code> â The filter is applied on the message body.</p> </li> </ul> </li> <li> <p> <code>RawMessageDelivery</code> â When set to <code>true</code>, enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints to process JSON formatting, which is otherwise created for Amazon SNS metadata.</p> </li> <li> <p> <code>RedrivePolicy</code> â When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue. Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable) or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held in the dead-letter queue for further analysis or reprocessing.</p> </li> </ul> <p>The following attribute applies only to Amazon Kinesis Data Firehose delivery stream subscriptions:</p> <ul> <li> <p> <code>SubscriptionRoleArn</code> â The ARN of the IAM role that has the following:</p> <ul> <li> <p>Permission to write to the Kinesis Data Firehose delivery stream</p> </li> <li> <p>Amazon SNS listed as a trusted entity</p> </li> </ul> <p>Specifying a valid ARN for this attribute is required for Kinesis Data Firehose delivery stream subscriptions. For more information, see <a href=\\\"https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html\\\">Fanout to Kinesis Data Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p> </li> </ul> <p>The following attributes apply only to <a href=\\\"https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html\\\">FIFO topics</a>:</p> <ul> <li> <p> <code>ReplayPolicy</code> â Adds or updates an inline policy document for a subscription to replay messages stored in the specified Amazon SNS topic.</p> </li> <li> <p> <code>ReplayStatus</code> â Retrieves the status of the subscription message replay, which can be one of the following:</p> <ul> <li> <p> <code>Completed</code> â The replay has successfully redelivered all messages, and is now delivering newly published messages. If an ending point was specified in the <code>ReplayPolicy</code> then the subscription will no longer receive newly published messages.</p> </li> <li> <p> <code>In progress</code> â The replay is currently replaying the selected messages.</p> </li> <li> <p> <code>Failed</code> â The replay was unable to complete.</p> </li> <li> <p> <code>Pending</code> â The default state while the replay initiates.</p> </li> </ul> </li> </ul>\"\
         },\
         \"ReturnSubscriptionArn\":{\
           \"shape\":\"boolean\",\
