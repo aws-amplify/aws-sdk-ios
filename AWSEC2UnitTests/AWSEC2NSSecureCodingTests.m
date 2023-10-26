@@ -869,6 +869,8 @@
 - (void) test_AWSEC2DisableImageBlockPublicAccessResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableImageDeprecationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableImageDeprecationResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisableImageRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisableImageResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableIpamOrganizationAdminAccountRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableIpamOrganizationAdminAccountResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableSerialConsoleAccessRequest API_AVAILABLE(ios(11));
@@ -950,6 +952,8 @@
 - (void) test_AWSEC2EnableImageBlockPublicAccessResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableImageDeprecationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableImageDeprecationResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableImageRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableImageResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableIpamOrganizationAdminAccountRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableIpamOrganizationAdminAccountResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableReachabilityAnalyzerOrganizationSharingRequest API_AVAILABLE(ios(11));
@@ -1071,6 +1075,8 @@
 - (void) test_AWSEC2GetPasswordDataResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetReservedInstancesExchangeQuoteRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetReservedInstancesExchangeQuoteResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetSecurityGroupsForVpcRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetSecurityGroupsForVpcResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetSerialConsoleAccessStatusRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetSerialConsoleAccessStatusResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetSpotPlacementScoresRequest API_AVAILABLE(ios(11));
@@ -1654,6 +1660,7 @@
 - (void) test_AWSEC2SearchTransitGatewayRoutesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SearchTransitGatewayRoutesResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SecurityGroup API_AVAILABLE(ios(11));
+- (void) test_AWSEC2SecurityGroupForVpc API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SecurityGroupIdentifier API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SecurityGroupReference API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SecurityGroupRule API_AVAILABLE(ios(11));
@@ -1824,6 +1831,8 @@
 - (void) test_AWSEC2VerifiedAccessLogS3Destination API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VerifiedAccessLogS3DestinationOptions API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VerifiedAccessLogs API_AVAILABLE(ios(11));
+- (void) test_AWSEC2VerifiedAccessSseSpecificationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2VerifiedAccessSseSpecificationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VerifiedAccessTrustProvider API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VerifiedAccessTrustProviderCondensed API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VgwTelemetry API_AVAILABLE(ios(11));
@@ -5265,6 +5274,14 @@
     [self validateSecureCodingForClass:[AWSEC2DisableImageDeprecationResult class]];
 }
 
+- (void) test_AWSEC2DisableImageRequest {
+    [self validateSecureCodingForClass:[AWSEC2DisableImageRequest class]];
+}
+
+- (void) test_AWSEC2DisableImageResult {
+    [self validateSecureCodingForClass:[AWSEC2DisableImageResult class]];
+}
+
 - (void) test_AWSEC2DisableIpamOrganizationAdminAccountRequest {
     [self validateSecureCodingForClass:[AWSEC2DisableIpamOrganizationAdminAccountRequest class]];
 }
@@ -5587,6 +5604,14 @@
 
 - (void) test_AWSEC2EnableImageDeprecationResult {
     [self validateSecureCodingForClass:[AWSEC2EnableImageDeprecationResult class]];
+}
+
+- (void) test_AWSEC2EnableImageRequest {
+    [self validateSecureCodingForClass:[AWSEC2EnableImageRequest class]];
+}
+
+- (void) test_AWSEC2EnableImageResult {
+    [self validateSecureCodingForClass:[AWSEC2EnableImageResult class]];
 }
 
 - (void) test_AWSEC2EnableIpamOrganizationAdminAccountRequest {
@@ -6071,6 +6096,14 @@
 
 - (void) test_AWSEC2GetReservedInstancesExchangeQuoteResult {
     [self validateSecureCodingForClass:[AWSEC2GetReservedInstancesExchangeQuoteResult class]];
+}
+
+- (void) test_AWSEC2GetSecurityGroupsForVpcRequest {
+    [self validateSecureCodingForClass:[AWSEC2GetSecurityGroupsForVpcRequest class]];
+}
+
+- (void) test_AWSEC2GetSecurityGroupsForVpcResult {
+    [self validateSecureCodingForClass:[AWSEC2GetSecurityGroupsForVpcResult class]];
 }
 
 - (void) test_AWSEC2GetSerialConsoleAccessStatusRequest {
@@ -8405,6 +8438,10 @@
     [self validateSecureCodingForClass:[AWSEC2SecurityGroup class]];
 }
 
+- (void) test_AWSEC2SecurityGroupForVpc {
+    [self validateSecureCodingForClass:[AWSEC2SecurityGroupForVpc class]];
+}
+
 - (void) test_AWSEC2SecurityGroupIdentifier {
     [self validateSecureCodingForClass:[AWSEC2SecurityGroupIdentifier class]];
 }
@@ -9083,6 +9120,14 @@
 
 - (void) test_AWSEC2VerifiedAccessLogs {
     [self validateSecureCodingForClass:[AWSEC2VerifiedAccessLogs class]];
+}
+
+- (void) test_AWSEC2VerifiedAccessSseSpecificationRequest {
+    [self validateSecureCodingForClass:[AWSEC2VerifiedAccessSseSpecificationRequest class]];
+}
+
+- (void) test_AWSEC2VerifiedAccessSseSpecificationResponse {
+    [self validateSecureCodingForClass:[AWSEC2VerifiedAccessSseSpecificationResponse class]];
 }
 
 - (void) test_AWSEC2VerifiedAccessTrustProvider {
