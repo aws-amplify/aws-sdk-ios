@@ -3583,7 +3583,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The unique identifier for the endpoint.</p>
+ <p>The case insensitive unique identifier for the endpoint. The identifier can't contain <code>$</code>, <code>{</code> or <code>}</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable endpointId;
 
@@ -5999,7 +5999,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The unique identifier for the endpoint.</p>
+ <p>The case insensitive unique identifier for the endpoint. The identifier can't contain <code>$</code>, <code>{</code> or <code>}</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable endpointId;
 
@@ -10939,7 +10939,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The unique identifier for the endpoint.</p>
+ <p>The case insensitive unique identifier for the endpoint. The identifier can't contain <code>$</code>, <code>{</code> or <code>}</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable endpointId;
 

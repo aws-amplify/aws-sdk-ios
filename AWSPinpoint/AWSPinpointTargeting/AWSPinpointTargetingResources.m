@@ -4223,7 +4223,7 @@
           \"documentation\": \"<p>The request failed because too many requests were sent during a certain amount of time (TooManyRequestsException).</p>\"\
         }\
       ],\
-      \"documentation\": \"<p>Removes one or more attributes, of the same attribute type, from all the endpoints that are associated with an application.</p>\"\
+      \"documentation\": \"<p>Removes one or more custom attributes, of the same attribute type, from the application. Existing endpoints still have the attributes but Amazon Pinpoint will stop capturing new or changed values for these attributes.</p>\"\
     },\
     \"SendMessages\": {\
       \"name\": \"SendMessages\",\
@@ -8122,7 +8122,7 @@
           \"shape\": \"__string\",\
           \"location\": \"uri\",\
           \"locationName\": \"endpoint-id\",\
-          \"documentation\": \"<p>The unique identifier for the endpoint.</p>\"\
+          \"documentation\": \"<p>The case insensitive unique identifier for the endpoint. The identifier can't contain <code>$</code>, <code>{</code> or <code>}</code>.</p>\"\
         }\
       },\
       \"required\": [\
@@ -10409,7 +10409,7 @@
           \"shape\": \"__string\",\
           \"location\": \"uri\",\
           \"locationName\": \"endpoint-id\",\
-          \"documentation\": \"<p>The unique identifier for the endpoint.</p>\"\
+          \"documentation\": \"<p>The case insensitive unique identifier for the endpoint. The identifier can't contain <code>$</code>, <code>{</code> or <code>}</code>.</p>\"\
         }\
       },\
       \"required\": [\
@@ -15166,7 +15166,7 @@
           \"shape\": \"__string\",\
           \"location\": \"uri\",\
           \"locationName\": \"endpoint-id\",\
-          \"documentation\": \"<p>The unique identifier for the endpoint.</p>\"\
+          \"documentation\": \"<p>The case insensitive unique identifier for the endpoint. The identifier can't contain <code>$</code>, <code>{</code> or <code>}</code>.</p>\"\
         },\
         \"EndpointRequest\": {\
           \"shape\": \"EndpointRequest\"\
