@@ -561,7 +561,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Creates a security profile.</p>\"\
+      \"documentation\":\"<p>Creates a security profile.</p>\"\
     },\
     \"CreateTaskTemplate\":{\
       \"name\":\"CreateTaskTemplate\",\
@@ -599,7 +599,7 @@
         {\"shape\":\"ResourceConflictException\"},\
         {\"shape\":\"ResourceNotReadyException\"}\
       ],\
-      \"documentation\":\"<p>Creates a traffic distribution group given an Amazon Connect instance that has been replicated. </p> <note> <p>You can change the <code>SignInConfig</code> distribution only for a default <code>TrafficDistributionGroup</code> (see the <code>IsDefault</code> parameter in the <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html\\\">TrafficDistributionGroup</a> data type). If you call <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>, an <code>InvalidRequestException</code> is returned.</p> </note> <p>For more information about creating traffic distribution groups, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html\\\">Set up traffic distribution groups</a> in the <i>Amazon Connect Administrator Guide</i>. </p>\"\
+      \"documentation\":\"<p>Creates a traffic distribution group given an Amazon Connect instance that has been replicated. </p> <note> <p>The <code>SignInConfig</code> distribution is available only on a default <code>TrafficDistributionGroup</code> (see the <code>IsDefault</code> parameter in the <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html\\\">TrafficDistributionGroup</a> data type). If you call <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>, an <code>InvalidRequestException</code> is returned.</p> </note> <p>For more information about creating traffic distribution groups, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html\\\">Set up traffic distribution groups</a> in the <i>Amazon Connect Administrator Guide</i>. </p>\"\
     },\
     \"CreateUseCase\":{\
       \"name\":\"CreateUseCase\",\
@@ -635,7 +635,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Creates a user account for the specified Amazon Connect instance.</p> <p>For information about how to create user accounts using the Amazon Connect console, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html\\\">Add Users</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+      \"documentation\":\"<p>Creates a user account for the specified Amazon Connect instance.</p> <important> <p>Certain <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_UserIdentityInfo.html\\\">UserIdentityInfo</a> parameters are required in some situations. For example, <code>Email</code> is required if you are using SAML for identity management. <code>FirstName</code> and <code>LastName</code> are required if you are using Amazon Connect or SAML for identity management.</p> </important> <p>For information about how to create user accounts using the Amazon Connect console, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html\\\">Add Users</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
     \"CreateUserHierarchyGroup\":{\
       \"name\":\"CreateUserHierarchyGroup\",\
@@ -948,7 +948,7 @@
         {\"shape\":\"AccessDeniedException\"},\
         {\"shape\":\"ResourceInUseException\"}\
       ],\
-      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Deletes a security profile.</p>\"\
+      \"documentation\":\"<p>Deletes a security profile.</p>\"\
     },\
     \"DeleteTaskTemplate\":{\
       \"name\":\"DeleteTaskTemplate\",\
@@ -1373,7 +1373,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Gets basic information about the security profle.</p>\"\
+      \"documentation\":\"<p>Gets basic information about the security profle.</p>\"\
     },\
     \"DescribeTrafficDistributionGroup\":{\
       \"name\":\"DescribeTrafficDistributionGroup\",\
@@ -1723,7 +1723,7 @@
         {\"shape\":\"InternalServiceException\"},\
         {\"shape\":\"DuplicateResourceException\"}\
       ],\
-      \"documentation\":\"<p>Retrieves a token for federation.</p> <note> <p>This API doesn't support root users. If you try to invoke GetFederationToken with root credentials, an error message similar to the following one appears: </p> <p> <code>Provided identity: Principal: .... User: .... cannot be used for federation with Amazon Connect</code> </p> </note>\"\
+      \"documentation\":\"<p>Supports SAML sign-in for Amazon Connect. Retrieves a token for federation. The token is for the Amazon Connect user which corresponds to the IAM credentials that were used to invoke this action. </p> <p>For more information about how SAML sign-in works in Amazon Connect, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/configure-saml.html \\\">Configure SAML with IAM for Amazon Connect in the <i>Amazon Connect Administrator Guide</i>.</a> </p> <note> <p>This API doesn't support root users. If you try to invoke GetFederationToken with root credentials, an error message similar to the following one appears: </p> <p> <code>Provided identity: Principal: .... User: .... cannot be used for federation with Amazon Connect</code> </p> </note>\"\
     },\
     \"GetMetricData\":{\
       \"name\":\"GetMetricData\",\
@@ -1740,7 +1740,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
-      \"documentation\":\"<p>Gets historical metric data from the specified Amazon Connect instance.</p> <p>For a description of each historical metric, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html\\\">Historical Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+      \"documentation\":\"<p>Gets historical metric data from the specified Amazon Connect instance.</p> <p>For a description of each historical metric, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html\\\">Historical Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p> <note> <p>We recommend using the <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html\\\">GetMetricDataV2</a> API. It provides more flexibility, features, and the ability to query longer time ranges than <code>GetMetricData</code>. Use it to retrieve historical agent and contact metrics for the last 3 months, at varying intervals. You can also use it to build custom dashboards to measure historical queue and agent performance. For example, you can track the number of incoming contacts for the last 7 days, with data split by day, to see how contact volume changed per day of the week.</p> </note>\"\
     },\
     \"GetMetricDataV2\":{\
       \"name\":\"GetMetricDataV2\",\
@@ -1757,7 +1757,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
-      \"documentation\":\"<p>Gets metric data from the specified Amazon Connect instance. </p> <p> <code>GetMetricDataV2</code> offers more features than <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html\\\">GetMetricData</a>, the previous version of this API. It has new metrics, offers filtering at a metric level, and offers the ability to filter and group data by channels, queues, routing profiles, agents, and agent hierarchy levels. It can retrieve historical data for the last 35 days, in 24-hour intervals.</p> <p>For a description of the historical metrics that are supported by <code>GetMetricDataV2</code> and <code>GetMetricData</code>, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html\\\">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.</p>\"\
+      \"documentation\":\"<p>Gets metric data from the specified Amazon Connect instance. </p> <p> <code>GetMetricDataV2</code> offers more features than <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html\\\">GetMetricData</a>, the previous version of this API. It has new metrics, offers filtering at a metric level, and offers the ability to filter and group data by channels, queues, routing profiles, agents, and agent hierarchy levels. It can retrieve historical data for the last 3 months, at varying intervals. </p> <p>For a description of the historical metrics that are supported by <code>GetMetricDataV2</code> and <code>GetMetricData</code>, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html\\\">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.</p>\"\
     },\
     \"GetPromptFile\":{\
       \"name\":\"GetPromptFile\",\
@@ -2261,6 +2261,23 @@
       ],\
       \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Returns a paginated list of all security keys associated with the instance.</p>\"\
     },\
+    \"ListSecurityProfileApplications\":{\
+      \"name\":\"ListSecurityProfileApplications\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/security-profiles-applications/{InstanceId}/{SecurityProfileId}\"\
+      },\
+      \"input\":{\"shape\":\"ListSecurityProfileApplicationsRequest\"},\
+      \"output\":{\"shape\":\"ListSecurityProfileApplicationsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Returns a list of third-party applications in a specific security profile.</p>\"\
+    },\
     \"ListSecurityProfilePermissions\":{\
       \"name\":\"ListSecurityProfilePermissions\",\
       \"http\":{\
@@ -2276,7 +2293,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Lists the permissions granted to a security profile.</p>\"\
+      \"documentation\":\"<p>Lists the permissions granted to a security profile.</p>\"\
     },\
     \"ListSecurityProfiles\":{\
       \"name\":\"ListSecurityProfiles\",\
@@ -2536,7 +2553,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>When a contact is being recorded, and the recording has been suspended using SuspendContactRecording, this API resumes recording the call or screen.</p> <p>Voice and screen recordings are supported.</p>\"\
+      \"documentation\":\"<p>When a contact is being recorded, and the recording has been suspended using SuspendContactRecording, this API resumes recording whatever recording is selected in the flow configuration: call, screen, or both. If only call recording or only screen recording is enabled, then it would resume.</p> <p>Voice and screen recordings are supported.</p>\"\
     },\
     \"SearchAvailablePhoneNumbers\":{\
       \"name\":\"SearchAvailablePhoneNumbers\",\
@@ -2689,7 +2706,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Searches users in an Amazon Connect instance, with optional filtering.</p> <note> <p> <code>AfterContactWorkTimeLimit</code> is returned in milliseconds. </p> </note>\"\
+      \"documentation\":\"<p>Searches users in an Amazon Connect instance, with optional filtering. </p> <note> <p> <code>AfterContactWorkTimeLimit</code> is returned in milliseconds. </p> </note>\"\
     },\
     \"SearchVocabularies\":{\
       \"name\":\"SearchVocabularies\",\
@@ -2811,7 +2828,7 @@
         {\"shape\":\"ServiceQuotaExceededException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Initiates a flow to start a new task.</p>\"\
+      \"documentation\":\"<p>Initiates a flow to start a new task contact. For more information about task contacts, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html\\\">Concepts: Tasks in Amazon Connect</a> in the <i>Amazon Connect Administrator Guide</i>. </p> <p>When using <code>PreviousContactId</code> and <code>RelatedContactId</code> input parameters, note the following:</p> <ul> <li> <p> <code>PreviousContactId</code> </p> <ul> <li> <p>Any updates to user-defined task contact attributes on any contact linked through the same <code>PreviousContactId</code> will affect every contact in the chain.</p> </li> <li> <p>There can be a maximum of 12 linked task contacts in a chain. That is, 12 task contacts can be created that share the same <code>PreviousContactId</code>.</p> </li> </ul> </li> <li> <p> <code>RelatedContactId</code> </p> <ul> <li> <p>Copies contact attributes from the related task contact to the new contact.</p> </li> <li> <p>Any update on attributes in a new task contact does not update attributes on previous contact.</p> </li> <li> <p>Thereâs no limit on the number of task contacts that can be created that use the same <code>RelatedContactId</code>.</p> </li> </ul> </li> </ul> <p>In addition, when calling StartTaskContact include only one of these parameters: <code>ContactFlowID</code>, <code>QuickConnectID</code>, or <code>TaskTemplateID</code>. Only one parameter is required as long as the task template has a flow configured to run it. If more than one parameter is specified, or only the <code>TaskTemplateID</code> is specified but it does not have a flow configured, the request returns an error because Amazon Connect cannot identify the unique flow to run when the task is created.</p> <p>A <code>ServiceQuotaExceededException</code> occurs when the number of open tasks exceeds the active tasks quota or there are already 12 tasks referencing the same <code>PreviousContactId</code>. For more information about service quotas for task contacts, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\\\">Amazon Connect service quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p>\"\
     },\
     \"StopContact\":{\
       \"name\":\"StopContact\",\
@@ -2891,7 +2908,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>When a contact is being recorded, this API suspends recording the call or screen. For example, you might suspend the call or screen recording while collecting sensitive information, such as a credit card number. Then use ResumeContactRecording to restart recording.</p> <p>The period of time that the recording is suspended is filled with silence in the final recording.</p> <p>Voice and screen recordings are supported.</p>\"\
+      \"documentation\":\"<p>When a contact is being recorded, this API suspends recording whatever is selected in the flow configuration: call, screen, or both. If only call recording or only screen recording is enabled, then it would be suspended. For example, you might suspend the screen recording while collecting sensitive information, such as a credit card number. Then use ResumeContactRecording to restart recording the screen.</p> <p>The period of time that the recording is suspended is filled with silence in the final recording.</p> <p>Voice and screen recordings are supported.</p>\"\
     },\
     \"TagResource\":{\
       \"name\":\"TagResource\",\
@@ -3226,6 +3243,25 @@
       ],\
       \"documentation\":\"<p>Updates your claimed phone number from its current Amazon Connect instance or traffic distribution group to another Amazon Connect instance or traffic distribution group in the same Amazon Web Services Region.</p> <important> <p>After using this API, you must verify that the phone number is attached to the correct flow in the target instance or traffic distribution group. You need to do this because the API switches only the phone number to a new instance or traffic distribution group. It doesn't migrate the flow configuration of the phone number, too.</p> <p>You can call <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html\\\">DescribePhoneNumber</a> API to verify the status of a previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html\\\">UpdatePhoneNumber</a> operation.</p> </important>\"\
     },\
+    \"UpdatePhoneNumberMetadata\":{\
+      \"name\":\"UpdatePhoneNumberMetadata\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/phone-number/{PhoneNumberId}/metadata\"\
+      },\
+      \"input\":{\"shape\":\"UpdatePhoneNumberMetadataRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ResourceInUseException\"},\
+        {\"shape\":\"IdempotencyException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Updates a phone numberâs metadata.</p> <important> <p>To verify the status of a previous UpdatePhoneNumberMetadata operation, call the <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html\\\">DescribePhoneNumber</a> API.</p> </important>\"\
+    },\
     \"UpdatePrompt\":{\
       \"name\":\"UpdatePrompt\",\
       \"http\":{\
@@ -3468,7 +3504,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Updates a security profile.</p>\"\
+      \"documentation\":\"<p>Updates a security profile.</p>\"\
     },\
     \"UpdateTaskTemplate\":{\
       \"name\":\"UpdateTaskTemplate\",\
@@ -3504,7 +3540,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Updates the traffic distribution for a given traffic distribution group. </p> <note> <p>You can change the <code>SignInConfig</code> distribution only for a default <code>TrafficDistributionGroup</code> (see the <code>IsDefault</code> parameter in the <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html\\\">TrafficDistributionGroup</a> data type). If you call <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>, an <code>InvalidRequestException</code> is returned.</p> </note> <p>For more information about updating a traffic distribution group, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html\\\">Update telephony traffic distribution across Amazon Web Services Regions </a> in the <i>Amazon Connect Administrator Guide</i>. </p>\"\
+      \"documentation\":\"<p>Updates the traffic distribution for a given traffic distribution group. </p> <note> <p>The <code>SignInConfig</code> distribution is available only on a default <code>TrafficDistributionGroup</code> (see the <code>IsDefault</code> parameter in the <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html\\\">TrafficDistributionGroup</a> data type). If you call <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>, an <code>InvalidRequestException</code> is returned.</p> </note> <p>For more information about updating a traffic distribution group, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html\\\">Update telephony traffic distribution across Amazon Web Services Regions </a> in the <i>Amazon Connect Administrator Guide</i>. </p>\"\
     },\
     \"UpdateUserHierarchy\":{\
       \"name\":\"UpdateUserHierarchy\",\
@@ -3988,6 +4024,31 @@
       },\
       \"documentation\":\"<p>Configuration of the answering machine detection.</p>\"\
     },\
+    \"Application\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Namespace\":{\
+          \"shape\":\"Namespace\",\
+          \"documentation\":\"<p>Namespace of the application that you want to give access to.</p>\"\
+        },\
+        \"ApplicationPermissions\":{\
+          \"shape\":\"ApplicationPermissions\",\
+          \"documentation\":\"<p>The permissions that the agent is granted on the application. Only the <code>ACCESS</code> permission is supported.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>A third-party application's metadata.</p>\"\
+    },\
+    \"ApplicationPermissions\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Permission\"},\
+      \"max\":10,\
+      \"min\":1\
+    },\
+    \"Applications\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Application\"},\
+      \"max\":10\
+    },\
     \"ApproximateTotalCount\":{\"type\":\"long\"},\
     \"AssignContactCategoryActionDefinition\":{\
       \"type\":\"structure\",\
@@ -4362,10 +4423,7 @@
       \"type\":\"string\",\
       \"max\":50\
     },\
-    \"BoxedBoolean\":{\
-      \"type\":\"boolean\",\
-      \"box\":true\
-    },\
+    \"BoxedBoolean\":{\"type\":\"boolean\"},\
     \"BucketName\":{\
       \"type\":\"string\",\
       \"max\":128,\
@@ -4456,14 +4514,15 @@
     },\
     \"ClaimPhoneNumberRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"TargetArn\",\
-        \"PhoneNumber\"\
-      ],\
+      \"required\":[\"PhoneNumber\"],\
       \"members\":{\
         \"TargetArn\":{\
           \"shape\":\"ARN\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>\"\
         },\
         \"PhoneNumber\":{\
           \"shape\":\"PhoneNumber\",\
@@ -4526,7 +4585,11 @@
         },\
         \"TargetArn\":{\
           \"shape\":\"ARN\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through.</p>\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
@@ -4534,7 +4597,7 @@
         },\
         \"PhoneNumberStatus\":{\
           \"shape\":\"PhoneNumberStatus\",\
-          \"documentation\":\"<p>The status of the phone number.</p> <ul> <li> <p> <code>CLAIMED</code> means the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html\\\">ClaimedPhoneNumber</a> or <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html\\\">UpdatePhoneNumber</a> operation succeeded.</p> </li> <li> <p> <code>IN_PROGRESS</code> means a <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html\\\">ClaimedPhoneNumber</a> or <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html\\\">UpdatePhoneNumber</a> operation is still in progress and has not yet completed. You can call <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html\\\">DescribePhoneNumber</a> at a later time to verify if the previous operation has completed.</p> </li> <li> <p> <code>FAILED</code> indicates that the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html\\\">ClaimedPhoneNumber</a> or <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html\\\">UpdatePhoneNumber</a> operation has failed. It will include a message indicating the failure reason. A common reason for a failure may be that the <code>TargetArn</code> value you are claiming or updating a phone number to has reached its limit of total claimed numbers. If you received a <code>FAILED</code> status from a <code>ClaimPhoneNumber</code> API call, you have one day to retry claiming the phone number before the number is released back to the inventory for other customers to claim.</p> </li> </ul> <note> <p>You will not be billed for the phone number during the 1-day period if number claiming fails. </p> </note>\"\
+          \"documentation\":\"<p>The status of the phone number.</p> <ul> <li> <p> <code>CLAIMED</code> means the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html\\\">ClaimPhoneNumber</a> or <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html\\\">UpdatePhoneNumber</a> operation succeeded.</p> </li> <li> <p> <code>IN_PROGRESS</code> means a <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html\\\">ClaimPhoneNumber</a>, <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html\\\">UpdatePhoneNumber</a>, or <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumberMetadata.html\\\">UpdatePhoneNumberMetadata</a> operation is still in progress and has not yet completed. You can call <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html\\\">DescribePhoneNumber</a> at a later time to verify if the previous operation has completed.</p> </li> <li> <p> <code>FAILED</code> indicates that the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html\\\">ClaimPhoneNumber</a> or <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html\\\">UpdatePhoneNumber</a> operation has failed. It will include a message indicating the failure reason. A common reason for a failure may be that the <code>TargetArn</code> value you are claiming or updating a phone number to has reached its limit of total claimed numbers. If you received a <code>FAILED</code> status from a <code>ClaimPhoneNumber</code> API call, you have one day to retry claiming the phone number before the number is released back to the inventory for other customers to claim.</p> </li> </ul> <note> <p>You will not be billed for the phone number during the 1-day period if number claiming fails. </p> </note>\"\
         }\
       },\
       \"documentation\":\"<p>Information about a phone number that has been claimed to your Amazon Connect instance or traffic distribution group.</p>\"\
@@ -4666,7 +4729,7 @@
         },\
         \"Content\":{\
           \"shape\":\"ContactFlowContent\",\
-          \"documentation\":\"<p>The content of the flow.</p>\"\
+          \"documentation\":\"<p>The JSON string that represents the content of the flow. For an example, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html\\\">Example flow in Amazon Connect Flow language</a>. </p> <p>Length Constraints: Minimum length of 1. Maximum length of 256000.</p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
@@ -4698,7 +4761,7 @@
         },\
         \"Content\":{\
           \"shape\":\"ContactFlowModuleContent\",\
-          \"documentation\":\"<p>The content of the flow module.</p>\"\
+          \"documentation\":\"<p>The JSON string that represents the content of the flow. For an example, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html\\\">Example flow in Amazon Connect Flow language</a>. </p>\"\
         },\
         \"Description\":{\
           \"shape\":\"ContactFlowModuleDescription\",\
@@ -5002,7 +5065,7 @@
         },\
         \"Content\":{\
           \"shape\":\"ContactFlowModuleContent\",\
-          \"documentation\":\"<p>The content of the flow module.</p>\"\
+          \"documentation\":\"<p>The JSON string that represents the content of the flow. For an example, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html\\\">Example flow in Amazon Connect Flow language</a>. </p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
@@ -5057,7 +5120,7 @@
         },\
         \"Content\":{\
           \"shape\":\"ContactFlowContent\",\
-          \"documentation\":\"<p>The content of the flow. </p>\"\
+          \"documentation\":\"<p>The JSON string that represents the content of the flow. For an example, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html\\\">Example flow in Amazon Connect Flow language</a>. </p> <p>Length Constraints: Minimum length of 1. Maximum length of 256000.</p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
@@ -5441,7 +5504,7 @@
         },\
         \"Name\":{\
           \"shape\":\"QuickConnectName\",\
-          \"documentation\":\"<p>The name of the quick connect.</p>\"\
+          \"documentation\":\"<p>A unique name of the quick connect.</p>\"\
         },\
         \"Description\":{\
           \"shape\":\"QuickConnectDescription\",\
@@ -5632,6 +5695,10 @@
         \"TagRestrictedResources\":{\
           \"shape\":\"TagRestrictedResourceList\",\
           \"documentation\":\"<p>The list of resources that a security profile applies tag restrictions to in Amazon Connect. Following are acceptable ResourceNames: <code>User</code> | <code>SecurityProfile</code> | <code>Queue</code> | <code>RoutingProfile</code> </p>\"\
+        },\
+        \"Applications\":{\
+          \"shape\":\"Applications\",\
+          \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>A list of third-party applications that the security profile will give access to.</p>\"\
         }\
       }\
     },\
@@ -6373,6 +6440,7 @@
         \"EvaluationFormVersion\":{\
           \"shape\":\"VersionNumber\",\
           \"documentation\":\"<p>The unique identifier for the evaluation form.</p>\",\
+          \"box\":true,\
           \"location\":\"querystring\",\
           \"locationName\":\"version\"\
         }\
@@ -6953,6 +7021,7 @@
         \"EvaluationFormVersion\":{\
           \"shape\":\"VersionNumber\",\
           \"documentation\":\"<p>A version of the evaluation form.</p>\",\
+          \"box\":true,\
           \"location\":\"querystring\",\
           \"locationName\":\"version\"\
         }\
@@ -8492,7 +8561,8 @@
         },\
         \"ActiveVersion\":{\
           \"shape\":\"VersionNumber\",\
-          \"documentation\":\"<p>The version of the active evaluation form version.</p>\"\
+          \"documentation\":\"<p>The version of the active evaluation form version.</p>\",\
+          \"box\":true\
         }\
       },\
       \"documentation\":\"<p>Summary information about an evaluation form.</p>\"\
@@ -9038,11 +9108,15 @@
         },\
         \"StartTime\":{\
           \"shape\":\"Timestamp\",\
-          \"documentation\":\"<p>The timestamp, in UNIX Epoch time format, at which to start the reporting interval for the retrieval of historical metrics data. The time must be before the end time timestamp. The time range between the start and end time must be less than 24 hours. The start time cannot be earlier than 35 days before the time of the request. Historical metrics are available for 35 days.</p>\"\
+          \"documentation\":\"<p>The timestamp, in UNIX Epoch time format, at which to start the reporting interval for the retrieval of historical metrics data. The time must be before the end time timestamp. The start and end time depends on the <code>IntervalPeriod</code> selected. By default the time range between start and end time is 35 days. Historical metrics are available for 3 months.</p>\"\
         },\
         \"EndTime\":{\
           \"shape\":\"Timestamp\",\
-          \"documentation\":\"<p>The timestamp, in UNIX Epoch time format, at which to end the reporting interval for the retrieval of historical metrics data. The time must be later than the start time timestamp. It cannot be later than the current timestamp.</p> <p>The time range between the start and end time must be less than 24 hours.</p>\"\
+          \"documentation\":\"<p>The timestamp, in UNIX Epoch time format, at which to end the reporting interval for the retrieval of historical metrics data. The time must be later than the start time timestamp. It cannot be later than the current timestamp.</p>\"\
+        },\
+        \"Interval\":{\
+          \"shape\":\"IntervalDetails\",\
+          \"documentation\":\"<p>The interval period and timezone to apply to returned metrics.</p> <ul> <li> <p> <code>IntervalPeriod</code>: An aggregated grouping applied to request metrics. Valid <code>IntervalPeriod</code> values are: <code>FIFTEEN_MIN</code> | <code>THIRTY_MIN</code> | <code>HOUR</code> | <code>DAY</code> | <code>WEEK</code> | <code>TOTAL</code>. </p> <p>For example, if <code>IntervalPeriod</code> is selected <code>THIRTY_MIN</code>, <code>StartTime</code> and <code>EndTime</code> differs by 1 day, then Amazon Connect returns 48 results in the response. Each result is aggregated by the THIRTY_MIN period. By default Amazon Connect aggregates results based on the <code>TOTAL</code> interval period. </p> <p>The following list describes restrictions on <code>StartTime</code> and <code>EndTime</code> based on which <code>IntervalPeriod</code> is requested. </p> <ul> <li> <p> <code>FIFTEEN_MIN</code>: The difference between <code>StartTime</code> and <code>EndTime</code> must be less than 3 days.</p> </li> <li> <p> <code>THIRTY_MIN</code>: The difference between <code>StartTime</code> and <code>EndTime</code> must be less than 3 days.</p> </li> <li> <p> <code>HOUR</code>: The difference between <code>StartTime</code> and <code>EndTime</code> must be less than 3 days.</p> </li> <li> <p> <code>DAY</code>: The difference between <code>StartTime</code> and <code>EndTime</code> must be less than 35 days.</p> </li> <li> <p> <code>WEEK</code>: The difference between <code>StartTime</code> and <code>EndTime</code> must be less than 35 days.</p> </li> <li> <p> <code>TOTAL</code>: The difference between <code>StartTime</code> and <code>EndTime</code> must be less than 35 days.</p> </li> </ul> </li> <li> <p> <code>TimeZone</code>: The timezone applied to requested metrics.</p> </li> </ul>\"\
         },\
         \"Filters\":{\
           \"shape\":\"FiltersV2List\",\
@@ -9054,7 +9128,7 @@
         },\
         \"Metrics\":{\
           \"shape\":\"MetricsV2\",\
-          \"documentation\":\"<p>The metrics to retrieve. Specify the name, groupings, and filters for each metric. The following historical metrics are available. For a description of each metric, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html\\\">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.</p> <dl> <dt>AGENT_ADHERENT_TIME</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_NON_RESPONSE</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_OCCUPANCY</dt> <dd> <p>Unit: Percentage</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_SCHEDULE_ADHERENCE</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AGENT_SCHEDULED_TIME</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_ABANDON_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_AFTER_CONTACT_WORK_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_AGENT_CONNECTING_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_AGENT_CONNECTING_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_CONTACT_DURATION</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_CONVERSATION_DURATION</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_GREETING_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_HANDLE_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_HOLDS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_INTERACTION_AND_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_INTERACTION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_INTERRUPTIONS_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_INTERRUPTION_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_NON_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_QUEUE_ANSWER_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_TALK_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_TALK_TIME_CUSTOMER</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_ABANDONED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_CREATED</dt> <dd> <p>Unit: Count</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_HANDLED</dt> <dd> <p>Unit: Count</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_HOLD_ABANDONS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_QUEUED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_TRANSFERRED_OUT_BY_AGENT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>MAX_QUEUED_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SERVICE_LEVEL</dt> <dd> <p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_CONTACTS_ANSWERED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_CONTACTS_ABANDONED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_CONTACTS_DISCONNECTED </dt> <dd> <p>Valid metric filter key: <code>DISCONNECT_REASON</code> </p> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> </dd> <dt>SUM_RETRY_CALLBACK_ATTEMPTS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> </dd> </dl>\"\
+          \"documentation\":\"<p>The metrics to retrieve. Specify the name, groupings, and filters for each metric. The following historical metrics are available. For a description of each metric, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html\\\">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.</p> <dl> <dt>ABANDONMENT_RATE</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AGENT_ADHERENT_TIME</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_NON_RESPONSE</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_NON_RESPONSE_WITHOUT_CUSTOMER_ABANDONS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <p>Data for this metric is available starting from October 1, 2023 0:00:00 GMT.</p> </dd> <dt>AGENT_OCCUPANCY</dt> <dd> <p>Unit: Percentage</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_SCHEDULE_ADHERENCE</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AGENT_SCHEDULED_TIME</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_ABANDON_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_AFTER_CONTACT_WORK_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_AGENT_CONNECTING_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <note> <p>The <code>Negate</code> key in Metric Level Filters is not applicable for this metric.</p> </note> </dd> <dt>AVG_CONTACT_DURATION</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_CONVERSATION_DURATION</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_GREETING_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_HANDLE_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_HOLD_TIME_ALL_CONTACTS</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_HOLDS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_INTERACTION_AND_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_INTERACTION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_INTERRUPTIONS_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_INTERRUPTION_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_NON_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_QUEUE_ANSWER_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_RESOLUTION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> </dd> <dt>AVG_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_TALK_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_TALK_TIME_CUSTOMER</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_ABANDONED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_CREATED</dt> <dd> <p>Unit: Count</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_HANDLED</dt> <dd> <p>Unit: Count</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_HOLD_ABANDONS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_QUEUED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_RESOLVED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> <p>Threshold: For <code>ThresholdValue</code> enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\").</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_TRANSFERRED_OUT_BY_AGENT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>MAX_QUEUED_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SERVICE_LEVEL</dt> <dd> <p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_CONTACTS_ANSWERED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_CONTACTS_ABANDONED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_CONTACTS_DISCONNECTED </dt> <dd> <p>Valid metric filter key: <code>DISCONNECT_REASON</code> </p> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> </dd> <dt>SUM_RETRY_CALLBACK_ATTEMPTS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> </dd> </dl>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken2500\",\
@@ -9228,7 +9302,7 @@
         },\
         \"SignInConfig\":{\
           \"shape\":\"SignInConfig\",\
-          \"documentation\":\"<p>The distribution of allowing signing in to the instance and its replica(s).</p>\"\
+          \"documentation\":\"<p>The distribution that determines which Amazon Web Services Regions should be used to sign in agents in to both the instance and its replica(s).</p>\"\
         },\
         \"AgentConfig\":{\
           \"shape\":\"AgentConfig\",\
@@ -10015,7 +10089,8 @@
         \"PINPOINT_APP\",\
         \"WISDOM_ASSISTANT\",\
         \"WISDOM_KNOWLEDGE_BASE\",\
-        \"CASES_DOMAIN\"\
+        \"CASES_DOMAIN\",\
+        \"APPLICATION\"\
       ]\
     },\
     \"InternalServiceException\":{\
@@ -10029,6 +10104,31 @@
       \"documentation\":\"<p>Request processing failed because of an error or failure with the service.</p>\",\
       \"error\":{\"httpStatusCode\":500},\
       \"exception\":true\
+    },\
+    \"IntervalDetails\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TimeZone\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The timezone applied to requested metrics.</p>\"\
+        },\
+        \"IntervalPeriod\":{\
+          \"shape\":\"IntervalPeriod\",\
+          \"documentation\":\"<p> <code>IntervalPeriod</code>: An aggregated grouping applied to request metrics. Valid <code>IntervalPeriod</code> values are: <code>FIFTEEN_MIN</code> | <code>THIRTY_MIN</code> | <code>HOUR</code> | <code>DAY</code> | <code>WEEK</code> | <code>TOTAL</code>. </p> <p>For example, if <code>IntervalPeriod</code> is selected <code>THIRTY_MIN</code>, <code>StartTime</code> and <code>EndTime</code> differs by 1 day, then Amazon Connect returns 48 results in the response. Each result is aggregated by the THIRTY_MIN period. By default Amazon Connect aggregates results based on the <code>TOTAL</code> interval period. </p> <p>The following list describes restrictions on <code>StartTime</code> and <code>EndTime</code> based on what <code>IntervalPeriod</code> is requested. </p> <ul> <li> <p> <code>FIFTEEN_MIN</code>: The difference between <code>StartTime</code> and <code>EndTime</code> must be less than 3 days.</p> </li> <li> <p> <code>THIRTY_MIN</code>: The difference between <code>StartTime</code> and <code>EndTime</code> must be less than 3 days.</p> </li> <li> <p> <code>HOUR</code>: The difference between <code>StartTime</code> and <code>EndTime</code> must be less than 3 days.</p> </li> <li> <p> <code>DAY</code>: The difference between <code>StartTime</code> and <code>EndTime</code> must be less than 35 days.</p> </li> <li> <p> <code>WEEK</code>: The difference between <code>StartTime</code> and <code>EndTime</code> must be less than 35 days.</p> </li> <li> <p> <code>TOTAL</code>: The difference between <code>StartTime</code> and <code>EndTime</code> must be less than 35 days.</p> </li> </ul>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about the interval period to use for returning results.</p>\"\
+    },\
+    \"IntervalPeriod\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"FIFTEEN_MIN\",\
+        \"THIRTY_MIN\",\
+        \"HOUR\",\
+        \"DAY\",\
+        \"WEEK\",\
+        \"TOTAL\"\
+      ]\
     },\
     \"InvalidContactFlowException\":{\
       \"type\":\"structure\",\
@@ -10928,7 +11028,7 @@
         },\
         \"PhoneNumberTypes\":{\
           \"shape\":\"PhoneNumberTypes\",\
-          \"documentation\":\"<p>The type of phone number.</p>\",\
+          \"documentation\":\"<p>The type of phone number.</p> <note> <p>We recommend using <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html\\\">ListPhoneNumbersV2</a> to return phone number types. While ListPhoneNumbers returns number types <code>UIFN</code>, <code>SHARED</code>, <code>THIRD_PARTY_TF</code>, and <code>THIRD_PARTY_DID</code>, it incorrectly lists them as <code>TOLL_FREE</code> or <code>DID</code>. </p> </note>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"phoneNumberTypes\"\
         },\
@@ -10990,7 +11090,11 @@
         },\
         \"TargetArn\":{\
           \"shape\":\"ARN\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through.</p>\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about phone numbers that have been claimed to your Amazon Connect instance or traffic distribution group.</p>\"\
@@ -11004,7 +11108,11 @@
       \"members\":{\
         \"TargetArn\":{\
           \"shape\":\"ARN\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to. If <code>TargetArn</code> input is not provided, this API lists numbers claimed to all the Amazon Connect instances belonging to your account in the same Amazon Web Services Region as the request.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through. If both <code>TargetArn</code> and <code>InstanceId</code> input are not provided, this API lists numbers claimed to all the Amazon Connect instances belonging to your account in the same Amazon Web Services Region as the request.</p>\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance. If both <code>TargetArn</code> and <code>InstanceId</code> are not provided, this API lists numbers claimed to all the Amazon Connect instances belonging to your account in the same AWS Region as the request.</p>\"\
         },\
         \"MaxResults\":{\
           \"shape\":\"MaxResult1000\",\
@@ -11381,6 +11489,52 @@
         \"SecurityKeys\":{\
           \"shape\":\"SecurityKeysList\",\
           \"documentation\":\"<p>The security keys.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>If there are additional results, this is the token for the next set of results.</p>\"\
+        }\
+      }\
+    },\
+    \"ListSecurityProfileApplicationsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"SecurityProfileId\",\
+        \"InstanceId\"\
+      ],\
+      \"members\":{\
+        \"SecurityProfileId\":{\
+          \"shape\":\"SecurityProfileId\",\
+          \"documentation\":\"<p>The identifier for the security profle.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"SecurityProfileId\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResult1000\",\
+          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        }\
+      }\
+    },\
+    \"ListSecurityProfileApplicationsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Applications\":{\
+          \"shape\":\"Applications\",\
+          \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>A list of the third-party application's metadata.</p>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
@@ -11939,6 +12093,10 @@
         \"MetricFilterValues\":{\
           \"shape\":\"MetricFilterValueList\",\
           \"documentation\":\"<p>The values to use for filtering data. </p> <p>Valid metric filter values for <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>TRANSFER</code> | <code>QUEUE_TRANSFER</code> | <code>CALLBACK</code> | <code>API</code> </p> <p>Valid metric filter values for <code>DISCONNECT_REASON</code>: <code>CUSTOMER_DISCONNECT</code> | <code>AGENT_DISCONNECT</code> | <code>THIRD_PARTY_DISCONNECT</code> | <code>TELECOM_PROBLEM</code> | <code>BARGED</code> | <code>CONTACT_FLOW_DISCONNECT</code> | <code>OTHER</code> | <code>EXPIRED</code> | <code>API</code> </p>\"\
+        },\
+        \"Negate\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>The flag to use to filter on requested metric filter values or to not filter on requested metric filter values. By default the negate is <code>false</code>, which indicates to filter on the requested metric filter. </p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about the filter used when retrieving metrics. <code>MetricFiltersV2</code> can be used on the following metrics: <code>AVG_AGENT_CONNECTING_TIME</code>, <code>CONTACTS_CREATED</code>, <code>CONTACTS_HANDLED</code>, <code>SUM_CONTACTS_DISCONNECTED</code>.</p>\"\
@@ -11954,6 +12112,24 @@
       \"member\":{\"shape\":\"MetricFilterV2\"},\
       \"max\":2\
     },\
+    \"MetricInterval\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Interval\":{\
+          \"shape\":\"IntervalPeriod\",\
+          \"documentation\":\"<p>The interval period provided in the API request. </p>\"\
+        },\
+        \"StartTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The timestamp, in UNIX Epoch time format. Start time is based on the interval period selected. </p>\"\
+        },\
+        \"EndTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The timestamp, in UNIX Epoch time format. End time is based on the interval period selected. For example, If <code>IntervalPeriod</code> is selected <code>THIRTY_MIN</code>, <code>StartTime</code> and <code>EndTime</code> in the API request differs by 1 day, then 48 results are returned in the response. Each result is aggregated by the 30 minutes period, with each <code>StartTime</code> and <code>EndTime</code> differing by 30 minutes. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The interval period with the start and end time for the metrics.</p>\"\
+    },\
     \"MetricNameV2\":{\"type\":\"string\"},\
     \"MetricResultV2\":{\
       \"type\":\"structure\",\
@@ -11961,6 +12137,10 @@
         \"Dimensions\":{\
           \"shape\":\"DimensionsV2Map\",\
           \"documentation\":\"<p>The dimension for the metrics.</p>\"\
+        },\
+        \"MetricInterval\":{\
+          \"shape\":\"MetricInterval\",\
+          \"documentation\":\"<p>The interval period with the start and end time for the metrics.</p>\"\
         },\
         \"Collections\":{\
           \"shape\":\"MetricDataCollectionsV2\",\
@@ -12061,6 +12241,11 @@
       \"max\":128,\
       \"min\":1,\
       \"pattern\":\"(^[\\\\S].*[\\\\S]$)|(^[\\\\S]$)\"\
+    },\
+    \"Namespace\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1\
     },\
     \"NextToken\":{\"type\":\"string\"},\
     \"NextToken2500\":{\
@@ -12303,6 +12488,11 @@
       \"type\":\"integer\",\
       \"max\":100,\
       \"min\":0\
+    },\
+    \"Permission\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1\
     },\
     \"PermissionsList\":{\
       \"type\":\"list\",\
@@ -12608,7 +12798,7 @@
           \"documentation\":\"<p>The status message.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The status of the phone number.</p> <ul> <li> <p> <code>CLAIMED</code> means the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html\\\">ClaimedPhoneNumber</a> or <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html\\\">UpdatePhoneNumber</a> operation succeeded.</p> </li> <li> <p> <code>IN_PROGRESS</code> means a <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html\\\">ClaimedPhoneNumber</a> or <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html\\\">UpdatePhoneNumber</a> operation is still in progress and has not yet completed. You can call <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html\\\">DescribePhoneNumber</a> at a later time to verify if the previous operation has completed.</p> </li> <li> <p> <code>FAILED</code> indicates that the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html\\\">ClaimedPhoneNumber</a> or <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html\\\">UpdatePhoneNumber</a> operation has failed. It will include a message indicating the failure reason. A common reason for a failure may be that the <code>TargetArn</code> value you are claiming or updating a phone number to has reached its limit of total claimed numbers. If you received a <code>FAILED</code> status from a <code>ClaimPhoneNumber</code> API call, you have one day to retry claiming the phone number before the number is released back to the inventory for other customers to claim.</p> </li> </ul>\"\
+      \"documentation\":\"<p>The status of the phone number.</p> <ul> <li> <p> <code>CLAIMED</code> means the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html\\\">ClaimPhoneNumber</a> or <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html\\\">UpdatePhoneNumber</a> operation succeeded.</p> </li> <li> <p> <code>IN_PROGRESS</code> means a <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html\\\">ClaimPhoneNumber</a>, <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html\\\">UpdatePhoneNumber</a>, or <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumberMetadata.html\\\">UpdatePhoneNumberMetadata</a> operation is still in progress and has not yet completed. You can call <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html\\\">DescribePhoneNumber</a> at a later time to verify if the previous operation has completed.</p> </li> <li> <p> <code>FAILED</code> indicates that the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html\\\">ClaimPhoneNumber</a> or <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html\\\">UpdatePhoneNumber</a> operation has failed. It will include a message indicating the failure reason. A common reason for a failure may be that the <code>TargetArn</code> value you are claiming or updating a phone number to has reached its limit of total claimed numbers. If you received a <code>FAILED</code> status from a <code>ClaimPhoneNumber</code> API call, you have one day to retry claiming the phone number before the number is released back to the inventory for other customers to claim.</p> </li> </ul>\"\
     },\
     \"PhoneNumberSummary\":{\
       \"type\":\"structure\",\
@@ -13827,15 +14017,15 @@
         },\
         \"EventBridgeAction\":{\
           \"shape\":\"EventBridgeActionDefinition\",\
-          \"documentation\":\"<p>Information about the EventBridge action.</p>\"\
+          \"documentation\":\"<p>Information about the EventBridge action.</p> <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code> </p>\"\
         },\
         \"AssignContactCategoryAction\":{\
           \"shape\":\"AssignContactCategoryActionDefinition\",\
-          \"documentation\":\"<p>Information about the contact category action.</p>\"\
+          \"documentation\":\"<p>Information about the contact category action.</p> <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code> </p>\"\
         },\
         \"SendNotificationAction\":{\
           \"shape\":\"SendNotificationActionDefinition\",\
-          \"documentation\":\"<p>Information about the send notification action.</p>\"\
+          \"documentation\":\"<p>Information about the send notification action.</p> <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code> </p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about the action to be performed when a rule is triggered.</p>\"\
@@ -13928,7 +14118,7 @@
           \"documentation\":\"<p>The identifier for the integration association.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The name of the event source. This field is required if <code>TriggerEventSource</code> is one of the following values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code> </p>\"\
+      \"documentation\":\"<p>The name of the event source. This field is required if <code>TriggerEventSource</code> is one of the following values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code> | <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code>.</p>\"\
     },\
     \"S3Config\":{\
       \"type\":\"structure\",\
@@ -13961,14 +14151,17 @@
     \"SearchAvailablePhoneNumbersRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
-        \"TargetArn\",\
         \"PhoneNumberCountryCode\",\
         \"PhoneNumberType\"\
       ],\
       \"members\":{\
         \"TargetArn\":{\
           \"shape\":\"ARN\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>\"\
         },\
         \"PhoneNumberCountryCode\":{\
           \"shape\":\"PhoneNumberCountryCode\",\
@@ -14315,7 +14508,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>\"\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p> <note> <p>InstanceID is a required field. The \\\"Required: No\\\" below is incorrect.</p> </note>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken2500\",\
@@ -14621,7 +14814,7 @@
           \"documentation\":\"<p>Information about traffic distributions.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The distribution of allowing signing in to the instance and its replica(s).</p>\"\
+      \"documentation\":\"<p>The distribution that determines which Amazon Web Services Regions should be used to sign in agents in to both the instance and its replica(s).</p>\"\
     },\
     \"SignInDistribution\":{\
       \"type\":\"structure\",\
@@ -14966,7 +15159,7 @@
         },\
         \"PreviousContactId\":{\
           \"shape\":\"ContactId\",\
-          \"documentation\":\"<p>The identifier of the previous chat, voice, or task contact. </p>\"\
+          \"documentation\":\"<p>The identifier of the previous chat, voice, or task contact. Any updates to user-defined attributes to task contacts linked using the same <code>PreviousContactID</code> will affect every contact in the chain. There can be a maximum of 12 linked task contacts in a chain.</p>\"\
         },\
         \"ContactFlowId\":{\
           \"shape\":\"ContactFlowId\",\
@@ -14982,7 +15175,7 @@
         },\
         \"References\":{\
           \"shape\":\"ContactReferences\",\
-          \"documentation\":\"<p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP).</p>\"\
+          \"documentation\":\"<p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Tasks can have the following reference types at the time of creation: <code>URL</code> | <code>NUMBER</code> | <code>STRING</code> | <code>DATE</code> | <code>EMAIL</code>. <code>ATTACHMENT</code> is not a supported reference type during task creation.</p>\"\
         },\
         \"Description\":{\
           \"shape\":\"Description\",\
@@ -14999,15 +15192,15 @@
         },\
         \"TaskTemplateId\":{\
           \"shape\":\"TaskTemplateId\",\
-          \"documentation\":\"<p>A unique identifier for the task template.</p>\"\
+          \"documentation\":\"<p>A unique identifier for the task template. For more information about task templates, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/task-templates.html\\\">Create task templates</a> in the <i>Amazon Connect Administrator Guide</i>. </p>\"\
         },\
         \"QuickConnectId\":{\
           \"shape\":\"QuickConnectId\",\
-          \"documentation\":\"<p>The identifier for the quick connect.</p>\"\
+          \"documentation\":\"<p>The identifier for the quick connect. Tasks that are created by using <code>QuickConnectId</code> will use the flow that is defined on agent or queue quick connect. For more information about quick connects, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/quick-connects.html\\\">Create quick connects</a>.</p>\"\
         },\
         \"RelatedContactId\":{\
           \"shape\":\"ContactId\",\
-          \"documentation\":\"<p>The contactId that is <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html#linked-tasks\\\">related</a> to this contact.</p>\"\
+          \"documentation\":\"<p>The contactId that is <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html#linked-tasks\\\">related</a> to this contact. Linking tasks together by using <code>RelatedContactID</code> copies over contact attributes from the related task contact to the new task contact. All updates to user-defined attributes in the new task contact are limited to the individual contact ID, unlike what happens when tasks are linked by using <code>PreviousContactID</code>. There are no limits to the number of contacts that can be linked by using <code>RelatedContactId</code>. </p>\"\
         }\
       }\
     },\
@@ -15688,7 +15881,7 @@
         },\
         \"Status\":{\
           \"shape\":\"TrafficDistributionGroupStatus\",\
-          \"documentation\":\"<p>The status of the traffic distribution group.</p> <ul> <li> <p> <code>CREATION_IN_PROGRESS</code> means the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html\\\">CreateTrafficDistributionGroup</a> operation is still in progress and has not yet completed.</p> </li> <li> <p> <code>ACTIVE</code> means the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html\\\">CreateTrafficDistributionGroup</a> operation has succeeded.</p> </li> <li> <p> <code>CREATION_FAILED</code> indicates that the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html\\\">CreateTrafficDistributionGroup</a> operation has failed.</p> </li> <li> <p> <code>PENDING_DELETION</code> means the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html\\\">DeleteTrafficDistributionGroup</a> operation is still in progress and has not yet completed.</p> </li> <li> <p> <code>DELETION_FAILED</code> means the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html\\\">DeleteTrafficDistributionGroup</a> operation has failed.</p> </li> <li> <p> <code>UPDATE_IN_PROGRESS</code> means the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistributionGroup.html\\\">UpdateTrafficDistributionGroup</a> operation is still in progress and has not yet completed.</p> </li> </ul>\"\
+          \"documentation\":\"<p>The status of the traffic distribution group.</p> <ul> <li> <p> <code>CREATION_IN_PROGRESS</code> means the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html\\\">CreateTrafficDistributionGroup</a> operation is still in progress and has not yet completed.</p> </li> <li> <p> <code>ACTIVE</code> means the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html\\\">CreateTrafficDistributionGroup</a> operation has succeeded.</p> </li> <li> <p> <code>CREATION_FAILED</code> indicates that the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html\\\">CreateTrafficDistributionGroup</a> operation has failed.</p> </li> <li> <p> <code>PENDING_DELETION</code> means the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html\\\">DeleteTrafficDistributionGroup</a> operation is still in progress and has not yet completed.</p> </li> <li> <p> <code>DELETION_FAILED</code> means the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html\\\">DeleteTrafficDistributionGroup</a> operation has failed.</p> </li> <li> <p> <code>UPDATE_IN_PROGRESS</code> means the previous <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistribution.html\\\">UpdateTrafficDistribution</a> operation is still in progress and has not yet completed.</p> </li> </ul>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
@@ -15696,7 +15889,7 @@
         },\
         \"IsDefault\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>Whether this is the default traffic distribution group created during instance replication. The default traffic distribution group cannot be deleted by the <code>DeleteTrafficDistributionGroup</code> API. The default traffic distribution group is deleted as part of the process for deleting a replica.</p> <note> <p>You can change the <code>SignInConfig</code> distribution only for a default <code>TrafficDistributionGroup</code> (see the <code>IsDefault</code> parameter in the <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html\\\">TrafficDistributionGroup</a> data type). If you call <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>, an <code>InvalidRequestException</code> is returned.</p> </note>\"\
+          \"documentation\":\"<p>Whether this is the default traffic distribution group created during instance replication. The default traffic distribution group cannot be deleted by the <code>DeleteTrafficDistributionGroup</code> API. The default traffic distribution group is deleted as part of the process for deleting a replica.</p> <note> <p>The <code>SignInConfig</code> distribution is available only on the default <code>TrafficDistributionGroup</code>. If you call <code>UpdateTrafficDistribution</code> with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>, an <code>InvalidRequestException</code> is returned.</p> </note>\"\
         }\
       },\
       \"documentation\":\"<p>Information about a traffic distribution group.</p>\"\
@@ -16007,7 +16200,7 @@
         },\
         \"Content\":{\
           \"shape\":\"ContactFlowContent\",\
-          \"documentation\":\"<p>The JSON string that represents flow's content. For an example, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html\\\">Example contact flow in Amazon Connect Flow language</a>. </p>\"\
+          \"documentation\":\"<p>The JSON string that represents the content of the flow. For an example, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html\\\">Example flow in Amazon Connect Flow language</a>. </p> <p>Length Constraints: Minimum length of 1. Maximum length of 256000.</p>\"\
         }\
       }\
     },\
@@ -16076,7 +16269,7 @@
         },\
         \"Content\":{\
           \"shape\":\"ContactFlowModuleContent\",\
-          \"documentation\":\"<p>The content of the flow module.</p>\"\
+          \"documentation\":\"<p>The JSON string that represents the content of the flow. For an example, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html\\\">Example flow in Amazon Connect Flow language</a>. </p>\"\
         }\
       }\
     },\
@@ -16250,7 +16443,8 @@
         },\
         \"CreateNewVersion\":{\
           \"shape\":\"BoxedBoolean\",\
-          \"documentation\":\"<p>A flag indicating whether the operation must create a new version.</p>\"\
+          \"documentation\":\"<p>A flag indicating whether the operation must create a new version.</p>\",\
+          \"box\":true\
         },\
         \"Title\":{\
           \"shape\":\"EvaluationFormTitle\",\
@@ -16437,12 +16631,30 @@
       \"members\":{\
       }\
     },\
+    \"UpdatePhoneNumberMetadataRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"PhoneNumberId\"],\
+      \"members\":{\
+        \"PhoneNumberId\":{\
+          \"shape\":\"PhoneNumberId\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) or resource ID of the phone number.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"PhoneNumberId\"\
+        },\
+        \"PhoneNumberDescription\":{\
+          \"shape\":\"PhoneNumberDescription\",\
+          \"documentation\":\"<p>The description of the phone number.</p>\"\
+        },\
+        \"ClientToken\":{\
+          \"shape\":\"ClientToken\",\
+          \"documentation\":\"<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\\\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\\\">Making retries safe with idempotent APIs</a>.</p>\",\
+          \"idempotencyToken\":true\
+        }\
+      }\
+    },\
     \"UpdatePhoneNumberRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"PhoneNumberId\",\
-        \"TargetArn\"\
-      ],\
+      \"required\":[\"PhoneNumberId\"],\
       \"members\":{\
         \"PhoneNumberId\":{\
           \"shape\":\"PhoneNumberId\",\
@@ -16452,7 +16664,11 @@
         },\
         \"TargetArn\":{\
           \"shape\":\"ARN\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"ClientToken\",\
@@ -16921,6 +17137,10 @@
         \"TagRestrictedResources\":{\
           \"shape\":\"TagRestrictedResourceList\",\
           \"documentation\":\"<p>The list of resources that a security profile applies tag restrictions to in Amazon Connect.</p>\"\
+        },\
+        \"Applications\":{\
+          \"shape\":\"Applications\",\
+          \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>A list of the third-party application's metadata.</p>\"\
         }\
       }\
     },\
@@ -17042,7 +17262,7 @@
         },\
         \"SignInConfig\":{\
           \"shape\":\"SignInConfig\",\
-          \"documentation\":\"<p>The distribution of allowing signing in to the instance and its replica(s).</p>\"\
+          \"documentation\":\"<p>The distribution that determines which Amazon Web Services Regions should be used to sign in agents in to both the instance and its replica(s).</p>\"\
         },\
         \"AgentConfig\":{\
           \"shape\":\"AgentConfig\",\
@@ -17695,7 +17915,6 @@
     \"Value\":{\"type\":\"double\"},\
     \"VersionNumber\":{\
       \"type\":\"integer\",\
-      \"box\":true,\
       \"min\":1\
     },\
     \"View\":{\
