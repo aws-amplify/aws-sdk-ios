@@ -1725,9 +1725,26 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"brevity" : @"Brevity",
              @"formality" : @"Formality",
              @"profanity" : @"Profanity",
              };
+}
+
++ (NSValueTransformer *)brevityJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ON"] == NSOrderedSame) {
+            return @(AWSTranslateBrevityOn);
+        }
+        return @(AWSTranslateBrevityUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranslateBrevityOn:
+                return @"ON";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)formalityJSONTransformer {
