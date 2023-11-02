@@ -567,6 +567,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectBatchGetFlowAssociationResponse *> *)batchGetFlowAssociation:(AWSConnectBatchGetFlowAssociationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/flow-associations-batch/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"BatchGetFlowAssociation"
+                   outputClass:[AWSConnectBatchGetFlowAssociationResponse class]];
+}
+
+- (void)batchGetFlowAssociation:(AWSConnectBatchGetFlowAssociationRequest *)request
+     completionHandler:(void (^)(AWSConnectBatchGetFlowAssociationResponse *response, NSError *error))completionHandler {
+    [[self batchGetFlowAssociation:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectBatchGetFlowAssociationResponse *> * _Nonnull task) {
+        AWSConnectBatchGetFlowAssociationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectClaimPhoneNumberResponse *> *)claimPhoneNumber:(AWSConnectClaimPhoneNumberRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -3189,6 +3212,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectListSecurityProfileApplicationsResponse *> *)listSecurityProfileApplications:(AWSConnectListSecurityProfileApplicationsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/security-profiles-applications/{InstanceId}/{SecurityProfileId}"
+                  targetPrefix:@""
+                 operationName:@"ListSecurityProfileApplications"
+                   outputClass:[AWSConnectListSecurityProfileApplicationsResponse class]];
+}
+
+- (void)listSecurityProfileApplications:(AWSConnectListSecurityProfileApplicationsRequest *)request
+     completionHandler:(void (^)(AWSConnectListSecurityProfileApplicationsResponse *response, NSError *error))completionHandler {
+    [[self listSecurityProfileApplications:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListSecurityProfileApplicationsResponse *> * _Nonnull task) {
+        AWSConnectListSecurityProfileApplicationsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectListSecurityProfilePermissionsResponse *> *)listSecurityProfilePermissions:(AWSConnectListSecurityProfilePermissionsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -4464,6 +4510,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)updatePhoneNumberMetadata:(AWSConnectUpdatePhoneNumberMetadataRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/phone-number/{PhoneNumberId}/metadata"
+                  targetPrefix:@""
+                 operationName:@"UpdatePhoneNumberMetadata"
+                   outputClass:nil];
+}
+
+- (void)updatePhoneNumberMetadata:(AWSConnectUpdatePhoneNumberMetadataRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self updatePhoneNumberMetadata:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
         }
 
         return nil;
