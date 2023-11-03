@@ -326,11 +326,21 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"agentStatusId" : @"AgentStatusId",
              @"detail" : @"Description",
              @"displayOrder" : @"DisplayOrder",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"name" : @"Name",
              @"state" : @"State",
              @"tags" : @"Tags",
              @"types" : @"Type",
              };
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 + (NSValueTransformer *)stateJSONTransformer {
@@ -416,9 +426,19 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"arn" : @"Arn",
              @"identifier" : @"Id",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"name" : @"Name",
              @"types" : @"Type",
              };
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 + (NSValueTransformer *)typesJSONTransformer {
@@ -459,6 +479,21 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"awaitAnswerMachinePrompt" : @"AwaitAnswerMachinePrompt",
              @"enableAnswerMachineDetection" : @"EnableAnswerMachineDetection",
+             };
+}
+
+@end
+
+@implementation AWSConnectApplication
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationPermissions" : @"ApplicationPermissions",
+             @"namespace" : @"Namespace",
              };
 }
 
@@ -2261,6 +2296,61 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectBatchGetFlowAssociationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"resourceIds" : @"ResourceIds",
+             @"resourceType" : @"ResourceType",
+             };
+}
+
++ (NSValueTransformer *)resourceTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"SMS_PHONE_NUMBER"] == NSOrderedSame) {
+            return @(AWSConnectListFlowAssociationResourceTypeSmsPhoneNumber);
+        }
+        if ([value caseInsensitiveCompare:@"VOICE_PHONE_NUMBER"] == NSOrderedSame) {
+            return @(AWSConnectListFlowAssociationResourceTypeVoicePhoneNumber);
+        }
+        return @(AWSConnectListFlowAssociationResourceTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectListFlowAssociationResourceTypeSmsPhoneNumber:
+                return @"SMS_PHONE_NUMBER";
+            case AWSConnectListFlowAssociationResourceTypeVoicePhoneNumber:
+                return @"VOICE_PHONE_NUMBER";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSConnectBatchGetFlowAssociationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"flowAssociationSummaryList" : @"FlowAssociationSummaryList",
+             };
+}
+
++ (NSValueTransformer *)flowAssociationSummaryListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectFlowAssociationSummary class]];
+}
+
+@end
+
 @implementation AWSConnectChatMessage
 
 + (BOOL)supportsSecureCoding {
@@ -2317,6 +2407,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"clientToken" : @"ClientToken",
+             @"instanceId" : @"InstanceId",
              @"phoneNumber" : @"PhoneNumber",
              @"phoneNumberDescription" : @"PhoneNumberDescription",
              @"tags" : @"Tags",
@@ -2349,6 +2440,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"instanceId" : @"InstanceId",
              @"phoneNumber" : @"PhoneNumber",
              @"phoneNumberArn" : @"PhoneNumberArn",
              @"phoneNumberCountryCode" : @"PhoneNumberCountryCode",
@@ -4448,6 +4540,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"CASES_DOMAIN"] == NSOrderedSame) {
             return @(AWSConnectIntegrationTypeCasesDomain);
         }
+        if ([value caseInsensitiveCompare:@"APPLICATION"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypeApplication);
+        }
         return @(AWSConnectIntegrationTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4463,6 +4558,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"WISDOM_KNOWLEDGE_BASE";
             case AWSConnectIntegrationTypeCasesDomain:
                 return @"CASES_DOMAIN";
+            case AWSConnectIntegrationTypeApplication:
+                return @"APPLICATION";
             default:
                 return nil;
         }
@@ -4543,6 +4640,59 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)participantCredentialsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectParticipantTokenCredentials class]];
+}
+
+@end
+
+@implementation AWSConnectCreatePersistentContactAssociationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientToken" : @"ClientToken",
+             @"initialContactId" : @"InitialContactId",
+             @"instanceId" : @"InstanceId",
+             @"rehydrationType" : @"RehydrationType",
+             @"sourceContactId" : @"SourceContactId",
+             };
+}
+
++ (NSValueTransformer *)rehydrationTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ENTIRE_PAST_SESSION"] == NSOrderedSame) {
+            return @(AWSConnectRehydrationTypeEntirePastSession);
+        }
+        if ([value caseInsensitiveCompare:@"FROM_SEGMENT"] == NSOrderedSame) {
+            return @(AWSConnectRehydrationTypeFromSegment);
+        }
+        return @(AWSConnectRehydrationTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectRehydrationTypeEntirePastSession:
+                return @"ENTIRE_PAST_SESSION";
+            case AWSConnectRehydrationTypeFromSegment:
+                return @"FROM_SEGMENT";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSConnectCreatePersistentContactAssociationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"continuedFromContactId" : @"ContinuedFromContactId",
+             };
 }
 
 @end
@@ -4795,6 +4945,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"allowedAccessControlTags" : @"AllowedAccessControlTags",
+             @"applications" : @"Applications",
              @"detail" : @"Description",
              @"instanceId" : @"InstanceId",
              @"permissions" : @"Permissions",
@@ -4802,6 +4953,10 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"tagRestrictedResources" : @"TagRestrictedResources",
              @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)applicationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectApplication class]];
 }
 
 @end
@@ -8386,6 +8541,43 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectFlowAssociationSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"flowId" : @"FlowId",
+             @"resourceId" : @"ResourceId",
+             @"resourceType" : @"ResourceType",
+             };
+}
+
++ (NSValueTransformer *)resourceTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"SMS_PHONE_NUMBER"] == NSOrderedSame) {
+            return @(AWSConnectListFlowAssociationResourceTypeSmsPhoneNumber);
+        }
+        if ([value caseInsensitiveCompare:@"VOICE_PHONE_NUMBER"] == NSOrderedSame) {
+            return @(AWSConnectListFlowAssociationResourceTypeVoicePhoneNumber);
+        }
+        return @(AWSConnectListFlowAssociationResourceTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectListFlowAssociationResourceTypeSmsPhoneNumber:
+                return @"SMS_PHONE_NUMBER";
+            case AWSConnectListFlowAssociationResourceTypeVoicePhoneNumber:
+                return @"VOICE_PHONE_NUMBER";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSConnectGetContactAttributesRequest
 
 + (BOOL)supportsSecureCoding {
@@ -8627,6 +8819,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"endTime" : @"EndTime",
              @"filters" : @"Filters",
              @"groupings" : @"Groupings",
+             @"interval" : @"Interval",
              @"maxResults" : @"MaxResults",
              @"metrics" : @"Metrics",
              @"nextToken" : @"NextToken",
@@ -8645,6 +8838,10 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)filtersJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectFilterV2 class]];
+}
+
++ (NSValueTransformer *)intervalJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectIntervalDetails class]];
 }
 
 + (NSValueTransformer *)metricsJSONTransformer {
@@ -8703,8 +8900,18 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"promptPresignedUrl" : @"PromptPresignedUrl",
              };
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -8855,6 +9062,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"arn" : @"Arn",
              @"hierarchyPath" : @"HierarchyPath",
              @"identifier" : @"Id",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"levelId" : @"LevelId",
              @"name" : @"Name",
              @"tags" : @"Tags",
@@ -8863,6 +9072,14 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)hierarchyPathJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectHierarchyPath class]];
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -8913,8 +9130,18 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"arn" : @"Arn",
              @"identifier" : @"Id",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"name" : @"Name",
              };
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -8944,8 +9171,18 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"arn" : @"Arn",
              @"identifier" : @"Id",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"name" : @"Name",
              };
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -9379,6 +9616,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"detail" : @"Description",
              @"hoursOfOperationArn" : @"HoursOfOperationArn",
              @"hoursOfOperationId" : @"HoursOfOperationId",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"name" : @"Name",
              @"tags" : @"Tags",
              @"timeZone" : @"TimeZone",
@@ -9387,6 +9626,14 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)configJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectHoursOfOperationConfig class]];
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -9517,8 +9764,18 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"arn" : @"Arn",
              @"identifier" : @"Id",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"name" : @"Name",
              };
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -9828,6 +10085,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"CASES_DOMAIN"] == NSOrderedSame) {
             return @(AWSConnectIntegrationTypeCasesDomain);
         }
+        if ([value caseInsensitiveCompare:@"APPLICATION"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypeApplication);
+        }
         return @(AWSConnectIntegrationTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -9843,6 +10103,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"WISDOM_KNOWLEDGE_BASE";
             case AWSConnectIntegrationTypeCasesDomain:
                 return @"CASES_DOMAIN";
+            case AWSConnectIntegrationTypeApplication:
+                return @"APPLICATION";
             default:
                 return nil;
         }
@@ -9864,6 +10126,62 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"SALESFORCE";
             case AWSConnectSourceTypeZendesk:
                 return @"ZENDESK";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSConnectIntervalDetails
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"intervalPeriod" : @"IntervalPeriod",
+             @"timeZone" : @"TimeZone",
+             };
+}
+
++ (NSValueTransformer *)intervalPeriodJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"FIFTEEN_MIN"] == NSOrderedSame) {
+            return @(AWSConnectIntervalPeriodFifteenMin);
+        }
+        if ([value caseInsensitiveCompare:@"THIRTY_MIN"] == NSOrderedSame) {
+            return @(AWSConnectIntervalPeriodThirtyMin);
+        }
+        if ([value caseInsensitiveCompare:@"HOUR"] == NSOrderedSame) {
+            return @(AWSConnectIntervalPeriodHour);
+        }
+        if ([value caseInsensitiveCompare:@"DAY"] == NSOrderedSame) {
+            return @(AWSConnectIntervalPeriodDay);
+        }
+        if ([value caseInsensitiveCompare:@"WEEK"] == NSOrderedSame) {
+            return @(AWSConnectIntervalPeriodWeek);
+        }
+        if ([value caseInsensitiveCompare:@"TOTAL"] == NSOrderedSame) {
+            return @(AWSConnectIntervalPeriodTotal);
+        }
+        return @(AWSConnectIntervalPeriodUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectIntervalPeriodFifteenMin:
+                return @"FIFTEEN_MIN";
+            case AWSConnectIntervalPeriodThirtyMin:
+                return @"THIRTY_MIN";
+            case AWSConnectIntervalPeriodHour:
+                return @"HOUR";
+            case AWSConnectIntervalPeriodDay:
+                return @"DAY";
+            case AWSConnectIntervalPeriodWeek:
+                return @"WEEK";
+            case AWSConnectIntervalPeriodTotal:
+                return @"TOTAL";
             default:
                 return nil;
         }
@@ -10747,6 +11065,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"CASES_DOMAIN"] == NSOrderedSame) {
             return @(AWSConnectIntegrationTypeCasesDomain);
         }
+        if ([value caseInsensitiveCompare:@"APPLICATION"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypeApplication);
+        }
         return @(AWSConnectIntegrationTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -10762,6 +11083,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"WISDOM_KNOWLEDGE_BASE";
             case AWSConnectIntegrationTypeCasesDomain:
                 return @"CASES_DOMAIN";
+            case AWSConnectIntegrationTypeApplication:
+                return @"APPLICATION";
             default:
                 return nil;
         }
@@ -10900,6 +11223,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"instanceId" : @"InstanceId",
              @"phoneNumber" : @"PhoneNumber",
              @"phoneNumberArn" : @"PhoneNumberArn",
              @"phoneNumberCountryCode" : @"PhoneNumberCountryCode",
@@ -12156,6 +12480,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"instanceId" : @"InstanceId",
              @"maxResults" : @"MaxResults",
              @"nextToken" : @"NextToken",
              @"phoneNumberCountryCodes" : @"PhoneNumberCountryCodes",
@@ -12246,9 +12571,19 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"nextToken" : @"NextToken",
              @"quickConnectSummaryList" : @"QuickConnectSummaryList",
              };
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 + (NSValueTransformer *)quickConnectSummaryListJSONTransformer {
@@ -12354,9 +12689,19 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"nextToken" : @"NextToken",
              @"routingProfileQueueConfigSummaryList" : @"RoutingProfileQueueConfigSummaryList",
              };
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 + (NSValueTransformer *)routingProfileQueueConfigSummaryListJSONTransformer {
@@ -12544,6 +12889,52 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectListSecurityProfileApplicationsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"securityProfileId" : @"SecurityProfileId",
+             };
+}
+
+@end
+
+@implementation AWSConnectListSecurityProfileApplicationsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applications" : @"Applications",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)applicationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectApplication class]];
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
 @implementation AWSConnectListSecurityProfilePermissionsRequest
 
 + (BOOL)supportsSecureCoding {
@@ -12569,9 +12960,19 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"nextToken" : @"NextToken",
              @"permissions" : @"Permissions",
              };
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -13041,7 +13442,81 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"metricFilterKey" : @"MetricFilterKey",
              @"metricFilterValues" : @"MetricFilterValues",
+             @"negate" : @"Negate",
              };
+}
+
+@end
+
+@implementation AWSConnectMetricInterval
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endTime" : @"EndTime",
+             @"interval" : @"Interval",
+             @"startTime" : @"StartTime",
+             };
+}
+
++ (NSValueTransformer *)endTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)intervalJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"FIFTEEN_MIN"] == NSOrderedSame) {
+            return @(AWSConnectIntervalPeriodFifteenMin);
+        }
+        if ([value caseInsensitiveCompare:@"THIRTY_MIN"] == NSOrderedSame) {
+            return @(AWSConnectIntervalPeriodThirtyMin);
+        }
+        if ([value caseInsensitiveCompare:@"HOUR"] == NSOrderedSame) {
+            return @(AWSConnectIntervalPeriodHour);
+        }
+        if ([value caseInsensitiveCompare:@"DAY"] == NSOrderedSame) {
+            return @(AWSConnectIntervalPeriodDay);
+        }
+        if ([value caseInsensitiveCompare:@"WEEK"] == NSOrderedSame) {
+            return @(AWSConnectIntervalPeriodWeek);
+        }
+        if ([value caseInsensitiveCompare:@"TOTAL"] == NSOrderedSame) {
+            return @(AWSConnectIntervalPeriodTotal);
+        }
+        return @(AWSConnectIntervalPeriodUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectIntervalPeriodFifteenMin:
+                return @"FIFTEEN_MIN";
+            case AWSConnectIntervalPeriodThirtyMin:
+                return @"THIRTY_MIN";
+            case AWSConnectIntervalPeriodHour:
+                return @"HOUR";
+            case AWSConnectIntervalPeriodDay:
+                return @"DAY";
+            case AWSConnectIntervalPeriodWeek:
+                return @"WEEK";
+            case AWSConnectIntervalPeriodTotal:
+                return @"TOTAL";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)startTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -13056,11 +13531,16 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"collections" : @"Collections",
              @"dimensions" : @"Dimensions",
+             @"metricInterval" : @"MetricInterval",
              };
 }
 
 + (NSValueTransformer *)collectionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectMetricDataV2 class]];
+}
+
++ (NSValueTransformer *)metricIntervalJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectMetricInterval class]];
 }
 
 @end
@@ -14770,11 +15250,21 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"detail" : @"Description",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"name" : @"Name",
              @"promptARN" : @"PromptARN",
              @"promptId" : @"PromptId",
              @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -14835,8 +15325,18 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"arn" : @"Arn",
              @"identifier" : @"Id",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"name" : @"Name",
              };
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -14932,6 +15432,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"detail" : @"Description",
              @"hoursOfOperationId" : @"HoursOfOperationId",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"maxContacts" : @"MaxContacts",
              @"name" : @"Name",
              @"outboundCallerConfig" : @"OutboundCallerConfig",
@@ -14940,6 +15442,14 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"status" : @"Status",
              @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 + (NSValueTransformer *)outboundCallerConfigJSONTransformer {
@@ -15095,9 +15605,19 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"arn" : @"Arn",
              @"identifier" : @"Id",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"name" : @"Name",
              @"queueType" : @"QueueType",
              };
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 + (NSValueTransformer *)queueTypeJSONTransformer {
@@ -15132,12 +15652,22 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"detail" : @"Description",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"name" : @"Name",
              @"quickConnectARN" : @"QuickConnectARN",
              @"quickConnectConfig" : @"QuickConnectConfig",
              @"quickConnectId" : @"QuickConnectId",
              @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 + (NSValueTransformer *)quickConnectConfigJSONTransformer {
@@ -15257,9 +15787,19 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"arn" : @"Arn",
              @"identifier" : @"Id",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"name" : @"Name",
              @"quickConnectType" : @"QuickConnectType",
              };
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 + (NSValueTransformer *)quickConnectTypeJSONTransformer {
@@ -15526,6 +16066,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"defaultOutboundQueueId" : @"DefaultOutboundQueueId",
              @"detail" : @"Description",
              @"instanceId" : @"InstanceId",
+             @"isDefault" : @"IsDefault",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"mediaConcurrencies" : @"MediaConcurrencies",
              @"name" : @"Name",
              @"numberOfAssociatedQueues" : @"NumberOfAssociatedQueues",
@@ -15554,6 +16097,14 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
             default:
                 return nil;
         }
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
 }
 
@@ -15740,8 +16291,18 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"arn" : @"Arn",
              @"identifier" : @"Id",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"name" : @"Name",
              };
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -16087,6 +16648,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"instanceId" : @"InstanceId",
              @"maxResults" : @"MaxResults",
              @"nextToken" : @"NextToken",
              @"phoneNumberCountryCode" : @"PhoneNumberCountryCode",
@@ -17948,11 +18510,21 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"arn" : @"Arn",
              @"detail" : @"Description",
              @"identifier" : @"Id",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"organizationResourceId" : @"OrganizationResourceId",
              @"securityProfileName" : @"SecurityProfileName",
              @"tagRestrictedResources" : @"TagRestrictedResources",
              @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -18014,8 +18586,18 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"arn" : @"Arn",
              @"identifier" : @"Id",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"name" : @"Name",
              };
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -19863,6 +20445,22 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectUpdatePhoneNumberMetadataRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientToken" : @"ClientToken",
+             @"phoneNumberDescription" : @"PhoneNumberDescription",
+             @"phoneNumberId" : @"PhoneNumberId",
+             };
+}
+
+@end
+
 @implementation AWSConnectUpdatePhoneNumberRequest
 
 + (BOOL)supportsSecureCoding {
@@ -19872,6 +20470,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"clientToken" : @"ClientToken",
+             @"instanceId" : @"InstanceId",
              @"phoneNumberId" : @"PhoneNumberId",
              @"targetArn" : @"TargetArn",
              };
@@ -20233,12 +20832,17 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"allowedAccessControlTags" : @"AllowedAccessControlTags",
+             @"applications" : @"Applications",
              @"detail" : @"Description",
              @"instanceId" : @"InstanceId",
              @"permissions" : @"Permissions",
              @"securityProfileId" : @"SecurityProfileId",
              @"tagRestrictedResources" : @"TagRestrictedResources",
              };
+}
+
++ (NSValueTransformer *)applicationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectApplication class]];
 }
 
 @end
@@ -20682,6 +21286,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"hierarchyGroupId" : @"HierarchyGroupId",
              @"identifier" : @"Id",
              @"identityInfo" : @"IdentityInfo",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"phoneConfig" : @"PhoneConfig",
              @"routingProfileId" : @"RoutingProfileId",
              @"securityProfileIds" : @"SecurityProfileIds",
@@ -20692,6 +21298,14 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)identityInfoJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectUserIdentityInfo class]];
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 + (NSValueTransformer *)phoneConfigJSONTransformer {
@@ -20957,8 +21571,18 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"arn" : @"Arn",
              @"identifier" : @"Id",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
              @"username" : @"Username",
              };
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
