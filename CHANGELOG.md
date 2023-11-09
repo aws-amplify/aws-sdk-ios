@@ -1,3 +1,15 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSComprehend
+---AWSLambda
+---AWSCloudWatchLogs
+---AWSEC2
+---AWSConnect
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
