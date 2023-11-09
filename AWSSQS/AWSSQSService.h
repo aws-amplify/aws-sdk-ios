@@ -179,7 +179,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the AddPermission service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorOverLimit`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorOverLimit`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSAddPermissionRequest
  */
@@ -190,7 +190,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the AddPermission service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorOverLimit`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorOverLimit`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSAddPermissionRequest
  */
@@ -201,7 +201,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the CancelMessageMoveTask service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSCancelMessageMoveTaskResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorUnsupportedOperation`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSCancelMessageMoveTaskResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSCancelMessageMoveTaskRequest
  @see AWSSQSCancelMessageMoveTaskResult
@@ -214,7 +214,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the CancelMessageMoveTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorUnsupportedOperation`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSCancelMessageMoveTaskRequest
  @see AWSSQSCancelMessageMoveTaskResult
@@ -226,7 +226,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the ChangeMessageVisibility service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorMessageNotInflight`, `AWSSQSErrorReceiptHandleIsInvalid`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorMessageNotInflight`, `AWSSQSErrorReceiptHandleIsInvalid`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSChangeMessageVisibilityRequest
  */
@@ -237,7 +237,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the ChangeMessageVisibility service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorMessageNotInflight`, `AWSSQSErrorReceiptHandleIsInvalid`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorMessageNotInflight`, `AWSSQSErrorReceiptHandleIsInvalid`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSChangeMessageVisibilityRequest
  */
@@ -248,7 +248,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the ChangeMessageVisibilityBatch service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSChangeMessageVisibilityBatchResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSChangeMessageVisibilityBatchResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSChangeMessageVisibilityBatchRequest
  @see AWSSQSChangeMessageVisibilityBatchResult
@@ -261,7 +261,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the ChangeMessageVisibilityBatch service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSChangeMessageVisibilityBatchRequest
  @see AWSSQSChangeMessageVisibilityBatchResult
@@ -273,7 +273,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the CreateQueue service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSCreateQueueResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDeletedRecently`, `AWSSQSErrorQueueNameExists`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSCreateQueueResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDeletedRecently`, `AWSSQSErrorQueueNameExists`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidAttributeName`, `AWSSQSErrorInvalidAttributeValue`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSCreateQueueRequest
  @see AWSSQSCreateQueueResult
@@ -286,7 +286,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the CreateQueue service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDeletedRecently`, `AWSSQSErrorQueueNameExists`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDeletedRecently`, `AWSSQSErrorQueueNameExists`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidAttributeName`, `AWSSQSErrorInvalidAttributeValue`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSCreateQueueRequest
  @see AWSSQSCreateQueueResult
@@ -298,7 +298,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteMessage service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidIdFormat`, `AWSSQSErrorReceiptHandleIsInvalid`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidIdFormat`, `AWSSQSErrorReceiptHandleIsInvalid`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorInvalidAddress`.
  
  @see AWSSQSDeleteMessageRequest
  */
@@ -309,7 +309,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteMessage service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidIdFormat`, `AWSSQSErrorReceiptHandleIsInvalid`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidIdFormat`, `AWSSQSErrorReceiptHandleIsInvalid`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorInvalidAddress`.
  
  @see AWSSQSDeleteMessageRequest
  */
@@ -320,7 +320,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteMessageBatch service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSDeleteMessageBatchResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSDeleteMessageBatchResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSDeleteMessageBatchRequest
  @see AWSSQSDeleteMessageBatchResult
@@ -333,7 +333,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the DeleteMessageBatch service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorInvalidBatchEntryId`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSDeleteMessageBatchRequest
  @see AWSSQSDeleteMessageBatchResult
@@ -345,7 +345,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteQueue service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSDeleteQueueRequest
  */
@@ -356,7 +356,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteQueue service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSDeleteQueueRequest
  */
@@ -367,7 +367,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the GetQueueAttributes service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSGetQueueAttributesResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAttributeName`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSGetQueueAttributesResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAttributeName`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorInvalidAddress`.
  
  @see AWSSQSGetQueueAttributesRequest
  @see AWSSQSGetQueueAttributesResult
@@ -380,7 +380,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the GetQueueAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAttributeName`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAttributeName`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorInvalidAddress`.
  
  @see AWSSQSGetQueueAttributesRequest
  @see AWSSQSGetQueueAttributesResult
@@ -392,7 +392,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the GetQueueUrl service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSGetQueueUrlResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSGetQueueUrlResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSGetQueueUrlRequest
  @see AWSSQSGetQueueUrlResult
@@ -405,7 +405,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the GetQueueUrl service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSGetQueueUrlRequest
  @see AWSSQSGetQueueUrlResult
@@ -417,7 +417,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the ListDeadLetterSourceQueues service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSListDeadLetterSourceQueuesResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSListDeadLetterSourceQueuesResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSListDeadLetterSourceQueuesRequest
  @see AWSSQSListDeadLetterSourceQueuesResult
@@ -430,7 +430,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the ListDeadLetterSourceQueues service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSListDeadLetterSourceQueuesRequest
  @see AWSSQSListDeadLetterSourceQueuesResult
@@ -442,7 +442,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the ListMessageMoveTasks service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSListMessageMoveTasksResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorUnsupportedOperation`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSListMessageMoveTasksResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSListMessageMoveTasksRequest
  @see AWSSQSListMessageMoveTasksResult
@@ -455,7 +455,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the ListMessageMoveTasks service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorUnsupportedOperation`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSListMessageMoveTasksRequest
  @see AWSSQSListMessageMoveTasksResult
@@ -467,7 +467,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the ListQueueTags service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSListQueueTagsResult`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSListQueueTagsResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSListQueueTagsRequest
  @see AWSSQSListQueueTagsResult
@@ -480,7 +480,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the ListQueueTags service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSListQueueTagsRequest
  @see AWSSQSListQueueTagsResult
@@ -492,7 +492,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the ListQueues service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSListQueuesResult`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSListQueuesResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSListQueuesRequest
  @see AWSSQSListQueuesResult
@@ -505,7 +505,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the ListQueues service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSListQueuesRequest
  @see AWSSQSListQueuesResult
@@ -517,7 +517,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the PurgeQueue service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorPurgeQueueInProgress`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorPurgeQueueInProgress`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSPurgeQueueRequest
  */
@@ -528,7 +528,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the PurgeQueue service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorPurgeQueueInProgress`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorPurgeQueueInProgress`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSPurgeQueueRequest
  */
@@ -539,7 +539,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the ReceiveMessage service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSReceiveMessageResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorOverLimit`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSReceiveMessageResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorOverLimit`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorKmsDisabled`, `AWSSQSErrorKmsInvalidState`, `AWSSQSErrorKmsNotFound`, `AWSSQSErrorKmsOptInRequired`, `AWSSQSErrorKmsThrottled`, `AWSSQSErrorKmsAccessDenied`, `AWSSQSErrorKmsInvalidKeyUsage`, `AWSSQSErrorInvalidAddress`.
  
  @see AWSSQSReceiveMessageRequest
  @see AWSSQSReceiveMessageResult
@@ -552,7 +552,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the ReceiveMessage service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorOverLimit`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorOverLimit`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorKmsDisabled`, `AWSSQSErrorKmsInvalidState`, `AWSSQSErrorKmsNotFound`, `AWSSQSErrorKmsOptInRequired`, `AWSSQSErrorKmsThrottled`, `AWSSQSErrorKmsAccessDenied`, `AWSSQSErrorKmsInvalidKeyUsage`, `AWSSQSErrorInvalidAddress`.
  
  @see AWSSQSReceiveMessageRequest
  @see AWSSQSReceiveMessageResult
@@ -564,7 +564,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the RemovePermission service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAddress`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSRemovePermissionRequest
  */
@@ -575,7 +575,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the RemovePermission service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAddress`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSRemovePermissionRequest
  */
@@ -586,7 +586,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the SendMessage service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSSendMessageResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidMessageContents`, `AWSSQSErrorUnsupportedOperation`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSSendMessageResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidMessageContents`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorKmsDisabled`, `AWSSQSErrorKmsInvalidState`, `AWSSQSErrorKmsNotFound`, `AWSSQSErrorKmsOptInRequired`, `AWSSQSErrorKmsThrottled`, `AWSSQSErrorKmsAccessDenied`, `AWSSQSErrorKmsInvalidKeyUsage`, `AWSSQSErrorInvalidAddress`.
  
  @see AWSSQSSendMessageRequest
  @see AWSSQSSendMessageResult
@@ -599,7 +599,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the SendMessage service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidMessageContents`, `AWSSQSErrorUnsupportedOperation`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidMessageContents`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorKmsDisabled`, `AWSSQSErrorKmsInvalidState`, `AWSSQSErrorKmsNotFound`, `AWSSQSErrorKmsOptInRequired`, `AWSSQSErrorKmsThrottled`, `AWSSQSErrorKmsAccessDenied`, `AWSSQSErrorKmsInvalidKeyUsage`, `AWSSQSErrorInvalidAddress`.
  
  @see AWSSQSSendMessageRequest
  @see AWSSQSSendMessageResult
@@ -611,7 +611,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the SendMessageBatch service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSSendMessageBatchResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorBatchRequestTooLong`, `AWSSQSErrorInvalidBatchEntryId`, `AWSSQSErrorUnsupportedOperation`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSSendMessageBatchResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorBatchRequestTooLong`, `AWSSQSErrorInvalidBatchEntryId`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorKmsDisabled`, `AWSSQSErrorKmsInvalidState`, `AWSSQSErrorKmsNotFound`, `AWSSQSErrorKmsOptInRequired`, `AWSSQSErrorKmsThrottled`, `AWSSQSErrorKmsAccessDenied`, `AWSSQSErrorKmsInvalidKeyUsage`, `AWSSQSErrorInvalidAddress`.
  
  @see AWSSQSSendMessageBatchRequest
  @see AWSSQSSendMessageBatchResult
@@ -624,7 +624,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the SendMessageBatch service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorBatchRequestTooLong`, `AWSSQSErrorInvalidBatchEntryId`, `AWSSQSErrorUnsupportedOperation`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorTooManyEntriesInBatchRequest`, `AWSSQSErrorEmptyBatchRequest`, `AWSSQSErrorBatchEntryIdsNotDistinct`, `AWSSQSErrorBatchRequestTooLong`, `AWSSQSErrorInvalidBatchEntryId`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorKmsDisabled`, `AWSSQSErrorKmsInvalidState`, `AWSSQSErrorKmsNotFound`, `AWSSQSErrorKmsOptInRequired`, `AWSSQSErrorKmsThrottled`, `AWSSQSErrorKmsAccessDenied`, `AWSSQSErrorKmsInvalidKeyUsage`, `AWSSQSErrorInvalidAddress`.
  
  @see AWSSQSSendMessageBatchRequest
  @see AWSSQSSendMessageBatchResult
@@ -636,7 +636,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the SetQueueAttributes service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAttributeName`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAttributeName`, `AWSSQSErrorInvalidAttributeValue`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorOverLimit`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSSetQueueAttributesRequest
  */
@@ -647,7 +647,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the SetQueueAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAttributeName`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAttributeName`, `AWSSQSErrorInvalidAttributeValue`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorUnsupportedOperation`, `AWSSQSErrorOverLimit`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`.
  
  @see AWSSQSSetQueueAttributesRequest
  */
@@ -658,7 +658,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the StartMessageMoveTask service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSStartMessageMoveTaskResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorUnsupportedOperation`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSQSStartMessageMoveTaskResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSStartMessageMoveTaskRequest
  @see AWSSQSStartMessageMoveTaskResult
@@ -671,7 +671,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  @param request A container for the necessary parameters to execute the StartMessageMoveTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorUnsupportedOperation`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorResourceNotFound`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorInvalidAddress`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSStartMessageMoveTaskRequest
  @see AWSSQSStartMessageMoveTaskResult
@@ -683,7 +683,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the TagQueue service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAddress`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSTagQueueRequest
  */
@@ -694,7 +694,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the TagQueue service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAddress`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSTagQueueRequest
  */
@@ -705,7 +705,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the UntagQueue service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAddress`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSUntagQueueRequest
  */
@@ -716,7 +716,7 @@ FOUNDATION_EXPORT NSString *const AWSSQSSDKVersion;
  
  @param request A container for the necessary parameters to execute the UntagQueue service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSQSErrorDomain` domain and the following error code: `AWSSQSErrorInvalidAddress`, `AWSSQSErrorRequestThrottled`, `AWSSQSErrorQueueDoesNotExist`, `AWSSQSErrorInvalidSecurity`, `AWSSQSErrorUnsupportedOperation`.
  
  @see AWSSQSUntagQueueRequest
  */
