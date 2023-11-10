@@ -722,7 +722,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)associateIpamResourceDiscovery:(AWSEC2AssociateIpamResourceDiscoveryRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AssociateIpamResourceDiscoveryResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Associates Elastic IP addresses (EIPs) and private IPv4 addresses with a public NAT gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon VPC User Guide</i>.</p><p>By default, you can associate up to 2 Elastic IP addresses per public NAT gateway. You can increase the limit by requesting a quota adjustment. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-eips">Elastic IP address quotas</a> in the <i>Amazon VPC User Guide</i>.</p>
+ <p>Associates Elastic IP addresses (EIPs) and private IPv4 addresses with a public NAT gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon VPC User Guide</i>.</p><p>By default, you can associate up to 2 Elastic IP addresses per public NAT gateway. You can increase the limit by requesting a quota adjustment. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-eips">Elastic IP address quotas</a> in the <i>Amazon VPC User Guide</i>.</p><important><p>When you associate an EIP or secondary EIPs with a public NAT gateway, the network border group of the EIPs must match the network border group of the Availability Zone (AZ) that the public NAT gateway is in. If it's not the same, the EIP will fail to associate. You can see the network border group for the subnet's AZ by viewing the details of the subnet. Similarly, you can view the network border group of an EIP by viewing the details of the EIP address. For more information about network border groups and EIPs, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#allocate-eip">Allocate an Elastic IP address</a> in the <i>Amazon VPC User Guide</i>. </p></important>
  
  @param request A container for the necessary parameters to execute the AssociateNatGatewayAddress service method.
 
@@ -734,7 +734,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2AssociateNatGatewayAddressResult *> *)associateNatGatewayAddress:(AWSEC2AssociateNatGatewayAddressRequest *)request;
 
 /**
- <p>Associates Elastic IP addresses (EIPs) and private IPv4 addresses with a public NAT gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon VPC User Guide</i>.</p><p>By default, you can associate up to 2 Elastic IP addresses per public NAT gateway. You can increase the limit by requesting a quota adjustment. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-eips">Elastic IP address quotas</a> in the <i>Amazon VPC User Guide</i>.</p>
+ <p>Associates Elastic IP addresses (EIPs) and private IPv4 addresses with a public NAT gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon VPC User Guide</i>.</p><p>By default, you can associate up to 2 Elastic IP addresses per public NAT gateway. You can increase the limit by requesting a quota adjustment. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-eips">Elastic IP address quotas</a> in the <i>Amazon VPC User Guide</i>.</p><important><p>When you associate an EIP or secondary EIPs with a public NAT gateway, the network border group of the EIPs must match the network border group of the Availability Zone (AZ) that the public NAT gateway is in. If it's not the same, the EIP will fail to associate. You can see the network border group for the subnet's AZ by viewing the details of the subnet. Similarly, you can view the network border group of an EIP by viewing the details of the EIP address. For more information about network border groups and EIPs, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#allocate-eip">Allocate an Elastic IP address</a> in the <i>Amazon VPC User Guide</i>. </p></important>
  
  @param request A container for the necessary parameters to execute the AssociateNatGatewayAddress service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2313,7 +2313,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createManagedPrefixList:(AWSEC2CreateManagedPrefixListRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateManagedPrefixListResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a NAT gateway in the specified subnet. This action creates a network interface in the specified subnet with a private IP address from the IP address range of the subnet. You can create either a public NAT gateway or a private NAT gateway.</p><p>With a public NAT gateway, internet-bound traffic from a private subnet can be routed to the NAT gateway, so that instances in a private subnet can connect to the internet.</p><p>With a private NAT gateway, private communication is routed across VPCs and on-premises networks through a transit gateway or virtual private gateway. Common use cases include running large workloads behind a small pool of allowlisted IPv4 addresses, preserving private IPv4 addresses, and communicating between overlapping networks.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">NAT gateways</a> in the <i>Amazon VPC User Guide</i>.</p>
+ <p>Creates a NAT gateway in the specified subnet. This action creates a network interface in the specified subnet with a private IP address from the IP address range of the subnet. You can create either a public NAT gateway or a private NAT gateway.</p><p>With a public NAT gateway, internet-bound traffic from a private subnet can be routed to the NAT gateway, so that instances in a private subnet can connect to the internet.</p><p>With a private NAT gateway, private communication is routed across VPCs and on-premises networks through a transit gateway or virtual private gateway. Common use cases include running large workloads behind a small pool of allowlisted IPv4 addresses, preserving private IPv4 addresses, and communicating between overlapping networks.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">NAT gateways</a> in the <i>Amazon VPC User Guide</i>.</p><important><p>When you create a public NAT gateway and assign it an EIP or secondary EIPs, the network border group of the EIPs must match the network border group of the Availability Zone (AZ) that the public NAT gateway is in. If it's not the same, the NAT gateway will fail to launch. You can see the network border group for the subnet's AZ by viewing the details of the subnet. Similarly, you can view the network border group of an EIP by viewing the details of the EIP address. For more information about network border groups and EIPs, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#allocate-eip">Allocate an Elastic IP address</a> in the <i>Amazon VPC User Guide</i>. </p></important>
  
  @param request A container for the necessary parameters to execute the CreateNatGateway service method.
 
@@ -2325,7 +2325,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateNatGatewayResult *> *)createNatGateway:(AWSEC2CreateNatGatewayRequest *)request;
 
 /**
- <p>Creates a NAT gateway in the specified subnet. This action creates a network interface in the specified subnet with a private IP address from the IP address range of the subnet. You can create either a public NAT gateway or a private NAT gateway.</p><p>With a public NAT gateway, internet-bound traffic from a private subnet can be routed to the NAT gateway, so that instances in a private subnet can connect to the internet.</p><p>With a private NAT gateway, private communication is routed across VPCs and on-premises networks through a transit gateway or virtual private gateway. Common use cases include running large workloads behind a small pool of allowlisted IPv4 addresses, preserving private IPv4 addresses, and communicating between overlapping networks.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">NAT gateways</a> in the <i>Amazon VPC User Guide</i>.</p>
+ <p>Creates a NAT gateway in the specified subnet. This action creates a network interface in the specified subnet with a private IP address from the IP address range of the subnet. You can create either a public NAT gateway or a private NAT gateway.</p><p>With a public NAT gateway, internet-bound traffic from a private subnet can be routed to the NAT gateway, so that instances in a private subnet can connect to the internet.</p><p>With a private NAT gateway, private communication is routed across VPCs and on-premises networks through a transit gateway or virtual private gateway. Common use cases include running large workloads behind a small pool of allowlisted IPv4 addresses, preserving private IPv4 addresses, and communicating between overlapping networks.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">NAT gateways</a> in the <i>Amazon VPC User Guide</i>.</p><important><p>When you create a public NAT gateway and assign it an EIP or secondary EIPs, the network border group of the EIPs must match the network border group of the Availability Zone (AZ) that the public NAT gateway is in. If it's not the same, the NAT gateway will fail to launch. You can see the network border group for the subnet's AZ by viewing the details of the subnet. Similarly, you can view the network border group of an EIP by viewing the details of the EIP address. For more information about network border groups and EIPs, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#allocate-eip">Allocate an Elastic IP address</a> in the <i>Amazon VPC User Guide</i>. </p></important>
  
  @param request A container for the necessary parameters to execute the CreateNatGateway service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5159,7 +5159,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deleteVolume:(AWSEC2DeleteVolumeRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the specified VPC. You must detach or delete all gateways and resources that are associated with the VPC before you can delete it. For example, you must terminate all instances running in the VPC, delete all security groups associated with the VPC (except the default one), delete all route tables associated with the VPC (except the default one), and so on.</p>
+ <p>Deletes the specified VPC. You must detach or delete all gateways and resources that are associated with the VPC before you can delete it. For example, you must terminate all instances running in the VPC, delete all security groups associated with the VPC (except the default one), delete all route tables associated with the VPC (except the default one), and so on. When you delete the VPC, it deletes the VPC's default security group, network ACL, and route table.</p>
  
  @param request A container for the necessary parameters to execute the DeleteVpc service method.
 
@@ -5170,7 +5170,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask *)deleteVpc:(AWSEC2DeleteVpcRequest *)request;
 
 /**
- <p>Deletes the specified VPC. You must detach or delete all gateways and resources that are associated with the VPC before you can delete it. For example, you must terminate all instances running in the VPC, delete all security groups associated with the VPC (except the default one), delete all route tables associated with the VPC (except the default one), and so on.</p>
+ <p>Deletes the specified VPC. You must detach or delete all gateways and resources that are associated with the VPC before you can delete it. For example, you must terminate all instances running in the VPC, delete all security groups associated with the VPC (except the default one), delete all route tables associated with the VPC (except the default one), and so on. When you delete the VPC, it deletes the VPC's default security group, network ACL, and route table.</p>
  
  @param request A container for the necessary parameters to execute the DeleteVpc service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5742,6 +5742,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DescribeByoipCidrsResult
  */
 - (void)describeByoipCidrs:(AWSEC2DescribeByoipCidrsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeByoipCidrsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes Capacity Block offerings available for purchase. With Capacity Blocks, you purchase a specific instance type for a period of time.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeCapacityBlockOfferings service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeCapacityBlockOfferingsResult`.
+ 
+ @see AWSEC2DescribeCapacityBlockOfferingsRequest
+ @see AWSEC2DescribeCapacityBlockOfferingsResult
+ */
+- (AWSTask<AWSEC2DescribeCapacityBlockOfferingsResult *> *)describeCapacityBlockOfferings:(AWSEC2DescribeCapacityBlockOfferingsRequest *)request;
+
+/**
+ <p>Describes Capacity Block offerings available for purchase. With Capacity Blocks, you purchase a specific instance type for a period of time.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeCapacityBlockOfferings service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeCapacityBlockOfferingsRequest
+ @see AWSEC2DescribeCapacityBlockOfferingsResult
+ */
+- (void)describeCapacityBlockOfferings:(AWSEC2DescribeCapacityBlockOfferingsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeCapacityBlockOfferingsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Describes one or more Capacity Reservation Fleets.</p>
@@ -7494,7 +7519,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeNetworkInterfacePermissions:(AWSEC2DescribeNetworkInterfacePermissionsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeNetworkInterfacePermissionsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes one or more of your network interfaces.</p>
+ <p>Describes one or more of your network interfaces.</p><p>If you have a large number of network interfaces, the operation fails unless you use pagination or one of the following filters: <code>group-id</code>, <code>mac-address</code>, <code>private-dns-name</code>, <code>private-ip-address</code>, <code>private-dns-name</code>, <code>subnet-id</code>, or <code>vpc-id</code>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeNetworkInterfaces service method.
 
@@ -7506,7 +7531,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeNetworkInterfacesResult *> *)describeNetworkInterfaces:(AWSEC2DescribeNetworkInterfacesRequest *)request;
 
 /**
- <p>Describes one or more of your network interfaces.</p>
+ <p>Describes one or more of your network interfaces.</p><p>If you have a large number of network interfaces, the operation fails unless you use pagination or one of the following filters: <code>group-id</code>, <code>mac-address</code>, <code>private-dns-name</code>, <code>private-ip-address</code>, <code>private-dns-name</code>, <code>subnet-id</code>, or <code>vpc-id</code>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeNetworkInterfaces service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -9410,6 +9435,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)disableFastSnapshotRestores:(AWSEC2DisableFastSnapshotRestoresRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisableFastSnapshotRestoresResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Sets the AMI state to <code>disabled</code> and removes all launch permissions from the AMI. A disabled AMI can't be used for instance launches.</p><p>A disabled AMI can't be shared. If a public or shared AMI was previously shared, it is made private. If an AMI was shared with an Amazon Web Services account, organization, or Organizational Unit, they lose access to the disabled AMI. </p><p>A disabled AMI does not appear in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a> API calls by default.</p><p>Only the AMI owner can disable an AMI.</p><p>You can re-enable a disabled AMI using <a href="http://amazonaws.com/AWSEC2/latest/APIReference/API_EnableImage.html">EnableImage</a>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html">Disable an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisableImage service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DisableImageResult`.
+ 
+ @see AWSEC2DisableImageRequest
+ @see AWSEC2DisableImageResult
+ */
+- (AWSTask<AWSEC2DisableImageResult *> *)disableImage:(AWSEC2DisableImageRequest *)request;
+
+/**
+ <p>Sets the AMI state to <code>disabled</code> and removes all launch permissions from the AMI. A disabled AMI can't be used for instance launches.</p><p>A disabled AMI can't be shared. If a public or shared AMI was previously shared, it is made private. If an AMI was shared with an Amazon Web Services account, organization, or Organizational Unit, they lose access to the disabled AMI. </p><p>A disabled AMI does not appear in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a> API calls by default.</p><p>Only the AMI owner can disable an AMI.</p><p>You can re-enable a disabled AMI using <a href="http://amazonaws.com/AWSEC2/latest/APIReference/API_EnableImage.html">EnableImage</a>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html">Disable an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisableImage service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DisableImageRequest
+ @see AWSEC2DisableImageResult
+ */
+- (void)disableImage:(AWSEC2DisableImageRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisableImageResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Disables <i>block public access for AMIs</i> at the account level in the specified Amazon Web Services Region. This removes the <i>block public access</i> restriction from your account. With the restriction removed, you can publicly share your AMIs in the specified Amazon Web Services Region.</p><p>The API can take up to 10 minutes to configure this setting. During this time, if you run <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageBlockPublicAccessState.html">GetImageBlockPublicAccessState</a>, the response will be <code>block-new-sharing</code>. When the API has completed the configuration, the response will be <code>unblocked</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis">Block public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DisableImageBlockPublicAccess service method.
@@ -9508,6 +9558,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DisableSerialConsoleAccessResult
  */
 - (void)disableSerialConsoleAccess:(AWSEC2DisableSerialConsoleAccessRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisableSerialConsoleAccessResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Disables the <i>block public access for snapshots</i> setting at the account level for the specified Amazon Web Services Region. After you disable block public access for snapshots in a Region, users can publicly share snapshots in that Region.</p><p>If block public access is enabled in <code>block-all-sharing</code> mode, and you disable block public access, all snapshots that were previously publicly shared are no longer treated as private and they become publicly accessible again.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html"> Block public access for snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> .</p><p/>
+ 
+ @param request A container for the necessary parameters to execute the DisableSnapshotBlockPublicAccess service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DisableSnapshotBlockPublicAccessResult`.
+ 
+ @see AWSEC2DisableSnapshotBlockPublicAccessRequest
+ @see AWSEC2DisableSnapshotBlockPublicAccessResult
+ */
+- (AWSTask<AWSEC2DisableSnapshotBlockPublicAccessResult *> *)disableSnapshotBlockPublicAccess:(AWSEC2DisableSnapshotBlockPublicAccessRequest *)request;
+
+/**
+ <p>Disables the <i>block public access for snapshots</i> setting at the account level for the specified Amazon Web Services Region. After you disable block public access for snapshots in a Region, users can publicly share snapshots in that Region.</p><p>If block public access is enabled in <code>block-all-sharing</code> mode, and you disable block public access, all snapshots that were previously publicly shared are no longer treated as private and they become publicly accessible again.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html"> Block public access for snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> .</p><p/>
+ 
+ @param request A container for the necessary parameters to execute the DisableSnapshotBlockPublicAccess service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DisableSnapshotBlockPublicAccessRequest
+ @see AWSEC2DisableSnapshotBlockPublicAccessResult
+ */
+- (void)disableSnapshotBlockPublicAccess:(AWSEC2DisableSnapshotBlockPublicAccessRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisableSnapshotBlockPublicAccessResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Disables the specified resource attachment from propagating routes to the specified propagation route table.</p>
@@ -10076,6 +10151,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)enableFastSnapshotRestores:(AWSEC2EnableFastSnapshotRestoresRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableFastSnapshotRestoresResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Re-enables a disabled AMI. The re-enabled AMI is marked as <code>available</code> and can be used for instance launches, appears in describe operations, and can be shared. Amazon Web Services accounts, organizations, and Organizational Units that lost access to the AMI when it was disabled do not regain access automatically. Once the AMI is available, it can be shared with them again.</p><p>Only the AMI owner can re-enable a disabled AMI.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html">Disable an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the EnableImage service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2EnableImageResult`.
+ 
+ @see AWSEC2EnableImageRequest
+ @see AWSEC2EnableImageResult
+ */
+- (AWSTask<AWSEC2EnableImageResult *> *)enableImage:(AWSEC2EnableImageRequest *)request;
+
+/**
+ <p>Re-enables a disabled AMI. The re-enabled AMI is marked as <code>available</code> and can be used for instance launches, appears in describe operations, and can be shared. Amazon Web Services accounts, organizations, and Organizational Units that lost access to the AMI when it was disabled do not regain access automatically. Once the AMI is available, it can be shared with them again.</p><p>Only the AMI owner can re-enable a disabled AMI.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html">Disable an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the EnableImage service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2EnableImageRequest
+ @see AWSEC2EnableImageResult
+ */
+- (void)enableImage:(AWSEC2EnableImageRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableImageResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Enables <i>block public access for AMIs</i> at the account level in the specified Amazon Web Services Region. This prevents the public sharing of your AMIs. However, if you already have public AMIs, they will remain publicly available.</p><p>The API can take up to 10 minutes to configure this setting. During this time, if you run <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageBlockPublicAccessState.html">GetImageBlockPublicAccessState</a>, the response will be <code>unblocked</code>. When the API has completed the configuration, the response will be <code>block-new-sharing</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis">Block public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the EnableImageBlockPublicAccess service method.
@@ -10199,6 +10299,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2EnableSerialConsoleAccessResult
  */
 - (void)enableSerialConsoleAccess:(AWSEC2EnableSerialConsoleAccessRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableSerialConsoleAccessResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Enables or modifies the <i>block public access for snapshots</i> setting at the account level for the specified Amazon Web Services Region. After you enable block public access for snapshots in a Region, users can no longer request public sharing for snapshots in that Region. Snapshots that are already publicly shared are either treated as private or they remain publicly shared, depending on the <b>State</b> that you specify.</p><p>If block public access is enabled in <code>block-all-sharing</code> mode, and you change the mode to <code>block-new-sharing</code>, all snapshots that were previously publicly shared are no longer treated as private and they become publicly accessible again.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html"> Block public access for snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the EnableSnapshotBlockPublicAccess service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2EnableSnapshotBlockPublicAccessResult`.
+ 
+ @see AWSEC2EnableSnapshotBlockPublicAccessRequest
+ @see AWSEC2EnableSnapshotBlockPublicAccessResult
+ */
+- (AWSTask<AWSEC2EnableSnapshotBlockPublicAccessResult *> *)enableSnapshotBlockPublicAccess:(AWSEC2EnableSnapshotBlockPublicAccessRequest *)request;
+
+/**
+ <p>Enables or modifies the <i>block public access for snapshots</i> setting at the account level for the specified Amazon Web Services Region. After you enable block public access for snapshots in a Region, users can no longer request public sharing for snapshots in that Region. Snapshots that are already publicly shared are either treated as private or they remain publicly shared, depending on the <b>State</b> that you specify.</p><p>If block public access is enabled in <code>block-all-sharing</code> mode, and you change the mode to <code>block-new-sharing</code>, all snapshots that were previously publicly shared are no longer treated as private and they become publicly accessible again.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html"> Block public access for snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the EnableSnapshotBlockPublicAccess service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2EnableSnapshotBlockPublicAccessRequest
+ @see AWSEC2EnableSnapshotBlockPublicAccessResult
+ */
+- (void)enableSnapshotBlockPublicAccess:(AWSEC2EnableSnapshotBlockPublicAccessRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableSnapshotBlockPublicAccessResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Enables the specified attachment to propagate routes to the specified propagation route table.</p>
@@ -11145,6 +11270,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)getReservedInstancesExchangeQuote:(AWSEC2GetReservedInstancesExchangeQuoteRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetReservedInstancesExchangeQuoteResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Gets security groups that can be associated by the Amazon Web Services account making the request with network interfaces in the specified VPC.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetSecurityGroupsForVpc service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetSecurityGroupsForVpcResult`.
+ 
+ @see AWSEC2GetSecurityGroupsForVpcRequest
+ @see AWSEC2GetSecurityGroupsForVpcResult
+ */
+- (AWSTask<AWSEC2GetSecurityGroupsForVpcResult *> *)getSecurityGroupsForVpc:(AWSEC2GetSecurityGroupsForVpcRequest *)request;
+
+/**
+ <p>Gets security groups that can be associated by the Amazon Web Services account making the request with network interfaces in the specified VPC.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetSecurityGroupsForVpc service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetSecurityGroupsForVpcRequest
+ @see AWSEC2GetSecurityGroupsForVpcResult
+ */
+- (void)getSecurityGroupsForVpc:(AWSEC2GetSecurityGroupsForVpcRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetSecurityGroupsForVpcResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Retrieves the access status of your account to the EC2 serial console of all instances. By default, access to the EC2 serial console is disabled for your account. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the GetSerialConsoleAccessStatus service method.
@@ -11168,6 +11318,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2GetSerialConsoleAccessStatusResult
  */
 - (void)getSerialConsoleAccessStatus:(AWSEC2GetSerialConsoleAccessStatusRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetSerialConsoleAccessStatusResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets the current state of <i>block public access for snapshots</i> setting for the account and Region.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html"> Block public access for snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetSnapshotBlockPublicAccessState service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetSnapshotBlockPublicAccessStateResult`.
+ 
+ @see AWSEC2GetSnapshotBlockPublicAccessStateRequest
+ @see AWSEC2GetSnapshotBlockPublicAccessStateResult
+ */
+- (AWSTask<AWSEC2GetSnapshotBlockPublicAccessStateResult *> *)getSnapshotBlockPublicAccessState:(AWSEC2GetSnapshotBlockPublicAccessStateRequest *)request;
+
+/**
+ <p>Gets the current state of <i>block public access for snapshots</i> setting for the account and Region.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html"> Block public access for snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetSnapshotBlockPublicAccessState service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetSnapshotBlockPublicAccessStateRequest
+ @see AWSEC2GetSnapshotBlockPublicAccessStateResult
+ */
+- (void)getSnapshotBlockPublicAccessState:(AWSEC2GetSnapshotBlockPublicAccessStateRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetSnapshotBlockPublicAccessStateResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Calculates the Spot placement score for a Region or Availability Zone based on the specified target capacity and compute requirements.</p><p>You can specify your compute requirements either by using <code>InstanceRequirementsWithMetadata</code> and letting Amazon EC2 choose the optimal instance types to fulfill your Spot request, or you can specify the instance types by using <code>InstanceTypes</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot placement score</a> in the Amazon EC2 User Guide.</p>
@@ -13443,6 +13618,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)provisionPublicIpv4PoolCidr:(AWSEC2ProvisionPublicIpv4PoolCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ProvisionPublicIpv4PoolCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Purchase the Capacity Block for use with your account. With Capacity Blocks you ensure GPU capacity is available for machine learning (ML) workloads. You must specify the ID of the Capacity Block offering you are purchasing.</p>
+ 
+ @param request A container for the necessary parameters to execute the PurchaseCapacityBlock service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2PurchaseCapacityBlockResult`.
+ 
+ @see AWSEC2PurchaseCapacityBlockRequest
+ @see AWSEC2PurchaseCapacityBlockResult
+ */
+- (AWSTask<AWSEC2PurchaseCapacityBlockResult *> *)purchaseCapacityBlock:(AWSEC2PurchaseCapacityBlockRequest *)request;
+
+/**
+ <p>Purchase the Capacity Block for use with your account. With Capacity Blocks you ensure GPU capacity is available for machine learning (ML) workloads. You must specify the ID of the Capacity Block offering you are purchasing.</p>
+ 
+ @param request A container for the necessary parameters to execute the PurchaseCapacityBlock service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2PurchaseCapacityBlockRequest
+ @see AWSEC2PurchaseCapacityBlockResult
+ */
+- (void)purchaseCapacityBlock:(AWSEC2PurchaseCapacityBlockRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2PurchaseCapacityBlockResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Purchase a reservation with configurations that match those of your Dedicated Host. You must have active Dedicated Hosts in your account before you purchase a reservation. This action results in the specified reservation being purchased and charged to your account.</p>
  
  @param request A container for the necessary parameters to execute the PurchaseHostReservation service method.
@@ -14416,7 +14616,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)revokeSecurityGroupEgress:(AWSEC2RevokeSecurityGroupEgressRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2RevokeSecurityGroupEgressResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes the specified inbound (ingress) rules from a security group.</p><p>You can specify rules using either rule IDs or security group rule properties. If you use rule properties, the values that you specify (for example, ports) must match the existing rule's values exactly. Each rule has a protocol, from and to ports, and source (CIDR range, security group, or prefix list). For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not need to specify the description to revoke the rule.</p><p>For a default VPC, if the values you specify do not match the existing rule's values, no error is returned, and the output describes the security group rules that were not revoked.</p><p>Amazon Web Services recommends that you describe the security group to verify that the rules were removed.</p><p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
+ <p>Removes the specified inbound (ingress) rules from a security group.</p><p>You can specify rules using either rule IDs or security group rule properties. If you use rule properties, the values that you specify (for example, ports) must match the existing rule's values exactly. Each rule has a protocol, from and to ports, and source (CIDR range, security group, or prefix list). For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not need to specify the description to revoke the rule.</p><p>For a default VPC, if the values you specify do not match the existing rule's values, no error is returned, and the output describes the security group rules that were not revoked.</p><p>For a non-default VPC, if the values you specify do not match the existing rule's values, an <code>InvalidPermission.NotFound</code> client error is returned, and no rules are revoked.</p><p>Amazon Web Services recommends that you describe the security group to verify that the rules were removed.</p><p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
  
  @param request A container for the necessary parameters to execute the RevokeSecurityGroupIngress service method.
 
@@ -14428,7 +14628,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2RevokeSecurityGroupIngressResult *> *)revokeSecurityGroupIngress:(AWSEC2RevokeSecurityGroupIngressRequest *)request;
 
 /**
- <p>Removes the specified inbound (ingress) rules from a security group.</p><p>You can specify rules using either rule IDs or security group rule properties. If you use rule properties, the values that you specify (for example, ports) must match the existing rule's values exactly. Each rule has a protocol, from and to ports, and source (CIDR range, security group, or prefix list). For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not need to specify the description to revoke the rule.</p><p>For a default VPC, if the values you specify do not match the existing rule's values, no error is returned, and the output describes the security group rules that were not revoked.</p><p>Amazon Web Services recommends that you describe the security group to verify that the rules were removed.</p><p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
+ <p>Removes the specified inbound (ingress) rules from a security group.</p><p>You can specify rules using either rule IDs or security group rule properties. If you use rule properties, the values that you specify (for example, ports) must match the existing rule's values exactly. Each rule has a protocol, from and to ports, and source (CIDR range, security group, or prefix list). For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not need to specify the description to revoke the rule.</p><p>For a default VPC, if the values you specify do not match the existing rule's values, no error is returned, and the output describes the security group rules that were not revoked.</p><p>For a non-default VPC, if the values you specify do not match the existing rule's values, an <code>InvalidPermission.NotFound</code> client error is returned, and no rules are revoked.</p><p>Amazon Web Services recommends that you describe the security group to verify that the rules were removed.</p><p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
  
  @param request A container for the necessary parameters to execute the RevokeSecurityGroupIngress service method.
  @param completionHandler The completion handler to call when the load request is complete.
