@@ -648,6 +648,15 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"python3.11"] == NSOrderedSame) {
             return @(AWSLambdaRuntimePython311);
         }
+        if ([value caseInsensitiveCompare:@"nodejs20.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs20X);
+        }
+        if ([value caseInsensitiveCompare:@"provided.al2023"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeProvidedAl2023);
+        }
+        if ([value caseInsensitiveCompare:@"python3.12"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython312);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -715,6 +724,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"ruby3.2";
             case AWSLambdaRuntimePython311:
                 return @"python3.11";
+            case AWSLambdaRuntimeNodejs20X:
+                return @"nodejs20.x";
+            case AWSLambdaRuntimeProvidedAl2023:
+                return @"provided.al2023";
+            case AWSLambdaRuntimePython312:
+                return @"python3.12";
             default:
                 return nil;
         }
@@ -1681,6 +1696,15 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"python3.11"] == NSOrderedSame) {
             return @(AWSLambdaRuntimePython311);
         }
+        if ([value caseInsensitiveCompare:@"nodejs20.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs20X);
+        }
+        if ([value caseInsensitiveCompare:@"provided.al2023"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeProvidedAl2023);
+        }
+        if ([value caseInsensitiveCompare:@"python3.12"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython312);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1748,6 +1772,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"ruby3.2";
             case AWSLambdaRuntimePython311:
                 return @"python3.11";
+            case AWSLambdaRuntimeNodejs20X:
+                return @"nodejs20.x";
+            case AWSLambdaRuntimeProvidedAl2023:
+                return @"provided.al2023";
+            case AWSLambdaRuntimePython312:
+                return @"python3.12";
             default:
                 return nil;
         }
@@ -3354,6 +3384,15 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"python3.11"] == NSOrderedSame) {
             return @(AWSLambdaRuntimePython311);
         }
+        if ([value caseInsensitiveCompare:@"nodejs20.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs20X);
+        }
+        if ([value caseInsensitiveCompare:@"provided.al2023"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeProvidedAl2023);
+        }
+        if ([value caseInsensitiveCompare:@"python3.12"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython312);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3421,6 +3460,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"ruby3.2";
             case AWSLambdaRuntimePython311:
                 return @"python3.11";
+            case AWSLambdaRuntimeNodejs20X:
+                return @"nodejs20.x";
+            case AWSLambdaRuntimeProvidedAl2023:
+                return @"provided.al2023";
+            case AWSLambdaRuntimePython312:
+                return @"python3.12";
             default:
                 return nil;
         }
@@ -3582,6 +3627,15 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"python3.11"] == NSOrderedSame) {
             return @(AWSLambdaRuntimePython311);
         }
+        if ([value caseInsensitiveCompare:@"nodejs20.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs20X);
+        }
+        if ([value caseInsensitiveCompare:@"provided.al2023"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeProvidedAl2023);
+        }
+        if ([value caseInsensitiveCompare:@"python3.12"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython312);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3649,6 +3703,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"ruby3.2";
             case AWSLambdaRuntimePython311:
                 return @"python3.11";
+            case AWSLambdaRuntimeNodejs20X:
+                return @"nodejs20.x";
+            case AWSLambdaRuntimeProvidedAl2023:
+                return @"provided.al2023";
+            case AWSLambdaRuntimePython312:
+                return @"python3.12";
             default:
                 return nil;
         }
@@ -4780,6 +4840,15 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"python3.11"] == NSOrderedSame) {
             return @(AWSLambdaRuntimePython311);
         }
+        if ([value caseInsensitiveCompare:@"nodejs20.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs20X);
+        }
+        if ([value caseInsensitiveCompare:@"provided.al2023"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeProvidedAl2023);
+        }
+        if ([value caseInsensitiveCompare:@"python3.12"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython312);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4847,6 +4916,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"ruby3.2";
             case AWSLambdaRuntimePython311:
                 return @"python3.11";
+            case AWSLambdaRuntimeNodejs20X:
+                return @"nodejs20.x";
+            case AWSLambdaRuntimeProvidedAl2023:
+                return @"provided.al2023";
+            case AWSLambdaRuntimePython312:
+                return @"python3.12";
             default:
                 return nil;
         }
@@ -5027,6 +5102,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"ipv6AllowedForDualStack" : @"Ipv6AllowedForDualStack",
              @"securityGroupIds" : @"SecurityGroupIds",
              @"subnetIds" : @"SubnetIds",
              };
@@ -5042,6 +5118,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"ipv6AllowedForDualStack" : @"Ipv6AllowedForDualStack",
              @"securityGroupIds" : @"SecurityGroupIds",
              @"subnetIds" : @"SubnetIds",
              @"vpcId" : @"VpcId",
