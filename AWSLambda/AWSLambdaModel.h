@@ -213,6 +213,10 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimeJava17,
     AWSLambdaRuntimeRuby32,
     AWSLambdaRuntimePython311,
+    AWSLambdaRuntimeNodejs20X,
+    AWSLambdaRuntimeProvidedAl2023,
+    AWSLambdaRuntimePython312,
+    AWSLambdaRuntimeJava21,
 };
 
 typedef NS_ENUM(NSInteger, AWSLambdaSnapStartApplyOn) {
@@ -1052,7 +1056,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @property (nonatomic, strong) AWSLambdaEnvironment * _Nullable environment;
 
 /**
- <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB.</p>
+ <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
  */
 @property (nonatomic, strong) AWSLambdaEphemeralStorage * _Nullable ephemeralStorage;
 
@@ -1481,7 +1485,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
- <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.</p>
+ <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
  Required parameters: [Size]
  */
 @interface AWSLambdaEphemeralStorage : AWSModel
@@ -1780,7 +1784,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @property (nonatomic, strong) AWSLambdaEnvironmentResponse * _Nullable environment;
 
 /**
- <p>The size of the function’s <code>/tmp</code> directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.</p>
+ <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
  */
 @property (nonatomic, strong) AWSLambdaEphemeralStorage * _Nullable ephemeralStorage;
 
@@ -4353,7 +4357,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @property (nonatomic, strong) AWSLambdaEnvironment * _Nullable environment;
 
 /**
- <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB.</p>
+ <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
  */
 @property (nonatomic, strong) AWSLambdaEphemeralStorage * _Nullable ephemeralStorage;
 
@@ -4545,6 +4549,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 
 
 /**
+ <p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable ipv6AllowedForDualStack;
+
+/**
  <p>A list of VPC security group IDs.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
@@ -4561,6 +4570,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
  */
 @interface AWSLambdaVpcConfigResponse : AWSModel
 
+
+/**
+ <p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable ipv6AllowedForDualStack;
 
 /**
  <p>A list of VPC security group IDs.</p>
