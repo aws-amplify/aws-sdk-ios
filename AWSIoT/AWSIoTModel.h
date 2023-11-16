@@ -1099,6 +1099,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTMetricDimension;
 @class AWSIoTMetricToRetain;
 @class AWSIoTMetricValue;
+@class AWSIoTMetricsExportConfig;
 @class AWSIoTMitigationAction;
 @class AWSIoTMitigationActionIdentifier;
 @class AWSIoTMitigationActionParams;
@@ -2494,6 +2495,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The criteria that determine if a device is behaving normally in regard to the <code>metric</code>.</p><note><p>In the IoT console, you can choose to be sent an alert through Amazon SNS when IoT Device Defender detects that a device is behaving anomalously.</p></note>
  */
 @property (nonatomic, strong) AWSIoTBehaviorCriteria * _Nullable criteria;
+
+/**
+ <p>Value indicates exporting metrics related to the behavior when it is true.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable exportMetric;
 
 /**
  <p>What is measured by the behavior.</p>
@@ -4678,6 +4684,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
  */
 @property (nonatomic, strong) NSArray<AWSIoTBehavior *> * _Nullable behaviors;
+
+/**
+ <p>Specifies the MQTT topic and role ARN required for metric export.</p>
+ */
+@property (nonatomic, strong) AWSIoTMetricsExportConfig * _Nullable metricsExportConfig;
 
 /**
  <p>A description of the security profile.</p>
@@ -7053,6 +7064,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The time the security profile was last modified.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
+
+/**
+ <p>Specifies the MQTT topic and role ARN required for metric export.</p>
+ */
+@property (nonatomic, strong) AWSIoTMetricsExportConfig * _Nullable metricsExportConfig;
 
 /**
  <p>The ARN of the security profile.</p>
@@ -12456,6 +12472,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
+ <p>Value added in both Behavior and AdditionalMetricsToRetainV2 to indicate if Device Defender Detect should export the corresponding metrics.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable exportMetric;
+
+/**
  <p>What is measured by the behavior.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metric;
@@ -12502,6 +12523,25 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p> The string values of a metric. </p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable strings;
+
+@end
+
+/**
+ <p>Set configurations for metrics export.</p>
+ Required parameters: [mqttTopic, roleArn]
+ */
+@interface AWSIoTMetricsExportConfig : AWSModel
+
+
+/**
+ <p>The MQTT topic that Device Defender Detect should publish messages to for metrics export.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable mqttTopic;
+
+/**
+ <p>This role ARN has permission to publish MQTT messages, after which Device Defender Detect can assume the role and publish messages on your behalf.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleArn;
 
 @end
 
@@ -13926,7 +13966,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable indexName;
 
 /**
- <p>The maximum number of results to return at one time.</p>
+ <p>The maximum number of results to return at one time. The response might contain fewer results but will never contain more.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -15055,7 +15095,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSArray<AWSIoTField *> * _Nullable customFields;
 
 /**
- <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing service. This is an optional field. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html#managed-field">Managed fields</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</p>
+ <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing service. This is an optional field. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html#managed-field">Managed fields</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</p><note><p>You can't modify managed fields by updating fleet indexing configuration.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSIoTField *> * _Nullable managedFields;
 
@@ -15130,7 +15170,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) AWSIoTIndexingFilter * _Nullable filter;
 
 /**
- <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing service.</p>
+ <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing service. This is an optional field. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html#managed-field">Managed fields</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</p><note><p>You can't modify managed fields by updating fleet indexing configuration.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSIoTField *> * _Nullable managedFields;
 
@@ -16597,9 +16637,19 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSNumber * _Nullable deleteBehaviors;
 
 /**
+ <p>Set the value as true to delete metrics export related configurations.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable deleteMetricsExportConfig;
+
+/**
  <p>The expected version of the security profile. A new version is generated whenever the security profile is updated. If you specify a value that is different from the actual version, a <code>VersionConflictException</code> is thrown.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable expectedVersion;
+
+/**
+ <p>Specifies the MQTT topic and role ARN required for metric export.</p>
+ */
+@property (nonatomic, strong) AWSIoTMetricsExportConfig * _Nullable metricsExportConfig;
 
 /**
  <p>A description of the security profile.</p>
@@ -16648,6 +16698,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The time the security profile was last modified.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
+
+/**
+ <p>Specifies the MQTT topic and role ARN required for metric export.</p>
+ */
+@property (nonatomic, strong) AWSIoTMetricsExportConfig * _Nullable metricsExportConfig;
 
 /**
  <p>The ARN of the security profile that was updated.</p>

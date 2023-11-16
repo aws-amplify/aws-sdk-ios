@@ -509,6 +509,7 @@
 - (void) test_AWSIoTMetricDimension API_AVAILABLE(ios(11));
 - (void) test_AWSIoTMetricToRetain API_AVAILABLE(ios(11));
 - (void) test_AWSIoTMetricValue API_AVAILABLE(ios(11));
+- (void) test_AWSIoTMetricsExportConfig API_AVAILABLE(ios(11));
 - (void) test_AWSIoTMitigationAction API_AVAILABLE(ios(11));
 - (void) test_AWSIoTMitigationActionIdentifier API_AVAILABLE(ios(11));
 - (void) test_AWSIoTMitigationActionParams API_AVAILABLE(ios(11));
@@ -2662,6 +2663,10 @@
 
 - (void) test_AWSIoTMetricValue {
     [self validateSecureCodingForClass:[AWSIoTMetricValue class]];
+}
+
+- (void) test_AWSIoTMetricsExportConfig {
+    [self validateSecureCodingForClass:[AWSIoTMetricsExportConfig class]];
 }
 
 - (void) test_AWSIoTMitigationAction {
