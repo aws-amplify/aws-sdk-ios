@@ -440,6 +440,42 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
              };
 }
 
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"RUNNING"] == NSOrderedSame) {
+            return @(AWSSQSTaskStatusRunning);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSSQSTaskStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"CANCELLING"] == NSOrderedSame) {
+            return @(AWSSQSTaskStatusCancelling);
+        }
+        if ([value caseInsensitiveCompare:@"CANCELLED"] == NSOrderedSame) {
+            return @(AWSSQSTaskStatusCancelled);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
+            return @(AWSSQSTaskStatusCompleted);
+        }
+        return @(AWSSQSTaskStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSSQSTaskStatusRunning:
+                return @"RUNNING";
+            case AWSSQSTaskStatusFailed:
+                return @"FAILED";
+            case AWSSQSTaskStatusCancelling:
+                return @"CANCELLING";
+            case AWSSQSTaskStatusCancelled:
+                return @"CANCELLED";
+            case AWSSQSTaskStatusCompleted:
+                return @"COMPLETED";
+            default:
+                return nil;
+        }
+    }];
+}
+
 @end
 
 @implementation AWSSQSListQueueTagsRequest

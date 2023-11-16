@@ -97,6 +97,15 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
     AWSSQSQueueAttributeNameSqsManagedSseEnabled,
 };
 
+typedef NS_ENUM(NSInteger, AWSSQSTaskStatus) {
+    AWSSQSTaskStatusUnknown,
+    AWSSQSTaskStatusRunning,
+    AWSSQSTaskStatusFailed,
+    AWSSQSTaskStatusCancelling,
+    AWSSQSTaskStatusCancelled,
+    AWSSQSTaskStatusCompleted,
+};
+
 @class AWSSQSAddPermissionRequest;
 @class AWSSQSBatchResultErrorEntry;
 @class AWSSQSCancelMessageMoveTaskRequest;
@@ -652,7 +661,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 /**
  <p>The status of the message movement task. Possible values are: RUNNING, COMPLETED, CANCELLING, CANCELLED, and FAILED.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable status;
+@property (nonatomic, assign) AWSSQSTaskStatus status;
 
 /**
  <p>An identifier associated with a message movement task. When this field is returned in the response of the <code>ListMessageMoveTasks</code> action, it is only populated for tasks that are in RUNNING status.</p>

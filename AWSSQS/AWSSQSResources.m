@@ -1097,7 +1097,7 @@
           \"documentation\":\"<p>An identifier associated with a message movement task. When this field is returned in the response of the <code>ListMessageMoveTasks</code> action, it is only populated for tasks that are in RUNNING status.</p>\"\
         },\
         \"Status\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TaskStatus\",\
           \"documentation\":\"<p>The status of the message movement task. Possible values are: RUNNING, COMPLETED, CANCELLING, CANCELLED, and FAILED.</p>\"\
         },\
         \"SourceArn\":{\
@@ -1775,6 +1775,16 @@
       }\
     },\
     \"TagValue\":{\"type\":\"string\"},\
+    \"TaskStatus\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"RUNNING\",\
+        \"FAILED\",\
+        \"CANCELLING\",\
+        \"CANCELLED\",\
+        \"COMPLETED\"\
+      ]\
+    },\
     \"Token\":{\"type\":\"string\"},\
     \"TooManyEntriesInBatchRequest\":{\
       \"type\":\"structure\",\
