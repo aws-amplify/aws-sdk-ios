@@ -5256,7 +5256,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deleteVpcEndpoints:(AWSEC2DeleteVpcEndpointsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteVpcEndpointsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a VPC peering connection. Either the owner of the requester VPC or the owner of the accepter VPC can delete the VPC peering connection if it's in the <code>active</code> state. The owner of the requester VPC can delete a VPC peering connection in the <code>pending-acceptance</code> state. You cannot delete a VPC peering connection that's in the <code>failed</code> state.</p>
+ <p>Deletes a VPC peering connection. Either the owner of the requester VPC or the owner of the accepter VPC can delete the VPC peering connection if it's in the <code>active</code> state. The owner of the requester VPC can delete a VPC peering connection in the <code>pending-acceptance</code> state. You cannot delete a VPC peering connection that's in the <code>failed</code> or <code>rejected</code> state.</p>
  
  @param request A container for the necessary parameters to execute the DeleteVpcPeeringConnection service method.
 
@@ -5268,7 +5268,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DeleteVpcPeeringConnectionResult *> *)deleteVpcPeeringConnection:(AWSEC2DeleteVpcPeeringConnectionRequest *)request;
 
 /**
- <p>Deletes a VPC peering connection. Either the owner of the requester VPC or the owner of the accepter VPC can delete the VPC peering connection if it's in the <code>active</code> state. The owner of the requester VPC can delete a VPC peering connection in the <code>pending-acceptance</code> state. You cannot delete a VPC peering connection that's in the <code>failed</code> state.</p>
+ <p>Deletes a VPC peering connection. Either the owner of the requester VPC or the owner of the accepter VPC can delete the VPC peering connection if it's in the <code>active</code> state. The owner of the requester VPC can delete a VPC peering connection in the <code>pending-acceptance</code> state. You cannot delete a VPC peering connection that's in the <code>failed</code> or <code>rejected</code> state.</p>
  
  @param request A container for the necessary parameters to execute the DeleteVpcPeeringConnection service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5744,6 +5744,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeByoipCidrs:(AWSEC2DescribeByoipCidrsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeByoipCidrsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Describes Capacity Block offerings available for purchase. With Capacity Blocks, you purchase a specific instance type for a period of time.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeCapacityBlockOfferings service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeCapacityBlockOfferingsResult`.
+ 
+ @see AWSEC2DescribeCapacityBlockOfferingsRequest
+ @see AWSEC2DescribeCapacityBlockOfferingsResult
+ */
+- (AWSTask<AWSEC2DescribeCapacityBlockOfferingsResult *> *)describeCapacityBlockOfferings:(AWSEC2DescribeCapacityBlockOfferingsRequest *)request;
+
+/**
+ <p>Describes Capacity Block offerings available for purchase. With Capacity Blocks, you purchase a specific instance type for a period of time.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeCapacityBlockOfferings service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeCapacityBlockOfferingsRequest
+ @see AWSEC2DescribeCapacityBlockOfferingsResult
+ */
+- (void)describeCapacityBlockOfferings:(AWSEC2DescribeCapacityBlockOfferingsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeCapacityBlockOfferingsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Describes one or more Capacity Reservation Fleets.</p>
  
  @param request A container for the necessary parameters to execute the DescribeCapacityReservationFleets service method.
@@ -6169,7 +6194,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeExportTasks:(AWSEC2DescribeExportTasksRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeExportTasksResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describe details for Windows AMIs that are configured for faster launching.</p>
+ <p>Describe details for Windows AMIs that are configured for Windows fast launch.</p>
  
  @param request A container for the necessary parameters to execute the DescribeFastLaunchImages service method.
 
@@ -6181,7 +6206,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeFastLaunchImagesResult *> *)describeFastLaunchImages:(AWSEC2DescribeFastLaunchImagesRequest *)request;
 
 /**
- <p>Describe details for Windows AMIs that are configured for faster launching.</p>
+ <p>Describe details for Windows AMIs that are configured for Windows fast launch.</p>
  
  @param request A container for the necessary parameters to execute the DescribeFastLaunchImages service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -6769,6 +6794,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeInstanceStatus:(AWSEC2DescribeInstanceStatusRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeInstanceStatusResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Describes a tree-based hierarchy that represents the physical host placement of your EC2 instances within an Availability Zone or Local Zone. You can use this information to determine the relative proximity of your EC2 instances within the Amazon Web Services network to support your tightly coupled workloads.</p><p class="title"><b>Limitations</b></p><ul><li><p>Supported zones</p><ul><li><p>Availability Zone</p></li><li><p>Local Zone</p></li></ul></li><li><p>Supported instance types</p><ul><li><p><code>hpc6a.48xlarge</code> | <code>hpc6id.32xlarge</code> | <code>hpc7a.12xlarge</code> | <code>hpc7a.24xlarge</code> | <code>hpc7a.48xlarge</code> | <code>hpc7a.96xlarge</code> | <code>hpc7g.4xlarge</code> | <code>hpc7g.8xlarge</code> | <code>hpc7g.16xlarge</code></p></li><li><p><code>p3dn.24xlarge</code> | <code>p4d.24xlarge</code> | <code>p4de.24xlarge</code> | <code>p5.48xlarge</code></p></li><li><p><code>trn1.2xlarge</code> | <code>trn1.32xlarge</code> | <code>trn1n.32xlarge</code></p></li></ul></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html">Amazon EC2 instance topology</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeInstanceTopology service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeInstanceTopologyResult`.
+ 
+ @see AWSEC2DescribeInstanceTopologyRequest
+ @see AWSEC2DescribeInstanceTopologyResult
+ */
+- (AWSTask<AWSEC2DescribeInstanceTopologyResult *> *)describeInstanceTopology:(AWSEC2DescribeInstanceTopologyRequest *)request;
+
+/**
+ <p>Describes a tree-based hierarchy that represents the physical host placement of your EC2 instances within an Availability Zone or Local Zone. You can use this information to determine the relative proximity of your EC2 instances within the Amazon Web Services network to support your tightly coupled workloads.</p><p class="title"><b>Limitations</b></p><ul><li><p>Supported zones</p><ul><li><p>Availability Zone</p></li><li><p>Local Zone</p></li></ul></li><li><p>Supported instance types</p><ul><li><p><code>hpc6a.48xlarge</code> | <code>hpc6id.32xlarge</code> | <code>hpc7a.12xlarge</code> | <code>hpc7a.24xlarge</code> | <code>hpc7a.48xlarge</code> | <code>hpc7a.96xlarge</code> | <code>hpc7g.4xlarge</code> | <code>hpc7g.8xlarge</code> | <code>hpc7g.16xlarge</code></p></li><li><p><code>p3dn.24xlarge</code> | <code>p4d.24xlarge</code> | <code>p4de.24xlarge</code> | <code>p5.48xlarge</code></p></li><li><p><code>trn1.2xlarge</code> | <code>trn1.32xlarge</code> | <code>trn1n.32xlarge</code></p></li></ul></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html">Amazon EC2 instance topology</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeInstanceTopology service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeInstanceTopologyRequest
+ @see AWSEC2DescribeInstanceTopologyResult
+ */
+- (void)describeInstanceTopology:(AWSEC2DescribeInstanceTopologyRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeInstanceTopologyResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Returns a list of all instance types offered. The results can be filtered by location (Region or Availability Zone). If no location is specified, the instance types offered in the current Region are returned.</p>
  
  @param request A container for the necessary parameters to execute the DescribeInstanceTypeOfferings service method.
@@ -7242,6 +7292,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DescribeLocalGatewaysResult
  */
 - (void)describeLocalGateways:(AWSEC2DescribeLocalGatewaysRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeLocalGatewaysResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes the lock status for a snapshot.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeLockedSnapshots service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeLockedSnapshotsResult`.
+ 
+ @see AWSEC2DescribeLockedSnapshotsRequest
+ @see AWSEC2DescribeLockedSnapshotsResult
+ */
+- (AWSTask<AWSEC2DescribeLockedSnapshotsResult *> *)describeLockedSnapshots:(AWSEC2DescribeLockedSnapshotsRequest *)request;
+
+/**
+ <p>Describes the lock status for a snapshot.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeLockedSnapshots service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeLockedSnapshotsRequest
+ @see AWSEC2DescribeLockedSnapshotsResult
+ */
+- (void)describeLockedSnapshots:(AWSEC2DescribeLockedSnapshotsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeLockedSnapshotsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Describes your managed prefix lists and any Amazon Web Services-managed prefix lists.</p><p>To view the entries for your prefix list, use <a>GetManagedPrefixListEntries</a>.</p>
@@ -9360,7 +9435,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)disableEbsEncryptionByDefault:(AWSEC2DisableEbsEncryptionByDefaultRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisableEbsEncryptionByDefaultResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Discontinue faster launching for a Windows AMI, and clean up existing pre-provisioned snapshots. When you disable faster launching, the AMI uses the standard launch process for each instance. All pre-provisioned snapshots must be removed before you can enable faster launching again.</p><note><p>To change these settings, you must own the AMI.</p></note>
+ <p>Discontinue Windows fast launch for a Windows AMI, and clean up existing pre-provisioned snapshots. After you disable Windows fast launch, the AMI uses the standard launch process for each new instance. Amazon EC2 must remove all pre-provisioned snapshots before you can enable Windows fast launch again.</p><note><p>You can only change these settings for Windows AMIs that you own or that have been shared with you.</p></note>
  
  @param request A container for the necessary parameters to execute the DisableFastLaunch service method.
 
@@ -9372,7 +9447,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DisableFastLaunchResult *> *)disableFastLaunch:(AWSEC2DisableFastLaunchRequest *)request;
 
 /**
- <p>Discontinue faster launching for a Windows AMI, and clean up existing pre-provisioned snapshots. When you disable faster launching, the AMI uses the standard launch process for each instance. All pre-provisioned snapshots must be removed before you can enable faster launching again.</p><note><p>To change these settings, you must own the AMI.</p></note>
+ <p>Discontinue Windows fast launch for a Windows AMI, and clean up existing pre-provisioned snapshots. After you disable Windows fast launch, the AMI uses the standard launch process for each new instance. Amazon EC2 must remove all pre-provisioned snapshots before you can enable Windows fast launch again.</p><note><p>You can only change these settings for Windows AMIs that you own or that have been shared with you.</p></note>
  
  @param request A container for the necessary parameters to execute the DisableFastLaunch service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -9410,7 +9485,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)disableFastSnapshotRestores:(AWSEC2DisableFastSnapshotRestoresRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisableFastSnapshotRestoresResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sets the AMI state to <code>disabled</code> and removes all launch permissions from the AMI. A disabled AMI can't be used for instance launches.</p><p>A disabled AMI can't be shared. If a public or shared AMI was previously shared, it is made private. If an AMI was shared with an Amazon Web Services account, organization, or Organizational Unit, they lose access to the disabled AMI. </p><p>A disabled AMI does not appear in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a> API calls by default.</p><p>Only the AMI owner can disable an AMI.</p><p>You can re-enable a disabled AMI using <a href="http://amazonaws.com/AWSEC2/latest/APIReference/API_EnableImage.html">EnableImage</a>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html">Disable an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Sets the AMI state to <code>disabled</code> and removes all launch permissions from the AMI. A disabled AMI can't be used for instance launches.</p><p>A disabled AMI can't be shared. If an AMI was public or previously shared, it is made private. If an AMI was shared with an Amazon Web Services account, organization, or Organizational Unit, they lose access to the disabled AMI. </p><p>A disabled AMI does not appear in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a> API calls by default.</p><p>Only the AMI owner can disable an AMI.</p><p>You can re-enable a disabled AMI using <a href="http://amazonaws.com/AWSEC2/latest/APIReference/API_EnableImage.html">EnableImage</a>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html">Disable an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DisableImage service method.
 
@@ -9422,7 +9497,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DisableImageResult *> *)disableImage:(AWSEC2DisableImageRequest *)request;
 
 /**
- <p>Sets the AMI state to <code>disabled</code> and removes all launch permissions from the AMI. A disabled AMI can't be used for instance launches.</p><p>A disabled AMI can't be shared. If a public or shared AMI was previously shared, it is made private. If an AMI was shared with an Amazon Web Services account, organization, or Organizational Unit, they lose access to the disabled AMI. </p><p>A disabled AMI does not appear in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a> API calls by default.</p><p>Only the AMI owner can disable an AMI.</p><p>You can re-enable a disabled AMI using <a href="http://amazonaws.com/AWSEC2/latest/APIReference/API_EnableImage.html">EnableImage</a>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html">Disable an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Sets the AMI state to <code>disabled</code> and removes all launch permissions from the AMI. A disabled AMI can't be used for instance launches.</p><p>A disabled AMI can't be shared. If an AMI was public or previously shared, it is made private. If an AMI was shared with an Amazon Web Services account, organization, or Organizational Unit, they lose access to the disabled AMI. </p><p>A disabled AMI does not appear in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a> API calls by default.</p><p>Only the AMI owner can disable an AMI.</p><p>You can re-enable a disabled AMI using <a href="http://amazonaws.com/AWSEC2/latest/APIReference/API_EnableImage.html">EnableImage</a>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html">Disable an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DisableImage service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -9533,6 +9608,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DisableSerialConsoleAccessResult
  */
 - (void)disableSerialConsoleAccess:(AWSEC2DisableSerialConsoleAccessRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisableSerialConsoleAccessResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Disables the <i>block public access for snapshots</i> setting at the account level for the specified Amazon Web Services Region. After you disable block public access for snapshots in a Region, users can publicly share snapshots in that Region.</p><p>If block public access is enabled in <code>block-all-sharing</code> mode, and you disable block public access, all snapshots that were previously publicly shared are no longer treated as private and they become publicly accessible again.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html"> Block public access for snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> .</p><p/>
+ 
+ @param request A container for the necessary parameters to execute the DisableSnapshotBlockPublicAccess service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DisableSnapshotBlockPublicAccessResult`.
+ 
+ @see AWSEC2DisableSnapshotBlockPublicAccessRequest
+ @see AWSEC2DisableSnapshotBlockPublicAccessResult
+ */
+- (AWSTask<AWSEC2DisableSnapshotBlockPublicAccessResult *> *)disableSnapshotBlockPublicAccess:(AWSEC2DisableSnapshotBlockPublicAccessRequest *)request;
+
+/**
+ <p>Disables the <i>block public access for snapshots</i> setting at the account level for the specified Amazon Web Services Region. After you disable block public access for snapshots in a Region, users can publicly share snapshots in that Region.</p><p>If block public access is enabled in <code>block-all-sharing</code> mode, and you disable block public access, all snapshots that were previously publicly shared are no longer treated as private and they become publicly accessible again.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html"> Block public access for snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> .</p><p/>
+ 
+ @param request A container for the necessary parameters to execute the DisableSnapshotBlockPublicAccess service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DisableSnapshotBlockPublicAccessRequest
+ @see AWSEC2DisableSnapshotBlockPublicAccessResult
+ */
+- (void)disableSnapshotBlockPublicAccess:(AWSEC2DisableSnapshotBlockPublicAccessRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisableSnapshotBlockPublicAccessResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Disables the specified resource attachment from propagating routes to the specified propagation route table.</p>
@@ -10051,7 +10151,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)enableEbsEncryptionByDefault:(AWSEC2EnableEbsEncryptionByDefaultRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableEbsEncryptionByDefaultResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>When you enable faster launching for a Windows AMI, images are pre-provisioned, using snapshots to launch instances up to 65% faster. To create the optimized Windows image, Amazon EC2 launches an instance and runs through Sysprep steps, rebooting as required. Then it creates a set of reserved snapshots that are used for subsequent launches. The reserved snapshots are automatically replenished as they are used, depending on your settings for launch frequency.</p><note><p>To change these settings, you must own the AMI.</p></note>
+ <p>When you enable Windows fast launch for a Windows AMI, images are pre-provisioned, using snapshots to launch instances up to 65% faster. To create the optimized Windows image, Amazon EC2 launches an instance and runs through Sysprep steps, rebooting as required. Then it creates a set of reserved snapshots that are used for subsequent launches. The reserved snapshots are automatically replenished as they are used, depending on your settings for launch frequency.</p><note><p>You can only change these settings for Windows AMIs that you own or that have been shared with you.</p></note>
  
  @param request A container for the necessary parameters to execute the EnableFastLaunch service method.
 
@@ -10063,7 +10163,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2EnableFastLaunchResult *> *)enableFastLaunch:(AWSEC2EnableFastLaunchRequest *)request;
 
 /**
- <p>When you enable faster launching for a Windows AMI, images are pre-provisioned, using snapshots to launch instances up to 65% faster. To create the optimized Windows image, Amazon EC2 launches an instance and runs through Sysprep steps, rebooting as required. Then it creates a set of reserved snapshots that are used for subsequent launches. The reserved snapshots are automatically replenished as they are used, depending on your settings for launch frequency.</p><note><p>To change these settings, you must own the AMI.</p></note>
+ <p>When you enable Windows fast launch for a Windows AMI, images are pre-provisioned, using snapshots to launch instances up to 65% faster. To create the optimized Windows image, Amazon EC2 launches an instance and runs through Sysprep steps, rebooting as required. Then it creates a set of reserved snapshots that are used for subsequent launches. The reserved snapshots are automatically replenished as they are used, depending on your settings for launch frequency.</p><note><p>You can only change these settings for Windows AMIs that you own or that have been shared with you.</p></note>
  
  @param request A container for the necessary parameters to execute the EnableFastLaunch service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -10249,6 +10349,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2EnableSerialConsoleAccessResult
  */
 - (void)enableSerialConsoleAccess:(AWSEC2EnableSerialConsoleAccessRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableSerialConsoleAccessResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Enables or modifies the <i>block public access for snapshots</i> setting at the account level for the specified Amazon Web Services Region. After you enable block public access for snapshots in a Region, users can no longer request public sharing for snapshots in that Region. Snapshots that are already publicly shared are either treated as private or they remain publicly shared, depending on the <b>State</b> that you specify.</p><p>If block public access is enabled in <code>block-all-sharing</code> mode, and you change the mode to <code>block-new-sharing</code>, all snapshots that were previously publicly shared are no longer treated as private and they become publicly accessible again.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html"> Block public access for snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the EnableSnapshotBlockPublicAccess service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2EnableSnapshotBlockPublicAccessResult`.
+ 
+ @see AWSEC2EnableSnapshotBlockPublicAccessRequest
+ @see AWSEC2EnableSnapshotBlockPublicAccessResult
+ */
+- (AWSTask<AWSEC2EnableSnapshotBlockPublicAccessResult *> *)enableSnapshotBlockPublicAccess:(AWSEC2EnableSnapshotBlockPublicAccessRequest *)request;
+
+/**
+ <p>Enables or modifies the <i>block public access for snapshots</i> setting at the account level for the specified Amazon Web Services Region. After you enable block public access for snapshots in a Region, users can no longer request public sharing for snapshots in that Region. Snapshots that are already publicly shared are either treated as private or they remain publicly shared, depending on the <b>State</b> that you specify.</p><p>If block public access is enabled in <code>block-all-sharing</code> mode, and you change the mode to <code>block-new-sharing</code>, all snapshots that were previously publicly shared are no longer treated as private and they become publicly accessible again.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html"> Block public access for snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the EnableSnapshotBlockPublicAccess service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2EnableSnapshotBlockPublicAccessRequest
+ @see AWSEC2EnableSnapshotBlockPublicAccessResult
+ */
+- (void)enableSnapshotBlockPublicAccess:(AWSEC2EnableSnapshotBlockPublicAccessRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableSnapshotBlockPublicAccessResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Enables the specified attachment to propagate routes to the specified propagation route table.</p>
@@ -11195,6 +11320,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)getReservedInstancesExchangeQuote:(AWSEC2GetReservedInstancesExchangeQuoteRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetReservedInstancesExchangeQuoteResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Gets security groups that can be associated by the Amazon Web Services account making the request with network interfaces in the specified VPC.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetSecurityGroupsForVpc service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetSecurityGroupsForVpcResult`.
+ 
+ @see AWSEC2GetSecurityGroupsForVpcRequest
+ @see AWSEC2GetSecurityGroupsForVpcResult
+ */
+- (AWSTask<AWSEC2GetSecurityGroupsForVpcResult *> *)getSecurityGroupsForVpc:(AWSEC2GetSecurityGroupsForVpcRequest *)request;
+
+/**
+ <p>Gets security groups that can be associated by the Amazon Web Services account making the request with network interfaces in the specified VPC.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetSecurityGroupsForVpc service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetSecurityGroupsForVpcRequest
+ @see AWSEC2GetSecurityGroupsForVpcResult
+ */
+- (void)getSecurityGroupsForVpc:(AWSEC2GetSecurityGroupsForVpcRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetSecurityGroupsForVpcResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Retrieves the access status of your account to the EC2 serial console of all instances. By default, access to the EC2 serial console is disabled for your account. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the GetSerialConsoleAccessStatus service method.
@@ -11218,6 +11368,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2GetSerialConsoleAccessStatusResult
  */
 - (void)getSerialConsoleAccessStatus:(AWSEC2GetSerialConsoleAccessStatusRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetSerialConsoleAccessStatusResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets the current state of <i>block public access for snapshots</i> setting for the account and Region.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html"> Block public access for snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetSnapshotBlockPublicAccessState service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetSnapshotBlockPublicAccessStateResult`.
+ 
+ @see AWSEC2GetSnapshotBlockPublicAccessStateRequest
+ @see AWSEC2GetSnapshotBlockPublicAccessStateResult
+ */
+- (AWSTask<AWSEC2GetSnapshotBlockPublicAccessStateResult *> *)getSnapshotBlockPublicAccessState:(AWSEC2GetSnapshotBlockPublicAccessStateRequest *)request;
+
+/**
+ <p>Gets the current state of <i>block public access for snapshots</i> setting for the account and Region.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html"> Block public access for snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetSnapshotBlockPublicAccessState service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetSnapshotBlockPublicAccessStateRequest
+ @see AWSEC2GetSnapshotBlockPublicAccessStateResult
+ */
+- (void)getSnapshotBlockPublicAccessState:(AWSEC2GetSnapshotBlockPublicAccessStateRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetSnapshotBlockPublicAccessStateResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Calculates the Spot placement score for a Region or Availability Zone based on the specified target capacity and compute requirements.</p><p>You can specify your compute requirements either by using <code>InstanceRequirementsWithMetadata</code> and letting Amazon EC2 choose the optimal instance types to fulfill your Spot request, or you can specify the instance types by using <code>InstanceTypes</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot placement score</a> in the Amazon EC2 User Guide.</p>
@@ -11768,6 +11943,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2ListSnapshotsInRecycleBinResult
  */
 - (void)listSnapshotsInRecycleBin:(AWSEC2ListSnapshotsInRecycleBinRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ListSnapshotsInRecycleBinResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Locks an Amazon EBS snapshot in either <i>governance</i> or <i>compliance</i> mode to protect it against accidental or malicious deletions for a specific duration. A locked snapshot can't be deleted.</p><p>You can also use this action to modify the lock settings for a snapshot that is already locked. The allowed modifications depend on the lock mode and lock state:</p><ul><li><p>If the snapshot is locked in governance mode, you can modify the lock mode and the lock duration or lock expiration date.</p></li><li><p>If the snapshot is locked in compliance mode and it is in the cooling-off period, you can modify the lock mode and the lock duration or lock expiration date.</p></li><li><p>If the snapshot is locked in compliance mode and the cooling-off period has lapsed, you can only increase the lock duration or extend the lock expiration date.</p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the LockSnapshot service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2LockSnapshotResult`.
+ 
+ @see AWSEC2LockSnapshotRequest
+ @see AWSEC2LockSnapshotResult
+ */
+- (AWSTask<AWSEC2LockSnapshotResult *> *)lockSnapshot:(AWSEC2LockSnapshotRequest *)request;
+
+/**
+ <p>Locks an Amazon EBS snapshot in either <i>governance</i> or <i>compliance</i> mode to protect it against accidental or malicious deletions for a specific duration. A locked snapshot can't be deleted.</p><p>You can also use this action to modify the lock settings for a snapshot that is already locked. The allowed modifications depend on the lock mode and lock state:</p><ul><li><p>If the snapshot is locked in governance mode, you can modify the lock mode and the lock duration or lock expiration date.</p></li><li><p>If the snapshot is locked in compliance mode and it is in the cooling-off period, you can modify the lock mode and the lock duration or lock expiration date.</p></li><li><p>If the snapshot is locked in compliance mode and the cooling-off period has lapsed, you can only increase the lock duration or extend the lock expiration date.</p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the LockSnapshot service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2LockSnapshotRequest
+ @see AWSEC2LockSnapshotResult
+ */
+- (void)lockSnapshot:(AWSEC2LockSnapshotRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2LockSnapshotResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Modifies an attribute of the specified Elastic IP address. For requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS">Using reverse DNS for email applications</a>.</p>
@@ -13493,6 +13693,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)provisionPublicIpv4PoolCidr:(AWSEC2ProvisionPublicIpv4PoolCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ProvisionPublicIpv4PoolCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Purchase the Capacity Block for use with your account. With Capacity Blocks you ensure GPU capacity is available for machine learning (ML) workloads. You must specify the ID of the Capacity Block offering you are purchasing.</p>
+ 
+ @param request A container for the necessary parameters to execute the PurchaseCapacityBlock service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2PurchaseCapacityBlockResult`.
+ 
+ @see AWSEC2PurchaseCapacityBlockRequest
+ @see AWSEC2PurchaseCapacityBlockResult
+ */
+- (AWSTask<AWSEC2PurchaseCapacityBlockResult *> *)purchaseCapacityBlock:(AWSEC2PurchaseCapacityBlockRequest *)request;
+
+/**
+ <p>Purchase the Capacity Block for use with your account. With Capacity Blocks you ensure GPU capacity is available for machine learning (ML) workloads. You must specify the ID of the Capacity Block offering you are purchasing.</p>
+ 
+ @param request A container for the necessary parameters to execute the PurchaseCapacityBlock service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2PurchaseCapacityBlockRequest
+ @see AWSEC2PurchaseCapacityBlockResult
+ */
+- (void)purchaseCapacityBlock:(AWSEC2PurchaseCapacityBlockRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2PurchaseCapacityBlockResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Purchase a reservation with configurations that match those of your Dedicated Host. You must have active Dedicated Hosts in your account before you purchase a reservation. This action results in the specified reservation being purchased and charged to your account.</p>
  
  @param request A container for the necessary parameters to execute the PurchaseHostReservation service method.
@@ -14883,6 +15108,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2UnassignPrivateNatGatewayAddressResult
  */
 - (void)unassignPrivateNatGatewayAddress:(AWSEC2UnassignPrivateNatGatewayAddressRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2UnassignPrivateNatGatewayAddressResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Unlocks a snapshot that is locked in governance mode or that is locked in compliance mode but still in the cooling-off period. You can't unlock a snapshot that is locked in compliance mode after the cooling-off period has expired.</p>
+ 
+ @param request A container for the necessary parameters to execute the UnlockSnapshot service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2UnlockSnapshotResult`.
+ 
+ @see AWSEC2UnlockSnapshotRequest
+ @see AWSEC2UnlockSnapshotResult
+ */
+- (AWSTask<AWSEC2UnlockSnapshotResult *> *)unlockSnapshot:(AWSEC2UnlockSnapshotRequest *)request;
+
+/**
+ <p>Unlocks a snapshot that is locked in governance mode or that is locked in compliance mode but still in the cooling-off period. You can't unlock a snapshot that is locked in compliance mode after the cooling-off period has expired.</p>
+ 
+ @param request A container for the necessary parameters to execute the UnlockSnapshot service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2UnlockSnapshotRequest
+ @see AWSEC2UnlockSnapshotResult
+ */
+- (void)unlockSnapshot:(AWSEC2UnlockSnapshotRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2UnlockSnapshotResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Disables detailed monitoring for a running instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring your instances and volumes</a> in the <i>Amazon EC2 User Guide</i>.</p>
