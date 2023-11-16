@@ -354,6 +354,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"enabledMetrics" : @"EnabledMetrics",
              @"healthCheckGracePeriod" : @"HealthCheckGracePeriod",
              @"healthCheckType" : @"HealthCheckType",
+             @"instanceMaintenancePolicy" : @"InstanceMaintenancePolicy",
              @"instances" : @"Instances",
              @"launchConfigurationName" : @"LaunchConfigurationName",
              @"launchTemplate" : @"LaunchTemplate",
@@ -388,6 +389,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)enabledMetricsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingEnabledMetric class]];
+}
+
++ (NSValueTransformer *)instanceMaintenancePolicyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingInstanceMaintenancePolicy class]];
 }
 
 + (NSValueTransformer *)instancesJSONTransformer {
@@ -700,6 +705,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"healthCheckGracePeriod" : @"HealthCheckGracePeriod",
              @"healthCheckType" : @"HealthCheckType",
              @"instanceId" : @"InstanceId",
+             @"instanceMaintenancePolicy" : @"InstanceMaintenancePolicy",
              @"launchConfigurationName" : @"LaunchConfigurationName",
              @"launchTemplate" : @"LaunchTemplate",
              @"lifecycleHookSpecificationList" : @"LifecycleHookSpecificationList",
@@ -717,6 +723,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"trafficSources" : @"TrafficSources",
              @"VPCZoneIdentifier" : @"VPCZoneIdentifier",
              };
+}
+
++ (NSValueTransformer *)instanceMaintenancePolicyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingInstanceMaintenancePolicy class]];
 }
 
 + (NSValueTransformer *)launchTemplateJSONTransformer {
@@ -1972,6 +1982,21 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSAutoScalingInstanceMaintenancePolicy
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxHealthyPercentage" : @"MaxHealthyPercentage",
+             @"minHealthyPercentage" : @"MinHealthyPercentage",
+             };
 }
 
 @end
@@ -3500,6 +3525,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"checkpointDelay" : @"CheckpointDelay",
              @"checkpointPercentages" : @"CheckpointPercentages",
              @"instanceWarmup" : @"InstanceWarmup",
+             @"maxHealthyPercentage" : @"MaxHealthyPercentage",
              @"minHealthyPercentage" : @"MinHealthyPercentage",
              @"scaleInProtectedInstances" : @"ScaleInProtectedInstances",
              @"skipMatching" : @"SkipMatching",
@@ -4131,6 +4157,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"desiredCapacityType" : @"DesiredCapacityType",
              @"healthCheckGracePeriod" : @"HealthCheckGracePeriod",
              @"healthCheckType" : @"HealthCheckType",
+             @"instanceMaintenancePolicy" : @"InstanceMaintenancePolicy",
              @"launchConfigurationName" : @"LaunchConfigurationName",
              @"launchTemplate" : @"LaunchTemplate",
              @"maxInstanceLifetime" : @"MaxInstanceLifetime",
@@ -4143,6 +4170,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"terminationPolicies" : @"TerminationPolicies",
              @"VPCZoneIdentifier" : @"VPCZoneIdentifier",
              };
+}
+
++ (NSValueTransformer *)instanceMaintenancePolicyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingInstanceMaintenancePolicy class]];
 }
 
 + (NSValueTransformer *)launchTemplateJSONTransformer {
