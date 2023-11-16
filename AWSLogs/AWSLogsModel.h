@@ -23,6 +23,8 @@ FOUNDATION_EXPORT NSString *const AWSLogsErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSLogsErrorType) {
     AWSLogsErrorUnknown,
+    AWSLogsErrorAccessDenied,
+    AWSLogsErrorConflict,
     AWSLogsErrorDataAlreadyAccepted,
     AWSLogsErrorInvalidOperation,
     AWSLogsErrorInvalidParameter,
@@ -32,9 +34,12 @@ typedef NS_ENUM(NSInteger, AWSLogsErrorType) {
     AWSLogsErrorOperationAborted,
     AWSLogsErrorResourceAlreadyExists,
     AWSLogsErrorResourceNotFound,
+    AWSLogsErrorServiceQuotaExceeded,
     AWSLogsErrorServiceUnavailable,
+    AWSLogsErrorThrottling,
     AWSLogsErrorTooManyTags,
     AWSLogsErrorUnrecognizedClient,
+    AWSLogsErrorValidation,
 };
 
 typedef NS_ENUM(NSInteger, AWSLogsDataProtectionStatus) {
@@ -43,6 +48,13 @@ typedef NS_ENUM(NSInteger, AWSLogsDataProtectionStatus) {
     AWSLogsDataProtectionStatusDeleted,
     AWSLogsDataProtectionStatusArchived,
     AWSLogsDataProtectionStatusDisabled,
+};
+
+typedef NS_ENUM(NSInteger, AWSLogsDeliveryDestinationType) {
+    AWSLogsDeliveryDestinationTypeUnknown,
+    AWSLogsDeliveryDestinationTypeS3,
+    AWSLogsDeliveryDestinationTypeCwl,
+    AWSLogsDeliveryDestinationTypeFh,
 };
 
 typedef NS_ENUM(NSInteger, AWSLogsDistribution) {
@@ -70,6 +82,15 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
     AWSLogsOrderByUnknown,
     AWSLogsOrderByLogStreamName,
     AWSLogsOrderByLastEventTime,
+};
+
+typedef NS_ENUM(NSInteger, AWSLogsOutputFormat) {
+    AWSLogsOutputFormatUnknown,
+    AWSLogsOutputFormatJson,
+    AWSLogsOutputFormatPlain,
+    AWSLogsOutputFormatW3c,
+    AWSLogsOutputFormatRaw,
+    AWSLogsOutputFormatParquet,
 };
 
 typedef NS_ENUM(NSInteger, AWSLogsPolicyType) {
@@ -126,12 +147,18 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @class AWSLogsAccountPolicy;
 @class AWSLogsAssociateKmsKeyRequest;
 @class AWSLogsCancelExportTaskRequest;
+@class AWSLogsCreateDeliveryRequest;
+@class AWSLogsCreateDeliveryResponse;
 @class AWSLogsCreateExportTaskRequest;
 @class AWSLogsCreateExportTaskResponse;
 @class AWSLogsCreateLogGroupRequest;
 @class AWSLogsCreateLogStreamRequest;
 @class AWSLogsDeleteAccountPolicyRequest;
 @class AWSLogsDeleteDataProtectionPolicyRequest;
+@class AWSLogsDeleteDeliveryDestinationPolicyRequest;
+@class AWSLogsDeleteDeliveryDestinationRequest;
+@class AWSLogsDeleteDeliveryRequest;
+@class AWSLogsDeleteDeliverySourceRequest;
 @class AWSLogsDeleteDestinationRequest;
 @class AWSLogsDeleteLogGroupRequest;
 @class AWSLogsDeleteLogStreamRequest;
@@ -141,8 +168,18 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @class AWSLogsDeleteResourcePolicyRequest;
 @class AWSLogsDeleteRetentionPolicyRequest;
 @class AWSLogsDeleteSubscriptionFilterRequest;
+@class AWSLogsDelivery;
+@class AWSLogsDeliveryDestination;
+@class AWSLogsDeliveryDestinationConfiguration;
+@class AWSLogsDeliverySource;
 @class AWSLogsDescribeAccountPoliciesRequest;
 @class AWSLogsDescribeAccountPoliciesResponse;
+@class AWSLogsDescribeDeliveriesRequest;
+@class AWSLogsDescribeDeliveriesResponse;
+@class AWSLogsDescribeDeliveryDestinationsRequest;
+@class AWSLogsDescribeDeliveryDestinationsResponse;
+@class AWSLogsDescribeDeliverySourcesRequest;
+@class AWSLogsDescribeDeliverySourcesResponse;
 @class AWSLogsDescribeDestinationsRequest;
 @class AWSLogsDescribeDestinationsResponse;
 @class AWSLogsDescribeExportTasksRequest;
@@ -171,6 +208,14 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @class AWSLogsFilteredLogEvent;
 @class AWSLogsGetDataProtectionPolicyRequest;
 @class AWSLogsGetDataProtectionPolicyResponse;
+@class AWSLogsGetDeliveryDestinationPolicyRequest;
+@class AWSLogsGetDeliveryDestinationPolicyResponse;
+@class AWSLogsGetDeliveryDestinationRequest;
+@class AWSLogsGetDeliveryDestinationResponse;
+@class AWSLogsGetDeliveryRequest;
+@class AWSLogsGetDeliveryResponse;
+@class AWSLogsGetDeliverySourceRequest;
+@class AWSLogsGetDeliverySourceResponse;
 @class AWSLogsGetLogEventsRequest;
 @class AWSLogsGetLogEventsResponse;
 @class AWSLogsGetLogGroupFieldsRequest;
@@ -191,10 +236,17 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @class AWSLogsMetricFilterMatchRecord;
 @class AWSLogsMetricTransformation;
 @class AWSLogsOutputLogEvent;
+@class AWSLogsPolicy;
 @class AWSLogsPutAccountPolicyRequest;
 @class AWSLogsPutAccountPolicyResponse;
 @class AWSLogsPutDataProtectionPolicyRequest;
 @class AWSLogsPutDataProtectionPolicyResponse;
+@class AWSLogsPutDeliveryDestinationPolicyRequest;
+@class AWSLogsPutDeliveryDestinationPolicyResponse;
+@class AWSLogsPutDeliveryDestinationRequest;
+@class AWSLogsPutDeliveryDestinationResponse;
+@class AWSLogsPutDeliverySourceRequest;
+@class AWSLogsPutDeliverySourceResponse;
 @class AWSLogsPutDestinationPolicyRequest;
 @class AWSLogsPutDestinationRequest;
 @class AWSLogsPutDestinationResponse;
@@ -299,6 +351,42 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
  <p>The ID of the export task.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable taskId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsCreateDeliveryRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the delivery destination to use for this delivery.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deliveryDestinationArn;
+
+/**
+ <p>The name of the delivery source to use for this delivery.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deliverySourceName;
+
+/**
+ <p>An optional list of key-value pairs to associate with the resource.</p><p>For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a></p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsCreateDeliveryResponse : AWSModel
+
+
+/**
+ <p>A structure that contains information about the delivery that you just created.</p>
+ */
+@property (nonatomic, strong) AWSLogsDelivery * _Nullable delivery;
 
 @end
 
@@ -427,6 +515,58 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
  <p>The name or ARN of the log group that you want to delete the data protection policy for.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupIdentifier;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsDeleteDeliveryDestinationPolicyRequest : AWSRequest
+
+
+/**
+ <p>The name of the delivery destination that you want to delete the policy for.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deliveryDestinationName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsDeleteDeliveryDestinationRequest : AWSRequest
+
+
+/**
+ <p>The name of the delivery destination that you want to delete. You can find a list of delivery destionation names by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveryDestinations.html">DescribeDeliveryDestinations</a> operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsDeleteDeliveryRequest : AWSRequest
+
+
+/**
+ <p>The unique ID of the delivery to delete. You can find the ID of a delivery with the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html">DescribeDeliveries</a> operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsDeleteDeliverySourceRequest : AWSRequest
+
+
+/**
+ <p>The name of the delivery source that you want to delete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
 
 @end
 
@@ -563,6 +703,134 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
+ <p>This structure contains information about one <i>delivery</i> in your account. </p><p>A delivery is a connection between a logical <i>delivery source</i> and a logical <i>delivery destination</i>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.</p><p>You can't update an existing delivery. You can only create and delete deliveries.</p>
+ */
+@interface AWSLogsDelivery : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) that uniquely identifies this delivery.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The ARN of the delivery destination that is associated with this delivery.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deliveryDestinationArn;
+
+/**
+ <p>Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.</p>
+ */
+@property (nonatomic, assign) AWSLogsDeliveryDestinationType deliveryDestinationType;
+
+/**
+ <p>The name of the delivery source that is associated with this delivery.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deliverySourceName;
+
+/**
+ <p>The unique ID that identifies this delivery in your account.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The tags that have been assigned to this delivery.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ <p>This structure contains information about one <i>delivery destination</i> in your account. A delivery destination is an Amazon Web Services resource that represents an shared id="AWS"/&gt; service that logs can be sent to. CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.</p><p>To configure logs delivery between a supported Amazon Web Services service and a destination, you must do the following:</p><ul><li><p>Create a delivery source, which is a logical object that represents the resource that is actually sending the logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.</p></li><li><p>Create a <i>delivery destination</i>, which is a logical object that represents the actual delivery destination. </p></li><li><p>If you are delivering logs cross-account, you must use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationolicy.html">PutDeliveryDestinationPolicy</a> in the destination account to assign an IAM policy to the destination. This policy allows delivery to that destination. </p></li><li><p>Create a <i>delivery</i> by pairing exactly one delivery source and one delivery destination. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.</p></li></ul><p>You can configure a single delivery source to send logs to multiple destinations by creating multiple deliveries. You can also create multiple deliveries to configure multiple delivery sources to send logs to the same delivery destination.</p>
+ */
+@interface AWSLogsDeliveryDestination : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>A structure that contains the ARN of the Amazon Web Services resource that will receive the logs.</p>
+ */
+@property (nonatomic, strong) AWSLogsDeliveryDestinationConfiguration * _Nullable deliveryDestinationConfiguration;
+
+/**
+ <p>Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.</p>
+ */
+@property (nonatomic, assign) AWSLogsDeliveryDestinationType deliveryDestinationType;
+
+/**
+ <p>The name of this delivery destination.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The format of the logs that are sent to this delivery destination. </p>
+ */
+@property (nonatomic, assign) AWSLogsOutputFormat outputFormat;
+
+/**
+ <p>The tags that have been assigned to this delivery destination.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ <p>A structure that contains information about one logs delivery destination.</p>
+ Required parameters: [destinationResourceArn]
+ */
+@interface AWSLogsDeliveryDestinationConfiguration : AWSModel
+
+
+/**
+ <p>The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Kinesis Data Firehose.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationResourceArn;
+
+@end
+
+/**
+ <p>This structure contains information about one <i>delivery source</i> in your account. A delivery source is an Amazon Web Services resource that sends logs to an Amazon Web Services destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.</p><p>Only some Amazon Web Services services support being configured as a delivery source. These services are listed as <b>Supported [V2 Permissions]</b> in the table at <a href="https://docs.aws.amazon.com/ AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions">Enabling logging from Amazon Web Services services.</a></p><p>To configure logs delivery between a supported Amazon Web Services service and a destination, you must do the following:</p><ul><li><p>Create a delivery source, which is a logical object that represents the resource that is actually sending the logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.</p></li><li><p>Create a <i>delivery destination</i>, which is a logical object that represents the actual delivery destination. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html">PutDeliveryDestination</a>.</p></li><li><p>If you are delivering logs cross-account, you must use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationolicy.html">PutDeliveryDestinationPolicy</a> in the destination account to assign an IAM policy to the destination. This policy allows delivery to that destination. </p></li><li><p>Create a <i>delivery</i> by pairing exactly one delivery source and one delivery destination. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.</p></li></ul><p>You can configure a single delivery source to send logs to multiple destinations by creating multiple deliveries. You can also create multiple deliveries to configure multiple delivery sources to send logs to the same delivery destination.</p>
+ */
+@interface AWSLogsDeliverySource : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) that uniquely identifies this delivery source.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The type of log that the source is sending. For valid values for this parameter, see the documentation for the source service.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable logType;
+
+/**
+ <p>The unique name of the delivery source.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>This array contains the ARN of the Amazon Web Services resource that sends logs and is represented by this delivery source. Currently, only one ARN can be in the array.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable resourceArns;
+
+/**
+ <p>The Amazon Web Services service that is sending logs.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable service;
+
+/**
+ <p>The tags that have been assigned to this delivery source.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
  
  */
 @interface AWSLogsDescribeAccountPoliciesRequest : AWSRequest
@@ -595,6 +863,114 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
  <p>An array of structures that contain information about the CloudWatch Logs account policies that match the specified filters.</p>
  */
 @property (nonatomic, strong) NSArray<AWSLogsAccountPolicy *> * _Nullable accountPolicies;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsDescribeDeliveriesRequest : AWSRequest
+
+
+/**
+ <p>Optionally specify the maximum number of deliveries to return in the response.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable limit;
+
+/**
+ <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsDescribeDeliveriesResponse : AWSModel
+
+
+/**
+ <p>An array of structures. Each structure contains information about one delivery in the account.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSLogsDelivery *> * _Nullable deliveries;
+
+/**
+ <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsDescribeDeliveryDestinationsRequest : AWSRequest
+
+
+/**
+ <p>Optionally specify the maximum number of delivery destinations to return in the response.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable limit;
+
+/**
+ <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsDescribeDeliveryDestinationsResponse : AWSModel
+
+
+/**
+ <p>An array of structures. Each structure contains information about one delivery destination in the account.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSLogsDeliveryDestination *> * _Nullable deliveryDestinations;
+
+/**
+ <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsDescribeDeliverySourcesRequest : AWSRequest
+
+
+/**
+ <p>Optionally specify the maximum number of delivery sources to return in the response.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable limit;
+
+/**
+ <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsDescribeDeliverySourcesResponse : AWSModel
+
+
+/**
+ <p>An array of structures. Each structure contains information about one delivery source in the account.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSLogsDeliverySource *> * _Nullable deliverySources;
+
+/**
+ <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
@@ -1330,6 +1706,110 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 /**
  
  */
+@interface AWSLogsGetDeliveryDestinationPolicyRequest : AWSRequest
+
+
+/**
+ <p>The name of the delivery destination that you want to retrieve the policy of.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deliveryDestinationName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsGetDeliveryDestinationPolicyResponse : AWSModel
+
+
+/**
+ <p>The IAM policy for this delivery destination.</p>
+ */
+@property (nonatomic, strong) AWSLogsPolicy * _Nullable policy;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsGetDeliveryDestinationRequest : AWSRequest
+
+
+/**
+ <p>The name of the delivery destination that you want to retrieve.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsGetDeliveryDestinationResponse : AWSModel
+
+
+/**
+ <p>A structure containing information about the delivery destination.</p>
+ */
+@property (nonatomic, strong) AWSLogsDeliveryDestination * _Nullable deliveryDestination;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsGetDeliveryRequest : AWSRequest
+
+
+/**
+ <p>The ID of the delivery that you want to retrieve.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsGetDeliveryResponse : AWSModel
+
+
+/**
+ <p>A structure that contains information about the delivery.</p>
+ */
+@property (nonatomic, strong) AWSLogsDelivery * _Nullable delivery;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsGetDeliverySourceRequest : AWSRequest
+
+
+/**
+ <p>The name of the delivery source that you want to retrieve.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsGetDeliverySourceResponse : AWSModel
+
+
+/**
+ <p>A structure containing information about the delivery source.</p>
+ */
+@property (nonatomic, strong) AWSLogsDeliverySource * _Nullable deliverySource;
+
+@end
+
+/**
+ 
+ */
 @interface AWSLogsGetLogEventsRequest : AWSRequest
 
 
@@ -1820,6 +2300,19 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
+ <p>A structure that contains information about one delivery destination policy.</p>
+ */
+@interface AWSLogsPolicy : AWSModel
+
+
+/**
+ <p>The contents of the delivery destination policy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deliveryDestinationPolicy;
+
+@end
+
+/**
  
  */
 @interface AWSLogsPutAccountPolicyRequest : AWSRequest
@@ -1898,6 +2391,119 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
  <p>The data protection policy used for this log group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable policyDocument;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsPutDeliveryDestinationPolicyRequest : AWSRequest
+
+
+/**
+ <p>The name of the delivery destination to assign this policy to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deliveryDestinationName;
+
+/**
+ <p>The contents of the policy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deliveryDestinationPolicy;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsPutDeliveryDestinationPolicyResponse : AWSModel
+
+
+/**
+ <p>The contents of the policy that you just created.</p>
+ */
+@property (nonatomic, strong) AWSLogsPolicy * _Nullable policy;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsPutDeliveryDestinationRequest : AWSRequest
+
+
+/**
+ <p>A structure that contains the ARN of the Amazon Web Services resource that will receive the logs.</p>
+ */
+@property (nonatomic, strong) AWSLogsDeliveryDestinationConfiguration * _Nullable deliveryDestinationConfiguration;
+
+/**
+ <p>A name for this delivery destination. This name must be unique for all delivery destinations in your account.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The format for the logs that this delivery destination will receive.</p>
+ */
+@property (nonatomic, assign) AWSLogsOutputFormat outputFormat;
+
+/**
+ <p>An optional list of key-value pairs to associate with the resource.</p><p>For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a></p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsPutDeliveryDestinationResponse : AWSModel
+
+
+/**
+ <p>A structure containing information about the delivery destination that you just created or updated.</p>
+ */
+@property (nonatomic, strong) AWSLogsDeliveryDestination * _Nullable deliveryDestination;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsPutDeliverySourceRequest : AWSRequest
+
+
+/**
+ <p>Defines the type of log that the source is sending. For valid values for this parameter, see the documentation for the source service.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable logType;
+
+/**
+ <p>A name for this delivery source. This name must be unique for all delivery sources in your account.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The ARN of the Amazon Web Services resource that is generating and sending logs. For example, <code>arn:aws:workmail:us-east-1:123456789012:organization/m-1234EXAMPLEabcd1234abcd1234abcd1234</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ <p>An optional list of key-value pairs to associate with the resource.</p><p>For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a></p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsPutDeliverySourceResponse : AWSModel
+
+
+/**
+ <p>A structure containing information about the delivery source that was just created or updated.</p>
+ */
+@property (nonatomic, strong) AWSLogsDeliverySource * _Nullable deliverySource;
 
 @end
 

@@ -99,6 +99,40 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsCreateDeliveryRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deliveryDestinationArn" : @"deliveryDestinationArn",
+             @"deliverySourceName" : @"deliverySourceName",
+             @"tags" : @"tags",
+             };
+}
+
+@end
+
+@implementation AWSLogsCreateDeliveryResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"delivery" : @"delivery",
+             };
+}
+
++ (NSValueTransformer *)deliveryJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsDelivery class]];
+}
+
+@end
+
 @implementation AWSLogsCreateExportTaskRequest
 
 + (BOOL)supportsSecureCoding {
@@ -204,6 +238,62 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"logGroupIdentifier" : @"logGroupIdentifier",
+             };
+}
+
+@end
+
+@implementation AWSLogsDeleteDeliveryDestinationPolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deliveryDestinationName" : @"deliveryDestinationName",
+             };
+}
+
+@end
+
+@implementation AWSLogsDeleteDeliveryDestinationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"name",
+             };
+}
+
+@end
+
+@implementation AWSLogsDeleteDeliveryRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identifier" : @"id",
+             };
+}
+
+@end
+
+@implementation AWSLogsDeleteDeliverySourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"name",
              };
 }
 
@@ -338,6 +428,169 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsDelivery
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"arn",
+             @"deliveryDestinationArn" : @"deliveryDestinationArn",
+             @"deliveryDestinationType" : @"deliveryDestinationType",
+             @"deliverySourceName" : @"deliverySourceName",
+             @"identifier" : @"id",
+             @"tags" : @"tags",
+             };
+}
+
++ (NSValueTransformer *)deliveryDestinationTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"S3"] == NSOrderedSame) {
+            return @(AWSLogsDeliveryDestinationTypeS3);
+        }
+        if ([value caseInsensitiveCompare:@"CWL"] == NSOrderedSame) {
+            return @(AWSLogsDeliveryDestinationTypeCwl);
+        }
+        if ([value caseInsensitiveCompare:@"FH"] == NSOrderedSame) {
+            return @(AWSLogsDeliveryDestinationTypeFh);
+        }
+        return @(AWSLogsDeliveryDestinationTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLogsDeliveryDestinationTypeS3:
+                return @"S3";
+            case AWSLogsDeliveryDestinationTypeCwl:
+                return @"CWL";
+            case AWSLogsDeliveryDestinationTypeFh:
+                return @"FH";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSLogsDeliveryDestination
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"arn",
+             @"deliveryDestinationConfiguration" : @"deliveryDestinationConfiguration",
+             @"deliveryDestinationType" : @"deliveryDestinationType",
+             @"name" : @"name",
+             @"outputFormat" : @"outputFormat",
+             @"tags" : @"tags",
+             };
+}
+
++ (NSValueTransformer *)deliveryDestinationConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsDeliveryDestinationConfiguration class]];
+}
+
++ (NSValueTransformer *)deliveryDestinationTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"S3"] == NSOrderedSame) {
+            return @(AWSLogsDeliveryDestinationTypeS3);
+        }
+        if ([value caseInsensitiveCompare:@"CWL"] == NSOrderedSame) {
+            return @(AWSLogsDeliveryDestinationTypeCwl);
+        }
+        if ([value caseInsensitiveCompare:@"FH"] == NSOrderedSame) {
+            return @(AWSLogsDeliveryDestinationTypeFh);
+        }
+        return @(AWSLogsDeliveryDestinationTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLogsDeliveryDestinationTypeS3:
+                return @"S3";
+            case AWSLogsDeliveryDestinationTypeCwl:
+                return @"CWL";
+            case AWSLogsDeliveryDestinationTypeFh:
+                return @"FH";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)outputFormatJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"json"] == NSOrderedSame) {
+            return @(AWSLogsOutputFormatJson);
+        }
+        if ([value caseInsensitiveCompare:@"plain"] == NSOrderedSame) {
+            return @(AWSLogsOutputFormatPlain);
+        }
+        if ([value caseInsensitiveCompare:@"w3c"] == NSOrderedSame) {
+            return @(AWSLogsOutputFormatW3c);
+        }
+        if ([value caseInsensitiveCompare:@"raw"] == NSOrderedSame) {
+            return @(AWSLogsOutputFormatRaw);
+        }
+        if ([value caseInsensitiveCompare:@"parquet"] == NSOrderedSame) {
+            return @(AWSLogsOutputFormatParquet);
+        }
+        return @(AWSLogsOutputFormatUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLogsOutputFormatJson:
+                return @"json";
+            case AWSLogsOutputFormatPlain:
+                return @"plain";
+            case AWSLogsOutputFormatW3c:
+                return @"w3c";
+            case AWSLogsOutputFormatRaw:
+                return @"raw";
+            case AWSLogsOutputFormatParquet:
+                return @"parquet";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSLogsDeliveryDestinationConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"destinationResourceArn" : @"destinationResourceArn",
+             };
+}
+
+@end
+
+@implementation AWSLogsDeliverySource
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"arn",
+             @"logType" : @"logType",
+             @"name" : @"name",
+             @"resourceArns" : @"resourceArns",
+             @"service" : @"service",
+             @"tags" : @"tags",
+             };
+}
+
+@end
+
 @implementation AWSLogsDescribeAccountPoliciesRequest
 
 + (BOOL)supportsSecureCoding {
@@ -384,6 +637,108 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 + (NSValueTransformer *)accountPoliciesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLogsAccountPolicy class]];
+}
+
+@end
+
+@implementation AWSLogsDescribeDeliveriesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"limit" : @"limit",
+             @"nextToken" : @"nextToken",
+             };
+}
+
+@end
+
+@implementation AWSLogsDescribeDeliveriesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deliveries" : @"deliveries",
+             @"nextToken" : @"nextToken",
+             };
+}
+
++ (NSValueTransformer *)deliveriesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLogsDelivery class]];
+}
+
+@end
+
+@implementation AWSLogsDescribeDeliveryDestinationsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"limit" : @"limit",
+             @"nextToken" : @"nextToken",
+             };
+}
+
+@end
+
+@implementation AWSLogsDescribeDeliveryDestinationsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deliveryDestinations" : @"deliveryDestinations",
+             @"nextToken" : @"nextToken",
+             };
+}
+
++ (NSValueTransformer *)deliveryDestinationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLogsDeliveryDestination class]];
+}
+
+@end
+
+@implementation AWSLogsDescribeDeliverySourcesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"limit" : @"limit",
+             @"nextToken" : @"nextToken",
+             };
+}
+
+@end
+
+@implementation AWSLogsDescribeDeliverySourcesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deliverySources" : @"deliverySources",
+             @"nextToken" : @"nextToken",
+             };
+}
+
++ (NSValueTransformer *)deliverySourcesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLogsDeliverySource class]];
 }
 
 @end
@@ -1054,6 +1409,134 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsGetDeliveryDestinationPolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deliveryDestinationName" : @"deliveryDestinationName",
+             };
+}
+
+@end
+
+@implementation AWSLogsGetDeliveryDestinationPolicyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policy" : @"policy",
+             };
+}
+
++ (NSValueTransformer *)policyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsPolicy class]];
+}
+
+@end
+
+@implementation AWSLogsGetDeliveryDestinationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"name",
+             };
+}
+
+@end
+
+@implementation AWSLogsGetDeliveryDestinationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deliveryDestination" : @"deliveryDestination",
+             };
+}
+
++ (NSValueTransformer *)deliveryDestinationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsDeliveryDestination class]];
+}
+
+@end
+
+@implementation AWSLogsGetDeliveryRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identifier" : @"id",
+             };
+}
+
+@end
+
+@implementation AWSLogsGetDeliveryResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"delivery" : @"delivery",
+             };
+}
+
++ (NSValueTransformer *)deliveryJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsDelivery class]];
+}
+
+@end
+
+@implementation AWSLogsGetDeliverySourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"name",
+             };
+}
+
+@end
+
+@implementation AWSLogsGetDeliverySourceResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deliverySource" : @"deliverySource",
+             };
+}
+
++ (NSValueTransformer *)deliverySourceJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsDeliverySource class]];
+}
+
+@end
+
 @implementation AWSLogsGetLogEventsRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1619,6 +2102,20 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsPolicy
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deliveryDestinationPolicy" : @"deliveryDestinationPolicy",
+             };
+}
+
+@end
+
 @implementation AWSLogsPutAccountPolicyRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1713,6 +2210,149 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
              @"logGroupIdentifier" : @"logGroupIdentifier",
              @"policyDocument" : @"policyDocument",
              };
+}
+
+@end
+
+@implementation AWSLogsPutDeliveryDestinationPolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deliveryDestinationName" : @"deliveryDestinationName",
+             @"deliveryDestinationPolicy" : @"deliveryDestinationPolicy",
+             };
+}
+
+@end
+
+@implementation AWSLogsPutDeliveryDestinationPolicyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policy" : @"policy",
+             };
+}
+
++ (NSValueTransformer *)policyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsPolicy class]];
+}
+
+@end
+
+@implementation AWSLogsPutDeliveryDestinationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deliveryDestinationConfiguration" : @"deliveryDestinationConfiguration",
+             @"name" : @"name",
+             @"outputFormat" : @"outputFormat",
+             @"tags" : @"tags",
+             };
+}
+
++ (NSValueTransformer *)deliveryDestinationConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsDeliveryDestinationConfiguration class]];
+}
+
++ (NSValueTransformer *)outputFormatJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"json"] == NSOrderedSame) {
+            return @(AWSLogsOutputFormatJson);
+        }
+        if ([value caseInsensitiveCompare:@"plain"] == NSOrderedSame) {
+            return @(AWSLogsOutputFormatPlain);
+        }
+        if ([value caseInsensitiveCompare:@"w3c"] == NSOrderedSame) {
+            return @(AWSLogsOutputFormatW3c);
+        }
+        if ([value caseInsensitiveCompare:@"raw"] == NSOrderedSame) {
+            return @(AWSLogsOutputFormatRaw);
+        }
+        if ([value caseInsensitiveCompare:@"parquet"] == NSOrderedSame) {
+            return @(AWSLogsOutputFormatParquet);
+        }
+        return @(AWSLogsOutputFormatUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLogsOutputFormatJson:
+                return @"json";
+            case AWSLogsOutputFormatPlain:
+                return @"plain";
+            case AWSLogsOutputFormatW3c:
+                return @"w3c";
+            case AWSLogsOutputFormatRaw:
+                return @"raw";
+            case AWSLogsOutputFormatParquet:
+                return @"parquet";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSLogsPutDeliveryDestinationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deliveryDestination" : @"deliveryDestination",
+             };
+}
+
++ (NSValueTransformer *)deliveryDestinationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsDeliveryDestination class]];
+}
+
+@end
+
+@implementation AWSLogsPutDeliverySourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logType" : @"logType",
+             @"name" : @"name",
+             @"resourceArn" : @"resourceArn",
+             @"tags" : @"tags",
+             };
+}
+
+@end
+
+@implementation AWSLogsPutDeliverySourceResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deliverySource" : @"deliverySource",
+             };
+}
+
++ (NSValueTransformer *)deliverySourceJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsDeliverySource class]];
 }
 
 @end
