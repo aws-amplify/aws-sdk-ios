@@ -12,6 +12,9 @@
   - AWSEC2
   - AWSFirehose
   - AWSPolly
+  - AWSAutoScaling
+  - AWSLambda
+  - AWSIoT
 
 ## 2.33.4
 
