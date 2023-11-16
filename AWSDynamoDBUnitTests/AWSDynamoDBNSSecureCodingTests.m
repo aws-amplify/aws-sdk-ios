@@ -122,6 +122,7 @@
 - (void) test_AWSDynamoDBImportTableDescription API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBImportTableInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBImportTableOutput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBIncrementalExportSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBInputFormatOptions API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBItemCollectionMetrics API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBItemResponse API_AVAILABLE(ios(11));
@@ -637,6 +638,10 @@
 
 - (void) test_AWSDynamoDBImportTableOutput {
     [self validateSecureCodingForClass:[AWSDynamoDBImportTableOutput class]];
+}
+
+- (void) test_AWSDynamoDBIncrementalExportSpecification {
+    [self validateSecureCodingForClass:[AWSDynamoDBIncrementalExportSpecification class]];
 }
 
 - (void) test_AWSDynamoDBInputFormatOptions {

@@ -18,6 +18,206 @@
 
 NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain";
 
+@implementation AWSTextractAdapter
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"adapterId" : @"AdapterId",
+             @"pages" : @"Pages",
+             @"version" : @"Version",
+             };
+}
+
+@end
+
+@implementation AWSTextractAdapterOverview
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"adapterId" : @"AdapterId",
+             @"adapterName" : @"AdapterName",
+             @"creationTime" : @"CreationTime",
+             @"featureTypes" : @"FeatureTypes",
+             };
+}
+
++ (NSValueTransformer *)creationTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSTextractAdapterVersionDatasetConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"manifestS3Object" : @"ManifestS3Object",
+             };
+}
+
++ (NSValueTransformer *)manifestS3ObjectJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractS3Object class]];
+}
+
+@end
+
+@implementation AWSTextractAdapterVersionEvaluationMetric
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"adapterVersion" : @"AdapterVersion",
+             @"baseline" : @"Baseline",
+             @"featureType" : @"FeatureType",
+             };
+}
+
++ (NSValueTransformer *)adapterVersionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractEvaluationMetric class]];
+}
+
++ (NSValueTransformer *)baselineJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractEvaluationMetric class]];
+}
+
++ (NSValueTransformer *)featureTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"TABLES"] == NSOrderedSame) {
+            return @(AWSTextractFeatureTypeTables);
+        }
+        if ([value caseInsensitiveCompare:@"FORMS"] == NSOrderedSame) {
+            return @(AWSTextractFeatureTypeForms);
+        }
+        if ([value caseInsensitiveCompare:@"QUERIES"] == NSOrderedSame) {
+            return @(AWSTextractFeatureTypeQueries);
+        }
+        if ([value caseInsensitiveCompare:@"SIGNATURES"] == NSOrderedSame) {
+            return @(AWSTextractFeatureTypeSignatures);
+        }
+        if ([value caseInsensitiveCompare:@"LAYOUT"] == NSOrderedSame) {
+            return @(AWSTextractFeatureTypeLayout);
+        }
+        return @(AWSTextractFeatureTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTextractFeatureTypeTables:
+                return @"TABLES";
+            case AWSTextractFeatureTypeForms:
+                return @"FORMS";
+            case AWSTextractFeatureTypeQueries:
+                return @"QUERIES";
+            case AWSTextractFeatureTypeSignatures:
+                return @"SIGNATURES";
+            case AWSTextractFeatureTypeLayout:
+                return @"LAYOUT";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSTextractAdapterVersionOverview
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"adapterId" : @"AdapterId",
+             @"adapterVersion" : @"AdapterVersion",
+             @"creationTime" : @"CreationTime",
+             @"featureTypes" : @"FeatureTypes",
+             @"status" : @"Status",
+             @"statusMessage" : @"StatusMessage",
+             };
+}
+
++ (NSValueTransformer *)creationTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
+            return @(AWSTextractAdapterVersionStatusActive);
+        }
+        if ([value caseInsensitiveCompare:@"AT_RISK"] == NSOrderedSame) {
+            return @(AWSTextractAdapterVersionStatusAtRisk);
+        }
+        if ([value caseInsensitiveCompare:@"DEPRECATED"] == NSOrderedSame) {
+            return @(AWSTextractAdapterVersionStatusDeprecated);
+        }
+        if ([value caseInsensitiveCompare:@"CREATION_ERROR"] == NSOrderedSame) {
+            return @(AWSTextractAdapterVersionStatusCreationError);
+        }
+        if ([value caseInsensitiveCompare:@"CREATION_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSTextractAdapterVersionStatusCreationInProgress);
+        }
+        return @(AWSTextractAdapterVersionStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTextractAdapterVersionStatusActive:
+                return @"ACTIVE";
+            case AWSTextractAdapterVersionStatusAtRisk:
+                return @"AT_RISK";
+            case AWSTextractAdapterVersionStatusDeprecated:
+                return @"DEPRECATED";
+            case AWSTextractAdapterVersionStatusCreationError:
+                return @"CREATION_ERROR";
+            case AWSTextractAdapterVersionStatusCreationInProgress:
+                return @"CREATION_IN_PROGRESS";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSTextractAdaptersConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"adapters" : @"Adapters",
+             };
+}
+
++ (NSValueTransformer *)adaptersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTextractAdapter class]];
+}
+
+@end
+
 @implementation AWSTextractAnalyzeDocumentRequest
 
 + (BOOL)supportsSecureCoding {
@@ -26,11 +226,16 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"adaptersConfig" : @"AdaptersConfig",
              @"document" : @"Document",
              @"featureTypes" : @"FeatureTypes",
              @"humanLoopConfig" : @"HumanLoopConfig",
              @"queriesConfig" : @"QueriesConfig",
              };
+}
+
++ (NSValueTransformer *)adaptersConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractAdaptersConfig class]];
 }
 
 + (NSValueTransformer *)documentJSONTransformer {
@@ -249,6 +454,36 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
         if ([value caseInsensitiveCompare:@"TABLE_FOOTER"] == NSOrderedSame) {
             return @(AWSTextractBlockTypeTableFooter);
         }
+        if ([value caseInsensitiveCompare:@"LAYOUT_TEXT"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeLayoutText);
+        }
+        if ([value caseInsensitiveCompare:@"LAYOUT_TITLE"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeLayoutTitle);
+        }
+        if ([value caseInsensitiveCompare:@"LAYOUT_HEADER"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeLayoutHeader);
+        }
+        if ([value caseInsensitiveCompare:@"LAYOUT_FOOTER"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeLayoutFooter);
+        }
+        if ([value caseInsensitiveCompare:@"LAYOUT_SECTION_HEADER"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeLayoutSectionHeader);
+        }
+        if ([value caseInsensitiveCompare:@"LAYOUT_PAGE_NUMBER"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeLayoutPageNumber);
+        }
+        if ([value caseInsensitiveCompare:@"LAYOUT_LIST"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeLayoutList);
+        }
+        if ([value caseInsensitiveCompare:@"LAYOUT_FIGURE"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeLayoutFigure);
+        }
+        if ([value caseInsensitiveCompare:@"LAYOUT_TABLE"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeLayoutTable);
+        }
+        if ([value caseInsensitiveCompare:@"LAYOUT_KEY_VALUE"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeLayoutKeyValue);
+        }
         return @(AWSTextractBlockTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -280,6 +515,26 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
                 return @"TABLE_TITLE";
             case AWSTextractBlockTypeTableFooter:
                 return @"TABLE_FOOTER";
+            case AWSTextractBlockTypeLayoutText:
+                return @"LAYOUT_TEXT";
+            case AWSTextractBlockTypeLayoutTitle:
+                return @"LAYOUT_TITLE";
+            case AWSTextractBlockTypeLayoutHeader:
+                return @"LAYOUT_HEADER";
+            case AWSTextractBlockTypeLayoutFooter:
+                return @"LAYOUT_FOOTER";
+            case AWSTextractBlockTypeLayoutSectionHeader:
+                return @"LAYOUT_SECTION_HEADER";
+            case AWSTextractBlockTypeLayoutPageNumber:
+                return @"LAYOUT_PAGE_NUMBER";
+            case AWSTextractBlockTypeLayoutList:
+                return @"LAYOUT_LIST";
+            case AWSTextractBlockTypeLayoutFigure:
+                return @"LAYOUT_FIGURE";
+            case AWSTextractBlockTypeLayoutTable:
+                return @"LAYOUT_TABLE";
+            case AWSTextractBlockTypeLayoutKeyValue:
+                return @"LAYOUT_KEY_VALUE";
             default:
                 return nil;
         }
@@ -355,6 +610,147 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
              @"top" : @"Top",
              @"width" : @"Width",
              };
+}
+
+@end
+
+@implementation AWSTextractCreateAdapterRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"adapterName" : @"AdapterName",
+             @"autoUpdate" : @"AutoUpdate",
+             @"clientRequestToken" : @"ClientRequestToken",
+             @"detail" : @"Description",
+             @"featureTypes" : @"FeatureTypes",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)autoUpdateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ENABLED"] == NSOrderedSame) {
+            return @(AWSTextractAutoUpdateEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
+            return @(AWSTextractAutoUpdateDisabled);
+        }
+        return @(AWSTextractAutoUpdateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTextractAutoUpdateEnabled:
+                return @"ENABLED";
+            case AWSTextractAutoUpdateDisabled:
+                return @"DISABLED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSTextractCreateAdapterResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"adapterId" : @"AdapterId",
+             };
+}
+
+@end
+
+@implementation AWSTextractCreateAdapterVersionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"adapterId" : @"AdapterId",
+             @"clientRequestToken" : @"ClientRequestToken",
+             @"datasetConfig" : @"DatasetConfig",
+             @"KMSKeyId" : @"KMSKeyId",
+             @"outputConfig" : @"OutputConfig",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)datasetConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractAdapterVersionDatasetConfig class]];
+}
+
++ (NSValueTransformer *)outputConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractOutputConfig class]];
+}
+
+@end
+
+@implementation AWSTextractCreateAdapterVersionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"adapterId" : @"AdapterId",
+             @"adapterVersion" : @"AdapterVersion",
+             };
+}
+
+@end
+
+@implementation AWSTextractDeleteAdapterRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"adapterId" : @"AdapterId",
+             };
+}
+
+@end
+
+@implementation AWSTextractDeleteAdapterResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSTextractDeleteAdapterVersionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"adapterId" : @"AdapterId",
+             @"adapterVersion" : @"AdapterVersion",
+             };
+}
+
+@end
+
+@implementation AWSTextractDeleteAdapterVersionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
 }
 
 @end
@@ -490,6 +886,22 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"pages" : @"Pages",
+             };
+}
+
+@end
+
+@implementation AWSTextractEvaluationMetric
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"f1Score" : @"F1Score",
+             @"precision" : @"Precision",
+             @"recall" : @"Recall",
              };
 }
 
@@ -675,6 +1087,164 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 + (NSValueTransformer *)polygonJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTextractPoint class]];
+}
+
+@end
+
+@implementation AWSTextractGetAdapterRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"adapterId" : @"AdapterId",
+             };
+}
+
+@end
+
+@implementation AWSTextractGetAdapterResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"adapterId" : @"AdapterId",
+             @"adapterName" : @"AdapterName",
+             @"autoUpdate" : @"AutoUpdate",
+             @"creationTime" : @"CreationTime",
+             @"detail" : @"Description",
+             @"featureTypes" : @"FeatureTypes",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)autoUpdateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ENABLED"] == NSOrderedSame) {
+            return @(AWSTextractAutoUpdateEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
+            return @(AWSTextractAutoUpdateDisabled);
+        }
+        return @(AWSTextractAutoUpdateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTextractAutoUpdateEnabled:
+                return @"ENABLED";
+            case AWSTextractAutoUpdateDisabled:
+                return @"DISABLED";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)creationTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSTextractGetAdapterVersionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"adapterId" : @"AdapterId",
+             @"adapterVersion" : @"AdapterVersion",
+             };
+}
+
+@end
+
+@implementation AWSTextractGetAdapterVersionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"adapterId" : @"AdapterId",
+             @"adapterVersion" : @"AdapterVersion",
+             @"creationTime" : @"CreationTime",
+             @"datasetConfig" : @"DatasetConfig",
+             @"evaluationMetrics" : @"EvaluationMetrics",
+             @"featureTypes" : @"FeatureTypes",
+             @"KMSKeyId" : @"KMSKeyId",
+             @"outputConfig" : @"OutputConfig",
+             @"status" : @"Status",
+             @"statusMessage" : @"StatusMessage",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)creationTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)datasetConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractAdapterVersionDatasetConfig class]];
+}
+
++ (NSValueTransformer *)evaluationMetricsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTextractAdapterVersionEvaluationMetric class]];
+}
+
++ (NSValueTransformer *)outputConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractOutputConfig class]];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
+            return @(AWSTextractAdapterVersionStatusActive);
+        }
+        if ([value caseInsensitiveCompare:@"AT_RISK"] == NSOrderedSame) {
+            return @(AWSTextractAdapterVersionStatusAtRisk);
+        }
+        if ([value caseInsensitiveCompare:@"DEPRECATED"] == NSOrderedSame) {
+            return @(AWSTextractAdapterVersionStatusDeprecated);
+        }
+        if ([value caseInsensitiveCompare:@"CREATION_ERROR"] == NSOrderedSame) {
+            return @(AWSTextractAdapterVersionStatusCreationError);
+        }
+        if ([value caseInsensitiveCompare:@"CREATION_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSTextractAdapterVersionStatusCreationInProgress);
+        }
+        return @(AWSTextractAdapterVersionStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTextractAdapterVersionStatusActive:
+                return @"ACTIVE";
+            case AWSTextractAdapterVersionStatusAtRisk:
+                return @"AT_RISK";
+            case AWSTextractAdapterVersionStatusDeprecated:
+                return @"DEPRECATED";
+            case AWSTextractAdapterVersionStatusCreationError:
+                return @"CREATION_ERROR";
+            case AWSTextractAdapterVersionStatusCreationInProgress:
+                return @"CREATION_IN_PROGRESS";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -1337,6 +1907,139 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @end
 
+@implementation AWSTextractListAdapterVersionsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"adapterId" : @"AdapterId",
+             @"afterCreationTime" : @"AfterCreationTime",
+             @"beforeCreationTime" : @"BeforeCreationTime",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)afterCreationTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)beforeCreationTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSTextractListAdapterVersionsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"adapterVersions" : @"AdapterVersions",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)adapterVersionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTextractAdapterVersionOverview class]];
+}
+
+@end
+
+@implementation AWSTextractListAdaptersRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"afterCreationTime" : @"AfterCreationTime",
+             @"beforeCreationTime" : @"BeforeCreationTime",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)afterCreationTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)beforeCreationTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSTextractListAdaptersResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"adapters" : @"Adapters",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)adaptersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTextractAdapterOverview class]];
+}
+
+@end
+
+@implementation AWSTextractListTagsForResourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceARN" : @"ResourceARN",
+             };
+}
+
+@end
+
+@implementation AWSTextractListTagsForResourceResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tags" : @"Tags",
+             };
+}
+
+@end
+
 @implementation AWSTextractNormalizedValue
 
 + (BOOL)supportsSecureCoding {
@@ -1614,6 +2317,7 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"adaptersConfig" : @"AdaptersConfig",
              @"clientRequestToken" : @"ClientRequestToken",
              @"documentLocation" : @"DocumentLocation",
              @"featureTypes" : @"FeatureTypes",
@@ -1623,6 +2327,10 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
              @"outputConfig" : @"OutputConfig",
              @"queriesConfig" : @"QueriesConfig",
              };
+}
+
++ (NSValueTransformer *)adaptersConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractAdaptersConfig class]];
 }
 
 + (NSValueTransformer *)documentLocationJSONTransformer {
@@ -1792,6 +2500,29 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @end
 
+@implementation AWSTextractTagResourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceARN" : @"ResourceARN",
+             @"tags" : @"Tags",
+             };
+}
+
+@end
+
+@implementation AWSTextractTagResourceResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
 @implementation AWSTextractUndetectedSignature
 
 + (BOOL)supportsSecureCoding {
@@ -1802,6 +2533,115 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 	return @{
              @"page" : @"Page",
              };
+}
+
+@end
+
+@implementation AWSTextractUntagResourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceARN" : @"ResourceARN",
+             @"tagKeys" : @"TagKeys",
+             };
+}
+
+@end
+
+@implementation AWSTextractUntagResourceResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSTextractUpdateAdapterRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"adapterId" : @"AdapterId",
+             @"adapterName" : @"AdapterName",
+             @"autoUpdate" : @"AutoUpdate",
+             @"detail" : @"Description",
+             };
+}
+
++ (NSValueTransformer *)autoUpdateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ENABLED"] == NSOrderedSame) {
+            return @(AWSTextractAutoUpdateEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
+            return @(AWSTextractAutoUpdateDisabled);
+        }
+        return @(AWSTextractAutoUpdateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTextractAutoUpdateEnabled:
+                return @"ENABLED";
+            case AWSTextractAutoUpdateDisabled:
+                return @"DISABLED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSTextractUpdateAdapterResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"adapterId" : @"AdapterId",
+             @"adapterName" : @"AdapterName",
+             @"autoUpdate" : @"AutoUpdate",
+             @"creationTime" : @"CreationTime",
+             @"detail" : @"Description",
+             @"featureTypes" : @"FeatureTypes",
+             };
+}
+
++ (NSValueTransformer *)autoUpdateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ENABLED"] == NSOrderedSame) {
+            return @(AWSTextractAutoUpdateEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
+            return @(AWSTextractAutoUpdateDisabled);
+        }
+        return @(AWSTextractAutoUpdateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTextractAutoUpdateEnabled:
+                return @"ENABLED";
+            case AWSTextractAutoUpdateDisabled:
+                return @"DISABLED";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)creationTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end

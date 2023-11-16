@@ -19,6 +19,12 @@
 
 @interface AWSTextractNSSecureCodingTests : AWSNSSecureCodingTest
 
+- (void) test_AWSTextractAdapter API_AVAILABLE(ios(11));
+- (void) test_AWSTextractAdapterOverview API_AVAILABLE(ios(11));
+- (void) test_AWSTextractAdapterVersionDatasetConfig API_AVAILABLE(ios(11));
+- (void) test_AWSTextractAdapterVersionEvaluationMetric API_AVAILABLE(ios(11));
+- (void) test_AWSTextractAdapterVersionOverview API_AVAILABLE(ios(11));
+- (void) test_AWSTextractAdaptersConfig API_AVAILABLE(ios(11));
 - (void) test_AWSTextractAnalyzeDocumentRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTextractAnalyzeDocumentResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTextractAnalyzeExpenseRequest API_AVAILABLE(ios(11));
@@ -28,6 +34,14 @@
 - (void) test_AWSTextractAnalyzeIDResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTextractBlock API_AVAILABLE(ios(11));
 - (void) test_AWSTextractBoundingBox API_AVAILABLE(ios(11));
+- (void) test_AWSTextractCreateAdapterRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTextractCreateAdapterResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTextractCreateAdapterVersionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTextractCreateAdapterVersionResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTextractDeleteAdapterRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTextractDeleteAdapterResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTextractDeleteAdapterVersionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTextractDeleteAdapterVersionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTextractDetectDocumentTextRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTextractDetectDocumentTextResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTextractDetectedSignature API_AVAILABLE(ios(11));
@@ -35,6 +49,7 @@
 - (void) test_AWSTextractDocumentGroup API_AVAILABLE(ios(11));
 - (void) test_AWSTextractDocumentLocation API_AVAILABLE(ios(11));
 - (void) test_AWSTextractDocumentMetadata API_AVAILABLE(ios(11));
+- (void) test_AWSTextractEvaluationMetric API_AVAILABLE(ios(11));
 - (void) test_AWSTextractExpenseCurrency API_AVAILABLE(ios(11));
 - (void) test_AWSTextractExpenseDetection API_AVAILABLE(ios(11));
 - (void) test_AWSTextractExpenseDocument API_AVAILABLE(ios(11));
@@ -43,6 +58,10 @@
 - (void) test_AWSTextractExpenseType API_AVAILABLE(ios(11));
 - (void) test_AWSTextractExtraction API_AVAILABLE(ios(11));
 - (void) test_AWSTextractGeometry API_AVAILABLE(ios(11));
+- (void) test_AWSTextractGetAdapterRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTextractGetAdapterResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTextractGetAdapterVersionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTextractGetAdapterVersionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTextractGetDocumentAnalysisRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTextractGetDocumentAnalysisResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTextractGetDocumentTextDetectionRequest API_AVAILABLE(ios(11));
@@ -65,6 +84,12 @@
 - (void) test_AWSTextractLendingSummary API_AVAILABLE(ios(11));
 - (void) test_AWSTextractLineItemFields API_AVAILABLE(ios(11));
 - (void) test_AWSTextractLineItemGroup API_AVAILABLE(ios(11));
+- (void) test_AWSTextractListAdapterVersionsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTextractListAdapterVersionsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTextractListAdaptersRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTextractListAdaptersResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTextractListTagsForResourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTextractListTagsForResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTextractNormalizedValue API_AVAILABLE(ios(11));
 - (void) test_AWSTextractNotificationChannel API_AVAILABLE(ios(11));
 - (void) test_AWSTextractOutputConfig API_AVAILABLE(ios(11));
@@ -85,12 +110,42 @@
 - (void) test_AWSTextractStartExpenseAnalysisResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTextractStartLendingAnalysisRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTextractStartLendingAnalysisResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTextractTagResourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTextractTagResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTextractUndetectedSignature API_AVAILABLE(ios(11));
+- (void) test_AWSTextractUntagResourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTextractUntagResourceResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTextractUpdateAdapterRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTextractUpdateAdapterResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTextractWarning API_AVAILABLE(ios(11));
 
 @end
 
 @implementation AWSTextractNSSecureCodingTests
+
+- (void) test_AWSTextractAdapter {
+    [self validateSecureCodingForClass:[AWSTextractAdapter class]];
+}
+
+- (void) test_AWSTextractAdapterOverview {
+    [self validateSecureCodingForClass:[AWSTextractAdapterOverview class]];
+}
+
+- (void) test_AWSTextractAdapterVersionDatasetConfig {
+    [self validateSecureCodingForClass:[AWSTextractAdapterVersionDatasetConfig class]];
+}
+
+- (void) test_AWSTextractAdapterVersionEvaluationMetric {
+    [self validateSecureCodingForClass:[AWSTextractAdapterVersionEvaluationMetric class]];
+}
+
+- (void) test_AWSTextractAdapterVersionOverview {
+    [self validateSecureCodingForClass:[AWSTextractAdapterVersionOverview class]];
+}
+
+- (void) test_AWSTextractAdaptersConfig {
+    [self validateSecureCodingForClass:[AWSTextractAdaptersConfig class]];
+}
 
 - (void) test_AWSTextractAnalyzeDocumentRequest {
     [self validateSecureCodingForClass:[AWSTextractAnalyzeDocumentRequest class]];
@@ -128,6 +183,38 @@
     [self validateSecureCodingForClass:[AWSTextractBoundingBox class]];
 }
 
+- (void) test_AWSTextractCreateAdapterRequest {
+    [self validateSecureCodingForClass:[AWSTextractCreateAdapterRequest class]];
+}
+
+- (void) test_AWSTextractCreateAdapterResponse {
+    [self validateSecureCodingForClass:[AWSTextractCreateAdapterResponse class]];
+}
+
+- (void) test_AWSTextractCreateAdapterVersionRequest {
+    [self validateSecureCodingForClass:[AWSTextractCreateAdapterVersionRequest class]];
+}
+
+- (void) test_AWSTextractCreateAdapterVersionResponse {
+    [self validateSecureCodingForClass:[AWSTextractCreateAdapterVersionResponse class]];
+}
+
+- (void) test_AWSTextractDeleteAdapterRequest {
+    [self validateSecureCodingForClass:[AWSTextractDeleteAdapterRequest class]];
+}
+
+- (void) test_AWSTextractDeleteAdapterResponse {
+    [self validateSecureCodingForClass:[AWSTextractDeleteAdapterResponse class]];
+}
+
+- (void) test_AWSTextractDeleteAdapterVersionRequest {
+    [self validateSecureCodingForClass:[AWSTextractDeleteAdapterVersionRequest class]];
+}
+
+- (void) test_AWSTextractDeleteAdapterVersionResponse {
+    [self validateSecureCodingForClass:[AWSTextractDeleteAdapterVersionResponse class]];
+}
+
 - (void) test_AWSTextractDetectDocumentTextRequest {
     [self validateSecureCodingForClass:[AWSTextractDetectDocumentTextRequest class]];
 }
@@ -154,6 +241,10 @@
 
 - (void) test_AWSTextractDocumentMetadata {
     [self validateSecureCodingForClass:[AWSTextractDocumentMetadata class]];
+}
+
+- (void) test_AWSTextractEvaluationMetric {
+    [self validateSecureCodingForClass:[AWSTextractEvaluationMetric class]];
 }
 
 - (void) test_AWSTextractExpenseCurrency {
@@ -186,6 +277,22 @@
 
 - (void) test_AWSTextractGeometry {
     [self validateSecureCodingForClass:[AWSTextractGeometry class]];
+}
+
+- (void) test_AWSTextractGetAdapterRequest {
+    [self validateSecureCodingForClass:[AWSTextractGetAdapterRequest class]];
+}
+
+- (void) test_AWSTextractGetAdapterResponse {
+    [self validateSecureCodingForClass:[AWSTextractGetAdapterResponse class]];
+}
+
+- (void) test_AWSTextractGetAdapterVersionRequest {
+    [self validateSecureCodingForClass:[AWSTextractGetAdapterVersionRequest class]];
+}
+
+- (void) test_AWSTextractGetAdapterVersionResponse {
+    [self validateSecureCodingForClass:[AWSTextractGetAdapterVersionResponse class]];
 }
 
 - (void) test_AWSTextractGetDocumentAnalysisRequest {
@@ -276,6 +383,30 @@
     [self validateSecureCodingForClass:[AWSTextractLineItemGroup class]];
 }
 
+- (void) test_AWSTextractListAdapterVersionsRequest {
+    [self validateSecureCodingForClass:[AWSTextractListAdapterVersionsRequest class]];
+}
+
+- (void) test_AWSTextractListAdapterVersionsResponse {
+    [self validateSecureCodingForClass:[AWSTextractListAdapterVersionsResponse class]];
+}
+
+- (void) test_AWSTextractListAdaptersRequest {
+    [self validateSecureCodingForClass:[AWSTextractListAdaptersRequest class]];
+}
+
+- (void) test_AWSTextractListAdaptersResponse {
+    [self validateSecureCodingForClass:[AWSTextractListAdaptersResponse class]];
+}
+
+- (void) test_AWSTextractListTagsForResourceRequest {
+    [self validateSecureCodingForClass:[AWSTextractListTagsForResourceRequest class]];
+}
+
+- (void) test_AWSTextractListTagsForResourceResponse {
+    [self validateSecureCodingForClass:[AWSTextractListTagsForResourceResponse class]];
+}
+
 - (void) test_AWSTextractNormalizedValue {
     [self validateSecureCodingForClass:[AWSTextractNormalizedValue class]];
 }
@@ -356,8 +487,32 @@
     [self validateSecureCodingForClass:[AWSTextractStartLendingAnalysisResponse class]];
 }
 
+- (void) test_AWSTextractTagResourceRequest {
+    [self validateSecureCodingForClass:[AWSTextractTagResourceRequest class]];
+}
+
+- (void) test_AWSTextractTagResourceResponse {
+    [self validateSecureCodingForClass:[AWSTextractTagResourceResponse class]];
+}
+
 - (void) test_AWSTextractUndetectedSignature {
     [self validateSecureCodingForClass:[AWSTextractUndetectedSignature class]];
+}
+
+- (void) test_AWSTextractUntagResourceRequest {
+    [self validateSecureCodingForClass:[AWSTextractUntagResourceRequest class]];
+}
+
+- (void) test_AWSTextractUntagResourceResponse {
+    [self validateSecureCodingForClass:[AWSTextractUntagResourceResponse class]];
+}
+
+- (void) test_AWSTextractUpdateAdapterRequest {
+    [self validateSecureCodingForClass:[AWSTextractUpdateAdapterRequest class]];
+}
+
+- (void) test_AWSTextractUpdateAdapterResponse {
+    [self validateSecureCodingForClass:[AWSTextractUpdateAdapterResponse class]];
 }
 
 - (void) test_AWSTextractWarning {

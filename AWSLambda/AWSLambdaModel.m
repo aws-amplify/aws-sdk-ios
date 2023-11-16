@@ -5027,6 +5027,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"ipv6AllowedForDualStack" : @"Ipv6AllowedForDualStack",
              @"securityGroupIds" : @"SecurityGroupIds",
              @"subnetIds" : @"SubnetIds",
              };
@@ -5042,6 +5043,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"ipv6AllowedForDualStack" : @"Ipv6AllowedForDualStack",
              @"securityGroupIds" : @"SecurityGroupIds",
              @"subnetIds" : @"SubnetIds",
              @"vpcId" : @"VpcId",

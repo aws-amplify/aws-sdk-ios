@@ -345,6 +345,9 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         if ([value caseInsensitiveCompare:@"webm"] == NSOrderedSame) {
             return @(AWSTranscribeMediaFormatWebm);
         }
+        if ([value caseInsensitiveCompare:@"m4a"] == NSOrderedSame) {
+            return @(AWSTranscribeMediaFormatM4a);
+        }
         return @(AWSTranscribeMediaFormatUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -362,6 +365,8 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
                 return @"amr";
             case AWSTranscribeMediaFormatWebm:
                 return @"webm";
+            case AWSTranscribeMediaFormatM4a:
+                return @"m4a";
             default:
                 return nil;
         }
@@ -5060,6 +5065,9 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         if ([value caseInsensitiveCompare:@"webm"] == NSOrderedSame) {
             return @(AWSTranscribeMediaFormatWebm);
         }
+        if ([value caseInsensitiveCompare:@"m4a"] == NSOrderedSame) {
+            return @(AWSTranscribeMediaFormatM4a);
+        }
         return @(AWSTranscribeMediaFormatUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -5077,6 +5085,8 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
                 return @"amr";
             case AWSTranscribeMediaFormatWebm:
                 return @"webm";
+            case AWSTranscribeMediaFormatM4a:
+                return @"m4a";
             default:
                 return nil;
         }
@@ -6058,6 +6068,9 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         if ([value caseInsensitiveCompare:@"webm"] == NSOrderedSame) {
             return @(AWSTranscribeMediaFormatWebm);
         }
+        if ([value caseInsensitiveCompare:@"m4a"] == NSOrderedSame) {
+            return @(AWSTranscribeMediaFormatM4a);
+        }
         return @(AWSTranscribeMediaFormatUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -6075,6 +6088,8 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
                 return @"amr";
             case AWSTranscribeMediaFormatWebm:
                 return @"webm";
+            case AWSTranscribeMediaFormatM4a:
+                return @"m4a";
             default:
                 return nil;
         }
@@ -6426,6 +6441,9 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         if ([value caseInsensitiveCompare:@"webm"] == NSOrderedSame) {
             return @(AWSTranscribeMediaFormatWebm);
         }
+        if ([value caseInsensitiveCompare:@"m4a"] == NSOrderedSame) {
+            return @(AWSTranscribeMediaFormatM4a);
+        }
         return @(AWSTranscribeMediaFormatUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -6443,6 +6461,8 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
                 return @"amr";
             case AWSTranscribeMediaFormatWebm:
                 return @"webm";
+            case AWSTranscribeMediaFormatM4a:
+                return @"m4a";
             default:
                 return nil;
         }
@@ -6959,6 +6979,9 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         if ([value caseInsensitiveCompare:@"webm"] == NSOrderedSame) {
             return @(AWSTranscribeMediaFormatWebm);
         }
+        if ([value caseInsensitiveCompare:@"m4a"] == NSOrderedSame) {
+            return @(AWSTranscribeMediaFormatM4a);
+        }
         return @(AWSTranscribeMediaFormatUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -6976,6 +6999,8 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
                 return @"amr";
             case AWSTranscribeMediaFormatWebm:
                 return @"webm";
+            case AWSTranscribeMediaFormatM4a:
+                return @"m4a";
             default:
                 return nil;
         }

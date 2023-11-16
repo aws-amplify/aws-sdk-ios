@@ -2095,7 +2095,8 @@
         \"flac\",\
         \"ogg\",\
         \"amr\",\
-        \"webm\"\
+        \"webm\",\
+        \"m4a\"\
       ]\
     },\
     \"MediaSampleRateHertz\":{\
