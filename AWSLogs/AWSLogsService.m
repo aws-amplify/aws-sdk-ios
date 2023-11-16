@@ -39,6 +39,8 @@ NSString *const AWSLogsSDKVersion = @"2.33.4";
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
+                            @"AccessDeniedException" : @(AWSLogsErrorAccessDenied),
+                            @"ConflictException" : @(AWSLogsErrorConflict),
                             @"DataAlreadyAcceptedException" : @(AWSLogsErrorDataAlreadyAccepted),
                             @"InvalidOperationException" : @(AWSLogsErrorInvalidOperation),
                             @"InvalidParameterException" : @(AWSLogsErrorInvalidParameter),
@@ -48,9 +50,12 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"OperationAbortedException" : @(AWSLogsErrorOperationAborted),
                             @"ResourceAlreadyExistsException" : @(AWSLogsErrorResourceAlreadyExists),
                             @"ResourceNotFoundException" : @(AWSLogsErrorResourceNotFound),
+                            @"ServiceQuotaExceededException" : @(AWSLogsErrorServiceQuotaExceeded),
                             @"ServiceUnavailableException" : @(AWSLogsErrorServiceUnavailable),
+                            @"ThrottlingException" : @(AWSLogsErrorThrottling),
                             @"TooManyTagsException" : @(AWSLogsErrorTooManyTags),
                             @"UnrecognizedClientException" : @(AWSLogsErrorUnrecognizedClient),
+                            @"ValidationException" : @(AWSLogsErrorValidation),
                             };
 }
 
@@ -329,6 +334,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLogsCreateDeliveryResponse *> *)createDelivery:(AWSLogsCreateDeliveryRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"CreateDelivery"
+                   outputClass:[AWSLogsCreateDeliveryResponse class]];
+}
+
+- (void)createDelivery:(AWSLogsCreateDeliveryRequest *)request
+     completionHandler:(void (^)(AWSLogsCreateDeliveryResponse *response, NSError *error))completionHandler {
+    [[self createDelivery:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsCreateDeliveryResponse *> * _Nonnull task) {
+        AWSLogsCreateDeliveryResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLogsCreateExportTaskResponse *> *)createExportTask:(AWSLogsCreateExportTaskRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -430,6 +458,94 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)deleteDataProtectionPolicy:(AWSLogsDeleteDataProtectionPolicyRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteDataProtectionPolicy:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteDelivery:(AWSLogsDeleteDeliveryRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"DeleteDelivery"
+                   outputClass:nil];
+}
+
+- (void)deleteDelivery:(AWSLogsDeleteDeliveryRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteDelivery:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteDeliveryDestination:(AWSLogsDeleteDeliveryDestinationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"DeleteDeliveryDestination"
+                   outputClass:nil];
+}
+
+- (void)deleteDeliveryDestination:(AWSLogsDeleteDeliveryDestinationRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteDeliveryDestination:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteDeliveryDestinationPolicy:(AWSLogsDeleteDeliveryDestinationPolicyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"DeleteDeliveryDestinationPolicy"
+                   outputClass:nil];
+}
+
+- (void)deleteDeliveryDestinationPolicy:(AWSLogsDeleteDeliveryDestinationPolicyRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteDeliveryDestinationPolicy:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteDeliverySource:(AWSLogsDeleteDeliverySourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"DeleteDeliverySource"
+                   outputClass:nil];
+}
+
+- (void)deleteDeliverySource:(AWSLogsDeleteDeliverySourceRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteDeliverySource:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -630,6 +746,75 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLogsDescribeAccountPoliciesResponse *response, NSError *error))completionHandler {
     [[self describeAccountPolicies:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsDescribeAccountPoliciesResponse *> * _Nonnull task) {
         AWSLogsDescribeAccountPoliciesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLogsDescribeDeliveriesResponse *> *)describeDeliveries:(AWSLogsDescribeDeliveriesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"DescribeDeliveries"
+                   outputClass:[AWSLogsDescribeDeliveriesResponse class]];
+}
+
+- (void)describeDeliveries:(AWSLogsDescribeDeliveriesRequest *)request
+     completionHandler:(void (^)(AWSLogsDescribeDeliveriesResponse *response, NSError *error))completionHandler {
+    [[self describeDeliveries:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsDescribeDeliveriesResponse *> * _Nonnull task) {
+        AWSLogsDescribeDeliveriesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLogsDescribeDeliveryDestinationsResponse *> *)describeDeliveryDestinations:(AWSLogsDescribeDeliveryDestinationsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"DescribeDeliveryDestinations"
+                   outputClass:[AWSLogsDescribeDeliveryDestinationsResponse class]];
+}
+
+- (void)describeDeliveryDestinations:(AWSLogsDescribeDeliveryDestinationsRequest *)request
+     completionHandler:(void (^)(AWSLogsDescribeDeliveryDestinationsResponse *response, NSError *error))completionHandler {
+    [[self describeDeliveryDestinations:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsDescribeDeliveryDestinationsResponse *> * _Nonnull task) {
+        AWSLogsDescribeDeliveryDestinationsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLogsDescribeDeliverySourcesResponse *> *)describeDeliverySources:(AWSLogsDescribeDeliverySourcesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"DescribeDeliverySources"
+                   outputClass:[AWSLogsDescribeDeliverySourcesResponse class]];
+}
+
+- (void)describeDeliverySources:(AWSLogsDescribeDeliverySourcesRequest *)request
+     completionHandler:(void (^)(AWSLogsDescribeDeliverySourcesResponse *response, NSError *error))completionHandler {
+    [[self describeDeliverySources:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsDescribeDeliverySourcesResponse *> * _Nonnull task) {
+        AWSLogsDescribeDeliverySourcesResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -915,6 +1100,98 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLogsGetDeliveryResponse *> *)getDelivery:(AWSLogsGetDeliveryRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"GetDelivery"
+                   outputClass:[AWSLogsGetDeliveryResponse class]];
+}
+
+- (void)getDelivery:(AWSLogsGetDeliveryRequest *)request
+     completionHandler:(void (^)(AWSLogsGetDeliveryResponse *response, NSError *error))completionHandler {
+    [[self getDelivery:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsGetDeliveryResponse *> * _Nonnull task) {
+        AWSLogsGetDeliveryResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLogsGetDeliveryDestinationResponse *> *)getDeliveryDestination:(AWSLogsGetDeliveryDestinationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"GetDeliveryDestination"
+                   outputClass:[AWSLogsGetDeliveryDestinationResponse class]];
+}
+
+- (void)getDeliveryDestination:(AWSLogsGetDeliveryDestinationRequest *)request
+     completionHandler:(void (^)(AWSLogsGetDeliveryDestinationResponse *response, NSError *error))completionHandler {
+    [[self getDeliveryDestination:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsGetDeliveryDestinationResponse *> * _Nonnull task) {
+        AWSLogsGetDeliveryDestinationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLogsGetDeliveryDestinationPolicyResponse *> *)getDeliveryDestinationPolicy:(AWSLogsGetDeliveryDestinationPolicyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"GetDeliveryDestinationPolicy"
+                   outputClass:[AWSLogsGetDeliveryDestinationPolicyResponse class]];
+}
+
+- (void)getDeliveryDestinationPolicy:(AWSLogsGetDeliveryDestinationPolicyRequest *)request
+     completionHandler:(void (^)(AWSLogsGetDeliveryDestinationPolicyResponse *response, NSError *error))completionHandler {
+    [[self getDeliveryDestinationPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsGetDeliveryDestinationPolicyResponse *> * _Nonnull task) {
+        AWSLogsGetDeliveryDestinationPolicyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLogsGetDeliverySourceResponse *> *)getDeliverySource:(AWSLogsGetDeliverySourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"GetDeliverySource"
+                   outputClass:[AWSLogsGetDeliverySourceResponse class]];
+}
+
+- (void)getDeliverySource:(AWSLogsGetDeliverySourceRequest *)request
+     completionHandler:(void (^)(AWSLogsGetDeliverySourceResponse *response, NSError *error))completionHandler {
+    [[self getDeliverySource:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsGetDeliverySourceResponse *> * _Nonnull task) {
+        AWSLogsGetDeliverySourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLogsGetLogEventsResponse *> *)getLogEvents:(AWSLogsGetLogEventsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1089,6 +1366,75 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLogsPutDataProtectionPolicyResponse *response, NSError *error))completionHandler {
     [[self putDataProtectionPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsPutDataProtectionPolicyResponse *> * _Nonnull task) {
         AWSLogsPutDataProtectionPolicyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLogsPutDeliveryDestinationResponse *> *)putDeliveryDestination:(AWSLogsPutDeliveryDestinationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"PutDeliveryDestination"
+                   outputClass:[AWSLogsPutDeliveryDestinationResponse class]];
+}
+
+- (void)putDeliveryDestination:(AWSLogsPutDeliveryDestinationRequest *)request
+     completionHandler:(void (^)(AWSLogsPutDeliveryDestinationResponse *response, NSError *error))completionHandler {
+    [[self putDeliveryDestination:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsPutDeliveryDestinationResponse *> * _Nonnull task) {
+        AWSLogsPutDeliveryDestinationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLogsPutDeliveryDestinationPolicyResponse *> *)putDeliveryDestinationPolicy:(AWSLogsPutDeliveryDestinationPolicyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"PutDeliveryDestinationPolicy"
+                   outputClass:[AWSLogsPutDeliveryDestinationPolicyResponse class]];
+}
+
+- (void)putDeliveryDestinationPolicy:(AWSLogsPutDeliveryDestinationPolicyRequest *)request
+     completionHandler:(void (^)(AWSLogsPutDeliveryDestinationPolicyResponse *response, NSError *error))completionHandler {
+    [[self putDeliveryDestinationPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsPutDeliveryDestinationPolicyResponse *> * _Nonnull task) {
+        AWSLogsPutDeliveryDestinationPolicyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLogsPutDeliverySourceResponse *> *)putDeliverySource:(AWSLogsPutDeliverySourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"PutDeliverySource"
+                   outputClass:[AWSLogsPutDeliverySourceResponse class]];
+}
+
+- (void)putDeliverySource:(AWSLogsPutDeliverySourceRequest *)request
+     completionHandler:(void (^)(AWSLogsPutDeliverySourceResponse *response, NSError *error))completionHandler {
+    [[self putDeliverySource:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsPutDeliverySourceResponse *> * _Nonnull task) {
+        AWSLogsPutDeliverySourceResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
