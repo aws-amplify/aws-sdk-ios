@@ -11,13 +11,17 @@
   - AWSElasticLoadBalancingv2
   - AWSEC2
   - AWSFirehose
-  - AWSPolly0
+  - AWSPolly
   - AWSSQS
   - AWSAutoScaling
   - AWSLambda
   - AWSIoT
   - AWSCloudWatchLogs
   - AWSComprehend
+  - AWSRekognition
+  - AWSSNS
+  - AWSPinpoint
+  - AWSTranslate
 
 ## 2.33.4
 
