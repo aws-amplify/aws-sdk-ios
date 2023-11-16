@@ -18,7 +18,8 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    if: ${{ !github.event.issue.pull_request && !contains(fromJSON('["palpatim", "brennanMKE", "lawmicha", "harsh62", "thisisabhash", "ameter", "royjit", "atierian", "ukhan-amazon", "ruisebas", "phantumcode"]'), github.event.comment.user.login) }}
+    # Exclude comments in PRs and comments made from maintainers
+    if: ${{ !github.event.issue.pull_request && !contains(fromJSON('["MEMBER", "OWNER"]'), github.event.comment.author_association) }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -27,7 +28,7 @@ jobs:
         env:
           WEBHOOK_URL: ${{ secrets.SLACK_COMMENT_WEBHOOK_URL }}
           COMMENT: ${{toJson(github.event.comment.body)}}
-          USER: ${{github.event.issue.user.login}}
+          USER: ${{github.event.comment.user.login}}
           COMMENT_URL: ${{github.event.comment.html_url}}
         shell: bash
         run: echo $COMMENT | sed "s/\\\n/. /g; s/\\\r//g; s/[^a-zA-Z0-9 &().,:]//g" | xargs -I {} curl -s POST "$WEBHOOK_URL" -H "Content-Type:application/json" --data '{"comment":"{}", "commentUrl":"'$COMMENT_URL'", "user":"'$USER'"}'

@@ -1,31 +1,43 @@
-
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
 -Features for next release
 
+## 2.33.5
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSCognitoIdentityProvider
+  - AWSConnect
+  - AWSConnectParticipant
+  - AWSElasticLoadBalancingv2
+  - AWSEC2
+  - AWSFirehose
+  - AWSPolly
+
 ## 2.33.4
 
 ### Misc. Updates
 
 - Model updates for the following services
- - AWSDynamoDB
- - AWSEC2
- - AWSSTS
- - AWSLambda
- - AWSPolly
- - AWSSES
- - AWSEC2
- - AWSConnect
- - AWSElasticLoadBalancingv2
- - AWSKinesisVideo
- - AWSRekognition
- - AWSKinesisVideoArchivedMedia
- - AWSAutoScaling
- - AWSCognitoIdentityProvider
- - AWSPinpoint
- - AWSSQS
+  - AWSDynamoDB
+  - AWSEC2
+  - AWSSTS
+  - AWSLambda
+  - AWSPolly
+  - AWSSES
+  - AWSEC2
+  - AWSConnect
+  - AWSElasticLoadBalancingv2
+  - AWSKinesisVideo
+  - AWSRekognition
+  - AWSKinesisVideoArchivedMedia
+  - AWSAutoScaling
+  - AWSCognitoIdentityProvider
+  - AWSPinpoint
+  - AWSSQS
 
 ## 2.33.3
 

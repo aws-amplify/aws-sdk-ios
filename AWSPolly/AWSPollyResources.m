@@ -1166,7 +1166,8 @@
         \"Niamh\",\
         \"Sofie\",\
         \"Lisa\",\
-        \"Isabelle\"\
+        \"Isabelle\",\
+        \"Zayd\"\
       ]\
     },\
     \"VoiceList\":{\

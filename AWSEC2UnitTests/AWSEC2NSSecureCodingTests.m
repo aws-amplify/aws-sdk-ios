@@ -432,6 +432,7 @@
 - (void) test_AWSEC2DeleteIpamScopeRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteIpamScopeResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteKeyPairRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DeleteKeyPairResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteLaunchTemplateRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteLaunchTemplateResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteLaunchTemplateVersionsRequest API_AVAILABLE(ios(11));
@@ -864,8 +865,12 @@
 - (void) test_AWSEC2DisableFastSnapshotRestoreSuccessItem API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableFastSnapshotRestoresRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableFastSnapshotRestoresResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisableImageBlockPublicAccessRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisableImageBlockPublicAccessResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableImageDeprecationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableImageDeprecationResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisableImageRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisableImageResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableIpamOrganizationAdminAccountRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableIpamOrganizationAdminAccountResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableSerialConsoleAccessRequest API_AVAILABLE(ios(11));
@@ -943,8 +948,12 @@
 - (void) test_AWSEC2EnableFastSnapshotRestoreSuccessItem API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableFastSnapshotRestoresRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableFastSnapshotRestoresResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableImageBlockPublicAccessRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableImageBlockPublicAccessResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableImageDeprecationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableImageDeprecationResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableImageRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableImageResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableIpamOrganizationAdminAccountRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableIpamOrganizationAdminAccountResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableReachabilityAnalyzerOrganizationSharingRequest API_AVAILABLE(ios(11));
@@ -1034,6 +1043,8 @@
 - (void) test_AWSEC2GetGroupsForCapacityReservationResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetHostReservationPurchasePreviewRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetHostReservationPurchasePreviewResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetImageBlockPublicAccessStateRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetImageBlockPublicAccessStateResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetInstanceTypesFromInstanceRequirementsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetInstanceTypesFromInstanceRequirementsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetInstanceUefiDataRequest API_AVAILABLE(ios(11));
@@ -1817,6 +1828,8 @@
 - (void) test_AWSEC2VerifiedAccessLogS3Destination API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VerifiedAccessLogS3DestinationOptions API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VerifiedAccessLogs API_AVAILABLE(ios(11));
+- (void) test_AWSEC2VerifiedAccessSseSpecificationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2VerifiedAccessSseSpecificationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VerifiedAccessTrustProvider API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VerifiedAccessTrustProviderCondensed API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VgwTelemetry API_AVAILABLE(ios(11));
@@ -3508,6 +3521,10 @@
 
 - (void) test_AWSEC2DeleteKeyPairRequest {
     [self validateSecureCodingForClass:[AWSEC2DeleteKeyPairRequest class]];
+}
+
+- (void) test_AWSEC2DeleteKeyPairResult {
+    [self validateSecureCodingForClass:[AWSEC2DeleteKeyPairResult class]];
 }
 
 - (void) test_AWSEC2DeleteLaunchTemplateRequest {
@@ -5238,12 +5255,28 @@
     [self validateSecureCodingForClass:[AWSEC2DisableFastSnapshotRestoresResult class]];
 }
 
+- (void) test_AWSEC2DisableImageBlockPublicAccessRequest {
+    [self validateSecureCodingForClass:[AWSEC2DisableImageBlockPublicAccessRequest class]];
+}
+
+- (void) test_AWSEC2DisableImageBlockPublicAccessResult {
+    [self validateSecureCodingForClass:[AWSEC2DisableImageBlockPublicAccessResult class]];
+}
+
 - (void) test_AWSEC2DisableImageDeprecationRequest {
     [self validateSecureCodingForClass:[AWSEC2DisableImageDeprecationRequest class]];
 }
 
 - (void) test_AWSEC2DisableImageDeprecationResult {
     [self validateSecureCodingForClass:[AWSEC2DisableImageDeprecationResult class]];
+}
+
+- (void) test_AWSEC2DisableImageRequest {
+    [self validateSecureCodingForClass:[AWSEC2DisableImageRequest class]];
+}
+
+- (void) test_AWSEC2DisableImageResult {
+    [self validateSecureCodingForClass:[AWSEC2DisableImageResult class]];
 }
 
 - (void) test_AWSEC2DisableIpamOrganizationAdminAccountRequest {
@@ -5554,12 +5587,28 @@
     [self validateSecureCodingForClass:[AWSEC2EnableFastSnapshotRestoresResult class]];
 }
 
+- (void) test_AWSEC2EnableImageBlockPublicAccessRequest {
+    [self validateSecureCodingForClass:[AWSEC2EnableImageBlockPublicAccessRequest class]];
+}
+
+- (void) test_AWSEC2EnableImageBlockPublicAccessResult {
+    [self validateSecureCodingForClass:[AWSEC2EnableImageBlockPublicAccessResult class]];
+}
+
 - (void) test_AWSEC2EnableImageDeprecationRequest {
     [self validateSecureCodingForClass:[AWSEC2EnableImageDeprecationRequest class]];
 }
 
 - (void) test_AWSEC2EnableImageDeprecationResult {
     [self validateSecureCodingForClass:[AWSEC2EnableImageDeprecationResult class]];
+}
+
+- (void) test_AWSEC2EnableImageRequest {
+    [self validateSecureCodingForClass:[AWSEC2EnableImageRequest class]];
+}
+
+- (void) test_AWSEC2EnableImageResult {
+    [self validateSecureCodingForClass:[AWSEC2EnableImageResult class]];
 }
 
 - (void) test_AWSEC2EnableIpamOrganizationAdminAccountRequest {
@@ -5916,6 +5965,14 @@
 
 - (void) test_AWSEC2GetHostReservationPurchasePreviewResult {
     [self validateSecureCodingForClass:[AWSEC2GetHostReservationPurchasePreviewResult class]];
+}
+
+- (void) test_AWSEC2GetImageBlockPublicAccessStateRequest {
+    [self validateSecureCodingForClass:[AWSEC2GetImageBlockPublicAccessStateRequest class]];
+}
+
+- (void) test_AWSEC2GetImageBlockPublicAccessStateResult {
+    [self validateSecureCodingForClass:[AWSEC2GetImageBlockPublicAccessStateResult class]];
 }
 
 - (void) test_AWSEC2GetInstanceTypesFromInstanceRequirementsRequest {
@@ -9048,6 +9105,14 @@
 
 - (void) test_AWSEC2VerifiedAccessLogs {
     [self validateSecureCodingForClass:[AWSEC2VerifiedAccessLogs class]];
+}
+
+- (void) test_AWSEC2VerifiedAccessSseSpecificationRequest {
+    [self validateSecureCodingForClass:[AWSEC2VerifiedAccessSseSpecificationRequest class]];
+}
+
+- (void) test_AWSEC2VerifiedAccessSseSpecificationResponse {
+    [self validateSecureCodingForClass:[AWSEC2VerifiedAccessSseSpecificationResponse class]];
 }
 
 - (void) test_AWSEC2VerifiedAccessTrustProvider {

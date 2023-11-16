@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -250,6 +250,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"bufferingHints" : @"BufferingHints",
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
              @"clusterEndpoint" : @"ClusterEndpoint",
+             @"documentIdOptions" : @"DocumentIdOptions",
              @"domainARN" : @"DomainARN",
              @"indexName" : @"IndexName",
              @"indexRotationPeriod" : @"IndexRotationPeriod",
@@ -269,6 +270,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)cloudWatchLoggingOptionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseCloudWatchLoggingOptions class]];
+}
+
++ (NSValueTransformer *)documentIdOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseDocumentIdOptions class]];
 }
 
 + (NSValueTransformer *)indexRotationPeriodJSONTransformer {
@@ -357,6 +362,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"bufferingHints" : @"BufferingHints",
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
              @"clusterEndpoint" : @"ClusterEndpoint",
+             @"documentIdOptions" : @"DocumentIdOptions",
              @"domainARN" : @"DomainARN",
              @"indexName" : @"IndexName",
              @"indexRotationPeriod" : @"IndexRotationPeriod",
@@ -376,6 +382,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)cloudWatchLoggingOptionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseCloudWatchLoggingOptions class]];
+}
+
++ (NSValueTransformer *)documentIdOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseDocumentIdOptions class]];
 }
 
 + (NSValueTransformer *)indexRotationPeriodJSONTransformer {
@@ -464,6 +474,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"bufferingHints" : @"BufferingHints",
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
              @"clusterEndpoint" : @"ClusterEndpoint",
+             @"documentIdOptions" : @"DocumentIdOptions",
              @"domainARN" : @"DomainARN",
              @"indexName" : @"IndexName",
              @"indexRotationPeriod" : @"IndexRotationPeriod",
@@ -481,6 +492,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)cloudWatchLoggingOptionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseCloudWatchLoggingOptions class]];
+}
+
++ (NSValueTransformer *)documentIdOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseDocumentIdOptions class]];
 }
 
 + (NSValueTransformer *)indexRotationPeriodJSONTransformer {
@@ -543,6 +558,42 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 	return @{
              @"durationInSeconds" : @"DurationInSeconds",
              };
+}
+
+@end
+
+@implementation AWSFirehoseAuthenticationConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"connectivity" : @"Connectivity",
+             @"roleARN" : @"RoleARN",
+             };
+}
+
++ (NSValueTransformer *)connectivityJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PUBLIC"] == NSOrderedSame) {
+            return @(AWSFirehoseConnectivityPublic);
+        }
+        if ([value caseInsensitiveCompare:@"PRIVATE"] == NSOrderedSame) {
+            return @(AWSFirehoseConnectivityPrivate);
+        }
+        return @(AWSFirehoseConnectivityUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSFirehoseConnectivityPublic:
+                return @"PUBLIC";
+            case AWSFirehoseConnectivityPrivate:
+                return @"PRIVATE";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -611,6 +662,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"extendedS3DestinationConfiguration" : @"ExtendedS3DestinationConfiguration",
              @"httpEndpointDestinationConfiguration" : @"HttpEndpointDestinationConfiguration",
              @"kinesisStreamSourceConfiguration" : @"KinesisStreamSourceConfiguration",
+             @"MSKSourceConfiguration" : @"MSKSourceConfiguration",
              @"redshiftDestinationConfiguration" : @"RedshiftDestinationConfiguration",
              @"s3DestinationConfiguration" : @"S3DestinationConfiguration",
              @"splunkDestinationConfiguration" : @"SplunkDestinationConfiguration",
@@ -638,6 +690,9 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
         if ([value caseInsensitiveCompare:@"KinesisStreamAsSource"] == NSOrderedSame) {
             return @(AWSFirehoseDeliveryStreamTypeKinesisStreamAsSource);
         }
+        if ([value caseInsensitiveCompare:@"MSKAsSource"] == NSOrderedSame) {
+            return @(AWSFirehoseDeliveryStreamTypeMSKAsSource);
+        }
         return @(AWSFirehoseDeliveryStreamTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -645,6 +700,8 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
                 return @"DirectPut";
             case AWSFirehoseDeliveryStreamTypeKinesisStreamAsSource:
                 return @"KinesisStreamAsSource";
+            case AWSFirehoseDeliveryStreamTypeMSKAsSource:
+                return @"MSKAsSource";
             default:
                 return nil;
         }
@@ -665,6 +722,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)kinesisStreamSourceConfigurationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseKinesisStreamSourceConfiguration class]];
+}
+
++ (NSValueTransformer *)MSKSourceConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseMSKSourceConfiguration class]];
 }
 
 + (NSValueTransformer *)redshiftDestinationConfigurationJSONTransformer {
@@ -830,6 +891,9 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
         if ([value caseInsensitiveCompare:@"KinesisStreamAsSource"] == NSOrderedSame) {
             return @(AWSFirehoseDeliveryStreamTypeKinesisStreamAsSource);
         }
+        if ([value caseInsensitiveCompare:@"MSKAsSource"] == NSOrderedSame) {
+            return @(AWSFirehoseDeliveryStreamTypeMSKAsSource);
+        }
         return @(AWSFirehoseDeliveryStreamTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -837,6 +901,8 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
                 return @"DirectPut";
             case AWSFirehoseDeliveryStreamTypeKinesisStreamAsSource:
                 return @"KinesisStreamAsSource";
+            case AWSFirehoseDeliveryStreamTypeMSKAsSource:
+                return @"MSKAsSource";
             default:
                 return nil;
         }
@@ -1095,6 +1161,41 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 @end
 
+@implementation AWSFirehoseDocumentIdOptions
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"defaultDocumentIdFormat" : @"DefaultDocumentIdFormat",
+             };
+}
+
++ (NSValueTransformer *)defaultDocumentIdFormatJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"FIREHOSE_DEFAULT"] == NSOrderedSame) {
+            return @(AWSFirehoseDefaultDocumentIdFormatFirehoseDefault);
+        }
+        if ([value caseInsensitiveCompare:@"NO_DOCUMENT_ID"] == NSOrderedSame) {
+            return @(AWSFirehoseDefaultDocumentIdFormatNoDocumentId);
+        }
+        return @(AWSFirehoseDefaultDocumentIdFormatUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSFirehoseDefaultDocumentIdFormatFirehoseDefault:
+                return @"FIREHOSE_DEFAULT";
+            case AWSFirehoseDefaultDocumentIdFormatNoDocumentId:
+                return @"NO_DOCUMENT_ID";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSFirehoseDynamicPartitioningConfiguration
 
 + (BOOL)supportsSecureCoding {
@@ -1140,6 +1241,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"bufferingHints" : @"BufferingHints",
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
              @"clusterEndpoint" : @"ClusterEndpoint",
+             @"documentIdOptions" : @"DocumentIdOptions",
              @"domainARN" : @"DomainARN",
              @"indexName" : @"IndexName",
              @"indexRotationPeriod" : @"IndexRotationPeriod",
@@ -1159,6 +1261,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)cloudWatchLoggingOptionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseCloudWatchLoggingOptions class]];
+}
+
++ (NSValueTransformer *)documentIdOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseDocumentIdOptions class]];
 }
 
 + (NSValueTransformer *)indexRotationPeriodJSONTransformer {
@@ -1247,6 +1353,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"bufferingHints" : @"BufferingHints",
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
              @"clusterEndpoint" : @"ClusterEndpoint",
+             @"documentIdOptions" : @"DocumentIdOptions",
              @"domainARN" : @"DomainARN",
              @"indexName" : @"IndexName",
              @"indexRotationPeriod" : @"IndexRotationPeriod",
@@ -1266,6 +1373,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)cloudWatchLoggingOptionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseCloudWatchLoggingOptions class]];
+}
+
++ (NSValueTransformer *)documentIdOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseDocumentIdOptions class]];
 }
 
 + (NSValueTransformer *)indexRotationPeriodJSONTransformer {
@@ -1354,6 +1465,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"bufferingHints" : @"BufferingHints",
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
              @"clusterEndpoint" : @"ClusterEndpoint",
+             @"documentIdOptions" : @"DocumentIdOptions",
              @"domainARN" : @"DomainARN",
              @"indexName" : @"IndexName",
              @"indexRotationPeriod" : @"IndexRotationPeriod",
@@ -1371,6 +1483,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)cloudWatchLoggingOptionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseCloudWatchLoggingOptions class]];
+}
+
++ (NSValueTransformer *)documentIdOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseDocumentIdOptions class]];
 }
 
 + (NSValueTransformer *)indexRotationPeriodJSONTransformer {
@@ -2341,6 +2457,9 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
         if ([value caseInsensitiveCompare:@"KinesisStreamAsSource"] == NSOrderedSame) {
             return @(AWSFirehoseDeliveryStreamTypeKinesisStreamAsSource);
         }
+        if ([value caseInsensitiveCompare:@"MSKAsSource"] == NSOrderedSame) {
+            return @(AWSFirehoseDeliveryStreamTypeMSKAsSource);
+        }
         return @(AWSFirehoseDeliveryStreamTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2348,6 +2467,8 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
                 return @"DirectPut";
             case AWSFirehoseDeliveryStreamTypeKinesisStreamAsSource:
                 return @"KinesisStreamAsSource";
+            case AWSFirehoseDeliveryStreamTypeMSKAsSource:
+                return @"MSKAsSource";
             default:
                 return nil;
         }
@@ -2402,6 +2523,55 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)tagsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSFirehoseTag class]];
+}
+
+@end
+
+@implementation AWSFirehoseMSKSourceConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"authenticationConfiguration" : @"AuthenticationConfiguration",
+             @"MSKClusterARN" : @"MSKClusterARN",
+             @"topicName" : @"TopicName",
+             };
+}
+
++ (NSValueTransformer *)authenticationConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseAuthenticationConfiguration class]];
+}
+
+@end
+
+@implementation AWSFirehoseMSKSourceDescription
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"authenticationConfiguration" : @"AuthenticationConfiguration",
+             @"deliveryStartTimestamp" : @"DeliveryStartTimestamp",
+             @"MSKClusterARN" : @"MSKClusterARN",
+             @"topicName" : @"TopicName",
+             };
+}
+
++ (NSValueTransformer *)authenticationConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseAuthenticationConfiguration class]];
+}
+
++ (NSValueTransformer *)deliveryStartTimestampJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -2617,6 +2787,9 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
         if ([value caseInsensitiveCompare:@"RecordDeAggregation"] == NSOrderedSame) {
             return @(AWSFirehoseProcessorTypeRecordDeAggregation);
         }
+        if ([value caseInsensitiveCompare:@"Decompression"] == NSOrderedSame) {
+            return @(AWSFirehoseProcessorTypeDecompression);
+        }
         if ([value caseInsensitiveCompare:@"Lambda"] == NSOrderedSame) {
             return @(AWSFirehoseProcessorTypeLambda);
         }
@@ -2631,6 +2804,8 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
         switch ([value integerValue]) {
             case AWSFirehoseProcessorTypeRecordDeAggregation:
                 return @"RecordDeAggregation";
+            case AWSFirehoseProcessorTypeDecompression:
+                return @"Decompression";
             case AWSFirehoseProcessorTypeLambda:
                 return @"Lambda";
             case AWSFirehoseProcessorTypeMetadataExtraction:
@@ -2687,6 +2862,9 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
         if ([value caseInsensitiveCompare:@"Delimiter"] == NSOrderedSame) {
             return @(AWSFirehoseProcessorParameterNameDelimiter);
         }
+        if ([value caseInsensitiveCompare:@"CompressionFormat"] == NSOrderedSame) {
+            return @(AWSFirehoseProcessorParameterNameCompressionFormat);
+        }
         return @(AWSFirehoseProcessorParameterNameUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2708,6 +2886,8 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
                 return @"SubRecordType";
             case AWSFirehoseProcessorParameterNameDelimiter:
                 return @"Delimiter";
+            case AWSFirehoseProcessorParameterNameCompressionFormat:
+                return @"CompressionFormat";
             default:
                 return nil;
         }
@@ -3311,11 +3491,16 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"kinesisStreamSourceDescription" : @"KinesisStreamSourceDescription",
+             @"MSKSourceDescription" : @"MSKSourceDescription",
              };
 }
 
 + (NSValueTransformer *)kinesisStreamSourceDescriptionJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseKinesisStreamSourceDescription class]];
+}
+
++ (NSValueTransformer *)MSKSourceDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseMSKSourceDescription class]];
 }
 
 @end
