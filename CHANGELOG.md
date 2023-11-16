@@ -1,12 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSConnect
----AWSPolly
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -21,6 +12,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSEC2
   - AWSFirehose
   - AWSPolly
+
 
 ## 2.33.4
 
