@@ -1428,6 +1428,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"criteria" : @"criteria",
+             @"exportMetric" : @"exportMetric",
              @"metric" : @"metric",
              @"metricDimension" : @"metricDimension",
              @"name" : @"name",
@@ -3787,6 +3788,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"additionalMetricsToRetainV2" : @"additionalMetricsToRetainV2",
              @"alertTargets" : @"alertTargets",
              @"behaviors" : @"behaviors",
+             @"metricsExportConfig" : @"metricsExportConfig",
              @"securityProfileDescription" : @"securityProfileDescription",
              @"securityProfileName" : @"securityProfileName",
              @"tags" : @"tags",
@@ -3807,6 +3809,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)behaviorsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTBehavior class]];
+}
+
++ (NSValueTransformer *)metricsExportConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTMetricsExportConfig class]];
 }
 
 + (NSValueTransformer *)tagsJSONTransformer {
@@ -6537,6 +6543,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"behaviors" : @"behaviors",
              @"creationDate" : @"creationDate",
              @"lastModifiedDate" : @"lastModifiedDate",
+             @"metricsExportConfig" : @"metricsExportConfig",
              @"securityProfileArn" : @"securityProfileArn",
              @"securityProfileDescription" : @"securityProfileDescription",
              @"securityProfileName" : @"securityProfileName",
@@ -6574,6 +6581,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)metricsExportConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTMetricsExportConfig class]];
 }
 
 @end
@@ -7534,6 +7545,42 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTGeoLocationTarget
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"name",
+             @"order" : @"order",
+             };
+}
+
++ (NSValueTransformer *)orderJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"LatLon"] == NSOrderedSame) {
+            return @(AWSIoTTargetFieldOrderLatLon);
+        }
+        if ([value caseInsensitiveCompare:@"LonLat"] == NSOrderedSame) {
+            return @(AWSIoTTargetFieldOrderLonLat);
+        }
+        return @(AWSIoTTargetFieldOrderUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTTargetFieldOrderLatLon:
+                return @"LatLon";
+            case AWSIoTTargetFieldOrderLonLat:
+                return @"LonLat";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSIoTGetBehaviorModelTrainingSummariesRequest
 
 + (BOOL)supportsSecureCoding {
@@ -8455,8 +8502,13 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"geoLocations" : @"geoLocations",
              @"namedShadowNames" : @"namedShadowNames",
              };
+}
+
++ (NSValueTransformer *)geoLocationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTGeoLocationTarget class]];
 }
 
 @end
@@ -12432,6 +12484,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"exportMetric" : @"exportMetric",
              @"metric" : @"metric",
              @"metricDimension" : @"metricDimension",
              };
@@ -12457,6 +12510,21 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"numbers" : @"numbers",
              @"ports" : @"ports",
              @"strings" : @"strings",
+             };
+}
+
+@end
+
+@implementation AWSIoTMetricsExportConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"mqttTopic" : @"mqttTopic",
+             @"roleArn" : @"roleArn",
              };
 }
 
@@ -17041,7 +17109,9 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"deleteAdditionalMetricsToRetain" : @"deleteAdditionalMetricsToRetain",
              @"deleteAlertTargets" : @"deleteAlertTargets",
              @"deleteBehaviors" : @"deleteBehaviors",
+             @"deleteMetricsExportConfig" : @"deleteMetricsExportConfig",
              @"expectedVersion" : @"expectedVersion",
+             @"metricsExportConfig" : @"metricsExportConfig",
              @"securityProfileDescription" : @"securityProfileDescription",
              @"securityProfileName" : @"securityProfileName",
              };
@@ -17063,6 +17133,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTBehavior class]];
 }
 
++ (NSValueTransformer *)metricsExportConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTMetricsExportConfig class]];
+}
+
 @end
 
 @implementation AWSIoTUpdateSecurityProfileResponse
@@ -17079,6 +17153,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"behaviors" : @"behaviors",
              @"creationDate" : @"creationDate",
              @"lastModifiedDate" : @"lastModifiedDate",
+             @"metricsExportConfig" : @"metricsExportConfig",
              @"securityProfileArn" : @"securityProfileArn",
              @"securityProfileDescription" : @"securityProfileDescription",
              @"securityProfileName" : @"securityProfileName",
@@ -17116,6 +17191,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)metricsExportConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTMetricsExportConfig class]];
 }
 
 @end
