@@ -2115,7 +2115,7 @@
       },\
       \"input\":{\"shape\":\"DeleteVpcPeeringConnectionRequest\"},\
       \"output\":{\"shape\":\"DeleteVpcPeeringConnectionResult\"},\
-      \"documentation\":\"<p>Deletes a VPC peering connection. Either the owner of the requester VPC or the owner of the accepter VPC can delete the VPC peering connection if it's in the <code>active</code> state. The owner of the requester VPC can delete a VPC peering connection in the <code>pending-acceptance</code> state. You cannot delete a VPC peering connection that's in the <code>failed</code> state.</p>\"\
+      \"documentation\":\"<p>Deletes a VPC peering connection. Either the owner of the requester VPC or the owner of the accepter VPC can delete the VPC peering connection if it's in the <code>active</code> state. The owner of the requester VPC can delete a VPC peering connection in the <code>pending-acceptance</code> state. You cannot delete a VPC peering connection that's in the <code>failed</code> or <code>rejected</code> state.</p>\"\
     },\
     \"DeleteVpnConnection\":{\
       \"name\":\"DeleteVpnConnection\",\
@@ -2303,6 +2303,16 @@
       \"output\":{\"shape\":\"DescribeByoipCidrsResult\"},\
       \"documentation\":\"<p>Describes the IP address ranges that were specified in calls to <a>ProvisionByoipCidr</a>.</p> <p>To describe the address pools that were created when you provisioned the address ranges, use <a>DescribePublicIpv4Pools</a> or <a>DescribeIpv6Pools</a>.</p>\"\
     },\
+    \"DescribeCapacityBlockOfferings\":{\
+      \"name\":\"DescribeCapacityBlockOfferings\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DescribeCapacityBlockOfferingsRequest\"},\
+      \"output\":{\"shape\":\"DescribeCapacityBlockOfferingsResult\"},\
+      \"documentation\":\"<p>Describes Capacity Block offerings available for purchase. With Capacity Blocks, you purchase a specific instance type for a period of time.</p>\"\
+    },\
     \"DescribeCapacityReservationFleets\":{\
       \"name\":\"DescribeCapacityReservationFleets\",\
       \"http\":{\
@@ -2481,7 +2491,7 @@
       },\
       \"input\":{\"shape\":\"DescribeFastLaunchImagesRequest\"},\
       \"output\":{\"shape\":\"DescribeFastLaunchImagesResult\"},\
-      \"documentation\":\"<p>Describe details for Windows AMIs that are configured for faster launching.</p>\"\
+      \"documentation\":\"<p>Describe details for Windows AMIs that are configured for Windows fast launch.</p>\"\
     },\
     \"DescribeFastSnapshotRestores\":{\
       \"name\":\"DescribeFastSnapshotRestores\",\
@@ -2713,6 +2723,16 @@
       \"output\":{\"shape\":\"DescribeInstanceStatusResult\"},\
       \"documentation\":\"<p>Describes the status of the specified instances or all of your instances. By default, only running instances are described, unless you specifically indicate to return the status of all instances.</p> <p>Instance status includes the following components:</p> <ul> <li> <p> <b>Status checks</b> - Amazon EC2 performs status checks on running EC2 instances to identify hardware and software issues. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\\\">Status checks for your instances</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html\\\">Troubleshoot instances with failed status checks</a> in the <i>Amazon EC2 User Guide</i>.</p> </li> <li> <p> <b>Scheduled events</b> - Amazon EC2 can schedule events (such as reboot, stop, or terminate) for your instances related to hardware issues, software updates, or system maintenance. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html\\\">Scheduled events for your instances</a> in the <i>Amazon EC2 User Guide</i>.</p> </li> <li> <p> <b>Instance state</b> - You can manage your instances from the moment you launch them through their termination. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html\\\">Instance lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p> </li> </ul>\"\
     },\
+    \"DescribeInstanceTopology\":{\
+      \"name\":\"DescribeInstanceTopology\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DescribeInstanceTopologyRequest\"},\
+      \"output\":{\"shape\":\"DescribeInstanceTopologyResult\"},\
+      \"documentation\":\"<p>Describes a tree-based hierarchy that represents the physical host placement of your EC2 instances within an Availability Zone or Local Zone. You can use this information to determine the relative proximity of your EC2 instances within the Amazon Web Services network to support your tightly coupled workloads.</p> <p class=\\\"title\\\"> <b>Limitations</b> </p> <ul> <li> <p>Supported zones</p> <ul> <li> <p>Availability Zone</p> </li> <li> <p>Local Zone</p> </li> </ul> </li> <li> <p>Supported instance types</p> <ul> <li> <p> <code>hpc6a.48xlarge</code> | <code>hpc6id.32xlarge</code> | <code>hpc7a.12xlarge</code> | <code>hpc7a.24xlarge</code> | <code>hpc7a.48xlarge</code> | <code>hpc7a.96xlarge</code> | <code>hpc7g.4xlarge</code> | <code>hpc7g.8xlarge</code> | <code>hpc7g.16xlarge</code> </p> </li> <li> <p> <code>p3dn.24xlarge</code> | <code>p4d.24xlarge</code> | <code>p4de.24xlarge</code> | <code>p5.48xlarge</code> </p> </li> <li> <p> <code>trn1.2xlarge</code> | <code>trn1.32xlarge</code> | <code>trn1n.32xlarge</code> </p> </li> </ul> </li> </ul> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html\\\">Amazon EC2 instance topology</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
+    },\
     \"DescribeInstanceTypeOfferings\":{\
       \"name\":\"DescribeInstanceTypeOfferings\",\
       \"http\":{\
@@ -2902,6 +2922,16 @@
       \"input\":{\"shape\":\"DescribeLocalGatewaysRequest\"},\
       \"output\":{\"shape\":\"DescribeLocalGatewaysResult\"},\
       \"documentation\":\"<p>Describes one or more local gateways. By default, all local gateways are described. Alternatively, you can filter the results.</p>\"\
+    },\
+    \"DescribeLockedSnapshots\":{\
+      \"name\":\"DescribeLockedSnapshots\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DescribeLockedSnapshotsRequest\"},\
+      \"output\":{\"shape\":\"DescribeLockedSnapshotsResult\"},\
+      \"documentation\":\"<p>Describes the lock status for a snapshot.</p>\"\
     },\
     \"DescribeManagedPrefixLists\":{\
       \"name\":\"DescribeManagedPrefixLists\",\
@@ -3758,7 +3788,7 @@
       },\
       \"input\":{\"shape\":\"DisableFastLaunchRequest\"},\
       \"output\":{\"shape\":\"DisableFastLaunchResult\"},\
-      \"documentation\":\"<p>Discontinue faster launching for a Windows AMI, and clean up existing pre-provisioned snapshots. When you disable faster launching, the AMI uses the standard launch process for each instance. All pre-provisioned snapshots must be removed before you can enable faster launching again.</p> <note> <p>To change these settings, you must own the AMI.</p> </note>\"\
+      \"documentation\":\"<p>Discontinue Windows fast launch for a Windows AMI, and clean up existing pre-provisioned snapshots. After you disable Windows fast launch, the AMI uses the standard launch process for each new instance. Amazon EC2 must remove all pre-provisioned snapshots before you can enable Windows fast launch again.</p> <note> <p>You can only change these settings for Windows AMIs that you own or that have been shared with you.</p> </note>\"\
     },\
     \"DisableFastSnapshotRestores\":{\
       \"name\":\"DisableFastSnapshotRestores\",\
@@ -3778,7 +3808,7 @@
       },\
       \"input\":{\"shape\":\"DisableImageRequest\"},\
       \"output\":{\"shape\":\"DisableImageResult\"},\
-      \"documentation\":\"<p>Sets the AMI state to <code>disabled</code> and removes all launch permissions from the AMI. A disabled AMI can't be used for instance launches.</p> <p>A disabled AMI can't be shared. If a public or shared AMI was previously shared, it is made private. If an AMI was shared with an Amazon Web Services account, organization, or Organizational Unit, they lose access to the disabled AMI. </p> <p>A disabled AMI does not appear in <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html\\\">DescribeImages</a> API calls by default.</p> <p>Only the AMI owner can disable an AMI.</p> <p>You can re-enable a disabled AMI using <a href=\\\"http://amazonaws.com/AWSEC2/latest/APIReference/API_EnableImage.html\\\">EnableImage</a>.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html\\\">Disable an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Sets the AMI state to <code>disabled</code> and removes all launch permissions from the AMI. A disabled AMI can't be used for instance launches.</p> <p>A disabled AMI can't be shared. If an AMI was public or previously shared, it is made private. If an AMI was shared with an Amazon Web Services account, organization, or Organizational Unit, they lose access to the disabled AMI. </p> <p>A disabled AMI does not appear in <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html\\\">DescribeImages</a> API calls by default.</p> <p>Only the AMI owner can disable an AMI.</p> <p>You can re-enable a disabled AMI using <a href=\\\"http://amazonaws.com/AWSEC2/latest/APIReference/API_EnableImage.html\\\">EnableImage</a>.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html\\\">Disable an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
     },\
     \"DisableImageBlockPublicAccess\":{\
       \"name\":\"DisableImageBlockPublicAccess\",\
@@ -3819,6 +3849,16 @@
       \"input\":{\"shape\":\"DisableSerialConsoleAccessRequest\"},\
       \"output\":{\"shape\":\"DisableSerialConsoleAccessResult\"},\
       \"documentation\":\"<p>Disables access to the EC2 serial console of all instances for your account. By default, access to the EC2 serial console is disabled for your account. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access\\\">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
+    },\
+    \"DisableSnapshotBlockPublicAccess\":{\
+      \"name\":\"DisableSnapshotBlockPublicAccess\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DisableSnapshotBlockPublicAccessRequest\"},\
+      \"output\":{\"shape\":\"DisableSnapshotBlockPublicAccessResult\"},\
+      \"documentation\":\"<p>Disables the <i>block public access for snapshots</i> setting at the account level for the specified Amazon Web Services Region. After you disable block public access for snapshots in a Region, users can publicly share snapshots in that Region.</p> <p>If block public access is enabled in <code>block-all-sharing</code> mode, and you disable block public access, all snapshots that were previously publicly shared are no longer treated as private and they become publicly accessible again.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html\\\"> Block public access for snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> .</p> <p/>\"\
     },\
     \"DisableTransitGatewayRouteTablePropagation\":{\
       \"name\":\"DisableTransitGatewayRouteTablePropagation\",\
@@ -4035,7 +4075,7 @@
       },\
       \"input\":{\"shape\":\"EnableFastLaunchRequest\"},\
       \"output\":{\"shape\":\"EnableFastLaunchResult\"},\
-      \"documentation\":\"<p>When you enable faster launching for a Windows AMI, images are pre-provisioned, using snapshots to launch instances up to 65% faster. To create the optimized Windows image, Amazon EC2 launches an instance and runs through Sysprep steps, rebooting as required. Then it creates a set of reserved snapshots that are used for subsequent launches. The reserved snapshots are automatically replenished as they are used, depending on your settings for launch frequency.</p> <note> <p>To change these settings, you must own the AMI.</p> </note>\"\
+      \"documentation\":\"<p>When you enable Windows fast launch for a Windows AMI, images are pre-provisioned, using snapshots to launch instances up to 65% faster. To create the optimized Windows image, Amazon EC2 launches an instance and runs through Sysprep steps, rebooting as required. Then it creates a set of reserved snapshots that are used for subsequent launches. The reserved snapshots are automatically replenished as they are used, depending on your settings for launch frequency.</p> <note> <p>You can only change these settings for Windows AMIs that you own or that have been shared with you.</p> </note>\"\
     },\
     \"EnableFastSnapshotRestores\":{\
       \"name\":\"EnableFastSnapshotRestores\",\
@@ -4106,6 +4146,16 @@
       \"input\":{\"shape\":\"EnableSerialConsoleAccessRequest\"},\
       \"output\":{\"shape\":\"EnableSerialConsoleAccessResult\"},\
       \"documentation\":\"<p>Enables access to the EC2 serial console of all instances for your account. By default, access to the EC2 serial console is disabled for your account. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access\\\">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
+    },\
+    \"EnableSnapshotBlockPublicAccess\":{\
+      \"name\":\"EnableSnapshotBlockPublicAccess\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"EnableSnapshotBlockPublicAccessRequest\"},\
+      \"output\":{\"shape\":\"EnableSnapshotBlockPublicAccessResult\"},\
+      \"documentation\":\"<p>Enables or modifies the <i>block public access for snapshots</i> setting at the account level for the specified Amazon Web Services Region. After you enable block public access for snapshots in a Region, users can no longer request public sharing for snapshots in that Region. Snapshots that are already publicly shared are either treated as private or they remain publicly shared, depending on the <b>State</b> that you specify.</p> <p>If block public access is enabled in <code>block-all-sharing</code> mode, and you change the mode to <code>block-new-sharing</code>, all snapshots that were previously publicly shared are no longer treated as private and they become publicly accessible again.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html\\\"> Block public access for snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"EnableTransitGatewayRouteTablePropagation\":{\
       \"name\":\"EnableTransitGatewayRouteTablePropagation\",\
@@ -4485,6 +4535,16 @@
       \"output\":{\"shape\":\"GetReservedInstancesExchangeQuoteResult\"},\
       \"documentation\":\"<p>Returns a quote and exchange information for exchanging one or more specified Convertible Reserved Instances for a new Convertible Reserved Instance. If the exchange cannot be performed, the reason is returned in the response. Use <a>AcceptReservedInstancesExchangeQuote</a> to perform the exchange.</p>\"\
     },\
+    \"GetSecurityGroupsForVpc\":{\
+      \"name\":\"GetSecurityGroupsForVpc\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"GetSecurityGroupsForVpcRequest\"},\
+      \"output\":{\"shape\":\"GetSecurityGroupsForVpcResult\"},\
+      \"documentation\":\"<p>Gets security groups that can be associated by the Amazon Web Services account making the request with network interfaces in the specified VPC.</p>\"\
+    },\
     \"GetSerialConsoleAccessStatus\":{\
       \"name\":\"GetSerialConsoleAccessStatus\",\
       \"http\":{\
@@ -4494,6 +4554,16 @@
       \"input\":{\"shape\":\"GetSerialConsoleAccessStatusRequest\"},\
       \"output\":{\"shape\":\"GetSerialConsoleAccessStatusResult\"},\
       \"documentation\":\"<p>Retrieves the access status of your account to the EC2 serial console of all instances. By default, access to the EC2 serial console is disabled for your account. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access\\\">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
+    },\
+    \"GetSnapshotBlockPublicAccessState\":{\
+      \"name\":\"GetSnapshotBlockPublicAccessState\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"GetSnapshotBlockPublicAccessStateRequest\"},\
+      \"output\":{\"shape\":\"GetSnapshotBlockPublicAccessStateResult\"},\
+      \"documentation\":\"<p>Gets the current state of <i>block public access for snapshots</i> setting for the account and Region.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html\\\"> Block public access for snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"GetSpotPlacementScores\":{\
       \"name\":\"GetSpotPlacementScores\",\
@@ -4714,6 +4784,16 @@
       \"input\":{\"shape\":\"ListSnapshotsInRecycleBinRequest\"},\
       \"output\":{\"shape\":\"ListSnapshotsInRecycleBinResult\"},\
       \"documentation\":\"<p>Lists one or more snapshots that are currently in the Recycle Bin.</p>\"\
+    },\
+    \"LockSnapshot\":{\
+      \"name\":\"LockSnapshot\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"LockSnapshotRequest\"},\
+      \"output\":{\"shape\":\"LockSnapshotResult\"},\
+      \"documentation\":\"<p>Locks an Amazon EBS snapshot in either <i>governance</i> or <i>compliance</i> mode to protect it against accidental or malicious deletions for a specific duration. A locked snapshot can't be deleted.</p> <p>You can also use this action to modify the lock settings for a snapshot that is already locked. The allowed modifications depend on the lock mode and lock state:</p> <ul> <li> <p>If the snapshot is locked in governance mode, you can modify the lock mode and the lock duration or lock expiration date.</p> </li> <li> <p>If the snapshot is locked in compliance mode and it is in the cooling-off period, you can modify the lock mode and the lock duration or lock expiration date.</p> </li> <li> <p>If the snapshot is locked in compliance mode and the cooling-off period has lapsed, you can only increase the lock duration or extend the lock expiration date.</p> </li> </ul>\"\
     },\
     \"ModifyAddressAttribute\":{\
       \"name\":\"ModifyAddressAttribute\",\
@@ -5406,6 +5486,16 @@
       \"output\":{\"shape\":\"ProvisionPublicIpv4PoolCidrResult\"},\
       \"documentation\":\"<p>Provision a CIDR to a public IPv4 pool.</p> <p>For more information about IPAM, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
     },\
+    \"PurchaseCapacityBlock\":{\
+      \"name\":\"PurchaseCapacityBlock\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"PurchaseCapacityBlockRequest\"},\
+      \"output\":{\"shape\":\"PurchaseCapacityBlockResult\"},\
+      \"documentation\":\"<p>Purchase the Capacity Block for use with your account. With Capacity Blocks you ensure GPU capacity is available for machine learning (ML) workloads. You must specify the ID of the Capacity Block offering you are purchasing.</p>\"\
+    },\
     \"PurchaseHostReservation\":{\
       \"name\":\"PurchaseHostReservation\",\
       \"http\":{\
@@ -5965,6 +6055,16 @@
       \"output\":{\"shape\":\"UnassignPrivateNatGatewayAddressResult\"},\
       \"documentation\":\"<p>Unassigns secondary private IPv4 addresses from a private NAT gateway. You cannot unassign your primary private IP. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary\\\">Edit secondary IP address associations</a> in the <i>Amazon VPC User Guide</i>.</p> <p>While unassigning is in progress, you cannot assign/unassign additional IP addresses while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p> <p>A private IP address will only be released at the end of MaxDrainDurationSeconds. The private IP addresses stay associated and support the existing connections, but do not support any new connections (new connections are distributed across the remaining assigned private IP address). After the existing connections drain out, the private IP addresses are released.</p> <p/> <p/>\"\
     },\
+    \"UnlockSnapshot\":{\
+      \"name\":\"UnlockSnapshot\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"UnlockSnapshotRequest\"},\
+      \"output\":{\"shape\":\"UnlockSnapshotResult\"},\
+      \"documentation\":\"<p>Unlocks a snapshot that is locked in governance mode or that is locked in compliance mode but still in the cooling-off period. You can't unlock a snapshot that is locked in compliance mode after the cooling-off period has expired.</p>\"\
+    },\
     \"UnmonitorInstances\":{\
       \"name\":\"UnmonitorInstances\",\
       \"http\":{\
@@ -6040,9 +6140,9 @@
     \"AcceleratorManufacturer\":{\
       \"type\":\"string\",\
       \"enum\":[\
-        \"nvidia\",\
-        \"amd\",\
         \"amazon-web-services\",\
+        \"amd\",\
+        \"nvidia\",\
         \"xilinx\"\
       ]\
     },\
@@ -6057,14 +6157,14 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"a100\",\
-        \"v100\",\
+        \"inferentia\",\
+        \"k520\",\
         \"k80\",\
-        \"t4\",\
         \"m60\",\
         \"radeon-pro-v520\",\
+        \"t4\",\
         \"vu9p\",\
-        \"inferentia\",\
-        \"k520\"\
+        \"v100\"\
       ]\
     },\
     \"AcceleratorNameSet\":{\
@@ -8536,12 +8636,12 @@
       \"members\":{\
         \"VerifiedAccessTrustProvider\":{\
           \"shape\":\"VerifiedAccessTrustProvider\",\
-          \"documentation\":\"<p>The ID of the Verified Access trust provider.</p>\",\
+          \"documentation\":\"<p>Details about the Verified Access trust provider.</p>\",\
           \"locationName\":\"verifiedAccessTrustProvider\"\
         },\
         \"VerifiedAccessInstance\":{\
           \"shape\":\"VerifiedAccessInstance\",\
-          \"documentation\":\"<p>The ID of the Verified Access instance.</p>\",\
+          \"documentation\":\"<p>Details about the Verified Access instance.</p>\",\
           \"locationName\":\"verifiedAccessInstance\"\
         }\
       }\
@@ -8612,16 +8712,16 @@
       \"members\":{\
         \"EnaSrdEnabled\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>Indicates whether ENA Express is enabled for the network interface that's attached to the instance.</p>\",\
+          \"documentation\":\"<p>Indicates whether ENA Express is enabled for the network interface.</p>\",\
           \"locationName\":\"enaSrdEnabled\"\
         },\
         \"EnaSrdUdpSpecification\":{\
           \"shape\":\"AttachmentEnaSrdUdpSpecification\",\
-          \"documentation\":\"<p>ENA Express configuration for UDP network traffic.</p>\",\
+          \"documentation\":\"<p>Configures ENA Express for UDP network traffic.</p>\",\
           \"locationName\":\"enaSrdUdpSpecification\"\
         }\
       },\
-      \"documentation\":\"<p>Describes the ENA Express configuration for the network interface that's attached to the instance.</p>\"\
+      \"documentation\":\"<p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.</p> <p>To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.</p>\"\
     },\
     \"AttachmentEnaSrdUdpSpecification\":{\
       \"type\":\"structure\",\
@@ -8632,7 +8732,7 @@
           \"locationName\":\"enaSrdUdpEnabled\"\
         }\
       },\
-      \"documentation\":\"<p>Describes the ENA Express configuration for UDP traffic on the network interface that's attached to the instance.</p>\"\
+      \"documentation\":\"<p>ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic automatically uses it. However, some UDP-based applications are designed to handle network packets that are out of order, without a need for retransmission, such as live video broadcasting or other near-real-time applications. For UDP traffic, you can specify whether to use ENA Express, based on your application environment needs.</p>\"\
     },\
     \"AttachmentStatus\":{\
       \"type\":\"string\",\
@@ -9787,6 +9887,69 @@
         \"locationName\":\"item\"\
       }\
     },\
+    \"CapacityBlockOffering\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CapacityBlockOfferingId\":{\
+          \"shape\":\"OfferingId\",\
+          \"documentation\":\"<p>The ID of the Capacity Block offering.</p>\",\
+          \"locationName\":\"capacityBlockOfferingId\"\
+        },\
+        \"InstanceType\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The instance type of the Capacity Block offering.</p>\",\
+          \"locationName\":\"instanceType\"\
+        },\
+        \"AvailabilityZone\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The Availability Zone of the Capacity Block offering.</p>\",\
+          \"locationName\":\"availabilityZone\"\
+        },\
+        \"InstanceCount\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The number of instances in the Capacity Block offering.</p>\",\
+          \"locationName\":\"instanceCount\"\
+        },\
+        \"StartDate\":{\
+          \"shape\":\"MillisecondDateTime\",\
+          \"documentation\":\"<p>The start date of the Capacity Block offering.</p>\",\
+          \"locationName\":\"startDate\"\
+        },\
+        \"EndDate\":{\
+          \"shape\":\"MillisecondDateTime\",\
+          \"documentation\":\"<p>The end date of the Capacity Block offering.</p>\",\
+          \"locationName\":\"endDate\"\
+        },\
+        \"CapacityBlockDurationHours\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The amount of time of the Capacity Block reservation in hours.</p>\",\
+          \"locationName\":\"capacityBlockDurationHours\"\
+        },\
+        \"UpfrontFee\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The total price to be paid up front.</p>\",\
+          \"locationName\":\"upfrontFee\"\
+        },\
+        \"CurrencyCode\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The currency of the payment for the Capacity Block.</p>\",\
+          \"locationName\":\"currencyCode\"\
+        },\
+        \"Tenancy\":{\
+          \"shape\":\"CapacityReservationTenancy\",\
+          \"documentation\":\"<p>The tenancy of the Capacity Block.</p>\",\
+          \"locationName\":\"tenancy\"\
+        }\
+      },\
+      \"documentation\":\"<p>The recommended Capacity Block that fits your search requirements.</p>\"\
+    },\
+    \"CapacityBlockOfferingSet\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"CapacityBlockOffering\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"CapacityReservation\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -9904,6 +10067,11 @@
           \"shape\":\"CapacityAllocations\",\
           \"documentation\":\"<p>Information about instance capacity usage.</p>\",\
           \"locationName\":\"capacityAllocationSet\"\
+        },\
+        \"ReservationType\":{\
+          \"shape\":\"CapacityReservationType\",\
+          \"documentation\":\"<p>The type of Capacity Reservation.</p>\",\
+          \"locationName\":\"reservationType\"\
         }\
       },\
       \"documentation\":\"<p>Describes a Capacity Reservation.</p>\"\
@@ -10157,7 +10325,10 @@
         \"expired\",\
         \"cancelled\",\
         \"pending\",\
-        \"failed\"\
+        \"failed\",\
+        \"scheduled\",\
+        \"payment-pending\",\
+        \"payment-failed\"\
       ]\
     },\
     \"CapacityReservationTarget\":{\
@@ -10195,6 +10366,13 @@
       \"enum\":[\
         \"default\",\
         \"dedicated\"\
+      ]\
+    },\
+    \"CapacityReservationType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"default\",\
+        \"capacity-block\"\
       ]\
     },\
     \"CarrierGateway\":{\
@@ -10514,7 +10692,6 @@
       \"type\":\"string\",\
       \"sensitive\":true\
     },\
-    \"ClientVpnAssociationId\":{\"type\":\"string\"},\
     \"ClientVpnAuthentication\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -11336,6 +11513,12 @@
         \"completed\"\
       ]\
     },\
+    \"CoolOffPeriodRequestHours\":{\
+      \"type\":\"integer\",\
+      \"max\":72,\
+      \"min\":1\
+    },\
+    \"CoolOffPeriodResponseHours\":{\"type\":\"integer\"},\
     \"CopyFpgaImageRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -12494,7 +12677,7 @@
       \"members\":{\
         \"BlockDeviceMappings\":{\
           \"shape\":\"BlockDeviceMappingRequestList\",\
-          \"documentation\":\"<p>The block device mappings. This parameter cannot be used to modify the encryption status of existing volumes or snapshots. To create an AMI with encrypted snapshots, use the <a>CopyImage</a> action.</p>\",\
+          \"documentation\":\"<p>The block device mappings.</p> <p>When using the CreateImage action:</p> <ul> <li> <p>You can't change the volume size using the VolumeSize parameter. If you want a different volume size, you must first change the volume size of the source instance.</p> </li> <li> <p>You can't modify the encryption status of existing volumes or snapshots. To create an AMI with volumes or snapshots that have a different encryption status (for example, where the source volume and snapshots are unencrypted, and you want to create an AMI with encrypted volumes or snapshots), use the <a>CopyImage</a> action.</p> </li> <li> <p>The only option that can be changed for existing mappings or snapshots is <code>DeleteOnTermination</code>.</p> </li> </ul>\",\
           \"locationName\":\"blockDeviceMapping\"\
         },\
         \"Description\":{\
@@ -15039,7 +15222,7 @@
         },\
         \"SecurityGroupIds\":{\
           \"shape\":\"SecurityGroupIdList\",\
-          \"documentation\":\"<p>The IDs of the security groups to associate with the Verified Access endpoint.</p>\",\
+          \"documentation\":\"<p>The IDs of the security groups to associate with the Verified Access endpoint. Required if <code>AttachmentType</code> is set to <code>vpc</code>.</p>\",\
           \"locationName\":\"SecurityGroupId\"\
         },\
         \"LoadBalancerOptions\":{\
@@ -15074,7 +15257,7 @@
         },\
         \"SseSpecification\":{\
           \"shape\":\"VerifiedAccessSseSpecificationRequest\",\
-          \"documentation\":\"<p> Options for server side encryption. </p>\"\
+          \"documentation\":\"<p>The options for server side encryption.</p>\"\
         }\
       }\
     },\
@@ -15083,7 +15266,7 @@
       \"members\":{\
         \"VerifiedAccessEndpoint\":{\
           \"shape\":\"VerifiedAccessEndpoint\",\
-          \"documentation\":\"<p>The ID of the Verified Access endpoint.</p>\",\
+          \"documentation\":\"<p>Details about the Verified Access endpoint.</p>\",\
           \"locationName\":\"verifiedAccessEndpoint\"\
         }\
       }\
@@ -15127,7 +15310,7 @@
         },\
         \"SseSpecification\":{\
           \"shape\":\"VerifiedAccessSseSpecificationRequest\",\
-          \"documentation\":\"<p> Options for server side encryption. </p>\"\
+          \"documentation\":\"<p>The options for server side encryption.</p>\"\
         }\
       }\
     },\
@@ -15136,7 +15319,7 @@
       \"members\":{\
         \"VerifiedAccessGroup\":{\
           \"shape\":\"VerifiedAccessGroup\",\
-          \"documentation\":\"<p>The ID of the Verified Access group.</p>\",\
+          \"documentation\":\"<p>Details about the Verified Access group.</p>\",\
           \"locationName\":\"verifiedAccessGroup\"\
         }\
       }\
@@ -15173,7 +15356,7 @@
       \"members\":{\
         \"VerifiedAccessInstance\":{\
           \"shape\":\"VerifiedAccessInstance\",\
-          \"documentation\":\"<p>The ID of the Verified Access instance.</p>\",\
+          \"documentation\":\"<p>Details about the Verified Access instance.</p>\",\
           \"locationName\":\"verifiedAccessInstance\"\
         }\
       }\
@@ -15273,7 +15456,7 @@
         },\
         \"SseSpecification\":{\
           \"shape\":\"VerifiedAccessSseSpecificationRequest\",\
-          \"documentation\":\"<p> Options for server side encryption. </p>\"\
+          \"documentation\":\"<p>The options for server side encryption.</p>\"\
         }\
       }\
     },\
@@ -15282,7 +15465,7 @@
       \"members\":{\
         \"VerifiedAccessTrustProvider\":{\
           \"shape\":\"VerifiedAccessTrustProvider\",\
-          \"documentation\":\"<p>The ID of the Verified Access trust provider.</p>\",\
+          \"documentation\":\"<p>Details about the Verified Access trust provider.</p>\",\
           \"locationName\":\"verifiedAccessTrustProvider\"\
         }\
       }\
@@ -16013,7 +16196,8 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"spot\",\
-        \"on-demand\"\
+        \"on-demand\",\
+        \"capacity-block\"\
       ]\
     },\
     \"DefaultingDhcpOptionsId\":{\"type\":\"string\"},\
@@ -17691,7 +17875,7 @@
       \"members\":{\
         \"VerifiedAccessEndpoint\":{\
           \"shape\":\"VerifiedAccessEndpoint\",\
-          \"documentation\":\"<p>The ID of the Verified Access endpoint.</p>\",\
+          \"documentation\":\"<p>Details about the Verified Access endpoint.</p>\",\
           \"locationName\":\"verifiedAccessEndpoint\"\
         }\
       }\
@@ -17720,7 +17904,7 @@
       \"members\":{\
         \"VerifiedAccessGroup\":{\
           \"shape\":\"VerifiedAccessGroup\",\
-          \"documentation\":\"<p>The ID of the Verified Access group.</p>\",\
+          \"documentation\":\"<p>Details about the Verified Access group.</p>\",\
           \"locationName\":\"verifiedAccessGroup\"\
         }\
       }\
@@ -17749,7 +17933,7 @@
       \"members\":{\
         \"VerifiedAccessInstance\":{\
           \"shape\":\"VerifiedAccessInstance\",\
-          \"documentation\":\"<p>The ID of the Verified Access instance.</p>\",\
+          \"documentation\":\"<p>Details about the Verified Access instance.</p>\",\
           \"locationName\":\"verifiedAccessInstance\"\
         }\
       }\
@@ -17778,7 +17962,7 @@
       \"members\":{\
         \"VerifiedAccessTrustProvider\":{\
           \"shape\":\"VerifiedAccessTrustProvider\",\
-          \"documentation\":\"<p>The ID of the Verified Access trust provider.</p>\",\
+          \"documentation\":\"<p>Details about the Verified Access trust provider.</p>\",\
           \"locationName\":\"verifiedAccessTrustProvider\"\
         }\
       }\
@@ -18479,6 +18663,68 @@
           \"shape\":\"ByoipCidrSet\",\
           \"documentation\":\"<p>Information about your address ranges.</p>\",\
           \"locationName\":\"byoipCidrSet\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>\",\
+          \"locationName\":\"nextToken\"\
+        }\
+      }\
+    },\
+    \"DescribeCapacityBlockOfferingsMaxResults\":{\
+      \"type\":\"integer\",\
+      \"max\":1000,\
+      \"min\":1\
+    },\
+    \"DescribeCapacityBlockOfferingsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceType\",\
+        \"InstanceCount\",\
+        \"CapacityDurationHours\"\
+      ],\
+      \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"InstanceType\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The type of instance for which the Capacity Block offering reserves capacity.</p>\"\
+        },\
+        \"InstanceCount\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The number of instances for which to reserve capacity.</p>\"\
+        },\
+        \"StartDateRange\":{\
+          \"shape\":\"MillisecondDateTime\",\
+          \"documentation\":\"<p>The earliest start date for the Capacity Block offering.</p>\"\
+        },\
+        \"EndDateRange\":{\
+          \"shape\":\"MillisecondDateTime\",\
+          \"documentation\":\"<p>The latest end date for the Capacity Block offering.</p>\"\
+        },\
+        \"CapacityDurationHours\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The number of hours for which to reserve Capacity Block.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token to use to retrieve the next page of results.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"DescribeCapacityBlockOfferingsMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeCapacityBlockOfferingsResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CapacityBlockOfferings\":{\
+          \"shape\":\"CapacityBlockOfferingSet\",\
+          \"documentation\":\"<p>The recommended Capacity Block offering for the dates specified.</p>\",\
+          \"locationName\":\"capacityBlockOfferingSet\"\
         },\
         \"NextToken\":{\
           \"shape\":\"String\",\
@@ -19242,12 +19488,12 @@
       \"members\":{\
         \"ImageIds\":{\
           \"shape\":\"FastLaunchImageIdList\",\
-          \"documentation\":\"<p>Details for one or more Windows AMI image IDs.</p>\",\
+          \"documentation\":\"<p>Specify one or more Windows AMI image IDs for the request.</p>\",\
           \"locationName\":\"ImageId\"\
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>Use the following filters to streamline results.</p> <ul> <li> <p> <code>resource-type</code> - The resource type for pre-provisioning.</p> </li> <li> <p> <code>launch-template</code> - The launch template that is associated with the pre-provisioned Windows AMI.</p> </li> <li> <p> <code>owner-id</code> - The owner ID for the pre-provisioning resource.</p> </li> <li> <p> <code>state</code> - The current state of fast launching for the Windows AMI.</p> </li> </ul>\",\
+          \"documentation\":\"<p>Use the following filters to streamline results.</p> <ul> <li> <p> <code>resource-type</code> - The resource type for pre-provisioning.</p> </li> <li> <p> <code>owner-id</code> - The owner ID for the pre-provisioning resource.</p> </li> <li> <p> <code>state</code> - The current state of fast launching for the Windows AMI.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -19289,12 +19535,12 @@
       \"members\":{\
         \"ImageId\":{\
           \"shape\":\"ImageId\",\
-          \"documentation\":\"<p>The image ID that identifies the fast-launch enabled Windows image.</p>\",\
+          \"documentation\":\"<p>The image ID that identifies the Windows fast launch enabled image.</p>\",\
           \"locationName\":\"imageId\"\
         },\
         \"ResourceType\":{\
           \"shape\":\"FastLaunchResourceType\",\
-          \"documentation\":\"<p>The resource type that is used for pre-provisioning the Windows AMI. Supported values include: <code>snapshot</code>.</p>\",\
+          \"documentation\":\"<p>The resource type that Amazon EC2 uses for pre-provisioning the Windows AMI. Supported values include: <code>snapshot</code>.</p>\",\
           \"locationName\":\"resourceType\"\
         },\
         \"SnapshotConfiguration\":{\
@@ -19304,36 +19550,36 @@
         },\
         \"LaunchTemplate\":{\
           \"shape\":\"FastLaunchLaunchTemplateSpecificationResponse\",\
-          \"documentation\":\"<p>The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances from pre-provisioned snapshots.</p>\",\
+          \"documentation\":\"<p>The launch template that the Windows fast launch enabled AMI uses when it launches Windows instances from pre-provisioned snapshots.</p>\",\
           \"locationName\":\"launchTemplate\"\
         },\
         \"MaxParallelLaunches\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The maximum number of instances that Amazon EC2 can launch at the same time to create pre-provisioned snapshots for Windows faster launching.</p>\",\
+          \"documentation\":\"<p>The maximum number of instances that Amazon EC2 can launch at the same time to create pre-provisioned snapshots for Windows fast launch.</p>\",\
           \"locationName\":\"maxParallelLaunches\"\
         },\
         \"OwnerId\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The owner ID for the fast-launch enabled Windows AMI.</p>\",\
+          \"documentation\":\"<p>The owner ID for the Windows fast launch enabled AMI.</p>\",\
           \"locationName\":\"ownerId\"\
         },\
         \"State\":{\
           \"shape\":\"FastLaunchStateCode\",\
-          \"documentation\":\"<p>The current state of faster launching for the specified Windows AMI.</p>\",\
+          \"documentation\":\"<p>The current state of Windows fast launch for the specified Windows AMI.</p>\",\
           \"locationName\":\"state\"\
         },\
         \"StateTransitionReason\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The reason that faster launching for the Windows AMI changed to the current state.</p>\",\
+          \"documentation\":\"<p>The reason that Windows fast launch for the AMI changed to the current state.</p>\",\
           \"locationName\":\"stateTransitionReason\"\
         },\
         \"StateTransitionTime\":{\
           \"shape\":\"MillisecondDateTime\",\
-          \"documentation\":\"<p>The time that faster launching for the Windows AMI changed to the current state.</p>\",\
+          \"documentation\":\"<p>The time that Windows fast launch for the AMI changed to the current state.</p>\",\
           \"locationName\":\"stateTransitionTime\"\
         }\
       },\
-      \"documentation\":\"<p>Describe details about a fast-launch enabled Windows image that meets the requested criteria. Criteria are defined by the <code>DescribeFastLaunchImages</code> action filters.</p>\"\
+      \"documentation\":\"<p>Describe details about a Windows image with Windows fast launch enabled that meets the requested criteria. Criteria are defined by the <code>DescribeFastLaunchImages</code> action filters.</p>\"\
     },\
     \"DescribeFastLaunchImagesSuccessSet\":{\
       \"type\":\"list\",\
@@ -20401,6 +20647,66 @@
         }\
       }\
     },\
+    \"DescribeInstanceTopologyGroupNameSet\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"PlacementGroupName\"}\
+    },\
+    \"DescribeInstanceTopologyInstanceIdSet\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"InstanceId\"}\
+    },\
+    \"DescribeInstanceTopologyMaxResults\":{\
+      \"type\":\"integer\",\
+      \"max\":100,\
+      \"min\":1\
+    },\
+    \"DescribeInstanceTopologyRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"DescribeInstanceTopologyMaxResults\",\
+          \"documentation\":\"<p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\\\">Pagination</a>.</p> <p>You can't specify this parameter and the instance IDs parameter in the same request.</p> <p>Default: <code>20</code> </p>\"\
+        },\
+        \"InstanceIds\":{\
+          \"shape\":\"DescribeInstanceTopologyInstanceIdSet\",\
+          \"documentation\":\"<p>The instance IDs.</p> <p>Default: Describes all your instances.</p> <p>Constraints: Maximum 100 explicitly specified instance IDs.</p>\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"GroupNames\":{\
+          \"shape\":\"DescribeInstanceTopologyGroupNameSet\",\
+          \"documentation\":\"<p>The name of the placement group that each instance is in.</p> <p>Constraints: Maximum 100 explicitly specified placement group names.</p>\",\
+          \"locationName\":\"GroupName\"\
+        },\
+        \"Filters\":{\
+          \"shape\":\"FilterList\",\
+          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>availability-zone</code> - The name of the Availability Zone (for example, <code>us-west-2a</code>) or Local Zone (for example, <code>us-west-2-lax-1b</code>) that the instance is in.</p> </li> <li> <p> <code>instance-type</code> - The instance type (for example, <code>p4d.24xlarge</code>) or instance family (for example, <code>p4d*</code>). You can use the <code>*</code> wildcard to match zero or more characters, or the <code>?</code> wildcard to match zero or one character.</p> </li> <li> <p> <code>zone-id</code> - The ID of the Availability Zone (for example, <code>usw2-az2</code>) or Local Zone (for example, <code>usw2-lax1-az1</code>) that the instance is in.</p> </li> </ul>\",\
+          \"locationName\":\"Filter\"\
+        }\
+      }\
+    },\
+    \"DescribeInstanceTopologyResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Instances\":{\
+          \"shape\":\"InstanceSet\",\
+          \"documentation\":\"<p>Information about the topology of each instance.</p>\",\
+          \"locationName\":\"instanceSet\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>\",\
+          \"locationName\":\"nextToken\"\
+        }\
+      }\
+    },\
     \"DescribeInstanceTypeOfferingsRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -20489,7 +20795,7 @@
       \"members\":{\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>affinity</code> - The affinity setting for an instance running on a Dedicated Host (<code>default</code> | <code>host</code>).</p> </li> <li> <p> <code>architecture</code> - The instance architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p> </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the instance.</p> </li> <li> <p> <code>block-device-mapping.attach-time</code> - The attach time for an EBS volume mapped to the instance, for example, <code>2022-09-15T17:15:20.000Z</code>.</p> </li> <li> <p> <code>block-device-mapping.delete-on-termination</code> - A Boolean that indicates whether the EBS volume is deleted on instance termination.</p> </li> <li> <p> <code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p> </li> <li> <p> <code>block-device-mapping.status</code> - The status for the EBS volume (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p> </li> <li> <p> <code>block-device-mapping.volume-id</code> - The volume ID of the EBS volume.</p> </li> <li> <p> <code>boot-mode</code> - The boot mode that was specified by the AMI (<code>legacy-bios</code> | <code>uefi</code> | <code>uefi-preferred</code>).</p> </li> <li> <p> <code>capacity-reservation-id</code> - The ID of the Capacity Reservation into which the instance was launched.</p> </li> <li> <p> <code>capacity-reservation-specification.capacity-reservation-preference</code> - The instance's Capacity Reservation preference (<code>open</code> | <code>none</code>).</p> </li> <li> <p> <code>capacity-reservation-specification.capacity-reservation-target.capacity-reservation-id</code> - The ID of the targeted Capacity Reservation.</p> </li> <li> <p> <code>capacity-reservation-specification.capacity-reservation-target.capacity-reservation-resource-group-arn</code> - The ARN of the targeted Capacity Reservation group.</p> </li> <li> <p> <code>client-token</code> - The idempotency token you provided when you launched the instance.</p> </li> <li> <p> <code>current-instance-boot-mode</code> - The boot mode that is used to launch the instance at launch or start (<code>legacy-bios</code> | <code>uefi</code>).</p> </li> <li> <p> <code>dns-name</code> - The public DNS name of the instance.</p> </li> <li> <p> <code>ebs-optimized</code> - A Boolean that indicates whether the instance is optimized for Amazon EBS I/O.</p> </li> <li> <p> <code>ena-support</code> - A Boolean that indicates whether the instance is enabled for enhanced networking with ENA.</p> </li> <li> <p> <code>enclave-options.enabled</code> - A Boolean that indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p> </li> <li> <p> <code>hibernation-options.configured</code> - A Boolean that indicates whether the instance is enabled for hibernation. A value of <code>true</code> means that the instance is enabled for hibernation.</p> </li> <li> <p> <code>host-id</code> - The ID of the Dedicated Host on which the instance is running, if applicable.</p> </li> <li> <p> <code>hypervisor</code> - The hypervisor type of the instance (<code>ovm</code> | <code>xen</code>). The value <code>xen</code> is used for both Xen and Nitro hypervisors.</p> </li> <li> <p> <code>iam-instance-profile.arn</code> - The instance profile associated with the instance. Specified as an ARN.</p> </li> <li> <p> <code>iam-instance-profile.id</code> - The instance profile associated with the instance. Specified as an ID.</p> </li> <li> <p> <code>iam-instance-profile.name</code> - The instance profile associated with the instance. Specified as an name.</p> </li> <li> <p> <code>image-id</code> - The ID of the image used to launch the instance.</p> </li> <li> <p> <code>instance-id</code> - The ID of the instance.</p> </li> <li> <p> <code>instance-lifecycle</code> - Indicates whether this is a Spot Instance or a Scheduled Instance (<code>spot</code> | <code>scheduled</code>).</p> </li> <li> <p> <code>instance-state-code</code> - The state of the instance, as a 16-bit unsigned integer. The high byte is used for internal purposes and should be ignored. The low byte is set based on the state represented. The valid values are: 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).</p> </li> <li> <p> <code>instance-state-name</code> - The state of the instance (<code>pending</code> | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code> | <code>stopped</code>).</p> </li> <li> <p> <code>instance-type</code> - The type of instance (for example, <code>t2.micro</code>).</p> </li> <li> <p> <code>instance.group-id</code> - The ID of the security group for the instance. </p> </li> <li> <p> <code>instance.group-name</code> - The name of the security group for the instance. </p> </li> <li> <p> <code>ip-address</code> - The public IPv4 address of the instance.</p> </li> <li> <p> <code>ipv6-address</code> - The IPv6 address of the instance.</p> </li> <li> <p> <code>kernel-id</code> - The kernel ID.</p> </li> <li> <p> <code>key-name</code> - The name of the key pair used when the instance was launched.</p> </li> <li> <p> <code>launch-index</code> - When launching multiple instances, this is the index for the instance in the launch group (for example, 0, 1, 2, and so on). </p> </li> <li> <p> <code>launch-time</code> - The time when the instance was launched, in the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which matches an entire day.</p> </li> <li> <p> <code>maintenance-options.auto-recovery</code> - The current automatic recovery behavior of the instance (<code>disabled</code> | <code>default</code>).</p> </li> <li> <p> <code>metadata-options.http-endpoint</code> - The status of access to the HTTP metadata endpoint on your instance (<code>enabled</code> | <code>disabled</code>)</p> </li> <li> <p> <code>metadata-options.http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint is enabled (<code>disabled</code> | <code>enabled</code>).</p> </li> <li> <p> <code>metadata-options.http-protocol-ipv6</code> - Indicates whether the IPv6 endpoint is enabled (<code>disabled</code> | <code>enabled</code>).</p> </li> <li> <p> <code>metadata-options.http-put-response-hop-limit</code> - The HTTP metadata request put response hop limit (integer, possible values <code>1</code> to <code>64</code>)</p> </li> <li> <p> <code>metadata-options.http-tokens</code> - The metadata request authorization state (<code>optional</code> | <code>required</code>)</p> </li> <li> <p> <code>metadata-options.instance-metadata-tags</code> - The status of access to instance tags from the instance metadata (<code>enabled</code> | <code>disabled</code>)</p> </li> <li> <p> <code>metadata-options.state</code> - The state of the metadata option changes (<code>pending</code> | <code>applied</code>).</p> </li> <li> <p> <code>monitoring-state</code> - Indicates whether detailed monitoring is enabled (<code>disabled</code> | <code>enabled</code>).</p> </li> <li> <p> <code>network-interface.addresses.association.allocation-id</code> - The allocation ID.</p> </li> <li> <p> <code>network-interface.addresses.association.association-id</code> - The association ID.</p> </li> <li> <p> <code>network-interface.addresses.association.carrier-ip</code> - The carrier IP address.</p> </li> <li> <p> <code>network-interface.addresses.association.customer-owned-ip</code> - The customer-owned IP address.</p> </li> <li> <p> <code>network-interface.addresses.association.ip-owner-id</code> - The owner ID of the private IPv4 address associated with the network interface.</p> </li> <li> <p> <code>network-interface.addresses.association.public-dns-name</code> - The public DNS name.</p> </li> <li> <p> <code>network-interface.addresses.association.public-ip</code> - The ID of the association of an Elastic IP address (IPv4) with a network interface.</p> </li> <li> <p> <code>network-interface.addresses.primary</code> - Specifies whether the IPv4 address of the network interface is the primary private IPv4 address.</p> </li> <li> <p> <code>network-interface.addresses.private-dns-name</code> - The private DNS name.</p> </li> <li> <p> <code>network-interface.addresses.private-ip-address</code> - The private IPv4 address associated with the network interface.</p> </li> <li> <p> <code>network-interface.association.allocation-id</code> - The allocation ID returned when you allocated the Elastic IP address (IPv4) for your network interface.</p> </li> <li> <p> <code>network-interface.association.association-id</code> - The association ID returned when the network interface was associated with an IPv4 address.</p> </li> <li> <p> <code>network-interface.association.carrier-ip</code> - The customer-owned IP address.</p> </li> <li> <p> <code>network-interface.association.customer-owned-ip</code> - The customer-owned IP address.</p> </li> <li> <p> <code>network-interface.association.ip-owner-id</code> - The owner of the Elastic IP address (IPv4) associated with the network interface.</p> </li> <li> <p> <code>network-interface.association.public-dns-name</code> - The public DNS name.</p> </li> <li> <p> <code>network-interface.association.public-ip</code> - The address of the Elastic IP address (IPv4) bound to the network interface.</p> </li> <li> <p> <code>network-interface.attachment.attach-time</code> - The time that the network interface was attached to an instance.</p> </li> <li> <p> <code>network-interface.attachment.attachment-id</code> - The ID of the interface attachment.</p> </li> <li> <p> <code>network-interface.attachment.delete-on-termination</code> - Specifies whether the attachment is deleted when an instance is terminated.</p> </li> <li> <p> <code>network-interface.attachment.device-index</code> - The device index to which the network interface is attached.</p> </li> <li> <p> <code>network-interface.attachment.instance-id</code> - The ID of the instance to which the network interface is attached.</p> </li> <li> <p> <code>network-interface.attachment.instance-owner-id</code> - The owner ID of the instance to which the network interface is attached.</p> </li> <li> <p> <code>network-interface.attachment.network-card-index</code> - The index of the network card.</p> </li> <li> <p> <code>network-interface.attachment.status</code> - The status of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p> </li> <li> <p> <code>network-interface.availability-zone</code> - The Availability Zone for the network interface.</p> </li> <li> <p> <code>network-interface.deny-all-igw-traffic</code> - A Boolean that indicates whether a network interface with an IPv6 address is unreachable from the public internet.</p> </li> <li> <p> <code>network-interface.description</code> - The description of the network interface.</p> </li> <li> <p> <code>network-interface.group-id</code> - The ID of a security group associated with the network interface.</p> </li> <li> <p> <code>network-interface.group-name</code> - The name of a security group associated with the network interface.</p> </li> <li> <p> <code>network-interface.ipv4-prefixes.ipv4-prefix</code> - The IPv4 prefixes that are assigned to the network interface.</p> </li> <li> <p> <code>network-interface.ipv6-address</code> - The IPv6 address associated with the network interface.</p> </li> <li> <p> <code>network-interface.ipv6-addresses.ipv6-address</code> - The IPv6 address associated with the network interface.</p> </li> <li> <p> <code>network-interface.ipv6-addresses.is-primary-ipv6</code> - A Boolean that indicates whether this is the primary IPv6 address.</p> </li> <li> <p> <code>network-interface.ipv6-native</code> - A Boolean that indicates whether this is an IPv6 only network interface.</p> </li> <li> <p> <code>network-interface.ipv6-prefixes.ipv6-prefix</code> - The IPv6 prefix assigned to the network interface.</p> </li> <li> <p> <code>network-interface.mac-address</code> - The MAC address of the network interface.</p> </li> <li> <p> <code>network-interface.network-interface-id</code> - The ID of the network interface.</p> </li> <li> <p> <code>network-interface.outpost-arn</code> - The ARN of the Outpost.</p> </li> <li> <p> <code>network-interface.owner-id</code> - The ID of the owner of the network interface.</p> </li> <li> <p> <code>network-interface.private-dns-name</code> - The private DNS name of the network interface.</p> </li> <li> <p> <code>network-interface.private-ip-address</code> - The private IPv4 address.</p> </li> <li> <p> <code>network-interface.public-dns-name</code> - The public DNS name.</p> </li> <li> <p> <code>network-interface.requester-id</code> - The requester ID for the network interface.</p> </li> <li> <p> <code>network-interface.requester-managed</code> - Indicates whether the network interface is being managed by Amazon Web Services.</p> </li> <li> <p> <code>network-interface.status</code> - The status of the network interface (<code>available</code>) | <code>in-use</code>).</p> </li> <li> <p> <code>network-interface.source-dest-check</code> - Whether the network interface performs source/destination checking. A value of <code>true</code> means that checking is enabled, and <code>false</code> means that checking is disabled. The value must be <code>false</code> for the network interface to perform network address translation (NAT) in your VPC.</p> </li> <li> <p> <code>network-interface.subnet-id</code> - The ID of the subnet for the network interface.</p> </li> <li> <p> <code>network-interface.tag-key</code> - The key of a tag assigned to the network interface.</p> </li> <li> <p> <code>network-interface.tag-value</code> - The value of a tag assigned to the network interface.</p> </li> <li> <p> <code>network-interface.vpc-id</code> - The ID of the VPC for the network interface.</p> </li> <li> <p> <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p> </li> <li> <p> <code>owner-id</code> - The Amazon Web Services account ID of the instance owner.</p> </li> <li> <p> <code>placement-group-name</code> - The name of the placement group for the instance.</p> </li> <li> <p> <code>placement-partition-number</code> - The partition in which the instance is located.</p> </li> <li> <p> <code>platform</code> - The platform. To list only Windows instances, use <code>windows</code>.</p> </li> <li> <p> <code>platform-details</code> - The platform (<code>Linux/UNIX</code> | <code>Red Hat BYOL Linux</code> | <code> Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux with HA</code> | <code>Red Hat Enterprise Linux with SQL Server Standard and HA</code> | <code>Red Hat Enterprise Linux with SQL Server Enterprise and HA</code> | <code>Red Hat Enterprise Linux with SQL Server Standard</code> | <code>Red Hat Enterprise Linux with SQL Server Web</code> | <code>Red Hat Enterprise Linux with SQL Server Enterprise</code> | <code>SQL Server Enterprise</code> | <code>SQL Server Standard</code> | <code>SQL Server Web</code> | <code>SUSE Linux</code> | <code>Ubuntu Pro</code> | <code>Windows</code> | <code>Windows BYOL</code> | <code>Windows with SQL Server Enterprise</code> | <code>Windows with SQL Server Standard</code> | <code>Windows with SQL Server Web</code>).</p> </li> <li> <p> <code>private-dns-name</code> - The private IPv4 DNS name of the instance.</p> </li> <li> <p> <code>private-dns-name-options.enable-resource-name-dns-a-record</code> - A Boolean that indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p> </li> <li> <p> <code>private-dns-name-options.enable-resource-name-dns-aaaa-record</code> - A Boolean that indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p> </li> <li> <p> <code>private-dns-name-options.hostname-type</code> - The type of hostname (<code>ip-name</code> | <code>resource-name</code>).</p> </li> <li> <p> <code>private-ip-address</code> - The private IPv4 address of the instance.</p> </li> <li> <p> <code>product-code</code> - The product code associated with the AMI used to launch the instance.</p> </li> <li> <p> <code>product-code.type</code> - The type of product code (<code>devpay</code> | <code>marketplace</code>).</p> </li> <li> <p> <code>ramdisk-id</code> - The RAM disk ID.</p> </li> <li> <p> <code>reason</code> - The reason for the current state of the instance (for example, shows \\\"User Initiated [date]\\\" when you stop or terminate the instance). Similar to the state-reason-code filter.</p> </li> <li> <p> <code>requester-id</code> - The ID of the entity that launched the instance on your behalf (for example, Amazon Web Services Management Console, Auto Scaling, and so on).</p> </li> <li> <p> <code>reservation-id</code> - The ID of the instance's reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID.</p> </li> <li> <p> <code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p> </li> <li> <p> <code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p> </li> <li> <p> <code>source-dest-check</code> - Indicates whether the instance performs source/destination checking. A value of <code>true</code> means that checking is enabled, and <code>false</code> means that checking is disabled. The value must be <code>false</code> for the instance to perform network address translation (NAT) in your VPC. </p> </li> <li> <p> <code>spot-instance-request-id</code> - The ID of the Spot Instance request.</p> </li> <li> <p> <code>state-reason-code</code> - The reason code for the state change.</p> </li> <li> <p> <code>state-reason-message</code> - A message that describes the state change.</p> </li> <li> <p> <code>subnet-id</code> - The ID of the subnet for the instance.</p> </li> <li> <p> <code>tag:&lt;key&gt;</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>tenancy</code> - The tenancy of an instance (<code>dedicated</code> | <code>default</code> | <code>host</code>).</p> </li> <li> <p> <code>tpm-support</code> - Indicates if the instance is configured for NitroTPM support (<code>v2.0</code>). </p> </li> <li> <p> <code>usage-operation</code> - The usage operation value for the instance (<code>RunInstances</code> | <code>RunInstances:00g0</code> | <code>RunInstances:0010</code> | <code>RunInstances:1010</code> | <code>RunInstances:1014</code> | <code>RunInstances:1110</code> | <code>RunInstances:0014</code> | <code>RunInstances:0210</code> | <code>RunInstances:0110</code> | <code>RunInstances:0100</code> | <code>RunInstances:0004</code> | <code>RunInstances:0200</code> | <code>RunInstances:000g</code> | <code>RunInstances:0g00</code> | <code>RunInstances:0002</code> | <code>RunInstances:0800</code> | <code>RunInstances:0102</code> | <code>RunInstances:0006</code> | <code>RunInstances:0202</code>).</p> </li> <li> <p> <code>usage-operation-update-time</code> - The time that the usage operation was last updated, for example, <code>2022-09-15T17:15:20.000Z</code>.</p> </li> <li> <p> <code>virtualization-type</code> - The virtualization type of the instance (<code>paravirtual</code> | <code>hvm</code>).</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC that the instance is running in.</p> </li> </ul>\",\
+          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>affinity</code> - The affinity setting for an instance running on a Dedicated Host (<code>default</code> | <code>host</code>).</p> </li> <li> <p> <code>architecture</code> - The instance architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p> </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the instance.</p> </li> <li> <p> <code>block-device-mapping.attach-time</code> - The attach time for an EBS volume mapped to the instance, for example, <code>2022-09-15T17:15:20.000Z</code>.</p> </li> <li> <p> <code>block-device-mapping.delete-on-termination</code> - A Boolean that indicates whether the EBS volume is deleted on instance termination.</p> </li> <li> <p> <code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p> </li> <li> <p> <code>block-device-mapping.status</code> - The status for the EBS volume (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p> </li> <li> <p> <code>block-device-mapping.volume-id</code> - The volume ID of the EBS volume.</p> </li> <li> <p> <code>boot-mode</code> - The boot mode that was specified by the AMI (<code>legacy-bios</code> | <code>uefi</code> | <code>uefi-preferred</code>).</p> </li> <li> <p> <code>capacity-reservation-id</code> - The ID of the Capacity Reservation into which the instance was launched.</p> </li> <li> <p> <code>capacity-reservation-specification.capacity-reservation-preference</code> - The instance's Capacity Reservation preference (<code>open</code> | <code>none</code>).</p> </li> <li> <p> <code>capacity-reservation-specification.capacity-reservation-target.capacity-reservation-id</code> - The ID of the targeted Capacity Reservation.</p> </li> <li> <p> <code>capacity-reservation-specification.capacity-reservation-target.capacity-reservation-resource-group-arn</code> - The ARN of the targeted Capacity Reservation group.</p> </li> <li> <p> <code>client-token</code> - The idempotency token you provided when you launched the instance.</p> </li> <li> <p> <code>current-instance-boot-mode</code> - The boot mode that is used to launch the instance at launch or start (<code>legacy-bios</code> | <code>uefi</code>).</p> </li> <li> <p> <code>dns-name</code> - The public DNS name of the instance.</p> </li> <li> <p> <code>ebs-optimized</code> - A Boolean that indicates whether the instance is optimized for Amazon EBS I/O.</p> </li> <li> <p> <code>ena-support</code> - A Boolean that indicates whether the instance is enabled for enhanced networking with ENA.</p> </li> <li> <p> <code>enclave-options.enabled</code> - A Boolean that indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p> </li> <li> <p> <code>hibernation-options.configured</code> - A Boolean that indicates whether the instance is enabled for hibernation. A value of <code>true</code> means that the instance is enabled for hibernation.</p> </li> <li> <p> <code>host-id</code> - The ID of the Dedicated Host on which the instance is running, if applicable.</p> </li> <li> <p> <code>hypervisor</code> - The hypervisor type of the instance (<code>ovm</code> | <code>xen</code>). The value <code>xen</code> is used for both Xen and Nitro hypervisors.</p> </li> <li> <p> <code>iam-instance-profile.arn</code> - The instance profile associated with the instance. Specified as an ARN.</p> </li> <li> <p> <code>iam-instance-profile.id</code> - The instance profile associated with the instance. Specified as an ID.</p> </li> <li> <p> <code>iam-instance-profile.name</code> - The instance profile associated with the instance. Specified as an name.</p> </li> <li> <p> <code>image-id</code> - The ID of the image used to launch the instance.</p> </li> <li> <p> <code>instance-id</code> - The ID of the instance.</p> </li> <li> <p> <code>instance-lifecycle</code> - Indicates whether this is a Spot Instance, a Scheduled Instance, or a Capacity Block (<code>spot</code> | <code>scheduled</code> | <code>capacity-block</code>).</p> </li> <li> <p> <code>instance-state-code</code> - The state of the instance, as a 16-bit unsigned integer. The high byte is used for internal purposes and should be ignored. The low byte is set based on the state represented. The valid values are: 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).</p> </li> <li> <p> <code>instance-state-name</code> - The state of the instance (<code>pending</code> | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code> | <code>stopped</code>).</p> </li> <li> <p> <code>instance-type</code> - The type of instance (for example, <code>t2.micro</code>).</p> </li> <li> <p> <code>instance.group-id</code> - The ID of the security group for the instance. </p> </li> <li> <p> <code>instance.group-name</code> - The name of the security group for the instance. </p> </li> <li> <p> <code>ip-address</code> - The public IPv4 address of the instance.</p> </li> <li> <p> <code>ipv6-address</code> - The IPv6 address of the instance.</p> </li> <li> <p> <code>kernel-id</code> - The kernel ID.</p> </li> <li> <p> <code>key-name</code> - The name of the key pair used when the instance was launched.</p> </li> <li> <p> <code>launch-index</code> - When launching multiple instances, this is the index for the instance in the launch group (for example, 0, 1, 2, and so on). </p> </li> <li> <p> <code>launch-time</code> - The time when the instance was launched, in the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which matches an entire day.</p> </li> <li> <p> <code>maintenance-options.auto-recovery</code> - The current automatic recovery behavior of the instance (<code>disabled</code> | <code>default</code>).</p> </li> <li> <p> <code>metadata-options.http-endpoint</code> - The status of access to the HTTP metadata endpoint on your instance (<code>enabled</code> | <code>disabled</code>)</p> </li> <li> <p> <code>metadata-options.http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint is enabled (<code>disabled</code> | <code>enabled</code>).</p> </li> <li> <p> <code>metadata-options.http-protocol-ipv6</code> - Indicates whether the IPv6 endpoint is enabled (<code>disabled</code> | <code>enabled</code>).</p> </li> <li> <p> <code>metadata-options.http-put-response-hop-limit</code> - The HTTP metadata request put response hop limit (integer, possible values <code>1</code> to <code>64</code>)</p> </li> <li> <p> <code>metadata-options.http-tokens</code> - The metadata request authorization state (<code>optional</code> | <code>required</code>)</p> </li> <li> <p> <code>metadata-options.instance-metadata-tags</code> - The status of access to instance tags from the instance metadata (<code>enabled</code> | <code>disabled</code>)</p> </li> <li> <p> <code>metadata-options.state</code> - The state of the metadata option changes (<code>pending</code> | <code>applied</code>).</p> </li> <li> <p> <code>monitoring-state</code> - Indicates whether detailed monitoring is enabled (<code>disabled</code> | <code>enabled</code>).</p> </li> <li> <p> <code>network-interface.addresses.association.allocation-id</code> - The allocation ID.</p> </li> <li> <p> <code>network-interface.addresses.association.association-id</code> - The association ID.</p> </li> <li> <p> <code>network-interface.addresses.association.carrier-ip</code> - The carrier IP address.</p> </li> <li> <p> <code>network-interface.addresses.association.customer-owned-ip</code> - The customer-owned IP address.</p> </li> <li> <p> <code>network-interface.addresses.association.ip-owner-id</code> - The owner ID of the private IPv4 address associated with the network interface.</p> </li> <li> <p> <code>network-interface.addresses.association.public-dns-name</code> - The public DNS name.</p> </li> <li> <p> <code>network-interface.addresses.association.public-ip</code> - The ID of the association of an Elastic IP address (IPv4) with a network interface.</p> </li> <li> <p> <code>network-interface.addresses.primary</code> - Specifies whether the IPv4 address of the network interface is the primary private IPv4 address.</p> </li> <li> <p> <code>network-interface.addresses.private-dns-name</code> - The private DNS name.</p> </li> <li> <p> <code>network-interface.addresses.private-ip-address</code> - The private IPv4 address associated with the network interface.</p> </li> <li> <p> <code>network-interface.association.allocation-id</code> - The allocation ID returned when you allocated the Elastic IP address (IPv4) for your network interface.</p> </li> <li> <p> <code>network-interface.association.association-id</code> - The association ID returned when the network interface was associated with an IPv4 address.</p> </li> <li> <p> <code>network-interface.association.carrier-ip</code> - The customer-owned IP address.</p> </li> <li> <p> <code>network-interface.association.customer-owned-ip</code> - The customer-owned IP address.</p> </li> <li> <p> <code>network-interface.association.ip-owner-id</code> - The owner of the Elastic IP address (IPv4) associated with the network interface.</p> </li> <li> <p> <code>network-interface.association.public-dns-name</code> - The public DNS name.</p> </li> <li> <p> <code>network-interface.association.public-ip</code> - The address of the Elastic IP address (IPv4) bound to the network interface.</p> </li> <li> <p> <code>network-interface.attachment.attach-time</code> - The time that the network interface was attached to an instance.</p> </li> <li> <p> <code>network-interface.attachment.attachment-id</code> - The ID of the interface attachment.</p> </li> <li> <p> <code>network-interface.attachment.delete-on-termination</code> - Specifies whether the attachment is deleted when an instance is terminated.</p> </li> <li> <p> <code>network-interface.attachment.device-index</code> - The device index to which the network interface is attached.</p> </li> <li> <p> <code>network-interface.attachment.instance-id</code> - The ID of the instance to which the network interface is attached.</p> </li> <li> <p> <code>network-interface.attachment.instance-owner-id</code> - The owner ID of the instance to which the network interface is attached.</p> </li> <li> <p> <code>network-interface.attachment.network-card-index</code> - The index of the network card.</p> </li> <li> <p> <code>network-interface.attachment.status</code> - The status of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p> </li> <li> <p> <code>network-interface.availability-zone</code> - The Availability Zone for the network interface.</p> </li> <li> <p> <code>network-interface.deny-all-igw-traffic</code> - A Boolean that indicates whether a network interface with an IPv6 address is unreachable from the public internet.</p> </li> <li> <p> <code>network-interface.description</code> - The description of the network interface.</p> </li> <li> <p> <code>network-interface.group-id</code> - The ID of a security group associated with the network interface.</p> </li> <li> <p> <code>network-interface.group-name</code> - The name of a security group associated with the network interface.</p> </li> <li> <p> <code>network-interface.ipv4-prefixes.ipv4-prefix</code> - The IPv4 prefixes that are assigned to the network interface.</p> </li> <li> <p> <code>network-interface.ipv6-address</code> - The IPv6 address associated with the network interface.</p> </li> <li> <p> <code>network-interface.ipv6-addresses.ipv6-address</code> - The IPv6 address associated with the network interface.</p> </li> <li> <p> <code>network-interface.ipv6-addresses.is-primary-ipv6</code> - A Boolean that indicates whether this is the primary IPv6 address.</p> </li> <li> <p> <code>network-interface.ipv6-native</code> - A Boolean that indicates whether this is an IPv6 only network interface.</p> </li> <li> <p> <code>network-interface.ipv6-prefixes.ipv6-prefix</code> - The IPv6 prefix assigned to the network interface.</p> </li> <li> <p> <code>network-interface.mac-address</code> - The MAC address of the network interface.</p> </li> <li> <p> <code>network-interface.network-interface-id</code> - The ID of the network interface.</p> </li> <li> <p> <code>network-interface.outpost-arn</code> - The ARN of the Outpost.</p> </li> <li> <p> <code>network-interface.owner-id</code> - The ID of the owner of the network interface.</p> </li> <li> <p> <code>network-interface.private-dns-name</code> - The private DNS name of the network interface.</p> </li> <li> <p> <code>network-interface.private-ip-address</code> - The private IPv4 address.</p> </li> <li> <p> <code>network-interface.public-dns-name</code> - The public DNS name.</p> </li> <li> <p> <code>network-interface.requester-id</code> - The requester ID for the network interface.</p> </li> <li> <p> <code>network-interface.requester-managed</code> - Indicates whether the network interface is being managed by Amazon Web Services.</p> </li> <li> <p> <code>network-interface.status</code> - The status of the network interface (<code>available</code>) | <code>in-use</code>).</p> </li> <li> <p> <code>network-interface.source-dest-check</code> - Whether the network interface performs source/destination checking. A value of <code>true</code> means that checking is enabled, and <code>false</code> means that checking is disabled. The value must be <code>false</code> for the network interface to perform network address translation (NAT) in your VPC.</p> </li> <li> <p> <code>network-interface.subnet-id</code> - The ID of the subnet for the network interface.</p> </li> <li> <p> <code>network-interface.tag-key</code> - The key of a tag assigned to the network interface.</p> </li> <li> <p> <code>network-interface.tag-value</code> - The value of a tag assigned to the network interface.</p> </li> <li> <p> <code>network-interface.vpc-id</code> - The ID of the VPC for the network interface.</p> </li> <li> <p> <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p> </li> <li> <p> <code>owner-id</code> - The Amazon Web Services account ID of the instance owner.</p> </li> <li> <p> <code>placement-group-name</code> - The name of the placement group for the instance.</p> </li> <li> <p> <code>placement-partition-number</code> - The partition in which the instance is located.</p> </li> <li> <p> <code>platform</code> - The platform. To list only Windows instances, use <code>windows</code>.</p> </li> <li> <p> <code>platform-details</code> - The platform (<code>Linux/UNIX</code> | <code>Red Hat BYOL Linux</code> | <code> Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux with HA</code> | <code>Red Hat Enterprise Linux with SQL Server Standard and HA</code> | <code>Red Hat Enterprise Linux with SQL Server Enterprise and HA</code> | <code>Red Hat Enterprise Linux with SQL Server Standard</code> | <code>Red Hat Enterprise Linux with SQL Server Web</code> | <code>Red Hat Enterprise Linux with SQL Server Enterprise</code> | <code>SQL Server Enterprise</code> | <code>SQL Server Standard</code> | <code>SQL Server Web</code> | <code>SUSE Linux</code> | <code>Ubuntu Pro</code> | <code>Windows</code> | <code>Windows BYOL</code> | <code>Windows with SQL Server Enterprise</code> | <code>Windows with SQL Server Standard</code> | <code>Windows with SQL Server Web</code>).</p> </li> <li> <p> <code>private-dns-name</code> - The private IPv4 DNS name of the instance.</p> </li> <li> <p> <code>private-dns-name-options.enable-resource-name-dns-a-record</code> - A Boolean that indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p> </li> <li> <p> <code>private-dns-name-options.enable-resource-name-dns-aaaa-record</code> - A Boolean that indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p> </li> <li> <p> <code>private-dns-name-options.hostname-type</code> - The type of hostname (<code>ip-name</code> | <code>resource-name</code>).</p> </li> <li> <p> <code>private-ip-address</code> - The private IPv4 address of the instance.</p> </li> <li> <p> <code>product-code</code> - The product code associated with the AMI used to launch the instance.</p> </li> <li> <p> <code>product-code.type</code> - The type of product code (<code>devpay</code> | <code>marketplace</code>).</p> </li> <li> <p> <code>ramdisk-id</code> - The RAM disk ID.</p> </li> <li> <p> <code>reason</code> - The reason for the current state of the instance (for example, shows \\\"User Initiated [date]\\\" when you stop or terminate the instance). Similar to the state-reason-code filter.</p> </li> <li> <p> <code>requester-id</code> - The ID of the entity that launched the instance on your behalf (for example, Amazon Web Services Management Console, Auto Scaling, and so on).</p> </li> <li> <p> <code>reservation-id</code> - The ID of the instance's reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID.</p> </li> <li> <p> <code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p> </li> <li> <p> <code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p> </li> <li> <p> <code>source-dest-check</code> - Indicates whether the instance performs source/destination checking. A value of <code>true</code> means that checking is enabled, and <code>false</code> means that checking is disabled. The value must be <code>false</code> for the instance to perform network address translation (NAT) in your VPC. </p> </li> <li> <p> <code>spot-instance-request-id</code> - The ID of the Spot Instance request.</p> </li> <li> <p> <code>state-reason-code</code> - The reason code for the state change.</p> </li> <li> <p> <code>state-reason-message</code> - A message that describes the state change.</p> </li> <li> <p> <code>subnet-id</code> - The ID of the subnet for the instance.</p> </li> <li> <p> <code>tag:&lt;key&gt;</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>tenancy</code> - The tenancy of an instance (<code>dedicated</code> | <code>default</code> | <code>host</code>).</p> </li> <li> <p> <code>tpm-support</code> - Indicates if the instance is configured for NitroTPM support (<code>v2.0</code>). </p> </li> <li> <p> <code>usage-operation</code> - The usage operation value for the instance (<code>RunInstances</code> | <code>RunInstances:00g0</code> | <code>RunInstances:0010</code> | <code>RunInstances:1010</code> | <code>RunInstances:1014</code> | <code>RunInstances:1110</code> | <code>RunInstances:0014</code> | <code>RunInstances:0210</code> | <code>RunInstances:0110</code> | <code>RunInstances:0100</code> | <code>RunInstances:0004</code> | <code>RunInstances:0200</code> | <code>RunInstances:000g</code> | <code>RunInstances:0g00</code> | <code>RunInstances:0002</code> | <code>RunInstances:0800</code> | <code>RunInstances:0102</code> | <code>RunInstances:0006</code> | <code>RunInstances:0202</code>).</p> </li> <li> <p> <code>usage-operation-update-time</code> - The time that the usage operation was last updated, for example, <code>2022-09-15T17:15:20.000Z</code>.</p> </li> <li> <p> <code>virtualization-type</code> - The virtualization type of the instance (<code>paravirtual</code> | <code>hvm</code>).</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC that the instance is running in.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"InstanceIds\":{\
@@ -21230,6 +21536,53 @@
         \"NextToken\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>\",\
+          \"locationName\":\"nextToken\"\
+        }\
+      }\
+    },\
+    \"DescribeLockedSnapshotsMaxResults\":{\
+      \"type\":\"integer\",\
+      \"max\":1000,\
+      \"min\":5\
+    },\
+    \"DescribeLockedSnapshotsRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Filters\":{\
+          \"shape\":\"FilterList\",\
+          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>lock-state</code> - The state of the snapshot lock (<code>compliance-cooloff</code> | <code>governance</code> | <code>compliance</code> | <code>expired</code>).</p> </li> </ul>\",\
+          \"locationName\":\"Filter\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"DescribeLockedSnapshotsMaxResults\",\
+          \"documentation\":\"<p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\\\">Pagination</a>.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>\"\
+        },\
+        \"SnapshotIds\":{\
+          \"shape\":\"SnapshotIdStringList\",\
+          \"documentation\":\"<p>The IDs of the snapshots for which to view the lock status.</p>\",\
+          \"locationName\":\"SnapshotId\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeLockedSnapshotsResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Snapshots\":{\
+          \"shape\":\"LockedSnapshotsInfoList\",\
+          \"documentation\":\"<p>Information about the snapshots.</p>\",\
+          \"locationName\":\"snapshotSet\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>\",\
           \"locationName\":\"nextToken\"\
         }\
       }\
@@ -22857,7 +23210,7 @@
       \"members\":{\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>availability-zone</code> - The Availability Zone for which prices should be returned.</p> </li> <li> <p> <code>instance-type</code> - The type of instance (for example, <code>m3.medium</code>).</p> </li> <li> <p> <code>product-description</code> - The product description for the Spot price (<code>Linux/UNIX</code> | <code>Red Hat Enterprise Linux</code> | <code>SUSE Linux</code> | <code>Windows</code> | <code>Linux/UNIX (Amazon VPC)</code> | <code>Red Hat Enterprise Linux (Amazon VPC)</code> | <code>SUSE Linux (Amazon VPC)</code> | <code>Windows (Amazon VPC)</code>).</p> </li> <li> <p> <code>spot-price</code> - The Spot price. The value must match exactly (or use wildcards; greater than or less than comparison is not supported).</p> </li> <li> <p> <code>timestamp</code> - The time stamp of the Spot price history, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z). You can use wildcards (* and ?). Greater than or less than comparison is not supported.</p> </li> </ul>\",\
+          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>availability-zone</code> - The Availability Zone for which prices should be returned.</p> </li> <li> <p> <code>instance-type</code> - The type of instance (for example, <code>m3.medium</code>).</p> </li> <li> <p> <code>product-description</code> - The product description for the Spot price (<code>Linux/UNIX</code> | <code>Red Hat Enterprise Linux</code> | <code>SUSE Linux</code> | <code>Windows</code> | <code>Linux/UNIX (Amazon VPC)</code> | <code>Red Hat Enterprise Linux (Amazon VPC)</code> | <code>SUSE Linux (Amazon VPC)</code> | <code>Windows (Amazon VPC)</code>).</p> </li> <li> <p> <code>spot-price</code> - The Spot price. The value must match exactly (or use wildcards; greater than or less than comparison is not supported).</p> </li> <li> <p> <code>timestamp</code> - The time stamp of the Spot price history, in UTC format (for example, <i>ddd MMM dd HH</i>:<i>mm</i>:<i>ss</i> UTC <i>YYYY</i>). You can use wildcards (<code>*</code> and <code>?</code>). Greater than or less than comparison is not supported.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"AvailabilityZone\":{\
@@ -23729,7 +24082,7 @@
       \"members\":{\
         \"VerifiedAccessEndpoints\":{\
           \"shape\":\"VerifiedAccessEndpointList\",\
-          \"documentation\":\"<p>The ID of the Verified Access endpoint.</p>\",\
+          \"documentation\":\"<p>Details about the Verified Access endpoints.</p>\",\
           \"locationName\":\"verifiedAccessEndpointSet\"\
         },\
         \"NextToken\":{\
@@ -23780,7 +24133,7 @@
       \"members\":{\
         \"VerifiedAccessGroups\":{\
           \"shape\":\"VerifiedAccessGroupList\",\
-          \"documentation\":\"<p>The ID of the Verified Access group.</p>\",\
+          \"documentation\":\"<p>Details about the Verified Access groups.</p>\",\
           \"locationName\":\"verifiedAccessGroupSet\"\
         },\
         \"NextToken\":{\
@@ -23827,7 +24180,7 @@
       \"members\":{\
         \"LoggingConfigurations\":{\
           \"shape\":\"VerifiedAccessInstanceLoggingConfigurationList\",\
-          \"documentation\":\"<p>The current logging configuration for the Verified Access instances.</p>\",\
+          \"documentation\":\"<p>The logging configuration for the Verified Access instances.</p>\",\
           \"locationName\":\"loggingConfigurationSet\"\
         },\
         \"NextToken\":{\
@@ -23874,7 +24227,7 @@
       \"members\":{\
         \"VerifiedAccessInstances\":{\
           \"shape\":\"VerifiedAccessInstanceList\",\
-          \"documentation\":\"<p>The IDs of the Verified Access instances.</p>\",\
+          \"documentation\":\"<p>Details about the Verified Access instances.</p>\",\
           \"locationName\":\"verifiedAccessInstanceSet\"\
         },\
         \"NextToken\":{\
@@ -23921,7 +24274,7 @@
       \"members\":{\
         \"VerifiedAccessTrustProviders\":{\
           \"shape\":\"VerifiedAccessTrustProviderList\",\
-          \"documentation\":\"<p>The IDs of the Verified Access trust providers.</p>\",\
+          \"documentation\":\"<p>Details about the Verified Access trust providers.</p>\",\
           \"locationName\":\"verifiedAccessTrustProviderSet\"\
         },\
         \"NextToken\":{\
@@ -24792,12 +25145,12 @@
       \"members\":{\
         \"VerifiedAccessTrustProvider\":{\
           \"shape\":\"VerifiedAccessTrustProvider\",\
-          \"documentation\":\"<p>The ID of the Verified Access trust provider.</p>\",\
+          \"documentation\":\"<p>Details about the Verified Access trust provider.</p>\",\
           \"locationName\":\"verifiedAccessTrustProvider\"\
         },\
         \"VerifiedAccessInstance\":{\
           \"shape\":\"VerifiedAccessInstance\",\
-          \"documentation\":\"<p>The ID of the Verified Access instance.</p>\",\
+          \"documentation\":\"<p>Details about the Verified Access instance.</p>\",\
           \"locationName\":\"verifiedAccessInstance\"\
         }\
       }\
@@ -25053,11 +25406,11 @@
       \"members\":{\
         \"ImageId\":{\
           \"shape\":\"ImageId\",\
-          \"documentation\":\"<p>The ID of the image for which youâre turning off faster launching, and removing pre-provisioned snapshots.</p>\"\
+          \"documentation\":\"<p>Specify the ID of the image for which to disable Windows fast launch.</p>\"\
         },\
         \"Force\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>Forces the image settings to turn off faster launching for your Windows AMI. This parameter overrides any errors that are encountered while cleaning up resources in your account.</p>\"\
+          \"documentation\":\"<p>Forces the image settings to turn off Windows fast launch for your Windows AMI. This parameter overrides any errors that are encountered while cleaning up resources in your account.</p>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -25070,17 +25423,17 @@
       \"members\":{\
         \"ImageId\":{\
           \"shape\":\"ImageId\",\
-          \"documentation\":\"<p>The ID of the image for which faster-launching has been turned off.</p>\",\
+          \"documentation\":\"<p>The ID of the image for which Windows fast launch was disabled.</p>\",\
           \"locationName\":\"imageId\"\
         },\
         \"ResourceType\":{\
           \"shape\":\"FastLaunchResourceType\",\
-          \"documentation\":\"<p>The pre-provisioning resource type that must be cleaned after turning off faster launching for the Windows AMI. Supported values include: <code>snapshot</code>.</p>\",\
+          \"documentation\":\"<p>The pre-provisioning resource type that must be cleaned after turning off Windows fast launch for the Windows AMI. Supported values include: <code>snapshot</code>.</p>\",\
           \"locationName\":\"resourceType\"\
         },\
         \"SnapshotConfiguration\":{\
           \"shape\":\"FastLaunchSnapshotConfigurationResponse\",\
-          \"documentation\":\"<p>Parameters that were used for faster launching for the Windows AMI before faster launching was turned off. This informs the clean-up process.</p>\",\
+          \"documentation\":\"<p>Parameters that were used for Windows fast launch for the Windows AMI before Windows fast launch was disabled. This informs the clean-up process.</p>\",\
           \"locationName\":\"snapshotConfiguration\"\
         },\
         \"LaunchTemplate\":{\
@@ -25090,27 +25443,27 @@
         },\
         \"MaxParallelLaunches\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The maximum number of instances that Amazon EC2 can launch at the same time to create pre-provisioned snapshots for Windows faster launching.</p>\",\
+          \"documentation\":\"<p>The maximum number of instances that Amazon EC2 can launch at the same time to create pre-provisioned snapshots for Windows fast launch.</p>\",\
           \"locationName\":\"maxParallelLaunches\"\
         },\
         \"OwnerId\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The owner of the Windows AMI for which faster launching was turned off.</p>\",\
+          \"documentation\":\"<p>The owner of the Windows AMI for which Windows fast launch was disabled.</p>\",\
           \"locationName\":\"ownerId\"\
         },\
         \"State\":{\
           \"shape\":\"FastLaunchStateCode\",\
-          \"documentation\":\"<p>The current state of faster launching for the specified Windows AMI.</p>\",\
+          \"documentation\":\"<p>The current state of Windows fast launch for the specified Windows AMI.</p>\",\
           \"locationName\":\"state\"\
         },\
         \"StateTransitionReason\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The reason that the state changed for faster launching for the Windows AMI.</p>\",\
+          \"documentation\":\"<p>The reason that the state changed for Windows fast launch for the Windows AMI.</p>\",\
           \"locationName\":\"stateTransitionReason\"\
         },\
         \"StateTransitionTime\":{\
           \"shape\":\"MillisecondDateTime\",\
-          \"documentation\":\"<p>The time that the state changed for faster launching for the Windows AMI.</p>\",\
+          \"documentation\":\"<p>The time that the state changed for Windows fast launch for the Windows AMI.</p>\",\
           \"locationName\":\"stateTransitionTime\"\
         }\
       }\
@@ -25393,6 +25746,25 @@
         }\
       }\
     },\
+    \"DisableSnapshotBlockPublicAccessRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DisableSnapshotBlockPublicAccessResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"State\":{\
+          \"shape\":\"SnapshotBlockPublicAccessState\",\
+          \"documentation\":\"<p>Returns <code>unblocked</code> if the request succeeds.</p>\",\
+          \"locationName\":\"state\"\
+        }\
+      }\
+    },\
     \"DisableTransitGatewayRouteTablePropagationRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"TransitGatewayRouteTableId\"],\
@@ -25522,7 +25894,7 @@
           \"documentation\":\"<p>The ID of the Client VPN endpoint from which to disassociate the target network.</p>\"\
         },\
         \"AssociationId\":{\
-          \"shape\":\"ClientVpnAssociationId\",\
+          \"shape\":\"String\",\
           \"documentation\":\"<p>The ID of the target network association.</p>\"\
         },\
         \"DryRun\":{\
@@ -26703,16 +27075,40 @@
       },\
       \"documentation\":\"<p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.</p> <p>To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.</p>\"\
     },\
+    \"EnaSrdSpecificationRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"EnaSrdEnabled\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Specifies whether ENA Express is enabled for the network interface when you launch an instance from your launch template.</p>\"\
+        },\
+        \"EnaSrdUdpSpecification\":{\
+          \"shape\":\"EnaSrdUdpSpecificationRequest\",\
+          \"documentation\":\"<p>Contains ENA Express settings for UDP network traffic in your launch template.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Launch instances with ENA Express settings configured from your launch template.</p>\"\
+    },\
     \"EnaSrdSupported\":{\"type\":\"boolean\"},\
     \"EnaSrdUdpSpecification\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"EnaSrdUdpEnabled\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>Indicates whether UDP traffic uses ENA Express. To specify this setting, you must first enable ENA Express.</p>\"\
+          \"documentation\":\"<p>Indicates whether UDP traffic to and from the instance uses ENA Express. To specify this setting, you must first enable ENA Express.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>ENA Express is compatible with both TCP and UDP transport protocols. When itâs enabled, TCP traffic automatically uses it. However, some UDP-based applications are designed to handle network packets that are out of order, without a need for retransmission, such as live video broadcasting or other near-real-time applications. For UDP traffic, you can specify whether to use ENA Express, based on your application environment needs.</p>\"\
+      \"documentation\":\"<p>ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic automatically uses it. However, some UDP-based applications are designed to handle network packets that are out of order, without a need for retransmission, such as live video broadcasting or other near-real-time applications. For UDP traffic, you can specify whether to use ENA Express, based on your application environment needs.</p>\"\
+    },\
+    \"EnaSrdUdpSpecificationRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"EnaSrdUdpEnabled\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Indicates whether UDP traffic uses ENA Express for your instance. To ensure that UDP traffic can use ENA Express when you launch an instance, you must also set <b>EnaSrdEnabled</b> in the <b>EnaSrdSpecificationRequest</b> to <code>true</code> in your launch template.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Configures ENA Express for UDP network traffic from your launch template.</p>\"\
     },\
     \"EnaSupport\":{\
       \"type\":\"string\",\
@@ -26813,15 +27209,15 @@
       \"members\":{\
         \"ImageId\":{\
           \"shape\":\"ImageId\",\
-          \"documentation\":\"<p>The ID of the image for which youâre enabling faster launching.</p>\"\
+          \"documentation\":\"<p>Specify the ID of the image for which to enable Windows fast launch.</p>\"\
         },\
         \"ResourceType\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The type of resource to use for pre-provisioning the Windows AMI for faster launching. Supported values include: <code>snapshot</code>, which is the default value.</p>\"\
+          \"documentation\":\"<p>The type of resource to use for pre-provisioning the AMI for Windows fast launch. Supported values include: <code>snapshot</code>, which is the default value.</p>\"\
         },\
         \"SnapshotConfiguration\":{\
           \"shape\":\"FastLaunchSnapshotConfigurationRequest\",\
-          \"documentation\":\"<p>Configuration settings for creating and managing the snapshots that are used for pre-provisioning the Windows AMI for faster launching. The associated <code>ResourceType</code> must be <code>snapshot</code>.</p>\"\
+          \"documentation\":\"<p>Configuration settings for creating and managing the snapshots that are used for pre-provisioning the AMI for Windows fast launch. The associated <code>ResourceType</code> must be <code>snapshot</code>.</p>\"\
         },\
         \"LaunchTemplate\":{\
           \"shape\":\"FastLaunchLaunchTemplateSpecificationRequest\",\
@@ -26829,7 +27225,7 @@
         },\
         \"MaxParallelLaunches\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The maximum number of instances that Amazon EC2 can launch at the same time to create pre-provisioned snapshots for Windows faster launching. Value must be <code>6</code> or greater.</p>\"\
+          \"documentation\":\"<p>The maximum number of instances that Amazon EC2 can launch at the same time to create pre-provisioned snapshots for Windows fast launch. Value must be <code>6</code> or greater.</p>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -26842,12 +27238,12 @@
       \"members\":{\
         \"ImageId\":{\
           \"shape\":\"ImageId\",\
-          \"documentation\":\"<p>The image ID that identifies the Windows AMI for which faster launching was enabled.</p>\",\
+          \"documentation\":\"<p>The image ID that identifies the AMI for which Windows fast launch was enabled.</p>\",\
           \"locationName\":\"imageId\"\
         },\
         \"ResourceType\":{\
           \"shape\":\"FastLaunchResourceType\",\
-          \"documentation\":\"<p>The type of resource that was defined for pre-provisioning the Windows AMI for faster launching.</p>\",\
+          \"documentation\":\"<p>The type of resource that was defined for pre-provisioning the AMI for Windows fast launch.</p>\",\
           \"locationName\":\"resourceType\"\
         },\
         \"SnapshotConfiguration\":{\
@@ -26862,27 +27258,27 @@
         },\
         \"MaxParallelLaunches\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The maximum number of instances that Amazon EC2 can launch at the same time to create pre-provisioned snapshots for Windows faster launching.</p>\",\
+          \"documentation\":\"<p>The maximum number of instances that Amazon EC2 can launch at the same time to create pre-provisioned snapshots for Windows fast launch.</p>\",\
           \"locationName\":\"maxParallelLaunches\"\
         },\
         \"OwnerId\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The owner ID for the Windows AMI for which faster launching was enabled.</p>\",\
+          \"documentation\":\"<p>The owner ID for the AMI for which Windows fast launch was enabled.</p>\",\
           \"locationName\":\"ownerId\"\
         },\
         \"State\":{\
           \"shape\":\"FastLaunchStateCode\",\
-          \"documentation\":\"<p>The current state of faster launching for the specified Windows AMI.</p>\",\
+          \"documentation\":\"<p>The current state of Windows fast launch for the specified AMI.</p>\",\
           \"locationName\":\"state\"\
         },\
         \"StateTransitionReason\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The reason that the state changed for faster launching for the Windows AMI.</p>\",\
+          \"documentation\":\"<p>The reason that the state changed for Windows fast launch for the AMI.</p>\",\
           \"locationName\":\"stateTransitionReason\"\
         },\
         \"StateTransitionTime\":{\
           \"shape\":\"MillisecondDateTime\",\
-          \"documentation\":\"<p>The time that the state changed for faster launching for the Windows AMI.</p>\",\
+          \"documentation\":\"<p>The time that the state changed for Windows fast launch for the AMI.</p>\",\
           \"locationName\":\"stateTransitionTime\"\
         }\
       }\
@@ -27193,6 +27589,30 @@
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>If <code>true</code>, access to the EC2 serial console of all instances is enabled for your account. If <code>false</code>, access to the EC2 serial console of all instances is disabled for your account.</p>\",\
           \"locationName\":\"serialConsoleAccessEnabled\"\
+        }\
+      }\
+    },\
+    \"EnableSnapshotBlockPublicAccessRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"State\"],\
+      \"members\":{\
+        \"State\":{\
+          \"shape\":\"SnapshotBlockPublicAccessState\",\
+          \"documentation\":\"<p>The mode in which to enable block public access for snapshots for the Region. Specify one of the following values:</p> <ul> <li> <p> <code>block-all-sharing</code> - Prevents all public sharing of snapshots in the Region. Users in the account will no longer be able to request new public sharing. Additionally, snapshots that are already publicly shared are treated as private and they are no longer publicly available.</p> <note> <p>If you enable block public access for snapshots in <code>block-all-sharing</code> mode, it does not change the permissions for snapshots that are already publicly shared. Instead, it prevents these snapshots from be publicly visible and publicly accessible. Therefore, the attributes for these snapshots still indicate that they are publicly shared, even though they are not publicly available.</p> </note> </li> <li> <p> <code>block-new-sharing</code> - Prevents only new public sharing of snapshots in the Region. Users in the account will no longer be able to request new public sharing. However, snapshots that are already publicly shared, remain publicly available.</p> </li> </ul>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"EnableSnapshotBlockPublicAccessResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"State\":{\
+          \"shape\":\"SnapshotBlockPublicAccessState\",\
+          \"documentation\":\"<p>The state of block public access for snapshots for the account and Region. Returns either <code>block-all-sharing</code> or <code>block-new-sharing</code> if the request succeeds.</p>\",\
+          \"locationName\":\"state\"\
         }\
       }\
     },\
@@ -28174,39 +28594,39 @@
       \"members\":{\
         \"LaunchTemplateId\":{\
           \"shape\":\"LaunchTemplateId\",\
-          \"documentation\":\"<p>The ID of the launch template to use for faster launching for a Windows AMI.</p>\"\
+          \"documentation\":\"<p>Specify the ID of the launch template that the AMI should use for Windows fast launch.</p>\"\
         },\
         \"LaunchTemplateName\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The name of the launch template to use for faster launching for a Windows AMI.</p>\"\
+          \"documentation\":\"<p>Specify the name of the launch template that the AMI should use for Windows fast launch.</p>\"\
         },\
         \"Version\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The version of the launch template to use for faster launching for a Windows AMI.</p>\"\
+          \"documentation\":\"<p>Specify the version of the launch template that the AMI should use for Windows fast launch.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Request to create a launch template for a fast-launch enabled Windows AMI.</p> <note> <p>Note - You can specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p> </note>\"\
+      \"documentation\":\"<p>Request to create a launch template for a Windows fast launch enabled AMI.</p> <note> <p>Note - You can specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p> </note>\"\
     },\
     \"FastLaunchLaunchTemplateSpecificationResponse\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"LaunchTemplateId\":{\
           \"shape\":\"LaunchTemplateId\",\
-          \"documentation\":\"<p>The ID of the launch template for faster launching of the associated Windows AMI.</p>\",\
+          \"documentation\":\"<p>The ID of the launch template that the AMI uses for Windows fast launch.</p>\",\
           \"locationName\":\"launchTemplateId\"\
         },\
         \"LaunchTemplateName\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The name of the launch template for faster launching of the associated Windows AMI.</p>\",\
+          \"documentation\":\"<p>The name of the launch template that the AMI uses for Windows fast launch.</p>\",\
           \"locationName\":\"launchTemplateName\"\
         },\
         \"Version\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The version of the launch template for faster launching of the associated Windows AMI.</p>\",\
+          \"documentation\":\"<p>The version of the launch template that the AMI uses for Windows fast launch.</p>\",\
           \"locationName\":\"version\"\
         }\
       },\
-      \"documentation\":\"<p>Identifies the launch template to use for faster launching of the Windows AMI.</p>\"\
+      \"documentation\":\"<p>Identifies the launch template that the AMI uses for Windows fast launch.</p>\"\
     },\
     \"FastLaunchResourceType\":{\
       \"type\":\"string\",\
@@ -28217,21 +28637,21 @@
       \"members\":{\
         \"TargetResourceCount\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.</p>\"\
+          \"documentation\":\"<p>The number of pre-provisioned snapshots to keep on hand for a Windows fast launch enabled AMI.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI.</p>\"\
+      \"documentation\":\"<p>Configuration settings for creating and managing pre-provisioned snapshots for a Windows fast launch enabled AMI.</p>\"\
     },\
     \"FastLaunchSnapshotConfigurationResponse\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"TargetResourceCount\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The number of pre-provisioned snapshots requested to keep on hand for a fast-launch enabled Windows AMI.</p>\",\
+          \"documentation\":\"<p>The number of pre-provisioned snapshots requested to keep on hand for a Windows fast launch enabled AMI.</p>\",\
           \"locationName\":\"targetResourceCount\"\
         }\
       },\
-      \"documentation\":\"<p>Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI.</p>\"\
+      \"documentation\":\"<p>Configuration settings for creating and managing pre-provisioned snapshots for a Windows fast launch enabled Windows AMI.</p>\"\
     },\
     \"FastLaunchStateCode\":{\
       \"type\":\"string\",\
@@ -29511,6 +29931,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The ID of the local gateway route table.</p>\",\
           \"locationName\":\"localGatewayRouteTableId\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>\",\
+          \"locationName\":\"nextToken\"\
         }\
       }\
     },\
@@ -30467,6 +30892,53 @@
       },\
       \"documentation\":\"<p>Contains the output of GetReservedInstancesExchangeQuote.</p>\"\
     },\
+    \"GetSecurityGroupsForVpcRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"VpcId\"],\
+      \"members\":{\
+        \"VpcId\":{\
+          \"shape\":\"VpcId\",\
+          \"documentation\":\"<p>The VPC ID where the security group can be used.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"GetSecurityGroupsForVpcRequestMaxResults\",\
+          \"documentation\":\"<p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\\\">Pagination</a>.</p>\"\
+        },\
+        \"Filters\":{\
+          \"shape\":\"FilterList\",\
+          \"documentation\":\"<p>The filters. If using multiple filters, the results include security groups which match all filters.</p> <ul> <li> <p> <code>group-id</code>: The security group ID.</p> </li> <li> <p> <code>description</code>: The security group's description.</p> </li> <li> <p> <code>group-name</code>: The security group name.</p> </li> <li> <p> <code>owner-id</code>: The security group owner ID.</p> </li> <li> <p> <code>primary-vpc-id</code>: The VPC ID in which the security group was created.</p> </li> </ul>\",\
+          \"locationName\":\"Filter\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"GetSecurityGroupsForVpcRequestMaxResults\":{\
+      \"type\":\"integer\",\
+      \"max\":1000,\
+      \"min\":5\
+    },\
+    \"GetSecurityGroupsForVpcResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"SecurityGroupForVpcs\":{\
+          \"shape\":\"SecurityGroupForVpcList\",\
+          \"documentation\":\"<p>The security group that can be used by interfaces in the VPC.</p>\",\
+          \"locationName\":\"securityGroupForVpcSet\"\
+        }\
+      }\
+    },\
     \"GetSerialConsoleAccessStatusRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -30483,6 +30955,25 @@
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>If <code>true</code>, access to the EC2 serial console of all instances is enabled for your account. If <code>false</code>, access to the EC2 serial console of all instances is disabled for your account.</p>\",\
           \"locationName\":\"serialConsoleAccessEnabled\"\
+        }\
+      }\
+    },\
+    \"GetSnapshotBlockPublicAccessStateRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"GetSnapshotBlockPublicAccessStateResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"State\":{\
+          \"shape\":\"SnapshotBlockPublicAccessState\",\
+          \"documentation\":\"<p>The current state of block public access for snapshots. Possible values include:</p> <ul> <li> <p> <code>block-all-sharing</code> - All public sharing of snapshots is blocked. Users in the account can't request new public sharing. Additionally, snapshots that were already publicly shared are treated as private and are not publicly available.</p> </li> <li> <p> <code>block-new-sharing</code> - Only new public sharing of snapshots is blocked. Users in the account can't request new public sharing. However, snapshots that were already publicly shared, remain publicly available.</p> </li> <li> <p> <code>unblocked</code> - Public sharing is not blocked. Users can publicly share snapshots.</p> </li> </ul>\",\
+          \"locationName\":\"state\"\
         }\
       }\
     },\
@@ -31199,7 +31690,7 @@
       \"members\":{\
         \"Configured\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>Set to <code>true</code> to enable your instance for hibernation.</p> <p>Default: <code>false</code> </p>\"\
+          \"documentation\":\"<p>Set to <code>true</code> to enable your instance for hibernation.</p> <p>For Spot Instances, if you set <code>Configured</code> to <code>true</code>, either omit the <code>InstanceInterruptionBehavior</code> parameter (for <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotMarketOptions.html\\\"> <code>SpotMarketOptions</code> </a>), or set it to <code>hibernate</code>. When <code>Configured</code> is true:</p> <ul> <li> <p>If you omit <code>InstanceInterruptionBehavior</code>, it defaults to <code>hibernate</code>.</p> </li> <li> <p>If you set <code>InstanceInterruptionBehavior</code> to a value other than <code>hibernate</code>, you'll get an error.</p> </li> </ul> <p>Default: <code>false</code> </p>\"\
         }\
       },\
       \"documentation\":\"<p>Indicates whether your instance is configured for hibernation. This parameter is valid only if the instance meets the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html\\\">hibernation prerequisites</a>. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html\\\">Hibernate your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
@@ -33270,6 +33761,33 @@
       },\
       \"documentation\":\"<p>Describes an instance.</p>\"\
     },\
+    \"InstanceAttachmentEnaSrdSpecification\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"EnaSrdEnabled\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Indicates whether ENA Express is enabled for the network interface.</p>\",\
+          \"locationName\":\"enaSrdEnabled\"\
+        },\
+        \"EnaSrdUdpSpecification\":{\
+          \"shape\":\"InstanceAttachmentEnaSrdUdpSpecification\",\
+          \"documentation\":\"<p>Configures ENA Express for UDP network traffic.</p>\",\
+          \"locationName\":\"enaSrdUdpSpecification\"\
+        }\
+      },\
+      \"documentation\":\"<p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.</p> <p>To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.</p>\"\
+    },\
+    \"InstanceAttachmentEnaSrdUdpSpecification\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"EnaSrdUdpEnabled\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Indicates whether UDP traffic to and from the instance uses ENA Express. To specify this setting, you must first enable ENA Express.</p>\",\
+          \"locationName\":\"enaSrdUdpEnabled\"\
+        }\
+      },\
+      \"documentation\":\"<p>ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic automatically uses it. However, some UDP-based applications are designed to handle network packets that are out of order, without a need for retransmission, such as live video broadcasting or other near-real-time applications. For UDP traffic, you can specify whether to use ENA Express, based on your application environment needs.</p>\"\
+    },\
     \"InstanceAttribute\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -33938,7 +34456,8 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"spot\",\
-        \"scheduled\"\
+        \"scheduled\",\
+        \"capacity-block\"\
       ]\
     },\
     \"InstanceList\":{\
@@ -34262,6 +34781,11 @@
           \"shape\":\"Integer\",\
           \"documentation\":\"<p>The index of the network card.</p>\",\
           \"locationName\":\"networkCardIndex\"\
+        },\
+        \"EnaSrdSpecification\":{\
+          \"shape\":\"InstanceAttachmentEnaSrdSpecification\",\
+          \"documentation\":\"<p>Contains the ENA Express settings for the network interface that's attached to the instance.</p>\",\
+          \"locationName\":\"enaSrdSpecification\"\
         }\
       },\
       \"documentation\":\"<p>Describes a network interface attachment.</p>\"\
@@ -34371,6 +34895,10 @@
         \"PrimaryIpv6\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html\\\">RunInstances</a>.</p>\"\
+        },\
+        \"EnaSrdSpecification\":{\
+          \"shape\":\"EnaSrdSpecificationRequest\",\
+          \"documentation\":\"<p>Specifies the ENA Express settings for the network interface that's attached to the instance.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes a network interface.</p>\"\
@@ -34534,7 +35062,7 @@
           \"locationName\":\"allowedInstanceTypeSet\"\
         }\
       },\
-      \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p> <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes are optional. Any unspecified optional attribute is set to its default.</p> <p>When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.</p> <p>To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:</p> <ul> <li> <p> <code>AllowedInstanceTypes</code> - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.</p> </li> <li> <p> <code>ExcludedInstanceTypes</code> - The instance types to exclude from the list, even if they match your specified attributes.</p> </li> </ul> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p> <p>Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html\\\">launch instance wizard</a> or with the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html\\\">RunInstances API</a>, you can't specify <code>InstanceRequirements</code>.</p> </note> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for EC2 Fleet</a>, <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for Spot Fleet</a>, and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html\\\">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
+      \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p> <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes are optional. Any unspecified optional attribute is set to its default.</p> <p>When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.</p> <p>To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:</p> <ul> <li> <p> <code>AllowedInstanceTypes</code> - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.</p> </li> <li> <p> <code>ExcludedInstanceTypes</code> - The instance types to exclude from the list, even if they match your specified attributes.</p> </li> </ul> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p> <p>Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html\\\">launch instance wizard</a> or with the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html\\\">RunInstances API</a>, you can't specify <code>InstanceRequirements</code>.</p> </note> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.html\\\">Create a mixed instances group using attribute-based instance type selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>, and also <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for EC2 Fleet</a>, <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for Spot Fleet</a>, and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html\\\">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
     },\
     \"InstanceRequirementsRequest\":{\
       \"type\":\"structure\",\
@@ -34665,6 +35193,13 @@
         }\
       },\
       \"documentation\":\"<p>The architecture type, virtualization type, and other attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.</p> <p>If you specify <code>InstanceRequirementsWithMetadataRequest</code>, you can't specify <code>InstanceTypes</code>.</p>\"\
+    },\
+    \"InstanceSet\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"InstanceTopology\",\
+        \"locationName\":\"item\"\
+      }\
     },\
     \"InstanceSpecification\":{\
       \"type\":\"structure\",\
@@ -34932,6 +35467,42 @@
         }\
       },\
       \"documentation\":\"<p>Describes the registered tag keys for the current Region.</p>\"\
+    },\
+    \"InstanceTopology\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The instance ID.</p>\",\
+          \"locationName\":\"instanceId\"\
+        },\
+        \"InstanceType\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The instance type.</p>\",\
+          \"locationName\":\"instanceType\"\
+        },\
+        \"GroupName\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The name of the placement group that the instance is in.</p>\",\
+          \"locationName\":\"groupName\"\
+        },\
+        \"NetworkNodes\":{\
+          \"shape\":\"NetworkNodesList\",\
+          \"documentation\":\"<p>The network nodes. The nodes are hashed based on your account. Instances from different accounts running under the same droplet will return a different hashed list of strings.</p>\",\
+          \"locationName\":\"networkNodeSet\"\
+        },\
+        \"AvailabilityZone\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The name of the Availability Zone or Local Zone that the instance is in.</p>\",\
+          \"locationName\":\"availabilityZone\"\
+        },\
+        \"ZoneId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the Availability Zone or Local Zone that the instance is in.</p>\",\
+          \"locationName\":\"zoneId\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about the instance topology.</p>\"\
     },\
     \"InstanceType\":{\
       \"type\":\"string\",\
@@ -35706,7 +36277,8 @@
         \"r7i.12xlarge\",\
         \"r7i.16xlarge\",\
         \"r7i.24xlarge\",\
-        \"r7i.48xlarge\"\
+        \"r7i.48xlarge\",\
+        \"dl2q.24xlarge\"\
       ]\
     },\
     \"InstanceTypeHypervisor\":{\
@@ -38057,6 +38629,33 @@
         \"locationName\":\"item\"\
       }\
     },\
+    \"LaunchTemplateEnaSrdSpecification\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"EnaSrdEnabled\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Indicates whether ENA Express is enabled for the network interface.</p>\",\
+          \"locationName\":\"enaSrdEnabled\"\
+        },\
+        \"EnaSrdUdpSpecification\":{\
+          \"shape\":\"LaunchTemplateEnaSrdUdpSpecification\",\
+          \"documentation\":\"<p>Configures ENA Express for UDP network traffic.</p>\",\
+          \"locationName\":\"enaSrdUdpSpecification\"\
+        }\
+      },\
+      \"documentation\":\"<p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.</p> <p>To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.</p>\"\
+    },\
+    \"LaunchTemplateEnaSrdUdpSpecification\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"EnaSrdUdpEnabled\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Indicates whether UDP traffic to and from the instance uses ENA Express. To specify this setting, you must first enable ENA Express.</p>\",\
+          \"locationName\":\"enaSrdUdpEnabled\"\
+        }\
+      },\
+      \"documentation\":\"<p>ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic automatically uses it. However, some UDP-based applications are designed to handle network packets that are out of order, without a need for retransmission, such as live video broadcasting or other near-real-time applications. For UDP traffic, you can specify whether to use ENA Express, based on your application environment needs.</p>\"\
+    },\
     \"LaunchTemplateEnclaveOptions\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -38398,6 +38997,11 @@
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html\\\">RunInstances</a>.</p>\",\
           \"locationName\":\"primaryIpv6\"\
+        },\
+        \"EnaSrdSpecification\":{\
+          \"shape\":\"LaunchTemplateEnaSrdSpecification\",\
+          \"documentation\":\"<p>Contains the ENA Express settings for instances launched from your launch template.</p>\",\
+          \"locationName\":\"enaSrdSpecification\"\
         }\
       },\
       \"documentation\":\"<p>Describes a network interface.</p>\"\
@@ -38494,6 +39098,10 @@
         \"PrimaryIpv6\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html\\\">RunInstances</a>.</p>\"\
+        },\
+        \"EnaSrdSpecification\":{\
+          \"shape\":\"EnaSrdSpecificationRequest\",\
+          \"documentation\":\"<p>Configure ENA Express settings for your launch template.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The parameters for a network interface.</p>\"\
@@ -38843,7 +39451,7 @@
       \"members\":{\
         \"ResourceType\":{\
           \"shape\":\"ResourceType\",\
-          \"documentation\":\"<p>The type of resource to tag.</p> <p>Valid Values lists all resource types for Amazon EC2 that can be tagged. When you create a launch template, you can specify tags for the following resource types only: <code>instance</code> | <code>volume</code> | <code>elastic-gpu</code> | <code>network-interface</code> | <code>spot-instances-request</code>. If the instance does include the resource type that you specify, the instance launch fails. For example, not all instance types include an Elastic GPU.</p> <p>To tag a resource after it has been created, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\\\">CreateTags</a>.</p>\"\
+          \"documentation\":\"<p>The type of resource to tag.</p> <p>Valid Values lists all resource types for Amazon EC2 that can be tagged. When you create a launch template, you can specify tags for the following resource types only: <code>instance</code> | <code>volume</code> | <code>elastic-gpu</code> | <code>network-interface</code> | <code>spot-instances-request</code>. If the instance does not include the resource type that you specify, the instance launch fails. For example, not all instance types include an Elastic GPU.</p> <p>To tag a resource after it has been created, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\\\">CreateTags</a>.</p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagList\",\
@@ -39621,6 +40229,158 @@
         \"outpost\"\
       ]\
     },\
+    \"LockMode\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"compliance\",\
+        \"governance\"\
+      ]\
+    },\
+    \"LockSnapshotRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"SnapshotId\",\
+        \"LockMode\"\
+      ],\
+      \"members\":{\
+        \"SnapshotId\":{\
+          \"shape\":\"SnapshotId\",\
+          \"documentation\":\"<p>The ID of the snapshot to lock.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"LockMode\":{\
+          \"shape\":\"LockMode\",\
+          \"documentation\":\"<p>The mode in which to lock the snapshot. Specify one of the following:</p> <ul> <li> <p> <code>governance</code> - Locks the snapshot in governance mode. Snapshots locked in governance mode can't be deleted until one of the following conditions are met:</p> <ul> <li> <p>The lock duration expires.</p> </li> <li> <p>The snapshot is unlocked by a user with the appropriate permissions.</p> </li> </ul> <p>Users with the appropriate IAM permissions can unlock the snapshot, increase or decrease the lock duration, and change the lock mode to <code>compliance</code> at any time.</p> <p>If you lock a snapshot in <code>governance</code> mode, omit <b> CoolOffPeriod</b>.</p> </li> <li> <p> <code>compliance</code> - Locks the snapshot in compliance mode. Snapshots locked in compliance mode can't be unlocked by any user. They can be deleted only after the lock duration expires. Users can't decrease the lock duration or change the lock mode to <code>governance</code>. However, users with appropriate IAM permissions can increase the lock duration at any time.</p> <p>If you lock a snapshot in <code>compliance</code> mode, you can optionally specify <b>CoolOffPeriod</b>.</p> </li> </ul>\"\
+        },\
+        \"CoolOffPeriod\":{\
+          \"shape\":\"CoolOffPeriodRequestHours\",\
+          \"documentation\":\"<p>The cooling-off period during which you can unlock the snapshot or modify the lock settings after locking the snapshot in compliance mode, in hours. After the cooling-off period expires, you can't unlock or delete the snapshot, decrease the lock duration, or change the lock mode. You can increase the lock duration after the cooling-off period expires.</p> <p>The cooling-off period is optional when locking a snapshot in compliance mode. If you are locking the snapshot in governance mode, omit this parameter.</p> <p>To lock the snapshot in compliance mode immediately without a cooling-off period, omit this parameter.</p> <p>If you are extending the lock duration for a snapshot that is locked in compliance mode after the cooling-off period has expired, omit this parameter. If you specify a cooling-period in a such a request, the request fails.</p> <p>Allowed values: Min 1, max 72.</p>\"\
+        },\
+        \"LockDuration\":{\
+          \"shape\":\"RetentionPeriodRequestDays\",\
+          \"documentation\":\"<p>The period of time for which to lock the snapshot, in days. The snapshot lock will automatically expire after this period lapses.</p> <p>You must specify either this parameter or <b>ExpirationDate</b>, but not both.</p> <p>Allowed values: Min: 1, max 36500</p>\"\
+        },\
+        \"ExpirationDate\":{\
+          \"shape\":\"MillisecondDateTime\",\
+          \"documentation\":\"<p>The date and time at which the snapshot lock is to automatically expire, in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p> <p>You must specify either this parameter or <b>LockDuration</b>, but not both.</p>\"\
+        }\
+      }\
+    },\
+    \"LockSnapshotResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"SnapshotId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the snapshot</p>\",\
+          \"locationName\":\"snapshotId\"\
+        },\
+        \"LockState\":{\
+          \"shape\":\"LockState\",\
+          \"documentation\":\"<p>The state of the snapshot lock. Valid states include:</p> <ul> <li> <p> <code>compliance-cooloff</code> - The snapshot has been locked in compliance mode but it is still within the cooling-off period. The snapshot can't be deleted, but it can be unlocked and the lock settings can be modified by users with appropriate permissions.</p> </li> <li> <p> <code>governance</code> - The snapshot is locked in governance mode. The snapshot can't be deleted, but it can be unlocked and the lock settings can be modified by users with appropriate permissions.</p> </li> <li> <p> <code>compliance</code> - The snapshot is locked in compliance mode and the cooling-off period has expired. The snapshot can't be unlocked or deleted. The lock duration can only be increased by users with appropriate permissions.</p> </li> <li> <p> <code>expired</code> - The snapshot was locked in compliance or governance mode but the lock duration has expired. The snapshot is not locked and can be deleted.</p> </li> </ul>\",\
+          \"locationName\":\"lockState\"\
+        },\
+        \"LockDuration\":{\
+          \"shape\":\"RetentionPeriodResponseDays\",\
+          \"documentation\":\"<p>The period of time for which the snapshot is locked, in days.</p>\",\
+          \"locationName\":\"lockDuration\"\
+        },\
+        \"CoolOffPeriod\":{\
+          \"shape\":\"CoolOffPeriodResponseHours\",\
+          \"documentation\":\"<p>The compliance mode cooling-off period, in hours.</p>\",\
+          \"locationName\":\"coolOffPeriod\"\
+        },\
+        \"CoolOffPeriodExpiresOn\":{\
+          \"shape\":\"MillisecondDateTime\",\
+          \"documentation\":\"<p>The date and time at which the compliance mode cooling-off period expires, in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>\",\
+          \"locationName\":\"coolOffPeriodExpiresOn\"\
+        },\
+        \"LockCreatedOn\":{\
+          \"shape\":\"MillisecondDateTime\",\
+          \"documentation\":\"<p>The date and time at which the snapshot was locked, in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>\",\
+          \"locationName\":\"lockCreatedOn\"\
+        },\
+        \"LockExpiresOn\":{\
+          \"shape\":\"MillisecondDateTime\",\
+          \"documentation\":\"<p>The date and time at which the lock will expire, in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>\",\
+          \"locationName\":\"lockExpiresOn\"\
+        },\
+        \"LockDurationStartTime\":{\
+          \"shape\":\"MillisecondDateTime\",\
+          \"documentation\":\"<p>The date and time at which the lock duration started, in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>\",\
+          \"locationName\":\"lockDurationStartTime\"\
+        }\
+      }\
+    },\
+    \"LockState\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"compliance\",\
+        \"governance\",\
+        \"compliance-cooloff\",\
+        \"expired\"\
+      ]\
+    },\
+    \"LockedSnapshotsInfo\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"OwnerId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The account ID of the Amazon Web Services account that owns the snapshot.</p>\",\
+          \"locationName\":\"ownerId\"\
+        },\
+        \"SnapshotId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the snapshot.</p>\",\
+          \"locationName\":\"snapshotId\"\
+        },\
+        \"LockState\":{\
+          \"shape\":\"LockState\",\
+          \"documentation\":\"<p>The state of the snapshot lock. Valid states include:</p> <ul> <li> <p> <code>compliance-cooloff</code> - The snapshot has been locked in compliance mode but it is still within the cooling-off period. The snapshot can't be deleted, but it can be unlocked and the lock settings can be modified by users with appropriate permissions.</p> </li> <li> <p> <code>governance</code> - The snapshot is locked in governance mode. The snapshot can't be deleted, but it can be unlocked and the lock settings can be modified by users with appropriate permissions.</p> </li> <li> <p> <code>compliance</code> - The snapshot is locked in compliance mode and the cooling-off period has expired. The snapshot can't be unlocked or deleted. The lock duration can only be increased by users with appropriate permissions.</p> </li> <li> <p> <code>expired</code> - The snapshot was locked in compliance or governance mode but the lock duration has expired. The snapshot is not locked and can be deleted.</p> </li> </ul>\",\
+          \"locationName\":\"lockState\"\
+        },\
+        \"LockDuration\":{\
+          \"shape\":\"RetentionPeriodResponseDays\",\
+          \"documentation\":\"<p>The period of time for which the snapshot is locked, in days.</p>\",\
+          \"locationName\":\"lockDuration\"\
+        },\
+        \"CoolOffPeriod\":{\
+          \"shape\":\"CoolOffPeriodResponseHours\",\
+          \"documentation\":\"<p>The compliance mode cooling-off period, in hours.</p>\",\
+          \"locationName\":\"coolOffPeriod\"\
+        },\
+        \"CoolOffPeriodExpiresOn\":{\
+          \"shape\":\"MillisecondDateTime\",\
+          \"documentation\":\"<p>The date and time at which the compliance mode cooling-off period expires, in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>\",\
+          \"locationName\":\"coolOffPeriodExpiresOn\"\
+        },\
+        \"LockCreatedOn\":{\
+          \"shape\":\"MillisecondDateTime\",\
+          \"documentation\":\"<p>The date and time at which the snapshot was locked, in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>\",\
+          \"locationName\":\"lockCreatedOn\"\
+        },\
+        \"LockDurationStartTime\":{\
+          \"shape\":\"MillisecondDateTime\",\
+          \"documentation\":\"<p>The date and time at which the lock duration started, in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p> <p>If you lock a snapshot that is in the <code>pending</code> state, the lock duration starts only once the snapshot enters the <code>completed</code> state.</p>\",\
+          \"locationName\":\"lockDurationStartTime\"\
+        },\
+        \"LockExpiresOn\":{\
+          \"shape\":\"MillisecondDateTime\",\
+          \"documentation\":\"<p>The date and time at which the lock will expire, in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>\",\
+          \"locationName\":\"lockExpiresOn\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about a locked snapshot.</p>\"\
+    },\
+    \"LockedSnapshotsInfoList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"LockedSnapshotsInfo\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"LogDestinationType\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -39716,7 +40476,10 @@
     },\
     \"MarketType\":{\
       \"type\":\"string\",\
-      \"enum\":[\"spot\"]\
+      \"enum\":[\
+        \"spot\",\
+        \"capacity-block\"\
+      ]\
     },\
     \"MaxIpv4AddrPerInterface\":{\"type\":\"integer\"},\
     \"MaxIpv6AddrPerInterface\":{\"type\":\"integer\"},\
@@ -41771,7 +42534,7 @@
         },\
         \"SseSpecification\":{\
           \"shape\":\"VerifiedAccessSseSpecificationRequest\",\
-          \"documentation\":\"<p> Options for server side encryption. </p>\"\
+          \"documentation\":\"<p>The options for server side encryption.</p>\"\
         }\
       }\
     },\
@@ -41790,7 +42553,7 @@
         },\
         \"SseSpecification\":{\
           \"shape\":\"VerifiedAccessSseSpecificationResponse\",\
-          \"documentation\":\"<p> Describes the options in use for server side encryption. </p>\",\
+          \"documentation\":\"<p>The options in use for server side encryption.</p>\",\
           \"locationName\":\"sseSpecification\"\
         }\
       }\
@@ -41835,7 +42598,7 @@
       \"members\":{\
         \"VerifiedAccessEndpoint\":{\
           \"shape\":\"VerifiedAccessEndpoint\",\
-          \"documentation\":\"<p>The Verified Access endpoint details.</p>\",\
+          \"documentation\":\"<p>Details about the Verified Access endpoint.</p>\",\
           \"locationName\":\"verifiedAccessEndpoint\"\
         }\
       }\
@@ -41874,7 +42637,7 @@
         },\
         \"SseSpecification\":{\
           \"shape\":\"VerifiedAccessSseSpecificationRequest\",\
-          \"documentation\":\"<p> Options for server side encryption. </p>\"\
+          \"documentation\":\"<p>The options for server side encryption.</p>\"\
         }\
       }\
     },\
@@ -41893,7 +42656,7 @@
         },\
         \"SseSpecification\":{\
           \"shape\":\"VerifiedAccessSseSpecificationResponse\",\
-          \"documentation\":\"<p> Describes the options in use for server side encryption. </p>\",\
+          \"documentation\":\"<p>The options in use for server side encryption.</p>\",\
           \"locationName\":\"sseSpecification\"\
         }\
       }\
@@ -41930,7 +42693,7 @@
       \"members\":{\
         \"VerifiedAccessGroup\":{\
           \"shape\":\"VerifiedAccessGroup\",\
-          \"documentation\":\"<p>Details of Verified Access group.</p>\",\
+          \"documentation\":\"<p>Details about the Verified Access group.</p>\",\
           \"locationName\":\"verifiedAccessGroup\"\
         }\
       }\
@@ -41999,7 +42762,7 @@
       \"members\":{\
         \"VerifiedAccessInstance\":{\
           \"shape\":\"VerifiedAccessInstance\",\
-          \"documentation\":\"<p>The ID of the Verified Access instance.</p>\",\
+          \"documentation\":\"<p>Details about the Verified Access instance.</p>\",\
           \"locationName\":\"verifiedAccessInstance\"\
         }\
       }\
@@ -42065,7 +42828,7 @@
         },\
         \"SseSpecification\":{\
           \"shape\":\"VerifiedAccessSseSpecificationRequest\",\
-          \"documentation\":\"<p> Options for server side encryption. </p>\"\
+          \"documentation\":\"<p>The options for server side encryption.</p>\"\
         }\
       }\
     },\
@@ -42074,7 +42837,7 @@
       \"members\":{\
         \"VerifiedAccessTrustProvider\":{\
           \"shape\":\"VerifiedAccessTrustProvider\",\
-          \"documentation\":\"<p>The ID of the Verified Access trust provider.</p>\",\
+          \"documentation\":\"<p>Details about the Verified Access trust provider.</p>\",\
           \"locationName\":\"verifiedAccessTrustProvider\"\
         }\
       }\
@@ -42611,7 +43374,7 @@
         },\
         \"SkipTunnelReplacement\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>Choose whether or not to trigger immediate tunnel replacement.</p> <p>Valid values: <code>True</code> | <code>False</code> </p>\"\
+          \"documentation\":\"<p>Choose whether or not to trigger immediate tunnel replacement. This is only applicable when turning on or off <code>EnableTunnelLifecycleControl</code>.</p> <p>Valid values: <code>True</code> | <code>False</code> </p>\"\
         }\
       }\
     },\
@@ -42662,7 +43425,7 @@
         },\
         \"DPDTimeoutSeconds\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The number of seconds after which a DPD timeout occurs.</p> <p>Constraints: A value greater than or equal to 30.</p> <p>Default: <code>30</code> </p>\"\
+          \"documentation\":\"<p>The number of seconds after which a DPD timeout occurs. A DPD timeout of 40 seconds means that the VPN endpoint will consider the peer dead 30 seconds after the first failed keep-alive.</p> <p>Constraints: A value greater than or equal to 30.</p> <p>Default: <code>40</code> </p>\"\
         },\
         \"DPDTimeoutAction\":{\
           \"shape\":\"String\",\
@@ -44118,6 +44881,13 @@
         \"iot_rules_managed\",\
         \"aws_codestar_connections_managed\"\
       ]\
+    },\
+    \"NetworkNodesList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"String\",\
+        \"locationName\":\"item\"\
+      }\
     },\
     \"NetworkPerformance\":{\"type\":\"string\"},\
     \"NewDhcpConfiguration\":{\
@@ -46045,6 +46815,42 @@
       },\
       \"documentation\":\"<p>Describes the result of the purchase.</p>\"\
     },\
+    \"PurchaseCapacityBlockRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"CapacityBlockOfferingId\",\
+        \"InstancePlatform\"\
+      ],\
+      \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>The tags to apply to the Capacity Block during launch.</p>\",\
+          \"locationName\":\"TagSpecification\"\
+        },\
+        \"CapacityBlockOfferingId\":{\
+          \"shape\":\"OfferingId\",\
+          \"documentation\":\"<p>The ID of the Capacity Block offering.</p>\"\
+        },\
+        \"InstancePlatform\":{\
+          \"shape\":\"CapacityReservationInstancePlatform\",\
+          \"documentation\":\"<p>The type of operating system for which to reserve capacity.</p>\"\
+        }\
+      }\
+    },\
+    \"PurchaseCapacityBlockResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CapacityReservation\":{\
+          \"shape\":\"CapacityReservation\",\
+          \"documentation\":\"<p>The Capacity Reservation.</p>\",\
+          \"locationName\":\"capacityReservation\"\
+        }\
+      }\
+    },\
     \"PurchaseHostReservationRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -47421,12 +48227,12 @@
         },\
         \"SecurityGroupIds\":{\
           \"shape\":\"SecurityGroupIdStringList\",\
-          \"documentation\":\"<p>One or more security group IDs. You can create a security group using <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html\\\">CreateSecurityGroup</a>. You cannot specify both a security group ID and security name in the same request.</p>\",\
+          \"documentation\":\"<p>One or more security group IDs. You can create a security group using <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html\\\">CreateSecurityGroup</a>.</p>\",\
           \"locationName\":\"SecurityGroupId\"\
         },\
         \"SecurityGroups\":{\
           \"shape\":\"SecurityGroupStringList\",\
-          \"documentation\":\"<p>One or more security group names. For a nondefault VPC, you must use security group IDs instead. You cannot specify both a security group ID and security name in the same request.</p>\",\
+          \"documentation\":\"<p>One or more security group names. For a nondefault VPC, you must use security group IDs instead.</p>\",\
           \"locationName\":\"SecurityGroup\"\
         },\
         \"InstanceMarketOptions\":{\
@@ -48994,6 +49800,12 @@
       \"max\":500,\
       \"min\":20\
     },\
+    \"RetentionPeriodRequestDays\":{\
+      \"type\":\"integer\",\
+      \"max\":36500,\
+      \"min\":1\
+    },\
+    \"RetentionPeriodResponseDays\":{\"type\":\"integer\"},\
     \"RevokeClientVpnIngressRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -50480,6 +51292,49 @@
       },\
       \"documentation\":\"<p>Describes a security group.</p>\"\
     },\
+    \"SecurityGroupForVpc\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Description\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The security group's description.</p>\",\
+          \"locationName\":\"description\"\
+        },\
+        \"GroupName\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The security group name.</p>\",\
+          \"locationName\":\"groupName\"\
+        },\
+        \"OwnerId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The security group owner ID.</p>\",\
+          \"locationName\":\"ownerId\"\
+        },\
+        \"GroupId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The security group ID.</p>\",\
+          \"locationName\":\"groupId\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>The security group tags.</p>\",\
+          \"locationName\":\"tagSet\"\
+        },\
+        \"PrimaryVpcId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The VPC ID in which the security group was created.</p>\",\
+          \"locationName\":\"primaryVpcId\"\
+        }\
+      },\
+      \"documentation\":\"<p>A security group that can be used by interfaces in the VPC.</p>\"\
+    },\
+    \"SecurityGroupForVpcList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"SecurityGroupForVpc\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"SecurityGroupId\":{\"type\":\"string\"},\
     \"SecurityGroupIdList\":{\
       \"type\":\"list\",\
@@ -51125,6 +51980,14 @@
       \"enum\":[\
         \"productCodes\",\
         \"createVolumePermission\"\
+      ]\
+    },\
+    \"SnapshotBlockPublicAccessState\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"block-all-sharing\",\
+        \"block-new-sharing\",\
+        \"unblocked\"\
       ]\
     },\
     \"SnapshotDetail\":{\
@@ -52069,7 +52932,7 @@
         },\
         \"InstanceInterruptionBehavior\":{\
           \"shape\":\"InstanceInterruptionBehavior\",\
-          \"documentation\":\"<p>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</p>\"\
+          \"documentation\":\"<p>The behavior when a Spot Instance is interrupted.</p> <p>If <code>Configured</code> (for <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_HibernationOptionsRequest.html\\\"> <code>HibernationOptions</code> </a>) is set to <code>true</code>, the <code>InstanceInterruptionBehavior</code> parameter is automatically set to <code>hibernate</code>. If you set it to <code>stop</code> or <code>terminate</code>, you'll get an error.</p> <p>If <code>Configured</code> (for <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_HibernationOptionsRequest.html\\\"> <code>HibernationOptions</code> </a>) is set to <code>false</code> or <code>null</code>, the <code>InstanceInterruptionBehavior</code> parameter is automatically set to <code>terminate</code>. You can also set it to <code>stop</code> or <code>hibernate</code>.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/interruption-behavior.html\\\">Interruption behavior</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The options for Spot Instances.</p>\"\
@@ -55913,6 +56776,30 @@
         \"t4g\"\
       ]\
     },\
+    \"UnlockSnapshotRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"SnapshotId\"],\
+      \"members\":{\
+        \"SnapshotId\":{\
+          \"shape\":\"SnapshotId\",\
+          \"documentation\":\"<p>The ID of the snapshot to unlock.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"UnlockSnapshotResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"SnapshotId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the snapshot.</p>\",\
+          \"locationName\":\"snapshotId\"\
+        }\
+      }\
+    },\
     \"UnmonitorInstancesRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"InstanceIds\"],\
@@ -56109,7 +56996,8 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"spot\",\
-        \"on-demand\"\
+        \"on-demand\",\
+        \"capacity-block\"\
       ]\
     },\
     \"UsageClassTypeList\":{\
@@ -56429,7 +57317,7 @@
         },\
         \"SseSpecification\":{\
           \"shape\":\"VerifiedAccessSseSpecificationResponse\",\
-          \"documentation\":\"<p> Describes the options in use for server side encryption. </p>\",\
+          \"documentation\":\"<p>The options in use for server side encryption.</p>\",\
           \"locationName\":\"sseSpecification\"\
         }\
       },\
@@ -56603,7 +57491,7 @@
         },\
         \"SseSpecification\":{\
           \"shape\":\"VerifiedAccessSseSpecificationResponse\",\
-          \"documentation\":\"<p> Describes the options in use for server side encryption. </p>\",\
+          \"documentation\":\"<p>The options in use for server side encryption.</p>\",\
           \"locationName\":\"sseSpecification\"\
         }\
       },\
@@ -56659,7 +57547,7 @@
         },\
         \"FipsEnabled\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>Describes whether support for Federal Information Processing Standards (FIPS) is enabled on the instance.</p>\",\
+          \"documentation\":\"<p>Indicates whether support for Federal Information Processing Standards (FIPS) is enabled on the instance.</p>\",\
           \"locationName\":\"fipsEnabled\"\
         }\
       },\
@@ -56815,11 +57703,11 @@
         },\
         \"LogVersion\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p> The logging version to use. </p> <p>Valid values: <code>ocsf-0.1</code> | <code>ocsf-1.0.0-rc.2</code> </p>\"\
+          \"documentation\":\"<p>The logging version.</p> <p>Valid values: <code>ocsf-0.1</code> | <code>ocsf-1.0.0-rc.2</code> </p>\"\
         },\
         \"IncludeTrustContext\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p> Include trust data sent by trust providers into the logs. </p>\"\
+          \"documentation\":\"<p>Indicates whether to include trust data sent by trust providers in the logs.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Options for Verified Access logs.</p>\"\
@@ -56898,12 +57786,12 @@
         },\
         \"LogVersion\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p> Describes current setting for the logging version. </p>\",\
+          \"documentation\":\"<p>The log version.</p>\",\
           \"locationName\":\"logVersion\"\
         },\
         \"IncludeTrustContext\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p> Describes current setting for including trust data into the logs. </p>\",\
+          \"documentation\":\"<p>Indicates whether trust data is included in the logs.</p>\",\
           \"locationName\":\"includeTrustContext\"\
         }\
       },\
@@ -56928,16 +57816,16 @@
       \"members\":{\
         \"CustomerManagedKeyEnabled\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p> Describes the use of customer managed KMS keys for server side encryption. </p> <p>Valid values: <code>True</code> | <code>False</code> </p>\",\
+          \"documentation\":\"<p>Indicates whether customer managed KMS keys are in use for server side encryption.</p> <p>Valid values: <code>True</code> | <code>False</code> </p>\",\
           \"locationName\":\"customerManagedKeyEnabled\"\
         },\
         \"KmsKeyArn\":{\
           \"shape\":\"KmsKeyArn\",\
-          \"documentation\":\"<p> Describes the ARN of the KMS key. </p>\",\
+          \"documentation\":\"<p>The ARN of the KMS key.</p>\",\
           \"locationName\":\"kmsKeyArn\"\
         }\
       },\
-      \"documentation\":\"<p> Describes the options in use for server side encryption. </p>\"\
+      \"documentation\":\"<p>The options in use for server side encryption.</p>\"\
     },\
     \"VerifiedAccessTrustProvider\":{\
       \"type\":\"structure\",\
@@ -56999,7 +57887,7 @@
         },\
         \"SseSpecification\":{\
           \"shape\":\"VerifiedAccessSseSpecificationResponse\",\
-          \"documentation\":\"<p> Describes the options in use for server side encryption. </p>\",\
+          \"documentation\":\"<p>The options in use for server side encryption.</p>\",\
           \"locationName\":\"sseSpecification\"\
         }\
       },\
@@ -57080,7 +57968,7 @@
         },\
         \"LastStatusChange\":{\
           \"shape\":\"DateTime\",\
-          \"documentation\":\"<p>The date and time of the last change in status.</p>\",\
+          \"documentation\":\"<p>The date and time of the last change in status. This field is updated when changes in IKE (Phase 1), IPSec (Phase 2), or BGP status are detected.</p>\",\
           \"locationName\":\"lastStatusChange\"\
         },\
         \"OutsideIpAddress\":{\
