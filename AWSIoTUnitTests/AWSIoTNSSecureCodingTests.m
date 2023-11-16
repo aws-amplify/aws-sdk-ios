@@ -375,6 +375,7 @@
 - (void) test_AWSIoTJobSummary API_AVAILABLE(ios(11));
 - (void) test_AWSIoTJobTemplateSummary API_AVAILABLE(ios(11));
 - (void) test_AWSIoTKafkaAction API_AVAILABLE(ios(11));
+- (void) test_AWSIoTKafkaActionHeader API_AVAILABLE(ios(11));
 - (void) test_AWSIoTKeyPair API_AVAILABLE(ios(11));
 - (void) test_AWSIoTKinesisAction API_AVAILABLE(ios(11));
 - (void) test_AWSIoTLambdaAction API_AVAILABLE(ios(11));
@@ -2125,6 +2126,10 @@
 
 - (void) test_AWSIoTKafkaAction {
     [self validateSecureCodingForClass:[AWSIoTKafkaAction class]];
+}
+
+- (void) test_AWSIoTKafkaActionHeader {
+    [self validateSecureCodingForClass:[AWSIoTKafkaActionHeader class]];
 }
 
 - (void) test_AWSIoTKeyPair {

@@ -1837,6 +1837,7 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"clientToken" : @"clientToken",
              @"logGroupNames" : @"logGroupNames",
              @"name" : @"name",
              @"queryDefinitionId" : @"queryDefinitionId",
