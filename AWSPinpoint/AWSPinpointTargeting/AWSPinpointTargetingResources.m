@@ -8122,7 +8122,7 @@
           \"shape\": \"__string\",\
           \"location\": \"uri\",\
           \"locationName\": \"endpoint-id\",\
-          \"documentation\": \"<p>The unique identifier for the endpoint.</p>\"\
+          \"documentation\": \"<p>The case insensitive unique identifier for the endpoint. The identifier can't contain <code>$</code>, <code>{</code> or <code>}</code>.</p>\"\
         }\
       },\
       \"required\": [\
@@ -10409,7 +10409,7 @@
           \"shape\": \"__string\",\
           \"location\": \"uri\",\
           \"locationName\": \"endpoint-id\",\
-          \"documentation\": \"<p>The unique identifier for the endpoint.</p>\"\
+          \"documentation\": \"<p>The case insensitive unique identifier for the endpoint. The identifier can't contain <code>$</code>, <code>{</code> or <code>}</code>.</p>\"\
         }\
       },\
       \"required\": [\
@@ -15166,7 +15166,7 @@
           \"shape\": \"__string\",\
           \"location\": \"uri\",\
           \"locationName\": \"endpoint-id\",\
-          \"documentation\": \"<p>The unique identifier for the endpoint.</p>\"\
+          \"documentation\": \"<p>The case insensitive unique identifier for the endpoint. The identifier can't contain <code>$</code>, <code>{</code> or <code>}</code>.</p>\"\
         },\
         \"EndpointRequest\": {\
           \"shape\": \"EndpointRequest\"\
