@@ -40,6 +40,11 @@ typedef NS_ENUM(NSInteger, AWSTranslateErrorType) {
     AWSTranslateErrorUnsupportedLanguagePair,
 };
 
+typedef NS_ENUM(NSInteger, AWSTranslateBrevity) {
+    AWSTranslateBrevityUnknown,
+    AWSTranslateBrevityOn,
+};
+
 typedef NS_ENUM(NSInteger, AWSTranslateDirectionality) {
     AWSTranslateDirectionalityUnknown,
     AWSTranslateDirectionalityUni,
@@ -759,7 +764,6 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 
 /**
  <p>Specifies the format and S3 location of the parallel data input file.</p>
- Required parameters: [S3Uri, Format]
  */
 @interface AWSTranslateParallelDataConfig : AWSModel
 
@@ -925,7 +929,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable parallelDataNames;
 
 /**
- <p>Settings to configure your translation output, including the option to set the formality level of the output text and the option to mask profane words and phrases.</p>
+ <p>Settings to configure your translation output. You can configure the following options:</p><ul><li><p>Brevity: not supported.</p></li><li><p>Formality: sets the formality level of the output text.</p></li><li><p>Profanity: masks profane words and phrases in your translation output.</p></li></ul>
  */
 @property (nonatomic, strong) AWSTranslateTranslationSettings * _Nullable settings;
 
@@ -1302,12 +1306,12 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @property (nonatomic, strong) AWSTranslateDocument * _Nullable document;
 
 /**
- <p>Settings to configure your translation output, including the option to set the formality level of the output text and the option to mask profane words and phrases.</p>
+ <p>Settings to configure your translation output. You can configure the following options:</p><ul><li><p>Brevity: not supported.</p></li><li><p>Formality: sets the formality level of the output text.</p></li><li><p>Profanity: masks profane words and phrases in your translation output.</p></li></ul>
  */
 @property (nonatomic, strong) AWSTranslateTranslationSettings * _Nullable settings;
 
 /**
- <p>The language code for the language of the source text. Do not use <code>auto</code>, because <code>TranslateDocument</code> does not support language auto-detection. For a list of supported language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
+ <p>The language code for the language of the source text. For a list of supported language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p><p>To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call <a href="https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html">Amazon Comprehend</a> to determine the source language.</p><note><p>If you specify <code>auto</code>, you must send the <code>TranslateDocument</code> request in a region that supports Amazon Comprehend. Otherwise, the request returns an error indicating that autodetect is not supported. </p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceLanguageCode;
 
@@ -1330,7 +1334,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 
 
 /**
- <p>Settings to configure your translation output, including the option to set the formality level of the output text and the option to mask profane words and phrases.</p>
+ <p>Settings to configure your translation output. You can configure the following options:</p><ul><li><p>Brevity: reduces the length of the translation output for most translations. Available for <code>TranslateText</code> only.</p></li><li><p>Formality: sets the formality level of the translation output.</p></li><li><p>Profanity: masks profane words and phrases in the translation output.</p></li></ul>
  */
 @property (nonatomic, strong) AWSTranslateTranslationSettings * _Nullable appliedSettings;
 
@@ -1363,7 +1367,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 
 
 /**
- <p>Settings to configure your translation output, including the option to set the formality level of the output text and the option to mask profane words and phrases.</p>
+ <p>Settings to configure your translation output. You can configure the following options:</p><ul><li><p>Brevity: reduces the length of the translated output for most translations.</p></li><li><p>Formality: sets the formality level of the output text.</p></li><li><p>Profanity: masks profane words and phrases in your translation output.</p></li></ul>
  */
 @property (nonatomic, strong) AWSTranslateTranslationSettings * _Nullable settings;
 
@@ -1437,18 +1441,23 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @end
 
 /**
- <p>Settings to configure your translation output, including the option to set the formality level of the output text and the option to mask profane words and phrases.</p>
+ <p>Settings to configure your translation output. You can configure the following options:</p><ul><li><p>Brevity: reduces the length of the translation output for most translations. Available for <code>TranslateText</code> only.</p></li><li><p>Formality: sets the formality level of the translation output.</p></li><li><p>Profanity: masks profane words and phrases in the translation output.</p></li></ul>
  */
 @interface AWSTranslateTranslationSettings : AWSModel
 
 
 /**
- <p>You can optionally specify the desired level of formality for translations to supported target languages. The formality setting controls the level of formal language usage (also known as <a href="https://en.wikipedia.org/wiki/Register_(sociolinguistics)">register</a>) in the translation output. You can set the value to informal or formal. If you don't specify a value for formality, or if the target language doesn't support formality, the translation will ignore the formality setting.</p><p> If you specify multiple target languages for the job, translate ignores the formality setting for any unsupported target language.</p><p>For a list of target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html#customizing-translations-formality-languages">Supported languages</a> in the Amazon Translate Developer Guide.</p>
+ <p>When you turn on brevity, Amazon Translate reduces the length of the translation output for most translations (when compared with the same translation with brevity turned off). By default, brevity is turned off.</p><p>If you turn on brevity for a translation request with an unsupported language pair, the translation proceeds with the brevity setting turned off.</p><p>For the language pairs that brevity supports, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-brevity">Using brevity</a> in the Amazon Translate Developer Guide.</p>
+ */
+@property (nonatomic, assign) AWSTranslateBrevity brevity;
+
+/**
+ <p>You can specify the desired level of formality for translations to supported target languages. The formality setting controls the level of formal language usage (also known as <a href="https://en.wikipedia.org/wiki/Register_(sociolinguistics)">register</a>) in the translation output. You can set the value to informal or formal. If you don't specify a value for formality, or if the target language doesn't support formality, the translation will ignore the formality setting.</p><p> If you specify multiple target languages for the job, translate ignores the formality setting for any unsupported target language.</p><p>For a list of target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html#customizing-translations-formality-languages">Supported languages</a> in the Amazon Translate Developer Guide.</p>
  */
 @property (nonatomic, assign) AWSTranslateFormality formality;
 
 /**
- <p>Enable the profanity setting if you want Amazon Translate to mask profane words and phrases in your translation output.</p><p>To mask profane words and phrases, Amazon Translate replaces them with the grawlix string “?$#@$“. This 5-character sequence is used for each profane word or phrase, regardless of the length or number of words.</p><p>Amazon Translate doesn't detect profanity in all of its supported languages. For languages that don't support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html#customizing-translations-profanity-languages">Unsupported languages</a> in the Amazon Translate Developer Guide.</p><p>If you specify multiple target languages for the job, all the target languages must support profanity masking. If any of the target languages don't support profanity masking, the translation job won't mask profanity for any target language.</p>
+ <p>You can enable the profanity setting if you want to mask profane words and phrases in your translation output.</p><p>To mask profane words and phrases, Amazon Translate replaces them with the grawlix string “?$#@$“. This 5-character sequence is used for each profane word or phrase, regardless of the length or number of words.</p><p>Amazon Translate doesn't detect profanity in all of its supported languages. For languages that don't support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html#customizing-translations-profanity-languages">Unsupported languages</a> in the Amazon Translate Developer Guide.</p><p>If you specify multiple target languages for the job, all the target languages must support profanity masking. If any of the target languages don't support profanity masking, the translation job won't mask profanity for any target language.</p>
  */
 @property (nonatomic, assign) AWSTranslateProfanity profanity;
 
