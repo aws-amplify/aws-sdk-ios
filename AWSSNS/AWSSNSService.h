@@ -226,7 +226,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
  
  @param request A container for the necessary parameters to execute the ConfirmSubscription service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSConfirmSubscriptionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorSubscriptionLimitExceeded`, `AWSSNSErrorInvalidParameter`, `AWSSNSErrorNotFound`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorFilterPolicyLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSConfirmSubscriptionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorSubscriptionLimitExceeded`, `AWSSNSErrorInvalidParameter`, `AWSSNSErrorNotFound`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorFilterPolicyLimitExceeded`, `AWSSNSErrorReplayLimitExceeded`.
  
  @see AWSSNSConfirmSubscriptionInput
  @see AWSSNSConfirmSubscriptionResponse
@@ -239,7 +239,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
  @param request A container for the necessary parameters to execute the ConfirmSubscription service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorSubscriptionLimitExceeded`, `AWSSNSErrorInvalidParameter`, `AWSSNSErrorNotFound`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorFilterPolicyLimitExceeded`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorSubscriptionLimitExceeded`, `AWSSNSErrorInvalidParameter`, `AWSSNSErrorNotFound`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorFilterPolicyLimitExceeded`, `AWSSNSErrorReplayLimitExceeded`.
  
  @see AWSSNSConfirmSubscriptionInput
  @see AWSSNSConfirmSubscriptionResponse
@@ -420,7 +420,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteTopic service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`, `AWSSNSErrorStaleTag`, `AWSSNSErrorTagPolicy`, `AWSSNSErrorConcurrentAccess`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInvalidState`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`, `AWSSNSErrorStaleTag`, `AWSSNSErrorTagPolicy`, `AWSSNSErrorConcurrentAccess`.
  
  @see AWSSNSDeleteTopicInput
  */
@@ -431,7 +431,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteTopic service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`, `AWSSNSErrorStaleTag`, `AWSSNSErrorTagPolicy`, `AWSSNSErrorConcurrentAccess`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInvalidState`, `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorNotFound`, `AWSSNSErrorStaleTag`, `AWSSNSErrorTagPolicy`, `AWSSNSErrorConcurrentAccess`.
  
  @see AWSSNSDeleteTopicInput
  */
@@ -1030,7 +1030,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
  
  @param request A container for the necessary parameters to execute the SetSubscriptionAttributes service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorFilterPolicyLimitExceeded`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorAuthorizationError`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorFilterPolicyLimitExceeded`, `AWSSNSErrorReplayLimitExceeded`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorAuthorizationError`.
  
  @see AWSSNSSetSubscriptionAttributesInput
  */
@@ -1041,7 +1041,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
  
  @param request A container for the necessary parameters to execute the SetSubscriptionAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorFilterPolicyLimitExceeded`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorAuthorizationError`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorFilterPolicyLimitExceeded`, `AWSSNSErrorReplayLimitExceeded`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorAuthorizationError`.
  
  @see AWSSNSSetSubscriptionAttributesInput
  */
@@ -1070,11 +1070,11 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (void)setTopicAttributes:(AWSSNSSetTopicAttributesInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or if the endpoint and the topic are not in the same Amazon Web Services account, the endpoint owner must run the <code>ConfirmSubscription</code> action to confirm the subscription.</p><p>You call the <code>ConfirmSubscription</code> action with the token from the subscription response. Confirmation tokens are valid for three days.</p><p>This action is throttled at 100 transactions per second (TPS).</p>
+ <p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or if the endpoint and the topic are not in the same Amazon Web Services account, the endpoint owner must run the <code>ConfirmSubscription</code> action to confirm the subscription.</p><p>You call the <code>ConfirmSubscription</code> action with the token from the subscription response. Confirmation tokens are valid for two days.</p><p>This action is throttled at 100 transactions per second (TPS).</p>
  
  @param request A container for the necessary parameters to execute the Subscribe service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSSubscribeResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorSubscriptionLimitExceeded`, `AWSSNSErrorFilterPolicyLimitExceeded`, `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInvalidSecurity`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSSubscribeResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorSubscriptionLimitExceeded`, `AWSSNSErrorFilterPolicyLimitExceeded`, `AWSSNSErrorReplayLimitExceeded`, `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInvalidSecurity`.
  
  @see AWSSNSSubscribeInput
  @see AWSSNSSubscribeResponse
@@ -1082,12 +1082,12 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (AWSTask<AWSSNSSubscribeResponse *> *)subscribe:(AWSSNSSubscribeInput *)request;
 
 /**
- <p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or if the endpoint and the topic are not in the same Amazon Web Services account, the endpoint owner must run the <code>ConfirmSubscription</code> action to confirm the subscription.</p><p>You call the <code>ConfirmSubscription</code> action with the token from the subscription response. Confirmation tokens are valid for three days.</p><p>This action is throttled at 100 transactions per second (TPS).</p>
+ <p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or if the endpoint and the topic are not in the same Amazon Web Services account, the endpoint owner must run the <code>ConfirmSubscription</code> action to confirm the subscription.</p><p>You call the <code>ConfirmSubscription</code> action with the token from the subscription response. Confirmation tokens are valid for two days.</p><p>This action is throttled at 100 transactions per second (TPS).</p>
  
  @param request A container for the necessary parameters to execute the Subscribe service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorSubscriptionLimitExceeded`, `AWSSNSErrorFilterPolicyLimitExceeded`, `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInvalidSecurity`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorSubscriptionLimitExceeded`, `AWSSNSErrorFilterPolicyLimitExceeded`, `AWSSNSErrorReplayLimitExceeded`, `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInvalidSecurity`.
  
  @see AWSSNSSubscribeInput
  @see AWSSNSSubscribeResponse
