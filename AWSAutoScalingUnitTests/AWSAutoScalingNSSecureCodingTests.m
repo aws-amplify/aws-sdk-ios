@@ -111,6 +111,7 @@
 - (void) test_AWSAutoScalingGetPredictiveScalingForecastAnswer API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingGetPredictiveScalingForecastType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingInstance API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingInstanceMaintenancePolicy API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingInstanceMetadataOptions API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingInstanceMonitoring API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingInstanceRefresh API_AVAILABLE(ios(11));
@@ -567,6 +568,10 @@
 
 - (void) test_AWSAutoScalingInstance {
     [self validateSecureCodingForClass:[AWSAutoScalingInstance class]];
+}
+
+- (void) test_AWSAutoScalingInstanceMaintenancePolicy {
+    [self validateSecureCodingForClass:[AWSAutoScalingInstanceMaintenancePolicy class]];
 }
 
 - (void) test_AWSAutoScalingInstanceMetadataOptions {

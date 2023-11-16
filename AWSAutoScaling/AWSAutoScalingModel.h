@@ -346,6 +346,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @class AWSAutoScalingGetPredictiveScalingForecastAnswer;
 @class AWSAutoScalingGetPredictiveScalingForecastType;
 @class AWSAutoScalingInstance;
+@class AWSAutoScalingInstanceMaintenancePolicy;
 @class AWSAutoScalingInstanceMetadataOptions;
 @class AWSAutoScalingInstanceMonitoring;
 @class AWSAutoScalingInstanceRefresh;
@@ -779,6 +780,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
  <p>A comma-separated value string of one or more health check types.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable healthCheckType;
+
+/**
+ <p>An instance maintenance policy.</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingInstanceMaintenancePolicy * _Nullable instanceMaintenancePolicy;
 
 /**
  <p>The EC2 instances associated with the group.</p>
@@ -1265,6 +1271,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
  <p>The ID of the instance used to base the launch configuration on. If specified, Amazon EC2 Auto Scaling uses the configuration values from the specified instance to create a new launch configuration. To get the instance ID, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> API operation. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html">Creating an Auto Scaling group using an EC2 instance</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>An instance maintenance policy. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html">Set instance maintenance policy</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingInstanceMaintenancePolicy * _Nullable instanceMaintenancePolicy;
 
 /**
  <p>The name of the launch configuration to use to launch instances. </p><p>Conditional: You must specify either a launch template (<code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>) or a launch configuration (<code>LaunchConfigurationName</code> or <code>InstanceId</code>).</p>
@@ -2657,6 +2668,24 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
  <p>The number of capacity units contributed by the instance based on its instance type.</p><p>Valid Range: Minimum value of 1. Maximum value of 999.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable weightedCapacity;
+
+@end
+
+/**
+ <p>Describes an instance maintenance policy.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html">Set instance maintenance policy</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ */
+@interface AWSAutoScalingInstanceMaintenancePolicy : AWSModel
+
+
+/**
+ <p>Specifies the upper threshold as a percentage of the desired capacity of the Auto Scaling group. It represents the maximum percentage of the group that can be in service and healthy, or pending, to support your workload when replacing instances. Value range is 100 to 200. After it's set, a value of <code>-1</code> will clear the previously set value. </p><p>Both <code>MinHealthyPercentage</code> and <code>MaxHealthyPercentage</code> must be specified, and the difference between them cannot be greater than 100. A large range increases the number of instances that can be replaced at the same time.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxHealthyPercentage;
+
+/**
+ <p>Specifies the lower threshold as a percentage of the desired capacity of the Auto Scaling group. It represents the minimum percentage of the group to keep in service, healthy, and ready to use to support your workload when replacing instances. Value range is 0 to 100. After it's set, a value of <code>-1</code> will clear the previously set value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable minHealthyPercentage;
 
 @end
 
@@ -4206,7 +4235,12 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable instanceWarmup;
 
 /**
- <p>The amount of capacity in the Auto Scaling group that must pass your group's health checks to allow the operation to continue. The value is expressed as a percentage of the desired capacity of the Auto Scaling group (rounded up to the nearest integer). The default is <code>90</code>.</p><p>Setting the minimum healthy percentage to 100 percent limits the rate of replacement to one instance at a time. In contrast, setting it to 0 percent has the effect of replacing all instances at the same time. </p>
+ <p>Specifies the maximum percentage of the group that can be in service and healthy, or pending, to support your workload when replacing instances. The value is expressed as a percentage of the desired capacity of the Auto Scaling group. Value range is 100 to 200.</p><p>If you specify <code>MaxHealthyPercentage</code>, you must also specify <code>MinHealthyPercentage</code>, and the difference between them cannot be greater than 100. A larger range increases the number of instances that can be replaced at the same time.</p><p>If you do not specify this property, the default is 100 percent, or the percentage set in the instance maintenance policy for the Auto Scaling group, if defined.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxHealthyPercentage;
+
+/**
+ <p>Specifies the minimum percentage of the group to keep in service, healthy, and ready to use to support your workload to allow the operation to continue. The value is expressed as a percentage of the desired capacity of the Auto Scaling group. Value range is 0 to 100.</p><p>If you do not specify this property, the default is 90 percent, or the percentage set in the instance maintenance policy for the Auto Scaling group, if defined.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable minHealthyPercentage;
 
@@ -4629,7 +4663,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) AWSAutoScalingDesiredConfiguration * _Nullable desiredConfiguration;
 
 /**
- <p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum healthy percentage, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p><ul><li><p>Auto rollback</p></li><li><p>Checkpoints</p></li><li><p>CloudWatch alarms</p></li><li><p>Skip matching</p></li></ul>
+ <p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum and maximum healthy percentages, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p><ul><li><p>Auto rollback</p></li><li><p>Checkpoints</p></li><li><p>CloudWatch alarms</p></li><li><p>Skip matching</p></li></ul>
  */
 @property (nonatomic, strong) AWSAutoScalingRefreshPreferences * _Nullable preferences;
 
@@ -4992,6 +5026,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
  <p>A comma-separated value string of one or more health check types.</p><p>The valid values are <code>EC2</code>, <code>ELB</code>, and <code>VPC_LATTICE</code>. <code>EC2</code> is the default health check and cannot be disabled. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>Only specify <code>EC2</code> if you must clear a value that was previously set.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable healthCheckType;
+
+/**
+ <p>An instance maintenance policy. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html">Set instance maintenance policy</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingInstanceMaintenancePolicy * _Nullable instanceMaintenancePolicy;
 
 /**
  <p>The name of the launch configuration. If you specify <code>LaunchConfigurationName</code> in your update request, you can't specify <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</p>
