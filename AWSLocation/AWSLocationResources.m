@@ -4480,6 +4480,7 @@
     \"PlaceId\":{\"type\":\"string\"},\
     \"PlaceIndexSearchResultLimit\":{\
       \"type\":\"integer\",\
+      \"box\":true,\
       \"max\":50,\
       \"min\":1\
     },\
