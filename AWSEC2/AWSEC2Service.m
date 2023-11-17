@@ -5442,6 +5442,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DescribeCapacityBlockOfferingsResult *> *)describeCapacityBlockOfferings:(AWSEC2DescribeCapacityBlockOfferingsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeCapacityBlockOfferings"
+                   outputClass:[AWSEC2DescribeCapacityBlockOfferingsResult class]];
+}
+
+- (void)describeCapacityBlockOfferings:(AWSEC2DescribeCapacityBlockOfferingsRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeCapacityBlockOfferingsResult *response, NSError *error))completionHandler {
+    [[self describeCapacityBlockOfferings:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeCapacityBlockOfferingsResult *> * _Nonnull task) {
+        AWSEC2DescribeCapacityBlockOfferingsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DescribeCapacityReservationFleetsResult *> *)describeCapacityReservationFleets:(AWSEC2DescribeCapacityReservationFleetsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -6385,6 +6408,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DescribeInstanceTopologyResult *> *)describeInstanceTopology:(AWSEC2DescribeInstanceTopologyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeInstanceTopology"
+                   outputClass:[AWSEC2DescribeInstanceTopologyResult class]];
+}
+
+- (void)describeInstanceTopology:(AWSEC2DescribeInstanceTopologyRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeInstanceTopologyResult *response, NSError *error))completionHandler {
+    [[self describeInstanceTopology:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeInstanceTopologyResult *> * _Nonnull task) {
+        AWSEC2DescribeInstanceTopologyResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DescribeInstanceTypeOfferingsResult *> *)describeInstanceTypeOfferings:(AWSEC2DescribeInstanceTypeOfferingsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -6812,6 +6858,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2DescribeLocalGatewaysResult *response, NSError *error))completionHandler {
     [[self describeLocalGateways:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeLocalGatewaysResult *> * _Nonnull task) {
         AWSEC2DescribeLocalGatewaysResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DescribeLockedSnapshotsResult *> *)describeLockedSnapshots:(AWSEC2DescribeLockedSnapshotsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeLockedSnapshots"
+                   outputClass:[AWSEC2DescribeLockedSnapshotsResult class]];
+}
+
+- (void)describeLockedSnapshots:(AWSEC2DescribeLockedSnapshotsRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeLockedSnapshotsResult *response, NSError *error))completionHandler {
+    [[self describeLockedSnapshots:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeLockedSnapshotsResult *> * _Nonnull task) {
+        AWSEC2DescribeLockedSnapshotsResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -8935,6 +9004,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DisableSnapshotBlockPublicAccessResult *> *)disableSnapshotBlockPublicAccess:(AWSEC2DisableSnapshotBlockPublicAccessRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DisableSnapshotBlockPublicAccess"
+                   outputClass:[AWSEC2DisableSnapshotBlockPublicAccessResult class]];
+}
+
+- (void)disableSnapshotBlockPublicAccess:(AWSEC2DisableSnapshotBlockPublicAccessRequest *)request
+     completionHandler:(void (^)(AWSEC2DisableSnapshotBlockPublicAccessResult *response, NSError *error))completionHandler {
+    [[self disableSnapshotBlockPublicAccess:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DisableSnapshotBlockPublicAccessResult *> * _Nonnull task) {
+        AWSEC2DisableSnapshotBlockPublicAccessResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DisableTransitGatewayRouteTablePropagationResult *> *)disableTransitGatewayRouteTablePropagation:(AWSEC2DisableTransitGatewayRouteTablePropagationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -9589,6 +9681,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2EnableSerialConsoleAccessResult *response, NSError *error))completionHandler {
     [[self enableSerialConsoleAccess:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2EnableSerialConsoleAccessResult *> * _Nonnull task) {
         AWSEC2EnableSerialConsoleAccessResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2EnableSnapshotBlockPublicAccessResult *> *)enableSnapshotBlockPublicAccess:(AWSEC2EnableSnapshotBlockPublicAccessRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"EnableSnapshotBlockPublicAccess"
+                   outputClass:[AWSEC2EnableSnapshotBlockPublicAccessResult class]];
+}
+
+- (void)enableSnapshotBlockPublicAccess:(AWSEC2EnableSnapshotBlockPublicAccessRequest *)request
+     completionHandler:(void (^)(AWSEC2EnableSnapshotBlockPublicAccessResult *response, NSError *error))completionHandler {
+    [[self enableSnapshotBlockPublicAccess:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2EnableSnapshotBlockPublicAccessResult *> * _Nonnull task) {
+        AWSEC2EnableSnapshotBlockPublicAccessResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -10471,6 +10586,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2GetSecurityGroupsForVpcResult *> *)getSecurityGroupsForVpc:(AWSEC2GetSecurityGroupsForVpcRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetSecurityGroupsForVpc"
+                   outputClass:[AWSEC2GetSecurityGroupsForVpcResult class]];
+}
+
+- (void)getSecurityGroupsForVpc:(AWSEC2GetSecurityGroupsForVpcRequest *)request
+     completionHandler:(void (^)(AWSEC2GetSecurityGroupsForVpcResult *response, NSError *error))completionHandler {
+    [[self getSecurityGroupsForVpc:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetSecurityGroupsForVpcResult *> * _Nonnull task) {
+        AWSEC2GetSecurityGroupsForVpcResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2GetSerialConsoleAccessStatusResult *> *)getSerialConsoleAccessStatus:(AWSEC2GetSerialConsoleAccessStatusRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -10484,6 +10622,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2GetSerialConsoleAccessStatusResult *response, NSError *error))completionHandler {
     [[self getSerialConsoleAccessStatus:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetSerialConsoleAccessStatusResult *> * _Nonnull task) {
         AWSEC2GetSerialConsoleAccessStatusResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2GetSnapshotBlockPublicAccessStateResult *> *)getSnapshotBlockPublicAccessState:(AWSEC2GetSnapshotBlockPublicAccessStateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetSnapshotBlockPublicAccessState"
+                   outputClass:[AWSEC2GetSnapshotBlockPublicAccessStateResult class]];
+}
+
+- (void)getSnapshotBlockPublicAccessState:(AWSEC2GetSnapshotBlockPublicAccessStateRequest *)request
+     completionHandler:(void (^)(AWSEC2GetSnapshotBlockPublicAccessStateResult *response, NSError *error))completionHandler {
+    [[self getSnapshotBlockPublicAccessState:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetSnapshotBlockPublicAccessStateResult *> * _Nonnull task) {
+        AWSEC2GetSnapshotBlockPublicAccessStateResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -10990,6 +11151,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2ListSnapshotsInRecycleBinResult *response, NSError *error))completionHandler {
     [[self listSnapshotsInRecycleBin:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ListSnapshotsInRecycleBinResult *> * _Nonnull task) {
         AWSEC2ListSnapshotsInRecycleBinResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2LockSnapshotResult *> *)lockSnapshot:(AWSEC2LockSnapshotRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"LockSnapshot"
+                   outputClass:[AWSEC2LockSnapshotResult class]];
+}
+
+- (void)lockSnapshot:(AWSEC2LockSnapshotRequest *)request
+     completionHandler:(void (^)(AWSEC2LockSnapshotResult *response, NSError *error))completionHandler {
+    [[self lockSnapshot:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2LockSnapshotResult *> * _Nonnull task) {
+        AWSEC2LockSnapshotResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -12601,6 +12785,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2PurchaseCapacityBlockResult *> *)purchaseCapacityBlock:(AWSEC2PurchaseCapacityBlockRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"PurchaseCapacityBlock"
+                   outputClass:[AWSEC2PurchaseCapacityBlockResult class]];
+}
+
+- (void)purchaseCapacityBlock:(AWSEC2PurchaseCapacityBlockRequest *)request
+     completionHandler:(void (^)(AWSEC2PurchaseCapacityBlockResult *response, NSError *error))completionHandler {
+    [[self purchaseCapacityBlock:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2PurchaseCapacityBlockResult *> * _Nonnull task) {
+        AWSEC2PurchaseCapacityBlockResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2PurchaseHostReservationResult *> *)purchaseHostReservation:(AWSEC2PurchaseHostReservationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -13891,6 +14098,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2UnassignPrivateNatGatewayAddressResult *response, NSError *error))completionHandler {
     [[self unassignPrivateNatGatewayAddress:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2UnassignPrivateNatGatewayAddressResult *> * _Nonnull task) {
         AWSEC2UnassignPrivateNatGatewayAddressResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2UnlockSnapshotResult *> *)unlockSnapshot:(AWSEC2UnlockSnapshotRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"UnlockSnapshot"
+                   outputClass:[AWSEC2UnlockSnapshotResult class]];
+}
+
+- (void)unlockSnapshot:(AWSEC2UnlockSnapshotRequest *)request
+     completionHandler:(void (^)(AWSEC2UnlockSnapshotResult *response, NSError *error))completionHandler {
+    [[self unlockSnapshot:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2UnlockSnapshotResult *> * _Nonnull task) {
+        AWSEC2UnlockSnapshotResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

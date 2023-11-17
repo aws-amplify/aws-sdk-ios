@@ -6,6 +6,11 @@
 
 ## 2.33.5
 
+### Bug Fixes
+
+- IoT
+  - fix(IoT): Fixing naming collision with SocketRocket
+
 ### Misc. Updates
 
 - Model updates for the following services
@@ -16,6 +21,8 @@
   - AWSEC2
   - AWSFirehose
   - AWSPolly
+  - AWSIoT
+  - AWSLambda
 
 ## 2.33.4
 
