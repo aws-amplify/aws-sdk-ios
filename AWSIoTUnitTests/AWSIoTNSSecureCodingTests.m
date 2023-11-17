@@ -311,6 +311,7 @@
 - (void) test_AWSIoTFileLocation API_AVAILABLE(ios(11));
 - (void) test_AWSIoTFirehoseAction API_AVAILABLE(ios(11));
 - (void) test_AWSIoTFleetMetricNameAndArn API_AVAILABLE(ios(11));
+- (void) test_AWSIoTGeoLocationTarget API_AVAILABLE(ios(11));
 - (void) test_AWSIoTGetBehaviorModelTrainingSummariesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTGetBehaviorModelTrainingSummariesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTGetBucketsAggregationRequest API_AVAILABLE(ios(11));
@@ -509,6 +510,7 @@
 - (void) test_AWSIoTMetricDimension API_AVAILABLE(ios(11));
 - (void) test_AWSIoTMetricToRetain API_AVAILABLE(ios(11));
 - (void) test_AWSIoTMetricValue API_AVAILABLE(ios(11));
+- (void) test_AWSIoTMetricsExportConfig API_AVAILABLE(ios(11));
 - (void) test_AWSIoTMitigationAction API_AVAILABLE(ios(11));
 - (void) test_AWSIoTMitigationActionIdentifier API_AVAILABLE(ios(11));
 - (void) test_AWSIoTMitigationActionParams API_AVAILABLE(ios(11));
@@ -1872,6 +1874,10 @@
     [self validateSecureCodingForClass:[AWSIoTFleetMetricNameAndArn class]];
 }
 
+- (void) test_AWSIoTGeoLocationTarget {
+    [self validateSecureCodingForClass:[AWSIoTGeoLocationTarget class]];
+}
+
 - (void) test_AWSIoTGetBehaviorModelTrainingSummariesRequest {
     [self validateSecureCodingForClass:[AWSIoTGetBehaviorModelTrainingSummariesRequest class]];
 }
@@ -2662,6 +2668,10 @@
 
 - (void) test_AWSIoTMetricValue {
     [self validateSecureCodingForClass:[AWSIoTMetricValue class]];
+}
+
+- (void) test_AWSIoTMetricsExportConfig {
+    [self validateSecureCodingForClass:[AWSIoTMetricsExportConfig class]];
 }
 
 - (void) test_AWSIoTMitigationAction {
