@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Bug Fixes
+
+- IoT
+  - fix(IoT): Fixing naming collision with SocketRocket
+
 ### Misc. Updates
 
 - Model updates for the following services
