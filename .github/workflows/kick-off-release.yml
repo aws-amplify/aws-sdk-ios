@@ -50,6 +50,8 @@ jobs:
           pip3 install lxml
           git checkout -b bump-version/$RELEASE_VERSION main
           python3 ./CircleciScripts/bump_sdk_version.py "$(pwd)" "$RELEASE_VERSION"
+          git config user.name aws-amplify-ops
+          git config user.email aws-amplify-ops@amazon.com
           git add -A
           git commit -am "[bump version $RELEASE_VERSION]"
           git push origin HEAD
