@@ -555,6 +555,12 @@ typedef NS_ENUM(NSInteger, AWSIoTStatus) {
     AWSIoTStatusCancelling,
 };
 
+typedef NS_ENUM(NSInteger, AWSIoTTargetFieldOrder) {
+    AWSIoTTargetFieldOrderUnknown,
+    AWSIoTTargetFieldOrderLatLon,
+    AWSIoTTargetFieldOrderLonLat,
+};
+
 typedef NS_ENUM(NSInteger, AWSIoTTargetSelection) {
     AWSIoTTargetSelectionUnknown,
     AWSIoTTargetSelectionContinuous,
@@ -901,6 +907,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTFileLocation;
 @class AWSIoTFirehoseAction;
 @class AWSIoTFleetMetricNameAndArn;
+@class AWSIoTGeoLocationTarget;
 @class AWSIoTGetBehaviorModelTrainingSummariesRequest;
 @class AWSIoTGetBehaviorModelTrainingSummariesResponse;
 @class AWSIoTGetBucketsAggregationRequest;
@@ -1099,6 +1106,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTMetricDimension;
 @class AWSIoTMetricToRetain;
 @class AWSIoTMetricValue;
+@class AWSIoTMetricsExportConfig;
 @class AWSIoTMitigationAction;
 @class AWSIoTMitigationActionIdentifier;
 @class AWSIoTMitigationActionParams;
@@ -2496,6 +2504,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) AWSIoTBehaviorCriteria * _Nullable criteria;
 
 /**
+ <p>Value indicates exporting metrics related to the behavior when it is true.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable exportMetric;
+
+/**
  <p>What is measured by the behavior.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metric;
@@ -3774,7 +3787,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p><p><b>Note:</b>The following Length Constraints relates to a single string. Up to five strings are allowed.</p>
+ <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p><p><b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable destinationPackageVersions;
 
@@ -3890,7 +3903,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p><p><b>Note:</b>The following Length Constraints relates to a single string. Up to five strings are allowed.</p>
+ <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p><p><b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable destinationPackageVersions;
 
@@ -4678,6 +4691,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
  */
 @property (nonatomic, strong) NSArray<AWSIoTBehavior *> * _Nullable behaviors;
+
+/**
+ <p>Specifies the MQTT topic and role ARN required for metric export.</p>
+ */
+@property (nonatomic, strong) AWSIoTMetricsExportConfig * _Nullable metricsExportConfig;
 
 /**
  <p>A description of the security profile.</p>
@@ -6633,7 +6651,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p><p><b>Note:</b>The following Length Constraints relates to a single string. Up to five strings are allowed.</p>
+ <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p><p><b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable destinationPackageVersions;
 
@@ -7053,6 +7071,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The time the security profile was last modified.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
+
+/**
+ <p>Specifies the MQTT topic and role ARN required for metric export.</p>
+ */
+@property (nonatomic, strong) AWSIoTMetricsExportConfig * _Nullable metricsExportConfig;
 
 /**
  <p>The ARN of the security profile.</p>
@@ -8000,6 +8023,24 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
+ <p>A geolocation target that you select to index. Each geolocation target contains a <code>name</code> and <code>order</code> key-value pair that specifies the geolocation target fields.</p>
+ */
+@interface AWSIoTGeoLocationTarget : AWSModel
+
+
+/**
+ <p>The <code>name</code> of the geolocation target field. If the target field is part of a named shadow, you must select the named shadow using the <code>namedShadow</code> filter.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The <code>order</code> of the geolocation target field. This field is optional. The default value is <code>LatLon</code>.</p>
+ */
+@property (nonatomic, assign) AWSIoTTargetFieldOrder order;
+
+@end
+
+/**
  
  */
 @interface AWSIoTGetBehaviorModelTrainingSummariesRequest : AWSRequest
@@ -8887,10 +8928,15 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
- <p>Provides additional filters for specific data sources. Named shadow is the only data source that currently supports and requires a filter. To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to be <code>ON</code> and specify your shadow names in <code>filter</code>.</p>
+ <p>Provides additional selections for named shadows and geolocation data. </p><p>To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to be ON and specify your shadow names in <code>namedShadowNames</code> filter.</p><p>To add geolocation data to your fleet indexing configuration: </p><ul><li><p>If you store geolocation data in a class/unnamed shadow, set <code>thingIndexingMode</code> to be <code>REGISTRY_AND_SHADOW</code> and specify your geolocation data in <code>geoLocations</code> filter. </p></li><li><p>If you store geolocation data in a named shadow, set <code>namedShadowIndexingMode</code> to be <code>ON</code>, add the shadow name in <code>namedShadowNames</code> filter, and specify your geolocation data in <code>geoLocations</code> filter. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html">Managing fleet indexing</a>.</p></li></ul>
  */
 @interface AWSIoTIndexingFilter : AWSModel
 
+
+/**
+ <p>The list of geolocation targets that you select to index. The default maximum number of geolocation targets for indexing is <code>1</code>. To increase the limit, see <a href="https://docs.aws.amazon.com/general/latest/gr/iot_device_management.html#fleet-indexing-limits">Amazon Web Services IoT Device Management Quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSIoTGeoLocationTarget *> * _Nullable geoLocations;
 
 /**
  <p>The shadow names that you select to index. The default maximum number of shadow names for indexing is 10. To increase the limit, see <a href="https://docs.aws.amazon.com/general/latest/gr/iot_device_management.html#fleet-indexing-limits">Amazon Web Services IoT Device Management Quotas</a> in the <i>Amazon Web Services General Reference</i>. </p>
@@ -9030,7 +9076,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p><p><b>Note:</b>The following Length Constraints relates to a single string. Up to five strings are allowed.</p>
+ <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p><p><b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable destinationPackageVersions;
 
@@ -12456,6 +12502,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
+ <p>Value added in both Behavior and AdditionalMetricsToRetainV2 to indicate if Device Defender Detect should export the corresponding metrics.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable exportMetric;
+
+/**
  <p>What is measured by the behavior.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metric;
@@ -12502,6 +12553,25 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p> The string values of a metric. </p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable strings;
+
+@end
+
+/**
+ <p>Set configurations for metrics export.</p>
+ Required parameters: [mqttTopic, roleArn]
+ */
+@interface AWSIoTMetricsExportConfig : AWSModel
+
+
+/**
+ <p>The MQTT topic that Device Defender Detect should publish messages to for metrics export.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable mqttTopic;
+
+/**
+ <p>This role ARN has permission to publish MQTT messages, after which Device Defender Detect can assume the role and publish messages on your behalf.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleArn;
 
 @end
 
@@ -13926,7 +13996,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable indexName;
 
 /**
- <p>The maximum number of results to return at one time.</p>
+ <p>The maximum number of results to return per page at one time. The response might contain fewer results but will never contain more.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -15055,7 +15125,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSArray<AWSIoTField *> * _Nullable customFields;
 
 /**
- <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing service. This is an optional field. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html#managed-field">Managed fields</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</p>
+ <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing service. This is an optional field. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html#managed-field">Managed fields</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</p><note><p>You can't modify managed fields by updating fleet indexing configuration.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSIoTField *> * _Nullable managedFields;
 
@@ -15125,12 +15195,12 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, assign) AWSIoTDeviceDefenderIndexingMode deviceDefenderIndexingMode;
 
 /**
- <p>Provides additional filters for specific data sources. Named shadow is the only data source that currently supports and requires a filter. To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to be <code>ON</code> and specify your shadow names in <code>filter</code>.</p>
+ <p>Provides additional selections for named shadows and geolocation data. </p><p>To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to be ON and specify your shadow names in <code>namedShadowNames</code> filter.</p><p>To add geolocation data to your fleet indexing configuration: </p><ul><li><p>If you store geolocation data in a class/unnamed shadow, set <code>thingIndexingMode</code> to be <code>REGISTRY_AND_SHADOW</code> and specify your geolocation data in <code>geoLocations</code> filter. </p></li><li><p>If you store geolocation data in a named shadow, set <code>namedShadowIndexingMode</code> to be <code>ON</code>, add the shadow name in <code>namedShadowNames</code> filter, and specify your geolocation data in <code>geoLocations</code> filter. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html">Managing fleet indexing</a>.</p></li></ul>
  */
 @property (nonatomic, strong) AWSIoTIndexingFilter * _Nullable filter;
 
 /**
- <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing service.</p>
+ <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing service. This is an optional field. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html#managed-field">Managed fields</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</p><note><p>You can't modify managed fields by updating fleet indexing configuration.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSIoTField *> * _Nullable managedFields;
 
@@ -16597,9 +16667,19 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSNumber * _Nullable deleteBehaviors;
 
 /**
+ <p>Set the value as true to delete metrics export related configurations.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable deleteMetricsExportConfig;
+
+/**
  <p>The expected version of the security profile. A new version is generated whenever the security profile is updated. If you specify a value that is different from the actual version, a <code>VersionConflictException</code> is thrown.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable expectedVersion;
+
+/**
+ <p>Specifies the MQTT topic and role ARN required for metric export.</p>
+ */
+@property (nonatomic, strong) AWSIoTMetricsExportConfig * _Nullable metricsExportConfig;
 
 /**
  <p>A description of the security profile.</p>
@@ -16648,6 +16728,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The time the security profile was last modified.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
+
+/**
+ <p>Specifies the MQTT topic and role ARN required for metric export.</p>
+ */
+@property (nonatomic, strong) AWSIoTMetricsExportConfig * _Nullable metricsExportConfig;
 
 /**
  <p>The ARN of the security profile that was updated.</p>
