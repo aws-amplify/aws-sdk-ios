@@ -97,6 +97,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionContentModerationSortBy) {
     AWSRekognitionContentModerationSortByTimestamp,
 };
 
+typedef NS_ENUM(NSInteger, AWSRekognitionCustomizationFeature) {
+    AWSRekognitionCustomizationFeatureUnknown,
+    AWSRekognitionCustomizationFeatureContentModeration,
+    AWSRekognitionCustomizationFeatureCustomLabels,
+};
+
 typedef NS_ENUM(NSInteger, AWSRekognitionDatasetStatus) {
     AWSRekognitionDatasetStatusUnknown,
     AWSRekognitionDatasetStatusCreateInProgress,
@@ -239,6 +245,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionPersonTrackingSortBy) {
     AWSRekognitionPersonTrackingSortByTimestamp,
 };
 
+typedef NS_ENUM(NSInteger, AWSRekognitionProjectAutoUpdate) {
+    AWSRekognitionProjectAutoUpdateUnknown,
+    AWSRekognitionProjectAutoUpdateEnabled,
+    AWSRekognitionProjectAutoUpdateDisabled,
+};
+
 typedef NS_ENUM(NSInteger, AWSRekognitionProjectStatus) {
     AWSRekognitionProjectStatusUnknown,
     AWSRekognitionProjectStatusCreating,
@@ -260,6 +272,8 @@ typedef NS_ENUM(NSInteger, AWSRekognitionProjectVersionStatus) {
     AWSRekognitionProjectVersionStatusCopyingInProgress,
     AWSRekognitionProjectVersionStatusCopyingCompleted,
     AWSRekognitionProjectVersionStatusCopyingFailed,
+    AWSRekognitionProjectVersionStatusDeprecated,
+    AWSRekognitionProjectVersionStatusExpired,
 };
 
 typedef NS_ENUM(NSInteger, AWSRekognitionProtectiveEquipmentType) {
@@ -420,6 +434,8 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionCreateUserRequest;
 @class AWSRekognitionCreateUserResponse;
 @class AWSRekognitionCustomLabel;
+@class AWSRekognitionCustomizationFeatureConfig;
+@class AWSRekognitionCustomizationFeatureContentModerationConfig;
 @class AWSRekognitionDatasetChanges;
 @class AWSRekognitionDatasetDescription;
 @class AWSRekognitionDatasetLabelDescription;
@@ -1396,6 +1412,16 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ <p>Specifies whether automatic retraining should be attempted for the versions of the project. Automatic retraining is done as a best effort. Required argument for Content Moderation. Applicable only to adapters.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionProjectAutoUpdate autoUpdate;
+
+/**
+ <p>Specifies feature that is being customized. If no value is provided CUSTOM_LABELS is used as a default.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionCustomizationFeature feature;
+
+/**
  <p>The name of the project to create.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable projectName;
@@ -1422,37 +1448,47 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>The identifier for your AWS Key Management Service key (AWS KMS key). You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for your KMS key, or an alias ARN. The key is used to encrypt training and test images copied into the service for model training. Your source images are unaffected. The key is also used to encrypt training results and manifest files written to the output Amazon S3 bucket (<code>OutputConfig</code>).</p><p>If you choose to use your own KMS key, you need the following permissions on the KMS key.</p><ul><li><p>kms:CreateGrant</p></li><li><p>kms:DescribeKey</p></li><li><p>kms:GenerateDataKey</p></li><li><p>kms:Decrypt</p></li></ul><p>If you don't specify a value for <code>KmsKeyId</code>, images copied into the service are encrypted using a key that AWS owns and manages.</p>
+ <p>Feature-specific configuration of the training job. If the job configuration does not match the feature type associated with the project, an InvalidParameterException is returned.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionCustomizationFeatureConfig * _Nullable featureConfig;
+
+/**
+ <p>The identifier for your AWS Key Management Service key (AWS KMS key). You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for your KMS key, or an alias ARN. The key is used to encrypt training images, test images, and manifest files copied into the service for the project version. Your source images are unaffected. The key is also used to encrypt training results and manifest files written to the output Amazon S3 bucket (<code>OutputConfig</code>).</p><p>If you choose to use your own KMS key, you need the following permissions on the KMS key.</p><ul><li><p>kms:CreateGrant</p></li><li><p>kms:DescribeKey</p></li><li><p>kms:GenerateDataKey</p></li><li><p>kms:Decrypt</p></li></ul><p>If you don't specify a value for <code>KmsKeyId</code>, images copied into the service are encrypted using a key that AWS owns and manages.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
- <p>The Amazon S3 bucket location to store the results of training. The S3 bucket can be in any AWS account as long as the caller has <code>s3:PutObject</code> permissions on the S3 bucket.</p>
+ <p>The Amazon S3 bucket location to store the results of training. The bucket can be any S3 bucket in your AWS account. You need <code>s3:PutObject</code> permission on the bucket. </p>
  */
 @property (nonatomic, strong) AWSRekognitionOutputConfig * _Nullable outputConfig;
 
 /**
- <p>The ARN of the Amazon Rekognition Custom Labels project that manages the model that you want to train.</p>
+ <p>The ARN of the Amazon Rekognition project that will manage the project version you want to train.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable projectArn;
 
 /**
- <p> A set of tags (key-value pairs) that you want to attach to the model. </p>
+ <p> A set of tags (key-value pairs) that you want to attach to the project version. </p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 /**
- <p>Specifies an external manifest that the service uses to test the model. If you specify <code>TestingData</code> you must also specify <code>TrainingData</code>. The project must not have any associated datasets.</p>
+ <p>Specifies an external manifest that the service uses to test the project version. If you specify <code>TestingData</code> you must also specify <code>TrainingData</code>. The project must not have any associated datasets.</p>
  */
 @property (nonatomic, strong) AWSRekognitionTestingData * _Nullable testingData;
 
 /**
- <p>Specifies an external manifest that the services uses to train the model. If you specify <code>TrainingData</code> you must also specify <code>TestingData</code>. The project must not have any associated datasets. </p>
+ <p>Specifies an external manifest that the services uses to train the project version. If you specify <code>TrainingData</code> you must also specify <code>TestingData</code>. The project must not have any associated datasets. </p>
  */
 @property (nonatomic, strong) AWSRekognitionTrainingData * _Nullable trainingData;
 
 /**
- <p>A name for the version of the model. This value must be unique.</p>
+ <p>A description applied to the project version being created.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable versionDescription;
+
+/**
+ <p>A name for the version of the project version. This value must be unique.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable versionName;
 
@@ -1465,7 +1501,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>The ARN of the model version that was created. Use <code>DescribeProjectVersion</code> to get the current status of the training operation.</p>
+ <p>The ARN of the model or the project version that was created. Use <code>DescribeProjectVersion</code> to get the current status of the training operation.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable projectVersionArn;
 
@@ -1593,6 +1629,32 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>The name of the custom label.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ <p>Feature specific configuration for the training job. Configuration provided for the job must match the feature type parameter associated with project. If configuration and feature type do not match an InvalidParameterException is returned.</p>
+ */
+@interface AWSRekognitionCustomizationFeatureConfig : AWSModel
+
+
+/**
+ <p>Configuration options for Custom Moderation training.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionCustomizationFeatureContentModerationConfig * _Nullable contentModeration;
+
+@end
+
+/**
+ <p>Configuration options for Content Moderation training.</p>
+ */
+@interface AWSRekognitionCustomizationFeatureContentModerationConfig : AWSModel
+
+
+/**
+ <p>The confidence level you plan to use to identify if unsafe content is present during inference.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidenceThreshold;
 
 @end
 
@@ -1915,7 +1977,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the model version that you want to delete.</p>
+ <p>The Amazon Resource Name (ARN) of the project version that you want to delete.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable projectVersionArn;
 
@@ -2070,17 +2132,17 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>
+ <p>If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The Amazon Resource Name (ARN) of the project that contains the models you want to describe.</p>
+ <p>The Amazon Resource Name (ARN) of the project that contains the model/adapter you want to describe.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable projectArn;
 
 /**
- <p>A list of model version names that you want to describe. You can add up to 10 model version names to the list. If you don't specify a value, all model descriptions are returned. A version name is part of a model (ProjectVersion) ARN. For example, <code>my-model.2020-01-21T09.10.15</code> is the version name in the following ARN. <code>arn:aws:rekognition:us-east-1:123456789012:project/getting-started/version/<i>my-model.2020-01-21T09.10.15</i>/1234567890123</code>.</p>
+ <p>A list of model or project version names that you want to describe. You can add up to 10 model or project version names to the list. If you don't specify a value, all project version descriptions are returned. A version name is part of a project version ARN. For example, <code>my-model.2020-01-21T09.10.15</code> is the version name in the following ARN. <code>arn:aws:rekognition:us-east-1:123456789012:project/getting-started/version/<i>my-model.2020-01-21T09.10.15</i>/1234567890123</code>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable versionNames;
 
@@ -2093,12 +2155,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>
+ <p>If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>A list of model descriptions. The list is sorted by the creation date and time of the model versions, latest to earliest.</p>
+ <p>A list of project version descriptions. The list is sorted by the creation date and time of the project versions, latest to earliest.</p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionProjectVersionDescription *> * _Nullable projectVersionDescriptions;
 
@@ -2111,17 +2173,22 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ <p>Specifies the type of customization to filter projects by. If no value is specified, CUSTOM_LABELS is used as a default.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable features;
+
+/**
  <p>The maximum number of results to return per paginated call. The largest value you can specify is 100. If you specify a value greater than 100, a ValidationException error occurs. The default value is 100. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>
+ <p>If the previous response was incomplete (because there is more results to retrieve), Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>A list of the projects that you want Amazon Rekognition Custom Labels to describe. If you don't specify a value, the response includes descriptions for all the projects in your AWS account.</p>
+ <p>A list of the projects that you want Rekognition to describe. If you don't specify a value, the response includes descriptions for all the projects in your AWS account.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable projectNames;
 
@@ -2134,7 +2201,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>
+ <p>If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -2258,7 +2325,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable minConfidence;
 
 /**
- <p>The ARN of the model version that you want to use.</p>
+ <p>The ARN of the model version that you want to use. Only models associated with Custom Labels projects accepted by the operation. If a provided ARN refers to a model version associated with a project for a different feature type, then an InvalidParameterException is returned.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable projectVersionArn;
 
@@ -2513,6 +2580,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  */
 @property (nonatomic, strong) NSNumber * _Nullable minConfidence;
 
+/**
+ <p>Identifier for the custom adapter. Expects the ProjectVersionArn as a value. Use the CreateProject or CreateProjectVersion APIs to create a custom adapter.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable projectVersion;
+
 @end
 
 /**
@@ -2532,9 +2604,14 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSArray<AWSRekognitionModerationLabel *> * _Nullable moderationLabels;
 
 /**
- <p>Version number of the moderation detection model that was used to detect unsafe content.</p>
+ <p>Version number of the base moderation detection model that was used to detect unsafe content.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable moderationModelVersion;
+
+/**
+ <p>Identifier of the custom adapter that was used during inference. If during inference the adapter was EXPIRED, then the parameter will not be returned, indicating that a base moderation detection project version was used.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable projectVersion;
 
 @end
 
@@ -4956,6 +5033,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ <p>Indicates whether automatic retraining will be attempted for the versions of the project. Applies only to adapters. </p>
+ */
+@property (nonatomic, assign) AWSRekognitionProjectAutoUpdate autoUpdate;
+
+/**
  <p>The Unix timestamp for the date and time that the project was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable creationTimestamp;
@@ -4964,6 +5046,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p> Information about the training and test datasets in the project. </p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionDatasetMetadata *> * _Nullable datasets;
+
+/**
+ <p>Specifies the project that is being customized.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionCustomizationFeature feature;
 
 /**
  <p>The Amazon Resource Name (ARN) of the project.</p>
@@ -5016,10 +5103,15 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>A description of a version of an Amazon Rekognition Custom Labels model.</p>
+ <p>A description of a version of a Amazon Rekognition project version.</p>
  */
 @interface AWSRekognitionProjectVersionDescription : AWSModel
 
+
+/**
+ <p>The base detection model version used to create the project version.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable baseModelVersion;
 
 /**
  <p>The duration, in seconds, that you were billed for a successful training of the model version. This value is only returned if the model version has been successfully trained.</p>
@@ -5037,6 +5129,16 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) AWSRekognitionEvaluationResult * _Nullable evaluationResult;
 
 /**
+ <p>The feature that was customized.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionCustomizationFeature feature;
+
+/**
+ <p>Feature specific configuration that was applied during training.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionCustomizationFeatureConfig * _Nullable featureConfig;
+
+/**
  <p>The identifer for the AWS Key Management Service key (AWS KMS key) that was used to encrypt the model during training. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
@@ -5047,12 +5149,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) AWSRekognitionGroundTruthManifest * _Nullable manifestSummary;
 
 /**
- <p>The maximum number of inference units Amazon Rekognition Custom Labels uses to auto-scale the model. For more information, see <a>StartProjectVersion</a>.</p>
+ <p>The maximum number of inference units Amazon Rekognition uses to auto-scale the model. Applies only to Custom Labels projects. For more information, see <a>StartProjectVersion</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxInferenceUnits;
 
 /**
- <p>The minimum number of inference units used by the model. For more information, see <a>StartProjectVersion</a>.</p>
+ <p>The minimum number of inference units used by the model. Applies only to Custom Labels projects. For more information, see <a>StartProjectVersion</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable minInferenceUnits;
 
@@ -5062,7 +5164,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) AWSRekognitionOutputConfig * _Nullable outputConfig;
 
 /**
- <p>The Amazon Resource Name (ARN) of the model version. </p>
+ <p>The Amazon Resource Name (ARN) of the project version. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable projectVersionArn;
 
@@ -5095,6 +5197,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>The Unix date and time that training of the model ended.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable trainingEndTimestamp;
+
+/**
+ <p>A user-provided description of the project version.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable versionDescription;
 
 @end
 
@@ -6015,7 +6122,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable maxInferenceUnits;
 
 /**
- <p>The minimum number of inference units to use. A single inference unit represents 1 hour of processing. </p><p>For information about the number of transactions per second (TPS) that an inference unit can support, see <i>Running a trained Amazon Rekognition Custom Labels model</i> in the Amazon Rekognition Custom Labels Guide. </p><p>Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use. </p>
+ <p>The minimum number of inference units to use. A single inference unit represents 1 hour of processing. </p><p>Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable minInferenceUnits;
 
@@ -6246,7 +6353,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the model version that you want to delete.</p><p>This operation requires permissions to perform the <code>rekognition:StopProjectVersion</code> action.</p>
+ <p>The Amazon Resource Name (ARN) of the model version that you want to stop.</p><p>This operation requires permissions to perform the <code>rekognition:StopProjectVersion</code> action.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable projectVersionArn;
 
@@ -6496,7 +6603,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>The dataset used for testing. Optionally, if <code>AutoCreate</code> is set, Amazon Rekognition Custom Labels uses the training dataset to create a test dataset with a temporary split of the training dataset. </p>
+ <p>The dataset used for testing. Optionally, if <code>AutoCreate</code> is set, Amazon Rekognition uses the training dataset to create a test dataset with a temporary split of the training dataset. </p>
  */
 @interface AWSRekognitionTestingData : AWSModel
 
@@ -6507,7 +6614,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSArray<AWSRekognitionAsset *> * _Nullable assets;
 
 /**
- <p>If specified, Amazon Rekognition Custom Labels temporarily splits the training dataset (80%) to create a test dataset (20%) for the training job. After training completes, the test dataset is not stored and the training dataset reverts to its previous size.</p>
+ <p>If specified, Rekognition splits training dataset to create a test dataset for the training job.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable autoCreate;
 
@@ -6599,30 +6706,30 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>A Sagemaker GroundTruth manifest file that contains the training images (assets).</p>
+ <p>A manifest file that contains references to the training images and ground-truth annotations.</p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionAsset *> * _Nullable assets;
 
 @end
 
 /**
- <p>Sagemaker Groundtruth format manifest files for the input, output and validation datasets that are used and created during testing.</p>
+ <p>The data validation manifest created for the training dataset during model training.</p>
  */
 @interface AWSRekognitionTrainingDataResult : AWSModel
 
 
 /**
- <p>The training assets that you supplied for training.</p>
+ <p>The training data that you supplied.</p>
  */
 @property (nonatomic, strong) AWSRekognitionTrainingData * _Nullable input;
 
 /**
- <p>The images (assets) that were actually trained by Amazon Rekognition Custom Labels. </p>
+ <p>Reference to images (assets) that were actually used during training with trained model predictions.</p>
  */
 @property (nonatomic, strong) AWSRekognitionTrainingData * _Nullable output;
 
 /**
- <p>The location of the data validation manifest. The data validation manifest is created for the training dataset during model training.</p>
+ <p>A manifest that you supplied for training, with validation results for each line.</p>
  */
 @property (nonatomic, strong) AWSRekognitionValidationData * _Nullable validation;
 

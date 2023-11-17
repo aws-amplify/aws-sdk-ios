@@ -50,6 +50,7 @@ typedef NS_ENUM(NSInteger, AWSPollyEngine) {
     AWSPollyEngineUnknown,
     AWSPollyEngineStandard,
     AWSPollyEngineNeural,
+    AWSPollyEngineLongForm,
 };
 
 typedef NS_ENUM(NSInteger, AWSPollyGender) {
@@ -225,6 +226,9 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
     AWSPollyVoiceIdSofie,
     AWSPollyVoiceIdLisa,
     AWSPollyVoiceIdIsabelle,
+    AWSPollyVoiceIdZayd,
+    AWSPollyVoiceIdDanielle,
+    AWSPollyVoiceIdGregory,
 };
 
 @class AWSPollyDeleteLexiconInput;
@@ -252,7 +256,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @class AWSPollyVoice;
 
 /**
-
+ 
  */
 @interface AWSPollyDeleteLexiconInput : AWSRequest
 
@@ -265,7 +269,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
-
+ 
  */
 @interface AWSPollyDeleteLexiconOutput : AWSModel
 
@@ -273,13 +277,13 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
-
+ 
  */
 @interface AWSPollyDescribeVoicesInput : AWSRequest
 
 
 /**
- <p>Specifies the engine (<code>standard</code> or <code>neural</code>) used by Amazon Polly when processing input text for speech synthesis. </p>
+ <p>Specifies the engine (<code>standard</code>, <code>neural</code> or <code>long-form</code>) used by Amazon Polly when processing input text for speech synthesis. </p>
  */
 @property (nonatomic, assign) AWSPollyEngine engine;
 
@@ -301,7 +305,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
-
+ 
  */
 @interface AWSPollyDescribeVoicesOutput : AWSModel
 
@@ -319,7 +323,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
-
+ 
  */
 @interface AWSPollyGetLexiconInput : AWSRequest
 
@@ -332,7 +336,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
-
+ 
  */
 @interface AWSPollyGetLexiconOutput : AWSModel
 
@@ -350,7 +354,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
-
+ 
  */
 @interface AWSPollyGetSpeechSynthesisTaskInput : AWSRequest
 
@@ -363,7 +367,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
-
+ 
  */
 @interface AWSPollyGetSpeechSynthesisTaskOutput : AWSModel
 
@@ -450,7 +454,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
-
+ 
  */
 @interface AWSPollyListLexiconsInput : AWSRequest
 
@@ -463,7 +467,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
-
+ 
  */
 @interface AWSPollyListLexiconsOutput : AWSModel
 
@@ -481,7 +485,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
-
+ 
  */
 @interface AWSPollyListSpeechSynthesisTasksInput : AWSRequest
 
@@ -504,7 +508,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
-
+ 
  */
 @interface AWSPollyListSpeechSynthesisTasksOutput : AWSModel
 
@@ -522,7 +526,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
-
+ 
  */
 @interface AWSPollyPutLexiconInput : AWSRequest
 
@@ -540,7 +544,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
-
+ 
  */
 @interface AWSPollyPutLexiconOutput : AWSModel
 
@@ -548,13 +552,13 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
-
+ 
  */
 @interface AWSPollyStartSpeechSynthesisTaskInput : AWSRequest
 
 
 /**
- <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine selected will result in an error.</p>
+ <p>Specifies the engine (<code>standard</code>, <code>neural</code> or <code>long-form</code>) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine selected will result in an error.</p>
  */
 @property (nonatomic, assign) AWSPollyEngine engine;
 
@@ -584,7 +588,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @property (nonatomic, strong) NSString * _Nullable outputS3KeyPrefix;
 
 /**
- <p>The audio frequency specified in Hz.</p><p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for standard voices is "22050". The default value for neural voices is "24000".</p><p>Valid values for pcm are "8000" and "16000" The default value is "16000". </p>
+ <p>The audio frequency specified in Hz.</p><p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for standard voices is "22050". The default value for neural voices is "24000". The default value for long-form voices is "24000".</p><p>Valid values for pcm are "8000" and "16000" The default value is "16000". </p>
  */
 @property (nonatomic, strong) NSString * _Nullable sampleRate;
 
@@ -616,7 +620,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
-
+ 
  */
 @interface AWSPollyStartSpeechSynthesisTaskOutput : AWSModel
 
@@ -640,7 +644,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @property (nonatomic, strong) NSDate * _Nullable creationTime;
 
 /**
- <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine selected will result in an error.</p>
+ <p>Specifies the engine (<code>standard</code>, <code>neural</code> or <code>long-form</code>) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine selected will result in an error.</p>
  */
 @property (nonatomic, assign) AWSPollyEngine engine;
 
@@ -670,7 +674,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @property (nonatomic, strong) NSNumber * _Nullable requestCharacters;
 
 /**
- <p>The audio frequency specified in Hz.</p><p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for standard voices is "22050". The default value for neural voices is "24000".</p><p>Valid values for pcm are "8000" and "16000" The default value is "16000". </p>
+ <p>The audio frequency specified in Hz.</p><p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for standard voices is "22050". The default value for neural voices is "24000". The default value for long-form voices is "24000".</p><p>Valid values for pcm are "8000" and "16000" The default value is "16000". </p>
  */
 @property (nonatomic, strong) NSString * _Nullable sampleRate;
 
@@ -712,13 +716,13 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
-
+ 
  */
 @interface AWSPollySynthesizeSpeechInput : AWSRequest
 
 
 /**
- <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. For information on Amazon Polly voices and which voices are available in standard-only, NTTS-only, and both standard and NTTS formats, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Available Voices</a>.</p><p><b>NTTS-only voices</b></p><p>When using NTTS-only voices such as Kevin (en-US), this parameter is required and must be set to <code>neural</code>. If the engine is not specified, or is set to <code>standard</code>, this will result in an error. </p><p>Type: String</p><p>Valid Values: <code>standard</code> | <code>neural</code></p><p>Required: Yes</p><p><b>Standard voices</b></p><p>For standard voices, this is not required; the engine parameter defaults to <code>standard</code>. If the engine is not specified, or is set to <code>standard</code> and an NTTS-only voice is selected, this will result in an error. </p>
+ <p>Specifies the engine (<code>standard</code>, <code>neural</code> or <code>long-form</code>) for Amazon Polly to use when processing input text for speech synthesis. For information on Amazon Polly voices and which voices are available for each engine, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Available Voices</a>.</p><p><b>NTTS-only voices</b></p><p>When using NTTS-only voices such as Kevin (en-US), this parameter is required and must be set to <code>neural</code>. If the engine is not specified, or is set to <code>standard</code>, this will result in an error. </p><p><b>long-form-only voices</b></p><p>When using long-form-only voices such as Danielle (en-US), this parameter is required and must be set to <code>long-form</code>. If the engine is not specified, or is set to <code>standard</code> or <code>neural</code>, this will result in an error. </p><p>Type: String</p><p>Valid Values: <code>standard</code> | <code>neural</code> | <code>long-form</code></p><p>Required: Yes</p><p><b>Standard voices</b></p><p>For standard voices, this is not required; the engine parameter defaults to <code>standard</code>. If the engine is not specified, or is set to <code>standard</code> and an NTTS-only voice is selected, this will result in an error. </p>
  */
 @property (nonatomic, assign) AWSPollyEngine engine;
 
@@ -738,7 +742,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @property (nonatomic, assign) AWSPollyOutputFormat outputFormat;
 
 /**
- <p>The audio frequency specified in Hz.</p><p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for standard voices is "22050". The default value for neural voices is "24000".</p><p>Valid values for pcm are "8000" and "16000" The default value is "16000". </p>
+ <p>The audio frequency specified in Hz.</p><p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for standard voices is "22050". The default value for neural voices is "24000". The default value for long-form voices is "24000".</p><p>Valid values for pcm are "8000" and "16000" The default value is "16000". </p>
  */
 @property (nonatomic, strong) NSString * _Nullable sampleRate;
 
@@ -765,7 +769,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @end
 
 /**
-
+ 
  */
 @interface AWSPollySynthesizeSpeechOutput : AWSModel
 
@@ -824,7 +828,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>Specifies which engines (<code>standard</code> or <code>neural</code>) that are supported by a given voice.</p>
+ <p>Specifies which engines (<code>standard</code>, <code>neural</code> or <code>long-form</code>) are supported by a given voice.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedEngines;
 

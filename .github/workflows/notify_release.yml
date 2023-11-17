@@ -4,9 +4,9 @@ name: Notify AWS SDK iOS Release
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on release created (draft) or released (stable) events but only for the main branch
+  # Triggers the workflow on released events
   release:
-    types: [created, released]
+    types: [released]
 
 # Limit the GITHUB_TOKEN permissions
 permissions: {}
@@ -25,7 +25,7 @@ jobs:
         env:
           WEBHOOK_URL: ${{ secrets.SLACK_RELEASE_WEBHOOK_URL }}
           VERSION: $${{github.event.release.html_url}}
-          REPO_URL: ${{github.event.repository.html_url}}
+          REPO_NAME: ${{github.event.repository.name}}
           ACTION_NAME: ${{github.event.action}}
         shell: bash
-        run: echo $VERSION | xargs -I {} curl -s POST "$WEBHOOK_URL" -H "Content-Type:application/json" --data '{"action":"'$ACTION_NAME'", "repo":"'$REPO_URL'", "version":"{}"}'
+        run: echo $VERSION | xargs -I {} curl -s POST "$WEBHOOK_URL" -H "Content-Type:application/json" --data '{"action":"'$ACTION_NAME'", "repo":"'$REPO_NAME'", "version":"{}"}'

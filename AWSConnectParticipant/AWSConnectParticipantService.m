@@ -42,6 +42,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"AccessDeniedException" : @(AWSConnectParticipantErrorAccessDenied),
                             @"ConflictException" : @(AWSConnectParticipantErrorConflict),
                             @"InternalServerException" : @(AWSConnectParticipantErrorInternalServer),
+                            @"ResourceNotFoundException" : @(AWSConnectParticipantErrorResourceNotFound),
                             @"ServiceQuotaExceededException" : @(AWSConnectParticipantErrorServiceQuotaExceeded),
                             @"ThrottlingException" : @(AWSConnectParticipantErrorThrottling),
                             @"ValidationException" : @(AWSConnectParticipantErrorValidation),
@@ -315,6 +316,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectParticipantCreateParticipantConnectionResponse *response, NSError *error))completionHandler {
     [[self createParticipantConnection:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectParticipantCreateParticipantConnectionResponse *> * _Nonnull task) {
         AWSConnectParticipantCreateParticipantConnectionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectParticipantDescribeViewResponse *> *)describeView:(AWSConnectParticipantDescribeViewRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/participant/views/{ViewToken}"
+                  targetPrefix:@""
+                 operationName:@"DescribeView"
+                   outputClass:[AWSConnectParticipantDescribeViewResponse class]];
+}
+
+- (void)describeView:(AWSConnectParticipantDescribeViewRequest *)request
+     completionHandler:(void (^)(AWSConnectParticipantDescribeViewResponse *response, NSError *error))completionHandler {
+    [[self describeView:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectParticipantDescribeViewResponse *> * _Nonnull task) {
+        AWSConnectParticipantDescribeViewResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

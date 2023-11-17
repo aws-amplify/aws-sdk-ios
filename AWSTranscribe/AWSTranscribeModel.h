@@ -113,6 +113,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeMediaFormat) {
     AWSTranscribeMediaFormatOgg,
     AWSTranscribeMediaFormatAmr,
     AWSTranscribeMediaFormatWebm,
+    AWSTranscribeMediaFormatM4a,
 };
 
 typedef NS_ENUM(NSInteger, AWSTranscribeMedicalContentIdentificationType) {

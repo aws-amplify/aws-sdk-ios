@@ -166,6 +166,7 @@
 - (void) test_AWSLocationTagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationTagResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationTimeZone API_AVAILABLE(ios(11));
+- (void) test_AWSLocationTrackingFilterGeometry API_AVAILABLE(ios(11));
 - (void) test_AWSLocationTruckDimensions API_AVAILABLE(ios(11));
 - (void) test_AWSLocationTruckWeight API_AVAILABLE(ios(11));
 - (void) test_AWSLocationUntagResourceRequest API_AVAILABLE(ios(11));
@@ -774,6 +775,10 @@
 
 - (void) test_AWSLocationTimeZone {
     [self validateSecureCodingForClass:[AWSLocationTimeZone class]];
+}
+
+- (void) test_AWSLocationTrackingFilterGeometry {
+    [self validateSecureCodingForClass:[AWSLocationTrackingFilterGeometry class]];
 }
 
 - (void) test_AWSLocationTruckDimensions {

@@ -63,6 +63,16 @@ typedef NS_ENUM(NSInteger, AWSLambdaErrorType) {
     AWSLambdaErrorUnsupportedMediaType,
 };
 
+typedef NS_ENUM(NSInteger, AWSLambdaApplicationLogLevel) {
+    AWSLambdaApplicationLogLevelUnknown,
+    AWSLambdaApplicationLogLevelTrace,
+    AWSLambdaApplicationLogLevelDebug,
+    AWSLambdaApplicationLogLevelInfo,
+    AWSLambdaApplicationLogLevelWarn,
+    AWSLambdaApplicationLogLevelError,
+    AWSLambdaApplicationLogLevelFatal,
+};
+
 typedef NS_ENUM(NSInteger, AWSLambdaArchitecture) {
     AWSLambdaArchitectureUnknown,
     AWSLambdaArchitectureX86_64,
@@ -154,6 +164,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaLastUpdateStatusReasonCode) {
     AWSLambdaLastUpdateStatusReasonCodeFunctionError,
 };
 
+typedef NS_ENUM(NSInteger, AWSLambdaLogFormat) {
+    AWSLambdaLogFormatUnknown,
+    AWSLambdaLogFormatJson,
+    AWSLambdaLogFormatText,
+};
+
 typedef NS_ENUM(NSInteger, AWSLambdaLogType) {
     AWSLambdaLogTypeUnknown,
     AWSLambdaLogTypeNone,
@@ -213,6 +229,10 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimeJava17,
     AWSLambdaRuntimeRuby32,
     AWSLambdaRuntimePython311,
+    AWSLambdaRuntimeNodejs20X,
+    AWSLambdaRuntimeProvidedAl2023,
+    AWSLambdaRuntimePython312,
+    AWSLambdaRuntimeJava21,
 };
 
 typedef NS_ENUM(NSInteger, AWSLambdaSnapStartApplyOn) {
@@ -273,6 +293,13 @@ typedef NS_ENUM(NSInteger, AWSLambdaStateReasonCode) {
     AWSLambdaStateReasonCodeInvalidRuntime,
     AWSLambdaStateReasonCodeInvalidZipFileException,
     AWSLambdaStateReasonCodeFunctionError,
+};
+
+typedef NS_ENUM(NSInteger, AWSLambdaSystemLogLevel) {
+    AWSLambdaSystemLogLevelUnknown,
+    AWSLambdaSystemLogLevelDebug,
+    AWSLambdaSystemLogLevelInfo,
+    AWSLambdaSystemLogLevelWarn,
 };
 
 typedef NS_ENUM(NSInteger, AWSLambdaThrottleReason) {
@@ -414,6 +441,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @class AWSLambdaListTagsResponse;
 @class AWSLambdaListVersionsByFunctionRequest;
 @class AWSLambdaListVersionsByFunctionResponse;
+@class AWSLambdaLoggingConfig;
 @class AWSLambdaOnFailure;
 @class AWSLambdaOnSuccess;
 @class AWSLambdaProvisionedConcurrencyConfigListItem;
@@ -1085,6 +1113,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
  <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function layers</a> to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable layers;
+
+/**
+ <p>The function's Amazon CloudWatch Logs configuration settings.</p>
+ */
+@property (nonatomic, strong) AWSLambdaLoggingConfig * _Nullable loggingConfig;
 
 /**
  <p>The amount of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console">memory available to the function</a> at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
@@ -1838,6 +1871,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
  <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">layers</a>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSLambdaLayer *> * _Nullable layers;
+
+/**
+ <p>The function's Amazon CloudWatch Logs configuration settings.</p>
+ */
+@property (nonatomic, strong) AWSLambdaLoggingConfig * _Nullable loggingConfig;
 
 /**
  <p>For Lambda@Edge functions, the ARN of the main function.</p>
@@ -3478,6 +3516,34 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @end
 
 /**
+ <p>The function's Amazon CloudWatch Logs configuration settings.</p>
+ */
+@interface AWSLambdaLoggingConfig : AWSModel
+
+
+/**
+ <p>Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level and lower.</p>
+ */
+@property (nonatomic, assign) AWSLambdaApplicationLogLevel applicationLogLevel;
+
+/**
+ <p>The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.</p>
+ */
+@property (nonatomic, assign) AWSLambdaLogFormat logFormat;
+
+/**
+ <p>The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named <code>/aws/lambda/&lt;function name&gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable logGroup;
+
+/**
+ <p>Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level and lower.</p>
+ */
+@property (nonatomic, assign) AWSLambdaSystemLogLevel systemLogLevel;
+
+@end
+
+/**
  <p>A destination for events that failed processing.</p>
  */
 @interface AWSLambdaOnFailure : AWSModel
@@ -4388,6 +4454,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable layers;
 
 /**
+ <p>The function's Amazon CloudWatch Logs configuration settings.</p>
+ */
+@property (nonatomic, strong) AWSLambdaLoggingConfig * _Nullable loggingConfig;
+
+/**
  <p>The amount of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console">memory available to the function</a> at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable memorySize;
@@ -4545,6 +4616,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
 
 
 /**
+ <p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable ipv6AllowedForDualStack;
+
+/**
  <p>A list of VPC security group IDs.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
@@ -4561,6 +4637,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
  */
 @interface AWSLambdaVpcConfigResponse : AWSModel
 
+
+/**
+ <p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable ipv6AllowedForDualStack;
 
 /**
  <p>A list of VPC security group IDs.</p>

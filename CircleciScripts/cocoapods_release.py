@@ -21,6 +21,7 @@ log(f"Retrieving CocoaPods token")
 os.environ['COCOAPODS_TRUNK_TOKEN'] = get_cocoapods_trunk_token()
 log("Retrieved CocoaPods token")
 
+retry_intervals = [30, 60, 210]
 def publish(framework: str, retryAttempt: int = 0):
 
     # Most pods take a few minutes to build, and a few seconds to push to trunk. However, the
@@ -28,14 +29,13 @@ def publish(framework: str, retryAttempt: int = 0):
     # part of its linting process, so set the timeout accordingly.
     (exit_code, out, err) = run_command(
         ["bundle", "exec", "pod", "trunk", "push", f"{framework}.podspec", "--allow-warnings", "--synchronous"],
-        keepalive_interval=300,
+        keepalive_interval=retry_intervals[retryAttempt % len(retry_intervals)],
         timeout=3600,
     )
 
     if retryAttempt < 3 and exit_code != 0 and "Unable to accept duplicate entry for" not in str(out):
-        retryAttempt += 1
         log(f"Retrying {framework}")
-        return publish(framework=framework, retryAttempt=retryAttempt)
+        return publish(framework=framework, retryAttempt=retryAttempt + 1)
     return (exit_code, out, err)
 
 log("Publishing CocoaPods")

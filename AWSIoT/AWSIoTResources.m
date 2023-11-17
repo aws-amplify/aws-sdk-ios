@@ -411,7 +411,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"InternalFailureException\"}\
       ],\
-      \"documentation\":\"<p>Creates an X.509 certificate using the specified certificate signing request. </p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">CreateCertificateFromCsr</a> action. </p> <note> <p>The CSR must include a public key that is either an RSA key with a length of at least 2048 bits or an ECC key from NIST P-256 or NIST P-384 curves. For supported certificates, consult <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms\\\"> Certificate signing algorithms supported by IoT</a>. </p> </note> <note> <p>Reusing the same certificate signing request (CSR) results in a distinct certificate.</p> </note> <p>You can create multiple certificates in a batch by creating a directory, copying multiple <code>.csr</code> files into that directory, and then specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs. In the following commands, we assume that a set of CSRs are located inside of the directory my-csr-directory:</p> <p>On Linux and OS X, the command is: </p> <p> <code>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</code> </p> <p>This command lists all of the CSRs in my-csr-directory and pipes each CSR file name to the <code>aws iot create-certificate-from-csr</code> Amazon Web Services CLI command to create a certificate for the corresponding CSR. </p> <p>You can also run the <code>aws iot create-certificate-from-csr</code> part of the command in parallel to speed up the certificate creation process:</p> <p> <code>$ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{} </code> </p> <p>On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is:</p> <p> <code>&gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/$_} </code> </p> <p>On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is:</p> <p> <code>&gt; forfiles /p my-csr-directory /c \\\"cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path\\\" </code> </p>\"\
+      \"documentation\":\"<p>Creates an X.509 certificate using the specified certificate signing request. </p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">CreateCertificateFromCsr</a> action. </p> <note> <p>The CSR must include a public key that is either an RSA key with a length of at least 2048 bits or an ECC key from NIST P-256, NIST P-384, or NIST P-521 curves. For supported certificates, consult <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms\\\"> Certificate signing algorithms supported by IoT</a>. </p> </note> <note> <p>Reusing the same certificate signing request (CSR) results in a distinct certificate.</p> </note> <p>You can create multiple certificates in a batch by creating a directory, copying multiple <code>.csr</code> files into that directory, and then specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs. In the following commands, we assume that a set of CSRs are located inside of the directory my-csr-directory:</p> <p>On Linux and OS X, the command is: </p> <p> <code>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</code> </p> <p>This command lists all of the CSRs in my-csr-directory and pipes each CSR file name to the <code>aws iot create-certificate-from-csr</code> Amazon Web Services CLI command to create a certificate for the corresponding CSR. </p> <p>You can also run the <code>aws iot create-certificate-from-csr</code> part of the command in parallel to speed up the certificate creation process:</p> <p> <code>$ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{} </code> </p> <p>On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is:</p> <p> <code>&gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/$_} </code> </p> <p>On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is:</p> <p> <code>&gt; forfiles /p my-csr-directory /c \\\"cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path\\\" </code> </p>\"\
     },\
     \"CreateCustomMetric\":{\
       \"name\":\"CreateCustomMetric\",\
@@ -836,7 +836,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalFailureException\"}\
       ],\
-      \"documentation\":\"<p>Create a thing group.</p> <note> <p>This is a control plane operation. See <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html\\\">Authorization</a> for information about authorizing control plane actions.</p> </note> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">CreateThingGroup</a> action.</p>\"\
+      \"documentation\":\"<p>Create a thing group.</p> <note> <p>This is a control plane operation. See <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html\\\">Authorization</a> for information about authorizing control plane actions.</p> <p>If the <code>ThingGroup</code> that you create has the exact same attributes as an existing <code>ThingGroup</code>, you will get a 200 success response. </p> </note> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">CreateThingGroup</a> action.</p>\"\
     },\
     \"CreateThingType\":{\
       \"name\":\"CreateThingType\",\
@@ -1188,7 +1188,7 @@
         {\"shape\":\"InternalServerException\"},\
         {\"shape\":\"ValidationException\"}\
       ],\
-      \"documentation\":\"<p>Deletes a specific version from a software package.</p> <p> <b>Note:</b> If a package version is designated as default, you must remove the designation from the package using the <a>UpdatePackage</a> action.</p>\",\
+      \"documentation\":\"<p>Deletes a specific version from a software package.</p> <p> <b>Note:</b> If a package version is designated as default, you must remove the designation from the software package using the <a>UpdatePackage</a> action.</p>\",\
       \"idempotent\":true\
     },\
     \"DeletePolicy\":{\
@@ -4125,7 +4125,7 @@
         {\"shape\":\"ValidationException\"},\
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
-      \"documentation\":\"<p>Updates the supported fields for a specific package.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">UpdatePackage</a> and <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">GetIndexingConfiguration</a> actions.</p>\",\
+      \"documentation\":\"<p>Updates the supported fields for a specific software package.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">UpdatePackage</a> and <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">GetIndexingConfiguration</a> actions.</p>\",\
       \"idempotent\":true\
     },\
     \"UpdatePackageConfiguration\":{\
@@ -4142,7 +4142,7 @@
         {\"shape\":\"InternalServerException\"},\
         {\"shape\":\"ValidationException\"}\
       ],\
-      \"documentation\":\"<p>Updates the package configuration.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">UpdatePackageConfiguration</a> and <a href=\\\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\\\">iam:PassRole</a> actions.</p>\",\
+      \"documentation\":\"<p>Updates the software package configuration.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">UpdatePackageConfiguration</a> and <a href=\\\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\\\">iam:PassRole</a> actions.</p>\",\
       \"idempotent\":true\
     },\
     \"UpdatePackageVersion\":{\
@@ -5708,11 +5708,15 @@
         },\
         \"criteria\":{\
           \"shape\":\"BehaviorCriteria\",\
-          \"documentation\":\"<p>The criteria that determine if a device is behaving normally in regard to the <code>metric</code>.</p>\"\
+          \"documentation\":\"<p>The criteria that determine if a device is behaving normally in regard to the <code>metric</code>.</p> <note> <p>In the IoT console, you can choose to be sent an alert through Amazon SNS when IoT Device Defender detects that a device is behaving anomalously.</p> </note>\"\
         },\
         \"suppressAlerts\":{\
           \"shape\":\"SuppressAlerts\",\
           \"documentation\":\"<p> Suppresses alerts. </p>\"\
+        },\
+        \"exportMetric\":{\
+          \"shape\":\"ExportMetric\",\
+          \"documentation\":\"<p>Value indicates exporting metrics related to the behavior when it is true.</p>\"\
         }\
       },\
       \"documentation\":\"<p>A Device Defender security profile behavior.</p>\"\
@@ -7104,7 +7108,7 @@
         },\
         \"destinationPackageVersions\":{\
           \"shape\":\"DestinationPackageVersions\",\
-          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p> <p> <b>Note:</b>The following Length Constraints relates to a single string. Up to five strings are allowed.</p>\"\
+          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>\"\
         }\
       }\
     },\
@@ -7144,7 +7148,7 @@
         },\
         \"documentSource\":{\
           \"shape\":\"JobDocumentSource\",\
-          \"documentation\":\"<p>An S3 link to the job document to use in the template. Required if you don't specify a value for <code>document</code>.</p> <note> <p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p> <p>The placeholder link is of the following form:</p> <p> <code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code> </p> <p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p> </note>\"\
+          \"documentation\":\"<p>An S3 link, or S3 object URL, to the job document. The link is an Amazon S3 object URL and is required if you don't specify a value for <code>document</code>.</p> <p>For example, <code>--document-source https://s3.<i>region-code</i>.amazonaws.com/example-firmware/device-firmware.1.0</code> </p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html\\\">Methods for accessing a bucket</a>.</p>\"\
         },\
         \"document\":{\
           \"shape\":\"JobDocument\",\
@@ -7172,7 +7176,7 @@
         },\
         \"destinationPackageVersions\":{\
           \"shape\":\"DestinationPackageVersions\",\
-          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p> <p> <b>Note:</b>The following Length Constraints relates to a single string. Up to five strings are allowed.</p>\"\
+          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>\"\
         }\
       }\
     },\
@@ -7321,7 +7325,7 @@
         },\
         \"additionalParameters\":{\
           \"shape\":\"AdditionalParameterMap\",\
-          \"documentation\":\"<p>A list of additional OTA update parameters which are name-value pairs.</p>\"\
+          \"documentation\":\"<p>A list of additional OTA update parameters, which are name-value pairs. They won't be sent to devices as a part of the Job document.</p>\"\
         },\
         \"tags\":{\
           \"shape\":\"TagList\",\
@@ -7360,7 +7364,7 @@
       \"members\":{\
         \"packageName\":{\
           \"shape\":\"PackageName\",\
-          \"documentation\":\"<p>The name of the new package.</p>\",\
+          \"documentation\":\"<p>The name of the new software package.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"packageName\"\
         },\
@@ -7386,7 +7390,7 @@
       \"members\":{\
         \"packageName\":{\
           \"shape\":\"PackageName\",\
-          \"documentation\":\"<p>The name of the package.</p>\"\
+          \"documentation\":\"<p>The name of the software package.</p>\"\
         },\
         \"packageArn\":{\
           \"shape\":\"PackageArn\",\
@@ -7407,7 +7411,7 @@
       \"members\":{\
         \"packageName\":{\
           \"shape\":\"PackageName\",\
-          \"documentation\":\"<p>The name of the associated package.</p>\",\
+          \"documentation\":\"<p>The name of the associated software package.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"packageName\"\
         },\
@@ -7447,7 +7451,7 @@
         },\
         \"packageName\":{\
           \"shape\":\"PackageName\",\
-          \"documentation\":\"<p>The name of the associated package.</p>\"\
+          \"documentation\":\"<p>The name of the associated software package.</p>\"\
         },\
         \"versionName\":{\
           \"shape\":\"VersionName\",\
@@ -7823,6 +7827,10 @@
         \"tags\":{\
           \"shape\":\"TagList\",\
           \"documentation\":\"<p>Metadata that can be used to manage the security profile.</p>\"\
+        },\
+        \"metricsExportConfig\":{\
+          \"shape\":\"MetricsExportConfig\",\
+          \"documentation\":\"<p>Specifies the MQTT topic and role ARN required for metric export.</p>\"\
         }\
       }\
     },\
@@ -8429,6 +8437,7 @@
         }\
       }\
     },\
+    \"DeleteMetricsExportConfig\":{\"type\":\"boolean\"},\
     \"DeleteMitigationActionRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"actionName\"],\
@@ -8481,7 +8490,7 @@
       \"members\":{\
         \"packageName\":{\
           \"shape\":\"PackageName\",\
-          \"documentation\":\"<p>The name of the target package.</p>\",\
+          \"documentation\":\"<p>The name of the target software package.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"packageName\"\
         },\
@@ -8508,7 +8517,7 @@
       \"members\":{\
         \"packageName\":{\
           \"shape\":\"PackageName\",\
-          \"documentation\":\"<p>The name of the associated package.</p>\",\
+          \"documentation\":\"<p>The name of the associated software package.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"packageName\"\
         },\
@@ -9302,7 +9311,7 @@
       \"members\":{\
         \"endpointType\":{\
           \"shape\":\"EndpointType\",\
-          \"documentation\":\"<p>The endpoint type. Valid endpoint types include:</p> <ul> <li> <p> <code>iot:Data</code> - Returns a VeriSign signed data endpoint.</p> </li> </ul> <ul> <li> <p> <code>iot:Data-ATS</code> - Returns an ATS signed data endpoint.</p> </li> </ul> <ul> <li> <p> <code>iot:CredentialProvider</code> - Returns an IoT credentials provider API endpoint.</p> </li> </ul> <ul> <li> <p> <code>iot:Jobs</code> - Returns an IoT device management Jobs API endpoint.</p> </li> </ul> <p>We strongly recommend that customers use the newer <code>iot:Data-ATS</code> endpoint type to avoid issues related to the widespread distrust of Symantec certificate authorities.</p>\",\
+          \"documentation\":\"<p>The endpoint type. Valid endpoint types include:</p> <ul> <li> <p> <code>iot:Data</code> - Returns a VeriSign signed data endpoint.</p> </li> </ul> <ul> <li> <p> <code>iot:Data-ATS</code> - Returns an ATS signed data endpoint.</p> </li> </ul> <ul> <li> <p> <code>iot:CredentialProvider</code> - Returns an IoT credentials provider API endpoint.</p> </li> </ul> <ul> <li> <p> <code>iot:Jobs</code> - Returns an IoT device management Jobs API endpoint.</p> </li> </ul> <p>We strongly recommend that customers use the newer <code>iot:Data-ATS</code> endpoint type to avoid issues related to the widespread distrust of Symantec certificate authorities. ATS Signed Certificates are more secure and are trusted by most popular browsers.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"endpointType\"\
         }\
@@ -9553,7 +9562,7 @@
         },\
         \"destinationPackageVersions\":{\
           \"shape\":\"DestinationPackageVersions\",\
-          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p> <p> <b>Note:</b>The following Length Constraints relates to a single string. Up to five strings are allowed.</p>\"\
+          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>\"\
         }\
       }\
     },\
@@ -9878,6 +9887,10 @@
         \"lastModifiedDate\":{\
           \"shape\":\"Timestamp\",\
           \"documentation\":\"<p>The time the security profile was last modified.</p>\"\
+        },\
+        \"metricsExportConfig\":{\
+          \"shape\":\"MetricsExportConfig\",\
+          \"documentation\":\"<p>Specifies the MQTT topic and role ARN required for metric export.</p>\"\
         }\
       }\
     },\
@@ -10836,6 +10849,7 @@
       },\
       \"documentation\":\"<p>Allows you to create an exponential rate of rollout for a job.</p>\"\
     },\
+    \"ExportMetric\":{\"type\":\"boolean\"},\
     \"FailedChecksCount\":{\"type\":\"integer\"},\
     \"FailedFindingsCount\":{\"type\":\"long\"},\
     \"FailedThings\":{\"type\":\"integer\"},\
@@ -11008,6 +11022,24 @@
     \"FunctionArn\":{\"type\":\"string\"},\
     \"GenerationId\":{\"type\":\"string\"},\
     \"GenericLongValue\":{\"type\":\"long\"},\
+    \"GeoLocationTarget\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"name\":{\
+          \"shape\":\"TargetFieldName\",\
+          \"documentation\":\"<p>The <code>name</code> of the geolocation target field. If the target field is part of a named shadow, you must select the named shadow using the <code>namedShadow</code> filter.</p>\"\
+        },\
+        \"order\":{\
+          \"shape\":\"TargetFieldOrder\",\
+          \"documentation\":\"<p>The <code>order</code> of the geolocation target field. This field is optional. The default value is <code>LatLon</code>.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A geolocation target that you select to index. Each geolocation target contains a <code>name</code> and <code>order</code> key-value pair that specifies the geolocation target fields.</p>\"\
+    },\
+    \"GeoLocationsFilter\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"GeoLocationTarget\"}\
+    },\
     \"GetBehaviorModelTrainingSummariesRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -11246,7 +11278,7 @@
       \"members\":{\
         \"packageName\":{\
           \"shape\":\"PackageName\",\
-          \"documentation\":\"<p>The name of the target package.</p>\",\
+          \"documentation\":\"<p>The name of the target software package.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"packageName\"\
         }\
@@ -11257,7 +11289,7 @@
       \"members\":{\
         \"packageName\":{\
           \"shape\":\"PackageName\",\
-          \"documentation\":\"<p>The name of the package.</p>\"\
+          \"documentation\":\"<p>The name of the software package.</p>\"\
         },\
         \"packageArn\":{\
           \"shape\":\"PackageArn\",\
@@ -11311,7 +11343,7 @@
         },\
         \"packageName\":{\
           \"shape\":\"PackageName\",\
-          \"documentation\":\"<p>The name of the package.</p>\"\
+          \"documentation\":\"<p>The name of the software package.</p>\"\
         },\
         \"versionName\":{\
           \"shape\":\"VersionName\",\
@@ -11805,9 +11837,13 @@
         \"namedShadowNames\":{\
           \"shape\":\"NamedShadowNamesFilter\",\
           \"documentation\":\"<p>The shadow names that you select to index. The default maximum number of shadow names for indexing is 10. To increase the limit, see <a href=\\\"https://docs.aws.amazon.com/general/latest/gr/iot_device_management.html#fleet-indexing-limits\\\">Amazon Web Services IoT Device Management Quotas</a> in the <i>Amazon Web Services General Reference</i>. </p>\"\
+        },\
+        \"geoLocations\":{\
+          \"shape\":\"GeoLocationsFilter\",\
+          \"documentation\":\"<p>The list of geolocation targets that you select to index. The default maximum number of geolocation targets for indexing is <code>1</code>. To increase the limit, see <a href=\\\"https://docs.aws.amazon.com/general/latest/gr/iot_device_management.html#fleet-indexing-limits\\\">Amazon Web Services IoT Device Management Quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Provides additional filters for specific data sources. Named shadow is the only data source that currently supports and requires a filter. To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to be <code>ON</code> and specify your shadow names in <code>filter</code>.</p>\"\
+      \"documentation\":\"<p>Provides additional selections for named shadows and geolocation data. </p> <p>To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to be ON and specify your shadow names in <code>namedShadowNames</code> filter.</p> <p>To add geolocation data to your fleet indexing configuration: </p> <ul> <li> <p>If you store geolocation data in a class/unnamed shadow, set <code>thingIndexingMode</code> to be <code>REGISTRY_AND_SHADOW</code> and specify your geolocation data in <code>geoLocations</code> filter. </p> </li> <li> <p>If you store geolocation data in a named shadow, set <code>namedShadowIndexingMode</code> to be <code>ON</code>, add the shadow name in <code>namedShadowNames</code> filter, and specify your geolocation data in <code>geoLocations</code> filter. For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html\\\">Managing fleet indexing</a>.</p> </li> </ul>\"\
     },\
     \"InlineDocument\":{\"type\":\"string\"},\
     \"InputName\":{\
@@ -12112,7 +12148,7 @@
         },\
         \"destinationPackageVersions\":{\
           \"shape\":\"DestinationPackageVersions\",\
-          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p> <p> <b>Note:</b>The following Length Constraints relates to a single string. Up to five strings are allowed.</p>\"\
+          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The <code>Job</code> object contains details about a job.</p>\"\
@@ -12488,9 +12524,47 @@
         \"clientProperties\":{\
           \"shape\":\"ClientProperties\",\
           \"documentation\":\"<p>Properties of the Apache Kafka producer client.</p>\"\
+        },\
+        \"headers\":{\
+          \"shape\":\"KafkaHeaders\",\
+          \"documentation\":\"<p>The list of Kafka headers that you specify.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.</p>\"\
+    },\
+    \"KafkaActionHeader\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"key\",\
+        \"value\"\
+      ],\
+      \"members\":{\
+        \"key\":{\
+          \"shape\":\"KafkaHeaderKey\",\
+          \"documentation\":\"<p>The key of the Kafka header.</p>\"\
+        },\
+        \"value\":{\
+          \"shape\":\"KafkaHeaderValue\",\
+          \"documentation\":\"<p>The value of the Kafka header.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Specifies a Kafka header using key-value pairs when you create a Ruleâs Kafka Action. You can use these headers to route data from IoT clients to downstream Kafka clusters without modifying your message payload.</p> <p>For more information about Rule's Kafka action, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html\\\">Apache Kafka</a>. </p>\"\
+    },\
+    \"KafkaHeaderKey\":{\
+      \"type\":\"string\",\
+      \"max\":16384,\
+      \"min\":0\
+    },\
+    \"KafkaHeaderValue\":{\
+      \"type\":\"string\",\
+      \"max\":16384,\
+      \"min\":0\
+    },\
+    \"KafkaHeaders\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"KafkaActionHeader\"},\
+      \"max\":100,\
+      \"min\":1\
     },\
     \"Key\":{\"type\":\"string\"},\
     \"KeyName\":{\
@@ -13808,7 +13882,7 @@
       \"members\":{\
         \"packageName\":{\
           \"shape\":\"PackageName\",\
-          \"documentation\":\"<p>The name of the target package.</p>\",\
+          \"documentation\":\"<p>The name of the target software package.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"packageName\"\
         },\
@@ -15137,7 +15211,9 @@
         \"THING_GROUP\",\
         \"CLIENT_ID\",\
         \"SOURCE_IP\",\
-        \"PRINCIPAL_ID\"\
+        \"PRINCIPAL_ID\",\
+        \"EVENT_TYPE\",\
+        \"DEVICE_DEFENDER\"\
       ]\
     },\
     \"LoggingOptionsPayload\":{\
@@ -15339,6 +15415,10 @@
         \"metricDimension\":{\
           \"shape\":\"MetricDimension\",\
           \"documentation\":\"<p>The dimension of a metric. This can't be used with custom metrics.</p>\"\
+        },\
+        \"exportMetric\":{\
+          \"shape\":\"ExportMetric\",\
+          \"documentation\":\"<p>Value added in both Behavior and AdditionalMetricsToRetainV2 to indicate if Device Defender Detect should export the corresponding metrics.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The metric you want to retain. Dimensions are optional.</p>\"\
@@ -15372,6 +15452,24 @@
         }\
       },\
       \"documentation\":\"<p>The value to be compared with the <code>metric</code>.</p>\"\
+    },\
+    \"MetricsExportConfig\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"mqttTopic\",\
+        \"roleArn\"\
+      ],\
+      \"members\":{\
+        \"mqttTopic\":{\
+          \"shape\":\"MqttTopic\",\
+          \"documentation\":\"<p>The MQTT topic that Device Defender Detect should publish messages to for metrics export.</p>\"\
+        },\
+        \"roleArn\":{\
+          \"shape\":\"RoleArn\",\
+          \"documentation\":\"<p>This role ARN has permission to publish MQTT messages, after which Device Defender Detect can assume the role and publish messages on your behalf.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Set configurations for metrics export.</p>\"\
     },\
     \"Minimum\":{\"type\":\"double\"},\
     \"MinimumNumberOfExecutedThings\":{\
@@ -15558,6 +15656,11 @@
       \"max\":65535,\
       \"min\":1\
     },\
+    \"MqttTopic\":{\
+      \"type\":\"string\",\
+      \"max\":512,\
+      \"min\":1\
+    },\
     \"MqttUsername\":{\
       \"type\":\"string\",\
       \"max\":65535,\
@@ -15659,7 +15762,7 @@
         },\
         \"attributes\":{\
           \"shape\":\"AttributesMap\",\
-          \"documentation\":\"<p>A list of name/attribute pairs.</p>\"\
+          \"documentation\":\"<p>A list of name-attribute pairs. They won't be sent to devices as a part of the Job document.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes a file to be associated with an OTA update.</p>\"\
@@ -15867,7 +15970,7 @@
       \"members\":{\
         \"packageName\":{\
           \"shape\":\"PackageName\",\
-          \"documentation\":\"<p>The name for the target package.</p>\"\
+          \"documentation\":\"<p>The name for the target software package.</p>\"\
         },\
         \"defaultVersionName\":{\
           \"shape\":\"VersionName\",\
@@ -17158,11 +17261,11 @@
       \"members\":{\
         \"startTime\":{\
           \"shape\":\"StringDateTime\",\
-          \"documentation\":\"<p>The time a job will begin rollout of the job document to all devices in the target group for a job. The <code>startTime</code> can be scheduled up to a year in advance and must be scheduled a minimum of thirty minutes from the current time. The date and time format for the <code>startTime</code> is YYYY-MM-DD for the date and HH:MM for the time.</p>\"\
+          \"documentation\":\"<p>The time a job will begin rollout of the job document to all devices in the target group for a job. The <code>startTime</code> can be scheduled up to a year in advance and must be scheduled a minimum of thirty minutes from the current time. The date and time format for the <code>startTime</code> is YYYY-MM-DD for the date and HH:MM for the time.</p> <p>For more information on the syntax for <code>startTime</code> when using an API command or the Command Line Interface, see <a href=\\\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp\\\">Timestamp</a>.</p>\"\
         },\
         \"endTime\":{\
           \"shape\":\"StringDateTime\",\
-          \"documentation\":\"<p>The time a job will stop rollout of the job document to all devices in the target group for a job. The <code>endTime</code> must take place no later than two years from the current time and be scheduled a minimum of thirty minutes from the current time. The minimum duration between <code>startTime</code> and <code>endTime</code> is thirty minutes. The maximum duration between <code>startTime</code> and <code>endTime</code> is two years. The date and time format for the <code>endTime</code> is YYYY-MM-DD for the date and HH:MM for the time.</p>\"\
+          \"documentation\":\"<p>The time a job will stop rollout of the job document to all devices in the target group for a job. The <code>endTime</code> must take place no later than two years from the current time and be scheduled a minimum of thirty minutes from the current time. The minimum duration between <code>startTime</code> and <code>endTime</code> is thirty minutes. The maximum duration between <code>startTime</code> and <code>endTime</code> is two years. The date and time format for the <code>endTime</code> is YYYY-MM-DD for the date and HH:MM for the time.</p> <p>For more information on the syntax for <code>endTime</code> when using an API command or the Command Line Interface, see <a href=\\\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp\\\">Timestamp</a>.</p>\"\
         },\
         \"endBehavior\":{\
           \"shape\":\"JobEndBehavior\",\
@@ -17193,7 +17296,7 @@
         },\
         \"maxResults\":{\
           \"shape\":\"QueryMaxResults\",\
-          \"documentation\":\"<p>The maximum number of results to return at one time.</p>\"\
+          \"documentation\":\"<p>The maximum number of results to return per page at one time. The response might contain fewer results but will never contain more.</p>\"\
         },\
         \"queryVersion\":{\
           \"shape\":\"QueryVersion\",\
@@ -17472,7 +17575,7 @@
       \"type\":\"string\",\
       \"max\":64,\
       \"min\":1,\
-      \"pattern\":\"[a-zA-Z0-9:_-]+\"\
+      \"pattern\":\"[$a-zA-Z0-9:_-]+\"\
     },\
     \"SigV4Authorization\":{\
       \"type\":\"structure\",\
@@ -18073,6 +18176,14 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"AuditCheckName\"}\
     },\
+    \"TargetFieldName\":{\"type\":\"string\"},\
+    \"TargetFieldOrder\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"LatLon\",\
+        \"LonLat\"\
+      ]\
+    },\
     \"TargetSelection\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -18453,7 +18564,7 @@
         },\
         \"managedFields\":{\
           \"shape\":\"Fields\",\
-          \"documentation\":\"<p>Contains fields that are indexed and whose types are already known by the Fleet Indexing service. This is an optional field. For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html#managed-field\\\">Managed fields</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</p>\"\
+          \"documentation\":\"<p>Contains fields that are indexed and whose types are already known by the Fleet Indexing service. This is an optional field. For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html#managed-field\\\">Managed fields</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</p> <note> <p>You can't modify managed fields by updating fleet indexing configuration.</p> </note>\"\
         },\
         \"customFields\":{\
           \"shape\":\"Fields\",\
@@ -18548,7 +18659,7 @@
         },\
         \"managedFields\":{\
           \"shape\":\"Fields\",\
-          \"documentation\":\"<p>Contains fields that are indexed and whose types are already known by the Fleet Indexing service.</p>\"\
+          \"documentation\":\"<p>Contains fields that are indexed and whose types are already known by the Fleet Indexing service. This is an optional field. For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html#managed-field\\\">Managed fields</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</p> <note> <p>You can't modify managed fields by updating fleet indexing configuration.</p> </note>\"\
         },\
         \"customFields\":{\
           \"shape\":\"Fields\",\
@@ -18556,7 +18667,7 @@
         },\
         \"filter\":{\
           \"shape\":\"IndexingFilter\",\
-          \"documentation\":\"<p>Provides additional filters for specific data sources. Named shadow is the only data source that currently supports and requires a filter. To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to be <code>ON</code> and specify your shadow names in <code>filter</code>.</p>\"\
+          \"documentation\":\"<p>Provides additional selections for named shadows and geolocation data. </p> <p>To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to be ON and specify your shadow names in <code>namedShadowNames</code> filter.</p> <p>To add geolocation data to your fleet indexing configuration: </p> <ul> <li> <p>If you store geolocation data in a class/unnamed shadow, set <code>thingIndexingMode</code> to be <code>REGISTRY_AND_SHADOW</code> and specify your geolocation data in <code>geoLocations</code> filter. </p> </li> <li> <p>If you store geolocation data in a named shadow, set <code>namedShadowIndexingMode</code> to be <code>ON</code>, add the shadow name in <code>namedShadowNames</code> filter, and specify your geolocation data in <code>geoLocations</code> filter. For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html\\\">Managing fleet indexing</a>.</p> </li> </ul>\"\
         }\
       },\
       \"documentation\":\"<p>The thing indexing configuration. For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html\\\">Managing Thing Indexing</a>.</p>\"\
@@ -19709,7 +19820,7 @@
       \"members\":{\
         \"packageName\":{\
           \"shape\":\"PackageName\",\
-          \"documentation\":\"<p>The name of the target package.</p>\",\
+          \"documentation\":\"<p>The name of the target software package.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"packageName\"\
         },\
@@ -19764,7 +19875,7 @@
         },\
         \"attributes\":{\
           \"shape\":\"ResourceAttributes\",\
-          \"documentation\":\"<p>Metadata that can be used to define a package versionâs configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet. </p> <p> <b>Note:</b> Attributes can be updated only when the package version is in a draft state.</p> <p>The combined size of all the attributes on a package version is limited to 3KB.</p>\"\
+          \"documentation\":\"<p>Metadata that can be used to define a package versionâs configuration. For example, the Amazon S3 file location, configuration options that are being sent to the device or fleet. </p> <p> <b>Note:</b> Attributes can be updated only when the package version is in a draft state.</p> <p>The combined size of all the attributes on a package version is limited to 3KB.</p>\"\
         },\
         \"action\":{\
           \"shape\":\"PackageVersionAction\",\
@@ -19944,6 +20055,14 @@
           \"documentation\":\"<p>The expected version of the security profile. A new version is generated whenever the security profile is updated. If you specify a value that is different from the actual version, a <code>VersionConflictException</code> is thrown.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"expectedVersion\"\
+        },\
+        \"metricsExportConfig\":{\
+          \"shape\":\"MetricsExportConfig\",\
+          \"documentation\":\"<p>Specifies the MQTT topic and role ARN required for metric export.</p>\"\
+        },\
+        \"deleteMetricsExportConfig\":{\
+          \"shape\":\"DeleteMetricsExportConfig\",\
+          \"documentation\":\"<p>Set the value as true to delete metrics export related configurations.</p>\"\
         }\
       }\
     },\
@@ -19991,6 +20110,10 @@
         \"lastModifiedDate\":{\
           \"shape\":\"Timestamp\",\
           \"documentation\":\"<p>The time the security profile was last modified.</p>\"\
+        },\
+        \"metricsExportConfig\":{\
+          \"shape\":\"MetricsExportConfig\",\
+          \"documentation\":\"<p>Specifies the MQTT topic and role ARN required for metric export.</p>\"\
         }\
       }\
     },\

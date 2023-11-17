@@ -60,6 +60,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"ResourceNotReadyException" : @(AWSConnectErrorResourceNotReady),
                             @"ServiceQuotaExceededException" : @(AWSConnectErrorServiceQuotaExceeded),
                             @"ThrottlingException" : @(AWSConnectErrorThrottling),
+                            @"TooManyRequestsException" : @(AWSConnectErrorTooManyRequests),
                             @"UserNotFoundException" : @(AWSConnectErrorUserNotFound),
                             };
 }
@@ -1026,6 +1027,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectCreateViewResponse *> *)createView:(AWSConnectCreateViewRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/views/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"CreateView"
+                   outputClass:[AWSConnectCreateViewResponse class]];
+}
+
+- (void)createView:(AWSConnectCreateViewRequest *)request
+     completionHandler:(void (^)(AWSConnectCreateViewResponse *response, NSError *error))completionHandler {
+    [[self createView:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectCreateViewResponse *> * _Nonnull task) {
+        AWSConnectCreateViewResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectCreateViewVersionResponse *> *)createViewVersion:(AWSConnectCreateViewVersionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/views/{InstanceId}/{ViewId}/versions"
+                  targetPrefix:@""
+                 operationName:@"CreateViewVersion"
+                   outputClass:[AWSConnectCreateViewVersionResponse class]];
+}
+
+- (void)createViewVersion:(AWSConnectCreateViewVersionRequest *)request
+     completionHandler:(void (^)(AWSConnectCreateViewVersionResponse *response, NSError *error))completionHandler {
+    [[self createViewVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectCreateViewVersionResponse *> * _Nonnull task) {
+        AWSConnectCreateViewVersionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectCreateVocabularyResponse *> *)createVocabulary:(AWSConnectCreateVocabularyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1466,6 +1513,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectDeleteViewResponse *> *)deleteView:(AWSConnectDeleteViewRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/views/{InstanceId}/{ViewId}"
+                  targetPrefix:@""
+                 operationName:@"DeleteView"
+                   outputClass:[AWSConnectDeleteViewResponse class]];
+}
+
+- (void)deleteView:(AWSConnectDeleteViewRequest *)request
+     completionHandler:(void (^)(AWSConnectDeleteViewResponse *response, NSError *error))completionHandler {
+    [[self deleteView:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDeleteViewResponse *> * _Nonnull task) {
+        AWSConnectDeleteViewResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectDeleteViewVersionResponse *> *)deleteViewVersion:(AWSConnectDeleteViewVersionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/views/{InstanceId}/{ViewId}/versions/{ViewVersion}"
+                  targetPrefix:@""
+                 operationName:@"DeleteViewVersion"
+                   outputClass:[AWSConnectDeleteViewVersionResponse class]];
+}
+
+- (void)deleteViewVersion:(AWSConnectDeleteViewVersionRequest *)request
+     completionHandler:(void (^)(AWSConnectDeleteViewVersionResponse *response, NSError *error))completionHandler {
+    [[self deleteViewVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDeleteViewVersionResponse *> * _Nonnull task) {
+        AWSConnectDeleteViewVersionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -1968,6 +2061,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectDescribeUserHierarchyStructureResponse *response, NSError *error))completionHandler {
     [[self describeUserHierarchyStructure:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDescribeUserHierarchyStructureResponse *> * _Nonnull task) {
         AWSConnectDescribeUserHierarchyStructureResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectDescribeViewResponse *> *)describeView:(AWSConnectDescribeViewRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/views/{InstanceId}/{ViewId}"
+                  targetPrefix:@""
+                 operationName:@"DescribeView"
+                   outputClass:[AWSConnectDescribeViewResponse class]];
+}
+
+- (void)describeView:(AWSConnectDescribeViewRequest *)request
+     completionHandler:(void (^)(AWSConnectDescribeViewResponse *response, NSError *error))completionHandler {
+    [[self describeView:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDescribeViewResponse *> * _Nonnull task) {
+        AWSConnectDescribeViewResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -3073,6 +3189,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectListSecurityProfileApplicationsResponse *> *)listSecurityProfileApplications:(AWSConnectListSecurityProfileApplicationsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/security-profiles-applications/{InstanceId}/{SecurityProfileId}"
+                  targetPrefix:@""
+                 operationName:@"ListSecurityProfileApplications"
+                   outputClass:[AWSConnectListSecurityProfileApplicationsResponse class]];
+}
+
+- (void)listSecurityProfileApplications:(AWSConnectListSecurityProfileApplicationsRequest *)request
+     completionHandler:(void (^)(AWSConnectListSecurityProfileApplicationsResponse *response, NSError *error))completionHandler {
+    [[self listSecurityProfileApplications:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListSecurityProfileApplicationsResponse *> * _Nonnull task) {
+        AWSConnectListSecurityProfileApplicationsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectListSecurityProfilePermissionsResponse *> *)listSecurityProfilePermissions:(AWSConnectListSecurityProfilePermissionsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -3270,6 +3409,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectListUsersResponse *response, NSError *error))completionHandler {
     [[self listUsers:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListUsersResponse *> * _Nonnull task) {
         AWSConnectListUsersResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectListViewVersionsResponse *> *)listViewVersions:(AWSConnectListViewVersionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/views/{InstanceId}/{ViewId}/versions"
+                  targetPrefix:@""
+                 operationName:@"ListViewVersions"
+                   outputClass:[AWSConnectListViewVersionsResponse class]];
+}
+
+- (void)listViewVersions:(AWSConnectListViewVersionsRequest *)request
+     completionHandler:(void (^)(AWSConnectListViewVersionsResponse *response, NSError *error))completionHandler {
+    [[self listViewVersions:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListViewVersionsResponse *> * _Nonnull task) {
+        AWSConnectListViewVersionsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectListViewsResponse *> *)listViews:(AWSConnectListViewsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/views/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"ListViews"
+                   outputClass:[AWSConnectListViewsResponse class]];
+}
+
+- (void)listViews:(AWSConnectListViewsRequest *)request
+     completionHandler:(void (^)(AWSConnectListViewsResponse *response, NSError *error))completionHandler {
+    [[self listViews:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListViewsResponse *> * _Nonnull task) {
+        AWSConnectListViewsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -4308,6 +4493,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)updatePhoneNumberMetadata:(AWSConnectUpdatePhoneNumberMetadataRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/phone-number/{PhoneNumberId}/metadata"
+                  targetPrefix:@""
+                 operationName:@"UpdatePhoneNumberMetadata"
+                   outputClass:nil];
+}
+
+- (void)updatePhoneNumberMetadata:(AWSConnectUpdatePhoneNumberMetadataRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self updatePhoneNumberMetadata:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectUpdatePromptResponse *> *)updatePrompt:(AWSConnectUpdatePromptRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -4833,6 +5040,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectUpdateViewContentResponse *> *)updateViewContent:(AWSConnectUpdateViewContentRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/views/{InstanceId}/{ViewId}"
+                  targetPrefix:@""
+                 operationName:@"UpdateViewContent"
+                   outputClass:[AWSConnectUpdateViewContentResponse class]];
+}
+
+- (void)updateViewContent:(AWSConnectUpdateViewContentRequest *)request
+     completionHandler:(void (^)(AWSConnectUpdateViewContentResponse *response, NSError *error))completionHandler {
+    [[self updateViewContent:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectUpdateViewContentResponse *> * _Nonnull task) {
+        AWSConnectUpdateViewContentResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectUpdateViewMetadataResponse *> *)updateViewMetadata:(AWSConnectUpdateViewMetadataRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/views/{InstanceId}/{ViewId}/metadata"
+                  targetPrefix:@""
+                 operationName:@"UpdateViewMetadata"
+                   outputClass:[AWSConnectUpdateViewMetadataResponse class]];
+}
+
+- (void)updateViewMetadata:(AWSConnectUpdateViewMetadataRequest *)request
+     completionHandler:(void (^)(AWSConnectUpdateViewMetadataResponse *response, NSError *error))completionHandler {
+    [[self updateViewMetadata:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectUpdateViewMetadataResponse *> * _Nonnull task) {
+        AWSConnectUpdateViewMetadataResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
