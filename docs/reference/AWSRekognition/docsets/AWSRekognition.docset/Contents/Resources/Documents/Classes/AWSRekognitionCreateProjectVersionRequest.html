@@ -17,7 +17,7 @@
     <a title="AWSRekognitionCreateProjectVersionRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSRekognition 2.33.4 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSRekognition 2.33.5 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSRekognition.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -156,6 +156,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionCustomLabel.html">AWSRekognitionCustomLabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCustomizationFeatureConfig.html">AWSRekognitionCustomizationFeatureConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCustomizationFeatureContentModerationConfig.html">AWSRekognitionCustomizationFeatureContentModerationConfig</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionDatasetChanges.html">AWSRekognitionDatasetChanges</a>
@@ -924,6 +930,9 @@
                 <a href="../Enums/AWSRekognitionContentModerationSortBy.html">AWSRekognitionContentModerationSortBy</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionCustomizationFeature.html">AWSRekognitionCustomizationFeature</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSRekognitionDatasetStatus.html">AWSRekognitionDatasetStatus</a>
               </li>
               <li class="nav-group-task">
@@ -973,6 +982,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSRekognitionPersonTrackingSortBy.html">AWSRekognitionPersonTrackingSortBy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionProjectAutoUpdate.html">AWSRekognitionProjectAutoUpdate</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSRekognitionProjectStatus.html">AWSRekognitionProjectStatus</a>
@@ -1053,6 +1065,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSRekognitionCreateProjectVersionRequest(py)featureConfig"></a>
+                    <a name="//apple_ref/objc/Property/featureConfig" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionCreateProjectVersionRequest(py)featureConfig">featureConfig</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Feature-specific configuration of the training job. If the job configuration does not match the feature type associated with the project, an InvalidParameterException is returned.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSRekognitionCustomizationFeatureConfig.html">AWSRekognitionCustomizationFeatureConfig</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">featureConfig</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">featureConfig</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionCustomizationFeatureConfig.html">AWSRekognitionCustomizationFeatureConfig</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSRekognitionCreateProjectVersionRequest(py)kmsKeyId"></a>
                     <a name="//apple_ref/objc/Property/kmsKeyId" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSRekognitionCreateProjectVersionRequest(py)kmsKeyId">kmsKeyId</a>
@@ -1063,7 +1107,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The identifier for your AWS Key Management Service key (AWS KMS key). You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for your KMS key, or an alias ARN. The key is used to encrypt training and test images copied into the service for model training. Your source images are unaffected. The key is also used to encrypt training results and manifest files written to the output Amazon S3 bucket (<code>OutputConfig</code>).</p><p>If you choose to use your own KMS key, you need the following permissions on the KMS key.</p><ul><li><p>kms:CreateGrant</p></li><li><p>kms:DescribeKey</p></li><li><p>kms:GenerateDataKey</p></li><li><p>kms:Decrypt</p></li></ul><p>If you don&rsquo;t specify a value for <code>KmsKeyId</code>, images copied into the service are encrypted using a key that AWS owns and manages.</p>
+                        <p>The identifier for your AWS Key Management Service key (AWS KMS key). You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for your KMS key, or an alias ARN. The key is used to encrypt training images, test images, and manifest files copied into the service for the project version. Your source images are unaffected. The key is also used to encrypt training results and manifest files written to the output Amazon S3 bucket (<code>OutputConfig</code>).</p><p>If you choose to use your own KMS key, you need the following permissions on the KMS key.</p><ul><li><p>kms:CreateGrant</p></li><li><p>kms:DescribeKey</p></li><li><p>kms:GenerateDataKey</p></li><li><p>kms:Decrypt</p></li></ul><p>If you don&rsquo;t specify a value for <code>KmsKeyId</code>, images copied into the service are encrypted using a key that AWS owns and manages.</p>
 
                       </div>
                       <div class="declaration">
@@ -1095,7 +1139,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Amazon S3 bucket location to store the results of training. The S3 bucket can be in any AWS account as long as the caller has <code>s3:PutObject</code> permissions on the S3 bucket.</p>
+                        <p>The Amazon S3 bucket location to store the results of training. The bucket can be any S3 bucket in your AWS account. You need <code>s3:PutObject</code> permission on the bucket. </p>
 
                       </div>
                       <div class="declaration">
@@ -1127,7 +1171,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ARN of the Amazon Rekognition Custom Labels project that manages the model that you want to train.</p>
+                        <p>The ARN of the Amazon Rekognition project that will manage the project version you want to train.</p>
 
                       </div>
                       <div class="declaration">
@@ -1159,7 +1203,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p> A set of tags (key-value pairs) that you want to attach to the model. </p>
+                        <p> A set of tags (key-value pairs) that you want to attach to the project version. </p>
 
                       </div>
                       <div class="declaration">
@@ -1191,7 +1235,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies an external manifest that the service uses to test the model. If you specify <code>TestingData</code> you must also specify <code>TrainingData</code>. The project must not have any associated datasets.</p>
+                        <p>Specifies an external manifest that the service uses to test the project version. If you specify <code>TestingData</code> you must also specify <code>TrainingData</code>. The project must not have any associated datasets.</p>
 
                       </div>
                       <div class="declaration">
@@ -1223,7 +1267,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies an external manifest that the services uses to train the model. If you specify <code>TrainingData</code> you must also specify <code>TestingData</code>. The project must not have any associated datasets. </p>
+                        <p>Specifies an external manifest that the services uses to train the project version. If you specify <code>TrainingData</code> you must also specify <code>TestingData</code>. The project must not have any associated datasets. </p>
 
                       </div>
                       <div class="declaration">
@@ -1245,6 +1289,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSRekognitionCreateProjectVersionRequest(py)versionDescription"></a>
+                    <a name="//apple_ref/objc/Property/versionDescription" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionCreateProjectVersionRequest(py)versionDescription">versionDescription</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A description applied to the project version being created.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">versionDescription</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">versionDescription</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSRekognitionCreateProjectVersionRequest(py)versionName"></a>
                     <a name="//apple_ref/objc/Property/versionName" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSRekognitionCreateProjectVersionRequest(py)versionName">versionName</a>
@@ -1255,7 +1331,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A name for the version of the model. This value must be unique.</p>
+                        <p>A name for the version of the project version. This value must be unique.</p>
 
                       </div>
                       <div class="declaration">
@@ -1279,7 +1355,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-22)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-11-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
