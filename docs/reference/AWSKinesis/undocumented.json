@@ -276,930 +276,1021 @@
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 65,
-      "symbol": "AWSFirehoseContentEncoding",
+      "symbol": "AWSFirehoseConnectivity",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 65,
-      "symbol": "AWSFirehoseContentEncoding",
+      "symbol": "AWSFirehoseConnectivity",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 66,
-      "symbol": "AWSFirehoseContentEncoding.AWSFirehoseContentEncodingUnknown",
+      "symbol": "AWSFirehoseConnectivity.AWSFirehoseConnectivityUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 67,
-      "symbol": "AWSFirehoseContentEncoding.AWSFirehoseContentEncodingNone",
+      "symbol": "AWSFirehoseConnectivity.AWSFirehoseConnectivityPublic",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 68,
-      "symbol": "AWSFirehoseContentEncoding.AWSFirehoseContentEncodingGzip",
+      "symbol": "AWSFirehoseConnectivity.AWSFirehoseConnectivityPrivate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 71,
-      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus",
+      "symbol": "AWSFirehoseContentEncoding",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 71,
-      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus",
+      "symbol": "AWSFirehoseContentEncoding",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 72,
-      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusUnknown",
+      "symbol": "AWSFirehoseContentEncoding.AWSFirehoseContentEncodingUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 73,
-      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusEnabled",
+      "symbol": "AWSFirehoseContentEncoding.AWSFirehoseContentEncodingNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 74,
-      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusEnabling",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 75,
-      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusEnablingFailed",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 76,
-      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusDisabled",
+      "symbol": "AWSFirehoseContentEncoding.AWSFirehoseContentEncodingGzip",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 77,
-      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusDisabling",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 78,
-      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusDisablingFailed",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 81,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType",
+      "symbol": "AWSFirehoseDefaultDocumentIdFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 81,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType",
+      "line": 77,
+      "symbol": "AWSFirehoseDefaultDocumentIdFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 82,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeUnknown",
+      "line": 78,
+      "symbol": "AWSFirehoseDefaultDocumentIdFormat.AWSFirehoseDefaultDocumentIdFormatUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 79,
+      "symbol": "AWSFirehoseDefaultDocumentIdFormat.AWSFirehoseDefaultDocumentIdFormatFirehoseDefault",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 80,
+      "symbol": "AWSFirehoseDefaultDocumentIdFormat.AWSFirehoseDefaultDocumentIdFormatNoDocumentId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 83,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeRetireKmsGrantFailed",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 83,
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 84,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeCreateKmsGrantFailed",
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 85,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeKmsAccessDenied",
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 86,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeDisabledKmsKey",
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusEnabling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 87,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeInvalidKmsKey",
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusEnablingFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 88,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeKmsKeyNotFound",
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 89,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeKmsOptInRequired",
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusDisabling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 90,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeCreateEniFailed",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 91,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeDeleteEniFailed",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 92,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeSubnetNotFound",
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusDisablingFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 93,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeSecurityGroupNotFound",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 93,
+      "symbol": "AWSFirehoseDeliveryStreamFailureType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 94,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeEniAccessDenied",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 95,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeSubnetAccessDenied",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeRetireKmsGrantFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 96,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeSecurityGroupAccessDenied",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeCreateKmsGrantFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 97,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeUnknownError",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeKmsAccessDenied",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 98,
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeDisabledKmsKey",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 99,
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeInvalidKmsKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 100,
-      "symbol": "AWSFirehoseDeliveryStreamStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 100,
-      "symbol": "AWSFirehoseDeliveryStreamStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeKmsKeyNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 101,
-      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusUnknown",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeKmsOptInRequired",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 102,
-      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusCreating",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeCreateEniFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 103,
-      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusCreatingFailed",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeDeleteEniFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 104,
-      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusDeleting",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeSubnetNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 105,
-      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusDeletingFailed",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeSecurityGroupNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 106,
-      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusActive",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeEniAccessDenied",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 107,
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeSubnetAccessDenied",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 108,
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeSecurityGroupAccessDenied",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 109,
-      "symbol": "AWSFirehoseDeliveryStreamType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 109,
-      "symbol": "AWSFirehoseDeliveryStreamType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 110,
-      "symbol": "AWSFirehoseDeliveryStreamType.AWSFirehoseDeliveryStreamTypeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 111,
-      "symbol": "AWSFirehoseDeliveryStreamType.AWSFirehoseDeliveryStreamTypeDirectPut",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeUnknownError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 112,
-      "symbol": "AWSFirehoseDeliveryStreamType.AWSFirehoseDeliveryStreamTypeKinesisStreamAsSource",
+      "symbol": "AWSFirehoseDeliveryStreamStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 112,
+      "symbol": "AWSFirehoseDeliveryStreamStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 113,
+      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 114,
+      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusCreating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 115,
-      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 115,
-      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusCreatingFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 116,
-      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodUnknown",
+      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 117,
-      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodNoRotation",
+      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusDeletingFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 118,
-      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodOneHour",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 119,
-      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodOneDay",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 120,
-      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodOneWeek",
+      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 121,
-      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodOneMonth",
+      "symbol": "AWSFirehoseDeliveryStreamType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 121,
+      "symbol": "AWSFirehoseDeliveryStreamType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 122,
+      "symbol": "AWSFirehoseDeliveryStreamType.AWSFirehoseDeliveryStreamTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 123,
+      "symbol": "AWSFirehoseDeliveryStreamType.AWSFirehoseDeliveryStreamTypeDirectPut",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 124,
-      "symbol": "AWSFirehoseElasticsearchS3BackupMode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 124,
-      "symbol": "AWSFirehoseElasticsearchS3BackupMode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSFirehoseDeliveryStreamType.AWSFirehoseDeliveryStreamTypeKinesisStreamAsSource",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 125,
-      "symbol": "AWSFirehoseElasticsearchS3BackupMode.AWSFirehoseElasticsearchS3BackupModeUnknown",
+      "symbol": "AWSFirehoseDeliveryStreamType.AWSFirehoseDeliveryStreamTypeMSKAsSource",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 126,
-      "symbol": "AWSFirehoseElasticsearchS3BackupMode.AWSFirehoseElasticsearchS3BackupModeFailedDocumentsOnly",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 127,
-      "symbol": "AWSFirehoseElasticsearchS3BackupMode.AWSFirehoseElasticsearchS3BackupModeAllDocuments",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 130,
-      "symbol": "AWSFirehoseHECEndpointType",
+      "line": 128,
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 130,
-      "symbol": "AWSFirehoseHECEndpointType",
+      "line": 128,
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 129,
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 130,
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodNoRotation",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 131,
-      "symbol": "AWSFirehoseHECEndpointType.AWSFirehoseHECEndpointTypeUnknown",
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodOneHour",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 132,
-      "symbol": "AWSFirehoseHECEndpointType.AWSFirehoseHECEndpointTypeRaw",
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodOneDay",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 133,
-      "symbol": "AWSFirehoseHECEndpointType.AWSFirehoseHECEndpointTypeEvent",
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodOneWeek",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 136,
-      "symbol": "AWSFirehoseHttpEndpointS3BackupMode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 136,
-      "symbol": "AWSFirehoseHttpEndpointS3BackupMode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 134,
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodOneMonth",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 137,
-      "symbol": "AWSFirehoseHttpEndpointS3BackupMode.AWSFirehoseHttpEndpointS3BackupModeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSFirehoseElasticsearchS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 137,
+      "symbol": "AWSFirehoseElasticsearchS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 138,
-      "symbol": "AWSFirehoseHttpEndpointS3BackupMode.AWSFirehoseHttpEndpointS3BackupModeFailedDataOnly",
+      "symbol": "AWSFirehoseElasticsearchS3BackupMode.AWSFirehoseElasticsearchS3BackupModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 139,
-      "symbol": "AWSFirehoseHttpEndpointS3BackupMode.AWSFirehoseHttpEndpointS3BackupModeAllData",
+      "symbol": "AWSFirehoseElasticsearchS3BackupMode.AWSFirehoseElasticsearchS3BackupModeFailedDocumentsOnly",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 142,
-      "symbol": "AWSFirehoseKeyType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 142,
-      "symbol": "AWSFirehoseKeyType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 140,
+      "symbol": "AWSFirehoseElasticsearchS3BackupMode.AWSFirehoseElasticsearchS3BackupModeAllDocuments",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 143,
-      "symbol": "AWSFirehoseKeyType.AWSFirehoseKeyTypeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSFirehoseHECEndpointType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 143,
+      "symbol": "AWSFirehoseHECEndpointType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 144,
-      "symbol": "AWSFirehoseKeyType.AWSFirehoseKeyTypeAwsOwnedCmk",
+      "symbol": "AWSFirehoseHECEndpointType.AWSFirehoseHECEndpointTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 145,
-      "symbol": "AWSFirehoseKeyType.AWSFirehoseKeyTypeCustomerManagedCmk",
+      "symbol": "AWSFirehoseHECEndpointType.AWSFirehoseHECEndpointTypeRaw",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 148,
-      "symbol": "AWSFirehoseNoEncryptionConfig",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 148,
-      "symbol": "AWSFirehoseNoEncryptionConfig",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 146,
+      "symbol": "AWSFirehoseHECEndpointType.AWSFirehoseHECEndpointTypeEvent",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 149,
-      "symbol": "AWSFirehoseNoEncryptionConfig.AWSFirehoseNoEncryptionConfigUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 150,
-      "symbol": "AWSFirehoseNoEncryptionConfig.AWSFirehoseNoEncryptionConfigNoEncryption",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 153,
-      "symbol": "AWSFirehoseOrcCompression",
+      "symbol": "AWSFirehoseHttpEndpointS3BackupMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 153,
-      "symbol": "AWSFirehoseOrcCompression",
+      "line": 149,
+      "symbol": "AWSFirehoseHttpEndpointS3BackupMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 154,
-      "symbol": "AWSFirehoseOrcCompression.AWSFirehoseOrcCompressionUnknown",
+      "line": 150,
+      "symbol": "AWSFirehoseHttpEndpointS3BackupMode.AWSFirehoseHttpEndpointS3BackupModeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 151,
+      "symbol": "AWSFirehoseHttpEndpointS3BackupMode.AWSFirehoseHttpEndpointS3BackupModeFailedDataOnly",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 152,
+      "symbol": "AWSFirehoseHttpEndpointS3BackupMode.AWSFirehoseHttpEndpointS3BackupModeAllData",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 155,
-      "symbol": "AWSFirehoseOrcCompression.AWSFirehoseOrcCompressionNone",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSFirehoseKeyType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 155,
+      "symbol": "AWSFirehoseKeyType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 156,
-      "symbol": "AWSFirehoseOrcCompression.AWSFirehoseOrcCompressionZlib",
+      "symbol": "AWSFirehoseKeyType.AWSFirehoseKeyTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 157,
-      "symbol": "AWSFirehoseOrcCompression.AWSFirehoseOrcCompressionSnappy",
+      "symbol": "AWSFirehoseKeyType.AWSFirehoseKeyTypeAwsOwnedCmk",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 160,
-      "symbol": "AWSFirehoseOrcFormatVersion",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 160,
-      "symbol": "AWSFirehoseOrcFormatVersion",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 158,
+      "symbol": "AWSFirehoseKeyType.AWSFirehoseKeyTypeCustomerManagedCmk",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 161,
-      "symbol": "AWSFirehoseOrcFormatVersion.AWSFirehoseOrcFormatVersionUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSFirehoseNoEncryptionConfig",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 161,
+      "symbol": "AWSFirehoseNoEncryptionConfig",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 162,
-      "symbol": "AWSFirehoseOrcFormatVersion.AWSFirehoseOrcFormatVersionV011",
+      "symbol": "AWSFirehoseNoEncryptionConfig.AWSFirehoseNoEncryptionConfigUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 163,
-      "symbol": "AWSFirehoseOrcFormatVersion.AWSFirehoseOrcFormatVersionV012",
+      "symbol": "AWSFirehoseNoEncryptionConfig.AWSFirehoseNoEncryptionConfigNoEncryption",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 166,
-      "symbol": "AWSFirehoseParquetCompression",
+      "symbol": "AWSFirehoseOrcCompression",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 166,
-      "symbol": "AWSFirehoseParquetCompression",
+      "symbol": "AWSFirehoseOrcCompression",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 167,
-      "symbol": "AWSFirehoseParquetCompression.AWSFirehoseParquetCompressionUnknown",
+      "symbol": "AWSFirehoseOrcCompression.AWSFirehoseOrcCompressionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 168,
-      "symbol": "AWSFirehoseParquetCompression.AWSFirehoseParquetCompressionUncompressed",
+      "symbol": "AWSFirehoseOrcCompression.AWSFirehoseOrcCompressionNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 169,
-      "symbol": "AWSFirehoseParquetCompression.AWSFirehoseParquetCompressionGzip",
+      "symbol": "AWSFirehoseOrcCompression.AWSFirehoseOrcCompressionZlib",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 170,
-      "symbol": "AWSFirehoseParquetCompression.AWSFirehoseParquetCompressionSnappy",
+      "symbol": "AWSFirehoseOrcCompression.AWSFirehoseOrcCompressionSnappy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 173,
-      "symbol": "AWSFirehoseParquetWriterVersion",
+      "symbol": "AWSFirehoseOrcFormatVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 173,
-      "symbol": "AWSFirehoseParquetWriterVersion",
+      "symbol": "AWSFirehoseOrcFormatVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 174,
-      "symbol": "AWSFirehoseParquetWriterVersion.AWSFirehoseParquetWriterVersionUnknown",
+      "symbol": "AWSFirehoseOrcFormatVersion.AWSFirehoseOrcFormatVersionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 175,
-      "symbol": "AWSFirehoseParquetWriterVersion.AWSFirehoseParquetWriterVersionV1",
+      "symbol": "AWSFirehoseOrcFormatVersion.AWSFirehoseOrcFormatVersionV011",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 176,
-      "symbol": "AWSFirehoseParquetWriterVersion.AWSFirehoseParquetWriterVersionV2",
+      "symbol": "AWSFirehoseOrcFormatVersion.AWSFirehoseOrcFormatVersionV012",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 179,
-      "symbol": "AWSFirehoseProcessorParameterName",
+      "symbol": "AWSFirehoseParquetCompression",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 179,
-      "symbol": "AWSFirehoseProcessorParameterName",
+      "symbol": "AWSFirehoseParquetCompression",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 180,
-      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameUnknown",
+      "symbol": "AWSFirehoseParquetCompression.AWSFirehoseParquetCompressionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 181,
-      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameLambdaArn",
+      "symbol": "AWSFirehoseParquetCompression.AWSFirehoseParquetCompressionUncompressed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 182,
-      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameNumberOfRetries",
+      "symbol": "AWSFirehoseParquetCompression.AWSFirehoseParquetCompressionGzip",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 183,
-      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameMetadataExtractionQuery",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 184,
-      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameJsonParsingEngine",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 185,
-      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameRoleArn",
+      "symbol": "AWSFirehoseParquetCompression.AWSFirehoseParquetCompressionSnappy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 186,
-      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameBufferSizeInMBs",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSFirehoseParquetWriterVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 186,
+      "symbol": "AWSFirehoseParquetWriterVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 187,
-      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameBufferIntervalInSeconds",
+      "symbol": "AWSFirehoseParquetWriterVersion.AWSFirehoseParquetWriterVersionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 188,
-      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameSubRecordType",
+      "symbol": "AWSFirehoseParquetWriterVersion.AWSFirehoseParquetWriterVersionV1",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 189,
-      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameDelimiter",
+      "symbol": "AWSFirehoseParquetWriterVersion.AWSFirehoseParquetWriterVersionV2",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 192,
-      "symbol": "AWSFirehoseProcessorType",
+      "symbol": "AWSFirehoseProcessorParameterName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 192,
-      "symbol": "AWSFirehoseProcessorType",
+      "symbol": "AWSFirehoseProcessorParameterName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 193,
-      "symbol": "AWSFirehoseProcessorType.AWSFirehoseProcessorTypeUnknown",
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 194,
-      "symbol": "AWSFirehoseProcessorType.AWSFirehoseProcessorTypeRecordDeAggregation",
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameLambdaArn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 195,
-      "symbol": "AWSFirehoseProcessorType.AWSFirehoseProcessorTypeLambda",
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameNumberOfRetries",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 196,
-      "symbol": "AWSFirehoseProcessorType.AWSFirehoseProcessorTypeMetadataExtraction",
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameMetadataExtractionQuery",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 197,
-      "symbol": "AWSFirehoseProcessorType.AWSFirehoseProcessorTypeAppendDelimiterToRecord",
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameJsonParsingEngine",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 198,
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameRoleArn",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 199,
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameBufferSizeInMBs",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 200,
-      "symbol": "AWSFirehoseRedshiftS3BackupMode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 200,
-      "symbol": "AWSFirehoseRedshiftS3BackupMode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameBufferIntervalInSeconds",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 201,
-      "symbol": "AWSFirehoseRedshiftS3BackupMode.AWSFirehoseRedshiftS3BackupModeUnknown",
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameSubRecordType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 202,
-      "symbol": "AWSFirehoseRedshiftS3BackupMode.AWSFirehoseRedshiftS3BackupModeDisabled",
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameDelimiter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 203,
-      "symbol": "AWSFirehoseRedshiftS3BackupMode.AWSFirehoseRedshiftS3BackupModeEnabled",
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameCompressionFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 206,
-      "symbol": "AWSFirehoseS3BackupMode",
+      "symbol": "AWSFirehoseProcessorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 206,
-      "symbol": "AWSFirehoseS3BackupMode",
+      "symbol": "AWSFirehoseProcessorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 207,
-      "symbol": "AWSFirehoseS3BackupMode.AWSFirehoseS3BackupModeUnknown",
+      "symbol": "AWSFirehoseProcessorType.AWSFirehoseProcessorTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 208,
-      "symbol": "AWSFirehoseS3BackupMode.AWSFirehoseS3BackupModeDisabled",
+      "symbol": "AWSFirehoseProcessorType.AWSFirehoseProcessorTypeRecordDeAggregation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 209,
-      "symbol": "AWSFirehoseS3BackupMode.AWSFirehoseS3BackupModeEnabled",
+      "symbol": "AWSFirehoseProcessorType.AWSFirehoseProcessorTypeDecompression",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 210,
+      "symbol": "AWSFirehoseProcessorType.AWSFirehoseProcessorTypeLambda",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 211,
+      "symbol": "AWSFirehoseProcessorType.AWSFirehoseProcessorTypeMetadataExtraction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 212,
-      "symbol": "AWSFirehoseSplunkS3BackupMode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 212,
-      "symbol": "AWSFirehoseSplunkS3BackupMode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 213,
-      "symbol": "AWSFirehoseSplunkS3BackupMode.AWSFirehoseSplunkS3BackupModeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
-      "line": 214,
-      "symbol": "AWSFirehoseSplunkS3BackupMode.AWSFirehoseSplunkS3BackupModeFailedEventsOnly",
+      "symbol": "AWSFirehoseProcessorType.AWSFirehoseProcessorTypeAppendDelimiterToRecord",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
       "line": 215,
+      "symbol": "AWSFirehoseRedshiftS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 215,
+      "symbol": "AWSFirehoseRedshiftS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 216,
+      "symbol": "AWSFirehoseRedshiftS3BackupMode.AWSFirehoseRedshiftS3BackupModeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 217,
+      "symbol": "AWSFirehoseRedshiftS3BackupMode.AWSFirehoseRedshiftS3BackupModeDisabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 218,
+      "symbol": "AWSFirehoseRedshiftS3BackupMode.AWSFirehoseRedshiftS3BackupModeEnabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 221,
+      "symbol": "AWSFirehoseS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 221,
+      "symbol": "AWSFirehoseS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 222,
+      "symbol": "AWSFirehoseS3BackupMode.AWSFirehoseS3BackupModeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 223,
+      "symbol": "AWSFirehoseS3BackupMode.AWSFirehoseS3BackupModeDisabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 224,
+      "symbol": "AWSFirehoseS3BackupMode.AWSFirehoseS3BackupModeEnabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 227,
+      "symbol": "AWSFirehoseSplunkS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 227,
+      "symbol": "AWSFirehoseSplunkS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 228,
+      "symbol": "AWSFirehoseSplunkS3BackupMode.AWSFirehoseSplunkS3BackupModeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 229,
+      "symbol": "AWSFirehoseSplunkS3BackupMode.AWSFirehoseSplunkS3BackupModeFailedEventsOnly",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 230,
       "symbol": "AWSFirehoseSplunkS3BackupMode.AWSFirehoseSplunkS3BackupModeAllEvents",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
