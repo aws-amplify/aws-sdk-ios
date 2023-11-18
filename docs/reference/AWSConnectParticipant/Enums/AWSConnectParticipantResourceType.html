@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSConnectParticipantGetTranscriptResponse Class Reference</title>
+    <title>AWSConnectParticipantResourceType Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSConnectParticipantGetTranscriptResponse" class="dashAnchor"></a>
-    <a title="AWSConnectParticipantGetTranscriptResponse Class Reference"></a>
+    <a name="//apple_ref/objc/Enum/AWSConnectParticipantResourceType" class="dashAnchor"></a>
+    <a title="AWSConnectParticipantResourceType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSConnectParticipant 2.33.5 Docs</a> (66% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSConnectParticipant Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSConnectParticipantGetTranscriptResponse Class Reference
+        AWSConnectParticipantResourceType Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -183,20 +183,30 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSConnectParticipantGetTranscriptResponse</h1>
+            <h1>AWSConnectParticipantResourceType</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSConnectParticipantGetTranscriptResponse</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSConnectParticipantResourceType</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSConnectParticipantResourceTypeUnknown</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantResourceTypeContact</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantResourceTypeContactFlow</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantResourceTypeInstance</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantResourceTypeParticipant</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantResourceTypeHierarchyLevel</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantResourceTypeHierarchyGroup</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantResourceTypeUser</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSConnectParticipantGetTranscriptResponse</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSConnectParticipantResourceType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                 </div>
               </div>
-            
+            <p>Undocumented</p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -204,9 +214,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSConnectParticipantGetTranscriptResponse(py)initialContactId"></a>
-                    <a name="//apple_ref/objc/Property/initialContactId" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSConnectParticipantGetTranscriptResponse(py)initialContactId">initialContactId</a>
+                    <a name="/c:@E@AWSConnectParticipantResourceType@AWSConnectParticipantResourceTypeUnknown"></a>
+                    <a name="//apple_ref/objc/Case/AWSConnectParticipantResourceTypeUnknown" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectParticipantResourceType@AWSConnectParticipantResourceTypeUnknown">AWSConnectParticipantResourceTypeUnknown</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -214,19 +224,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The initial contact ID for the contact. </p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">initialContactId</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantResourceTypeUnknown</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">initialContactId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknown</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
 
                         </div>
                       </div>
@@ -236,9 +246,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSConnectParticipantGetTranscriptResponse(py)nextToken"></a>
-                    <a name="//apple_ref/objc/Property/nextToken" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSConnectParticipantGetTranscriptResponse(py)nextToken">nextToken</a>
+                    <a name="/c:@E@AWSConnectParticipantResourceType@AWSConnectParticipantResourceTypeContact"></a>
+                    <a name="//apple_ref/objc/Case/AWSConnectParticipantResourceTypeContact" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectParticipantResourceType@AWSConnectParticipantResourceTypeContact">AWSConnectParticipantResourceTypeContact</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -246,19 +256,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The pagination token. Use the value returned previously in the next subsequent request to retrieve the next set of results.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">nextToken</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantResourceTypeContact</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">nextToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">contact</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
 
                         </div>
                       </div>
@@ -268,9 +278,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSConnectParticipantGetTranscriptResponse(py)transcript"></a>
-                    <a name="//apple_ref/objc/Property/transcript" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSConnectParticipantGetTranscriptResponse(py)transcript">transcript</a>
+                    <a name="/c:@E@AWSConnectParticipantResourceType@AWSConnectParticipantResourceTypeContactFlow"></a>
+                    <a name="//apple_ref/objc/Case/AWSConnectParticipantResourceTypeContactFlow" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectParticipantResourceType@AWSConnectParticipantResourceTypeContactFlow">AWSConnectParticipantResourceTypeContactFlow</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -278,19 +288,179 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The list of messages in the session.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSConnectParticipantItem.html">AWSConnectParticipantItem</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">transcript</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantResourceTypeContactFlow</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">transcript</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AWSConnectParticipantItem.html">AWSConnectParticipantItem</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">contactFlow</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSConnectParticipantResourceType@AWSConnectParticipantResourceTypeInstance"></a>
+                    <a name="//apple_ref/objc/Case/AWSConnectParticipantResourceTypeInstance" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectParticipantResourceType@AWSConnectParticipantResourceTypeInstance">AWSConnectParticipantResourceTypeInstance</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantResourceTypeInstance</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">instance</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSConnectParticipantResourceType@AWSConnectParticipantResourceTypeParticipant"></a>
+                    <a name="//apple_ref/objc/Case/AWSConnectParticipantResourceTypeParticipant" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectParticipantResourceType@AWSConnectParticipantResourceTypeParticipant">AWSConnectParticipantResourceTypeParticipant</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantResourceTypeParticipant</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">participant</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSConnectParticipantResourceType@AWSConnectParticipantResourceTypeHierarchyLevel"></a>
+                    <a name="//apple_ref/objc/Case/AWSConnectParticipantResourceTypeHierarchyLevel" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectParticipantResourceType@AWSConnectParticipantResourceTypeHierarchyLevel">AWSConnectParticipantResourceTypeHierarchyLevel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantResourceTypeHierarchyLevel</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">hierarchyLevel</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSConnectParticipantResourceType@AWSConnectParticipantResourceTypeHierarchyGroup"></a>
+                    <a name="//apple_ref/objc/Case/AWSConnectParticipantResourceTypeHierarchyGroup" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectParticipantResourceType@AWSConnectParticipantResourceTypeHierarchyGroup">AWSConnectParticipantResourceTypeHierarchyGroup</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantResourceTypeHierarchyGroup</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">hierarchyGroup</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSConnectParticipantResourceType@AWSConnectParticipantResourceTypeUser"></a>
+                    <a name="//apple_ref/objc/Case/AWSConnectParticipantResourceTypeUser" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectParticipantResourceType@AWSConnectParticipantResourceTypeUser">AWSConnectParticipantResourceTypeUser</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantResourceTypeUser</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">user</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
 
                         </div>
                       </div>

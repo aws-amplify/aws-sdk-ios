@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSConnectParticipantGetTranscriptResponse Class Reference</title>
+    <title>AWSConnectParticipantView Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSConnectParticipantGetTranscriptResponse" class="dashAnchor"></a>
-    <a title="AWSConnectParticipantGetTranscriptResponse Class Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSConnectParticipantView" class="dashAnchor"></a>
+    <a title="AWSConnectParticipantView Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSConnectParticipant 2.33.5 Docs</a> (66% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSConnectParticipant Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSConnectParticipantGetTranscriptResponse Class Reference
+        AWSConnectParticipantView Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -183,20 +183,21 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSConnectParticipantGetTranscriptResponse</h1>
+            <h1>AWSConnectParticipantView</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSConnectParticipantGetTranscriptResponse</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSConnectParticipantView</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSConnectParticipantGetTranscriptResponse</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSConnectParticipantView</span></code></pre>
 
                 </div>
               </div>
-            
+            <p>A view resource object. Contains metadata and content necessary to render the view.</p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -204,9 +205,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSConnectParticipantGetTranscriptResponse(py)initialContactId"></a>
-                    <a name="//apple_ref/objc/Property/initialContactId" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSConnectParticipantGetTranscriptResponse(py)initialContactId">initialContactId</a>
+                    <a name="/c:objc(cs)AWSConnectParticipantView(py)arn"></a>
+                    <a name="//apple_ref/objc/Property/arn" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipantView(py)arn">arn</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -214,19 +215,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The initial contact ID for the contact. </p>
+                        <p>The Amazon Resource Name (ARN) of the view.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">initialContactId</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">arn</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">initialContactId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">arn</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -236,9 +237,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSConnectParticipantGetTranscriptResponse(py)nextToken"></a>
-                    <a name="//apple_ref/objc/Property/nextToken" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSConnectParticipantGetTranscriptResponse(py)nextToken">nextToken</a>
+                    <a name="/c:objc(cs)AWSConnectParticipantView(py)content"></a>
+                    <a name="//apple_ref/objc/Property/content" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipantView(py)content">content</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -246,19 +247,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The pagination token. Use the value returned previously in the next subsequent request to retrieve the next set of results.</p>
+                        <p>View content containing all content necessary to render a view except for runtime input data.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">nextToken</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSConnectParticipantViewContent.html">AWSConnectParticipantViewContent</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">content</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">nextToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">content</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectParticipantViewContent.html">AWSConnectParticipantViewContent</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -268,9 +269,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSConnectParticipantGetTranscriptResponse(py)transcript"></a>
-                    <a name="//apple_ref/objc/Property/transcript" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSConnectParticipantGetTranscriptResponse(py)transcript">transcript</a>
+                    <a name="/c:objc(cs)AWSConnectParticipantView(py)identifier"></a>
+                    <a name="//apple_ref/objc/Property/identifier" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipantView(py)identifier">identifier</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -278,19 +279,83 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The list of messages in the session.</p>
+                        <p>The identifier of the view.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSConnectParticipantItem.html">AWSConnectParticipantItem</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">transcript</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">identifier</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">transcript</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AWSConnectParticipantItem.html">AWSConnectParticipantItem</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectParticipantView(py)name"></a>
+                    <a name="//apple_ref/objc/Property/name" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipantView(py)name">name</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The name of the view.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">name</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectParticipantView(py)version"></a>
+                    <a name="//apple_ref/objc/Property/version" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipantView(py)version">version</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The current version of the view.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">version</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">version</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>

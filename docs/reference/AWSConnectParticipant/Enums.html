@@ -17,7 +17,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSConnectParticipant 2.33.4 Docs</a> (67% documented)</p>
+        <p><a href="index.html">AWSConnectParticipant 2.33.5 Docs</a> (66% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSConnectParticipant.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -60,6 +60,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSConnectParticipantCreateParticipantConnectionResponse.html">AWSConnectParticipantCreateParticipantConnectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSConnectParticipantDescribeViewRequest.html">AWSConnectParticipantDescribeViewRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSConnectParticipantDescribeViewResponse.html">AWSConnectParticipantDescribeViewResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSConnectParticipantDisconnectParticipantRequest.html">AWSConnectParticipantDisconnectParticipantRequest</a>
@@ -116,6 +122,12 @@
                 <a href="Classes/AWSConnectParticipantUploadMetadata.html">AWSConnectParticipantUploadMetadata</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSConnectParticipantView.html">AWSConnectParticipantView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSConnectParticipantViewContent.html">AWSConnectParticipantViewContent</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSConnectParticipantWebsocket.html">AWSConnectParticipantWebsocket</a>
               </li>
             </ul>
@@ -154,6 +166,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSConnectParticipantParticipantRole.html">AWSConnectParticipantParticipantRole</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSConnectParticipantResourceType.html">AWSConnectParticipantResourceType</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSConnectParticipantScanDirection.html">AWSConnectParticipantScanDirection</a>
@@ -201,6 +216,7 @@
     <span class="n">AWSConnectParticipantErrorAccessDenied</span><span class="p">,</span>
     <span class="n">AWSConnectParticipantErrorConflict</span><span class="p">,</span>
     <span class="n">AWSConnectParticipantErrorInternalServer</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantErrorResourceNotFound</span><span class="p">,</span>
     <span class="n">AWSConnectParticipantErrorServiceQuotaExceeded</span><span class="p">,</span>
     <span class="n">AWSConnectParticipantErrorThrottling</span><span class="p">,</span>
     <span class="n">AWSConnectParticipantErrorValidation</span><span class="p">,</span>
@@ -364,12 +380,55 @@
     <span class="n">AWSConnectParticipantParticipantRoleAgent</span><span class="p">,</span>
     <span class="n">AWSConnectParticipantParticipantRoleCustomer</span><span class="p">,</span>
     <span class="n">AWSConnectParticipantParticipantRoleSystem</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantParticipantRoleCustomBot</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSConnectParticipantParticipantRole</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSConnectParticipantResourceType"></a>
+                    <a name="//apple_ref/objc/Enum/AWSConnectParticipantResourceType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectParticipantResourceType">AWSConnectParticipantResourceType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSConnectParticipantResourceType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSConnectParticipantResourceType</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSConnectParticipantResourceTypeUnknown</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantResourceTypeContact</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantResourceTypeContactFlow</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantResourceTypeInstance</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantResourceTypeParticipant</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantResourceTypeHierarchyLevel</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantResourceTypeHierarchyGroup</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantResourceTypeUser</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSConnectParticipantResourceType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -455,7 +514,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-22)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-11-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
