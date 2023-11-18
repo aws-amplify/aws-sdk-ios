@@ -17,7 +17,7 @@
     <a title="AWSIoTSchedulingConfig Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSIoT 2.33.4 Docs</a> (84% documented)</p>
+        <p><a href="../index.html">AWSIoT 2.33.5 Docs</a> (84% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSIoT.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -974,6 +974,9 @@
                 <a href="../Classes/AWSIoTFleetMetricNameAndArn.html">AWSIoTFleetMetricNameAndArn</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSIoTGeoLocationTarget.html">AWSIoTGeoLocationTarget</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSIoTGetBehaviorModelTrainingSummariesRequest.html">AWSIoTGetBehaviorModelTrainingSummariesRequest</a>
               </li>
               <li class="nav-group-task">
@@ -1164,6 +1167,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTKafkaAction.html">AWSIoTKafkaAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTKafkaActionHeader.html">AWSIoTKafkaActionHeader</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTKeyPair.html">AWSIoTKeyPair</a>
@@ -1575,6 +1581,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTMetricValue.html">AWSIoTMetricValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTMetricsExportConfig.html">AWSIoTMetricsExportConfig</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTMitigationAction.html">AWSIoTMitigationAction</a>
@@ -2397,6 +2406,9 @@
                 <a href="../Enums/AWSIoTStatus.html">AWSIoTStatus</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSIoTTargetFieldOrder.html">AWSIoTTargetFieldOrder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSIoTTargetSelection.html">AWSIoTTargetSelection</a>
               </li>
               <li class="nav-group-task">
@@ -2508,7 +2520,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The time a job will stop rollout of the job document to all devices in the target group for a job. The <code>endTime</code> must take place no later than two years from the current time and be scheduled a minimum of thirty minutes from the current time. The minimum duration between <code><a href="../Classes/AWSIoTSchedulingConfig.html#/c:objc(cs)AWSIoTSchedulingConfig(py)startTime">startTime</a></code> and <code>endTime</code> is thirty minutes. The maximum duration between <code><a href="../Classes/AWSIoTSchedulingConfig.html#/c:objc(cs)AWSIoTSchedulingConfig(py)startTime">startTime</a></code> and <code>endTime</code> is two years. The date and time format for the <code>endTime</code> is YYYY-MM-DD for the date and HH:MM for the time.</p>
+                        <p>The time a job will stop rollout of the job document to all devices in the target group for a job. The <code>endTime</code> must take place no later than two years from the current time and be scheduled a minimum of thirty minutes from the current time. The minimum duration between <code><a href="../Classes/AWSIoTSchedulingConfig.html#/c:objc(cs)AWSIoTSchedulingConfig(py)startTime">startTime</a></code> and <code>endTime</code> is thirty minutes. The maximum duration between <code><a href="../Classes/AWSIoTSchedulingConfig.html#/c:objc(cs)AWSIoTSchedulingConfig(py)startTime">startTime</a></code> and <code>endTime</code> is two years. The date and time format for the <code>endTime</code> is YYYY-MM-DD for the date and HH:MM for the time.</p><p>For more information on the syntax for <code>endTime</code> when using an API command or the Command Line Interface, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -2572,7 +2584,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The time a job will begin rollout of the job document to all devices in the target group for a job. The <code>startTime</code> can be scheduled up to a year in advance and must be scheduled a minimum of thirty minutes from the current time. The date and time format for the <code>startTime</code> is YYYY-MM-DD for the date and HH:MM for the time.</p>
+                        <p>The time a job will begin rollout of the job document to all devices in the target group for a job. The <code>startTime</code> can be scheduled up to a year in advance and must be scheduled a minimum of thirty minutes from the current time. The date and time format for the <code>startTime</code> is YYYY-MM-DD for the date and HH:MM for the time.</p><p>For more information on the syntax for <code>startTime</code> when using an API command or the Command Line Interface, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -2596,7 +2608,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-22)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-11-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

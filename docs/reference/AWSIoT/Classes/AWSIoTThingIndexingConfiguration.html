@@ -17,7 +17,7 @@
     <a title="AWSIoTThingIndexingConfiguration Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSIoT 2.33.4 Docs</a> (84% documented)</p>
+        <p><a href="../index.html">AWSIoT 2.33.5 Docs</a> (84% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSIoT.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -974,6 +974,9 @@
                 <a href="../Classes/AWSIoTFleetMetricNameAndArn.html">AWSIoTFleetMetricNameAndArn</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSIoTGeoLocationTarget.html">AWSIoTGeoLocationTarget</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSIoTGetBehaviorModelTrainingSummariesRequest.html">AWSIoTGetBehaviorModelTrainingSummariesRequest</a>
               </li>
               <li class="nav-group-task">
@@ -1164,6 +1167,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTKafkaAction.html">AWSIoTKafkaAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTKafkaActionHeader.html">AWSIoTKafkaActionHeader</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTKeyPair.html">AWSIoTKeyPair</a>
@@ -1575,6 +1581,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTMetricValue.html">AWSIoTMetricValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTMetricsExportConfig.html">AWSIoTMetricsExportConfig</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTMitigationAction.html">AWSIoTMitigationAction</a>
@@ -2397,6 +2406,9 @@
                 <a href="../Enums/AWSIoTStatus.html">AWSIoTStatus</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSIoTTargetFieldOrder.html">AWSIoTTargetFieldOrder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSIoTTargetSelection.html">AWSIoTTargetSelection</a>
               </li>
               <li class="nav-group-task">
@@ -2542,7 +2554,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Provides additional filters for specific data sources. Named shadow is the only data source that currently supports and requires a filter. To add named shadows to your fleet indexing configuration, set <code><a href="../Classes/AWSIoTThingIndexingConfiguration.html#/c:objc(cs)AWSIoTThingIndexingConfiguration(py)namedShadowIndexingMode">namedShadowIndexingMode</a></code> to be <code>ON</code> and specify your shadow names in <code>filter</code>.</p>
+                        <p><p>Provides additional selections for named shadows and geolocation data. </p><p>To add named shadows to your fleet indexing configuration, set <code><a href="../Classes/AWSIoTThingIndexingConfiguration.html#/c:objc(cs)AWSIoTThingIndexingConfiguration(py)namedShadowIndexingMode">namedShadowIndexingMode</a></code> to be ON and specify your shadow names in <code>namedShadowNames</code> filter.</p><p>To add geolocation data to your fleet indexing configuration: </p><ul><li><p>If you store geolocation data in a class/unnamed shadow, set <code><a href="../Classes/AWSIoTThingIndexingConfiguration.html#/c:objc(cs)AWSIoTThingIndexingConfiguration(py)thingIndexingMode">thingIndexingMode</a></code> to be <code>REGISTRY_AND_SHADOW</code> and specify your geolocation data in <code>geoLocations</code> filter. </p></li><li><p>If you store geolocation data in a named shadow, set <code><a href="../Classes/AWSIoTThingIndexingConfiguration.html#/c:objc(cs)AWSIoTThingIndexingConfiguration(py)namedShadowIndexingMode">namedShadowIndexingMode</a></code> to be <code>ON</code>, add the shadow name in <code>namedShadowNames</code> filter, and specify your geolocation data in <code>geoLocations</code> filter. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html">Managing fleet indexing</a>.</p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -2574,7 +2586,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing service.</p>
+                        <p><p>Contains fields that are indexed and whose types are already known by the Fleet Indexing service. This is an optional field. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html#managed-field">Managed fields</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</p><note><p>You can&rsquo;t modify managed fields by updating fleet indexing configuration.</p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -2694,7 +2706,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-22)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-11-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
