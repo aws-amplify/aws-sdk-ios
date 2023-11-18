@@ -1,31 +1,44 @@
-
 # AWS Mobile SDK for iOS CHANGELOG
 
-## Unreleased
+### Bug Fixes
 
--Features for next release
+- IoT
+  - fix(IoT): Fixing naming collision with SocketRocket
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSCognitoIdentityProvider
+  - AWSConnect
+  - AWSConnectParticipant
+  - AWSElasticLoadBalancingv2
+  - AWSEC2
+  - AWSFirehose
+  - AWSPolly
+  - AWSIoT
+  - AWSLambda
 
 ## 2.33.4
 
 ### Misc. Updates
 
 - Model updates for the following services
- - AWSDynamoDB
- - AWSEC2
- - AWSSTS
- - AWSLambda
- - AWSPolly
- - AWSSES
- - AWSEC2
- - AWSConnect
- - AWSElasticLoadBalancingv2
- - AWSKinesisVideo
- - AWSRekognition
- - AWSKinesisVideoArchivedMedia
- - AWSAutoScaling
- - AWSCognitoIdentityProvider
- - AWSPinpoint
- - AWSSQS
+  - AWSDynamoDB
+  - AWSEC2
+  - AWSSTS
+  - AWSLambda
+  - AWSPolly
+  - AWSSES
+  - AWSEC2
+  - AWSConnect
+  - AWSElasticLoadBalancingv2
+  - AWSKinesisVideo
+  - AWSRekognition
+  - AWSKinesisVideoArchivedMedia
+  - AWSAutoScaling
+  - AWSCognitoIdentityProvider
+  - AWSPinpoint
+  - AWSSQS
 
 ## 2.33.3
 
@@ -33,7 +46,7 @@
 - **AWSCore**
   - Support for `il-central-1` - Israel (Tel Aviv) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
 
-## 2.33.2  
+## 2.33.2
 
 ### Bug Fixes
 - **AWSAuthUI**
@@ -86,7 +99,7 @@
 ### Bug Fixes
 - **AWSAuthUI**
   - Fix ability to hide keyboard in `AWSSignInViewController`, using `keyboardDismissMode`
-  - Fix black navigation bar in `AWSSignInViewController`, using view controllers option to 'Extend edges Under Opaque Bars'.  
+  - Fix black navigation bar in `AWSSignInViewController`, using view controllers option to 'Extend edges Under Opaque Bars'.
    [Issue #2321](https://github.com/aws-amplify/aws-sdk-ios/issues/2321)
 
 ## 2.33.0
@@ -120,7 +133,7 @@
 
 ### Bug Fixes
 - **AWSS3**
-  - Increase speed of foreground uploads by specifying `NetworkServiceType`   
+  - Increase speed of foreground uploads by specifying `NetworkServiceType`
 
 ## 2.31.0
 
@@ -128,7 +141,7 @@
 
 - **AWSMobileClient**
   - Handling AWSMobileClient state issues gracefully handled gracefully
-  
+
 - **AWSIot**
   - Include the certificate tag in Keychain query to look up identity
 
@@ -139,7 +152,7 @@
   - AWSComprehend
   - AWSConnect
   - AWSDynamoDB
-  - AWSEC2  
+  - AWSEC2
   - AWSIoT
   - AWSLambda
   - AWSLocation
@@ -177,7 +190,7 @@
 
 - **AWSS3**
     - Fixing the integration tests by using correct value for AWSS3ServerSideEncryption (See [PR #4592](https://github.com/aws-amplify/aws-sdk-ios/pull/4592))
-    
+
 - Model updates for the following services
   - AWSEC2
   - AWSKMS

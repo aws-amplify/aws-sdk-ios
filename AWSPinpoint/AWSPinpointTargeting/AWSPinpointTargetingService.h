@@ -2450,7 +2450,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)putEvents:(AWSPinpointTargetingPutEventsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingPutEventsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes one or more attributes, of the same attribute type, from all the endpoints that are associated with an application.</p>
+ <p>Removes one or more custom attributes, of the same attribute type, from the application. Existing endpoints still have the attributes but Amazon Pinpoint will stop capturing new or changed values for these attributes.</p>
  
  @param request A container for the necessary parameters to execute the RemoveAttributes service method.
 
@@ -2462,7 +2462,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingRemoveAttributesResponse *> *)removeAttributes:(AWSPinpointTargetingRemoveAttributesRequest *)request;
 
 /**
- <p>Removes one or more attributes, of the same attribute type, from all the endpoints that are associated with an application.</p>
+ <p>Removes one or more custom attributes, of the same attribute type, from the application. Existing endpoints still have the attributes but Amazon Pinpoint will stop capturing new or changed values for these attributes.</p>
  
  @param request A container for the necessary parameters to execute the RemoveAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.

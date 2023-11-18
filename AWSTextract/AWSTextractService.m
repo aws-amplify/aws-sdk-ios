@@ -25,7 +25,7 @@
 #import "AWSTextractResources.h"
 
 static NSString *const AWSInfoTextract = @"Textract";
-NSString *const AWSTextractSDKVersion = @"2.33.4";
+NSString *const AWSTextractSDKVersion = @"2.33.5";
 
 
 @interface AWSTextractResponseSerializer : AWSJSONResponseSerializer
@@ -41,6 +41,7 @@ static NSDictionary *errorCodeDictionary = nil;
     errorCodeDictionary = @{
                             @"AccessDeniedException" : @(AWSTextractErrorAccessDenied),
                             @"BadDocumentException" : @(AWSTextractErrorBadDocument),
+                            @"ConflictException" : @(AWSTextractErrorConflict),
                             @"DocumentTooLargeException" : @(AWSTextractErrorDocumentTooLarge),
                             @"HumanLoopQuotaExceededException" : @(AWSTextractErrorHumanLoopQuotaExceeded),
                             @"IdempotentParameterMismatchException" : @(AWSTextractErrorIdempotentParameterMismatch),
@@ -51,8 +52,11 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidS3ObjectException" : @(AWSTextractErrorInvalidS3Object),
                             @"LimitExceededException" : @(AWSTextractErrorLimitExceeded),
                             @"ProvisionedThroughputExceededException" : @(AWSTextractErrorProvisionedThroughputExceeded),
+                            @"ResourceNotFoundException" : @(AWSTextractErrorResourceNotFound),
+                            @"ServiceQuotaExceededException" : @(AWSTextractErrorServiceQuotaExceeded),
                             @"ThrottlingException" : @(AWSTextractErrorThrottling),
                             @"UnsupportedDocumentException" : @(AWSTextractErrorUnsupportedDocument),
+                            @"ValidationException" : @(AWSTextractErrorValidation),
                             };
 }
 
@@ -356,6 +360,98 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSTextractCreateAdapterResponse *> *)createAdapter:(AWSTextractCreateAdapterRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Textract"
+                 operationName:@"CreateAdapter"
+                   outputClass:[AWSTextractCreateAdapterResponse class]];
+}
+
+- (void)createAdapter:(AWSTextractCreateAdapterRequest *)request
+     completionHandler:(void (^)(AWSTextractCreateAdapterResponse *response, NSError *error))completionHandler {
+    [[self createAdapter:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractCreateAdapterResponse *> * _Nonnull task) {
+        AWSTextractCreateAdapterResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTextractCreateAdapterVersionResponse *> *)createAdapterVersion:(AWSTextractCreateAdapterVersionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Textract"
+                 operationName:@"CreateAdapterVersion"
+                   outputClass:[AWSTextractCreateAdapterVersionResponse class]];
+}
+
+- (void)createAdapterVersion:(AWSTextractCreateAdapterVersionRequest *)request
+     completionHandler:(void (^)(AWSTextractCreateAdapterVersionResponse *response, NSError *error))completionHandler {
+    [[self createAdapterVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractCreateAdapterVersionResponse *> * _Nonnull task) {
+        AWSTextractCreateAdapterVersionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTextractDeleteAdapterResponse *> *)deleteAdapter:(AWSTextractDeleteAdapterRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Textract"
+                 operationName:@"DeleteAdapter"
+                   outputClass:[AWSTextractDeleteAdapterResponse class]];
+}
+
+- (void)deleteAdapter:(AWSTextractDeleteAdapterRequest *)request
+     completionHandler:(void (^)(AWSTextractDeleteAdapterResponse *response, NSError *error))completionHandler {
+    [[self deleteAdapter:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractDeleteAdapterResponse *> * _Nonnull task) {
+        AWSTextractDeleteAdapterResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTextractDeleteAdapterVersionResponse *> *)deleteAdapterVersion:(AWSTextractDeleteAdapterVersionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Textract"
+                 operationName:@"DeleteAdapterVersion"
+                   outputClass:[AWSTextractDeleteAdapterVersionResponse class]];
+}
+
+- (void)deleteAdapterVersion:(AWSTextractDeleteAdapterVersionRequest *)request
+     completionHandler:(void (^)(AWSTextractDeleteAdapterVersionResponse *response, NSError *error))completionHandler {
+    [[self deleteAdapterVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractDeleteAdapterVersionResponse *> * _Nonnull task) {
+        AWSTextractDeleteAdapterVersionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSTextractDetectDocumentTextResponse *> *)detectDocumentText:(AWSTextractDetectDocumentTextRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -369,6 +465,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSTextractDetectDocumentTextResponse *response, NSError *error))completionHandler {
     [[self detectDocumentText:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractDetectDocumentTextResponse *> * _Nonnull task) {
         AWSTextractDetectDocumentTextResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTextractGetAdapterResponse *> *)getAdapter:(AWSTextractGetAdapterRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Textract"
+                 operationName:@"GetAdapter"
+                   outputClass:[AWSTextractGetAdapterResponse class]];
+}
+
+- (void)getAdapter:(AWSTextractGetAdapterRequest *)request
+     completionHandler:(void (^)(AWSTextractGetAdapterResponse *response, NSError *error))completionHandler {
+    [[self getAdapter:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractGetAdapterResponse *> * _Nonnull task) {
+        AWSTextractGetAdapterResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTextractGetAdapterVersionResponse *> *)getAdapterVersion:(AWSTextractGetAdapterVersionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Textract"
+                 operationName:@"GetAdapterVersion"
+                   outputClass:[AWSTextractGetAdapterVersionResponse class]];
+}
+
+- (void)getAdapterVersion:(AWSTextractGetAdapterVersionRequest *)request
+     completionHandler:(void (^)(AWSTextractGetAdapterVersionResponse *response, NSError *error))completionHandler {
+    [[self getAdapterVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractGetAdapterVersionResponse *> * _Nonnull task) {
+        AWSTextractGetAdapterVersionResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -494,6 +636,75 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSTextractListAdapterVersionsResponse *> *)listAdapterVersions:(AWSTextractListAdapterVersionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Textract"
+                 operationName:@"ListAdapterVersions"
+                   outputClass:[AWSTextractListAdapterVersionsResponse class]];
+}
+
+- (void)listAdapterVersions:(AWSTextractListAdapterVersionsRequest *)request
+     completionHandler:(void (^)(AWSTextractListAdapterVersionsResponse *response, NSError *error))completionHandler {
+    [[self listAdapterVersions:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractListAdapterVersionsResponse *> * _Nonnull task) {
+        AWSTextractListAdapterVersionsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTextractListAdaptersResponse *> *)listAdapters:(AWSTextractListAdaptersRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Textract"
+                 operationName:@"ListAdapters"
+                   outputClass:[AWSTextractListAdaptersResponse class]];
+}
+
+- (void)listAdapters:(AWSTextractListAdaptersRequest *)request
+     completionHandler:(void (^)(AWSTextractListAdaptersResponse *response, NSError *error))completionHandler {
+    [[self listAdapters:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractListAdaptersResponse *> * _Nonnull task) {
+        AWSTextractListAdaptersResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTextractListTagsForResourceResponse *> *)listTagsForResource:(AWSTextractListTagsForResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Textract"
+                 operationName:@"ListTagsForResource"
+                   outputClass:[AWSTextractListTagsForResourceResponse class]];
+}
+
+- (void)listTagsForResource:(AWSTextractListTagsForResourceRequest *)request
+     completionHandler:(void (^)(AWSTextractListTagsForResourceResponse *response, NSError *error))completionHandler {
+    [[self listTagsForResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractListTagsForResourceResponse *> * _Nonnull task) {
+        AWSTextractListTagsForResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSTextractStartDocumentAnalysisResponse *> *)startDocumentAnalysis:(AWSTextractStartDocumentAnalysisRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -576,6 +787,75 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSTextractStartLendingAnalysisResponse *response, NSError *error))completionHandler {
     [[self startLendingAnalysis:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractStartLendingAnalysisResponse *> * _Nonnull task) {
         AWSTextractStartLendingAnalysisResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTextractTagResourceResponse *> *)tagResource:(AWSTextractTagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Textract"
+                 operationName:@"TagResource"
+                   outputClass:[AWSTextractTagResourceResponse class]];
+}
+
+- (void)tagResource:(AWSTextractTagResourceRequest *)request
+     completionHandler:(void (^)(AWSTextractTagResourceResponse *response, NSError *error))completionHandler {
+    [[self tagResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractTagResourceResponse *> * _Nonnull task) {
+        AWSTextractTagResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTextractUntagResourceResponse *> *)untagResource:(AWSTextractUntagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Textract"
+                 operationName:@"UntagResource"
+                   outputClass:[AWSTextractUntagResourceResponse class]];
+}
+
+- (void)untagResource:(AWSTextractUntagResourceRequest *)request
+     completionHandler:(void (^)(AWSTextractUntagResourceResponse *response, NSError *error))completionHandler {
+    [[self untagResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractUntagResourceResponse *> * _Nonnull task) {
+        AWSTextractUntagResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTextractUpdateAdapterResponse *> *)updateAdapter:(AWSTextractUpdateAdapterRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Textract"
+                 operationName:@"UpdateAdapter"
+                   outputClass:[AWSTextractUpdateAdapterResponse class]];
+}
+
+- (void)updateAdapter:(AWSTextractUpdateAdapterRequest *)request
+     completionHandler:(void (^)(AWSTextractUpdateAdapterResponse *response, NSError *error))completionHandler {
+    [[self updateAdapter:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractUpdateAdapterResponse *> * _Nonnull task) {
+        AWSTextractUpdateAdapterResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

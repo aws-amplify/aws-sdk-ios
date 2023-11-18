@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -62,10 +62,22 @@ typedef NS_ENUM(NSInteger, AWSFirehoseCompressionFormat) {
     AWSFirehoseCompressionFormatHadoopSnappy,
 };
 
+typedef NS_ENUM(NSInteger, AWSFirehoseConnectivity) {
+    AWSFirehoseConnectivityUnknown,
+    AWSFirehoseConnectivityPublic,
+    AWSFirehoseConnectivityPrivate,
+};
+
 typedef NS_ENUM(NSInteger, AWSFirehoseContentEncoding) {
     AWSFirehoseContentEncodingUnknown,
     AWSFirehoseContentEncodingNone,
     AWSFirehoseContentEncodingGzip,
+};
+
+typedef NS_ENUM(NSInteger, AWSFirehoseDefaultDocumentIdFormat) {
+    AWSFirehoseDefaultDocumentIdFormatUnknown,
+    AWSFirehoseDefaultDocumentIdFormatFirehoseDefault,
+    AWSFirehoseDefaultDocumentIdFormatNoDocumentId,
 };
 
 typedef NS_ENUM(NSInteger, AWSFirehoseDeliveryStreamEncryptionStatus) {
@@ -110,6 +122,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseDeliveryStreamType) {
     AWSFirehoseDeliveryStreamTypeUnknown,
     AWSFirehoseDeliveryStreamTypeDirectPut,
     AWSFirehoseDeliveryStreamTypeKinesisStreamAsSource,
+    AWSFirehoseDeliveryStreamTypeMSKAsSource,
 };
 
 typedef NS_ENUM(NSInteger, AWSFirehoseElasticsearchIndexRotationPeriod) {
@@ -187,11 +200,13 @@ typedef NS_ENUM(NSInteger, AWSFirehoseProcessorParameterName) {
     AWSFirehoseProcessorParameterNameBufferIntervalInSeconds,
     AWSFirehoseProcessorParameterNameSubRecordType,
     AWSFirehoseProcessorParameterNameDelimiter,
+    AWSFirehoseProcessorParameterNameCompressionFormat,
 };
 
 typedef NS_ENUM(NSInteger, AWSFirehoseProcessorType) {
     AWSFirehoseProcessorTypeUnknown,
     AWSFirehoseProcessorTypeRecordDeAggregation,
+    AWSFirehoseProcessorTypeDecompression,
     AWSFirehoseProcessorTypeLambda,
     AWSFirehoseProcessorTypeMetadataExtraction,
     AWSFirehoseProcessorTypeAppendDelimiterToRecord,
@@ -225,6 +240,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @class AWSFirehoseAmazonopensearchserviceDestinationDescription;
 @class AWSFirehoseAmazonopensearchserviceDestinationUpdate;
 @class AWSFirehoseAmazonopensearchserviceRetryOptions;
+@class AWSFirehoseAuthenticationConfiguration;
 @class AWSFirehoseBufferingHints;
 @class AWSFirehoseCloudWatchLoggingOptions;
 @class AWSFirehoseReplicateCommand;
@@ -240,6 +256,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @class AWSFirehoseDescribeDeliveryStreamOutput;
 @class AWSFirehoseDeserializer;
 @class AWSFirehoseDestinationDescription;
+@class AWSFirehoseDocumentIdOptions;
 @class AWSFirehoseDynamicPartitioningConfiguration;
 @class AWSFirehoseElasticsearchBufferingHints;
 @class AWSFirehoseElasticsearchDestinationConfiguration;
@@ -269,6 +286,8 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @class AWSFirehoseListDeliveryStreamsOutput;
 @class AWSFirehoseListTagsForDeliveryStreamInput;
 @class AWSFirehoseListTagsForDeliveryStreamOutput;
+@class AWSFirehoseMSKSourceConfiguration;
+@class AWSFirehoseMSKSourceDescription;
 @class AWSFirehoseOpenXJsonSerDe;
 @class AWSFirehoseOrcSerDe;
 @class AWSFirehoseOutputFormatConfiguration;
@@ -382,7 +401,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) AWSFirehoseS3DestinationConfiguration * _Nullable s3Configuration;
 
 /**
- <p>The details of the VPC of the Amazon ES destination.</p>
+ <p>The details of the VPC of the Amazon OpenSearch or Amazon OpenSearch Serverless destination.</p>
  */
 @property (nonatomic, strong) AWSFirehoseVpcConfiguration * _Nullable vpcConfiguration;
 
@@ -425,7 +444,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) AWSFirehoseAmazonOpenSearchServerlessRetryOptions * _Nullable retryOptions;
 
 /**
- <p>The Amazon Resource Name (ARN) of the AWS credentials.</p>
+ <p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable roleARN;
 
@@ -548,6 +567,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) NSString * _Nullable clusterEndpoint;
 
 /**
+ <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data Firehose generated document ID and OpenSearch Service generated document ID.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseDocumentIdOptions * _Nullable documentIdOptions;
+
+/**
  <p>The ARN of the Amazon OpenSearch Service domain. The IAM role must have permissions for DescribeElasticsearchDomain, DescribeElasticsearchDomains, and DescribeElasticsearchDomainConfig after assuming the role specified in RoleARN. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable domainARN;
@@ -593,7 +617,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) NSString * _Nullable typeName;
 
 /**
- <p>The details of the VPC of the Amazon ES destination.</p>
+ <p>The details of the VPC of the Amazon OpenSearch or Amazon OpenSearch Serverless destination.</p>
  */
 @property (nonatomic, strong) AWSFirehoseVpcConfiguration * _Nullable vpcConfiguration;
 
@@ -619,6 +643,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>The endpoint to use when communicating with the cluster. Kinesis Data Firehose uses either this ClusterEndpoint or the DomainARN field to send data to Amazon OpenSearch Service. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable clusterEndpoint;
+
+/**
+ <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data Firehose generated document ID and OpenSearch Service generated document ID.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseDocumentIdOptions * _Nullable documentIdOptions;
 
 /**
  <p>The ARN of the Amazon OpenSearch Service domain.</p>
@@ -694,6 +723,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) NSString * _Nullable clusterEndpoint;
 
 /**
+ <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data Firehose generated document ID and OpenSearch Service generated document ID.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseDocumentIdOptions * _Nullable documentIdOptions;
+
+/**
  <p>The ARN of the Amazon OpenSearch Service domain. The IAM role must have permissions for DescribeDomain, DescribeDomains, and DescribeDomainConfig after assuming the IAM role specified in RoleARN.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable domainARN;
@@ -745,6 +779,25 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>After an initial failure to deliver to Amazon OpenSearch Service, the total amount of time during which Kinesis Data Firehose retries delivery (including the first attempt). After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable durationInSeconds;
+
+@end
+
+/**
+ <p>The authentication configuration of the Amazon MSK cluster.</p>
+ Required parameters: [RoleARN, Connectivity]
+ */
+@interface AWSFirehoseAuthenticationConfiguration : AWSModel
+
+
+/**
+ <p>The type of connectivity used to access the Amazon MSK cluster.</p>
+ */
+@property (nonatomic, assign) AWSFirehoseConnectivity connectivity;
+
+/**
+ <p>The ARN of the role used to access the Amazon MSK cluster.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleARN;
 
 @end
 
@@ -863,6 +916,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>When a Kinesis data stream is used as the source for the delivery stream, a <a>KinesisStreamSourceConfiguration</a> containing the Kinesis data stream Amazon Resource Name (ARN) and the role ARN for the source stream.</p>
  */
 @property (nonatomic, strong) AWSFirehoseKinesisStreamSourceConfiguration * _Nullable kinesisStreamSourceConfiguration;
+
+/**
+ <p>The configuration for the Amazon MSK cluster to be used as the source for a delivery stream.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseMSKSourceConfiguration * _Nullable MSKSourceConfiguration;
 
 /**
  <p>The destination in Amazon Redshift. You can specify only one destination.</p>
@@ -1178,6 +1236,20 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @end
 
 /**
+ <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data Firehose generated document ID and OpenSearch Service generated document ID.</p><p/>
+ Required parameters: [DefaultDocumentIdFormat]
+ */
+@interface AWSFirehoseDocumentIdOptions : AWSModel
+
+
+/**
+ <p>When the <code>FIREHOSE_DEFAULT</code> option is chosen, Kinesis Data Firehose generates a unique document ID for each record based on a unique internal identifier. The generated document ID is stable across multiple delivery attempts, which helps prevent the same record from being indexed multiple times with different document IDs.</p><p>When the <code>NO_DOCUMENT_ID</code> option is chosen, Kinesis Data Firehose does not include any document IDs in the requests it sends to the Amazon OpenSearch Service. This causes the Amazon OpenSearch Service domain to generate document IDs. In case of multiple delivery attempts, this may cause the same record to be indexed more than once with different document IDs. This option enables write-heavy operations, such as the ingestion of logs and observability data, to consume less resources in the Amazon OpenSearch Service domain, resulting in improved performance.</p>
+ */
+@property (nonatomic, assign) AWSFirehoseDefaultDocumentIdFormat defaultDocumentIdFormat;
+
+@end
+
+/**
  <p>The configuration of the dynamic partitioning mechanism that creates smaller data sets from the streaming data by partitioning it based on partition keys. Currently, dynamic partitioning is only supported for Amazon S3 destinations. </p>
  */
 @interface AWSFirehoseDynamicPartitioningConfiguration : AWSModel
@@ -1236,6 +1308,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) NSString * _Nullable clusterEndpoint;
 
 /**
+ <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data Firehose generated document ID and OpenSearch Service generated document ID.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseDocumentIdOptions * _Nullable documentIdOptions;
+
+/**
  <p>The ARN of the Amazon ES domain. The IAM role must have permissions for <code>DescribeDomain</code>, <code>DescribeDomains</code>, and <code>DescribeDomainConfig</code> after assuming the role specified in <b>RoleARN</b>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p><p>Specify either <code>ClusterEndpoint</code> or <code>DomainARN</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable domainARN;
@@ -1281,7 +1358,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) NSString * _Nullable typeName;
 
 /**
- <p>The details of the VPC of the Amazon ES destination.</p>
+ <p>The details of the VPC of the Amazon destination.</p>
  */
 @property (nonatomic, strong) AWSFirehoseVpcConfiguration * _Nullable vpcConfiguration;
 
@@ -1307,6 +1384,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>The endpoint to use when communicating with the cluster. Kinesis Data Firehose uses either this <code>ClusterEndpoint</code> or the <code>DomainARN</code> field to send data to Amazon ES.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clusterEndpoint;
+
+/**
+ <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data Firehose generated document ID and OpenSearch Service generated document ID.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseDocumentIdOptions * _Nullable documentIdOptions;
 
 /**
  <p>The ARN of the Amazon ES domain. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p><p>Kinesis Data Firehose uses either <code>ClusterEndpoint</code> or <code>DomainARN</code> to send data to Amazon ES.</p>
@@ -1354,7 +1436,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) NSString * _Nullable typeName;
 
 /**
- <p>The details of the VPC of the Amazon ES destination.</p>
+ <p>The details of the VPC of the Amazon OpenSearch or the Amazon OpenSearch Serverless destination.</p>
  */
 @property (nonatomic, strong) AWSFirehoseVpcConfigurationDescription * _Nullable vpcConfigurationDescription;
 
@@ -1380,6 +1462,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>The endpoint to use when communicating with the cluster. Specify either this <code>ClusterEndpoint</code> or the <code>DomainARN</code> field.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clusterEndpoint;
+
+/**
+ <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data Firehose generated document ID and OpenSearch Service generated document ID.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseDocumentIdOptions * _Nullable documentIdOptions;
 
 /**
  <p>The ARN of the Amazon ES domain. The IAM role must have permissions for <code>DescribeDomain</code>, <code>DescribeDomains</code>, and <code>DescribeDomainConfig</code> after assuming the IAM role specified in <code>RoleARN</code>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p><p>Specify either <code>ClusterEndpoint</code> or <code>DomainARN</code>.</p>
@@ -2129,6 +2216,58 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @end
 
 /**
+ <p>The configuration for the Amazon MSK cluster to be used as the source for a delivery stream.</p>
+ Required parameters: [MSKClusterARN, TopicName, AuthenticationConfiguration]
+ */
+@interface AWSFirehoseMSKSourceConfiguration : AWSModel
+
+
+/**
+ <p>The authentication configuration of the Amazon MSK cluster.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseAuthenticationConfiguration * _Nullable authenticationConfiguration;
+
+/**
+ <p>The ARN of the Amazon MSK cluster.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable MSKClusterARN;
+
+/**
+ <p>The topic name within the Amazon MSK cluster. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable topicName;
+
+@end
+
+/**
+ <p>Details about the Amazon MSK cluster used as the source for a Kinesis Data Firehose delivery stream.</p>
+ */
+@interface AWSFirehoseMSKSourceDescription : AWSModel
+
+
+/**
+ <p>The authentication configuration of the Amazon MSK cluster.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseAuthenticationConfiguration * _Nullable authenticationConfiguration;
+
+/**
+ <p>Kinesis Data Firehose starts retrieving records from the topic within the Amazon MSK cluster starting with this timestamp.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable deliveryStartTimestamp;
+
+/**
+ <p>The ARN of the Amazon MSK cluster.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable MSKClusterARN;
+
+/**
+ <p>The topic name within the Amazon MSK cluster.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable topicName;
+
+@end
+
+/**
  <p>The OpenX SerDe. Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the native Hive / HCatalog JsonSerDe.</p>
  */
 @interface AWSFirehoseOpenXJsonSerDe : AWSModel
@@ -2855,6 +2994,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  */
 @property (nonatomic, strong) AWSFirehoseKinesisStreamSourceDescription * _Nullable kinesisStreamSourceDescription;
 
+/**
+ <p>The configuration description for the Amazon MSK cluster to be used as the source for a delivery stream.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseMSKSourceDescription * _Nullable MSKSourceDescription;
+
 @end
 
 /**
@@ -3220,7 +3364,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @end
 
 /**
- <p>The details of the VPC of the Amazon ES destination.</p>
+ <p>The details of the VPC of the Amazon OpenSearch or Amazon OpenSearch Serverless destination.</p>
  Required parameters: [SubnetIds, RoleARN, SecurityGroupIds]
  */
 @interface AWSFirehoseVpcConfiguration : AWSModel
