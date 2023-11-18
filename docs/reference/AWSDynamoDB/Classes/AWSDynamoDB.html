@@ -17,7 +17,7 @@
     <a title="AWSDynamoDB Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSDynamoDB 2.33.4 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSDynamoDB 2.33.5 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSDynamoDB.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -348,6 +348,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBImportTableOutput.html">AWSDynamoDBImportTableOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBIncrementalExportSpecification.html">AWSDynamoDBIncrementalExportSpecification</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBInputFormatOptions.html">AWSDynamoDBInputFormatOptions</a>
@@ -739,6 +742,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSDynamoDBExportStatus.html">AWSDynamoDBExportStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSDynamoDBExportType.html">AWSDynamoDBExportType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSDynamoDBExportViewType.html">AWSDynamoDBExportViewType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSDynamoDBGlobalTableStatus.html">AWSDynamoDBGlobalTableStatus</a>
@@ -5334,7 +5343,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>List backups associated with an Amazon Web Services account. To list backups for a given table, specify <code>TableName</code>. <code>ListBackups</code> returns a paginated list of results with at most 1 MB worth of items in a page. You can also specify a maximum number of entries to be returned in a page.</p><p>In the request, start time is inclusive, but end time is exclusive. Note that these boundaries are for the time at which the original backup was requested.</p><p>You can call <code>ListBackups</code> a maximum of five times per second.</p>
+                        <p>List DynamoDB backups that are associated with an Amazon Web Services account and weren&rsquo;t made with Amazon Web Services Backup. To list these backups for a given table, specify <code>TableName</code>. <code>ListBackups</code> returns a paginated list of results with at most 1 MB worth of items in a page. You can also specify a maximum number of entries to be returned in a page.</p><p>In the request, start time is inclusive, but end time is exclusive. Note that these boundaries are for the time at which the original backup was requested.</p><p>You can call <code>ListBackups</code> a maximum of five times per second.</p><p>If you want to retrieve the complete list of backups made with Amazon Web Services Backup, use the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListBackupJobs.html">Amazon Web Services Backup list API.</a></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSDynamoDBListBackupsInput</p>
@@ -5398,7 +5407,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>List backups associated with an Amazon Web Services account. To list backups for a given table, specify <code>TableName</code>. <code>ListBackups</code> returns a paginated list of results with at most 1 MB worth of items in a page. You can also specify a maximum number of entries to be returned in a page.</p><p>In the request, start time is inclusive, but end time is exclusive. Note that these boundaries are for the time at which the original backup was requested.</p><p>You can call <code>ListBackups</code> a maximum of five times per second.</p>
+                        <p>List DynamoDB backups that are associated with an Amazon Web Services account and weren&rsquo;t made with Amazon Web Services Backup. To list these backups for a given table, specify <code>TableName</code>. <code>ListBackups</code> returns a paginated list of results with at most 1 MB worth of items in a page. You can also specify a maximum number of entries to be returned in a page.</p><p>In the request, start time is inclusive, but end time is exclusive. Note that these boundaries are for the time at which the original backup was requested.</p><p>You can call <code>ListBackups</code> a maximum of five times per second.</p><p>If you want to retrieve the complete list of backups made with Amazon Web Services Backup, use the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListBackupJobs.html">Amazon Web Services Backup list API.</a></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSDynamoDBListBackupsInput</p>
@@ -8705,7 +8714,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-22)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-11-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
