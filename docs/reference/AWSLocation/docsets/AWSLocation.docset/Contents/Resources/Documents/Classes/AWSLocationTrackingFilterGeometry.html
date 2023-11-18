@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSLocationGeofenceGeometry Class Reference</title>
+    <title>AWSLocationTrackingFilterGeometry Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSLocationGeofenceGeometry" class="dashAnchor"></a>
-    <a title="AWSLocationGeofenceGeometry Class Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSLocationTrackingFilterGeometry" class="dashAnchor"></a>
+    <a title="AWSLocationTrackingFilterGeometry Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSLocation 2.33.5 Docs</a> (90% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSLocation Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSLocationGeofenceGeometry Class Reference
+        AWSLocationTrackingFilterGeometry Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -606,20 +606,20 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSLocationGeofenceGeometry</h1>
+            <h1>AWSLocationTrackingFilterGeometry</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationGeofenceGeometry</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationTrackingFilterGeometry</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationGeofenceGeometry</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationTrackingFilterGeometry</span></code></pre>
 
                 </div>
               </div>
-            <p><p>Contains the geofence geometry details.</p><p>A geofence geometry is made up of either a polygon or a circle. Can be either a polygon or a circle. Including both will return a validation error.</p><note><p>Amazon Location doesn&rsquo;t currently support polygons with holes, multipolygons, polygons that are wound clockwise, or that cross the antimeridian. </p></note></p>
+            <p>The geomerty used to filter device positions.</p>
 
           </section>
           <section class="section task-group-section">
@@ -628,41 +628,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSLocationGeofenceGeometry(py)circle"></a>
-                    <a name="//apple_ref/objc/Property/circle" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLocationGeofenceGeometry(py)circle">circle</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A circle on the earth, as defined by a center point and a radius.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSLocationCircle.html">AWSLocationCircle</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">circle</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">circle</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationCircle.html">AWSLocationCircle</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)AWSLocationGeofenceGeometry(py)polygon"></a>
+                    <a name="/c:objc(cs)AWSLocationTrackingFilterGeometry(py)polygon"></a>
                     <a name="//apple_ref/objc/Property/polygon" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLocationGeofenceGeometry(py)polygon">polygon</a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationTrackingFilterGeometry(py)polygon">polygon</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -670,7 +638,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A polygon is a list of linear rings which are each made up of a list of vertices.</p><p>Each vertex is a 2-dimensional point of the form: <code>[longitude, latitude]</code>. This is represented as an array of doubles of length 2 (so <code>[double, double]</code>).</p><p>An array of 4 or more vertices, where the first and last vertex are the same (to form a closed boundary), is called a linear ring. The linear ring vertices must be listed in counter-clockwise order around the ring’s interior. The linear ring is represented as an array of vertices, or an array of arrays of doubles (<code>[[double, double], ...]</code>).</p><p>A geofence consists of a single linear ring. To allow for future expansion, the Polygon parameter takes an array of linear rings, which is represented as an array of arrays of arrays of doubles (<code>[[[double, double], ...], ...]</code>).</p><p>A linear ring for use in geofences can consist of between 4 and 1,000 vertices.</p>
+                        <p>The set of arrays which define the polygon. A polygon can have between 4 and 1000 vertices.</p>
 
                       </div>
                       <div class="declaration">
