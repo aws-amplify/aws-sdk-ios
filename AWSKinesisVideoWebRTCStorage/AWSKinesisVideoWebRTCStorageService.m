@@ -25,7 +25,7 @@
 #import "AWSKinesisVideoWebRTCStorageResources.h"
 
 static NSString *const AWSInfoKinesisVideoWebRTCStorage = @"KinesisVideoWebRTCStorage";
-NSString *const AWSKinesisVideoWebRTCStorageSDKVersion = @"2.33.4";
+NSString *const AWSKinesisVideoWebRTCStorageSDKVersion = @"2.33.5";
 
 
 @interface AWSKinesisVideoWebRTCStorageResponseSerializer : AWSJSONResponseSerializer
