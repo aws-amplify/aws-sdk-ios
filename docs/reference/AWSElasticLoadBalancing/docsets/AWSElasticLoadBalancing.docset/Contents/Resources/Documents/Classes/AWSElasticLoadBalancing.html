@@ -17,7 +17,7 @@
     <a title="AWSElasticLoadBalancing Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSElasticLoadBalancing 2.33.4 Docs</a> (76% documented)</p>
+        <p><a href="../index.html">AWSElasticLoadBalancing 2.33.5 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSElasticLoadBalancing.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -2255,7 +2255,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Deregisters the specified targets from the specified target group. After the targets are deregistered, they no longer receive traffic from the load balancer.</p><p>Note: If the specified target does not exist, the action returns successfully.</p>
+                        <p>Deregisters the specified targets from the specified target group. After the targets are deregistered, they no longer receive traffic from the load balancer.</p><p>The load balancer stops sending requests to targets that are deregistering, but uses connection draining to ensure that in-flight traffic completes on the existing connections. This deregistration delay is configured by default but can be updated for each target group.</p><p>For more information, see the following:</p><ul><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#deregistration-delay"> Deregistration delay</a> in the <i>Application Load Balancers User Guide</i></p></li><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay"> Deregistration delay</a> in the <i>Network Load Balancers User Guide</i></p></li><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-groups.html#deregistration-delay"> Deregistration delay</a> in the <i>Gateway Load Balancers User Guide</i></p></li></ul><p>Note: If the specified target does not exist, the action returns successfully.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSElasticLoadBalancingDeregisterTargetsInput</p>
@@ -2320,7 +2320,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Deregisters the specified targets from the specified target group. After the targets are deregistered, they no longer receive traffic from the load balancer.</p><p>Note: If the specified target does not exist, the action returns successfully.</p>
+                        <p>Deregisters the specified targets from the specified target group. After the targets are deregistered, they no longer receive traffic from the load balancer.</p><p>The load balancer stops sending requests to targets that are deregistering, but uses connection draining to ensure that in-flight traffic completes on the existing connections. This deregistration delay is configured by default but can be updated for each target group.</p><p>For more information, see the following:</p><ul><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#deregistration-delay"> Deregistration delay</a> in the <i>Application Load Balancers User Guide</i></p></li><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay"> Deregistration delay</a> in the <i>Network Load Balancers User Guide</i></p></li><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-groups.html#deregistration-delay"> Deregistration delay</a> in the <i>Gateway Load Balancers User Guide</i></p></li></ul><p>Note: If the specified target does not exist, the action returns successfully.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSElasticLoadBalancingDeregisterTargetsInput</p>
@@ -5578,7 +5578,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Enables the Availability Zones for the specified public subnets for the specified Application Load Balancer or Network Load Balancer. The specified subnets replace the previously enabled subnets.</p><p>When you specify subnets for a Network Load Balancer, you must include all subnets that were enabled previously, with their existing configurations, plus any additional subnets.</p>
+                        <p>Enables the Availability Zones for the specified public subnets for the specified Application Load Balancer, Network Load Balancer or Gateway Load Balancer. The specified subnets replace the previously enabled subnets.</p><p>When you specify subnets for a Network Load Balancer, or Gateway Load Balancer you must include all subnets that were enabled previously, with their existing configurations, plus any additional subnets.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSElasticLoadBalancingSetSubnetsInput</p>
@@ -5642,7 +5642,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Enables the Availability Zones for the specified public subnets for the specified Application Load Balancer or Network Load Balancer. The specified subnets replace the previously enabled subnets.</p><p>When you specify subnets for a Network Load Balancer, you must include all subnets that were enabled previously, with their existing configurations, plus any additional subnets.</p>
+                        <p>Enables the Availability Zones for the specified public subnets for the specified Application Load Balancer, Network Load Balancer or Gateway Load Balancer. The specified subnets replace the previously enabled subnets.</p><p>When you specify subnets for a Network Load Balancer, or Gateway Load Balancer you must include all subnets that were enabled previously, with their existing configurations, plus any additional subnets.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSElasticLoadBalancingSetSubnetsInput</p>
@@ -5711,7 +5711,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-08-22)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-11-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
