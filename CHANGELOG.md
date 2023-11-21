@@ -1,18 +1,15 @@
----
+# AWS Mobile SDK for iOS CHANGELOG
 
-MOVE THIS SECTION TO THE CORRECT LOCATION
+## Unreleased
 
 ### Misc. Updates
 
 - Model updates for the following services
----AWSLocation
----AWSSTS
----AWSKinesisVideo
----AWSConnect
----AWSEC2
-# AWS Mobile SDK for iOS CHANGELOG
-
-## Unreleased
+  - AWSLocation
+  - AWSSTS
+  - AWSKinesisVideo
+  - AWSConnect
+  - AWSEC2
 
 ### Bug Fixes
 
