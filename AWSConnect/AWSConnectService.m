@@ -25,7 +25,7 @@
 #import "AWSConnectResources.h"
 
 static NSString *const AWSInfoConnect = @"Connect";
-NSString *const AWSConnectSDKVersion = @"2.33.4";
+NSString *const AWSConnectSDKVersion = @"2.33.5";
 
 
 @interface AWSConnectResponseSerializer : AWSJSONResponseSerializer
@@ -567,6 +567,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectBatchGetFlowAssociationResponse *> *)batchGetFlowAssociation:(AWSConnectBatchGetFlowAssociationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/flow-associations-batch/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"BatchGetFlowAssociation"
+                   outputClass:[AWSConnectBatchGetFlowAssociationResponse class]];
+}
+
+- (void)batchGetFlowAssociation:(AWSConnectBatchGetFlowAssociationRequest *)request
+     completionHandler:(void (^)(AWSConnectBatchGetFlowAssociationResponse *response, NSError *error))completionHandler {
+    [[self batchGetFlowAssociation:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectBatchGetFlowAssociationResponse *> * _Nonnull task) {
+        AWSConnectBatchGetFlowAssociationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectBatchPutContactResponse *> *)batchPutContact:(AWSConnectBatchPutContactRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/contact/batch/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"BatchPutContact"
+                   outputClass:[AWSConnectBatchPutContactResponse class]];
+}
+
+- (void)batchPutContact:(AWSConnectBatchPutContactRequest *)request
+     completionHandler:(void (^)(AWSConnectBatchPutContactResponse *response, NSError *error))completionHandler {
+    [[self batchPutContact:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectBatchPutContactResponse *> * _Nonnull task) {
+        AWSConnectBatchPutContactResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectClaimPhoneNumberResponse *> *)claimPhoneNumber:(AWSConnectClaimPhoneNumberRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -764,6 +810,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectCreateParticipantResponse *response, NSError *error))completionHandler {
     [[self createParticipant:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectCreateParticipantResponse *> * _Nonnull task) {
         AWSConnectCreateParticipantResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectCreatePersistentContactAssociationResponse *> *)createPersistentContactAssociation:(AWSConnectCreatePersistentContactAssociationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/contact/persistent-contact-association/{InstanceId}/{InitialContactId}"
+                  targetPrefix:@""
+                 operationName:@"CreatePersistentContactAssociation"
+                   outputClass:[AWSConnectCreatePersistentContactAssociationResponse class]];
+}
+
+- (void)createPersistentContactAssociation:(AWSConnectCreatePersistentContactAssociationRequest *)request
+     completionHandler:(void (^)(AWSConnectCreatePersistentContactAssociationResponse *response, NSError *error))completionHandler {
+    [[self createPersistentContactAssociation:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectCreatePersistentContactAssociationResponse *> * _Nonnull task) {
+        AWSConnectCreatePersistentContactAssociationResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

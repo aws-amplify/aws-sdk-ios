@@ -26,7 +26,7 @@
 #import "AWSEC2Serializer.h"
 
 static NSString *const AWSInfoEC2 = @"EC2";
-NSString *const AWSEC2SDKVersion = @"2.33.4";
+NSString *const AWSEC2SDKVersion = @"2.33.5";
 
 
 @interface AWSEC2ResponseSerializer : AWSXMLResponseSerializer
@@ -743,6 +743,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2AssociateInstanceEventWindowResult *response, NSError *error))completionHandler {
     [[self associateInstanceEventWindow:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2AssociateInstanceEventWindowResult *> * _Nonnull task) {
         AWSEC2AssociateInstanceEventWindowResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2AssociateIpamByoasnResult *> *)associateIpamByoasn:(AWSEC2AssociateIpamByoasnRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"AssociateIpamByoasn"
+                   outputClass:[AWSEC2AssociateIpamByoasnResult class]];
+}
+
+- (void)associateIpamByoasn:(AWSEC2AssociateIpamByoasnRequest *)request
+     completionHandler:(void (^)(AWSEC2AssociateIpamByoasnResult *response, NSError *error))completionHandler {
+    [[self associateIpamByoasn:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2AssociateIpamByoasnResult *> * _Nonnull task) {
+        AWSEC2AssociateIpamByoasnResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -5098,6 +5121,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DeprovisionIpamByoasnResult *> *)deprovisionIpamByoasn:(AWSEC2DeprovisionIpamByoasnRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeprovisionIpamByoasn"
+                   outputClass:[AWSEC2DeprovisionIpamByoasnResult class]];
+}
+
+- (void)deprovisionIpamByoasn:(AWSEC2DeprovisionIpamByoasnRequest *)request
+     completionHandler:(void (^)(AWSEC2DeprovisionIpamByoasnResult *response, NSError *error))completionHandler {
+    [[self deprovisionIpamByoasn:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeprovisionIpamByoasnResult *> * _Nonnull task) {
+        AWSEC2DeprovisionIpamByoasnResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DeprovisionIpamPoolCidrResult *> *)deprovisionIpamPoolCidr:(AWSEC2DeprovisionIpamPoolCidrRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -6513,6 +6559,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2DescribeInternetGatewaysResult *response, NSError *error))completionHandler {
     [[self describeInternetGateways:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeInternetGatewaysResult *> * _Nonnull task) {
         AWSEC2DescribeInternetGatewaysResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DescribeIpamByoasnResult *> *)describeIpamByoasn:(AWSEC2DescribeIpamByoasnRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeIpamByoasn"
+                   outputClass:[AWSEC2DescribeIpamByoasnResult class]];
+}
+
+- (void)describeIpamByoasn:(AWSEC2DescribeIpamByoasnRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeIpamByoasnResult *response, NSError *error))completionHandler {
+    [[self describeIpamByoasn:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeIpamByoasnResult *> * _Nonnull task) {
+        AWSEC2DescribeIpamByoasnResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -9232,6 +9301,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DisassociateIpamByoasnResult *> *)disassociateIpamByoasn:(AWSEC2DisassociateIpamByoasnRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DisassociateIpamByoasn"
+                   outputClass:[AWSEC2DisassociateIpamByoasnResult class]];
+}
+
+- (void)disassociateIpamByoasn:(AWSEC2DisassociateIpamByoasnRequest *)request
+     completionHandler:(void (^)(AWSEC2DisassociateIpamByoasnResult *response, NSError *error))completionHandler {
+    [[self disassociateIpamByoasn:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DisassociateIpamByoasnResult *> * _Nonnull task) {
+        AWSEC2DisassociateIpamByoasnResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DisassociateIpamResourceDiscoveryResult *> *)disassociateIpamResourceDiscovery:(AWSEC2DisassociateIpamResourceDiscoveryRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -10323,6 +10415,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2GetIpamDiscoveredAccountsResult *response, NSError *error))completionHandler {
     [[self getIpamDiscoveredAccounts:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetIpamDiscoveredAccountsResult *> * _Nonnull task) {
         AWSEC2GetIpamDiscoveredAccountsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2GetIpamDiscoveredPublicAddressesResult *> *)getIpamDiscoveredPublicAddresses:(AWSEC2GetIpamDiscoveredPublicAddressesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetIpamDiscoveredPublicAddresses"
+                   outputClass:[AWSEC2GetIpamDiscoveredPublicAddressesResult class]];
+}
+
+- (void)getIpamDiscoveredPublicAddresses:(AWSEC2GetIpamDiscoveredPublicAddressesRequest *)request
+     completionHandler:(void (^)(AWSEC2GetIpamDiscoveredPublicAddressesResult *response, NSError *error))completionHandler {
+    [[self getIpamDiscoveredPublicAddresses:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetIpamDiscoveredPublicAddressesResult *> * _Nonnull task) {
+        AWSEC2GetIpamDiscoveredPublicAddressesResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -12729,6 +12844,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2ProvisionByoipCidrResult *response, NSError *error))completionHandler {
     [[self provisionByoipCidr:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ProvisionByoipCidrResult *> * _Nonnull task) {
         AWSEC2ProvisionByoipCidrResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2ProvisionIpamByoasnResult *> *)provisionIpamByoasn:(AWSEC2ProvisionIpamByoasnRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ProvisionIpamByoasn"
+                   outputClass:[AWSEC2ProvisionIpamByoasnResult class]];
+}
+
+- (void)provisionIpamByoasn:(AWSEC2ProvisionIpamByoasnRequest *)request
+     completionHandler:(void (^)(AWSEC2ProvisionIpamByoasnResult *response, NSError *error))completionHandler {
+    [[self provisionIpamByoasn:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ProvisionIpamByoasnResult *> * _Nonnull task) {
+        AWSEC2ProvisionIpamByoasnResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

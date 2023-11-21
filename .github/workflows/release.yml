@@ -166,6 +166,8 @@ jobs:
 
       - name: Post release xcframeworks
         run: |
+          git config user.name aws-amplify-ops
+          git config user.email aws-amplify-ops@amazon.com
           PAT=$(aws secretsmanager get-secret-value \
           --secret-id "${{ secrets.SPM_DEPLOY_SECRET_ARN }}" \
           | jq ".SecretString | fromjson | .Credential" | tr -d '"')
@@ -314,6 +316,8 @@ jobs:
 
       - name: Make version bump commit
         run: |
+          git config user.name aws-amplify-ops
+          git config user.email aws-amplify-ops@amazon.com
           git add version
           git commit -m "bump version ${RELEASE_VERSION}"
           git push origin HEAD:bump_sdk_version
@@ -357,6 +361,8 @@ jobs:
       - name: Checkin documents
         working-directory: ${{ github.workspace }}/gh-pages
         run: |
+          git config user.name aws-amplify-ops
+          git config user.email aws-amplify-ops@amazon.com
           for dirPath in docs/reference/* ; do
             sdkName=$( basename "$dirPath" )
             git add "$dirPath" && git commit -m "Update API documentation for ${sdkName} ${RELEASE_VERSION}"

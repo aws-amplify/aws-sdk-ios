@@ -697,6 +697,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)associateInstanceEventWindow:(AWSEC2AssociateInstanceEventWindowRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AssociateInstanceEventWindowResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Associates your Autonomous System Number (ASN) with a BYOIP CIDR that you own in the same Amazon Web Services Region. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p><p>After the association succeeds, the ASN is eligible for advertisement. You can view the association with <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeByoipCidrs.html">DescribeByoipCidrs</a>. You can advertise the CIDR with <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AdvertiseByoipCidr.html">AdvertiseByoipCidr</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the AssociateIpamByoasn service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2AssociateIpamByoasnResult`.
+ 
+ @see AWSEC2AssociateIpamByoasnRequest
+ @see AWSEC2AssociateIpamByoasnResult
+ */
+- (AWSTask<AWSEC2AssociateIpamByoasnResult *> *)associateIpamByoasn:(AWSEC2AssociateIpamByoasnRequest *)request;
+
+/**
+ <p>Associates your Autonomous System Number (ASN) with a BYOIP CIDR that you own in the same Amazon Web Services Region. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p><p>After the association succeeds, the ASN is eligible for advertisement. You can view the association with <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeByoipCidrs.html">DescribeByoipCidrs</a>. You can advertise the CIDR with <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AdvertiseByoipCidr.html">AdvertiseByoipCidr</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the AssociateIpamByoasn service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2AssociateIpamByoasnRequest
+ @see AWSEC2AssociateIpamByoasnResult
+ */
+- (void)associateIpamByoasn:(AWSEC2AssociateIpamByoasnRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AssociateIpamByoasnResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Associates an IPAM resource discovery with an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
  
  @param request A container for the necessary parameters to execute the AssociateIpamResourceDiscovery service method.
@@ -772,7 +797,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)associateRouteTable:(AWSEC2AssociateRouteTableRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AssociateRouteTableResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Associates a CIDR block with your subnet. You can only associate a single IPv6 CIDR block with your subnet. An IPv6 CIDR block must have a prefix length of /64.</p>
+ <p>Associates a CIDR block with your subnet. You can only associate a single IPv6 CIDR block with your subnet.</p>
  
  @param request A container for the necessary parameters to execute the AssociateSubnetCidrBlock service method.
 
@@ -784,7 +809,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2AssociateSubnetCidrBlockResult *> *)associateSubnetCidrBlock:(AWSEC2AssociateSubnetCidrBlockRequest *)request;
 
 /**
- <p>Associates a CIDR block with your subnet. You can only associate a single IPv6 CIDR block with your subnet. An IPv6 CIDR block must have a prefix length of /64.</p>
+ <p>Associates a CIDR block with your subnet. You can only associate a single IPv6 CIDR block with your subnet.</p>
  
  @param request A container for the necessary parameters to execute the AssociateSubnetCidrBlock service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -872,7 +897,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)associateTransitGatewayRouteTable:(AWSEC2AssociateTransitGatewayRouteTableRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AssociateTransitGatewayRouteTableResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <note><p>This API action is currently in <b>limited preview only</b>. If you are interested in using this feature, contact your account manager.</p></note><p>Associates a branch network interface with a trunk network interface.</p><p>Before you create the association, run the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">create-network-interface</a> command and set <code>--interface-type</code> to <code>trunk</code>. You must also create a network interface for each branch network interface that you want to associate with the trunk network interface.</p>
+ <p>Associates a branch network interface with a trunk network interface.</p><p>Before you create the association, run the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">create-network-interface</a> command and set <code>--interface-type</code> to <code>trunk</code>. You must also create a network interface for each branch network interface that you want to associate with the trunk network interface.</p>
  
  @param request A container for the necessary parameters to execute the AssociateTrunkInterface service method.
 
@@ -884,7 +909,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2AssociateTrunkInterfaceResult *> *)associateTrunkInterface:(AWSEC2AssociateTrunkInterfaceRequest *)request;
 
 /**
- <note><p>This API action is currently in <b>limited preview only</b>. If you are interested in using this feature, contact your account manager.</p></note><p>Associates a branch network interface with a trunk network interface.</p><p>Before you create the association, run the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">create-network-interface</a> command and set <code>--interface-type</code> to <code>trunk</code>. You must also create a network interface for each branch network interface that you want to associate with the trunk network interface.</p>
+ <p>Associates a branch network interface with a trunk network interface.</p><p>Before you create the association, run the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">create-network-interface</a> command and set <code>--interface-type</code> to <code>trunk</code>. You must also create a network interface for each branch network interface that you want to associate with the trunk network interface.</p>
  
  @param request A container for the necessary parameters to execute the AssociateTrunkInterface service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -897,7 +922,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)associateTrunkInterface:(AWSEC2AssociateTrunkInterfaceRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AssociateTrunkInterfaceResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block, an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>). The IPv6 CIDR block size is fixed at /56.</p><p>You must specify one of the following in the request: an IPv4 CIDR block, an IPv6 pool, or an Amazon-provided IPv6 CIDR block.</p><p>For more information about associating CIDR blocks with your VPC and applicable restrictions, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html">IP addressing for your VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+ <p>Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block, an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>). </p><p>You must specify one of the following in the request: an IPv4 CIDR block, an IPv6 pool, or an Amazon-provided IPv6 CIDR block.</p><p>For more information about associating CIDR blocks with your VPC and applicable restrictions, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html">IP addressing for your VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the AssociateVpcCidrBlock service method.
 
@@ -909,7 +934,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2AssociateVpcCidrBlockResult *> *)associateVpcCidrBlock:(AWSEC2AssociateVpcCidrBlockRequest *)request;
 
 /**
- <p>Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block, an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>). The IPv6 CIDR block size is fixed at /56.</p><p>You must specify one of the following in the request: an IPv4 CIDR block, an IPv6 pool, or an Amazon-provided IPv6 CIDR block.</p><p>For more information about associating CIDR blocks with your VPC and applicable restrictions, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html">IP addressing for your VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+ <p>Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block, an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>). </p><p>You must specify one of the following in the request: an IPv4 CIDR block, an IPv6 pool, or an Amazon-provided IPv6 CIDR block.</p><p>For more information about associating CIDR blocks with your VPC and applicable restrictions, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html">IP addressing for your VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the AssociateVpcCidrBlock service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1094,7 +1119,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)authorizeClientVpnIngress:(AWSEC2AuthorizeClientVpnIngressRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AuthorizeClientVpnIngressResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds the specified outbound (egress) rules to a security group for use with a VPC.</p><p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR address ranges, or to the instances that are associated with the specified source security groups. When specifying an outbound rule for your security group in a VPC, the <code>IpPermissions</code> must include a destination for the traffic.</p><p>You specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.</p><p>Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.</p><p>For information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC quotas</a>.</p>
+ <p>Adds the specified outbound (egress) rules to a security group for use with a VPC.</p><p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR address ranges, or to the instances that are associated with the specified source security groups. When specifying an outbound rule for your security group in a VPC, the <code>IpPermissions</code> must include a destination for the traffic.</p><p>You specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.</p><p>Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.</p><p>For information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC quotas</a>.</p><note><p>If you want to reference a security group across VPCs attached to a transit gateway using the <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw">security group referencing feature</a>, note that you can only reference security groups for ingress rules. You cannot reference a security group for egress rules.</p></note>
  
  @param request A container for the necessary parameters to execute the AuthorizeSecurityGroupEgress service method.
 
@@ -1106,7 +1131,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2AuthorizeSecurityGroupEgressResult *> *)authorizeSecurityGroupEgress:(AWSEC2AuthorizeSecurityGroupEgressRequest *)request;
 
 /**
- <p>Adds the specified outbound (egress) rules to a security group for use with a VPC.</p><p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR address ranges, or to the instances that are associated with the specified source security groups. When specifying an outbound rule for your security group in a VPC, the <code>IpPermissions</code> must include a destination for the traffic.</p><p>You specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.</p><p>Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.</p><p>For information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC quotas</a>.</p>
+ <p>Adds the specified outbound (egress) rules to a security group for use with a VPC.</p><p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR address ranges, or to the instances that are associated with the specified source security groups. When specifying an outbound rule for your security group in a VPC, the <code>IpPermissions</code> must include a destination for the traffic.</p><p>You specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.</p><p>Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.</p><p>For information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC quotas</a>.</p><note><p>If you want to reference a security group across VPCs attached to a transit gateway using the <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw">security group referencing feature</a>, note that you can only reference security groups for ingress rules. You cannot reference a security group for egress rules.</p></note>
  
  @param request A container for the necessary parameters to execute the AuthorizeSecurityGroupEgress service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2785,7 +2810,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createStoreImageTask:(AWSEC2CreateStoreImageTaskRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateStoreImageTaskResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a subnet in the specified VPC. For an IPv4 only subnet, specify an IPv4 CIDR block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead. For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both an IPv4 CIDR block and an IPv6 CIDR block.</p><p>A subnet CIDR block must not overlap the CIDR block of an existing subnet in the VPC. After you create a subnet, you can't change its CIDR block.</p><p>The allowed size for an IPv4 subnet is between a /28 netmask (16 IP addresses) and a /16 netmask (65,536 IP addresses). Amazon Web Services reserves both the first four and the last IPv4 address in each subnet's CIDR block. They're not available for your use.</p><p>If you've associated an IPv6 CIDR block with your VPC, you can associate an IPv6 CIDR block with a subnet when you create it. The allowed block size for an IPv6 subnet is a /64 netmask.</p><p>If you add more than one subnet to a VPC, they're set up in a star topology with a logical router in the middle.</p><p>When you stop an instance in a subnet, it retains its private IPv4 address. It's therefore possible to have a subnet with no running instances (they're all stopped), but no remaining IP addresses available.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html">Subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+ <p>Creates a subnet in the specified VPC. For an IPv4 only subnet, specify an IPv4 CIDR block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead. For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both an IPv4 CIDR block and an IPv6 CIDR block.</p><p>A subnet CIDR block must not overlap the CIDR block of an existing subnet in the VPC. After you create a subnet, you can't change its CIDR block.</p><p>The allowed size for an IPv4 subnet is between a /28 netmask (16 IP addresses) and a /16 netmask (65,536 IP addresses). Amazon Web Services reserves both the first four and the last IPv4 address in each subnet's CIDR block. They're not available for your use.</p><p>If you've associated an IPv6 CIDR block with your VPC, you can associate an IPv6 CIDR block with a subnet when you create it. </p><p>If you add more than one subnet to a VPC, they're set up in a star topology with a logical router in the middle.</p><p>When you stop an instance in a subnet, it retains its private IPv4 address. It's therefore possible to have a subnet with no running instances (they're all stopped), but no remaining IP addresses available.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html">Subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateSubnet service method.
 
@@ -2797,7 +2822,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateSubnetResult *> *)createSubnet:(AWSEC2CreateSubnetRequest *)request;
 
 /**
- <p>Creates a subnet in the specified VPC. For an IPv4 only subnet, specify an IPv4 CIDR block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead. For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both an IPv4 CIDR block and an IPv6 CIDR block.</p><p>A subnet CIDR block must not overlap the CIDR block of an existing subnet in the VPC. After you create a subnet, you can't change its CIDR block.</p><p>The allowed size for an IPv4 subnet is between a /28 netmask (16 IP addresses) and a /16 netmask (65,536 IP addresses). Amazon Web Services reserves both the first four and the last IPv4 address in each subnet's CIDR block. They're not available for your use.</p><p>If you've associated an IPv6 CIDR block with your VPC, you can associate an IPv6 CIDR block with a subnet when you create it. The allowed block size for an IPv6 subnet is a /64 netmask.</p><p>If you add more than one subnet to a VPC, they're set up in a star topology with a logical router in the middle.</p><p>When you stop an instance in a subnet, it retains its private IPv4 address. It's therefore possible to have a subnet with no running instances (they're all stopped), but no remaining IP addresses available.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html">Subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+ <p>Creates a subnet in the specified VPC. For an IPv4 only subnet, specify an IPv4 CIDR block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead. For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both an IPv4 CIDR block and an IPv6 CIDR block.</p><p>A subnet CIDR block must not overlap the CIDR block of an existing subnet in the VPC. After you create a subnet, you can't change its CIDR block.</p><p>The allowed size for an IPv4 subnet is between a /28 netmask (16 IP addresses) and a /16 netmask (65,536 IP addresses). Amazon Web Services reserves both the first four and the last IPv4 address in each subnet's CIDR block. They're not available for your use.</p><p>If you've associated an IPv6 CIDR block with your VPC, you can associate an IPv6 CIDR block with a subnet when you create it. </p><p>If you add more than one subnet to a VPC, they're set up in a star topology with a logical router in the middle.</p><p>When you stop an instance in a subnet, it retains its private IPv4 address. It's therefore possible to have a subnet with no running instances (they're all stopped), but no remaining IP addresses available.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html">Subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateSubnet service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3357,7 +3382,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createVolume:(AWSEC2CreateVolumeRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2Volume * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a VPC with the specified CIDR blocks. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html">IP addressing for your VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p><p>You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).</p><p>By default, each instance that you launch in the VPC has the default DHCP options, which include only a default DNS server that we provide (AmazonProvidedDNS). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP option sets</a> in the <i>Amazon VPC User Guide</i>.</p><p>You can specify the instance tenancy value for the VPC when you create it. You can't change this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Creates a VPC with the specified CIDR blocks. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html">IP addressing for your VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p><p>You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).</p><p>By default, each instance that you launch in the VPC has the default DHCP options, which include only a default DNS server that we provide (AmazonProvidedDNS). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP option sets</a> in the <i>Amazon VPC User Guide</i>.</p><p>You can specify the instance tenancy value for the VPC when you create it. You can't change this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateVpc service method.
 
@@ -3369,7 +3394,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateVpcResult *> *)createVpc:(AWSEC2CreateVpcRequest *)request;
 
 /**
- <p>Creates a VPC with the specified CIDR blocks. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html">IP addressing for your VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p><p>You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).</p><p>By default, each instance that you launch in the VPC has the default DHCP options, which include only a default DNS server that we provide (AmazonProvidedDNS). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP option sets</a> in the <i>Amazon VPC User Guide</i>.</p><p>You can specify the instance tenancy value for the VPC when you create it. You can't change this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Creates a VPC with the specified CIDR blocks. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html">IP addressing for your VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p><p>You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).</p><p>By default, each instance that you launch in the VPC has the default DHCP options, which include only a default DNS server that we provide (AmazonProvidedDNS). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP option sets</a> in the <i>Amazon VPC User Guide</i>.</p><p>You can specify the instance tenancy value for the VPC when you create it. You can't change this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateVpc service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5372,6 +5397,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deprovisionByoipCidr:(AWSEC2DeprovisionByoipCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeprovisionByoipCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Deprovisions your Autonomous System Number (ASN) from your Amazon Web Services account. This action can only be called after any BYOIP CIDR associations are removed from your Amazon Web Services account with <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIpamByoasn.html">DisassociateIpamByoasn</a>. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeprovisionIpamByoasn service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeprovisionIpamByoasnResult`.
+ 
+ @see AWSEC2DeprovisionIpamByoasnRequest
+ @see AWSEC2DeprovisionIpamByoasnResult
+ */
+- (AWSTask<AWSEC2DeprovisionIpamByoasnResult *> *)deprovisionIpamByoasn:(AWSEC2DeprovisionIpamByoasnRequest *)request;
+
+/**
+ <p>Deprovisions your Autonomous System Number (ASN) from your Amazon Web Services account. This action can only be called after any BYOIP CIDR associations are removed from your Amazon Web Services account with <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIpamByoasn.html">DisassociateIpamByoasn</a>. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeprovisionIpamByoasn service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeprovisionIpamByoasnRequest
+ @see AWSEC2DeprovisionIpamByoasnResult
+ */
+- (void)deprovisionIpamByoasn:(AWSEC2DeprovisionIpamByoasnRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeprovisionIpamByoasnResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/depro-pool-cidr-ipam.html">Deprovision pool CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DeprovisionIpamPoolCidr service method.
@@ -6919,6 +6969,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeInternetGateways:(AWSEC2DescribeInternetGatewaysRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeInternetGatewaysResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Describes your Autonomous System Numbers (ASNs), their provisioning statuses, and the BYOIP CIDRs with which they are associated. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeIpamByoasn service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeIpamByoasnResult`.
+ 
+ @see AWSEC2DescribeIpamByoasnRequest
+ @see AWSEC2DescribeIpamByoasnResult
+ */
+- (AWSTask<AWSEC2DescribeIpamByoasnResult *> *)describeIpamByoasn:(AWSEC2DescribeIpamByoasnRequest *)request;
+
+/**
+ <p>Describes your Autonomous System Numbers (ASNs), their provisioning statuses, and the BYOIP CIDRs with which they are associated. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeIpamByoasn service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeIpamByoasnRequest
+ @see AWSEC2DescribeIpamByoasnResult
+ */
+- (void)describeIpamByoasn:(AWSEC2DescribeIpamByoasnRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeIpamByoasnResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Get information about your IPAM pools.</p>
  
  @param request A container for the necessary parameters to execute the DescribeIpamPools service method.
@@ -7919,7 +7994,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeScheduledInstances:(AWSEC2DescribeScheduledInstancesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeScheduledInstancesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the VPCs on the other side of a VPC peering connection that are referencing the security groups you've specified in this request.</p>
+ <p>Describes the VPCs on the other side of a VPC peering connection or the VPCs attached to a transit gateway that are referencing the security groups you've specified in this request.</p>
  
  @param request A container for the necessary parameters to execute the DescribeSecurityGroupReferences service method.
 
@@ -7931,7 +8006,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeSecurityGroupReferencesResult *> *)describeSecurityGroupReferences:(AWSEC2DescribeSecurityGroupReferencesRequest *)request;
 
 /**
- <p>Describes the VPCs on the other side of a VPC peering connection that are referencing the security groups you've specified in this request.</p>
+ <p>Describes the VPCs on the other side of a VPC peering connection or the VPCs attached to a transit gateway that are referencing the security groups you've specified in this request.</p>
  
  @param request A container for the necessary parameters to execute the DescribeSecurityGroupReferences service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -8219,7 +8294,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeSpotPriceHistory:(AWSEC2DescribeSpotPriceHistoryRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeSpotPriceHistoryResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the stale security group rules for security groups in a specified VPC. Rules are stale when they reference a deleted security group in the same VPC or in a peer VPC, or if they reference a security group in a peer VPC for which the VPC peering connection has been deleted.</p>
+ <p>Describes the stale security group rules for security groups in a specified VPC. Rules are stale when they reference a deleted security group in the same VPC, peered VPC, or in separate VPCs attached to a transit gateway (with <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw">security group referencing support</a> enabled). Rules can also be stale if they reference a security group in a peer VPC for which the VPC peering connection has been deleted or if they reference a security group in a VPC that has been detached from a transit gateway.</p>
  
  @param request A container for the necessary parameters to execute the DescribeStaleSecurityGroups service method.
 
@@ -8231,7 +8306,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeStaleSecurityGroupsResult *> *)describeStaleSecurityGroups:(AWSEC2DescribeStaleSecurityGroupsRequest *)request;
 
 /**
- <p>Describes the stale security group rules for security groups in a specified VPC. Rules are stale when they reference a deleted security group in the same VPC or in a peer VPC, or if they reference a security group in a peer VPC for which the VPC peering connection has been deleted.</p>
+ <p>Describes the stale security group rules for security groups in a specified VPC. Rules are stale when they reference a deleted security group in the same VPC, peered VPC, or in separate VPCs attached to a transit gateway (with <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw">security group referencing support</a> enabled). Rules can also be stale if they reference a security group in a peer VPC for which the VPC peering connection has been deleted or if they reference a security group in a VPC that has been detached from a transit gateway.</p>
  
  @param request A container for the necessary parameters to execute the DescribeStaleSecurityGroups service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -8644,7 +8719,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeTransitGateways:(AWSEC2DescribeTransitGatewaysRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeTransitGatewaysResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <note><p>This API action is currently in <b>limited preview only</b>. If you are interested in using this feature, contact your account manager.</p></note><p>Describes one or more network interface trunk associations.</p>
+ <p>Describes one or more network interface trunk associations.</p>
  
  @param request A container for the necessary parameters to execute the DescribeTrunkInterfaceAssociations service method.
 
@@ -8656,7 +8731,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeTrunkInterfaceAssociationsResult *> *)describeTrunkInterfaceAssociations:(AWSEC2DescribeTrunkInterfaceAssociationsRequest *)request;
 
 /**
- <note><p>This API action is currently in <b>limited preview only</b>. If you are interested in using this feature, contact your account manager.</p></note><p>Describes one or more network interface trunk associations.</p>
+ <p>Describes one or more network interface trunk associations.</p>
  
  @param request A container for the necessary parameters to execute the DescribeTrunkInterfaceAssociations service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -9854,6 +9929,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)disassociateInstanceEventWindow:(AWSEC2DisassociateInstanceEventWindowRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisassociateInstanceEventWindowResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Remove the association between your Autonomous System Number (ASN) and your BYOIP CIDR. You may want to use this action to disassociate an ASN from a CIDR or if you want to swap ASNs. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisassociateIpamByoasn service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DisassociateIpamByoasnResult`.
+ 
+ @see AWSEC2DisassociateIpamByoasnRequest
+ @see AWSEC2DisassociateIpamByoasnResult
+ */
+- (AWSTask<AWSEC2DisassociateIpamByoasnResult *> *)disassociateIpamByoasn:(AWSEC2DisassociateIpamByoasnRequest *)request;
+
+/**
+ <p>Remove the association between your Autonomous System Number (ASN) and your BYOIP CIDR. You may want to use this action to disassociate an ASN from a CIDR or if you want to swap ASNs. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisassociateIpamByoasn service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DisassociateIpamByoasnRequest
+ @see AWSEC2DisassociateIpamByoasnResult
+ */
+- (void)disassociateIpamByoasn:(AWSEC2DisassociateIpamByoasnRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisassociateIpamByoasnResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Disassociates a resource discovery from an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
  
  @param request A container for the necessary parameters to execute the DisassociateIpamResourceDiscovery service method.
@@ -10026,7 +10126,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)disassociateTransitGatewayRouteTable:(AWSEC2DisassociateTransitGatewayRouteTableRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisassociateTransitGatewayRouteTableResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <note><p>This API action is currently in <b>limited preview only</b>. If you are interested in using this feature, contact your account manager.</p></note><p>Removes an association between a branch network interface with a trunk network interface.</p>
+ <p>Removes an association between a branch network interface with a trunk network interface.</p>
  
  @param request A container for the necessary parameters to execute the DisassociateTrunkInterface service method.
 
@@ -10038,7 +10138,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DisassociateTrunkInterfaceResult *> *)disassociateTrunkInterface:(AWSEC2DisassociateTrunkInterfaceRequest *)request;
 
 /**
- <note><p>This API action is currently in <b>limited preview only</b>. If you are interested in using this feature, contact your account manager.</p></note><p>Removes an association between a branch network interface with a trunk network interface.</p>
+ <p>Removes an association between a branch network interface with a trunk network interface.</p>
  
  @param request A container for the necessary parameters to execute the DisassociateTrunkInterface service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -11043,6 +11143,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2GetIpamDiscoveredAccountsResult
  */
 - (void)getIpamDiscoveredAccounts:(AWSEC2GetIpamDiscoveredAccountsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetIpamDiscoveredAccountsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets the public IP addresses that have been discovered by IPAM.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetIpamDiscoveredPublicAddresses service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetIpamDiscoveredPublicAddressesResult`.
+ 
+ @see AWSEC2GetIpamDiscoveredPublicAddressesRequest
+ @see AWSEC2GetIpamDiscoveredPublicAddressesResult
+ */
+- (AWSTask<AWSEC2GetIpamDiscoveredPublicAddressesResult *> *)getIpamDiscoveredPublicAddresses:(AWSEC2GetIpamDiscoveredPublicAddressesRequest *)request;
+
+/**
+ <p>Gets the public IP addresses that have been discovered by IPAM.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetIpamDiscoveredPublicAddresses service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetIpamDiscoveredPublicAddressesRequest
+ @see AWSEC2GetIpamDiscoveredPublicAddressesResult
+ */
+- (void)getIpamDiscoveredPublicAddresses:(AWSEC2GetIpamDiscoveredPublicAddressesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetIpamDiscoveredPublicAddressesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Returns the resource CIDRs that are monitored as part of a resource discovery. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses. </p>
@@ -13641,6 +13766,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2ProvisionByoipCidrResult
  */
 - (void)provisionByoipCidr:(AWSEC2ProvisionByoipCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ProvisionByoipCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Provisions your Autonomous System Number (ASN) for use in your Amazon Web Services account. This action requires authorization context for Amazon to bring the ASN to an Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ProvisionIpamByoasn service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ProvisionIpamByoasnResult`.
+ 
+ @see AWSEC2ProvisionIpamByoasnRequest
+ @see AWSEC2ProvisionIpamByoasnResult
+ */
+- (AWSTask<AWSEC2ProvisionIpamByoasnResult *> *)provisionIpamByoasn:(AWSEC2ProvisionIpamByoasnRequest *)request;
+
+/**
+ <p>Provisions your Autonomous System Number (ASN) for use in your Amazon Web Services account. This action requires authorization context for Amazon to bring the ASN to an Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ProvisionIpamByoasn service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ProvisionIpamByoasnRequest
+ @see AWSEC2ProvisionIpamByoasnResult
+ */
+- (void)provisionIpamByoasn:(AWSEC2ProvisionIpamByoasnRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ProvisionIpamByoasnResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Provision a CIDR to an IPAM pool. You can use this action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/prov-cidr-ipam.html">Provision CIDRs to pools</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
