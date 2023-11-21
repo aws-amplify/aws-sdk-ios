@@ -49,6 +49,11 @@
 - (void) test_AWSConnectAttachmentReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAttribute API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAvailableNumberSummary API_AVAILABLE(ios(11));
+- (void) test_AWSConnectBatchGetFlowAssociationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectBatchGetFlowAssociationResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectBatchPutContactRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectBatchPutContactResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCampaign API_AVAILABLE(ios(11));
 - (void) test_AWSConnectChatMessage API_AVAILABLE(ios(11));
 - (void) test_AWSConnectChatParticipantRoleConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectChatStreamingConfiguration API_AVAILABLE(ios(11));
@@ -56,6 +61,7 @@
 - (void) test_AWSConnectClaimPhoneNumberResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectClaimedPhoneNumberSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectContact API_AVAILABLE(ios(11));
+- (void) test_AWSConnectContactDataRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectContactFilter API_AVAILABLE(ios(11));
 - (void) test_AWSConnectContactFlow API_AVAILABLE(ios(11));
 - (void) test_AWSConnectContactFlowModule API_AVAILABLE(ios(11));
@@ -78,6 +84,8 @@
 - (void) test_AWSConnectCreateIntegrationAssociationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateParticipantRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateParticipantResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCreatePersistentContactAssociationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCreatePersistentContactAssociationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreatePromptRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreatePromptResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateQueueRequest API_AVAILABLE(ios(11));
@@ -202,11 +210,13 @@
 - (void) test_AWSConnectDisassociateSecurityKeyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateTrafficDistributionGroupUserRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateTrafficDistributionGroupUserResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDisconnectReason API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDismissUserContactRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDismissUserContactResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDistribution API_AVAILABLE(ios(11));
 - (void) test_AWSConnectEmailReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectEncryptionConfig API_AVAILABLE(ios(11));
+- (void) test_AWSConnectEndpoint API_AVAILABLE(ios(11));
 - (void) test_AWSConnectEvaluation API_AVAILABLE(ios(11));
 - (void) test_AWSConnectEvaluationAnswerData API_AVAILABLE(ios(11));
 - (void) test_AWSConnectEvaluationAnswerInput API_AVAILABLE(ios(11));
@@ -232,8 +242,10 @@
 - (void) test_AWSConnectEvaluationScore API_AVAILABLE(ios(11));
 - (void) test_AWSConnectEvaluationSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectEventBridgeActionDefinition API_AVAILABLE(ios(11));
+- (void) test_AWSConnectFailedRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectFilterV2 API_AVAILABLE(ios(11));
 - (void) test_AWSConnectFilters API_AVAILABLE(ios(11));
+- (void) test_AWSConnectFlowAssociationSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectGetContactAttributesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectGetContactAttributesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectGetCurrentMetricDataRequest API_AVAILABLE(ios(11));
@@ -453,6 +465,7 @@
 - (void) test_AWSConnectSecurityProfileSearchSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSecurityProfileSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSecurityProfilesSearchFilter API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSegmentAttributeValue API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSendNotificationActionDefinition API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSignInConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSignInDistribution API_AVAILABLE(ios(11));
@@ -479,6 +492,7 @@
 - (void) test_AWSConnectStringReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSubmitContactEvaluationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSubmitContactEvaluationResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSuccessfulRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSuspendContactRecordingRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSuspendContactRecordingResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTagCondition API_AVAILABLE(ios(11));
@@ -710,6 +724,26 @@
     [self validateSecureCodingForClass:[AWSConnectAvailableNumberSummary class]];
 }
 
+- (void) test_AWSConnectBatchGetFlowAssociationRequest {
+    [self validateSecureCodingForClass:[AWSConnectBatchGetFlowAssociationRequest class]];
+}
+
+- (void) test_AWSConnectBatchGetFlowAssociationResponse {
+    [self validateSecureCodingForClass:[AWSConnectBatchGetFlowAssociationResponse class]];
+}
+
+- (void) test_AWSConnectBatchPutContactRequest {
+    [self validateSecureCodingForClass:[AWSConnectBatchPutContactRequest class]];
+}
+
+- (void) test_AWSConnectBatchPutContactResponse {
+    [self validateSecureCodingForClass:[AWSConnectBatchPutContactResponse class]];
+}
+
+- (void) test_AWSConnectCampaign {
+    [self validateSecureCodingForClass:[AWSConnectCampaign class]];
+}
+
 - (void) test_AWSConnectChatMessage {
     [self validateSecureCodingForClass:[AWSConnectChatMessage class]];
 }
@@ -736,6 +770,10 @@
 
 - (void) test_AWSConnectContact {
     [self validateSecureCodingForClass:[AWSConnectContact class]];
+}
+
+- (void) test_AWSConnectContactDataRequest {
+    [self validateSecureCodingForClass:[AWSConnectContactDataRequest class]];
 }
 
 - (void) test_AWSConnectContactFilter {
@@ -824,6 +862,14 @@
 
 - (void) test_AWSConnectCreateParticipantResponse {
     [self validateSecureCodingForClass:[AWSConnectCreateParticipantResponse class]];
+}
+
+- (void) test_AWSConnectCreatePersistentContactAssociationRequest {
+    [self validateSecureCodingForClass:[AWSConnectCreatePersistentContactAssociationRequest class]];
+}
+
+- (void) test_AWSConnectCreatePersistentContactAssociationResponse {
+    [self validateSecureCodingForClass:[AWSConnectCreatePersistentContactAssociationResponse class]];
 }
 
 - (void) test_AWSConnectCreatePromptRequest {
@@ -1322,6 +1368,10 @@
     [self validateSecureCodingForClass:[AWSConnectDisassociateTrafficDistributionGroupUserResponse class]];
 }
 
+- (void) test_AWSConnectDisconnectReason {
+    [self validateSecureCodingForClass:[AWSConnectDisconnectReason class]];
+}
+
 - (void) test_AWSConnectDismissUserContactRequest {
     [self validateSecureCodingForClass:[AWSConnectDismissUserContactRequest class]];
 }
@@ -1340,6 +1390,10 @@
 
 - (void) test_AWSConnectEncryptionConfig {
     [self validateSecureCodingForClass:[AWSConnectEncryptionConfig class]];
+}
+
+- (void) test_AWSConnectEndpoint {
+    [self validateSecureCodingForClass:[AWSConnectEndpoint class]];
 }
 
 - (void) test_AWSConnectEvaluation {
@@ -1442,12 +1496,20 @@
     [self validateSecureCodingForClass:[AWSConnectEventBridgeActionDefinition class]];
 }
 
+- (void) test_AWSConnectFailedRequest {
+    [self validateSecureCodingForClass:[AWSConnectFailedRequest class]];
+}
+
 - (void) test_AWSConnectFilterV2 {
     [self validateSecureCodingForClass:[AWSConnectFilterV2 class]];
 }
 
 - (void) test_AWSConnectFilters {
     [self validateSecureCodingForClass:[AWSConnectFilters class]];
+}
+
+- (void) test_AWSConnectFlowAssociationSummary {
+    [self validateSecureCodingForClass:[AWSConnectFlowAssociationSummary class]];
 }
 
 - (void) test_AWSConnectGetContactAttributesRequest {
@@ -2326,6 +2388,10 @@
     [self validateSecureCodingForClass:[AWSConnectSecurityProfilesSearchFilter class]];
 }
 
+- (void) test_AWSConnectSegmentAttributeValue {
+    [self validateSecureCodingForClass:[AWSConnectSegmentAttributeValue class]];
+}
+
 - (void) test_AWSConnectSendNotificationActionDefinition {
     [self validateSecureCodingForClass:[AWSConnectSendNotificationActionDefinition class]];
 }
@@ -2428,6 +2494,10 @@
 
 - (void) test_AWSConnectSubmitContactEvaluationResponse {
     [self validateSecureCodingForClass:[AWSConnectSubmitContactEvaluationResponse class]];
+}
+
+- (void) test_AWSConnectSuccessfulRequest {
+    [self validateSecureCodingForClass:[AWSConnectSuccessfulRequest class]];
 }
 
 - (void) test_AWSConnectSuspendContactRecordingRequest {
