@@ -287,6 +287,11 @@ typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtility
 @property (copy, nonatomic, nullable) AWSS3TransferUtilityMultiPartProgressBlock progressBlock;
 
 /**
+ If YES, generate and add `Content-MD5` headers to the chunk upload requests. If NO, don't (default).
+ */
+@property (nonatomic) BOOL useContentMD5;
+
+/**
  Set an additional request header to be included in the pre-signed URL.
  
  

@@ -1455,6 +1455,12 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
     
     [transferUtilityMultiPartUploadTask.expression assignRequestParameters:request];
 
+    NSString *contentMD5 = nil;
+    if (transferUtilityMultiPartUploadTask.expression.useContentMD5) {
+        contentMD5 = [NSString aws_base64md5FromData: [NSData dataWithContentsOfFile: subTask.file]];
+        [request setContentMD5: contentMD5];
+    }
+
     [[[self.preSignedURLBuilder getPreSignedURL:request] continueWithBlock:^id(AWSTask *task) {
         error = task.error;
         if (error) {
@@ -1468,7 +1474,10 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
          urlRequest.HTTPMethod = @"PUT";
         [self filterAndAssignHeaders:transferUtilityMultiPartUploadTask.expression.requestHeaders
               getPresignedURLRequest:nil URLRequest: urlRequest];
-        [ urlRequest setValue:[self.configuration.userAgent stringByAppendingString:@" MultiPart"] forHTTPHeaderField:@"User-Agent"];
+        [urlRequest setValue:[self.configuration.userAgent stringByAppendingString:@" MultiPart"] forHTTPHeaderField:@"User-Agent"];
+        if (contentMD5 != nil) {
+            [urlRequest setValue:contentMD5 forHTTPHeaderField:@"Content-MD5"];
+        }
         NSURLSessionUploadTask *nsURLUploadTask = [self getURLSessionUploadTaskWithRequest:urlRequest
                                                                                   fromFile:[NSURL fileURLWithPath:subTask.file]
                                                                                      error:&error];
