@@ -22,7 +22,7 @@
 
 NSString *const AWSCognitoAuthErrorDomain = @"com.amazon.cognito.AWSCognitoAuthErrorDomain";
 
-@interface AWSCognitoAuth()<SFSafariViewControllerDelegate, NSURLConnectionDelegate>
+@interface AWSCognitoAuth()<SFSafariViewControllerDelegate, NSURLConnectionDelegate, UIAdaptivePresentationControllerDelegate>
 
 @property (atomic, readwrite) AWSCognitoAuthGetSessionBlock getSessionBlock;
 @property (atomic, readwrite) AWSCognitoAuthSignOutBlock signOutBlock;
@@ -408,6 +408,7 @@ withPresentingViewController:(UIViewController *)presentingViewController {
     self.svc.modalPresentationStyle = UIModalPresentationPopover;
     self.isProcessingSignIn = YES;
     dispatch_async(dispatch_get_main_queue(), ^{
+        self.svc.presentationController.delegate = self;
         __block UIViewController * sourceVC = presentingViewController;
         if(!sourceVC){
             if(!self.delegate){
@@ -745,6 +746,18 @@ withPresentingViewController:(UIViewController *)presentingViewController {
 
 /*! @abstract Delegate callback called when the user taps the Done button. Upon this call, the view controller is dismissed modally. */
 - (void)safariViewControllerDidFinish:(SFSafariViewController *)controller {
+    NSError *error = [self getError:@"User cancelled operation" code:AWSCognitoAuthClientErrorUserCanceledOperation];
+    if(self.getSessionBlock){
+        [self setInternalGetSessionErrorAndCancelSignInOperations:error];
+        [self cleanUpAndCallGetSessionBlock:nil error:error];
+    } else {
+        [self setInternalSignOutErrorAndCancelSignOutOperations:error];
+        [self cleanUpAndCallSignOutBlock:error];
+    }
+}
+
+//handle user swipe down to dismiss the SafariViewController
+- (void)presentationControllerDidDismiss:(UIPresentationController *) presentationController {
     NSError *error = [self getError:@"User cancelled operation" code:AWSCognitoAuthClientErrorUserCanceledOperation];
     if(self.getSessionBlock){
         [self setInternalGetSessionErrorAndCancelSignInOperations:error];
