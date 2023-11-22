@@ -1,6 +1,7 @@
 name: Integration Test
 
 on:
+  workflow_dispatch:
   workflow_call:
     inputs:
       identifier:
@@ -8,6 +9,9 @@ on:
         type: string
   pull_request_target:
     branches:
+      - main
+  push:
+    branches-ignore:
       - main
 
 permissions:
