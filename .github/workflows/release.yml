@@ -2,10 +2,10 @@ name: Release
 
 on:
   pull_request:
-    branches:
-      - release-kickoff/*
     types:
       - closed
+    branches:
+      - main
 
 permissions:
   id-token: write
@@ -13,15 +13,23 @@ permissions:
   pull-requests: write
 
 jobs:
+  run_release_if:
+    name: Validate release criterion
+    if: |
+      startsWith(github.head_ref, 'releases/') &&
+      github.event.pull_request.merged == true &&
+      contains(github.event.pull_request.title, 'chore: bump version and kick off release:')
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "All the conditions to initialize have been met. Initializing release."
+
   extract-release-version:
     name: Extract Release Version
+    needs:
+      - run_release_if
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.extract-release-version.outputs.result }}
-    if: |
-      github.event.pull_request.merged == true &&
-      "contains(github.event.head_commit.message, 'chore: bump version and kick off release:')"
-      
     steps:
       - name: Extract release version
         uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410 # v6.4.1
@@ -29,7 +37,7 @@ jobs:
         with:
           result-encoding: string
           script: |
-            const matches = `${{ github.event.head_commit.message }}`.match(/[0-9]+\.[0-9]+\.[0-9]+/) ?? []
+            const matches = `${{ github.event.pull_request.title }}`.match(/[0-9]+\.[0-9]+\.[0-9]+/) ?? []
             return matches.length > 0 ? matches[0] : ""
 
   validate-version-format:
