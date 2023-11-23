@@ -48,7 +48,7 @@ jobs:
       - name: Bump versions to ${{ env.RELEASE_VERSION }}
         run: |
           pip3 install lxml
-          git checkout -b bump-version/$RELEASE_VERSION main
+          git checkout -b release-kickoff/$RELEASE_VERSION main
           python3 ./CircleciScripts/bump_sdk_version.py "$(pwd)" "$RELEASE_VERSION"
           git config user.name aws-amplify-ops
           git config user.email aws-amplify-ops@amazon.com
@@ -64,5 +64,5 @@ jobs:
           gh pr create \
           --title "chore: bump version and kick off release: $RELEASE_VERSION" \
           --body "chore: bump version and kick off release: $RELEASE_VERSION" \
-          --head bump-version/$RELEASE_VERSION \
+          --head release-kickoff/$RELEASE_VERSION \
           --base main
