@@ -1,9 +1,11 @@
 name: Release
 
 on:
-  push:
+  pull_request:
     branches:
-      - main
+      - releases/*
+    types:
+      - closed
 
 permissions:
   id-token: write
@@ -16,7 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.extract-release-version.outputs.result }}
-    if: "contains(github.event.head_commit.message, 'chore: bump version and kick off release:')"
+    if: |
+      github.event.pull_request.merged == true &&
+      "contains(github.event.head_commit.message, 'chore: bump version and kick off release:')"
+      
     steps:
       - name: Extract release version
         uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410 # v6.4.1
