@@ -102,6 +102,70 @@ typedef NS_ENUM(NSInteger, AWSTranscribeLanguageCode) {
     AWSTranscribeLanguageCodeEnNZ,
     AWSTranscribeLanguageCodeViVN,
     AWSTranscribeLanguageCodeSvSE,
+    AWSTranscribeLanguageCodeAbGE,
+    AWSTranscribeLanguageCodeAstES,
+    AWSTranscribeLanguageCodeAzAZ,
+    AWSTranscribeLanguageCodeBaRU,
+    AWSTranscribeLanguageCodeBeBY,
+    AWSTranscribeLanguageCodeBgBG,
+    AWSTranscribeLanguageCodeBnIN,
+    AWSTranscribeLanguageCodeBsBA,
+    AWSTranscribeLanguageCodeCaES,
+    AWSTranscribeLanguageCodeCkbIQ,
+    AWSTranscribeLanguageCodeCkbIR,
+    AWSTranscribeLanguageCodeCsCZ,
+    AWSTranscribeLanguageCodeCyWL,
+    AWSTranscribeLanguageCodeElGR,
+    AWSTranscribeLanguageCodeEtET,
+    AWSTranscribeLanguageCodeEuES,
+    AWSTranscribeLanguageCodeFiFI,
+    AWSTranscribeLanguageCodeGlES,
+    AWSTranscribeLanguageCodeGuIN,
+    AWSTranscribeLanguageCodeHaNG,
+    AWSTranscribeLanguageCodeHrHR,
+    AWSTranscribeLanguageCodeHuHU,
+    AWSTranscribeLanguageCodeHyAM,
+    AWSTranscribeLanguageCodeIsIS,
+    AWSTranscribeLanguageCodeKaGE,
+    AWSTranscribeLanguageCodeKabDZ,
+    AWSTranscribeLanguageCodeKkKZ,
+    AWSTranscribeLanguageCodeKnIN,
+    AWSTranscribeLanguageCodeKyKG,
+    AWSTranscribeLanguageCodeLgIN,
+    AWSTranscribeLanguageCodeLtLT,
+    AWSTranscribeLanguageCodeLvLV,
+    AWSTranscribeLanguageCodeMhrRU,
+    AWSTranscribeLanguageCodeMiNZ,
+    AWSTranscribeLanguageCodeMkMK,
+    AWSTranscribeLanguageCodeMlIN,
+    AWSTranscribeLanguageCodeMnMN,
+    AWSTranscribeLanguageCodeMrIN,
+    AWSTranscribeLanguageCodeMtMT,
+    AWSTranscribeLanguageCodeNoNO,
+    AWSTranscribeLanguageCodeOrIN,
+    AWSTranscribeLanguageCodePaIN,
+    AWSTranscribeLanguageCodePlPL,
+    AWSTranscribeLanguageCodePsAF,
+    AWSTranscribeLanguageCodeRoRO,
+    AWSTranscribeLanguageCodeRwRW,
+    AWSTranscribeLanguageCodeSiLK,
+    AWSTranscribeLanguageCodeSkSK,
+    AWSTranscribeLanguageCodeSlSI,
+    AWSTranscribeLanguageCodeSoSO,
+    AWSTranscribeLanguageCodeSrRS,
+    AWSTranscribeLanguageCodeSuID,
+    AWSTranscribeLanguageCodeSwBI,
+    AWSTranscribeLanguageCodeSwKE,
+    AWSTranscribeLanguageCodeSwRW,
+    AWSTranscribeLanguageCodeSwTZ,
+    AWSTranscribeLanguageCodeSwUG,
+    AWSTranscribeLanguageCodeTlPH,
+    AWSTranscribeLanguageCodeTtRU,
+    AWSTranscribeLanguageCodeUgCN,
+    AWSTranscribeLanguageCodeUkUA,
+    AWSTranscribeLanguageCodeUzUZ,
+    AWSTranscribeLanguageCodeWoSN,
+    AWSTranscribeLanguageCodeZuZA,
 };
 
 typedef NS_ENUM(NSInteger, AWSTranscribeMediaFormat) {
@@ -310,6 +374,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @class AWSTranscribeStartTranscriptionJobResponse;
 @class AWSTranscribeSubtitles;
 @class AWSTranscribeSubtitlesOutput;
+@class AWSTranscribeSummarization;
 @class AWSTranscribeTag;
 @class AWSTranscribeTagResourceRequest;
 @class AWSTranscribeTagResourceResponse;
@@ -467,6 +532,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  <p>You can specify two or more language codes that represent the languages you think may be present in your media. Including more than five is not recommended. If you're unsure what languages are present, do not include this parameter.</p><p>Including language options can improve the accuracy of language identification.</p><p>For a list of languages supported with Call Analytics, refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table.</p><p>To transcribe speech in Modern Standard Arabic (<code>ar-SA</code>), your media file must be encoded at a sample rate of 16,000 Hz or higher.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable languageOptions;
+
+/**
+ <p>Contains <code>GenerateAbstractiveSummary</code>, which is a required parameter if you want to enable Generative call summarization in your Call Analytics request.</p>
+ */
+@property (nonatomic, strong) AWSTranscribeSummarization * _Nullable summarization;
 
 /**
  <p>Specify how you want your custom vocabulary filter applied to your transcript.</p><p>To replace words with <code>***</code>, choose <code>mask</code>.</p><p>To delete words, choose <code>remove</code>.</p><p>To flag words without changing them, choose <code>tag</code>.</p>
@@ -2574,6 +2644,20 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  <p>The Amazon S3 location of your transcript. You can use this URI to access or download your subtitle file. Your subtitle file is stored in the same location as your transcript. If you specified both WebVTT and SubRip subtitle formats, two URIs are provided.</p><p>If you included <code>OutputBucketName</code> in your transcription job request, this is the URI of that bucket. If you also included <code>OutputKey</code> in your request, your output is located in the path you specified in your request.</p><p>If you didn't include <code>OutputBucketName</code> in your transcription job request, your subtitle file is stored in a service-managed bucket, and <code>TranscriptFileUri</code> provides you with a temporary URI you can use for secure access to your subtitle file.</p><note><p>Temporary URIs for service-managed Amazon S3 buckets are only valid for 15 minutes. If you get an <code>AccesDenied</code> error, you can get a new temporary URI by running a <code>GetTranscriptionJob</code> or <code>ListTranscriptionJob</code> request.</p></note>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable subtitleFileUris;
+
+@end
+
+/**
+ <p>Contains <code>GenerateAbstractiveSummary</code>, which is a required parameter if you want to enable Generative call summarization in your Call Analytics request.</p>
+ Required parameters: [GenerateAbstractiveSummary]
+ */
+@interface AWSTranscribeSummarization : AWSModel
+
+
+/**
+ <p>Enables Generative call summarization in your Call Analytics request</p><p>Generative call summarization provides a summary of the transcript including important components discussed in the conversation.</p><p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-enable-summarization.html">Enabling generative call summarization</a>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable generateAbstractiveSummary;
 
 @end
 
