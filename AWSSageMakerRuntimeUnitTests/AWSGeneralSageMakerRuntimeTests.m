@@ -153,4 +153,52 @@ static id mockNetworking = nil;
     [AWSSageMakerRuntime removeSageMakerRuntimeForKey:key];
 }
 
+- (void)testInvokeEndpointWithResponseStream {
+    NSString *key = @"testInvokeEndpointWithResponseStream";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSageMakerRuntime registerSageMakerRuntimeWithConfiguration:configuration forKey:key];
+
+    AWSSageMakerRuntime *awsClient = [AWSSageMakerRuntime SageMakerRuntimeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSageMakerRuntime SageMakerRuntimeForKey:key] invokeEndpointWithResponseStream:[AWSSageMakerRuntimeInvokeEndpointWithResponseStreamInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSageMakerRuntime removeSageMakerRuntimeForKey:key];
+}
+
+- (void)testInvokeEndpointWithResponseStreamCompletionHandler {
+    NSString *key = @"testInvokeEndpointWithResponseStream";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSageMakerRuntime registerSageMakerRuntimeWithConfiguration:configuration forKey:key];
+
+    AWSSageMakerRuntime *awsClient = [AWSSageMakerRuntime SageMakerRuntimeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSageMakerRuntime SageMakerRuntimeForKey:key] invokeEndpointWithResponseStream:[AWSSageMakerRuntimeInvokeEndpointWithResponseStreamInput new] completionHandler:^(AWSSageMakerRuntimeInvokeEndpointWithResponseStreamOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSageMakerRuntime removeSageMakerRuntimeForKey:key];
+}
+
 @end
