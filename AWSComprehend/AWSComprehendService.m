@@ -1232,6 +1232,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendDetectToxicContentResponse *> *)detectToxicContent:(AWSComprehendDetectToxicContentRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DetectToxicContent"
+                   outputClass:[AWSComprehendDetectToxicContentResponse class]];
+}
+
+- (void)detectToxicContent:(AWSComprehendDetectToxicContentRequest *)request
+     completionHandler:(void (^)(AWSComprehendDetectToxicContentResponse *response, NSError *error))completionHandler {
+    [[self detectToxicContent:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDetectToxicContentResponse *> * _Nonnull task) {
+        AWSComprehendDetectToxicContentResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendImportModelResponse *> *)importModel:(AWSComprehendImportModelRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
