@@ -5199,6 +5199,20 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 
 @end
 
+@implementation AWSTranscribeDeleteMedicalScribeJobRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"medicalScribeJobName" : @"MedicalScribeJobName",
+             };
+}
+
+@end
+
 @implementation AWSTranscribeDeleteMedicalTranscriptionJobRequest
 
 + (BOOL)supportsSecureCoding {
@@ -5361,6 +5375,38 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 
 + (NSValueTransformer *)callAnalyticsJobJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranscribeCallAnalyticsJob class]];
+}
+
+@end
+
+@implementation AWSTranscribeGetMedicalScribeJobRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"medicalScribeJobName" : @"MedicalScribeJobName",
+             };
+}
+
+@end
+
+@implementation AWSTranscribeGetMedicalScribeJobResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"medicalScribeJob" : @"MedicalScribeJob",
+             };
+}
+
++ (NSValueTransformer *)medicalScribeJobJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranscribeMedicalScribeJob class]];
 }
 
 @end
@@ -8145,6 +8191,105 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 
 @end
 
+@implementation AWSTranscribeListMedicalScribeJobsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"jobNameContains" : @"JobNameContains",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"QUEUED"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalScribeJobStatusQueued);
+        }
+        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalScribeJobStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalScribeJobStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalScribeJobStatusCompleted);
+        }
+        return @(AWSTranscribeMedicalScribeJobStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeMedicalScribeJobStatusQueued:
+                return @"QUEUED";
+            case AWSTranscribeMedicalScribeJobStatusInProgress:
+                return @"IN_PROGRESS";
+            case AWSTranscribeMedicalScribeJobStatusFailed:
+                return @"FAILED";
+            case AWSTranscribeMedicalScribeJobStatusCompleted:
+                return @"COMPLETED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSTranscribeListMedicalScribeJobsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"medicalScribeJobSummaries" : @"MedicalScribeJobSummaries",
+             @"nextToken" : @"NextToken",
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)medicalScribeJobSummariesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranscribeMedicalScribeJobSummary class]];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"QUEUED"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalScribeJobStatusQueued);
+        }
+        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalScribeJobStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalScribeJobStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalScribeJobStatusCompleted);
+        }
+        return @(AWSTranscribeMedicalScribeJobStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeMedicalScribeJobStatusQueued:
+                return @"QUEUED";
+            case AWSTranscribeMedicalScribeJobStatusInProgress:
+                return @"IN_PROGRESS";
+            case AWSTranscribeMedicalScribeJobStatusFailed:
+                return @"FAILED";
+            case AWSTranscribeMedicalScribeJobStatusCompleted:
+                return @"COMPLETED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSTranscribeListMedicalTranscriptionJobsRequest
 
 + (BOOL)supportsSecureCoding {
@@ -8600,6 +8745,310 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
              @"mediaFileUri" : @"MediaFileUri",
              @"redactedMediaFileUri" : @"RedactedMediaFileUri",
              };
+}
+
+@end
+
+@implementation AWSTranscribeMedicalScribeChannelDefinition
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"channelId" : @"ChannelId",
+             @"participantRole" : @"ParticipantRole",
+             };
+}
+
++ (NSValueTransformer *)participantRoleJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PATIENT"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalScribeParticipantRolePatient);
+        }
+        if ([value caseInsensitiveCompare:@"CLINICIAN"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalScribeParticipantRoleClinician);
+        }
+        return @(AWSTranscribeMedicalScribeParticipantRoleUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeMedicalScribeParticipantRolePatient:
+                return @"PATIENT";
+            case AWSTranscribeMedicalScribeParticipantRoleClinician:
+                return @"CLINICIAN";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSTranscribeMedicalScribeJob
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"channelDefinitions" : @"ChannelDefinitions",
+             @"completionTime" : @"CompletionTime",
+             @"creationTime" : @"CreationTime",
+             @"dataAccessRoleArn" : @"DataAccessRoleArn",
+             @"failureReason" : @"FailureReason",
+             @"languageCode" : @"LanguageCode",
+             @"media" : @"Media",
+             @"medicalScribeJobName" : @"MedicalScribeJobName",
+             @"medicalScribeJobStatus" : @"MedicalScribeJobStatus",
+             @"medicalScribeOutput" : @"MedicalScribeOutput",
+             @"settings" : @"Settings",
+             @"startTime" : @"StartTime",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)channelDefinitionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranscribeMedicalScribeChannelDefinition class]];
+}
+
++ (NSValueTransformer *)completionTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)creationTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"en-US"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalScribeLanguageCodeEnUS);
+        }
+        return @(AWSTranscribeMedicalScribeLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeMedicalScribeLanguageCodeEnUS:
+                return @"en-US";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)mediaJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranscribeMedia class]];
+}
+
++ (NSValueTransformer *)medicalScribeJobStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"QUEUED"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalScribeJobStatusQueued);
+        }
+        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalScribeJobStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalScribeJobStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalScribeJobStatusCompleted);
+        }
+        return @(AWSTranscribeMedicalScribeJobStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeMedicalScribeJobStatusQueued:
+                return @"QUEUED";
+            case AWSTranscribeMedicalScribeJobStatusInProgress:
+                return @"IN_PROGRESS";
+            case AWSTranscribeMedicalScribeJobStatusFailed:
+                return @"FAILED";
+            case AWSTranscribeMedicalScribeJobStatusCompleted:
+                return @"COMPLETED";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)medicalScribeOutputJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranscribeMedicalScribeOutput class]];
+}
+
++ (NSValueTransformer *)settingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranscribeMedicalScribeSettings class]];
+}
+
++ (NSValueTransformer *)startTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranscribeTag class]];
+}
+
+@end
+
+@implementation AWSTranscribeMedicalScribeJobSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"completionTime" : @"CompletionTime",
+             @"creationTime" : @"CreationTime",
+             @"failureReason" : @"FailureReason",
+             @"languageCode" : @"LanguageCode",
+             @"medicalScribeJobName" : @"MedicalScribeJobName",
+             @"medicalScribeJobStatus" : @"MedicalScribeJobStatus",
+             @"startTime" : @"StartTime",
+             };
+}
+
++ (NSValueTransformer *)completionTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)creationTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"en-US"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalScribeLanguageCodeEnUS);
+        }
+        return @(AWSTranscribeMedicalScribeLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeMedicalScribeLanguageCodeEnUS:
+                return @"en-US";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)medicalScribeJobStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"QUEUED"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalScribeJobStatusQueued);
+        }
+        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalScribeJobStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalScribeJobStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalScribeJobStatusCompleted);
+        }
+        return @(AWSTranscribeMedicalScribeJobStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeMedicalScribeJobStatusQueued:
+                return @"QUEUED";
+            case AWSTranscribeMedicalScribeJobStatusInProgress:
+                return @"IN_PROGRESS";
+            case AWSTranscribeMedicalScribeJobStatusFailed:
+                return @"FAILED";
+            case AWSTranscribeMedicalScribeJobStatusCompleted:
+                return @"COMPLETED";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)startTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSTranscribeMedicalScribeOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clinicalDocumentUri" : @"ClinicalDocumentUri",
+             @"transcriptFileUri" : @"TranscriptFileUri",
+             };
+}
+
+@end
+
+@implementation AWSTranscribeMedicalScribeSettings
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"channelIdentification" : @"ChannelIdentification",
+             @"maxSpeakerLabels" : @"MaxSpeakerLabels",
+             @"showSpeakerLabels" : @"ShowSpeakerLabels",
+             @"vocabularyFilterMethod" : @"VocabularyFilterMethod",
+             @"vocabularyFilterName" : @"VocabularyFilterName",
+             @"vocabularyName" : @"VocabularyName",
+             };
+}
+
++ (NSValueTransformer *)vocabularyFilterMethodJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"remove"] == NSOrderedSame) {
+            return @(AWSTranscribeVocabularyFilterMethodRemove);
+        }
+        if ([value caseInsensitiveCompare:@"mask"] == NSOrderedSame) {
+            return @(AWSTranscribeVocabularyFilterMethodMask);
+        }
+        if ([value caseInsensitiveCompare:@"tag"] == NSOrderedSame) {
+            return @(AWSTranscribeVocabularyFilterMethodTag);
+        }
+        return @(AWSTranscribeVocabularyFilterMethodUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeVocabularyFilterMethodRemove:
+                return @"remove";
+            case AWSTranscribeVocabularyFilterMethodMask:
+                return @"mask";
+            case AWSTranscribeVocabularyFilterMethodTag:
+                return @"tag";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -10275,6 +10724,62 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 
 + (NSValueTransformer *)callAnalyticsJobJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranscribeCallAnalyticsJob class]];
+}
+
+@end
+
+@implementation AWSTranscribeStartMedicalScribeJobRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"channelDefinitions" : @"ChannelDefinitions",
+             @"dataAccessRoleArn" : @"DataAccessRoleArn",
+             @"KMSEncryptionContext" : @"KMSEncryptionContext",
+             @"media" : @"Media",
+             @"medicalScribeJobName" : @"MedicalScribeJobName",
+             @"outputBucketName" : @"OutputBucketName",
+             @"outputEncryptionKMSKeyId" : @"OutputEncryptionKMSKeyId",
+             @"settings" : @"Settings",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)channelDefinitionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranscribeMedicalScribeChannelDefinition class]];
+}
+
++ (NSValueTransformer *)mediaJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranscribeMedia class]];
+}
+
++ (NSValueTransformer *)settingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranscribeMedicalScribeSettings class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranscribeTag class]];
+}
+
+@end
+
+@implementation AWSTranscribeStartMedicalScribeJobResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"medicalScribeJob" : @"MedicalScribeJob",
+             };
+}
+
++ (NSValueTransformer *)medicalScribeJobJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranscribeMedicalScribeJob class]];
 }
 
 @end
