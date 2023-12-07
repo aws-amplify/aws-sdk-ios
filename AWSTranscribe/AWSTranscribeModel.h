@@ -185,6 +185,25 @@ typedef NS_ENUM(NSInteger, AWSTranscribeMedicalContentIdentificationType) {
     AWSTranscribeMedicalContentIdentificationTypePhi,
 };
 
+typedef NS_ENUM(NSInteger, AWSTranscribeMedicalScribeJobStatus) {
+    AWSTranscribeMedicalScribeJobStatusUnknown,
+    AWSTranscribeMedicalScribeJobStatusQueued,
+    AWSTranscribeMedicalScribeJobStatusInProgress,
+    AWSTranscribeMedicalScribeJobStatusFailed,
+    AWSTranscribeMedicalScribeJobStatusCompleted,
+};
+
+typedef NS_ENUM(NSInteger, AWSTranscribeMedicalScribeLanguageCode) {
+    AWSTranscribeMedicalScribeLanguageCodeUnknown,
+    AWSTranscribeMedicalScribeLanguageCodeEnUS,
+};
+
+typedef NS_ENUM(NSInteger, AWSTranscribeMedicalScribeParticipantRole) {
+    AWSTranscribeMedicalScribeParticipantRoleUnknown,
+    AWSTranscribeMedicalScribeParticipantRolePatient,
+    AWSTranscribeMedicalScribeParticipantRoleClinician,
+};
+
 typedef NS_ENUM(NSInteger, AWSTranscribeModelStatus) {
     AWSTranscribeModelStatusUnknown,
     AWSTranscribeModelStatusInProgress,
@@ -310,6 +329,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @class AWSTranscribeDeleteCallAnalyticsJobRequest;
 @class AWSTranscribeDeleteCallAnalyticsJobResponse;
 @class AWSTranscribeDeleteLanguageModelRequest;
+@class AWSTranscribeDeleteMedicalScribeJobRequest;
 @class AWSTranscribeDeleteMedicalTranscriptionJobRequest;
 @class AWSTranscribeDeleteMedicalVocabularyRequest;
 @class AWSTranscribeDeleteTranscriptionJobRequest;
@@ -321,6 +341,8 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @class AWSTranscribeGetCallAnalyticsCategoryResponse;
 @class AWSTranscribeGetCallAnalyticsJobRequest;
 @class AWSTranscribeGetCallAnalyticsJobResponse;
+@class AWSTranscribeGetMedicalScribeJobRequest;
+@class AWSTranscribeGetMedicalScribeJobResponse;
 @class AWSTranscribeGetMedicalTranscriptionJobRequest;
 @class AWSTranscribeGetMedicalTranscriptionJobResponse;
 @class AWSTranscribeGetMedicalVocabularyRequest;
@@ -343,6 +365,8 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @class AWSTranscribeListCallAnalyticsJobsResponse;
 @class AWSTranscribeListLanguageModelsRequest;
 @class AWSTranscribeListLanguageModelsResponse;
+@class AWSTranscribeListMedicalScribeJobsRequest;
+@class AWSTranscribeListMedicalScribeJobsResponse;
 @class AWSTranscribeListMedicalTranscriptionJobsRequest;
 @class AWSTranscribeListMedicalTranscriptionJobsResponse;
 @class AWSTranscribeListMedicalVocabulariesRequest;
@@ -356,6 +380,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @class AWSTranscribeListVocabularyFiltersRequest;
 @class AWSTranscribeListVocabularyFiltersResponse;
 @class AWSTranscribeMedia;
+@class AWSTranscribeMedicalScribeChannelDefinition;
+@class AWSTranscribeMedicalScribeJob;
+@class AWSTranscribeMedicalScribeJobSummary;
+@class AWSTranscribeMedicalScribeOutput;
+@class AWSTranscribeMedicalScribeSettings;
 @class AWSTranscribeMedicalTranscript;
 @class AWSTranscribeMedicalTranscriptionJob;
 @class AWSTranscribeMedicalTranscriptionJobSummary;
@@ -368,6 +397,8 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @class AWSTranscribeSettings;
 @class AWSTranscribeStartCallAnalyticsJobRequest;
 @class AWSTranscribeStartCallAnalyticsJobResponse;
+@class AWSTranscribeStartMedicalScribeJobRequest;
+@class AWSTranscribeStartMedicalScribeJobResponse;
 @class AWSTranscribeStartMedicalTranscriptionJobRequest;
 @class AWSTranscribeStartMedicalTranscriptionJobResponse;
 @class AWSTranscribeStartTranscriptionJobRequest;
@@ -461,7 +492,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable dataAccessRoleArn;
 
 /**
- <p>If <code>CallAnalyticsJobStatus</code> is <code>FAILED</code>, <code>FailureReason</code> contains information about why the Call Analytics job request failed.</p><p>The <code>FailureReason</code> field contains one of the following values:</p><ul><li><p><code>Unsupported media format</code>.</p><p>The media format specified in <code>MediaFormat</code> isn't valid. Refer to <b>MediaFormat</b> for a list of supported formats.</p></li><li><p><code>The media format provided does not match the detected media format</code>.</p><p>The media format specified in <code>MediaFormat</code> doesn't match the format of the input file. Check the media format of your media file and correct the specified value.</p></li><li><p><code>Invalid sample rate for audio file</code>.</p><p>The sample rate specified in <code>MediaSampleRateHertz</code> isn't valid. The sample rate must be between 8,000 and 48,000 hertz.</p></li><li><p><code>The sample rate provided does not match the detected sample rate</code>.</p><p>The sample rate specified in <code>MediaSampleRateHertz</code> doesn't match the sample rate detected in your input media file. Check the sample rate of your media file and correct the specified value.</p></li><li><p><code>Invalid file size: file size too large</code>.</p><p>The size of your media file is larger than what Amazon Transcribe can process. For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Guidelines and quotas</a>.</p></li><li><p><code>Invalid number of channels: number of channels too large</code>.</p><p>Your audio contains more channels than Amazon Transcribe is able to process. For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Guidelines and quotas</a>.</p></li></ul>
+ <p>If <code>CallAnalyticsJobStatus</code> is <code>FAILED</code>, <code>FailureReason</code> contains information about why the Call Analytics job request failed.</p><p>The <code>FailureReason</code> field contains one of the following values:</p><ul><li><p><code>Unsupported media format</code>.</p><p>The media format specified in <code>MediaFormat</code> isn't valid. Refer to refer to the <code>MediaFormat</code> parameter for a list of supported formats.</p></li><li><p><code>The media format provided does not match the detected media format</code>.</p><p>The media format specified in <code>MediaFormat</code> doesn't match the format of the input file. Check the media format of your media file and correct the specified value.</p></li><li><p><code>Invalid sample rate for audio file</code>.</p><p>The sample rate specified in <code>MediaSampleRateHertz</code> isn't valid. The sample rate must be between 8,000 and 48,000 hertz.</p></li><li><p><code>The sample rate provided does not match the detected sample rate</code>.</p><p>The sample rate specified in <code>MediaSampleRateHertz</code> doesn't match the sample rate detected in your input media file. Check the sample rate of your media file and correct the specified value.</p></li><li><p><code>Invalid file size: file size too large</code>.</p><p>The size of your media file is larger than what Amazon Transcribe can process. For more information, refer to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html#limits-amazon-transcribe">Service quotas</a>.</p></li><li><p><code>Invalid number of channels: number of channels too large</code>.</p><p>Your audio contains more channels than Amazon Transcribe is able to process. For more information, refer to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html#limits-amazon-transcribe">Service quotas</a>.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable failureReason;
 
@@ -471,7 +502,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSNumber * _Nullable identifiedLanguageScore;
 
 /**
- <p>The language code used to create your Call Analytics job. For a list of supported languages and their associated language codes, refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table.</p><p>If you don't know the language spoken in your media file, you can omit this field and let Amazon Transcribe automatically identify the language of your media. To improve the accuracy of language identification, you can include several language codes and Amazon Transcribe chooses the closest match for your transcription.</p>
+ <p>The language code used to create your Call Analytics job. For a list of supported languages and their associated language codes, refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table.</p><p>If you do not know the language spoken in your media file, you can omit this field and let Amazon Transcribe automatically identify the language of your media. To improve the accuracy of language identification, you can include several language codes and Amazon Transcribe chooses the closest match for your transcription.</p>
  */
 @property (nonatomic, assign) AWSTranscribeLanguageCode languageCode;
 
@@ -514,7 +545,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
- <p>Makes it possible to redact or flag specified personally identifiable information (PII) in your transcript. If you use <code>ContentRedaction</code>, you must also include the sub-parameters: <code>PiiEntityTypes</code>, <code>RedactionOutput</code>, and <code>RedactionType</code>.</p>
+ <p>Makes it possible to redact or flag specified personally identifiable information (PII) in your transcript. If you use <code>ContentRedaction</code>, you must also include the sub-parameters: <code>RedactionOutput</code> and <code>RedactionType</code>. You can optionally include <code>PiiEntityTypes</code> to choose which types of PII you want to redact.</p>
  */
 @property (nonatomic, strong) AWSTranscribeContentRedaction * _Nullable contentRedaction;
 
@@ -524,7 +555,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSDictionary<NSString *, AWSTranscribeLanguageIdSettings *> * _Nullable languageIdSettings;
 
 /**
- <p>The name of the custom language model you want to use when processing your Call Analytics job. Note that custom language model names are case sensitive.</p><p>The language of the specified custom language model must match the language code that you specify in your transcription request. If the languages don't match, the custom language model isn't applied. There are no errors or warnings associated with a language mismatch.</p>
+ <p>The name of the custom language model you want to use when processing your Call Analytics job. Note that custom language model names are case sensitive.</p><p>The language of the specified custom language model must match the language code that you specify in your transcription request. If the languages do not match, the custom language model isn't applied. There are no errors or warnings associated with a language mismatch.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable languageModelName;
 
@@ -650,14 +681,14 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @end
 
 /**
- <p>Makes it possible to redact or flag specified personally identifiable information (PII) in your transcript. If you use <code>ContentRedaction</code>, you must also include the sub-parameters: <code>PiiEntityTypes</code>, <code>RedactionOutput</code>, and <code>RedactionType</code>.</p>
+ <p>Makes it possible to redact or flag specified personally identifiable information (PII) in your transcript. If you use <code>ContentRedaction</code>, you must also include the sub-parameters: <code>RedactionOutput</code> and <code>RedactionType</code>. You can optionally include <code>PiiEntityTypes</code> to choose which types of PII you want to redact.</p>
  Required parameters: [RedactionType, RedactionOutput]
  */
 @interface AWSTranscribeContentRedaction : AWSModel
 
 
 /**
- <p>Specify which types of personally identifiable information (PII) you want to redact in your transcript. You can include as many types as you'd like, or you can select <code>ALL</code>.</p>
+ <p>Specify which types of personally identifiable information (PII) you want to redact in your transcript. You can include as many types as you'd like, or you can select <code>ALL</code>. If you do not include <code>PiiEntityTypes</code> in your request, all PII is redacted.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable piiEntityTypes;
 
@@ -667,7 +698,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, assign) AWSTranscribeRedactionOutput redactionOutput;
 
 /**
- <p>Specify the category of information you want to redact; <code>PII</code> (personally identifiable information) is the only valid value. You can use <code>PiiEntityTypes</code> to choose which types of PII you want to redact.</p>
+ <p>Specify the category of information you want to redact; <code>PII</code> (personally identifiable information) is the only valid value. You can use <code>PiiEntityTypes</code> to choose which types of PII you want to redact. If you do not include <code>PiiEntityTypes</code> in your request, all PII is redacted.</p>
  */
 @property (nonatomic, assign) AWSTranscribeRedactionType redactionType;
 
@@ -1026,6 +1057,19 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 /**
  
  */
+@interface AWSTranscribeDeleteMedicalScribeJobRequest : AWSRequest
+
+
+/**
+ <p>The name of the Medical Scribe job you want to delete. Job names are case sensitive.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable medicalScribeJobName;
+
+@end
+
+/**
+ 
+ */
 @interface AWSTranscribeDeleteMedicalTranscriptionJobRequest : AWSRequest
 
 
@@ -1169,6 +1213,32 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 /**
  
  */
+@interface AWSTranscribeGetMedicalScribeJobRequest : AWSRequest
+
+
+/**
+ <p>The name of the Medical Scribe job you want information about. Job names are case sensitive.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable medicalScribeJobName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranscribeGetMedicalScribeJobResponse : AWSModel
+
+
+/**
+ <p>Provides detailed information about the specified Medical Scribe job, including job status and, if applicable, failure reason</p>
+ */
+@property (nonatomic, strong) AWSTranscribeMedicalScribeJob * _Nullable medicalScribeJob;
+
+@end
+
+/**
+ 
+ */
 @interface AWSTranscribeGetMedicalTranscriptionJobRequest : AWSRequest
 
 
@@ -1212,7 +1282,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
- <p>The S3 location where the specified custom medical vocabulary is stored; use this URI to view or download the custom vocabulary.</p>
+ <p>The Amazon S3 location where the specified custom medical vocabulary is stored; use this URI to view or download the custom vocabulary.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable downloadUri;
 
@@ -1330,7 +1400,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
- <p>The S3 location where the custom vocabulary is stored; use this URI to view or download the custom vocabulary.</p>
+ <p>The Amazon S3 location where the custom vocabulary is stored; use this URI to view or download the custom vocabulary.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable downloadUri;
 
@@ -1461,17 +1531,17 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
- <p>The name of the custom language model you want to use when processing your transcription job. Note that custom language model names are case sensitive.</p><p>The language of the specified custom language model must match the language code that you specify in your transcription request. If the languages don't match, the custom language model isn't applied. There are no errors or warnings associated with a language mismatch.</p>
+ <p>The name of the custom language model you want to use when processing your transcription job. Note that custom language model names are case sensitive.</p><p>The language of the specified custom language model must match the language code that you specify in your transcription request. If the languages do not match, the custom language model isn't applied. There are no errors or warnings associated with a language mismatch.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable languageModelName;
 
 /**
- <p>The name of the custom vocabulary filter you want to use when processing your transcription job. Custom vocabulary filter names are case sensitive.</p><p>The language of the specified custom vocabulary filter must match the language code that you specify in your transcription request. If the languages don't match, the custom vocabulary filter isn't applied. There are no errors or warnings associated with a language mismatch.</p><p>Note that if you include <code>VocabularyFilterName</code> in your request, you must also include <code>VocabularyFilterMethod</code>.</p>
+ <p>The name of the custom vocabulary filter you want to use when processing your transcription job. Custom vocabulary filter names are case sensitive.</p><p>The language of the specified custom vocabulary filter must match the language code that you specify in your transcription request. If the languages do not match, the custom vocabulary filter isn't applied. There are no errors or warnings associated with a language mismatch.</p><p>Note that if you include <code>VocabularyFilterName</code> in your request, you must also include <code>VocabularyFilterMethod</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vocabularyFilterName;
 
 /**
- <p>The name of the custom vocabulary you want to use when processing your transcription job. Custom vocabulary names are case sensitive.</p><p>The language of the specified custom vocabulary must match the language code that you specify in your transcription request. If the languages don't match, the custom vocabulary isn't applied. There are no errors or warnings associated with a language mismatch.</p>
+ <p>The name of the custom vocabulary you want to use when processing your transcription job. Custom vocabulary names are case sensitive.</p><p>The language of the specified custom vocabulary must match the language code that you specify in your transcription request. If the languages do not match, the custom vocabulary isn't applied. There are no errors or warnings associated with a language mismatch.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vocabularyName;
 
@@ -1504,7 +1574,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) AWSTranscribeInputDataConfig * _Nullable inputDataConfig;
 
 /**
- <p>The language code used to create your custom language model. Each custom language model must contain terms in only one language, and the language you select for your custom language model must match the language of your training and tuning data.</p><p>For a list of supported languages and their associated language codes, refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table. Note that U.S. English (<code>en-US</code>) is the only language supported with Amazon Transcribe Medical.</p>
+ <p>The language code used to create your custom language model. Each custom language model must contain terms in only one language, and the language you select for your custom language model must match the language of your training and tuning data.</p><p>For a list of supported languages and their associated language codes, refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table. Note that US English (<code>en-US</code>) is the only language supported with Amazon Transcribe Medical.</p>
  */
 @property (nonatomic, assign) AWSTranscribeCLMLanguageCode languageCode;
 
@@ -1537,7 +1607,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
- <p>The maximum number of Call Analytics categories to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you don't specify a value, a default of 5 is used.</p>
+ <p>The maximum number of Call Analytics categories to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you do not specify a value, a default of 5 is used.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -1578,7 +1648,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable jobNameContains;
 
 /**
- <p>The maximum number of Call Analytics jobs to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you don't specify a value, a default of 5 is used.</p>
+ <p>The maximum number of Call Analytics jobs to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you do not specify a value, a default of 5 is used.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -1588,7 +1658,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>Returns only Call Analytics jobs with the specified status. Jobs are ordered by creation date, with the newest job first. If you don't include <code>Status</code>, all Call Analytics jobs are returned.</p>
+ <p>Returns only Call Analytics jobs with the specified status. Jobs are ordered by creation date, with the newest job first. If you do not include <code>Status</code>, all Call Analytics jobs are returned.</p>
  */
 @property (nonatomic, assign) AWSTranscribeCallAnalyticsJobStatus status;
 
@@ -1624,7 +1694,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
- <p>The maximum number of custom language models to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you don't specify a value, a default of 5 is used.</p>
+ <p>The maximum number of custom language models to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you do not specify a value, a default of 5 is used.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -1639,7 +1709,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>Returns only custom language models with the specified status. Language models are ordered by creation date, with the newest model first. If you don't include <code>StatusEquals</code>, all custom language models are returned.</p>
+ <p>Returns only custom language models with the specified status. Language models are ordered by creation date, with the newest model first. If you do not include <code>StatusEquals</code>, all custom language models are returned.</p>
  */
 @property (nonatomic, assign) AWSTranscribeModelStatus statusEquals;
 
@@ -1666,6 +1736,57 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 /**
  
  */
+@interface AWSTranscribeListMedicalScribeJobsRequest : AWSRequest
+
+
+/**
+ <p>Returns only the Medical Scribe jobs that contain the specified string. The search is not case sensitive.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobNameContains;
+
+/**
+ <p>The maximum number of Medical Scribe jobs to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you do not specify a value, a default of 5 is used.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>If your <code>ListMedicalScribeJobs</code> request returns more results than can be displayed, <code>NextToken</code> is displayed in the response with an associated string. To get the next page of results, copy this string and repeat your request, including <code>NextToken</code> with the value of the copied string. Repeat as needed to view all your results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Returns only Medical Scribe jobs with the specified status. Jobs are ordered by creation date, with the newest job first. If you do not include <code>Status</code>, all Medical Scribe jobs are returned.</p>
+ */
+@property (nonatomic, assign) AWSTranscribeMedicalScribeJobStatus status;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranscribeListMedicalScribeJobsResponse : AWSModel
+
+
+/**
+ <p>Provides a summary of information about each result.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTranscribeMedicalScribeJobSummary *> * _Nullable medicalScribeJobSummaries;
+
+/**
+ <p>If <code>NextToken</code> is present in your response, it indicates that not all results are displayed. To view the next set of results, copy the string associated with the <code>NextToken</code> parameter in your results output, then run your request again including <code>NextToken</code> with the value of the copied string. Repeat as needed to view all your results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Lists all Medical Scribe jobs that have the status specified in your request. Jobs are ordered by creation date, with the newest job first.</p>
+ */
+@property (nonatomic, assign) AWSTranscribeMedicalScribeJobStatus status;
+
+@end
+
+/**
+ 
+ */
 @interface AWSTranscribeListMedicalTranscriptionJobsRequest : AWSRequest
 
 
@@ -1675,7 +1796,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable jobNameContains;
 
 /**
- <p>The maximum number of medical transcription jobs to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you don't specify a value, a default of 5 is used.</p>
+ <p>The maximum number of medical transcription jobs to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you do not specify a value, a default of 5 is used.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -1685,7 +1806,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>Returns only medical transcription jobs with the specified status. Jobs are ordered by creation date, with the newest job first. If you don't include <code>Status</code>, all medical transcription jobs are returned.</p>
+ <p>Returns only medical transcription jobs with the specified status. Jobs are ordered by creation date, with the newest job first. If you do not include <code>Status</code>, all medical transcription jobs are returned.</p>
  */
 @property (nonatomic, assign) AWSTranscribeTranscriptionJobStatus status;
 
@@ -1721,7 +1842,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
- <p>The maximum number of custom medical vocabularies to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you don't specify a value, a default of 5 is used.</p>
+ <p>The maximum number of custom medical vocabularies to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you do not specify a value, a default of 5 is used.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -1736,7 +1857,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>Returns only custom medical vocabularies with the specified state. Custom vocabularies are ordered by creation date, with the newest vocabulary first. If you don't include <code>StateEquals</code>, all custom medical vocabularies are returned.</p>
+ <p>Returns only custom medical vocabularies with the specified state. Custom vocabularies are ordered by creation date, with the newest vocabulary first. If you do not include <code>StateEquals</code>, all custom medical vocabularies are returned.</p>
  */
 @property (nonatomic, assign) AWSTranscribeVocabularyState stateEquals;
 
@@ -1808,7 +1929,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable jobNameContains;
 
 /**
- <p>The maximum number of transcription jobs to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you don't specify a value, a default of 5 is used.</p>
+ <p>The maximum number of transcription jobs to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you do not specify a value, a default of 5 is used.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -1818,7 +1939,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>Returns only transcription jobs with the specified status. Jobs are ordered by creation date, with the newest job first. If you don't include <code>Status</code>, all transcription jobs are returned.</p>
+ <p>Returns only transcription jobs with the specified status. Jobs are ordered by creation date, with the newest job first. If you do not include <code>Status</code>, all transcription jobs are returned.</p>
  */
 @property (nonatomic, assign) AWSTranscribeTranscriptionJobStatus status;
 
@@ -1854,7 +1975,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
- <p>The maximum number of custom vocabularies to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you don't specify a value, a default of 5 is used.</p>
+ <p>The maximum number of custom vocabularies to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you do not specify a value, a default of 5 is used.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -1869,7 +1990,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>Returns only custom vocabularies with the specified state. Vocabularies are ordered by creation date, with the newest vocabulary first. If you don't include <code>StateEquals</code>, all custom medical vocabularies are returned.</p>
+ <p>Returns only custom vocabularies with the specified state. Vocabularies are ordered by creation date, with the newest vocabulary first. If you do not include <code>StateEquals</code>, all custom medical vocabularies are returned.</p>
  */
 @property (nonatomic, assign) AWSTranscribeVocabularyState stateEquals;
 
@@ -1905,7 +2026,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
- <p>The maximum number of custom vocabulary filters to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you don't specify a value, a default of 5 is used.</p>
+ <p>The maximum number of custom vocabulary filters to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you do not specify a value, a default of 5 is used.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -1940,7 +2061,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @end
 
 /**
- <p>Describes the Amazon S3 location of the media file you want to use in your request.</p><p>For information on supported media formats, refer to the <a href="https://docs.aws.amazon.com/APIReference/API_StartTranscriptionJob.html#transcribe-StartTranscriptionJob-request-MediaFormat">MediaFormat</a> parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section in the Amazon S3 Developer Guide.</p>
+ <p>Describes the Amazon S3 location of the media file you want to use in your request.</p><p>For information on supported media formats, refer to the <code>MediaFormat</code> parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section in the Amazon S3 Developer Guide.</p>
  */
 @interface AWSTranscribeMedia : AWSModel
 
@@ -1954,6 +2075,198 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  <p>The Amazon S3 location of the media file you want to redact. For example:</p><ul><li><p><code>s3://DOC-EXAMPLE-BUCKET/my-media-file.flac</code></p></li><li><p><code>s3://DOC-EXAMPLE-BUCKET/media-files/my-media-file.flac</code></p></li></ul><p>Note that the Amazon S3 bucket that contains your input media must be located in the same Amazon Web Services Region where you're making your transcription request.</p><important><p><code>RedactedMediaFileUri</code> produces a redacted audio file in addition to a redacted transcript. It is only supported for Call Analytics (<code>StartCallAnalyticsJob</code>) transcription requests.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable redactedMediaFileUri;
+
+@end
+
+/**
+ <p>Indicates which speaker is on which channel. The options are <code>CLINICIAN</code> and <code>PATIENT</code></p>
+ Required parameters: [ChannelId, ParticipantRole]
+ */
+@interface AWSTranscribeMedicalScribeChannelDefinition : AWSModel
+
+
+/**
+ <p>Specify the audio channel you want to define.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable channelId;
+
+/**
+ <p>Specify the participant that you want to flag. The options are <code>CLINICIAN</code> and <code>PATIENT</code></p>
+ */
+@property (nonatomic, assign) AWSTranscribeMedicalScribeParticipantRole participantRole;
+
+@end
+
+/**
+ <p>Provides detailed information about a Medical Scribe job.</p><p>To view the status of the specified Medical Scribe job, check the <code>MedicalScribeJobStatus</code> field. If the status is <code>COMPLETED</code>, the job is finished and you can find the results at the locations specified in <code>MedicalScribeOutput</code>. If the status is <code>FAILED</code>, <code>FailureReason</code> provides details on why your Medical Scribe job failed.</p>
+ */
+@interface AWSTranscribeMedicalScribeJob : AWSModel
+
+
+/**
+ <p>Makes it possible to specify which speaker is on which channel. For example, if the clinician is the first participant to speak, you would set <code>ChannelId</code> of the first <code>ChannelDefinition</code> in the list to <code>0</code> (to indicate the first channel) and <code>ParticipantRole</code> to <code>CLINICIAN</code> (to indicate that it's the clinician speaking). Then you would set the <code>ChannelId</code> of the second <code>ChannelDefinition</code> in the list to <code>1</code> (to indicate the second channel) and <code>ParticipantRole</code> to <code>PATIENT</code> (to indicate that it's the patient speaking). </p>
+ */
+@property (nonatomic, strong) NSArray<AWSTranscribeMedicalScribeChannelDefinition *> * _Nullable channelDefinitions;
+
+/**
+ <p>The date and time the specified Medical Scribe job finished processing.</p><p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For example, <code>2022-05-04T12:32:58.761000-07:00</code> represents a Medical Scribe job that finished processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable completionTime;
+
+/**
+ <p>The date and time the specified Medical Scribe job request was made.</p><p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For example, <code>2022-05-04T12:32:58.761000-07:00</code> represents a Medical Scribe job that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTime;
+
+/**
+ <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon S3 bucket that contains your input files, write to the output bucket, and use your KMS key if supplied. If the role that you specify doesn’t have the appropriate permissions your request fails.</p><p>IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>. For example: <code>arn:aws:iam::111122223333:role/Admin</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataAccessRoleArn;
+
+/**
+ <p>If <code>MedicalScribeJobStatus</code> is <code>FAILED</code>, <code>FailureReason</code> contains information about why the transcription job failed. See also: <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable failureReason;
+
+/**
+ <p>The language code used to create your Medical Scribe job. US English (<code>en-US</code>) is the only supported language for Medical Scribe jobs. </p>
+ */
+@property (nonatomic, assign) AWSTranscribeMedicalScribeLanguageCode languageCode;
+
+/**
+ <p>Describes the Amazon S3 location of the media file you want to use in your request.</p><p>For information on supported media formats, refer to the <code>MediaFormat</code> parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section in the Amazon S3 Developer Guide.</p>
+ */
+@property (nonatomic, strong) AWSTranscribeMedia * _Nullable media;
+
+/**
+ <p>The name of the Medical Scribe job. Job names are case sensitive and must be unique within an Amazon Web Services account.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable medicalScribeJobName;
+
+/**
+ <p>Provides the status of the specified Medical Scribe job.</p><p>If the status is <code>COMPLETED</code>, the job is finished and you can find the results at the location specified in <code>MedicalScribeOutput</code> If the status is <code>FAILED</code>, <code>FailureReason</code> provides details on why your Medical Scribe job failed.</p>
+ */
+@property (nonatomic, assign) AWSTranscribeMedicalScribeJobStatus medicalScribeJobStatus;
+
+/**
+ <p>The location of the output of your Medical Scribe job. <code>ClinicalDocumentUri</code> holds the Amazon S3 URI for the Clinical Document and <code>TranscriptFileUri</code> holds the Amazon S3 URI for the Transcript.</p>
+ */
+@property (nonatomic, strong) AWSTranscribeMedicalScribeOutput * _Nullable medicalScribeOutput;
+
+/**
+ <p>Makes it possible to control how your Medical Scribe job is processed using a <code>MedicalScribeSettings</code> object. Specify <code>ChannelIdentification</code> if <code>ChannelDefinitions</code> are set. Enabled <code>ShowSpeakerLabels</code> if <code>ChannelIdentification</code> and <code>ChannelDefinitions</code> are not set. One and only one of <code>ChannelIdentification</code> and <code>ShowSpeakerLabels</code> must be set. If <code>ShowSpeakerLabels</code> is set, <code>MaxSpeakerLabels</code> must also be set. Use <code>Settings</code> to specify a vocabulary or vocabulary filter or both using <code>VocabularyName</code>, <code>VocabularyFilterName</code>. <code>VocabularyFilterMethod</code> must be specified if <code>VocabularyFilterName</code> is set. </p>
+ */
+@property (nonatomic, strong) AWSTranscribeMedicalScribeSettings * _Nullable settings;
+
+/**
+ <p>The date and time your Medical Scribe job began processing.</p><p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For example, <code>2022-05-04T12:32:58.789000-07:00</code> represents a Medical Scribe job that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable startTime;
+
+/**
+ <p>Adds one or more custom tags, each in the form of a key:value pair, to the Medica Scribe job.</p><p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging resources</a>.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTranscribeTag *> * _Nullable tags;
+
+@end
+
+/**
+ <p>Provides detailed information about a specific Medical Scribe job.</p>
+ */
+@interface AWSTranscribeMedicalScribeJobSummary : AWSModel
+
+
+/**
+ <p>The date and time the specified Medical Scribe job finished processing.</p><p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For example, <code>2022-05-04T12:32:58.761000-07:00</code> represents a Medical Scribe job that finished processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable completionTime;
+
+/**
+ <p>The date and time the specified Medical Scribe job request was made.</p><p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For example, <code>2022-05-04T12:32:58.761000-07:00</code> represents a Medical Scribe job that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTime;
+
+/**
+ <p>If <code>MedicalScribeJobStatus</code> is <code>FAILED</code>, <code>FailureReason</code> contains information about why the transcription job failed. See also: <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable failureReason;
+
+/**
+ <p>The language code used to create your Medical Scribe job. US English (<code>en-US</code>) is the only supported language for Medical Scribe jobs. </p>
+ */
+@property (nonatomic, assign) AWSTranscribeMedicalScribeLanguageCode languageCode;
+
+/**
+ <p>The name of the Medical Scribe job. Job names are case sensitive and must be unique within an Amazon Web Services account.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable medicalScribeJobName;
+
+/**
+ <p>Provides the status of the specified Medical Scribe job.</p><p>If the status is <code>COMPLETED</code>, the job is finished and you can find the results at the location specified in <code>MedicalScribeOutput</code> If the status is <code>FAILED</code>, <code>FailureReason</code> provides details on why your Medical Scribe job failed.</p>
+ */
+@property (nonatomic, assign) AWSTranscribeMedicalScribeJobStatus medicalScribeJobStatus;
+
+/**
+ <p>The date and time your Medical Scribe job began processing.</p><p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For example, <code>2022-05-04T12:32:58.789000-07:00</code> represents a Medical Scribe job that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable startTime;
+
+@end
+
+/**
+ <p>The location of the output of your Medical Scribe job. <code>ClinicalDocumentUri</code> holds the Amazon S3 URI for the Clinical Document and <code>TranscriptFileUri</code> holds the Amazon S3 URI for the Transcript.</p>
+ Required parameters: [TranscriptFileUri, ClinicalDocumentUri]
+ */
+@interface AWSTranscribeMedicalScribeOutput : AWSModel
+
+
+/**
+ <p>Holds the Amazon S3 URI for the Clinical Document.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clinicalDocumentUri;
+
+/**
+ <p>Holds the Amazon S3 URI for the Transcript.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transcriptFileUri;
+
+@end
+
+/**
+ <p>Makes it possible to control how your Medical Scribe job is processed using a <code>MedicalScribeSettings</code> object. Specify <code>ChannelIdentification</code> if <code>ChannelDefinitions</code> are set. Enabled <code>ShowSpeakerLabels</code> if <code>ChannelIdentification</code> and <code>ChannelDefinitions</code> are not set. One and only one of <code>ChannelIdentification</code> and <code>ShowSpeakerLabels</code> must be set. If <code>ShowSpeakerLabels</code> is set, <code>MaxSpeakerLabels</code> must also be set. Use <code>Settings</code> to specify a vocabulary or vocabulary filter or both using <code>VocabularyName</code>, <code>VocabularyFilterName</code>. <code>VocabularyFilterMethod</code> must be specified if <code>VocabularyFilterName</code> is set. </p>
+ */
+@interface AWSTranscribeMedicalScribeSettings : AWSModel
+
+
+/**
+ <p>Enables channel identification in multi-channel audio.</p><p>Channel identification transcribes the audio on each channel independently, then appends the output for each channel into one transcript.</p><p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing multi-channel audio</a>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable channelIdentification;
+
+/**
+ <p>Specify the maximum number of speakers you want to partition in your media.</p><p>Note that if your media contains more speakers than the specified number, multiple speakers are treated as a single speaker.</p><p>If you specify the <code>MaxSpeakerLabels</code> field, you must set the <code>ShowSpeakerLabels</code> field to true.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxSpeakerLabels;
+
+/**
+ <p>Enables speaker partitioning (diarization) in your Medical Scribe output. Speaker partitioning labels the speech from individual speakers in your media file.</p><p>If you enable <code>ShowSpeakerLabels</code> in your request, you must also include <code>MaxSpeakerLabels</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning speakers (diarization)</a>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable showSpeakerLabels;
+
+/**
+ <p>Specify how you want your custom vocabulary filter applied to your transcript.</p><p>To replace words with <code>***</code>, choose <code>mask</code>.</p><p>To delete words, choose <code>remove</code>.</p><p>To flag words without changing them, choose <code>tag</code>.</p>
+ */
+@property (nonatomic, assign) AWSTranscribeVocabularyFilterMethod vocabularyFilterMethod;
+
+/**
+ <p>The name of the custom vocabulary filter you want to include in your Medical Scribe request. Custom vocabulary filter names are case sensitive.</p><p>Note that if you include <code>VocabularyFilterName</code> in your request, you must also include <code>VocabularyFilterMethod</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyFilterName;
+
+/**
+ <p>The name of the custom vocabulary you want to include in your Medical Scribe request. Custom vocabulary names are case sensitive.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyName;
 
 @end
 
@@ -1992,7 +2305,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSDate * _Nullable creationTime;
 
 /**
- <p>If <code>TranscriptionJobStatus</code> is <code>FAILED</code>, <code>FailureReason</code> contains information about why the transcription job request failed.</p><p>The <code>FailureReason</code> field contains one of the following values:</p><ul><li><p><code>Unsupported media format</code>.</p><p>The media format specified in <code>MediaFormat</code> isn't valid. Refer to <b>MediaFormat</b> for a list of supported formats.</p></li><li><p><code>The media format provided does not match the detected media format</code>.</p><p>The media format specified in <code>MediaFormat</code> doesn't match the format of the input file. Check the media format of your media file and correct the specified value.</p></li><li><p><code>Invalid sample rate for audio file</code>.</p><p>The sample rate specified in <code>MediaSampleRateHertz</code> isn't valid. The sample rate must be between 16,000 and 48,000 hertz.</p></li><li><p><code>The sample rate provided does not match the detected sample rate</code>.</p><p>The sample rate specified in <code>MediaSampleRateHertz</code> doesn't match the sample rate detected in your input media file. Check the sample rate of your media file and correct the specified value.</p></li><li><p><code>Invalid file size: file size too large</code>.</p><p>The size of your media file is larger than what Amazon Transcribe can process. For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Guidelines and quotas</a>.</p></li><li><p><code>Invalid number of channels: number of channels too large</code>.</p><p>Your audio contains more channels than Amazon Transcribe is able to process. For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Guidelines and quotas</a>.</p></li></ul>
+ <p>If <code>TranscriptionJobStatus</code> is <code>FAILED</code>, <code>FailureReason</code> contains information about why the transcription job request failed.</p><p>The <code>FailureReason</code> field contains one of the following values:</p><ul><li><p><code>Unsupported media format</code>.</p><p>The media format specified in <code>MediaFormat</code> isn't valid. Refer to refer to the <code>MediaFormat</code> parameter for a list of supported formats.</p></li><li><p><code>The media format provided does not match the detected media format</code>.</p><p>The media format specified in <code>MediaFormat</code> doesn't match the format of the input file. Check the media format of your media file and correct the specified value.</p></li><li><p><code>Invalid sample rate for audio file</code>.</p><p>The sample rate specified in <code>MediaSampleRateHertz</code> isn't valid. The sample rate must be between 16,000 and 48,000 hertz.</p></li><li><p><code>The sample rate provided does not match the detected sample rate</code>.</p><p>The sample rate specified in <code>MediaSampleRateHertz</code> doesn't match the sample rate detected in your input media file. Check the sample rate of your media file and correct the specified value.</p></li><li><p><code>Invalid file size: file size too large</code>.</p><p>The size of your media file is larger than what Amazon Transcribe can process. For more information, refer to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html#limits-amazon-transcribe">Service quotas</a>.</p></li><li><p><code>Invalid number of channels: number of channels too large</code>.</p><p>Your audio contains more channels than Amazon Transcribe is able to process. For more information, refer to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html#limits-amazon-transcribe">Service quotas</a>.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable failureReason;
 
@@ -2002,7 +2315,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, assign) AWSTranscribeLanguageCode languageCode;
 
 /**
- <p>Describes the Amazon S3 location of the media file you want to use in your request.</p><p>For information on supported media formats, refer to the <a href="https://docs.aws.amazon.com/APIReference/API_StartTranscriptionJob.html#transcribe-StartTranscriptionJob-request-MediaFormat">MediaFormat</a> parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section in the Amazon S3 Developer Guide.</p>
+ <p>Describes the Amazon S3 location of the media file you want to use in your request.</p><p>For information on supported media formats, refer to the <code>MediaFormat</code> parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section in the Amazon S3 Developer Guide.</p>
  */
 @property (nonatomic, strong) AWSTranscribeMedia * _Nullable media;
 
@@ -2128,7 +2441,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
- <p>Enables channel identification in multi-channel audio.</p><p>Channel identification transcribes the audio on each channel independently, then appends the output for each channel into one transcript.</p><p>If you have multi-channel audio and do not enable channel identification, your audio is transcribed in a continuous manner and your transcript does not separate the speech by channel.</p><p>You can't include both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code> in the same request. Including both parameters returns a <code>BadRequestException</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing multi-channel audio</a>.</p>
+ <p>Enables channel identification in multi-channel audio.</p><p>Channel identification transcribes the audio on each channel independently, then appends the output for each channel into one transcript.</p><p>If you have multi-channel audio and do not enable channel identification, your audio is transcribed in a continuous manner and your transcript does not separate the speech by channel.</p><p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing multi-channel audio</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable channelIdentification;
 
@@ -2148,12 +2461,12 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSNumber * _Nullable showAlternatives;
 
 /**
- <p>Enables speaker partitioning (diarization) in your transcription output. Speaker partitioning labels the speech from individual speakers in your media file.</p><p>If you enable <code>ShowSpeakerLabels</code> in your request, you must also include <code>MaxSpeakerLabels</code>.</p><p>You can't include <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code> in the same request. Including both parameters returns a <code>BadRequestException</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning speakers (diarization)</a>.</p>
+ <p>Enables speaker partitioning (diarization) in your transcription output. Speaker partitioning labels the speech from individual speakers in your media file.</p><p>If you enable <code>ShowSpeakerLabels</code> in your request, you must also include <code>MaxSpeakerLabels</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning speakers (diarization)</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable showSpeakerLabels;
 
 /**
- <p>The name of the custom vocabulary you want to use when processing your medical transcription job. Custom vocabulary names are case sensitive.</p><p>The language of the specified custom vocabulary must match the language code that you specify in your transcription request. If the languages don't match, the custom vocabulary isn't applied. There are no errors or warnings associated with a language mismatch. US English (<code>en-US</code>) is the only valid language for Amazon Transcribe Medical.</p>
+ <p>The name of the custom vocabulary you want to use when processing your medical transcription job. Custom vocabulary names are case sensitive.</p><p>The language of the specified custom vocabulary must match the language code that you specify in your transcription request. If the languages do not match, the custom vocabulary isn't applied. There are no errors or warnings associated with a language mismatch. US English (<code>en-US</code>) is the only valid language for Amazon Transcribe Medical.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vocabularyName;
 
@@ -2166,7 +2479,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
- <p>The name of the custom language model you want to use when processing your transcription job. Note that custom language model names are case sensitive.</p><p>The language of the specified custom language model must match the language code that you specify in your transcription request. If the languages don't match, the custom language model isn't applied. There are no errors or warnings associated with a language mismatch.</p>
+ <p>The name of the custom language model you want to use when processing your transcription job. Note that custom language model names are case sensitive.</p><p>The language of the specified custom language model must match the language code that you specify in your transcription request. If the languages do not match, the custom language model isn't applied. There are no errors or warnings associated with a language mismatch.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable languageModelName;
 
@@ -2297,7 +2610,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
- <p>Enables channel identification in multi-channel audio.</p><p>Channel identification transcribes the audio on each channel independently, then appends the output for each channel into one transcript.</p><p>You can't include both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code> in the same request. Including both parameters returns a <code>BadRequestException</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing multi-channel audio</a>.</p>
+ <p>Enables channel identification in multi-channel audio.</p><p>Channel identification transcribes the audio on each channel independently, then appends the output for each channel into one transcript.</p><p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing multi-channel audio</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable channelIdentification;
 
@@ -2317,7 +2630,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSNumber * _Nullable showAlternatives;
 
 /**
- <p>Enables speaker partitioning (diarization) in your transcription output. Speaker partitioning labels the speech from individual speakers in your media file.</p><p>If you enable <code>ShowSpeakerLabels</code> in your request, you must also include <code>MaxSpeakerLabels</code>.</p><p>You can't include both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code> in the same request. Including both parameters returns a <code>BadRequestException</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning speakers (diarization)</a>.</p>
+ <p>Enables speaker partitioning (diarization) in your transcription output. Speaker partitioning labels the speech from individual speakers in your media file.</p><p>If you enable <code>ShowSpeakerLabels</code> in your request, you must also include <code>MaxSpeakerLabels</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning speakers (diarization)</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable showSpeakerLabels;
 
@@ -2365,12 +2678,12 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) AWSTranscribeMedia * _Nullable media;
 
 /**
- <p>The KMS key you want to use to encrypt your Call Analytics output.</p><p>If using a key located in the <b>current</b> Amazon Web Services account, you can specify your KMS key in one of four ways:</p><ol><li><p>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</p></li><li><p>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If using a key located in a <b>different</b> Amazon Web Services account than the current Amazon Web Services account, you can specify your KMS key in one of two ways:</p><ol><li><p>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If you don't specify an encryption key, your output is encrypted with the default Amazon S3 key (SSE-S3).</p><p>If you specify a KMS key to encrypt your output, you must also specify an output location using the <code>OutputLocation</code> parameter.</p><p>Note that the role making the request must have permission to use the specified KMS key.</p>
+ <p>The KMS key you want to use to encrypt your Call Analytics output.</p><p>If using a key located in the <b>current</b> Amazon Web Services account, you can specify your KMS key in one of four ways:</p><ol><li><p>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</p></li><li><p>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If using a key located in a <b>different</b> Amazon Web Services account than the current Amazon Web Services account, you can specify your KMS key in one of two ways:</p><ol><li><p>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If you do not specify an encryption key, your output is encrypted with the default Amazon S3 key (SSE-S3).</p><p>If you specify a KMS key to encrypt your output, you must also specify an output location using the <code>OutputLocation</code> parameter.</p><p>Note that the role making the request must have permission to use the specified KMS key.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outputEncryptionKMSKeyId;
 
 /**
- <p>The Amazon S3 location where you want your Call Analytics transcription output stored. You can use any of the following formats to specify the output location:</p><ol><li><p>s3://DOC-EXAMPLE-BUCKET</p></li><li><p>s3://DOC-EXAMPLE-BUCKET/my-output-folder/</p></li><li><p>s3://DOC-EXAMPLE-BUCKET/my-output-folder/my-call-analytics-job.json</p></li></ol><p>Unless you specify a file name (option 3), the name of your output file has a default value that matches the name you specified for your transcription job using the <code>CallAnalyticsJobName</code> parameter.</p><p>You can specify a KMS key to encrypt your output using the <code>OutputEncryptionKMSKeyId</code> parameter. If you don't specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for server-side encryption.</p><p>If you don't specify <code>OutputLocation</code>, your transcript is placed in a service-managed Amazon S3 bucket and you are provided with a URI to access your transcript.</p>
+ <p>The Amazon S3 location where you want your Call Analytics transcription output stored. You can use any of the following formats to specify the output location:</p><ol><li><p>s3://DOC-EXAMPLE-BUCKET</p></li><li><p>s3://DOC-EXAMPLE-BUCKET/my-output-folder/</p></li><li><p>s3://DOC-EXAMPLE-BUCKET/my-output-folder/my-call-analytics-job.json</p></li></ol><p>Unless you specify a file name (option 3), the name of your output file has a default value that matches the name you specified for your transcription job using the <code>CallAnalyticsJobName</code> parameter.</p><p>You can specify a KMS key to encrypt your output using the <code>OutputEncryptionKMSKeyId</code> parameter. If you do not specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for server-side encryption.</p><p>If you do not specify <code>OutputLocation</code>, your transcript is placed in a service-managed Amazon S3 bucket and you are provided with a URI to access your transcript.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outputLocation;
 
@@ -2397,6 +2710,72 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 /**
  
  */
+@interface AWSTranscribeStartMedicalScribeJobRequest : AWSRequest
+
+
+/**
+ <p>Makes it possible to specify which speaker is on which channel. For example, if the clinician is the first participant to speak, you would set <code>ChannelId</code> of the first <code>ChannelDefinition</code> in the list to <code>0</code> (to indicate the first channel) and <code>ParticipantRole</code> to <code>CLINICIAN</code> (to indicate that it's the clinician speaking). Then you would set the <code>ChannelId</code> of the second <code>ChannelDefinition</code> in the list to <code>1</code> (to indicate the second channel) and <code>ParticipantRole</code> to <code>PATIENT</code> (to indicate that it's the patient speaking). </p>
+ */
+@property (nonatomic, strong) NSArray<AWSTranscribeMedicalScribeChannelDefinition *> * _Nullable channelDefinitions;
+
+/**
+ <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon S3 bucket that contains your input files, write to the output bucket, and use your KMS key if supplied. If the role that you specify doesn’t have the appropriate permissions your request fails.</p><p>IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>. For example: <code>arn:aws:iam::111122223333:role/Admin</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataAccessRoleArn;
+
+/**
+ <p>A map of plain text, non-secret key:value pairs, known as encryption context pairs, that provide an added layer of security for your data. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/key-management.html#kms-context">KMS encryption context</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/symmetric-asymmetric.html">Asymmetric keys in KMS</a>.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable KMSEncryptionContext;
+
+/**
+ <p>Describes the Amazon S3 location of the media file you want to use in your request.</p><p>For information on supported media formats, refer to the <code>MediaFormat</code> parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section in the Amazon S3 Developer Guide.</p>
+ */
+@property (nonatomic, strong) AWSTranscribeMedia * _Nullable media;
+
+/**
+ <p>A unique name, chosen by you, for your Medical Scribe job.</p><p>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon Web Services account. If you try to create a new job with the same name as an existing job, you get a <code>ConflictException</code> error.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable medicalScribeJobName;
+
+/**
+ <p>The name of the Amazon S3 bucket where you want your Medical Scribe output stored. Do not include the <code>S3://</code> prefix of the specified bucket.</p><p>Note that the role specified in the <code>DataAccessRoleArn</code> request parameter must have permission to use the specified location. You can change Amazon S3 permissions using the <a href="https://console.aws.amazon.com/s3">Amazon Web Services Management Console</a>. See also <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions Required for IAM User Roles</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable outputBucketName;
+
+/**
+ <p>The KMS key you want to use to encrypt your Medical Scribe output.</p><p>If using a key located in the <b>current</b> Amazon Web Services account, you can specify your KMS key in one of four ways:</p><ol><li><p>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</p></li><li><p>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If using a key located in a <b>different</b> Amazon Web Services account than the current Amazon Web Services account, you can specify your KMS key in one of two ways:</p><ol><li><p>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If you do not specify an encryption key, your output is encrypted with the default Amazon S3 key (SSE-S3).</p><p>Note that the role specified in the <code>DataAccessRoleArn</code> request parameter must have permission to use the specified KMS key.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable outputEncryptionKMSKeyId;
+
+/**
+ <p>Makes it possible to control how your Medical Scribe job is processed using a <code>MedicalScribeSettings</code> object. Specify <code>ChannelIdentification</code> if <code>ChannelDefinitions</code> are set. Enabled <code>ShowSpeakerLabels</code> if <code>ChannelIdentification</code> and <code>ChannelDefinitions</code> are not set. One and only one of <code>ChannelIdentification</code> and <code>ShowSpeakerLabels</code> must be set. If <code>ShowSpeakerLabels</code> is set, <code>MaxSpeakerLabels</code> must also be set. Use <code>Settings</code> to specify a vocabulary or vocabulary filter or both using <code>VocabularyName</code>, <code>VocabularyFilterName</code>. <code>VocabularyFilterMethod</code> must be specified if <code>VocabularyFilterName</code> is set. </p>
+ */
+@property (nonatomic, strong) AWSTranscribeMedicalScribeSettings * _Nullable settings;
+
+/**
+ <p>Adds one or more custom tags, each in the form of a key:value pair, to the Medica Scribe job.</p><p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging resources</a>.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTranscribeTag *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranscribeStartMedicalScribeJobResponse : AWSModel
+
+
+/**
+ <p>Provides detailed information about the current Medical Scribe job, including job status and, if applicable, failure reason.</p>
+ */
+@property (nonatomic, strong) AWSTranscribeMedicalScribeJob * _Nullable medicalScribeJob;
+
+@end
+
+/**
+ 
+ */
 @interface AWSTranscribeStartMedicalTranscriptionJobRequest : AWSRequest
 
 
@@ -2416,7 +2795,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, assign) AWSTranscribeLanguageCode languageCode;
 
 /**
- <p>Describes the Amazon S3 location of the media file you want to use in your request.</p><p>For information on supported media formats, refer to the <a href="https://docs.aws.amazon.com/APIReference/API_StartTranscriptionJob.html#transcribe-StartTranscriptionJob-request-MediaFormat">MediaFormat</a> parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section in the Amazon S3 Developer Guide.</p>
+ <p>Describes the Amazon S3 location of the media file you want to use in your request.</p><p>For information on supported media formats, refer to the <code>MediaFormat</code> parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section in the Amazon S3 Developer Guide.</p>
  */
 @property (nonatomic, strong) AWSTranscribeMedia * _Nullable media;
 
@@ -2426,7 +2805,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, assign) AWSTranscribeMediaFormat mediaFormat;
 
 /**
- <p>The sample rate, in hertz, of the audio track in your input media file.</p><p>If you don't specify the media sample rate, Amazon Transcribe Medical determines it for you. If you specify the sample rate, it must match the rate detected by Amazon Transcribe Medical; if there's a mismatch between the value that you specify and the value detected, your job fails. Therefore, in most cases, it's advised to omit <code>MediaSampleRateHertz</code> and let Amazon Transcribe Medical determine the sample rate.</p>
+ <p>The sample rate, in hertz, of the audio track in your input media file.</p><p>If you do not specify the media sample rate, Amazon Transcribe Medical determines it for you. If you specify the sample rate, it must match the rate detected by Amazon Transcribe Medical; if there's a mismatch between the value that you specify and the value detected, your job fails. Therefore, in most cases, it's advised to omit <code>MediaSampleRateHertz</code> and let Amazon Transcribe Medical determine the sample rate.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable mediaSampleRateHertz;
 
@@ -2441,7 +2820,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable outputBucketName;
 
 /**
- <p>The KMS key you want to use to encrypt your medical transcription output.</p><p>If using a key located in the <b>current</b> Amazon Web Services account, you can specify your KMS key in one of four ways:</p><ol><li><p>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</p></li><li><p>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If using a key located in a <b>different</b> Amazon Web Services account than the current Amazon Web Services account, you can specify your KMS key in one of two ways:</p><ol><li><p>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If you don't specify an encryption key, your output is encrypted with the default Amazon S3 key (SSE-S3).</p><p>If you specify a KMS key to encrypt your output, you must also specify an output location using the <code>OutputLocation</code> parameter.</p><p>Note that the role making the request must have permission to use the specified KMS key.</p>
+ <p>The KMS key you want to use to encrypt your medical transcription output.</p><p>If using a key located in the <b>current</b> Amazon Web Services account, you can specify your KMS key in one of four ways:</p><ol><li><p>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</p></li><li><p>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If using a key located in a <b>different</b> Amazon Web Services account than the current Amazon Web Services account, you can specify your KMS key in one of two ways:</p><ol><li><p>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If you do not specify an encryption key, your output is encrypted with the default Amazon S3 key (SSE-S3).</p><p>If you specify a KMS key to encrypt your output, you must also specify an output location using the <code>OutputLocation</code> parameter.</p><p>Note that the role making the request must have permission to use the specified KMS key.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outputEncryptionKMSKeyId;
 
@@ -2492,7 +2871,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
- <p>Makes it possible to redact or flag specified personally identifiable information (PII) in your transcript. If you use <code>ContentRedaction</code>, you must also include the sub-parameters: <code>PiiEntityTypes</code>, <code>RedactionOutput</code>, and <code>RedactionType</code>.</p>
+ <p>Makes it possible to redact or flag specified personally identifiable information (PII) in your transcript. If you use <code>ContentRedaction</code>, you must also include the sub-parameters: <code>RedactionOutput</code> and <code>RedactionType</code>. You can optionally include <code>PiiEntityTypes</code> to choose which types of PII you want to redact. If you do not include <code>PiiEntityTypes</code> in your request, all PII is redacted.</p>
  */
 @property (nonatomic, strong) AWSTranscribeContentRedaction * _Nullable contentRedaction;
 
@@ -2542,7 +2921,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, assign) AWSTranscribeMediaFormat mediaFormat;
 
 /**
- <p>The sample rate, in hertz, of the audio track in your input media file.</p><p>If you don't specify the media sample rate, Amazon Transcribe determines it for you. If you specify the sample rate, it must match the rate detected by Amazon Transcribe. If there's a mismatch between the value that you specify and the value detected, your job fails. In most cases, you can omit <code>MediaSampleRateHertz</code> and let Amazon Transcribe determine the sample rate.</p>
+ <p>The sample rate, in hertz, of the audio track in your input media file.</p><p>If you do not specify the media sample rate, Amazon Transcribe determines it for you. If you specify the sample rate, it must match the rate detected by Amazon Transcribe. If there's a mismatch between the value that you specify and the value detected, your job fails. In most cases, you can omit <code>MediaSampleRateHertz</code> and let Amazon Transcribe determine the sample rate.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable mediaSampleRateHertz;
 
@@ -2552,12 +2931,12 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) AWSTranscribeModelSettings * _Nullable modelSettings;
 
 /**
- <p>The name of the Amazon S3 bucket where you want your transcription output stored. Do not include the <code>S3://</code> prefix of the specified bucket.</p><p>If you want your output to go to a sub-folder of this bucket, specify it using the <code>OutputKey</code> parameter; <code>OutputBucketName</code> only accepts the name of a bucket.</p><p>For example, if you want your output stored in <code>S3://DOC-EXAMPLE-BUCKET</code>, set <code>OutputBucketName</code> to <code>DOC-EXAMPLE-BUCKET</code>. However, if you want your output stored in <code>S3://DOC-EXAMPLE-BUCKET/test-files/</code>, set <code>OutputBucketName</code> to <code>DOC-EXAMPLE-BUCKET</code> and <code>OutputKey</code> to <code>test-files/</code>.</p><p>Note that Amazon Transcribe must have permission to use the specified location. You can change Amazon S3 permissions using the <a href="https://console.aws.amazon.com/s3">Amazon Web Services Management Console</a>. See also <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions Required for IAM User Roles</a>.</p><p>If you don't specify <code>OutputBucketName</code>, your transcript is placed in a service-managed Amazon S3 bucket and you are provided with a URI to access your transcript.</p>
+ <p>The name of the Amazon S3 bucket where you want your transcription output stored. Do not include the <code>S3://</code> prefix of the specified bucket.</p><p>If you want your output to go to a sub-folder of this bucket, specify it using the <code>OutputKey</code> parameter; <code>OutputBucketName</code> only accepts the name of a bucket.</p><p>For example, if you want your output stored in <code>S3://DOC-EXAMPLE-BUCKET</code>, set <code>OutputBucketName</code> to <code>DOC-EXAMPLE-BUCKET</code>. However, if you want your output stored in <code>S3://DOC-EXAMPLE-BUCKET/test-files/</code>, set <code>OutputBucketName</code> to <code>DOC-EXAMPLE-BUCKET</code> and <code>OutputKey</code> to <code>test-files/</code>.</p><p>Note that Amazon Transcribe must have permission to use the specified location. You can change Amazon S3 permissions using the <a href="https://console.aws.amazon.com/s3">Amazon Web Services Management Console</a>. See also <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions Required for IAM User Roles</a>.</p><p>If you do not specify <code>OutputBucketName</code>, your transcript is placed in a service-managed Amazon S3 bucket and you are provided with a URI to access your transcript.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outputBucketName;
 
 /**
- <p>The KMS key you want to use to encrypt your transcription output.</p><p>If using a key located in the <b>current</b> Amazon Web Services account, you can specify your KMS key in one of four ways:</p><ol><li><p>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</p></li><li><p>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If using a key located in a <b>different</b> Amazon Web Services account than the current Amazon Web Services account, you can specify your KMS key in one of two ways:</p><ol><li><p>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If you don't specify an encryption key, your output is encrypted with the default Amazon S3 key (SSE-S3).</p><p>If you specify a KMS key to encrypt your output, you must also specify an output location using the <code>OutputLocation</code> parameter.</p><p>Note that the role making the request must have permission to use the specified KMS key.</p>
+ <p>The KMS key you want to use to encrypt your transcription output.</p><p>If using a key located in the <b>current</b> Amazon Web Services account, you can specify your KMS key in one of four ways:</p><ol><li><p>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</p></li><li><p>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If using a key located in a <b>different</b> Amazon Web Services account than the current Amazon Web Services account, you can specify your KMS key in one of two ways:</p><ol><li><p>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If you do not specify an encryption key, your output is encrypted with the default Amazon S3 key (SSE-S3).</p><p>If you specify a KMS key to encrypt your output, you must also specify an output location using the <code>OutputLocation</code> parameter.</p><p>Note that the role making the request must have permission to use the specified KMS key.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outputEncryptionKMSKeyId;
 
@@ -2799,7 +3178,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSDate * _Nullable creationTime;
 
 /**
- <p>If <code>TranscriptionJobStatus</code> is <code>FAILED</code>, <code>FailureReason</code> contains information about why the transcription job request failed.</p><p>The <code>FailureReason</code> field contains one of the following values:</p><ul><li><p><code>Unsupported media format</code>.</p><p>The media format specified in <code>MediaFormat</code> isn't valid. Refer to <b>MediaFormat</b> for a list of supported formats.</p></li><li><p><code>The media format provided does not match the detected media format</code>.</p><p>The media format specified in <code>MediaFormat</code> doesn't match the format of the input file. Check the media format of your media file and correct the specified value.</p></li><li><p><code>Invalid sample rate for audio file</code>.</p><p>The sample rate specified in <code>MediaSampleRateHertz</code> isn't valid. The sample rate must be between 8,000 and 48,000 hertz.</p></li><li><p><code>The sample rate provided does not match the detected sample rate</code>.</p><p>The sample rate specified in <code>MediaSampleRateHertz</code> doesn't match the sample rate detected in your input media file. Check the sample rate of your media file and correct the specified value.</p></li><li><p><code>Invalid file size: file size too large</code>.</p><p>The size of your media file is larger than what Amazon Transcribe can process. For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Guidelines and quotas</a>.</p></li><li><p><code>Invalid number of channels: number of channels too large</code>.</p><p>Your audio contains more channels than Amazon Transcribe is able to process. For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Guidelines and quotas</a>.</p></li></ul>
+ <p>If <code>TranscriptionJobStatus</code> is <code>FAILED</code>, <code>FailureReason</code> contains information about why the transcription job request failed.</p><p>The <code>FailureReason</code> field contains one of the following values:</p><ul><li><p><code>Unsupported media format</code>.</p><p>The media format specified in <code>MediaFormat</code> isn't valid. Refer to refer to the <code>MediaFormat</code> parameter for a list of supported formats.</p></li><li><p><code>The media format provided does not match the detected media format</code>.</p><p>The media format specified in <code>MediaFormat</code> doesn't match the format of the input file. Check the media format of your media file and correct the specified value.</p></li><li><p><code>Invalid sample rate for audio file</code>.</p><p>The sample rate specified in <code>MediaSampleRateHertz</code> isn't valid. The sample rate must be between 8,000 and 48,000 hertz.</p></li><li><p><code>The sample rate provided does not match the detected sample rate</code>.</p><p>The sample rate specified in <code>MediaSampleRateHertz</code> doesn't match the sample rate detected in your input media file. Check the sample rate of your media file and correct the specified value.</p></li><li><p><code>Invalid file size: file size too large</code>.</p><p>The size of your media file is larger than what Amazon Transcribe can process. For more information, refer to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html#limits-amazon-transcribe">Service quotas</a>.</p></li><li><p><code>Invalid number of channels: number of channels too large</code>.</p><p>Your audio contains more channels than Amazon Transcribe is able to process. For more information, refer to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html#limits-amazon-transcribe">Service quotas</a>.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable failureReason;
 
