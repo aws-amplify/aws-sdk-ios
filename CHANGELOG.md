@@ -1,13 +1,6 @@
 ---
 
-MOVE THIS SECTION TO THE CORRECT LOCATION
 
-### Misc. Updates
-
-- Model updates for the following services
----AWSElasticLoadBalancingv2
----AWSCloudWatchLogs
----AWSTranscribe
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -15,11 +8,16 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ### Misc. Updates
 
 - Model updates for the following services
+  - AWSElasticLoadBalancingv2
+  - AWSCloudWatchLogs
+  - AWSTranscribe
   - AWSLocation
   - AWSSTS
   - AWSKinesisVideo
   - AWSConnect
   - AWSEC2
+
+### 2.33.5
 
 ### Bug Fixes
 
