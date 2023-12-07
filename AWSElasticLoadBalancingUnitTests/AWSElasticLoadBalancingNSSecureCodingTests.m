@@ -24,6 +24,9 @@
 - (void) test_AWSElasticLoadBalancingAddListenerCertificatesOutput API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingAddTagsInput API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingAddTagsOutput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingAddTrustStoreRevocationsInput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingAddTrustStoreRevocationsOutput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingAnomalyDetection API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingAuthenticateCognitoActionConfig API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingAuthenticateOidcActionConfig API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingAvailabilityZone API_AVAILABLE(ios(11));
@@ -37,6 +40,8 @@
 - (void) test_AWSElasticLoadBalancingCreateRuleOutput API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingCreateTargetGroupInput API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingCreateTargetGroupOutput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingCreateTrustStoreInput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingCreateTrustStoreOutput API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingDeleteListenerInput API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingDeleteListenerOutput API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingDeleteLoadBalancerInput API_AVAILABLE(ios(11));
@@ -45,6 +50,8 @@
 - (void) test_AWSElasticLoadBalancingDeleteRuleOutput API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingDeleteTargetGroupInput API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingDeleteTargetGroupOutput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingDeleteTrustStoreInput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingDeleteTrustStoreOutput API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingDeregisterTargetsInput API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingDeregisterTargetsOutput API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingDescribeAccountLimitsInput API_AVAILABLE(ios(11));
@@ -69,8 +76,19 @@
 - (void) test_AWSElasticLoadBalancingDescribeTargetGroupsOutput API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingDescribeTargetHealthInput API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingDescribeTargetHealthOutput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingDescribeTrustStoreAssociationsInput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingDescribeTrustStoreAssociationsOutput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingDescribeTrustStoreRevocation API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingDescribeTrustStoreRevocationsInput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingDescribeTrustStoreRevocationsOutput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingDescribeTrustStoresInput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingDescribeTrustStoresOutput API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingFixedResponseActionConfig API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingForwardActionConfig API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleInput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleOutput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingGetTrustStoreRevocationContentInput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingGetTrustStoreRevocationContentOutput API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingHostHeaderConditionConfig API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingHttpHeaderConditionConfig API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingHttpRequestMethodConditionConfig API_AVAILABLE(ios(11));
@@ -91,6 +109,9 @@
 - (void) test_AWSElasticLoadBalancingModifyTargetGroupAttributesOutput API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingModifyTargetGroupInput API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingModifyTargetGroupOutput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingModifyTrustStoreInput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingModifyTrustStoreOutput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingMutualAuthenticationAttributes API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingPathPatternConditionConfig API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingQueryStringConditionConfig API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingQueryStringKeyValuePair API_AVAILABLE(ios(11));
@@ -101,6 +122,9 @@
 - (void) test_AWSElasticLoadBalancingRemoveListenerCertificatesOutput API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingRemoveTagsInput API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingRemoveTagsOutput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingRemoveTrustStoreRevocationsInput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingRemoveTrustStoreRevocationsOutput API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingRevocationContent API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingRule API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingRuleCondition API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingRulePriorityPair API_AVAILABLE(ios(11));
@@ -124,6 +148,9 @@
 - (void) test_AWSElasticLoadBalancingTargetGroupTuple API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingTargetHealth API_AVAILABLE(ios(11));
 - (void) test_AWSElasticLoadBalancingTargetHealthDescription API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingTrustStore API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingTrustStoreAssociation API_AVAILABLE(ios(11));
+- (void) test_AWSElasticLoadBalancingTrustStoreRevocation API_AVAILABLE(ios(11));
 
 @end
 
@@ -147,6 +174,18 @@
 
 - (void) test_AWSElasticLoadBalancingAddTagsOutput {
     [self validateSecureCodingForClass:[AWSElasticLoadBalancingAddTagsOutput class]];
+}
+
+- (void) test_AWSElasticLoadBalancingAddTrustStoreRevocationsInput {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingAddTrustStoreRevocationsInput class]];
+}
+
+- (void) test_AWSElasticLoadBalancingAddTrustStoreRevocationsOutput {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingAddTrustStoreRevocationsOutput class]];
+}
+
+- (void) test_AWSElasticLoadBalancingAnomalyDetection {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingAnomalyDetection class]];
 }
 
 - (void) test_AWSElasticLoadBalancingAuthenticateCognitoActionConfig {
@@ -201,6 +240,14 @@
     [self validateSecureCodingForClass:[AWSElasticLoadBalancingCreateTargetGroupOutput class]];
 }
 
+- (void) test_AWSElasticLoadBalancingCreateTrustStoreInput {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingCreateTrustStoreInput class]];
+}
+
+- (void) test_AWSElasticLoadBalancingCreateTrustStoreOutput {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingCreateTrustStoreOutput class]];
+}
+
 - (void) test_AWSElasticLoadBalancingDeleteListenerInput {
     [self validateSecureCodingForClass:[AWSElasticLoadBalancingDeleteListenerInput class]];
 }
@@ -231,6 +278,14 @@
 
 - (void) test_AWSElasticLoadBalancingDeleteTargetGroupOutput {
     [self validateSecureCodingForClass:[AWSElasticLoadBalancingDeleteTargetGroupOutput class]];
+}
+
+- (void) test_AWSElasticLoadBalancingDeleteTrustStoreInput {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingDeleteTrustStoreInput class]];
+}
+
+- (void) test_AWSElasticLoadBalancingDeleteTrustStoreOutput {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingDeleteTrustStoreOutput class]];
 }
 
 - (void) test_AWSElasticLoadBalancingDeregisterTargetsInput {
@@ -329,12 +384,56 @@
     [self validateSecureCodingForClass:[AWSElasticLoadBalancingDescribeTargetHealthOutput class]];
 }
 
+- (void) test_AWSElasticLoadBalancingDescribeTrustStoreAssociationsInput {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingDescribeTrustStoreAssociationsInput class]];
+}
+
+- (void) test_AWSElasticLoadBalancingDescribeTrustStoreAssociationsOutput {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingDescribeTrustStoreAssociationsOutput class]];
+}
+
+- (void) test_AWSElasticLoadBalancingDescribeTrustStoreRevocation {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingDescribeTrustStoreRevocation class]];
+}
+
+- (void) test_AWSElasticLoadBalancingDescribeTrustStoreRevocationsInput {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingDescribeTrustStoreRevocationsInput class]];
+}
+
+- (void) test_AWSElasticLoadBalancingDescribeTrustStoreRevocationsOutput {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingDescribeTrustStoreRevocationsOutput class]];
+}
+
+- (void) test_AWSElasticLoadBalancingDescribeTrustStoresInput {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingDescribeTrustStoresInput class]];
+}
+
+- (void) test_AWSElasticLoadBalancingDescribeTrustStoresOutput {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingDescribeTrustStoresOutput class]];
+}
+
 - (void) test_AWSElasticLoadBalancingFixedResponseActionConfig {
     [self validateSecureCodingForClass:[AWSElasticLoadBalancingFixedResponseActionConfig class]];
 }
 
 - (void) test_AWSElasticLoadBalancingForwardActionConfig {
     [self validateSecureCodingForClass:[AWSElasticLoadBalancingForwardActionConfig class]];
+}
+
+- (void) test_AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleInput {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleInput class]];
+}
+
+- (void) test_AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleOutput {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleOutput class]];
+}
+
+- (void) test_AWSElasticLoadBalancingGetTrustStoreRevocationContentInput {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingGetTrustStoreRevocationContentInput class]];
+}
+
+- (void) test_AWSElasticLoadBalancingGetTrustStoreRevocationContentOutput {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingGetTrustStoreRevocationContentOutput class]];
 }
 
 - (void) test_AWSElasticLoadBalancingHostHeaderConditionConfig {
@@ -417,6 +516,18 @@
     [self validateSecureCodingForClass:[AWSElasticLoadBalancingModifyTargetGroupOutput class]];
 }
 
+- (void) test_AWSElasticLoadBalancingModifyTrustStoreInput {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingModifyTrustStoreInput class]];
+}
+
+- (void) test_AWSElasticLoadBalancingModifyTrustStoreOutput {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingModifyTrustStoreOutput class]];
+}
+
+- (void) test_AWSElasticLoadBalancingMutualAuthenticationAttributes {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingMutualAuthenticationAttributes class]];
+}
+
 - (void) test_AWSElasticLoadBalancingPathPatternConditionConfig {
     [self validateSecureCodingForClass:[AWSElasticLoadBalancingPathPatternConditionConfig class]];
 }
@@ -455,6 +566,18 @@
 
 - (void) test_AWSElasticLoadBalancingRemoveTagsOutput {
     [self validateSecureCodingForClass:[AWSElasticLoadBalancingRemoveTagsOutput class]];
+}
+
+- (void) test_AWSElasticLoadBalancingRemoveTrustStoreRevocationsInput {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingRemoveTrustStoreRevocationsInput class]];
+}
+
+- (void) test_AWSElasticLoadBalancingRemoveTrustStoreRevocationsOutput {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingRemoveTrustStoreRevocationsOutput class]];
+}
+
+- (void) test_AWSElasticLoadBalancingRevocationContent {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingRevocationContent class]];
 }
 
 - (void) test_AWSElasticLoadBalancingRule {
@@ -547,6 +670,18 @@
 
 - (void) test_AWSElasticLoadBalancingTargetHealthDescription {
     [self validateSecureCodingForClass:[AWSElasticLoadBalancingTargetHealthDescription class]];
+}
+
+- (void) test_AWSElasticLoadBalancingTrustStore {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingTrustStore class]];
+}
+
+- (void) test_AWSElasticLoadBalancingTrustStoreAssociation {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingTrustStoreAssociation class]];
+}
+
+- (void) test_AWSElasticLoadBalancingTrustStoreRevocation {
+    [self validateSecureCodingForClass:[AWSElasticLoadBalancingTrustStoreRevocation class]];
 }
 
 @end
