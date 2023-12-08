@@ -6203,7 +6203,8 @@
         \"amazon-web-services\",\
         \"amd\",\
         \"nvidia\",\
-        \"xilinx\"\
+        \"xilinx\",\
+        \"habana\"\
       ]\
     },\
     \"AcceleratorManufacturerSet\":{\
@@ -6224,7 +6225,10 @@
         \"radeon-pro-v520\",\
         \"t4\",\
         \"vu9p\",\
-        \"v100\"\
+        \"v100\",\
+        \"a10g\",\
+        \"h100\",\
+        \"t4g\"\
       ]\
     },\
     \"AcceleratorNameSet\":{\
@@ -12019,6 +12023,7 @@
         \"amazon-web-services\"\
       ]\
     },\
+    \"CpuManufacturerName\":{\"type\":\"string\"},\
     \"CpuManufacturerSet\":{\
       \"type\":\"list\",\
       \"member\":{\
@@ -35543,12 +35548,12 @@
         },\
         \"AcceleratorManufacturers\":{\
           \"shape\":\"AcceleratorManufacturerSet\",\
-          \"documentation\":\"<p>Indicates whether instance types must have accelerators by specific manufacturers.</p> <ul> <li> <p>For instance types with NVIDIA devices, specify <code>nvidia</code>.</p> </li> <li> <p>For instance types with AMD devices, specify <code>amd</code>.</p> </li> <li> <p>For instance types with Amazon Web Services devices, specify <code>amazon-web-services</code>.</p> </li> <li> <p>For instance types with Xilinx devices, specify <code>xilinx</code>.</p> </li> </ul> <p>Default: Any manufacturer</p>\",\
+          \"documentation\":\"<p>Indicates whether instance types must have accelerators by specific manufacturers.</p> <ul> <li> <p>For instance types with Amazon Web Services devices, specify <code>amazon-web-services</code>.</p> </li> <li> <p>For instance types with AMD devices, specify <code>amd</code>.</p> </li> <li> <p>For instance types with Habana devices, specify <code>habana</code>.</p> </li> <li> <p>For instance types with NVIDIA devices, specify <code>nvidia</code>.</p> </li> <li> <p>For instance types with Xilinx devices, specify <code>xilinx</code>.</p> </li> </ul> <p>Default: Any manufacturer</p>\",\
           \"locationName\":\"acceleratorManufacturerSet\"\
         },\
         \"AcceleratorNames\":{\
           \"shape\":\"AcceleratorNameSet\",\
-          \"documentation\":\"<p>The accelerators that must be on the instance type.</p> <ul> <li> <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p> </li> <li> <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p> </li> <li> <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p> </li> <li> <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p> </li> <li> <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p> </li> <li> <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p> </li> <li> <p>For instance types with Xilinx VU9P FPGAs, specify <code>vu9p</code>.</p> </li> <li> <p>For instance types with Amazon Web Services Inferentia chips, specify <code>inferentia</code>.</p> </li> <li> <p>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</p> </li> </ul> <p>Default: Any accelerator</p>\",\
+          \"documentation\":\"<p>The accelerators that must be on the instance type.</p> <ul> <li> <p>For instance types with NVIDIA A10G GPUs, specify <code>a10g</code>.</p> </li> <li> <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p> </li> <li> <p>For instance types with NVIDIA H100 GPUs, specify <code>h100</code>.</p> </li> <li> <p>For instance types with Amazon Web Services Inferentia chips, specify <code>inferentia</code>.</p> </li> <li> <p>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</p> </li> <li> <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p> </li> <li> <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p> </li> <li> <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p> </li> <li> <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p> </li> <li> <p>For instance types with NVIDIA T4G GPUs, specify <code>t4g</code>.</p> </li> <li> <p>For instance types with Xilinx VU9P FPGAs, specify <code>vu9p</code>.</p> </li> <li> <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p> </li> </ul> <p>Default: Any accelerator</p>\",\
           \"locationName\":\"acceleratorNameSet\"\
         },\
         \"AcceleratorTotalMemoryMiB\":{\
@@ -35655,12 +35660,12 @@
         },\
         \"AcceleratorManufacturers\":{\
           \"shape\":\"AcceleratorManufacturerSet\",\
-          \"documentation\":\"<p>Indicates whether instance types must have accelerators by specific manufacturers.</p> <ul> <li> <p>For instance types with NVIDIA devices, specify <code>nvidia</code>.</p> </li> <li> <p>For instance types with AMD devices, specify <code>amd</code>.</p> </li> <li> <p>For instance types with Amazon Web Services devices, specify <code>amazon-web-services</code>.</p> </li> <li> <p>For instance types with Xilinx devices, specify <code>xilinx</code>.</p> </li> </ul> <p>Default: Any manufacturer</p>\",\
+          \"documentation\":\"<p>Indicates whether instance types must have accelerators by specific manufacturers.</p> <ul> <li> <p>For instance types with Amazon Web Services devices, specify <code>amazon-web-services</code>.</p> </li> <li> <p>For instance types with AMD devices, specify <code>amd</code>.</p> </li> <li> <p>For instance types with Habana devices, specify <code>habana</code>.</p> </li> <li> <p>For instance types with NVIDIA devices, specify <code>nvidia</code>.</p> </li> <li> <p>For instance types with Xilinx devices, specify <code>xilinx</code>.</p> </li> </ul> <p>Default: Any manufacturer</p>\",\
           \"locationName\":\"AcceleratorManufacturer\"\
         },\
         \"AcceleratorNames\":{\
           \"shape\":\"AcceleratorNameSet\",\
-          \"documentation\":\"<p>The accelerators that must be on the instance type.</p> <ul> <li> <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p> </li> <li> <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p> </li> <li> <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p> </li> <li> <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p> </li> <li> <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p> </li> <li> <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p> </li> <li> <p>For instance types with Xilinx VU9P FPGAs, specify <code> vu9p</code>.</p> </li> <li> <p>For instance types with Amazon Web Services Inferentia chips, specify <code>inferentia</code>.</p> </li> <li> <p>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</p> </li> </ul> <p>Default: Any accelerator</p>\",\
+          \"documentation\":\"<p>The accelerators that must be on the instance type.</p> <ul> <li> <p>For instance types with NVIDIA A10G GPUs, specify <code>a10g</code>.</p> </li> <li> <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p> </li> <li> <p>For instance types with NVIDIA H100 GPUs, specify <code>h100</code>.</p> </li> <li> <p>For instance types with Amazon Web Services Inferentia chips, specify <code>inferentia</code>.</p> </li> <li> <p>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</p> </li> <li> <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p> </li> <li> <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p> </li> <li> <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p> </li> <li> <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p> </li> <li> <p>For instance types with NVIDIA T4G GPUs, specify <code>t4g</code>.</p> </li> <li> <p>For instance types with Xilinx VU9P FPGAs, specify <code>vu9p</code>.</p> </li> <li> <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p> </li> </ul> <p>Default: Any accelerator</p>\",\
           \"locationName\":\"AcceleratorName\"\
         },\
         \"AcceleratorTotalMemoryMiB\":{\
@@ -36783,7 +36788,16 @@
         \"r7i.16xlarge\",\
         \"r7i.24xlarge\",\
         \"r7i.48xlarge\",\
-        \"dl2q.24xlarge\"\
+        \"dl2q.24xlarge\",\
+        \"mac2-m2.metal\",\
+        \"i4i.12xlarge\",\
+        \"i4i.24xlarge\",\
+        \"c7i.metal-24xl\",\
+        \"c7i.metal-48xl\",\
+        \"m7i.metal-24xl\",\
+        \"m7i.metal-48xl\",\
+        \"r7i.metal-24xl\",\
+        \"r7i.metal-48xl\"\
       ]\
     },\
     \"InstanceTypeHypervisor\":{\
@@ -47227,6 +47241,11 @@
           \"shape\":\"SupportedAdditionalProcessorFeatureList\",\
           \"documentation\":\"<p>Indicates whether the instance type supports AMD SEV-SNP. If the request returns <code>amd-sev-snp</code>, AMD SEV-SNP is supported. Otherwise, it is not supported. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html\\\"> AMD SEV-SNP</a>.</p>\",\
           \"locationName\":\"supportedFeatures\"\
+        },\
+        \"Manufacturer\":{\
+          \"shape\":\"CpuManufacturerName\",\
+          \"documentation\":\"<p>The manufacturer of the processor.</p>\",\
+          \"locationName\":\"manufacturer\"\
         }\
       },\
       \"documentation\":\"<p>Describes the processor used by the instance type.</p>\"\
