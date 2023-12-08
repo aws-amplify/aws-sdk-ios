@@ -20,15 +20,26 @@
 @interface AWSLogsNSSecureCodingTests : AWSNSSecureCodingTest
 
 - (void) test_AWSLogsAccountPolicy API_AVAILABLE(ios(11));
+- (void) test_AWSLogsAnomaly API_AVAILABLE(ios(11));
+- (void) test_AWSLogsAnomalyDetector API_AVAILABLE(ios(11));
 - (void) test_AWSLogsAssociateKmsKeyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsCancelExportTaskRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsCreateDeliveryRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsCreateDeliveryResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsCreateExportTaskRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsCreateExportTaskResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLogsCreateLogAnomalyDetectorRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsCreateLogAnomalyDetectorResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsCreateLogGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsCreateLogStreamRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDeleteAccountPolicyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDeleteDataProtectionPolicyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsDeleteDeliveryDestinationPolicyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsDeleteDeliveryDestinationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsDeleteDeliveryRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsDeleteDeliverySourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDeleteDestinationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsDeleteLogAnomalyDetectorRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDeleteLogGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDeleteLogStreamRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDeleteMetricFilterRequest API_AVAILABLE(ios(11));
@@ -37,8 +48,18 @@
 - (void) test_AWSLogsDeleteResourcePolicyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDeleteRetentionPolicyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDeleteSubscriptionFilterRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsDelivery API_AVAILABLE(ios(11));
+- (void) test_AWSLogsDeliveryDestination API_AVAILABLE(ios(11));
+- (void) test_AWSLogsDeliveryDestinationConfiguration API_AVAILABLE(ios(11));
+- (void) test_AWSLogsDeliverySource API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDescribeAccountPoliciesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDescribeAccountPoliciesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLogsDescribeDeliveriesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsDescribeDeliveriesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLogsDescribeDeliveryDestinationsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsDescribeDeliveryDestinationsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLogsDescribeDeliverySourcesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsDescribeDeliverySourcesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDescribeDestinationsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDescribeDestinationsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDescribeExportTasksRequest API_AVAILABLE(ios(11));
@@ -67,6 +88,16 @@
 - (void) test_AWSLogsFilteredLogEvent API_AVAILABLE(ios(11));
 - (void) test_AWSLogsGetDataProtectionPolicyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsGetDataProtectionPolicyResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLogsGetDeliveryDestinationPolicyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsGetDeliveryDestinationPolicyResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLogsGetDeliveryDestinationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsGetDeliveryDestinationResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLogsGetDeliveryRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsGetDeliveryResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLogsGetDeliverySourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsGetDeliverySourceResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLogsGetLogAnomalyDetectorRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsGetLogAnomalyDetectorResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsGetLogEventsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsGetLogEventsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsGetLogGroupFieldsRequest API_AVAILABLE(ios(11));
@@ -76,6 +107,10 @@
 - (void) test_AWSLogsGetQueryResultsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsGetQueryResultsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsInputLogEvent API_AVAILABLE(ios(11));
+- (void) test_AWSLogsListAnomaliesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsListAnomaliesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLogsListLogAnomalyDetectorsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsListLogAnomalyDetectorsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsListTagsForResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsListTagsForResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsListTagsLogGroupRequest API_AVAILABLE(ios(11));
@@ -87,10 +122,18 @@
 - (void) test_AWSLogsMetricFilterMatchRecord API_AVAILABLE(ios(11));
 - (void) test_AWSLogsMetricTransformation API_AVAILABLE(ios(11));
 - (void) test_AWSLogsOutputLogEvent API_AVAILABLE(ios(11));
+- (void) test_AWSLogsPatternToken API_AVAILABLE(ios(11));
+- (void) test_AWSLogsPolicy API_AVAILABLE(ios(11));
 - (void) test_AWSLogsPutAccountPolicyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsPutAccountPolicyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsPutDataProtectionPolicyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsPutDataProtectionPolicyResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLogsPutDeliveryDestinationPolicyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsPutDeliveryDestinationPolicyResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLogsPutDeliveryDestinationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsPutDeliveryDestinationResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLogsPutDeliverySourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsPutDeliverySourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsPutDestinationPolicyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsPutDestinationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsPutDestinationResponse API_AVAILABLE(ios(11));
@@ -117,12 +160,15 @@
 - (void) test_AWSLogsStopQueryRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsStopQueryResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsSubscriptionFilter API_AVAILABLE(ios(11));
+- (void) test_AWSLogsSuppressionPeriod API_AVAILABLE(ios(11));
 - (void) test_AWSLogsTagLogGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsTagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsTestMetricFilterRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsTestMetricFilterResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsUntagLogGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsUntagResourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsUpdateAnomalyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsUpdateLogAnomalyDetectorRequest API_AVAILABLE(ios(11));
 
 @end
 
@@ -130,6 +176,14 @@
 
 - (void) test_AWSLogsAccountPolicy {
     [self validateSecureCodingForClass:[AWSLogsAccountPolicy class]];
+}
+
+- (void) test_AWSLogsAnomaly {
+    [self validateSecureCodingForClass:[AWSLogsAnomaly class]];
+}
+
+- (void) test_AWSLogsAnomalyDetector {
+    [self validateSecureCodingForClass:[AWSLogsAnomalyDetector class]];
 }
 
 - (void) test_AWSLogsAssociateKmsKeyRequest {
@@ -140,12 +194,28 @@
     [self validateSecureCodingForClass:[AWSLogsCancelExportTaskRequest class]];
 }
 
+- (void) test_AWSLogsCreateDeliveryRequest {
+    [self validateSecureCodingForClass:[AWSLogsCreateDeliveryRequest class]];
+}
+
+- (void) test_AWSLogsCreateDeliveryResponse {
+    [self validateSecureCodingForClass:[AWSLogsCreateDeliveryResponse class]];
+}
+
 - (void) test_AWSLogsCreateExportTaskRequest {
     [self validateSecureCodingForClass:[AWSLogsCreateExportTaskRequest class]];
 }
 
 - (void) test_AWSLogsCreateExportTaskResponse {
     [self validateSecureCodingForClass:[AWSLogsCreateExportTaskResponse class]];
+}
+
+- (void) test_AWSLogsCreateLogAnomalyDetectorRequest {
+    [self validateSecureCodingForClass:[AWSLogsCreateLogAnomalyDetectorRequest class]];
+}
+
+- (void) test_AWSLogsCreateLogAnomalyDetectorResponse {
+    [self validateSecureCodingForClass:[AWSLogsCreateLogAnomalyDetectorResponse class]];
 }
 
 - (void) test_AWSLogsCreateLogGroupRequest {
@@ -164,8 +234,28 @@
     [self validateSecureCodingForClass:[AWSLogsDeleteDataProtectionPolicyRequest class]];
 }
 
+- (void) test_AWSLogsDeleteDeliveryDestinationPolicyRequest {
+    [self validateSecureCodingForClass:[AWSLogsDeleteDeliveryDestinationPolicyRequest class]];
+}
+
+- (void) test_AWSLogsDeleteDeliveryDestinationRequest {
+    [self validateSecureCodingForClass:[AWSLogsDeleteDeliveryDestinationRequest class]];
+}
+
+- (void) test_AWSLogsDeleteDeliveryRequest {
+    [self validateSecureCodingForClass:[AWSLogsDeleteDeliveryRequest class]];
+}
+
+- (void) test_AWSLogsDeleteDeliverySourceRequest {
+    [self validateSecureCodingForClass:[AWSLogsDeleteDeliverySourceRequest class]];
+}
+
 - (void) test_AWSLogsDeleteDestinationRequest {
     [self validateSecureCodingForClass:[AWSLogsDeleteDestinationRequest class]];
+}
+
+- (void) test_AWSLogsDeleteLogAnomalyDetectorRequest {
+    [self validateSecureCodingForClass:[AWSLogsDeleteLogAnomalyDetectorRequest class]];
 }
 
 - (void) test_AWSLogsDeleteLogGroupRequest {
@@ -200,12 +290,52 @@
     [self validateSecureCodingForClass:[AWSLogsDeleteSubscriptionFilterRequest class]];
 }
 
+- (void) test_AWSLogsDelivery {
+    [self validateSecureCodingForClass:[AWSLogsDelivery class]];
+}
+
+- (void) test_AWSLogsDeliveryDestination {
+    [self validateSecureCodingForClass:[AWSLogsDeliveryDestination class]];
+}
+
+- (void) test_AWSLogsDeliveryDestinationConfiguration {
+    [self validateSecureCodingForClass:[AWSLogsDeliveryDestinationConfiguration class]];
+}
+
+- (void) test_AWSLogsDeliverySource {
+    [self validateSecureCodingForClass:[AWSLogsDeliverySource class]];
+}
+
 - (void) test_AWSLogsDescribeAccountPoliciesRequest {
     [self validateSecureCodingForClass:[AWSLogsDescribeAccountPoliciesRequest class]];
 }
 
 - (void) test_AWSLogsDescribeAccountPoliciesResponse {
     [self validateSecureCodingForClass:[AWSLogsDescribeAccountPoliciesResponse class]];
+}
+
+- (void) test_AWSLogsDescribeDeliveriesRequest {
+    [self validateSecureCodingForClass:[AWSLogsDescribeDeliveriesRequest class]];
+}
+
+- (void) test_AWSLogsDescribeDeliveriesResponse {
+    [self validateSecureCodingForClass:[AWSLogsDescribeDeliveriesResponse class]];
+}
+
+- (void) test_AWSLogsDescribeDeliveryDestinationsRequest {
+    [self validateSecureCodingForClass:[AWSLogsDescribeDeliveryDestinationsRequest class]];
+}
+
+- (void) test_AWSLogsDescribeDeliveryDestinationsResponse {
+    [self validateSecureCodingForClass:[AWSLogsDescribeDeliveryDestinationsResponse class]];
+}
+
+- (void) test_AWSLogsDescribeDeliverySourcesRequest {
+    [self validateSecureCodingForClass:[AWSLogsDescribeDeliverySourcesRequest class]];
+}
+
+- (void) test_AWSLogsDescribeDeliverySourcesResponse {
+    [self validateSecureCodingForClass:[AWSLogsDescribeDeliverySourcesResponse class]];
 }
 
 - (void) test_AWSLogsDescribeDestinationsRequest {
@@ -320,6 +450,46 @@
     [self validateSecureCodingForClass:[AWSLogsGetDataProtectionPolicyResponse class]];
 }
 
+- (void) test_AWSLogsGetDeliveryDestinationPolicyRequest {
+    [self validateSecureCodingForClass:[AWSLogsGetDeliveryDestinationPolicyRequest class]];
+}
+
+- (void) test_AWSLogsGetDeliveryDestinationPolicyResponse {
+    [self validateSecureCodingForClass:[AWSLogsGetDeliveryDestinationPolicyResponse class]];
+}
+
+- (void) test_AWSLogsGetDeliveryDestinationRequest {
+    [self validateSecureCodingForClass:[AWSLogsGetDeliveryDestinationRequest class]];
+}
+
+- (void) test_AWSLogsGetDeliveryDestinationResponse {
+    [self validateSecureCodingForClass:[AWSLogsGetDeliveryDestinationResponse class]];
+}
+
+- (void) test_AWSLogsGetDeliveryRequest {
+    [self validateSecureCodingForClass:[AWSLogsGetDeliveryRequest class]];
+}
+
+- (void) test_AWSLogsGetDeliveryResponse {
+    [self validateSecureCodingForClass:[AWSLogsGetDeliveryResponse class]];
+}
+
+- (void) test_AWSLogsGetDeliverySourceRequest {
+    [self validateSecureCodingForClass:[AWSLogsGetDeliverySourceRequest class]];
+}
+
+- (void) test_AWSLogsGetDeliverySourceResponse {
+    [self validateSecureCodingForClass:[AWSLogsGetDeliverySourceResponse class]];
+}
+
+- (void) test_AWSLogsGetLogAnomalyDetectorRequest {
+    [self validateSecureCodingForClass:[AWSLogsGetLogAnomalyDetectorRequest class]];
+}
+
+- (void) test_AWSLogsGetLogAnomalyDetectorResponse {
+    [self validateSecureCodingForClass:[AWSLogsGetLogAnomalyDetectorResponse class]];
+}
+
 - (void) test_AWSLogsGetLogEventsRequest {
     [self validateSecureCodingForClass:[AWSLogsGetLogEventsRequest class]];
 }
@@ -354,6 +524,22 @@
 
 - (void) test_AWSLogsInputLogEvent {
     [self validateSecureCodingForClass:[AWSLogsInputLogEvent class]];
+}
+
+- (void) test_AWSLogsListAnomaliesRequest {
+    [self validateSecureCodingForClass:[AWSLogsListAnomaliesRequest class]];
+}
+
+- (void) test_AWSLogsListAnomaliesResponse {
+    [self validateSecureCodingForClass:[AWSLogsListAnomaliesResponse class]];
+}
+
+- (void) test_AWSLogsListLogAnomalyDetectorsRequest {
+    [self validateSecureCodingForClass:[AWSLogsListLogAnomalyDetectorsRequest class]];
+}
+
+- (void) test_AWSLogsListLogAnomalyDetectorsResponse {
+    [self validateSecureCodingForClass:[AWSLogsListLogAnomalyDetectorsResponse class]];
 }
 
 - (void) test_AWSLogsListTagsForResourceRequest {
@@ -400,6 +586,14 @@
     [self validateSecureCodingForClass:[AWSLogsOutputLogEvent class]];
 }
 
+- (void) test_AWSLogsPatternToken {
+    [self validateSecureCodingForClass:[AWSLogsPatternToken class]];
+}
+
+- (void) test_AWSLogsPolicy {
+    [self validateSecureCodingForClass:[AWSLogsPolicy class]];
+}
+
 - (void) test_AWSLogsPutAccountPolicyRequest {
     [self validateSecureCodingForClass:[AWSLogsPutAccountPolicyRequest class]];
 }
@@ -414,6 +608,30 @@
 
 - (void) test_AWSLogsPutDataProtectionPolicyResponse {
     [self validateSecureCodingForClass:[AWSLogsPutDataProtectionPolicyResponse class]];
+}
+
+- (void) test_AWSLogsPutDeliveryDestinationPolicyRequest {
+    [self validateSecureCodingForClass:[AWSLogsPutDeliveryDestinationPolicyRequest class]];
+}
+
+- (void) test_AWSLogsPutDeliveryDestinationPolicyResponse {
+    [self validateSecureCodingForClass:[AWSLogsPutDeliveryDestinationPolicyResponse class]];
+}
+
+- (void) test_AWSLogsPutDeliveryDestinationRequest {
+    [self validateSecureCodingForClass:[AWSLogsPutDeliveryDestinationRequest class]];
+}
+
+- (void) test_AWSLogsPutDeliveryDestinationResponse {
+    [self validateSecureCodingForClass:[AWSLogsPutDeliveryDestinationResponse class]];
+}
+
+- (void) test_AWSLogsPutDeliverySourceRequest {
+    [self validateSecureCodingForClass:[AWSLogsPutDeliverySourceRequest class]];
+}
+
+- (void) test_AWSLogsPutDeliverySourceResponse {
+    [self validateSecureCodingForClass:[AWSLogsPutDeliverySourceResponse class]];
 }
 
 - (void) test_AWSLogsPutDestinationPolicyRequest {
@@ -520,6 +738,10 @@
     [self validateSecureCodingForClass:[AWSLogsSubscriptionFilter class]];
 }
 
+- (void) test_AWSLogsSuppressionPeriod {
+    [self validateSecureCodingForClass:[AWSLogsSuppressionPeriod class]];
+}
+
 - (void) test_AWSLogsTagLogGroupRequest {
     [self validateSecureCodingForClass:[AWSLogsTagLogGroupRequest class]];
 }
@@ -542,6 +764,14 @@
 
 - (void) test_AWSLogsUntagResourceRequest {
     [self validateSecureCodingForClass:[AWSLogsUntagResourceRequest class]];
+}
+
+- (void) test_AWSLogsUpdateAnomalyRequest {
+    [self validateSecureCodingForClass:[AWSLogsUpdateAnomalyRequest class]];
+}
+
+- (void) test_AWSLogsUpdateLogAnomalyDetectorRequest {
+    [self validateSecureCodingForClass:[AWSLogsUpdateLogAnomalyDetectorRequest class]];
 }
 
 @end
