@@ -200,11 +200,11 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (void)addListenerCertificates:(AWSElasticLoadBalancingAddListenerCertificatesInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingAddListenerCertificatesOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your Application Load Balancers, Network Load Balancers, Gateway Load Balancers, target groups, listeners, and rules.</p><p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key, <code>AddTags</code> updates its value.</p>
+ <p>Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your Application Load Balancers, Network Load Balancers, Gateway Load Balancers, target groups, trust stores, listeners, and rules.</p><p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key, <code>AddTags</code> updates its value.</p>
  
  @param request A container for the necessary parameters to execute the AddTags service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingAddTagsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateTagKeys`, `AWSElasticLoadBalancingErrorTooManyTags`, `AWSElasticLoadBalancingErrorLoadBalancerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorRuleNotFound`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingAddTagsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateTagKeys`, `AWSElasticLoadBalancingErrorTooManyTags`, `AWSElasticLoadBalancingErrorLoadBalancerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorRuleNotFound`, `AWSElasticLoadBalancingErrorTrustStoreNotFound`.
  
  @see AWSElasticLoadBalancingAddTagsInput
  @see AWSElasticLoadBalancingAddTagsOutput
@@ -212,12 +212,12 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (AWSTask<AWSElasticLoadBalancingAddTagsOutput *> *)addTags:(AWSElasticLoadBalancingAddTagsInput *)request;
 
 /**
- <p>Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your Application Load Balancers, Network Load Balancers, Gateway Load Balancers, target groups, listeners, and rules.</p><p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key, <code>AddTags</code> updates its value.</p>
+ <p>Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your Application Load Balancers, Network Load Balancers, Gateway Load Balancers, target groups, trust stores, listeners, and rules.</p><p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key, <code>AddTags</code> updates its value.</p>
  
  @param request A container for the necessary parameters to execute the AddTags service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateTagKeys`, `AWSElasticLoadBalancingErrorTooManyTags`, `AWSElasticLoadBalancingErrorLoadBalancerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorRuleNotFound`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateTagKeys`, `AWSElasticLoadBalancingErrorTooManyTags`, `AWSElasticLoadBalancingErrorLoadBalancerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorRuleNotFound`, `AWSElasticLoadBalancingErrorTrustStoreNotFound`.
  
  @see AWSElasticLoadBalancingAddTagsInput
  @see AWSElasticLoadBalancingAddTagsOutput
@@ -225,11 +225,36 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (void)addTags:(AWSElasticLoadBalancingAddTagsInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingAddTagsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Adds the specified revocation file to the specified trust store.</p>
+ 
+ @param request A container for the necessary parameters to execute the AddTrustStoreRevocations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingAddTrustStoreRevocationsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorTrustStoreNotFound`, `AWSElasticLoadBalancingErrorInvalidRevocationContent`, `AWSElasticLoadBalancingErrorTooManyTrustStoreRevocationEntries`, `AWSElasticLoadBalancingErrorRevocationContentNotFound`.
+ 
+ @see AWSElasticLoadBalancingAddTrustStoreRevocationsInput
+ @see AWSElasticLoadBalancingAddTrustStoreRevocationsOutput
+ */
+- (AWSTask<AWSElasticLoadBalancingAddTrustStoreRevocationsOutput *> *)addTrustStoreRevocations:(AWSElasticLoadBalancingAddTrustStoreRevocationsInput *)request;
+
+/**
+ <p>Adds the specified revocation file to the specified trust store.</p>
+ 
+ @param request A container for the necessary parameters to execute the AddTrustStoreRevocations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorTrustStoreNotFound`, `AWSElasticLoadBalancingErrorInvalidRevocationContent`, `AWSElasticLoadBalancingErrorTooManyTrustStoreRevocationEntries`, `AWSElasticLoadBalancingErrorRevocationContentNotFound`.
+ 
+ @see AWSElasticLoadBalancingAddTrustStoreRevocationsInput
+ @see AWSElasticLoadBalancingAddTrustStoreRevocationsOutput
+ */
+- (void)addTrustStoreRevocations:(AWSElasticLoadBalancingAddTrustStoreRevocationsInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingAddTrustStoreRevocationsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Creates a listener for the specified Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.</p><p>For more information, see the following:</p><ul><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html">Listeners for your Application Load Balancers</a></p></li><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html">Listeners for your Network Load Balancers</a></p></li><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-listeners.html">Listeners for your Gateway Load Balancers</a></p></li></ul><p>This operation is idempotent, which means that it completes at most one time. If you attempt to create multiple listeners with the same settings, each call succeeds.</p>
  
  @param request A container for the necessary parameters to execute the CreateListener service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingCreateListenerOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateListener`, `AWSElasticLoadBalancingErrorTooManyListeners`, `AWSElasticLoadBalancingErrorTooManyCertificates`, `AWSElasticLoadBalancingErrorLoadBalancerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorTargetGroupAssociationLimit`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorIncompatibleProtocols`, `AWSElasticLoadBalancingErrorSSLPolicyNotFound`, `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorUnsupportedProtocol`, `AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId`, `AWSElasticLoadBalancingErrorTooManyTargets`, `AWSElasticLoadBalancingErrorTooManyActions`, `AWSElasticLoadBalancingErrorInvalidLoadBalancerAction`, `AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer`, `AWSElasticLoadBalancingErrorALPNPolicyNotSupported`, `AWSElasticLoadBalancingErrorTooManyTags`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingCreateListenerOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateListener`, `AWSElasticLoadBalancingErrorTooManyListeners`, `AWSElasticLoadBalancingErrorTooManyCertificates`, `AWSElasticLoadBalancingErrorLoadBalancerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorTargetGroupAssociationLimit`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorIncompatibleProtocols`, `AWSElasticLoadBalancingErrorSSLPolicyNotFound`, `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorUnsupportedProtocol`, `AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId`, `AWSElasticLoadBalancingErrorTooManyTargets`, `AWSElasticLoadBalancingErrorTooManyActions`, `AWSElasticLoadBalancingErrorInvalidLoadBalancerAction`, `AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer`, `AWSElasticLoadBalancingErrorALPNPolicyNotSupported`, `AWSElasticLoadBalancingErrorTooManyTags`, `AWSElasticLoadBalancingErrorTrustStoreNotFound`, `AWSElasticLoadBalancingErrorTrustStoreNotReady`.
  
  @see AWSElasticLoadBalancingCreateListenerInput
  @see AWSElasticLoadBalancingCreateListenerOutput
@@ -242,7 +267,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
  @param request A container for the necessary parameters to execute the CreateListener service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateListener`, `AWSElasticLoadBalancingErrorTooManyListeners`, `AWSElasticLoadBalancingErrorTooManyCertificates`, `AWSElasticLoadBalancingErrorLoadBalancerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorTargetGroupAssociationLimit`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorIncompatibleProtocols`, `AWSElasticLoadBalancingErrorSSLPolicyNotFound`, `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorUnsupportedProtocol`, `AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId`, `AWSElasticLoadBalancingErrorTooManyTargets`, `AWSElasticLoadBalancingErrorTooManyActions`, `AWSElasticLoadBalancingErrorInvalidLoadBalancerAction`, `AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer`, `AWSElasticLoadBalancingErrorALPNPolicyNotSupported`, `AWSElasticLoadBalancingErrorTooManyTags`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateListener`, `AWSElasticLoadBalancingErrorTooManyListeners`, `AWSElasticLoadBalancingErrorTooManyCertificates`, `AWSElasticLoadBalancingErrorLoadBalancerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorTargetGroupAssociationLimit`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorIncompatibleProtocols`, `AWSElasticLoadBalancingErrorSSLPolicyNotFound`, `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorUnsupportedProtocol`, `AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId`, `AWSElasticLoadBalancingErrorTooManyTargets`, `AWSElasticLoadBalancingErrorTooManyActions`, `AWSElasticLoadBalancingErrorInvalidLoadBalancerAction`, `AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer`, `AWSElasticLoadBalancingErrorALPNPolicyNotSupported`, `AWSElasticLoadBalancingErrorTooManyTags`, `AWSElasticLoadBalancingErrorTrustStoreNotFound`, `AWSElasticLoadBalancingErrorTrustStoreNotReady`.
  
  @see AWSElasticLoadBalancingCreateListenerInput
  @see AWSElasticLoadBalancingCreateListenerOutput
@@ -323,6 +348,31 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
  @see AWSElasticLoadBalancingCreateTargetGroupOutput
  */
 - (void)createTargetGroup:(AWSElasticLoadBalancingCreateTargetGroupInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingCreateTargetGroupOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates a trust store.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTrustStore service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingCreateTrustStoreOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateTrustStoreName`, `AWSElasticLoadBalancingErrorTooManyTrustStores`, `AWSElasticLoadBalancingErrorInvalidCaCertificatesBundle`, `AWSElasticLoadBalancingErrorCaCertificatesBundleNotFound`, `AWSElasticLoadBalancingErrorTooManyTags`, `AWSElasticLoadBalancingErrorDuplicateTagKeys`.
+ 
+ @see AWSElasticLoadBalancingCreateTrustStoreInput
+ @see AWSElasticLoadBalancingCreateTrustStoreOutput
+ */
+- (AWSTask<AWSElasticLoadBalancingCreateTrustStoreOutput *> *)createTrustStore:(AWSElasticLoadBalancingCreateTrustStoreInput *)request;
+
+/**
+ <p>Creates a trust store.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTrustStore service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateTrustStoreName`, `AWSElasticLoadBalancingErrorTooManyTrustStores`, `AWSElasticLoadBalancingErrorInvalidCaCertificatesBundle`, `AWSElasticLoadBalancingErrorCaCertificatesBundleNotFound`, `AWSElasticLoadBalancingErrorTooManyTags`, `AWSElasticLoadBalancingErrorDuplicateTagKeys`.
+ 
+ @see AWSElasticLoadBalancingCreateTrustStoreInput
+ @see AWSElasticLoadBalancingCreateTrustStoreOutput
+ */
+- (void)createTrustStore:(AWSElasticLoadBalancingCreateTrustStoreInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingCreateTrustStoreOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes the specified listener.</p><p>Alternatively, your listener is deleted when you delete the load balancer to which it is attached.</p>
@@ -423,6 +473,31 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
  @see AWSElasticLoadBalancingDeleteTargetGroupOutput
  */
 - (void)deleteTargetGroup:(AWSElasticLoadBalancingDeleteTargetGroupInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingDeleteTargetGroupOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes a trust store.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTrustStore service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDeleteTrustStoreOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorTrustStoreNotFound`, `AWSElasticLoadBalancingErrorTrustStoreInUse`.
+ 
+ @see AWSElasticLoadBalancingDeleteTrustStoreInput
+ @see AWSElasticLoadBalancingDeleteTrustStoreOutput
+ */
+- (AWSTask<AWSElasticLoadBalancingDeleteTrustStoreOutput *> *)deleteTrustStore:(AWSElasticLoadBalancingDeleteTrustStoreInput *)request;
+
+/**
+ <p>Deletes a trust store.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTrustStore service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorTrustStoreNotFound`, `AWSElasticLoadBalancingErrorTrustStoreInUse`.
+ 
+ @see AWSElasticLoadBalancingDeleteTrustStoreInput
+ @see AWSElasticLoadBalancingDeleteTrustStoreOutput
+ */
+- (void)deleteTrustStore:(AWSElasticLoadBalancingDeleteTrustStoreInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingDeleteTrustStoreOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deregisters the specified targets from the specified target group. After the targets are deregistered, they no longer receive traffic from the load balancer.</p><p>The load balancer stops sending requests to targets that are deregistering, but uses connection draining to ensure that in-flight traffic completes on the existing connections. This deregistration delay is configured by default but can be updated for each target group.</p><p>For more information, see the following:</p><ul><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#deregistration-delay"> Deregistration delay</a> in the <i>Application Load Balancers User Guide</i></p></li><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay"> Deregistration delay</a> in the <i>Network Load Balancers User Guide</i></p></li><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-groups.html#deregistration-delay"> Deregistration delay</a> in the <i>Gateway Load Balancers User Guide</i></p></li></ul><p>Note: If the specified target does not exist, the action returns successfully.</p>
@@ -629,7 +704,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
  
  @param request A container for the necessary parameters to execute the DescribeTags service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDescribeTagsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorLoadBalancerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorRuleNotFound`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDescribeTagsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorLoadBalancerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorRuleNotFound`, `AWSElasticLoadBalancingErrorTrustStoreNotFound`.
  
  @see AWSElasticLoadBalancingDescribeTagsInput
  @see AWSElasticLoadBalancingDescribeTagsOutput
@@ -642,7 +717,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
  @param request A container for the necessary parameters to execute the DescribeTags service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorLoadBalancerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorRuleNotFound`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorLoadBalancerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorRuleNotFound`, `AWSElasticLoadBalancingErrorTrustStoreNotFound`.
  
  @see AWSElasticLoadBalancingDescribeTagsInput
  @see AWSElasticLoadBalancingDescribeTagsOutput
@@ -725,11 +800,136 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (void)describeTargetHealth:(AWSElasticLoadBalancingDescribeTargetHealthInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingDescribeTargetHealthOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Describes all resources associated with the specified trust store.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTrustStoreAssociations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDescribeTrustStoreAssociationsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorTrustStoreNotFound`.
+ 
+ @see AWSElasticLoadBalancingDescribeTrustStoreAssociationsInput
+ @see AWSElasticLoadBalancingDescribeTrustStoreAssociationsOutput
+ */
+- (AWSTask<AWSElasticLoadBalancingDescribeTrustStoreAssociationsOutput *> *)describeTrustStoreAssociations:(AWSElasticLoadBalancingDescribeTrustStoreAssociationsInput *)request;
+
+/**
+ <p>Describes all resources associated with the specified trust store.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTrustStoreAssociations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorTrustStoreNotFound`.
+ 
+ @see AWSElasticLoadBalancingDescribeTrustStoreAssociationsInput
+ @see AWSElasticLoadBalancingDescribeTrustStoreAssociationsOutput
+ */
+- (void)describeTrustStoreAssociations:(AWSElasticLoadBalancingDescribeTrustStoreAssociationsInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingDescribeTrustStoreAssociationsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes the revocation files in use by the specified trust store arn, or revocation ID.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTrustStoreRevocations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDescribeTrustStoreRevocationsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorTrustStoreNotFound`, `AWSElasticLoadBalancingErrorRevocationIdNotFound`.
+ 
+ @see AWSElasticLoadBalancingDescribeTrustStoreRevocationsInput
+ @see AWSElasticLoadBalancingDescribeTrustStoreRevocationsOutput
+ */
+- (AWSTask<AWSElasticLoadBalancingDescribeTrustStoreRevocationsOutput *> *)describeTrustStoreRevocations:(AWSElasticLoadBalancingDescribeTrustStoreRevocationsInput *)request;
+
+/**
+ <p>Describes the revocation files in use by the specified trust store arn, or revocation ID.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTrustStoreRevocations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorTrustStoreNotFound`, `AWSElasticLoadBalancingErrorRevocationIdNotFound`.
+ 
+ @see AWSElasticLoadBalancingDescribeTrustStoreRevocationsInput
+ @see AWSElasticLoadBalancingDescribeTrustStoreRevocationsOutput
+ */
+- (void)describeTrustStoreRevocations:(AWSElasticLoadBalancingDescribeTrustStoreRevocationsInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingDescribeTrustStoreRevocationsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes all trust stores for a given account by trust store arn’s or name.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTrustStores service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDescribeTrustStoresOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorTrustStoreNotFound`.
+ 
+ @see AWSElasticLoadBalancingDescribeTrustStoresInput
+ @see AWSElasticLoadBalancingDescribeTrustStoresOutput
+ */
+- (AWSTask<AWSElasticLoadBalancingDescribeTrustStoresOutput *> *)describeTrustStores:(AWSElasticLoadBalancingDescribeTrustStoresInput *)request;
+
+/**
+ <p>Describes all trust stores for a given account by trust store arn’s or name.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTrustStores service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorTrustStoreNotFound`.
+ 
+ @see AWSElasticLoadBalancingDescribeTrustStoresInput
+ @see AWSElasticLoadBalancingDescribeTrustStoresOutput
+ */
+- (void)describeTrustStores:(AWSElasticLoadBalancingDescribeTrustStoresInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingDescribeTrustStoresOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Retrieves the ca certificate bundle.</p><p>This action returns a pre-signed S3 URI which is active for ten minutes.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetTrustStoreCaCertificatesBundle service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorTrustStoreNotFound`.
+ 
+ @see AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleInput
+ @see AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleOutput
+ */
+- (AWSTask<AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleOutput *> *)getTrustStoreCaCertificatesBundle:(AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleInput *)request;
+
+/**
+ <p>Retrieves the ca certificate bundle.</p><p>This action returns a pre-signed S3 URI which is active for ten minutes.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetTrustStoreCaCertificatesBundle service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorTrustStoreNotFound`.
+ 
+ @see AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleInput
+ @see AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleOutput
+ */
+- (void)getTrustStoreCaCertificatesBundle:(AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Retrieves the specified revocation file.</p><p>This action returns a pre-signed S3 URI which is active for ten minutes.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetTrustStoreRevocationContent service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingGetTrustStoreRevocationContentOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorTrustStoreNotFound`, `AWSElasticLoadBalancingErrorRevocationIdNotFound`.
+ 
+ @see AWSElasticLoadBalancingGetTrustStoreRevocationContentInput
+ @see AWSElasticLoadBalancingGetTrustStoreRevocationContentOutput
+ */
+- (AWSTask<AWSElasticLoadBalancingGetTrustStoreRevocationContentOutput *> *)getTrustStoreRevocationContent:(AWSElasticLoadBalancingGetTrustStoreRevocationContentInput *)request;
+
+/**
+ <p>Retrieves the specified revocation file.</p><p>This action returns a pre-signed S3 URI which is active for ten minutes.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetTrustStoreRevocationContent service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorTrustStoreNotFound`, `AWSElasticLoadBalancingErrorRevocationIdNotFound`.
+ 
+ @see AWSElasticLoadBalancingGetTrustStoreRevocationContentInput
+ @see AWSElasticLoadBalancingGetTrustStoreRevocationContentOutput
+ */
+- (void)getTrustStoreRevocationContent:(AWSElasticLoadBalancingGetTrustStoreRevocationContentInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingGetTrustStoreRevocationContentOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Replaces the specified properties of the specified listener. Any properties that you do not specify remain unchanged.</p><p>Changing the protocol from HTTPS to HTTP, or from TLS to TCP, removes the security policy and default certificate properties. If you change the protocol from HTTP to HTTPS, or from TCP to TLS, you must add the security policy and default certificate properties.</p><p>To add an item to a list, remove an item from a list, or update an item in a list, you must provide the entire list. For example, to add an action, specify a list with the current actions plus the new action.</p>
  
  @param request A container for the necessary parameters to execute the ModifyListener service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingModifyListenerOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateListener`, `AWSElasticLoadBalancingErrorTooManyListeners`, `AWSElasticLoadBalancingErrorTooManyCertificates`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorTargetGroupAssociationLimit`, `AWSElasticLoadBalancingErrorIncompatibleProtocols`, `AWSElasticLoadBalancingErrorSSLPolicyNotFound`, `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorUnsupportedProtocol`, `AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId`, `AWSElasticLoadBalancingErrorTooManyTargets`, `AWSElasticLoadBalancingErrorTooManyActions`, `AWSElasticLoadBalancingErrorInvalidLoadBalancerAction`, `AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer`, `AWSElasticLoadBalancingErrorALPNPolicyNotSupported`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingModifyListenerOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateListener`, `AWSElasticLoadBalancingErrorTooManyListeners`, `AWSElasticLoadBalancingErrorTooManyCertificates`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorTargetGroupAssociationLimit`, `AWSElasticLoadBalancingErrorIncompatibleProtocols`, `AWSElasticLoadBalancingErrorSSLPolicyNotFound`, `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorUnsupportedProtocol`, `AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId`, `AWSElasticLoadBalancingErrorTooManyTargets`, `AWSElasticLoadBalancingErrorTooManyActions`, `AWSElasticLoadBalancingErrorInvalidLoadBalancerAction`, `AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer`, `AWSElasticLoadBalancingErrorALPNPolicyNotSupported`, `AWSElasticLoadBalancingErrorTrustStoreNotFound`, `AWSElasticLoadBalancingErrorTrustStoreNotReady`.
  
  @see AWSElasticLoadBalancingModifyListenerInput
  @see AWSElasticLoadBalancingModifyListenerOutput
@@ -742,7 +942,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
  @param request A container for the necessary parameters to execute the ModifyListener service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateListener`, `AWSElasticLoadBalancingErrorTooManyListeners`, `AWSElasticLoadBalancingErrorTooManyCertificates`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorTargetGroupAssociationLimit`, `AWSElasticLoadBalancingErrorIncompatibleProtocols`, `AWSElasticLoadBalancingErrorSSLPolicyNotFound`, `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorUnsupportedProtocol`, `AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId`, `AWSElasticLoadBalancingErrorTooManyTargets`, `AWSElasticLoadBalancingErrorTooManyActions`, `AWSElasticLoadBalancingErrorInvalidLoadBalancerAction`, `AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer`, `AWSElasticLoadBalancingErrorALPNPolicyNotSupported`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateListener`, `AWSElasticLoadBalancingErrorTooManyListeners`, `AWSElasticLoadBalancingErrorTooManyCertificates`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorTargetGroupAssociationLimit`, `AWSElasticLoadBalancingErrorIncompatibleProtocols`, `AWSElasticLoadBalancingErrorSSLPolicyNotFound`, `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorUnsupportedProtocol`, `AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId`, `AWSElasticLoadBalancingErrorTooManyTargets`, `AWSElasticLoadBalancingErrorTooManyActions`, `AWSElasticLoadBalancingErrorInvalidLoadBalancerAction`, `AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer`, `AWSElasticLoadBalancingErrorALPNPolicyNotSupported`, `AWSElasticLoadBalancingErrorTrustStoreNotFound`, `AWSElasticLoadBalancingErrorTrustStoreNotReady`.
  
  @see AWSElasticLoadBalancingModifyListenerInput
  @see AWSElasticLoadBalancingModifyListenerOutput
@@ -850,6 +1050,31 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (void)modifyTargetGroupAttributes:(AWSElasticLoadBalancingModifyTargetGroupAttributesInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingModifyTargetGroupAttributesOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Update the ca certificate bundle for a given trust store.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyTrustStore service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingModifyTrustStoreOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorTrustStoreNotFound`, `AWSElasticLoadBalancingErrorInvalidCaCertificatesBundle`, `AWSElasticLoadBalancingErrorCaCertificatesBundleNotFound`.
+ 
+ @see AWSElasticLoadBalancingModifyTrustStoreInput
+ @see AWSElasticLoadBalancingModifyTrustStoreOutput
+ */
+- (AWSTask<AWSElasticLoadBalancingModifyTrustStoreOutput *> *)modifyTrustStore:(AWSElasticLoadBalancingModifyTrustStoreInput *)request;
+
+/**
+ <p>Update the ca certificate bundle for a given trust store.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyTrustStore service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorTrustStoreNotFound`, `AWSElasticLoadBalancingErrorInvalidCaCertificatesBundle`, `AWSElasticLoadBalancingErrorCaCertificatesBundleNotFound`.
+ 
+ @see AWSElasticLoadBalancingModifyTrustStoreInput
+ @see AWSElasticLoadBalancingModifyTrustStoreOutput
+ */
+- (void)modifyTrustStore:(AWSElasticLoadBalancingModifyTrustStoreInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingModifyTrustStoreOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Registers the specified targets with the specified target group.</p><p>If the target is an EC2 instance, it must be in the <code>running</code> state when you register it.</p><p>By default, the load balancer routes requests to registered targets using the protocol and port for the target group. Alternatively, you can override the port for a target when you register it. You can register each EC2 instance or IP address with the same target group multiple times using different ports.</p><p>With a Network Load Balancer, you cannot register instances by instance ID if they have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1. You can register instances of these types by IP address.</p>
  
  @param request A container for the necessary parameters to execute the RegisterTargets service method.
@@ -904,7 +1129,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
  
  @param request A container for the necessary parameters to execute the RemoveTags service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingRemoveTagsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorLoadBalancerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorRuleNotFound`, `AWSElasticLoadBalancingErrorTooManyTags`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingRemoveTagsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorLoadBalancerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorRuleNotFound`, `AWSElasticLoadBalancingErrorTooManyTags`, `AWSElasticLoadBalancingErrorTrustStoreNotFound`.
  
  @see AWSElasticLoadBalancingRemoveTagsInput
  @see AWSElasticLoadBalancingRemoveTagsOutput
@@ -917,12 +1142,37 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
  @param request A container for the necessary parameters to execute the RemoveTags service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorLoadBalancerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorRuleNotFound`, `AWSElasticLoadBalancingErrorTooManyTags`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorLoadBalancerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorRuleNotFound`, `AWSElasticLoadBalancingErrorTooManyTags`, `AWSElasticLoadBalancingErrorTrustStoreNotFound`.
  
  @see AWSElasticLoadBalancingRemoveTagsInput
  @see AWSElasticLoadBalancingRemoveTagsOutput
  */
 - (void)removeTags:(AWSElasticLoadBalancingRemoveTagsInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingRemoveTagsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Removes the specified revocation file from the specified trust store.</p>
+ 
+ @param request A container for the necessary parameters to execute the RemoveTrustStoreRevocations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingRemoveTrustStoreRevocationsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorTrustStoreNotFound`, `AWSElasticLoadBalancingErrorRevocationIdNotFound`.
+ 
+ @see AWSElasticLoadBalancingRemoveTrustStoreRevocationsInput
+ @see AWSElasticLoadBalancingRemoveTrustStoreRevocationsOutput
+ */
+- (AWSTask<AWSElasticLoadBalancingRemoveTrustStoreRevocationsOutput *> *)removeTrustStoreRevocations:(AWSElasticLoadBalancingRemoveTrustStoreRevocationsInput *)request;
+
+/**
+ <p>Removes the specified revocation file from the specified trust store.</p>
+ 
+ @param request A container for the necessary parameters to execute the RemoveTrustStoreRevocations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorTrustStoreNotFound`, `AWSElasticLoadBalancingErrorRevocationIdNotFound`.
+ 
+ @see AWSElasticLoadBalancingRemoveTrustStoreRevocationsInput
+ @see AWSElasticLoadBalancingRemoveTrustStoreRevocationsOutput
+ */
+- (void)removeTrustStoreRevocations:(AWSElasticLoadBalancingRemoveTrustStoreRevocationsInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingRemoveTrustStoreRevocationsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Sets the type of IP addresses used by the subnets of the specified load balancer.</p>
