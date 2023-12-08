@@ -41,6 +41,7 @@
 - (void) test_AWSTranscribeDeleteCallAnalyticsJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeDeleteCallAnalyticsJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeDeleteLanguageModelRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeDeleteMedicalScribeJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeDeleteMedicalTranscriptionJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeDeleteMedicalVocabularyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeDeleteTranscriptionJobRequest API_AVAILABLE(ios(11));
@@ -52,6 +53,8 @@
 - (void) test_AWSTranscribeGetCallAnalyticsCategoryResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeGetCallAnalyticsJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeGetCallAnalyticsJobResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeGetMedicalScribeJobRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeGetMedicalScribeJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeGetMedicalTranscriptionJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeGetMedicalTranscriptionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeGetMedicalVocabularyRequest API_AVAILABLE(ios(11));
@@ -74,6 +77,8 @@
 - (void) test_AWSTranscribeListCallAnalyticsJobsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeListLanguageModelsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeListLanguageModelsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeListMedicalScribeJobsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeListMedicalScribeJobsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeListMedicalTranscriptionJobsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeListMedicalTranscriptionJobsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeListMedicalVocabulariesRequest API_AVAILABLE(ios(11));
@@ -87,6 +92,11 @@
 - (void) test_AWSTranscribeListVocabularyFiltersRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeListVocabularyFiltersResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeMedia API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeMedicalScribeChannelDefinition API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeMedicalScribeJob API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeMedicalScribeJobSummary API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeMedicalScribeOutput API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeMedicalScribeSettings API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeMedicalTranscript API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeMedicalTranscriptionJob API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeMedicalTranscriptionJobSummary API_AVAILABLE(ios(11));
@@ -99,12 +109,15 @@
 - (void) test_AWSTranscribeSettings API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeStartCallAnalyticsJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeStartCallAnalyticsJobResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeStartMedicalScribeJobRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeStartMedicalScribeJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeStartMedicalTranscriptionJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeStartMedicalTranscriptionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeStartTranscriptionJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeStartTranscriptionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeSubtitles API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeSubtitlesOutput API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeSummarization API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeTag API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeTagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeTagResourceResponse API_AVAILABLE(ios(11));
@@ -218,6 +231,10 @@
     [self validateSecureCodingForClass:[AWSTranscribeDeleteLanguageModelRequest class]];
 }
 
+- (void) test_AWSTranscribeDeleteMedicalScribeJobRequest {
+    [self validateSecureCodingForClass:[AWSTranscribeDeleteMedicalScribeJobRequest class]];
+}
+
 - (void) test_AWSTranscribeDeleteMedicalTranscriptionJobRequest {
     [self validateSecureCodingForClass:[AWSTranscribeDeleteMedicalTranscriptionJobRequest class]];
 }
@@ -260,6 +277,14 @@
 
 - (void) test_AWSTranscribeGetCallAnalyticsJobResponse {
     [self validateSecureCodingForClass:[AWSTranscribeGetCallAnalyticsJobResponse class]];
+}
+
+- (void) test_AWSTranscribeGetMedicalScribeJobRequest {
+    [self validateSecureCodingForClass:[AWSTranscribeGetMedicalScribeJobRequest class]];
+}
+
+- (void) test_AWSTranscribeGetMedicalScribeJobResponse {
+    [self validateSecureCodingForClass:[AWSTranscribeGetMedicalScribeJobResponse class]];
 }
 
 - (void) test_AWSTranscribeGetMedicalTranscriptionJobRequest {
@@ -350,6 +375,14 @@
     [self validateSecureCodingForClass:[AWSTranscribeListLanguageModelsResponse class]];
 }
 
+- (void) test_AWSTranscribeListMedicalScribeJobsRequest {
+    [self validateSecureCodingForClass:[AWSTranscribeListMedicalScribeJobsRequest class]];
+}
+
+- (void) test_AWSTranscribeListMedicalScribeJobsResponse {
+    [self validateSecureCodingForClass:[AWSTranscribeListMedicalScribeJobsResponse class]];
+}
+
 - (void) test_AWSTranscribeListMedicalTranscriptionJobsRequest {
     [self validateSecureCodingForClass:[AWSTranscribeListMedicalTranscriptionJobsRequest class]];
 }
@@ -402,6 +435,26 @@
     [self validateSecureCodingForClass:[AWSTranscribeMedia class]];
 }
 
+- (void) test_AWSTranscribeMedicalScribeChannelDefinition {
+    [self validateSecureCodingForClass:[AWSTranscribeMedicalScribeChannelDefinition class]];
+}
+
+- (void) test_AWSTranscribeMedicalScribeJob {
+    [self validateSecureCodingForClass:[AWSTranscribeMedicalScribeJob class]];
+}
+
+- (void) test_AWSTranscribeMedicalScribeJobSummary {
+    [self validateSecureCodingForClass:[AWSTranscribeMedicalScribeJobSummary class]];
+}
+
+- (void) test_AWSTranscribeMedicalScribeOutput {
+    [self validateSecureCodingForClass:[AWSTranscribeMedicalScribeOutput class]];
+}
+
+- (void) test_AWSTranscribeMedicalScribeSettings {
+    [self validateSecureCodingForClass:[AWSTranscribeMedicalScribeSettings class]];
+}
+
 - (void) test_AWSTranscribeMedicalTranscript {
     [self validateSecureCodingForClass:[AWSTranscribeMedicalTranscript class]];
 }
@@ -450,6 +503,14 @@
     [self validateSecureCodingForClass:[AWSTranscribeStartCallAnalyticsJobResponse class]];
 }
 
+- (void) test_AWSTranscribeStartMedicalScribeJobRequest {
+    [self validateSecureCodingForClass:[AWSTranscribeStartMedicalScribeJobRequest class]];
+}
+
+- (void) test_AWSTranscribeStartMedicalScribeJobResponse {
+    [self validateSecureCodingForClass:[AWSTranscribeStartMedicalScribeJobResponse class]];
+}
+
 - (void) test_AWSTranscribeStartMedicalTranscriptionJobRequest {
     [self validateSecureCodingForClass:[AWSTranscribeStartMedicalTranscriptionJobRequest class]];
 }
@@ -472,6 +533,10 @@
 
 - (void) test_AWSTranscribeSubtitlesOutput {
     [self validateSecureCodingForClass:[AWSTranscribeSubtitlesOutput class]];
+}
+
+- (void) test_AWSTranscribeSummarization {
+    [self validateSecureCodingForClass:[AWSTranscribeSummarization class]];
 }
 
 - (void) test_AWSTranscribeTag {
