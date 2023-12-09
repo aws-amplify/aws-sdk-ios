@@ -4853,6 +4853,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"inboundCallsEnabled" : @"InboundCallsEnabled",
              @"instanceAlias" : @"InstanceAlias",
              @"outboundCallsEnabled" : @"OutboundCallsEnabled",
+             @"tags" : @"Tags",
              };
 }
 
@@ -10516,6 +10517,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"outboundCallsEnabled" : @"OutboundCallsEnabled",
              @"serviceRole" : @"ServiceRole",
              @"statusReason" : @"StatusReason",
+             @"tags" : @"Tags",
              };
 }
 

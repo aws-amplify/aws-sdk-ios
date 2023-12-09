@@ -3424,6 +3424,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  */
 @property (nonatomic, strong) NSNumber * _Nullable outboundCallsEnabled;
 
+/**
+ <p>The tags used to organize, track, or control access for this resource. For example, <code>{ "tags": {"key1":"value1", "key2":"value2"} }</code>.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
 @end
 
 /**
@@ -8265,6 +8270,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>Relevant details why the instance was not successfully created. </p>
  */
 @property (nonatomic, strong) AWSConnectInstanceStatusReason * _Nullable statusReason;
+
+/**
+ <p>The tags of an instance.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 @end
 
