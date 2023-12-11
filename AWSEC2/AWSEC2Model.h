@@ -45777,6 +45777,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
+ <p>The manufacturer of the processor.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable manufacturer;
+
+/**
  <p>The architectures supported by the instance type.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedArchitectures;
