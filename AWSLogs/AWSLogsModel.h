@@ -36,6 +36,8 @@ typedef NS_ENUM(NSInteger, AWSLogsErrorType) {
     AWSLogsErrorResourceNotFound,
     AWSLogsErrorServiceQuotaExceeded,
     AWSLogsErrorServiceUnavailable,
+    AWSLogsErrorSessionStreaming,
+    AWSLogsErrorSessionTimeout,
     AWSLogsErrorThrottling,
     AWSLogsErrorTooManyTags,
     AWSLogsErrorUnrecognizedClient,
@@ -292,6 +294,10 @@ typedef NS_ENUM(NSInteger, AWSLogsSuppressionUnit) {
 @class AWSLogsListTagsForResourceResponse;
 @class AWSLogsListTagsLogGroupRequest;
 @class AWSLogsListTagsLogGroupResponse;
+@class AWSLogsLiveTailSessionLogEvent;
+@class AWSLogsLiveTailSessionMetadata;
+@class AWSLogsLiveTailSessionStart;
+@class AWSLogsLiveTailSessionUpdate;
 @class AWSLogsLogGroup;
 @class AWSLogsLogGroupField;
 @class AWSLogsLogStream;
@@ -332,6 +338,9 @@ typedef NS_ENUM(NSInteger, AWSLogsSuppressionUnit) {
 @class AWSLogsResourcePolicy;
 @class AWSLogsResultField;
 @class AWSLogsSearchedLogStream;
+@class AWSLogsStartLiveTailRequest;
+@class AWSLogsStartLiveTailResponse;
+@class AWSLogsStartLiveTailResponseStream;
 @class AWSLogsStartQueryRequest;
 @class AWSLogsStartQueryResponse;
 @class AWSLogsStopQueryRequest;
@@ -707,7 +716,7 @@ typedef NS_ENUM(NSInteger, AWSLogsSuppressionUnit) {
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
- <p>An array containing the ARNs of the log groups that this anomaly detector will watch. You must specify at least one ARN.</p>
+ <p>An array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable logGroupArnList;
 
@@ -743,7 +752,7 @@ typedef NS_ENUM(NSInteger, AWSLogsSuppressionUnit) {
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
- <p>Use this parameter to specify the log group class for this log group. There are two classes:</p><ul><li><p>The <code>Standard</code> log class supports all CloudWatch Logs features.</p></li><li><p>The <code>Infrequent Access</code> log class supports a subset of CloudWatch Logs features and incurs lower costs.</p></li></ul><p>If you omit this parameter, the default of <code>STANDARD</code> is used.</p><p>For details about the features supported by each class, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log classes</a></p>
+ <p>Use this parameter to specify the log group class for this log group. There are two classes:</p><ul><li><p>The <code>Standard</code> log class supports all CloudWatch Logs features.</p></li><li><p>The <code>Infrequent Access</code> log class supports a subset of CloudWatch Logs features and incurs lower costs.</p></li></ul><p>If you omit this parameter, the default of <code>STANDARD</code> is used.</p><important><p>After a log group is created, its class can't be changed.</p></important><p>For details about the features supported by each class, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log classes</a></p>
  */
 @property (nonatomic, assign) AWSLogsLogGroupClass logGroupClass;
 
@@ -1044,7 +1053,7 @@ typedef NS_ENUM(NSInteger, AWSLogsSuppressionUnit) {
 @end
 
 /**
- <p>This structure contains information about one <i>delivery destination</i> in your account. A delivery destination is an Amazon Web Services resource that represents an Amazon Web Services service that logs can be sent to. CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.</p><p>To configure logs delivery between a supported Amazon Web Services service and a destination, you must do the following:</p><ul><li><p>Create a delivery source, which is a logical object that represents the resource that is actually sending the logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.</p></li><li><p>Create a <i>delivery destination</i>, which is a logical object that represents the actual delivery destination. </p></li><li><p>If you are delivering logs cross-account, you must use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationolicy.html">PutDeliveryDestinationPolicy</a> in the destination account to assign an IAM policy to the destination. This policy allows delivery to that destination. </p></li><li><p>Create a <i>delivery</i> by pairing exactly one delivery source and one delivery destination. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.</p></li></ul><p>You can configure a single delivery source to send logs to multiple destinations by creating multiple deliveries. You can also create multiple deliveries to configure multiple delivery sources to send logs to the same delivery destination.</p>
+ <p>This structure contains information about one <i>delivery destination</i> in your account. A delivery destination is an Amazon Web Services resource that represents an Amazon Web Services service that logs can be sent to. CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.</p><p>To configure logs delivery between a supported Amazon Web Services service and a destination, you must do the following:</p><ul><li><p>Create a delivery source, which is a logical object that represents the resource that is actually sending the logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.</p></li><li><p>Create a <i>delivery destination</i>, which is a logical object that represents the actual delivery destination. </p></li><li><p>If you are delivering logs cross-account, you must use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html">PutDeliveryDestinationPolicy</a> in the destination account to assign an IAM policy to the destination. This policy allows delivery to that destination. </p></li><li><p>Create a <i>delivery</i> by pairing exactly one delivery source and one delivery destination. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.</p></li></ul><p>You can configure a single delivery source to send logs to multiple destinations by creating multiple deliveries. You can also create multiple deliveries to configure multiple delivery sources to send logs to the same delivery destination.</p>
  */
 @interface AWSLogsDeliveryDestination : AWSModel
 
@@ -1096,7 +1105,7 @@ typedef NS_ENUM(NSInteger, AWSLogsSuppressionUnit) {
 @end
 
 /**
- <p>This structure contains information about one <i>delivery source</i> in your account. A delivery source is an Amazon Web Services resource that sends logs to an Amazon Web Services destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.</p><p>Only some Amazon Web Services services support being configured as a delivery source. These services are listed as <b>Supported [V2 Permissions]</b> in the table at <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enabling logging from Amazon Web Services services.</a></p><p>To configure logs delivery between a supported Amazon Web Services service and a destination, you must do the following:</p><ul><li><p>Create a delivery source, which is a logical object that represents the resource that is actually sending the logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.</p></li><li><p>Create a <i>delivery destination</i>, which is a logical object that represents the actual delivery destination. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html">PutDeliveryDestination</a>.</p></li><li><p>If you are delivering logs cross-account, you must use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationolicy.html">PutDeliveryDestinationPolicy</a> in the destination account to assign an IAM policy to the destination. This policy allows delivery to that destination. </p></li><li><p>Create a <i>delivery</i> by pairing exactly one delivery source and one delivery destination. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.</p></li></ul><p>You can configure a single delivery source to send logs to multiple destinations by creating multiple deliveries. You can also create multiple deliveries to configure multiple delivery sources to send logs to the same delivery destination.</p>
+ <p>This structure contains information about one <i>delivery source</i> in your account. A delivery source is an Amazon Web Services resource that sends logs to an Amazon Web Services destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.</p><p>Only some Amazon Web Services services support being configured as a delivery source. These services are listed as <b>Supported [V2 Permissions]</b> in the table at <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enabling logging from Amazon Web Services services.</a></p><p>To configure logs delivery between a supported Amazon Web Services service and a destination, you must do the following:</p><ul><li><p>Create a delivery source, which is a logical object that represents the resource that is actually sending the logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.</p></li><li><p>Create a <i>delivery destination</i>, which is a logical object that represents the actual delivery destination. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html">PutDeliveryDestination</a>.</p></li><li><p>If you are delivering logs cross-account, you must use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html">PutDeliveryDestinationPolicy</a> in the destination account to assign an IAM policy to the destination. This policy allows delivery to that destination. </p></li><li><p>Create a <i>delivery</i> by pairing exactly one delivery source and one delivery destination. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.</p></li></ul><p>You can configure a single delivery source to send logs to multiple destinations by creating multiple deliveries. You can also create multiple deliveries to configure multiple delivery sources to send logs to the same delivery destination.</p>
  */
 @interface AWSLogsDeliverySource : AWSModel
 
@@ -2524,6 +2533,108 @@ typedef NS_ENUM(NSInteger, AWSLogsSuppressionUnit) {
 @end
 
 /**
+ <p>This object contains the information for one log event returned in a Live Tail stream.</p>
+ */
+@interface AWSLogsLiveTailSessionLogEvent : AWSModel
+
+
+/**
+ <p>The timestamp specifying when this log event was ingested into the log group.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable ingestionTime;
+
+/**
+ <p>The name or ARN of the log group that ingested this log event.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable logGroupIdentifier;
+
+/**
+ <p>The name of the log stream that ingested this log event.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable logStreamName;
+
+/**
+ <p>The log event message text.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+/**
+ <p>The timestamp specifying when this log event was created.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable timestamp;
+
+@end
+
+/**
+ <p>This object contains the metadata for one <code>LiveTailSessionUpdate</code> structure. It indicates whether that update includes only a sample of 500 log events out of a larger number of ingested log events, or if it contains all of the matching log events ingested during that second of time.</p>
+ */
+@interface AWSLogsLiveTailSessionMetadata : AWSModel
+
+
+/**
+ <p>If this is <code>true</code>, then more than 500 log events matched the request for this update, and the <code>sessionResults</code> includes a sample of 500 of those events.</p><p>If this is <code>false</code>, then 500 or fewer log events matched the request for this update, so no sampling was necessary. In this case, the <code>sessionResults</code> array includes all log events that matched your request during this time.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable sampled;
+
+@end
+
+/**
+ <p>This object contains information about this Live Tail session, including the log groups included and the log stream filters, if any.</p>
+ */
+@interface AWSLogsLiveTailSessionStart : AWSModel
+
+
+/**
+ <p>An optional pattern to filter the results to include only log events that match the pattern. For example, a filter pattern of <code>error 404</code> displays only log events that include both <code>error</code> and <code>404</code>.</p><p>For more information about filter pattern syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable logEventFilterPattern;
+
+/**
+ <p>An array of the names and ARNs of the log groups included in this Live Tail session.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable logGroupIdentifiers;
+
+/**
+ <p>If your StartLiveTail operation request included a <code>logStreamNamePrefixes</code> parameter that filtered the session to only include log streams that have names that start with certain prefixes, these prefixes are listed here.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable logStreamNamePrefixes;
+
+/**
+ <p>If your StartLiveTail operation request included a <code>logStreamNames</code> parameter that filtered the session to only include certain log streams, these streams are listed here.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable logStreamNames;
+
+/**
+ <p>The unique ID generated by CloudWatch Logs to identify this Live Tail session request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable requestId;
+
+/**
+ <p>The unique ID generated by CloudWatch Logs to identify this Live Tail session.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sessionId;
+
+@end
+
+/**
+ <p>This object contains the log events and metadata for a Live Tail session.</p>
+ */
+@interface AWSLogsLiveTailSessionUpdate : AWSModel
+
+
+/**
+ <p>This object contains the session metadata for a Live Tail session.</p>
+ */
+@property (nonatomic, strong) AWSLogsLiveTailSessionMetadata * _Nullable sessionMetadata;
+
+/**
+ <p>An array, where each member of the array includes the information for one log event in the Live Tail session.</p><p>A <code>sessionResults</code> array can include as many as 500 log events. If the number of log events matching the request exceeds 500 per second, the log events are sampled down to 500 log events to be included in each <code>sessionUpdate</code> structure.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSLogsLiveTailSessionLogEvent *> * _Nullable sessionResults;
+
+@end
+
+/**
  <p>Represents a log group.</p>
  */
 @interface AWSLogsLogGroup : AWSModel
@@ -3476,6 +3587,75 @@ typedef NS_ENUM(NSInteger, AWSLogsSuppressionUnit) {
  <p>Indicates whether all the events in this log stream were searched.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable searchedCompletely;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsStartLiveTailRequest : AWSRequest
+
+
+/**
+ <p>An optional pattern to use to filter the results to include only log events that match the pattern. For example, a filter pattern of <code>error 404</code> causes only log events that include both <code>error</code> and <code>404</code> to be included in the Live Tail stream.</p><p>Regular expression filter patterns are supported.</p><p>For more information about filter pattern syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable logEventFilterPattern;
+
+/**
+ <p>An array where each item in the array is a log group to include in the Live Tail session.</p><p>Specify each log group by its ARN. </p><p>If you specify an ARN, the ARN can't end with an asterisk (*).</p><note><p> You can include up to 10 log groups.</p></note>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable logGroupIdentifiers;
+
+/**
+ <p>If you specify this parameter, then only log events in the log streams that have names that start with the prefixes that you specify here are included in the Live Tail session.</p><note><p>You can specify this parameter only if you specify only one log group in <code>logGroupIdentifiers</code>.</p></note>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable logStreamNamePrefixes;
+
+/**
+ <p>If you specify this parameter, then only log events in the log streams that you specify here are included in the Live Tail session.</p><note><p>You can specify this parameter only if you specify only one log group in <code>logGroupIdentifiers</code>.</p></note>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable logStreamNames;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsStartLiveTailResponse : AWSModel
+
+
+/**
+ <p>An object that includes the stream returned by your request. It can include both log events and exceptions.</p>
+ */
+@property (nonatomic, strong) AWSLogsStartLiveTailResponseStream * _Nullable responseStream;
+
+@end
+
+/**
+ <p>This object includes the stream returned by your <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartLiveTail.html">StartLiveTail</a> request.</p>
+ */
+@interface AWSLogsStartLiveTailResponseStream : AWSModel
+
+
+/**
+ <p>This exception is returned if an unknown error occurs.</p>
+ */
+@property (nonatomic, strong)  _Nullable sessionStreamingException;
+
+/**
+ <p>This exception is returned in the stream when the Live Tail session times out. Live Tail sessions time out after three hours.</p>
+ */
+@property (nonatomic, strong)  _Nullable sessionTimeoutException;
+
+/**
+ <p>This object contains information about this Live Tail session, including the log groups included and the log stream filters, if any.</p>
+ */
+@property (nonatomic, strong) AWSLogsLiveTailSessionStart * _Nullable sessionStart;
+
+/**
+ <p>This object contains the log events and session metadata.</p>
+ */
+@property (nonatomic, strong) AWSLogsLiveTailSessionUpdate * _Nullable sessionUpdate;
 
 @end
 
