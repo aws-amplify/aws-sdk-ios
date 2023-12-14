@@ -3191,6 +3191,24 @@
       ],\
       \"documentation\":\"<p>When a contact is being recorded, this API suspends recording whatever is selected in the flow configuration: call, screen, or both. If only call recording or only screen recording is enabled, then it would be suspended. For example, you might suspend the screen recording while collecting sensitive information, such as a credit card number. Then use ResumeContactRecording to restart recording the screen.</p> <p>The period of time that the recording is suspended is filled with silence in the final recording.</p> <p>Voice and screen recordings are supported.</p>\"\
     },\
+    \"TagContact\":{\
+      \"name\":\"TagContact\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/contact/tags\"\
+      },\
+      \"input\":{\"shape\":\"TagContactRequest\"},\
+      \"output\":{\"shape\":\"TagContactResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>Adds the specified tags to the contact resource. For more information about this API is used, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html\\\">Set up granular billing for a detailed view of your Amazon Connect usage</a>. </p>\",\
+      \"idempotent\":true\
+    },\
     \"TagResource\":{\
       \"name\":\"TagResource\",\
       \"http\":{\
@@ -3225,6 +3243,24 @@
         {\"shape\":\"InternalServiceException\"}\
       ],\
       \"documentation\":\"<p>Transfers contacts from one agent or queue to another agent or queue at any point after a contact is created. You can transfer a contact to another queue by providing the flow which orchestrates the contact to the destination queue. This gives you more control over contact handling and helps you adhere to the service level agreement (SLA) guaranteed to your customers.</p> <p>Note the following requirements:</p> <ul> <li> <p>Transfer is supported for only <code>TASK</code> contacts.</p> </li> <li> <p>Do not use both <code>QueueId</code> and <code>UserId</code> in the same call.</p> </li> <li> <p>The following flow types are supported: Inbound flow, Transfer to agent flow, and Transfer to queue flow.</p> </li> <li> <p>The <code>TransferContact</code> API can be called only on active contacts.</p> </li> <li> <p>A contact cannot be transferred more than 11 times.</p> </li> </ul>\"\
+    },\
+    \"UntagContact\":{\
+      \"name\":\"UntagContact\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/contact/tags/{InstanceId}/{ContactId}\"\
+      },\
+      \"input\":{\"shape\":\"UntagContactRequest\"},\
+      \"output\":{\"shape\":\"UntagContactResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>Removes the specified tags from the contact resource. For more information about this API is used, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html\\\">Set up granular billing for a detailed view of your Amazon Connect usage</a>.</p>\",\
+      \"idempotent\":true\
     },\
     \"UntagResource\":{\
       \"name\":\"UntagResource\",\
@@ -4180,7 +4216,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"LastModifiedTime\":{\
           \"shape\":\"Timestamp\",\
@@ -5171,7 +5207,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"ClientToken\",\
@@ -5230,7 +5266,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"PhoneNumberStatus\":{\
           \"shape\":\"PhoneNumberStatus\",\
@@ -5341,6 +5377,10 @@
         \"WisdomInfo\":{\
           \"shape\":\"WisdomInfo\",\
           \"documentation\":\"<p>Information about Amazon Connect Wisdom.</p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"ContactTagMap\",\
+          \"documentation\":\"<p>Tags associated with the contact. This contains both Amazon Web Services generated and user-defined tags.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a contact.</p>\"\
@@ -5424,7 +5464,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a flow.</p>\"\
@@ -5468,7 +5508,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a flow module.</p>\"\
@@ -5659,6 +5699,29 @@
       \"member\":{\"shape\":\"ContactState\"},\
       \"max\":9\
     },\
+    \"ContactTagKey\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1,\
+      \"pattern\":\"^(?!aws:)[a-zA-Z+-=._:/]+$\"\
+    },\
+    \"ContactTagKeys\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ContactTagKey\"},\
+      \"max\":6,\
+      \"min\":1\
+    },\
+    \"ContactTagMap\":{\
+      \"type\":\"map\",\
+      \"key\":{\"shape\":\"ContactTagKey\"},\
+      \"value\":{\"shape\":\"ContactTagValue\"},\
+      \"max\":6,\
+      \"min\":1\
+    },\
+    \"ContactTagValue\":{\
+      \"type\":\"string\",\
+      \"max\":256\
+    },\
     \"Content\":{\
       \"type\":\"string\",\
       \"max\":1024,\
@@ -5720,7 +5783,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -5765,7 +5828,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"ClientToken\",\
@@ -5820,7 +5883,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -5924,7 +5987,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6028,7 +6091,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6157,7 +6220,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6215,7 +6278,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6260,7 +6323,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6315,7 +6378,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"AgentAvailabilityTimer\":{\
           \"shape\":\"AgentAvailabilityTimer\",\
@@ -6430,7 +6493,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"AllowedAccessControlTags\":{\
           \"shape\":\"AllowedAccessControlTags\",\
@@ -6551,7 +6614,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6594,7 +6657,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6634,7 +6697,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6701,7 +6764,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6840,7 +6903,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -8854,7 +8917,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about a contact evaluation.</p>\"\
@@ -8990,7 +9053,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about the evaluation form.</p>\"\
@@ -10256,7 +10319,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -10341,7 +10404,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"LastModifiedTime\":{\
           \"shape\":\"Timestamp\",\
@@ -10698,7 +10761,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"LastModifiedTime\":{\
           \"shape\":\"Timestamp\",\
@@ -10873,7 +10936,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"ClientToken\",\
@@ -13632,7 +13695,7 @@
       \"members\":{\
         \"UserTags\":{\
           \"shape\":\"UserTagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }. Amazon Connect users with the specified tags will be notified.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }. Amazon Connect users with the specified tags will be notified.</p>\"\
         },\
         \"UserIds\":{\
           \"shape\":\"UserIdList\",\
@@ -14305,7 +14368,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"LastModifiedTime\":{\
           \"shape\":\"Timestamp\",\
@@ -14519,7 +14582,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"LastModifiedTime\":{\
           \"shape\":\"Timestamp\",\
@@ -14714,7 +14777,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"LastModifiedTime\":{\
           \"shape\":\"Timestamp\",\
@@ -15590,7 +15653,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"NumberOfAssociatedQueues\":{\
           \"shape\":\"Long\",\
@@ -15865,7 +15928,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about a rule.</p>\"\
@@ -16507,7 +16570,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"AllowedAccessControlTags\":{\
           \"shape\":\"AllowedAccessControlTags\",\
@@ -16598,7 +16661,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about the returned security profiles.</p>\"\
@@ -17510,6 +17573,33 @@
       },\
       \"documentation\":\"<p>A leaf node condition which can be used to specify a tag condition, for example, <code>HAVE BPO = 123</code>. </p>\"\
     },\
+    \"TagContactRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ContactId\",\
+        \"InstanceId\",\
+        \"Tags\"\
+      ],\
+      \"members\":{\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact in this instance of Amazon Connect. </p>\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"ContactTagMap\",\
+          \"documentation\":\"<p>The tags to be assigned to the contact resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p> <note> <p>Authorization is not supported by this tag.</p> </note>\"\
+        }\
+      }\
+    },\
+    \"TagContactResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
     \"TagKey\":{\
       \"type\":\"string\",\
       \"max\":128,\
@@ -17552,7 +17642,7 @@
         },\
         \"tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -17938,7 +18028,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"IsDefault\":{\
           \"shape\":\"Boolean\",\
@@ -18089,6 +18179,39 @@
         \"COUNT\",\
         \"PERCENT\"\
       ]\
+    },\
+    \"UntagContactRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ContactId\",\
+        \"InstanceId\",\
+        \"TagKeys\"\
+      ],\
+      \"members\":{\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact in this instance of Amazon Connect. </p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"ContactId\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"TagKeys\":{\
+          \"shape\":\"ContactTagKeys\",\
+          \"documentation\":\"<p>A list of tag keys. Existing tags on the contact whose keys are members of this list will be removed.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"TagKeys\"\
+        }\
+      }\
+    },\
+    \"UntagContactResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
     },\
     \"UntagResourceRequest\":{\
       \"type\":\"structure\",\
@@ -19933,7 +20056,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"Username\":{\
           \"shape\":\"AgentUsername\",\
@@ -20270,7 +20393,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a custom vocabulary.</p>\"\

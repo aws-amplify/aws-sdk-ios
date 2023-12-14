@@ -548,6 +548,8 @@
 - (void) test_AWSConnectSuspendContactRecordingRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSuspendContactRecordingResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTagCondition API_AVAILABLE(ios(11));
+- (void) test_AWSConnectTagContactRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectTagContactResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTagSearchCondition API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTagSet API_AVAILABLE(ios(11));
@@ -566,6 +568,8 @@
 - (void) test_AWSConnectTrafficDistributionGroupUserSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTransferContactRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTransferContactResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUntagContactRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUntagContactResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUntagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateAgentStatusRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateContactAttributesRequest API_AVAILABLE(ios(11));
@@ -2772,6 +2776,14 @@
     [self validateSecureCodingForClass:[AWSConnectTagCondition class]];
 }
 
+- (void) test_AWSConnectTagContactRequest {
+    [self validateSecureCodingForClass:[AWSConnectTagContactRequest class]];
+}
+
+- (void) test_AWSConnectTagContactResponse {
+    [self validateSecureCodingForClass:[AWSConnectTagContactResponse class]];
+}
+
 - (void) test_AWSConnectTagResourceRequest {
     [self validateSecureCodingForClass:[AWSConnectTagResourceRequest class]];
 }
@@ -2842,6 +2854,14 @@
 
 - (void) test_AWSConnectTransferContactResponse {
     [self validateSecureCodingForClass:[AWSConnectTransferContactResponse class]];
+}
+
+- (void) test_AWSConnectUntagContactRequest {
+    [self validateSecureCodingForClass:[AWSConnectUntagContactRequest class]];
+}
+
+- (void) test_AWSConnectUntagContactResponse {
+    [self validateSecureCodingForClass:[AWSConnectUntagContactResponse class]];
 }
 
 - (void) test_AWSConnectUntagResourceRequest {

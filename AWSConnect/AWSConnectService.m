@@ -4430,6 +4430,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectTagContactResponse *> *)tagContact:(AWSConnectTagContactRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/contact/tags"
+                  targetPrefix:@""
+                 operationName:@"TagContact"
+                   outputClass:[AWSConnectTagContactResponse class]];
+}
+
+- (void)tagContact:(AWSConnectTagContactRequest *)request
+     completionHandler:(void (^)(AWSConnectTagContactResponse *response, NSError *error))completionHandler {
+    [[self tagContact:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectTagContactResponse *> * _Nonnull task) {
+        AWSConnectTagContactResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)tagResource:(AWSConnectTagResourceRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -4465,6 +4488,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectTransferContactResponse *response, NSError *error))completionHandler {
     [[self transferContact:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectTransferContactResponse *> * _Nonnull task) {
         AWSConnectTransferContactResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectUntagContactResponse *> *)untagContact:(AWSConnectUntagContactRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/contact/tags/{InstanceId}/{ContactId}"
+                  targetPrefix:@""
+                 operationName:@"UntagContact"
+                   outputClass:[AWSConnectUntagContactResponse class]];
+}
+
+- (void)untagContact:(AWSConnectUntagContactRequest *)request
+     completionHandler:(void (^)(AWSConnectUntagContactResponse *response, NSError *error))completionHandler {
+    [[self untagContact:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectUntagContactResponse *> * _Nonnull task) {
+        AWSConnectUntagContactResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

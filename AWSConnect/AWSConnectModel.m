@@ -4085,6 +4085,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"queueInfo" : @"QueueInfo",
              @"relatedContactId" : @"RelatedContactId",
              @"scheduledTimestamp" : @"ScheduledTimestamp",
+             @"tags" : @"Tags",
              @"wisdomInfo" : @"WisdomInfo",
              };
 }
@@ -20904,6 +20905,30 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectTagContactRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contactId" : @"ContactId",
+             @"instanceId" : @"InstanceId",
+             @"tags" : @"Tags",
+             };
+}
+
+@end
+
+@implementation AWSConnectTagContactResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
 @implementation AWSConnectTagResourceRequest
 
 + (BOOL)supportsSecureCoding {
@@ -21486,6 +21511,30 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"contactArn" : @"ContactArn",
              @"contactId" : @"ContactId",
              };
+}
+
+@end
+
+@implementation AWSConnectUntagContactRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contactId" : @"ContactId",
+             @"instanceId" : @"InstanceId",
+             @"tagKeys" : @"TagKeys",
+             };
+}
+
+@end
+
+@implementation AWSConnectUntagContactResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
 }
 
 @end
