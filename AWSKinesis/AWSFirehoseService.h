@@ -304,7 +304,7 @@ FOUNDATION_EXPORT NSString *const AWSFirehoseSDKVersion;
  
  @param request A container for the necessary parameters to execute the PutRecord service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSFirehosePutRecordOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSFirehoseErrorDomain` domain and the following error code: `AWSFirehoseErrorResourceNotFound`, `AWSFirehoseErrorInvalidArgument`, `AWSFirehoseErrorInvalidKMSResource`, `AWSFirehoseErrorServiceUnavailable`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSFirehosePutRecordOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSFirehoseErrorDomain` domain and the following error code: `AWSFirehoseErrorResourceNotFound`, `AWSFirehoseErrorInvalidArgument`, `AWSFirehoseErrorInvalidKMSResource`, `AWSFirehoseErrorInvalidSource`, `AWSFirehoseErrorServiceUnavailable`.
  
  @see AWSFirehosePutRecordInput
  @see AWSFirehosePutRecordOutput
@@ -317,7 +317,7 @@ FOUNDATION_EXPORT NSString *const AWSFirehoseSDKVersion;
  @param request A container for the necessary parameters to execute the PutRecord service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSFirehoseErrorDomain` domain and the following error code: `AWSFirehoseErrorResourceNotFound`, `AWSFirehoseErrorInvalidArgument`, `AWSFirehoseErrorInvalidKMSResource`, `AWSFirehoseErrorServiceUnavailable`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSFirehoseErrorDomain` domain and the following error code: `AWSFirehoseErrorResourceNotFound`, `AWSFirehoseErrorInvalidArgument`, `AWSFirehoseErrorInvalidKMSResource`, `AWSFirehoseErrorInvalidSource`, `AWSFirehoseErrorServiceUnavailable`.
  
  @see AWSFirehosePutRecordInput
  @see AWSFirehosePutRecordOutput
@@ -329,7 +329,7 @@ FOUNDATION_EXPORT NSString *const AWSFirehoseSDKVersion;
  
  @param request A container for the necessary parameters to execute the PutRecordBatch service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSFirehosePutRecordBatchOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSFirehoseErrorDomain` domain and the following error code: `AWSFirehoseErrorResourceNotFound`, `AWSFirehoseErrorInvalidArgument`, `AWSFirehoseErrorInvalidKMSResource`, `AWSFirehoseErrorServiceUnavailable`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSFirehosePutRecordBatchOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSFirehoseErrorDomain` domain and the following error code: `AWSFirehoseErrorResourceNotFound`, `AWSFirehoseErrorInvalidArgument`, `AWSFirehoseErrorInvalidKMSResource`, `AWSFirehoseErrorInvalidSource`, `AWSFirehoseErrorServiceUnavailable`.
  
  @see AWSFirehosePutRecordBatchInput
  @see AWSFirehosePutRecordBatchOutput
@@ -342,7 +342,7 @@ FOUNDATION_EXPORT NSString *const AWSFirehoseSDKVersion;
  @param request A container for the necessary parameters to execute the PutRecordBatch service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSFirehoseErrorDomain` domain and the following error code: `AWSFirehoseErrorResourceNotFound`, `AWSFirehoseErrorInvalidArgument`, `AWSFirehoseErrorInvalidKMSResource`, `AWSFirehoseErrorServiceUnavailable`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSFirehoseErrorDomain` domain and the following error code: `AWSFirehoseErrorResourceNotFound`, `AWSFirehoseErrorInvalidArgument`, `AWSFirehoseErrorInvalidKMSResource`, `AWSFirehoseErrorInvalidSource`, `AWSFirehoseErrorServiceUnavailable`.
  
  @see AWSFirehosePutRecordBatchInput
  @see AWSFirehosePutRecordBatchOutput
