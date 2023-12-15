@@ -231,8 +231,15 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.retryHandler = [[AWSCognitoIdentityRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
-        _configuration.headers = @{@"Content-Type" : @"application/x-amz-json-1.1"}; 
-		
+
+        if (_configuration.headers == nil) {
+            _configuration.headers = @{@"Content-Type" : @"application/x-amz-json-1.1"};
+        } else {
+            NSMutableDictionary *headers = [[NSMutableDictionary alloc] initWithDictionary:_configuration.headers];
+            headers[@"Content-Type"] = @"application/x-amz-json-1.1";
+            _configuration.headers = headers;
+        }
+
         _networking = [[AWSNetworking alloc] initWithConfiguration:_configuration];
     }
     
