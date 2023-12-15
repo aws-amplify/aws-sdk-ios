@@ -3932,6 +3932,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)monitorContact:(AWSConnectMonitorContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectMonitorContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Allows pausing an ongoing task contact.</p>
+ 
+ @param request A container for the necessary parameters to execute the PauseContact service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectPauseContactResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorAccessDenied`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorLimitExceeded`, `AWSConnectErrorConflict`.
+ 
+ @see AWSConnectPauseContactRequest
+ @see AWSConnectPauseContactResponse
+ */
+- (AWSTask<AWSConnectPauseContactResponse *> *)pauseContact:(AWSConnectPauseContactRequest *)request;
+
+/**
+ <p>Allows pausing an ongoing task contact.</p>
+ 
+ @param request A container for the necessary parameters to execute the PauseContact service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorAccessDenied`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorLimitExceeded`, `AWSConnectErrorConflict`.
+ 
+ @see AWSConnectPauseContactRequest
+ @see AWSConnectPauseContactResponse
+ */
+- (void)pauseContact:(AWSConnectPauseContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectPauseContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Changes the current status of a user or agent in Amazon Connect. If the agent is currently handling a contact, this sets the agent's next status.</p><p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-agent-status.html">Agent status</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-next-status.html">Set your next status</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the PutUserStatus service method.
@@ -4002,6 +4027,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectReplicateInstanceResponse
  */
 - (void)replicateInstance:(AWSConnectReplicateInstanceRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectReplicateInstanceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Allows resuming a task contact in a paused state.</p>
+ 
+ @param request A container for the necessary parameters to execute the ResumeContact service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectResumeContactResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorAccessDenied`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorConflict`.
+ 
+ @see AWSConnectResumeContactRequest
+ @see AWSConnectResumeContactResponse
+ */
+- (AWSTask<AWSConnectResumeContactResponse *> *)resumeContact:(AWSConnectResumeContactRequest *)request;
+
+/**
+ <p>Allows resuming a task contact in a paused state.</p>
+ 
+ @param request A container for the necessary parameters to execute the ResumeContact service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorAccessDenied`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorConflict`.
+ 
+ @see AWSConnectResumeContactRequest
+ @see AWSConnectResumeContactResponse
+ */
+- (void)resumeContact:(AWSConnectResumeContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectResumeContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>When a contact is being recorded, and the recording has been suspended using SuspendContactRecording, this API resumes recording whatever recording is selected in the flow configuration: call, screen, or both. If only call recording or only screen recording is enabled, then it would resume.</p><p>Voice and screen recordings are supported.</p>
@@ -4604,6 +4654,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)suspendContactRecording:(AWSConnectSuspendContactRecordingRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectSuspendContactRecordingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Adds the specified tags to the contact resource. For more information about this API is used, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html">Set up granular billing for a detailed view of your Amazon Connect usage</a>. </p>
+ 
+ @param request A container for the necessary parameters to execute the TagContact service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectTagContactResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectTagContactRequest
+ @see AWSConnectTagContactResponse
+ */
+- (AWSTask<AWSConnectTagContactResponse *> *)tagContact:(AWSConnectTagContactRequest *)request;
+
+/**
+ <p>Adds the specified tags to the contact resource. For more information about this API is used, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html">Set up granular billing for a detailed view of your Amazon Connect usage</a>. </p>
+ 
+ @param request A container for the necessary parameters to execute the TagContact service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectTagContactRequest
+ @see AWSConnectTagContactResponse
+ */
+- (void)tagContact:(AWSConnectTagContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectTagContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Adds the specified tags to the specified resource.</p><p>Some of the supported resource types are agents, routing profiles, queues, quick connects, contact flows, agent statuses, hours of operation, phone numbers, security profiles, and task templates. For a complete list, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html">Tagging resources in Amazon Connect</a>.</p><p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
@@ -4649,6 +4724,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectTransferContactResponse
  */
 - (void)transferContact:(AWSConnectTransferContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectTransferContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Removes the specified tags from the contact resource. For more information about this API is used, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html">Set up granular billing for a detailed view of your Amazon Connect usage</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the UntagContact service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectUntagContactResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectUntagContactRequest
+ @see AWSConnectUntagContactResponse
+ */
+- (AWSTask<AWSConnectUntagContactResponse *> *)untagContact:(AWSConnectUntagContactRequest *)request;
+
+/**
+ <p>Removes the specified tags from the contact resource. For more information about this API is used, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html">Set up granular billing for a detailed view of your Amazon Connect usage</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the UntagContact service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectUntagContactRequest
+ @see AWSConnectUntagContactResponse
+ */
+- (void)untagContact:(AWSConnectUntagContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectUntagContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Removes the specified tags from the specified resource.</p>

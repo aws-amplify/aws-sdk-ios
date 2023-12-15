@@ -24,6 +24,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectErrorDomain;
 typedef NS_ENUM(NSInteger, AWSConnectErrorType) {
     AWSConnectErrorUnknown,
     AWSConnectErrorAccessDenied,
+    AWSConnectErrorConflict,
     AWSConnectErrorContactFlowNotPublished,
     AWSConnectErrorContactNotFound,
     AWSConnectErrorDestinationNotAllowed,
@@ -55,6 +56,9 @@ typedef NS_ENUM(NSInteger, AWSConnectActionType) {
     AWSConnectActionTypeAssignContactCategory,
     AWSConnectActionTypeGenerateEventbridgeEvent,
     AWSConnectActionTypeSendNotification,
+    AWSConnectActionTypeCreateCase,
+    AWSConnectActionTypeUpdateCase,
+    AWSConnectActionTypeEndAssociatedTasks,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectAgentAvailabilityTimer) {
@@ -249,6 +253,8 @@ typedef NS_ENUM(NSInteger, AWSConnectEventSourceName) {
     AWSConnectEventSourceNameOnSalesforceCaseCreate,
     AWSConnectEventSourceNameOnContactEvaluationSubmit,
     AWSConnectEventSourceNameOnMetricDataUpdate,
+    AWSConnectEventSourceNameOnCaseCreate,
+    AWSConnectEventSourceNameOnCaseUpdate,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectFailureReasonCode) {
@@ -835,6 +841,7 @@ typedef NS_ENUM(NSInteger, AWSConnectSourceType) {
     AWSConnectSourceTypeUnknown,
     AWSConnectSourceTypeSalesforce,
     AWSConnectSourceTypeZendesk,
+    AWSConnectSourceTypeCases,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectStatistic) {
@@ -1040,6 +1047,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectControlPlaneTagFilter;
 @class AWSConnectCreateAgentStatusRequest;
 @class AWSConnectCreateAgentStatusResponse;
+@class AWSConnectCreateCaseActionDefinition;
 @class AWSConnectCreateContactFlowModuleRequest;
 @class AWSConnectCreateContactFlowModuleResponse;
 @class AWSConnectCreateContactFlowRequest;
@@ -1188,7 +1196,9 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDismissUserContactResponse;
 @class AWSConnectDistribution;
 @class AWSConnectEmailReference;
+@class AWSConnectEmptyFieldValue;
 @class AWSConnectEncryptionConfig;
+@class AWSConnectEndAssociatedTasksActionDefinition;
 @class AWSConnectEndpoint;
 @class AWSConnectErrorResult;
 @class AWSConnectEvaluation;
@@ -1217,6 +1227,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectEvaluationSummary;
 @class AWSConnectEventBridgeActionDefinition;
 @class AWSConnectFailedRequest;
+@class AWSConnectFieldValue;
+@class AWSConnectFieldValueUnion;
 @class AWSConnectFilterV2;
 @class AWSConnectFilters;
 @class AWSConnectFlowAssociationSummary;
@@ -1381,6 +1393,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectParticipantTimerConfiguration;
 @class AWSConnectParticipantTimerValue;
 @class AWSConnectParticipantTokenCredentials;
+@class AWSConnectPauseContactRequest;
+@class AWSConnectPauseContactResponse;
 @class AWSConnectPersistentChat;
 @class AWSConnectPhoneNumberQuickConnectConfig;
 @class AWSConnectPhoneNumberStatus;
@@ -1430,6 +1444,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectResourceTagsSearchCriteria;
 @class AWSConnectResumeContactRecordingRequest;
 @class AWSConnectResumeContactRecordingResponse;
+@class AWSConnectResumeContactRequest;
+@class AWSConnectResumeContactResponse;
 @class AWSConnectRoutingProfile;
 @class AWSConnectRoutingProfileQueueConfig;
 @class AWSConnectRoutingProfileQueueConfigSummary;
@@ -1504,6 +1520,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectSuspendContactRecordingRequest;
 @class AWSConnectSuspendContactRecordingResponse;
 @class AWSConnectTagCondition;
+@class AWSConnectTagContactRequest;
+@class AWSConnectTagContactResponse;
 @class AWSConnectTagResourceRequest;
 @class AWSConnectTagSearchCondition;
 @class AWSConnectTagSet;
@@ -1522,8 +1540,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectTrafficDistributionGroupUserSummary;
 @class AWSConnectTransferContactRequest;
 @class AWSConnectTransferContactResponse;
+@class AWSConnectUntagContactRequest;
+@class AWSConnectUntagContactResponse;
 @class AWSConnectUntagResourceRequest;
 @class AWSConnectUpdateAgentStatusRequest;
+@class AWSConnectUpdateCaseActionDefinition;
 @class AWSConnectUpdateContactAttributesRequest;
 @class AWSConnectUpdateContactAttributesResponse;
 @class AWSConnectUpdateContactEvaluationRequest;
@@ -1732,6 +1753,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
+ <p>Agent pause duration for a contact in seconds.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable agentPauseDurationInSeconds;
+
+/**
  <p>The timestamp when the contact was connected to the agent.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable connectedToAgentTimestamp;
@@ -1790,7 +1816,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectAgentStatusState state;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -2679,7 +2705,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable phoneNumberDescription;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -2760,7 +2786,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable sourcePhoneNumberArn;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -2841,6 +2867,16 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSDate * _Nullable initiationTimestamp;
 
 /**
+ <p>The timestamp when the contact was last paused.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastPausedTimestamp;
+
+/**
+ <p>The timestamp when the contact was last resumed.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastResumedTimestamp;
+
+/**
  <p>The timestamp when contact was last updated.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastUpdateTimestamp;
@@ -2869,6 +2905,21 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The timestamp, in Unix epoch time format, at which to start running the inbound flow. </p>
  */
 @property (nonatomic, strong) NSDate * _Nullable scheduledTimestamp;
+
+/**
+ <p>Tags associated with the contact. This contains both Amazon Web Services generated and user-defined tags.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+/**
+ <p>Total pause count for a contact.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable totalPauseCount;
+
+/**
+ <p>Total pause duration for a contact in seconds.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable totalPauseDurationInSeconds;
 
 /**
  <p>Information about Amazon Connect Wisdom.</p>
@@ -2965,7 +3016,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectContactFlowState state;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -3018,7 +3069,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectContactFlowModuleStatus status;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -3140,7 +3191,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectAgentStatusState state;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -3161,6 +3212,25 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of the agent status.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable agentStatusId;
+
+@end
+
+/**
+ <p>The <code>CreateCase</code> action definition.</p>
+ Required parameters: [Fields, TemplateId]
+ */
+@interface AWSConnectCreateCaseActionDefinition : AWSModel
+
+
+/**
+ <p>An array of objects with <code>Field ID</code> and <code>Value</code> data.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectFieldValue *> * _Nullable fields;
+
+/**
+ <p>A unique identifier of a template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable templateId;
 
 @end
 
@@ -3196,7 +3266,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -3247,7 +3317,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -3359,7 +3429,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -3486,7 +3556,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectSourceType sourceType;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -3629,7 +3699,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable s3Uri;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -3695,7 +3765,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable quickConnectIds;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -3746,7 +3816,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) AWSConnectQuickConnectConfig * _Nullable quickConnectConfig;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -3812,7 +3882,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<AWSConnectRoutingProfileQueueConfig *> * _Nullable queueConfigs;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -3939,7 +4009,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable tagRestrictedResources;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -4061,7 +4131,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -4102,7 +4172,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable integrationAssociationId;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -4153,7 +4223,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable parentGroupId;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -4224,7 +4294,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityProfileIds;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -4377,7 +4447,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectVocabularyLanguageCode languageCode;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -6157,6 +6227,14 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>An empty value.</p>
+ */
+@interface AWSConnectEmptyFieldValue : AWSModel
+
+
+@end
+
+/**
  <p>The encryption configuration.</p>
  Required parameters: [EncryptionType, KeyId]
  */
@@ -6172,6 +6250,14 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The full ARN of the encryption key. </p><note><p>Be sure to provide the full ARN of the encryption key, not just the ID.</p><p>Amazon Connect supports only KMS keys with the default key spec of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default"><code>SYMMETRIC_DEFAULT</code></a>. </p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable keyId;
+
+@end
+
+/**
+ <p>End associated tasks related to a case.</p>
+ */
+@interface AWSConnectEndAssociatedTasksActionDefinition : AWSModel
+
 
 @end
 
@@ -6264,7 +6350,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectEvaluationStatus status;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -6392,7 +6478,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectEvaluationFormVersionStatus status;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -7011,6 +7097,53 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Object for case field values.</p>
+ Required parameters: [Id, Value]
+ */
+@interface AWSConnectFieldValue : AWSModel
+
+
+/**
+ <p>Unique identifier of a field.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>Union of potential field value types.</p>
+ */
+@property (nonatomic, strong) AWSConnectFieldValueUnion * _Nullable value;
+
+@end
+
+/**
+ <p>Object to store union of Field values.</p>
+ */
+@interface AWSConnectFieldValueUnion : AWSModel
+
+
+/**
+ <p>A Boolean number value type.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable booleanValue;
+
+/**
+ <p>a Double number value type.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable doubleValue;
+
+/**
+ <p>An empty value.</p>
+ */
+@property (nonatomic, strong) AWSConnectEmptyFieldValue * _Nullable emptyValue;
+
+/**
+ <p>String value type.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable stringValue;
+
+@end
+
+/**
  <p>Contains the filter to apply when retrieving metrics with the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html">GetMetricDataV2</a> API.</p>
  */
 @interface AWSConnectFilterV2 : AWSModel
@@ -7412,7 +7545,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The metrics to retrieve. Specify the name, groupings, and filters for each metric. The following historical metrics are available. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.</p><dl><dt>ABANDONMENT_RATE</dt><dd><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p></dd><dt>AGENT_ADHERENT_TIME</dt><dd><p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p></dd><dt>AGENT_ANSWER_RATE</dt><dd><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AGENT_NON_ADHERENT_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AGENT_NON_RESPONSE</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p></dd><dt>AGENT_NON_RESPONSE_WITHOUT_CUSTOMER_ABANDONS</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>Data for this metric is available starting from October 1, 2023 0:00:00 GMT.</p></dd><dt>AGENT_OCCUPANCY</dt><dd><p>Unit: Percentage</p><p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy </p></dd><dt>AGENT_SCHEDULE_ADHERENCE</dt><dd><p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AGENT_SCHEDULED_TIME</dt><dd><p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AVG_ABANDON_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_AFTER_CONTACT_WORK_TIME</dt><dd><p>Unit: Seconds</p><p>Valid metric filter key: <code>INITIATION_METHOD</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_AGENT_CONNECTING_TIME</dt><dd><p>Unit: Seconds</p><p>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><note><p>The <code>Negate</code> key in Metric Level Filters is not applicable for this metric.</p></note></dd><dt>AVG_CONTACT_DURATION</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_CONVERSATION_DURATION</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_GREETING_TIME_AGENT</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_HANDLE_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_HOLD_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_HOLD_TIME_ALL_CONTACTS</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_HOLDS</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_INTERACTION_AND_HOLD_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_INTERACTION_TIME</dt><dd><p>Unit: Seconds</p><p>Valid metric filter key: <code>INITIATION_METHOD</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_INTERRUPTIONS_AGENT</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_INTERRUPTION_TIME_AGENT</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_NON_TALK_TIME</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_QUEUE_ANSWER_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_RESOLUTION_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_TALK_TIME</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_TALK_TIME_AGENT</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_TALK_TIME_CUSTOMER</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>CONTACTS_ABANDONED</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>CONTACTS_CREATED</dt><dd><p>Unit: Count</p><p>Valid metric filter key: <code>INITIATION_METHOD</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>CONTACTS_HANDLED</dt><dd><p>Unit: Count</p><p>Valid metric filter key: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>CONTACTS_HOLD_ABANDONS</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>CONTACTS_ON_HOLD_AGENT_DISCONNECT</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_ON_HOLD_CUSTOMER_DISCONNECT</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_PUT_ON_HOLD</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_TRANSFERRED_OUT_EXTERNAL</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_TRANSFERRED_OUT_INTERNAL</dt><dd><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_QUEUED</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>CONTACTS_RESOLVED_IN_X</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p><p>Threshold: For <code>ThresholdValue</code> enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for "Less than").</p></dd><dt>CONTACTS_TRANSFERRED_OUT</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>CONTACTS_TRANSFERRED_OUT_BY_AGENT</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>MAX_QUEUED_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>PERCENT_NON_TALK_TIME</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Percentage</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>PERCENT_TALK_TIME</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Percentage</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>PERCENT_TALK_TIME_AGENT</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Percentage</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>PERCENT_TALK_TIME_CUSTOMER</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Percentage</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>SERVICE_LEVEL</dt><dd><p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile</p><p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for "Less than"). </p></dd><dt>SUM_AFTER_CONTACT_WORK_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_CONNECTING_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid metric filter key: <code>INITIATION_METHOD</code>. This metric only supports the following filter keys as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><note><p>The <code>Negate</code> key in Metric Level Filters is not applicable for this metric.</p></note></dd><dt>SUM_CONTACT_FLOW_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_CONTACT_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_CONTACTS_ANSWERED_IN_X</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p><p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for "Less than"). </p></dd><dt>SUM_CONTACTS_ABANDONED_IN_X</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p><p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for "Less than"). </p></dd><dt>SUM_CONTACTS_DISCONNECTED </dt><dd><p>Valid metric filter key: <code>DISCONNECT_REASON</code></p><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>SUM_ERROR_STATUS_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_HANDLE_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_HOLD_TIME</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_IDLE_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_INTERACTION_AND_HOLD_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_INTERACTION_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_NON_PRODUCTIVE_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_ONLINE_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_RETRY_CALLBACK_ATTEMPTS</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p></dd></dl>
+ <p>The metrics to retrieve. Specify the name, groupings, and filters for each metric. The following historical metrics are available. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.</p><dl><dt>ABANDONMENT_RATE</dt><dd><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p></dd><dt>AGENT_ADHERENT_TIME</dt><dd><p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p></dd><dt>AGENT_ANSWER_RATE</dt><dd><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AGENT_NON_ADHERENT_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AGENT_NON_RESPONSE</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p></dd><dt>AGENT_NON_RESPONSE_WITHOUT_CUSTOMER_ABANDONS</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>Data for this metric is available starting from October 1, 2023 0:00:00 GMT.</p></dd><dt>AGENT_OCCUPANCY</dt><dd><p>Unit: Percentage</p><p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy </p></dd><dt>AGENT_SCHEDULE_ADHERENCE</dt><dd><p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AGENT_SCHEDULED_TIME</dt><dd><p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AVG_ABANDON_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_ACTIVE_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AVG_AFTER_CONTACT_WORK_TIME</dt><dd><p>Unit: Seconds</p><p>Valid metric filter key: <code>INITIATION_METHOD</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_AGENT_CONNECTING_TIME</dt><dd><p>Unit: Seconds</p><p>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><note><p>The <code>Negate</code> key in Metric Level Filters is not applicable for this metric.</p></note></dd><dt>AVG_AGENT_PAUSE_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>AVG_CONTACT_DURATION</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_CONVERSATION_DURATION</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_GREETING_TIME_AGENT</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_HANDLE_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_HOLD_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_HOLD_TIME_ALL_CONTACTS</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_HOLDS</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_INTERACTION_AND_HOLD_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_INTERACTION_TIME</dt><dd><p>Unit: Seconds</p><p>Valid metric filter key: <code>INITIATION_METHOD</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_INTERRUPTIONS_AGENT</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_INTERRUPTION_TIME_AGENT</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_NON_TALK_TIME</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_QUEUE_ANSWER_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_RESOLUTION_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_TALK_TIME</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_TALK_TIME_AGENT</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>AVG_TALK_TIME_CUSTOMER</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>CONTACTS_ABANDONED</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>CONTACTS_CREATED</dt><dd><p>Unit: Count</p><p>Valid metric filter key: <code>INITIATION_METHOD</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>CONTACTS_HANDLED</dt><dd><p>Unit: Count</p><p>Valid metric filter key: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>CONTACTS_HOLD_ABANDONS</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>CONTACTS_ON_HOLD_AGENT_DISCONNECT</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_ON_HOLD_CUSTOMER_DISCONNECT</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_PUT_ON_HOLD</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_TRANSFERRED_OUT_EXTERNAL</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_TRANSFERRED_OUT_INTERNAL</dt><dd><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>CONTACTS_QUEUED</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>CONTACTS_RESOLVED_IN_X</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p><p>Threshold: For <code>ThresholdValue</code> enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for "Less than").</p></dd><dt>CONTACTS_TRANSFERRED_OUT</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>CONTACTS_TRANSFERRED_OUT_BY_AGENT</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>MAX_QUEUED_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>PERCENT_NON_TALK_TIME</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Percentage</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>PERCENT_TALK_TIME</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Percentage</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>PERCENT_TALK_TIME_AGENT</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Percentage</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>PERCENT_TALK_TIME_CUSTOMER</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Percentage</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>SERVICE_LEVEL</dt><dd><p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile</p><p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for "Less than"). </p></dd><dt>SUM_AFTER_CONTACT_WORK_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_CONNECTING_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid metric filter key: <code>INITIATION_METHOD</code>. This metric only supports the following filter keys as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><note><p>The <code>Negate</code> key in Metric Level Filters is not applicable for this metric.</p></note></dd><dt>SUM_CONTACT_FLOW_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_CONTACT_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_CONTACTS_ANSWERED_IN_X</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p><p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for "Less than"). </p></dd><dt>SUM_CONTACTS_ABANDONED_IN_X</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p><p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for "Less than"). </p></dd><dt>SUM_CONTACTS_DISCONNECTED </dt><dd><p>Valid metric filter key: <code>DISCONNECT_REASON</code></p><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p></dd><dt>SUM_ERROR_STATUS_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_HANDLE_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_HOLD_TIME</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_IDLE_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_INTERACTION_AND_HOLD_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_INTERACTION_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_NON_PRODUCTIVE_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_ONLINE_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p></dd><dt>SUM_RETRY_CALLBACK_ATTEMPTS</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p></dd></dl>
  */
 @property (nonatomic, strong) NSArray<AWSConnectMetricV2 *> * _Nullable metrics;
 
@@ -7582,7 +7715,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectTaskTemplateStatus status;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -7676,7 +7809,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -8036,7 +8169,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -8186,7 +8319,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable sourcePhoneNumberArn;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -10844,7 +10977,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable userIds;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }. Amazon Connect users with the specified tags will be notified.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }. Amazon Connect users with the specified tags will be notified.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable userTags;
 
@@ -11011,6 +11144,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ 
+ */
+@interface AWSConnectPauseContactRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactFlowId;
+
+/**
+ <p>The identifier of the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the <code>instanceId</code> in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectPauseContactResponse : AWSModel
+
+
+@end
+
+/**
  <p>Enable persistent chats. For more information about enabling persistent chat, and for example use cases and how to configure for them, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.</p>
  */
 @interface AWSConnectPersistentChat : AWSModel
@@ -11143,7 +11307,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable promptId;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -11330,7 +11494,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectQueueStatus status;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -11512,7 +11676,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable quickConnectId;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -12164,6 +12328,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ 
+ */
+@interface AWSConnectResumeContactRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactFlowId;
+
+/**
+ <p>The identifier of the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the <code>instanceId</code> in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectResumeContactResponse : AWSModel
+
+
+@end
+
+/**
  <p>Contains information about a routing profile.</p>
  */
 @interface AWSConnectRoutingProfile : AWSModel
@@ -12235,7 +12430,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable routingProfileId;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -12463,7 +12658,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable ruleId;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -12492,6 +12687,16 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) AWSConnectAssignContactCategoryActionDefinition * _Nullable assignContactCategoryAction;
 
 /**
+ <p>Information about the create case action.</p><p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code>.</p>
+ */
+@property (nonatomic, strong) AWSConnectCreateCaseActionDefinition * _Nullable createCaseAction;
+
+/**
+ <p>Information about the end associated tasks action.</p><p>Supported only for <code>TriggerEventSource</code> values: <code>OnCaseUpdate</code>.</p>
+ */
+@property (nonatomic, strong) AWSConnectEndAssociatedTasksActionDefinition * _Nullable endAssociatedTasksAction;
+
+/**
  <p>Information about the EventBridge action.</p><p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnRealTimeChatAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code></p>
  */
 @property (nonatomic, strong) AWSConnectEventBridgeActionDefinition * _Nullable eventBridgeAction;
@@ -12505,6 +12710,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>Information about the task action. This field is required if <code>TriggerEventSource</code> is one of the following values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code></p>
  */
 @property (nonatomic, strong) AWSConnectTaskActionDefinition * _Nullable taskAction;
+
+/**
+ <p>Information about the update case action.</p><p>Supported only for <code>TriggerEventSource</code> values: <code>OnCaseCreate</code> | <code>OnCaseUpdate</code>.</p>
+ */
+@property (nonatomic, strong) AWSConnectUpdateCaseActionDefinition * _Nullable updateCaseAction;
 
 @end
 
@@ -13235,7 +13445,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable tagRestrictedResources;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -13296,7 +13506,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable securityProfileName;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -13749,6 +13959,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable contactFlowId;
 
 /**
+ <p>A description of the voice contact that is shown to an agent in the Contact Control Panel (CCP).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
  <p>The phone number of the customer, in E.164 format.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationPhoneNumber;
@@ -13759,9 +13974,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
+ <p>The name of a voice contact that is shown to an agent in the Contact Control Panel (CCP).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
  <p>The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the flow is used. If you do not specify a queue, you must specify a source phone number.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueId;
+
+/**
+ <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Contacts can have the following reference types at the time of creation: <code>URL</code> | <code>NUMBER</code> | <code>STRING</code> | <code>DATE</code> | <code>EMAIL</code>. <code>ATTACHMENT</code> is not a supported reference type during voice contact creation.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSConnectReference *> * _Nullable references;
+
+/**
+ <p>The <code>contactId</code> that is related to this contact. Linking voice, task, or chat by using <code>RelatedContactID</code> copies over contact attributes from the related contact to the new contact. All updates to user-defined attributes in the new contact are limited to the individual contact ID. There are no limits to the number of contacts that can be linked by using <code>RelatedContactId</code>. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable relatedContactId;
 
 /**
  <p>The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.</p>
@@ -14200,6 +14430,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectTagContactRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the contact in this instance of Amazon Connect. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The tags to be assigned to the contact resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p><note><p>Authorization is not supported by this tag.</p></note>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectTagContactResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectTagResourceRequest : AWSRequest
 
 
@@ -14209,7 +14470,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable resourceArn;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -14521,7 +14782,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectTrafficDistributionGroupStatus status;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -14637,6 +14898,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectUntagContactRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the contact in this instance of Amazon Connect. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>A list of tag keys. Existing tags on the contact whose keys are members of this list will be removed.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable tagKeys;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUntagContactResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectUntagResourceRequest : AWSRequest
 
 
@@ -14692,6 +14984,20 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The state of the agent status.</p>
  */
 @property (nonatomic, assign) AWSConnectAgentStatusState state;
+
+@end
+
+/**
+ <p>The <code>UpdateCase</code> action definition.</p>
+ Required parameters: [Fields]
+ */
+@interface AWSConnectUpdateCaseActionDefinition : AWSModel
+
+
+/**
+ <p>An array of objects with <code>Field ID</code> and Value data.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectFieldValue *> * _Nullable fields;
 
 @end
 
@@ -16515,7 +16821,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityProfileIds;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -16802,7 +17108,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectVocabularyState state;
 
 /**
- <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ <p>The tags used to organize, track, or control access for this resource. For example, { "Tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 

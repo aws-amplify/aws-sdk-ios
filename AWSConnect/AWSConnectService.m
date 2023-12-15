@@ -40,6 +40,7 @@ static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
                             @"AccessDeniedException" : @(AWSConnectErrorAccessDenied),
+                            @"ConflictException" : @(AWSConnectErrorConflict),
                             @"ContactFlowNotPublishedException" : @(AWSConnectErrorContactFlowNotPublished),
                             @"ContactNotFoundException" : @(AWSConnectErrorContactNotFound),
                             @"DestinationNotAllowedException" : @(AWSConnectErrorDestinationNotAllowed),
@@ -3810,6 +3811,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectPauseContactResponse *> *)pauseContact:(AWSConnectPauseContactRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/contact/pause"
+                  targetPrefix:@""
+                 operationName:@"PauseContact"
+                   outputClass:[AWSConnectPauseContactResponse class]];
+}
+
+- (void)pauseContact:(AWSConnectPauseContactRequest *)request
+     completionHandler:(void (^)(AWSConnectPauseContactResponse *response, NSError *error))completionHandler {
+    [[self pauseContact:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectPauseContactResponse *> * _Nonnull task) {
+        AWSConnectPauseContactResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectPutUserStatusResponse *> *)putUserStatus:(AWSConnectPutUserStatusRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -3868,6 +3892,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectReplicateInstanceResponse *response, NSError *error))completionHandler {
     [[self replicateInstance:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectReplicateInstanceResponse *> * _Nonnull task) {
         AWSConnectReplicateInstanceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectResumeContactResponse *> *)resumeContact:(AWSConnectResumeContactRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/contact/resume"
+                  targetPrefix:@""
+                 operationName:@"ResumeContact"
+                   outputClass:[AWSConnectResumeContactResponse class]];
+}
+
+- (void)resumeContact:(AWSConnectResumeContactRequest *)request
+     completionHandler:(void (^)(AWSConnectResumeContactResponse *response, NSError *error))completionHandler {
+    [[self resumeContact:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectResumeContactResponse *> * _Nonnull task) {
+        AWSConnectResumeContactResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -4430,6 +4477,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectTagContactResponse *> *)tagContact:(AWSConnectTagContactRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/contact/tags"
+                  targetPrefix:@""
+                 operationName:@"TagContact"
+                   outputClass:[AWSConnectTagContactResponse class]];
+}
+
+- (void)tagContact:(AWSConnectTagContactRequest *)request
+     completionHandler:(void (^)(AWSConnectTagContactResponse *response, NSError *error))completionHandler {
+    [[self tagContact:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectTagContactResponse *> * _Nonnull task) {
+        AWSConnectTagContactResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)tagResource:(AWSConnectTagResourceRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -4465,6 +4535,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectTransferContactResponse *response, NSError *error))completionHandler {
     [[self transferContact:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectTransferContactResponse *> * _Nonnull task) {
         AWSConnectTransferContactResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectUntagContactResponse *> *)untagContact:(AWSConnectUntagContactRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/contact/tags/{InstanceId}/{ContactId}"
+                  targetPrefix:@""
+                 operationName:@"UntagContact"
+                   outputClass:[AWSConnectUntagContactResponse class]];
+}
+
+- (void)untagContact:(AWSConnectUntagContactRequest *)request
+     completionHandler:(void (^)(AWSConnectUntagContactResponse *response, NSError *error))completionHandler {
+    [[self untagContact:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectUntagContactResponse *> * _Nonnull task) {
+        AWSConnectUntagContactResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

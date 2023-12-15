@@ -2731,6 +2731,26 @@
       ],\
       \"documentation\":\"<p>Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user specified by <i>userId</i> will be set to silent monitoring mode on the contact.</p>\"\
     },\
+    \"PauseContact\":{\
+      \"name\":\"PauseContact\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/contact/pause\"\
+      },\
+      \"input\":{\"shape\":\"PauseContactRequest\"},\
+      \"output\":{\"shape\":\"PauseContactResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"ConflictException\"}\
+      ],\
+      \"documentation\":\"<p>Allows pausing an ongoing task contact.</p>\"\
+    },\
     \"PutUserStatus\":{\
       \"name\":\"PutUserStatus\",\
       \"http\":{\
@@ -2786,6 +2806,25 @@
         {\"shape\":\"ResourceConflictException\"}\
       ],\
       \"documentation\":\"<p>Replicates an Amazon Connect instance in the specified Amazon Web Services Region and copies configuration information for Amazon Connect resources across Amazon Web Services Regions. </p> <p>For more information about replicating an Amazon Connect instance, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/create-replica-connect-instance.html\\\">Create a replica of your existing Amazon Connect instance</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+    },\
+    \"ResumeContact\":{\
+      \"name\":\"ResumeContact\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/contact/resume\"\
+      },\
+      \"input\":{\"shape\":\"ResumeContactRequest\"},\
+      \"output\":{\"shape\":\"ResumeContactResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ConflictException\"}\
+      ],\
+      \"documentation\":\"<p>Allows resuming a task contact in a paused state.</p>\"\
     },\
     \"ResumeContactRecording\":{\
       \"name\":\"ResumeContactRecording\",\
@@ -3191,6 +3230,24 @@
       ],\
       \"documentation\":\"<p>When a contact is being recorded, this API suspends recording whatever is selected in the flow configuration: call, screen, or both. If only call recording or only screen recording is enabled, then it would be suspended. For example, you might suspend the screen recording while collecting sensitive information, such as a credit card number. Then use ResumeContactRecording to restart recording the screen.</p> <p>The period of time that the recording is suspended is filled with silence in the final recording.</p> <p>Voice and screen recordings are supported.</p>\"\
     },\
+    \"TagContact\":{\
+      \"name\":\"TagContact\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/contact/tags\"\
+      },\
+      \"input\":{\"shape\":\"TagContactRequest\"},\
+      \"output\":{\"shape\":\"TagContactResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>Adds the specified tags to the contact resource. For more information about this API is used, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html\\\">Set up granular billing for a detailed view of your Amazon Connect usage</a>. </p>\",\
+      \"idempotent\":true\
+    },\
     \"TagResource\":{\
       \"name\":\"TagResource\",\
       \"http\":{\
@@ -3225,6 +3282,24 @@
         {\"shape\":\"InternalServiceException\"}\
       ],\
       \"documentation\":\"<p>Transfers contacts from one agent or queue to another agent or queue at any point after a contact is created. You can transfer a contact to another queue by providing the flow which orchestrates the contact to the destination queue. This gives you more control over contact handling and helps you adhere to the service level agreement (SLA) guaranteed to your customers.</p> <p>Note the following requirements:</p> <ul> <li> <p>Transfer is supported for only <code>TASK</code> contacts.</p> </li> <li> <p>Do not use both <code>QueueId</code> and <code>UserId</code> in the same call.</p> </li> <li> <p>The following flow types are supported: Inbound flow, Transfer to agent flow, and Transfer to queue flow.</p> </li> <li> <p>The <code>TransferContact</code> API can be called only on active contacts.</p> </li> <li> <p>A contact cannot be transferred more than 11 times.</p> </li> </ul>\"\
+    },\
+    \"UntagContact\":{\
+      \"name\":\"UntagContact\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/contact/tags/{InstanceId}/{ContactId}\"\
+      },\
+      \"input\":{\"shape\":\"UntagContactRequest\"},\
+      \"output\":{\"shape\":\"UntagContactResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>Removes the specified tags from the contact resource. For more information about this API is used, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html\\\">Set up granular billing for a detailed view of your Amazon Connect usage</a>.</p>\",\
+      \"idempotent\":true\
     },\
     \"UntagResource\":{\
       \"name\":\"UntagResource\",\
@@ -4010,7 +4085,10 @@
         \"CREATE_TASK\",\
         \"ASSIGN_CONTACT_CATEGORY\",\
         \"GENERATE_EVENTBRIDGE_EVENT\",\
-        \"SEND_NOTIFICATION\"\
+        \"SEND_NOTIFICATION\",\
+        \"CREATE_CASE\",\
+        \"UPDATE_CASE\",\
+        \"END_ASSOCIATED_TASKS\"\
       ]\
     },\
     \"ActivateEvaluationFormRequest\":{\
@@ -4133,6 +4211,10 @@
         \"ConnectedToAgentTimestamp\":{\
           \"shape\":\"timestamp\",\
           \"documentation\":\"<p>The timestamp when the contact was connected to the agent.</p>\"\
+        },\
+        \"AgentPauseDurationInSeconds\":{\
+          \"shape\":\"AgentPauseDurationInSeconds\",\
+          \"documentation\":\"<p>Agent pause duration for a contact in seconds.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about the agent who accepted the contact.</p>\"\
@@ -4141,6 +4223,10 @@
       \"type\":\"string\",\
       \"max\":100,\
       \"min\":1\
+    },\
+    \"AgentPauseDurationInSeconds\":{\
+      \"type\":\"integer\",\
+      \"min\":0\
     },\
     \"AgentResourceId\":{\
       \"type\":\"string\",\
@@ -4180,7 +4266,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"LastModifiedTime\":{\
           \"shape\":\"Timestamp\",\
@@ -5171,7 +5257,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"ClientToken\",\
@@ -5230,7 +5316,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"PhoneNumberStatus\":{\
           \"shape\":\"PhoneNumberStatus\",\
@@ -5260,6 +5346,15 @@
       \"type\":\"integer\",\
       \"max\":10,\
       \"min\":1\
+    },\
+    \"ConflictException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Message\":{\"shape\":\"Message\"}\
+      },\
+      \"documentation\":\"<p>Operation cannot be performed at this time as there is a conflict with another operation or contact state.</p>\",\
+      \"error\":{\"httpStatusCode\":409},\
+      \"exception\":true\
     },\
     \"ConnectionData\":{\
       \"type\":\"structure\",\
@@ -5330,6 +5425,22 @@
           \"shape\":\"timestamp\",\
           \"documentation\":\"<p>The timestamp when contact was last updated.</p>\"\
         },\
+        \"LastPausedTimestamp\":{\
+          \"shape\":\"timestamp\",\
+          \"documentation\":\"<p>The timestamp when the contact was last paused.</p>\"\
+        },\
+        \"LastResumedTimestamp\":{\
+          \"shape\":\"timestamp\",\
+          \"documentation\":\"<p>The timestamp when the contact was last resumed.</p>\"\
+        },\
+        \"TotalPauseCount\":{\
+          \"shape\":\"TotalPauseCount\",\
+          \"documentation\":\"<p>Total pause count for a contact.</p>\"\
+        },\
+        \"TotalPauseDurationInSeconds\":{\
+          \"shape\":\"TotalPauseDurationInSeconds\",\
+          \"documentation\":\"<p>Total pause duration for a contact in seconds.</p>\"\
+        },\
         \"ScheduledTimestamp\":{\
           \"shape\":\"timestamp\",\
           \"documentation\":\"<p>The timestamp, in Unix epoch time format, at which to start running the inbound flow. </p>\"\
@@ -5341,6 +5452,10 @@
         \"WisdomInfo\":{\
           \"shape\":\"WisdomInfo\",\
           \"documentation\":\"<p>Information about Amazon Connect Wisdom.</p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"ContactTagMap\",\
+          \"documentation\":\"<p>Tags associated with the contact. This contains both Amazon Web Services generated and user-defined tags.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a contact.</p>\"\
@@ -5424,7 +5539,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a flow.</p>\"\
@@ -5468,7 +5583,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a flow module.</p>\"\
@@ -5659,6 +5774,29 @@
       \"member\":{\"shape\":\"ContactState\"},\
       \"max\":9\
     },\
+    \"ContactTagKey\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1,\
+      \"pattern\":\"^(?!aws:)[a-zA-Z+-=._:/]+$\"\
+    },\
+    \"ContactTagKeys\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ContactTagKey\"},\
+      \"max\":6,\
+      \"min\":1\
+    },\
+    \"ContactTagMap\":{\
+      \"type\":\"map\",\
+      \"key\":{\"shape\":\"ContactTagKey\"},\
+      \"value\":{\"shape\":\"ContactTagValue\"},\
+      \"max\":6,\
+      \"min\":1\
+    },\
+    \"ContactTagValue\":{\
+      \"type\":\"string\",\
+      \"max\":256\
+    },\
     \"Content\":{\
       \"type\":\"string\",\
       \"max\":1024,\
@@ -5720,7 +5858,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -5736,6 +5874,24 @@
           \"documentation\":\"<p>The identifier of the agent status.</p>\"\
         }\
       }\
+    },\
+    \"CreateCaseActionDefinition\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Fields\",\
+        \"TemplateId\"\
+      ],\
+      \"members\":{\
+        \"Fields\":{\
+          \"shape\":\"FieldValues\",\
+          \"documentation\":\"<p>An array of objects with <code>Field ID</code> and <code>Value</code> data.</p>\"\
+        },\
+        \"TemplateId\":{\
+          \"shape\":\"TemplateId\",\
+          \"documentation\":\"<p>A unique identifier of a template.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The <code>CreateCase</code> action definition.</p>\"\
     },\
     \"CreateContactFlowModuleRequest\":{\
       \"type\":\"structure\",\
@@ -5765,7 +5921,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"ClientToken\",\
@@ -5820,7 +5976,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -5924,7 +6080,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6028,7 +6184,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6157,7 +6313,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6215,7 +6371,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6260,7 +6416,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6315,7 +6471,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"AgentAvailabilityTimer\":{\
           \"shape\":\"AgentAvailabilityTimer\",\
@@ -6430,7 +6586,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"AllowedAccessControlTags\":{\
           \"shape\":\"AllowedAccessControlTags\",\
@@ -6551,7 +6707,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6594,7 +6750,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6634,7 +6790,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6701,7 +6857,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6840,7 +6996,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -8712,6 +8868,7 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"Distribution\"}\
     },\
+    \"Double\":{\"type\":\"double\"},\
     \"DuplicateResourceException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -8736,6 +8893,12 @@
       },\
       \"documentation\":\"<p>Information about a reference when the <code>referenceType</code> is <code>EMAIL</code>. Otherwise, null.</p>\"\
     },\
+    \"EmptyFieldValue\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      },\
+      \"documentation\":\"<p>An empty value.</p>\"\
+    },\
     \"EncryptionConfig\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -8757,6 +8920,12 @@
     \"EncryptionType\":{\
       \"type\":\"string\",\
       \"enum\":[\"KMS\"]\
+    },\
+    \"EndAssociatedTasksActionDefinition\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      },\
+      \"documentation\":\"<p>End associated tasks related to a case.</p>\"\
     },\
     \"Endpoint\":{\
       \"type\":\"structure\",\
@@ -8854,7 +9023,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about a contact evaluation.</p>\"\
@@ -8990,7 +9159,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about the evaluation form.</p>\"\
@@ -9677,7 +9846,9 @@
         \"OnZendeskTicketStatusUpdate\",\
         \"OnSalesforceCaseCreate\",\
         \"OnContactEvaluationSubmit\",\
-        \"OnMetricDataUpdate\"\
+        \"OnMetricDataUpdate\",\
+        \"OnCaseCreate\",\
+        \"OnCaseUpdate\"\
       ]\
     },\
     \"FailedRequest\":{\
@@ -9716,6 +9887,60 @@
         \"IDEMPOTENCY_EXCEPTION\",\
         \"INTERNAL_ERROR\"\
       ]\
+    },\
+    \"FieldStringValue\":{\
+      \"type\":\"string\",\
+      \"max\":500,\
+      \"min\":0\
+    },\
+    \"FieldValue\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Id\",\
+        \"Value\"\
+      ],\
+      \"members\":{\
+        \"Id\":{\
+          \"shape\":\"FieldValueId\",\
+          \"documentation\":\"<p>Unique identifier of a field.</p>\"\
+        },\
+        \"Value\":{\
+          \"shape\":\"FieldValueUnion\",\
+          \"documentation\":\"<p>Union of potential field value types.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Object for case field values.</p>\"\
+    },\
+    \"FieldValueId\":{\
+      \"type\":\"string\",\
+      \"max\":500,\
+      \"min\":1\
+    },\
+    \"FieldValueUnion\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"BooleanValue\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>A Boolean number value type.</p>\"\
+        },\
+        \"DoubleValue\":{\
+          \"shape\":\"Double\",\
+          \"documentation\":\"<p>a Double number value type.</p>\"\
+        },\
+        \"EmptyValue\":{\
+          \"shape\":\"EmptyFieldValue\",\
+          \"documentation\":\"<p>An empty value.</p>\"\
+        },\
+        \"StringValue\":{\
+          \"shape\":\"FieldStringValue\",\
+          \"documentation\":\"<p>String value type.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Object to store union of Field values.</p>\"\
+    },\
+    \"FieldValues\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"FieldValue\"}\
     },\
     \"FilterV2\":{\
       \"type\":\"structure\",\
@@ -10107,7 +10332,7 @@
         },\
         \"Metrics\":{\
           \"shape\":\"MetricsV2\",\
-          \"documentation\":\"<p>The metrics to retrieve. Specify the name, groupings, and filters for each metric. The following historical metrics are available. For a description of each metric, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html\\\">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.</p> <dl> <dt>ABANDONMENT_RATE</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AGENT_ADHERENT_TIME</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_ANSWER_RATE</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AGENT_NON_ADHERENT_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AGENT_NON_RESPONSE</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_NON_RESPONSE_WITHOUT_CUSTOMER_ABANDONS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <p>Data for this metric is available starting from October 1, 2023 0:00:00 GMT.</p> </dd> <dt>AGENT_OCCUPANCY</dt> <dd> <p>Unit: Percentage</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_SCHEDULE_ADHERENCE</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AGENT_SCHEDULED_TIME</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_ABANDON_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_AFTER_CONTACT_WORK_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_AGENT_CONNECTING_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <note> <p>The <code>Negate</code> key in Metric Level Filters is not applicable for this metric.</p> </note> </dd> <dt>AVG_CONTACT_DURATION</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_CONVERSATION_DURATION</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_GREETING_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_HANDLE_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_HOLD_TIME_ALL_CONTACTS</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_HOLDS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_INTERACTION_AND_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_INTERACTION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_INTERRUPTIONS_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_INTERRUPTION_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_NON_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_QUEUE_ANSWER_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_RESOLUTION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_TALK_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_TALK_TIME_CUSTOMER</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>CONTACTS_ABANDONED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>CONTACTS_CREATED</dt> <dd> <p>Unit: Count</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_HANDLED</dt> <dd> <p>Unit: Count</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_HOLD_ABANDONS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>CONTACTS_ON_HOLD_AGENT_DISCONNECT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_ON_HOLD_CUSTOMER_DISCONNECT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_PUT_ON_HOLD</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_EXTERNAL</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_INTERNAL</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_QUEUED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>CONTACTS_RESOLVED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p> <p>Threshold: For <code>ThresholdValue</code> enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\").</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_TRANSFERRED_OUT_BY_AGENT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>MAX_QUEUED_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>PERCENT_NON_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Percentage</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>PERCENT_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Percentage</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>PERCENT_TALK_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Percentage</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>PERCENT_TALK_TIME_CUSTOMER</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Percentage</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>SERVICE_LEVEL</dt> <dd> <p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_AFTER_CONTACT_WORK_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_CONNECTING_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>. This metric only supports the following filter keys as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <note> <p>The <code>Negate</code> key in Metric Level Filters is not applicable for this metric.</p> </note> </dd> <dt>SUM_CONTACT_FLOW_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_CONTACT_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_CONTACTS_ANSWERED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_CONTACTS_ABANDONED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_CONTACTS_DISCONNECTED </dt> <dd> <p>Valid metric filter key: <code>DISCONNECT_REASON</code> </p> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>SUM_ERROR_STATUS_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_HANDLE_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_HOLD_TIME</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_IDLE_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_INTERACTION_AND_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_INTERACTION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_NON_PRODUCTIVE_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_ONLINE_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_RETRY_CALLBACK_ATTEMPTS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p> </dd> </dl>\"\
+          \"documentation\":\"<p>The metrics to retrieve. Specify the name, groupings, and filters for each metric. The following historical metrics are available. For a description of each metric, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html\\\">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.</p> <dl> <dt>ABANDONMENT_RATE</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AGENT_ADHERENT_TIME</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_ANSWER_RATE</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AGENT_NON_ADHERENT_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AGENT_NON_RESPONSE</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_NON_RESPONSE_WITHOUT_CUSTOMER_ABANDONS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <p>Data for this metric is available starting from October 1, 2023 0:00:00 GMT.</p> </dd> <dt>AGENT_OCCUPANCY</dt> <dd> <p>Unit: Percentage</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_SCHEDULE_ADHERENCE</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AGENT_SCHEDULED_TIME</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_ABANDON_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_ACTIVE_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_AFTER_CONTACT_WORK_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_AGENT_CONNECTING_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <note> <p>The <code>Negate</code> key in Metric Level Filters is not applicable for this metric.</p> </note> </dd> <dt>AVG_AGENT_PAUSE_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_CONTACT_DURATION</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_CONVERSATION_DURATION</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_GREETING_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_HANDLE_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_HOLD_TIME_ALL_CONTACTS</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_HOLDS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_INTERACTION_AND_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_INTERACTION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_INTERRUPTIONS_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_INTERRUPTION_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_NON_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_QUEUE_ANSWER_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_RESOLUTION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_TALK_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_TALK_TIME_CUSTOMER</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>CONTACTS_ABANDONED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>CONTACTS_CREATED</dt> <dd> <p>Unit: Count</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_HANDLED</dt> <dd> <p>Unit: Count</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_HOLD_ABANDONS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>CONTACTS_ON_HOLD_AGENT_DISCONNECT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_ON_HOLD_CUSTOMER_DISCONNECT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_PUT_ON_HOLD</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_EXTERNAL</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_INTERNAL</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_QUEUED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>CONTACTS_RESOLVED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p> <p>Threshold: For <code>ThresholdValue</code> enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\").</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_TRANSFERRED_OUT_BY_AGENT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>MAX_QUEUED_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>PERCENT_NON_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Percentage</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>PERCENT_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Percentage</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>PERCENT_TALK_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Percentage</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>PERCENT_TALK_TIME_CUSTOMER</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Percentage</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>SERVICE_LEVEL</dt> <dd> <p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_AFTER_CONTACT_WORK_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_CONNECTING_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>. This metric only supports the following filter keys as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <note> <p>The <code>Negate</code> key in Metric Level Filters is not applicable for this metric.</p> </note> </dd> <dt>SUM_CONTACT_FLOW_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_CONTACT_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_CONTACTS_ANSWERED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_CONTACTS_ABANDONED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_CONTACTS_DISCONNECTED </dt> <dd> <p>Valid metric filter key: <code>DISCONNECT_REASON</code> </p> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>SUM_ERROR_STATUS_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_HANDLE_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_HOLD_TIME</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_IDLE_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_INTERACTION_AND_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_INTERACTION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_NON_PRODUCTIVE_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_ONLINE_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_RETRY_CALLBACK_ATTEMPTS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p> </dd> </dl>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken2500\",\
@@ -10256,7 +10481,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -10341,7 +10566,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"LastModifiedTime\":{\
           \"shape\":\"Timestamp\",\
@@ -10698,7 +10923,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"LastModifiedTime\":{\
           \"shape\":\"Timestamp\",\
@@ -10873,7 +11098,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"ClientToken\",\
@@ -13632,7 +13857,7 @@
       \"members\":{\
         \"UserTags\":{\
           \"shape\":\"UserTagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }. Amazon Connect users with the specified tags will be notified.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }. Amazon Connect users with the specified tags will be notified.</p>\"\
         },\
         \"UserIds\":{\
           \"shape\":\"UserIdList\",\
@@ -13868,6 +14093,32 @@
     \"Password\":{\
       \"type\":\"string\",\
       \"pattern\":\"/^(?=.*[a-z])(?=.*[A-Z])(?=.*\\\\d)[a-zA-Z\\\\d\\\\S]{8,64}$/\"\
+    },\
+    \"PauseContactRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ContactId\",\
+        \"InstanceId\"\
+      ],\
+      \"members\":{\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact.</p>\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the <code>instanceId</code> in the ARN of the instance.</p>\"\
+        },\
+        \"ContactFlowId\":{\
+          \"shape\":\"ContactFlowId\",\
+          \"documentation\":\"<p>The identifier of the flow.</p>\"\
+        }\
+      }\
+    },\
+    \"PauseContactResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
     },\
     \"Percentage\":{\
       \"type\":\"integer\",\
@@ -14305,7 +14556,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"LastModifiedTime\":{\
           \"shape\":\"Timestamp\",\
@@ -14519,7 +14770,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"LastModifiedTime\":{\
           \"shape\":\"Timestamp\",\
@@ -14714,7 +14965,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"LastModifiedTime\":{\
           \"shape\":\"Timestamp\",\
@@ -15557,6 +15808,32 @@
       \"members\":{\
       }\
     },\
+    \"ResumeContactRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ContactId\",\
+        \"InstanceId\"\
+      ],\
+      \"members\":{\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact.</p>\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the <code>instanceId</code> in the ARN of the instance.</p>\"\
+        },\
+        \"ContactFlowId\":{\
+          \"shape\":\"ContactFlowId\",\
+          \"documentation\":\"<p>The identifier of the flow.</p>\"\
+        }\
+      }\
+    },\
+    \"ResumeContactResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
     \"RoutingProfile\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -15590,7 +15867,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"NumberOfAssociatedQueues\":{\
           \"shape\":\"Long\",\
@@ -15865,7 +16142,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about a rule.</p>\"\
@@ -15893,6 +16170,18 @@
         \"SendNotificationAction\":{\
           \"shape\":\"SendNotificationActionDefinition\",\
           \"documentation\":\"<p>Information about the send notification action.</p> <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnRealTimeChatAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code> </p>\"\
+        },\
+        \"CreateCaseAction\":{\
+          \"shape\":\"CreateCaseActionDefinition\",\
+          \"documentation\":\"<p>Information about the create case action.</p> <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code>.</p>\"\
+        },\
+        \"UpdateCaseAction\":{\
+          \"shape\":\"UpdateCaseActionDefinition\",\
+          \"documentation\":\"<p>Information about the update case action.</p> <p>Supported only for <code>TriggerEventSource</code> values: <code>OnCaseCreate</code> | <code>OnCaseUpdate</code>.</p>\"\
+        },\
+        \"EndAssociatedTasksAction\":{\
+          \"shape\":\"EndAssociatedTasksActionDefinition\",\
+          \"documentation\":\"<p>Information about the end associated tasks action.</p> <p>Supported only for <code>TriggerEventSource</code> values: <code>OnCaseUpdate</code>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about the action to be performed when a rule is triggered.</p>\"\
@@ -16507,7 +16796,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"AllowedAccessControlTags\":{\
           \"shape\":\"AllowedAccessControlTags\",\
@@ -16598,7 +16887,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about the returned security profiles.</p>\"\
@@ -16852,7 +17141,8 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"SALESFORCE\",\
-        \"ZENDESK\"\
+        \"ZENDESK\",\
+        \"CASES\"\
       ]\
     },\
     \"StartChatContactRequest\":{\
@@ -17055,6 +17345,22 @@
         \"InstanceId\"\
       ],\
       \"members\":{\
+        \"Name\":{\
+          \"shape\":\"Name\",\
+          \"documentation\":\"<p>The name of a voice contact that is shown to an agent in the Contact Control Panel (CCP).</p>\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"Description\",\
+          \"documentation\":\"<p>A description of the voice contact that is shown to an agent in the Contact Control Panel (CCP).</p>\"\
+        },\
+        \"References\":{\
+          \"shape\":\"ContactReferences\",\
+          \"documentation\":\"<p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Contacts can have the following reference types at the time of creation: <code>URL</code> | <code>NUMBER</code> | <code>STRING</code> | <code>DATE</code> | <code>EMAIL</code>. <code>ATTACHMENT</code> is not a supported reference type during voice contact creation.</p>\"\
+        },\
+        \"RelatedContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The <code>contactId</code> that is related to this contact. Linking voice, task, or chat by using <code>RelatedContactID</code> copies over contact attributes from the related contact to the new contact. All updates to user-defined attributes in the new contact are limited to the individual contact ID. There are no limits to the number of contacts that can be linked by using <code>RelatedContactId</code>. </p>\"\
+        },\
         \"DestinationPhoneNumber\":{\
           \"shape\":\"PhoneNumber\",\
           \"documentation\":\"<p>The phone number of the customer, in E.164 format.</p>\"\
@@ -17510,6 +17816,33 @@
       },\
       \"documentation\":\"<p>A leaf node condition which can be used to specify a tag condition, for example, <code>HAVE BPO = 123</code>. </p>\"\
     },\
+    \"TagContactRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ContactId\",\
+        \"InstanceId\",\
+        \"Tags\"\
+      ],\
+      \"members\":{\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact in this instance of Amazon Connect. </p>\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"ContactTagMap\",\
+          \"documentation\":\"<p>The tags to be assigned to the contact resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p> <note> <p>Authorization is not supported by this tag.</p> </note>\"\
+        }\
+      }\
+    },\
+    \"TagContactResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
     \"TagKey\":{\
       \"type\":\"string\",\
       \"max\":128,\
@@ -17552,7 +17885,7 @@
         },\
         \"tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -17846,6 +18179,11 @@
       },\
       \"documentation\":\"<p>The distribution of traffic between the instance and its replicas.</p>\"\
     },\
+    \"TemplateId\":{\
+      \"type\":\"string\",\
+      \"max\":500,\
+      \"min\":1\
+    },\
     \"Threshold\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -17909,6 +18247,15 @@
       \"error\":{\"httpStatusCode\":429},\
       \"exception\":true\
     },\
+    \"TotalPauseCount\":{\
+      \"type\":\"integer\",\
+      \"max\":10,\
+      \"min\":0\
+    },\
+    \"TotalPauseDurationInSeconds\":{\
+      \"type\":\"integer\",\
+      \"min\":0\
+    },\
     \"TrafficDistributionGroup\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -17938,7 +18285,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"IsDefault\":{\
           \"shape\":\"Boolean\",\
@@ -18090,6 +18437,39 @@
         \"PERCENT\"\
       ]\
     },\
+    \"UntagContactRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ContactId\",\
+        \"InstanceId\",\
+        \"TagKeys\"\
+      ],\
+      \"members\":{\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact in this instance of Amazon Connect. </p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"ContactId\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"TagKeys\":{\
+          \"shape\":\"ContactTagKeys\",\
+          \"documentation\":\"<p>A list of tag keys. Existing tags on the contact whose keys are members of this list will be removed.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"TagKeys\"\
+        }\
+      }\
+    },\
+    \"UntagContactResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
     \"UntagResourceRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -18157,6 +18537,17 @@
           \"documentation\":\"<p>A number indicating the reset order of the agent status.</p>\"\
         }\
       }\
+    },\
+    \"UpdateCaseActionDefinition\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Fields\"],\
+      \"members\":{\
+        \"Fields\":{\
+          \"shape\":\"FieldValues\",\
+          \"documentation\":\"<p>An array of objects with <code>Field ID</code> and Value data.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The <code>UpdateCase</code> action definition.</p>\"\
     },\
     \"UpdateContactAttributesRequest\":{\
       \"type\":\"structure\",\
@@ -19933,7 +20324,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"Username\":{\
           \"shape\":\"AgentUsername\",\
@@ -20270,7 +20661,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a custom vocabulary.</p>\"\
