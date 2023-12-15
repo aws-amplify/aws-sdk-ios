@@ -194,7 +194,7 @@ class AWSMobileClientTestBase: XCTestCase {
                 }
                 
                 XCTAssertTrue(signUpResult.signUpConfirmationState == signupState, "User is expected to be marked as \(signupState).")
-                
+                XCTAssertNotNil(signUpResult.userSub)
                 signUpExpectation.fulfill()
         }
         
