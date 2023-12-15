@@ -18,9 +18,15 @@ import Foundation
 public struct SignUpResult {
     public let codeDeliveryDetails: UserCodeDeliveryDetails?
     public let signUpConfirmationState: SignUpConfirmationState
+    public let userSub: String?
 
-    internal init(signUpState: SignUpConfirmationState, codeDeliveryDetails: UserCodeDeliveryDetails?){
+    internal init(
+        signUpState: SignUpConfirmationState,
+        codeDeliveryDetails: UserCodeDeliveryDetails?,
+        userSub: String?
+    ) {
         self.codeDeliveryDetails = codeDeliveryDetails
         self.signUpConfirmationState = signUpState
+        self.userSub = userSub
     }
 }
