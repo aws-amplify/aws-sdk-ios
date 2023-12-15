@@ -99,9 +99,13 @@ extension AWSMobileClient {
                         }
                     }
                     completionHandler(
-                        SignUpResult(signUpState: confirmedStatus!,
-                                     codeDeliveryDetails: codeDeliveryDetails),
-                        nil)
+                        SignUpResult(
+                            signUpState: confirmedStatus!,
+                            codeDeliveryDetails: codeDeliveryDetails,
+                            userSub: result.userSub
+                        ),
+                        nil
+                    )
                 }
                 return nil
             }
@@ -145,7 +149,7 @@ extension AWSMobileClient {
             if let error = task.error {
                 completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let _ = task.result {
-                let signUpResult = SignUpResult(signUpState: .confirmed, codeDeliveryDetails: nil)
+                let signUpResult = SignUpResult(signUpState: .confirmed, codeDeliveryDetails: nil, userSub: nil)
                 completionHandler(signUpResult, nil)
             }
             return nil
@@ -186,7 +190,7 @@ extension AWSMobileClient {
                 if let deliveryDetails = result.codeDeliveryDetails {
                     codeDeliveryDetails = UserCodeDeliveryDetails.getUserCodeDeliveryDetails(deliveryDetails)
                 }
-                completionHandler(SignUpResult(signUpState: confirmedStatus, codeDeliveryDetails: codeDeliveryDetails), nil)
+                completionHandler(SignUpResult(signUpState: confirmedStatus, codeDeliveryDetails: codeDeliveryDetails, userSub: nil), nil)
             }
             return nil
         })
