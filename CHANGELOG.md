@@ -4,6 +4,11 @@
 
 ## Unreleased
 
+### Bug Fixes
+
+- **CognitoIdentity**
+  - Don't overwrite AWSServiceConfiguration provided headers.
+
 ### Misc. Updates
 
 - Model updates for the following services
