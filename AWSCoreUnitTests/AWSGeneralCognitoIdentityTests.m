@@ -115,6 +115,15 @@ static id mockNetworking = nil;
     XCTAssertEqualObjects(cognitoIdentity.configuration.headers, expected, @"expected provided headers to be included in configuration object");
 }
 
+- (void)testCreateIdentityPoolNoSuppliedHeaders {
+    AWSServiceConfiguration *configuration = [AWSTestUtility getDefaultServiceConfiguration];
+    id key = @"test-without-headers";
+    [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
+    AWSCognitoIdentity *cognitoIdentity = [AWSCognitoIdentity CognitoIdentityForKey:key];
+    NSDictionary *expected = @{@"Content-Type": @"application/x-amz-json-1.1"};
+    XCTAssertEqualObjects(cognitoIdentity.configuration.headers, expected, @"expected Content-Type header to be included");
+}
+
 - (void)testDeleteIdentities {
     NSString *key = @"testDeleteIdentities";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
