@@ -3762,6 +3762,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"preAuthentication" : @"PreAuthentication",
              @"preSignUp" : @"PreSignUp",
              @"preTokenGeneration" : @"PreTokenGeneration",
+             @"preTokenGenerationConfig" : @"PreTokenGenerationConfig",
              @"userMigration" : @"UserMigration",
              @"verifyAuthChallengeResponse" : @"VerifyAuthChallengeResponse",
              };
@@ -3773,6 +3774,10 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSValueTransformer *)customSMSSenderJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderCustomSMSLambdaVersionConfigType class]];
+}
+
++ (NSValueTransformer *)preTokenGenerationConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderPreTokenGenerationVersionConfigType class]];
 }
 
 @end
@@ -4337,6 +4342,42 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"requireUppercase" : @"RequireUppercase",
              @"temporaryPasswordValidityDays" : @"TemporaryPasswordValidityDays",
              };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderPreTokenGenerationVersionConfigType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"lambdaArn" : @"LambdaArn",
+             @"lambdaVersion" : @"LambdaVersion",
+             };
+}
+
++ (NSValueTransformer *)lambdaVersionJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"V1_0"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderPreTokenGenerationLambdaVersionTypeV10);
+        }
+        if ([value caseInsensitiveCompare:@"V2_0"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderPreTokenGenerationLambdaVersionTypeV20);
+        }
+        return @(AWSCognitoIdentityProviderPreTokenGenerationLambdaVersionTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityProviderPreTokenGenerationLambdaVersionTypeV10:
+                return @"V1_0";
+            case AWSCognitoIdentityProviderPreTokenGenerationLambdaVersionTypeV20:
+                return @"V2_0";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
