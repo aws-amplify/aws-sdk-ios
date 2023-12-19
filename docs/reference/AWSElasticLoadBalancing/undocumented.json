@@ -66,931 +66,1176 @@
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 29,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorCertificateNotFound",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorCaCertificatesBundleNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 30,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorDuplicateListener",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorCertificateNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 31,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorDuplicateLoadBalancerName",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorDuplicateListener",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 32,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorDuplicateTagKeys",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorDuplicateLoadBalancerName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 33,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorDuplicateTargetGroupName",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorDuplicateTagKeys",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 34,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorHealthUnavailable",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorDuplicateTargetGroupName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 35,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorIncompatibleProtocols",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorDuplicateTrustStoreName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 36,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorInvalidConfigurationRequest",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorHealthUnavailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 37,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorInvalidLoadBalancerAction",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorIncompatibleProtocols",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 38,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorInvalidScheme",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorInvalidCaCertificatesBundle",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 39,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorInvalidSecurityGroup",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorInvalidConfigurationRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 40,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorInvalidSubnet",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorInvalidLoadBalancerAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 41,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorInvalidTarget",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorInvalidRevocationContent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 42,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorListenerNotFound",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorInvalidScheme",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 43,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorLoadBalancerNotFound",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorInvalidSecurityGroup",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 44,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorOperationNotPermitted",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorInvalidSubnet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 45,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorPriorityInUse",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorInvalidTarget",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 46,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorResourceInUse",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorListenerNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 47,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorRuleNotFound",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorLoadBalancerNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 48,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorSSLPolicyNotFound",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorOperationNotPermitted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 49,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorSubnetNotFound",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorPriorityInUse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 50,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTargetGroupAssociationLimit",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorResourceInUse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 51,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTargetGroupNotFound",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorRevocationContentNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 52,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyActions",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorRevocationIdNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 53,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyCertificates",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorRuleNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 54,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyListeners",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorSSLPolicyNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 55,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyLoadBalancers",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorSubnetNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 56,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTargetGroupAssociationLimit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 57,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyRules",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTargetGroupNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 58,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyTags",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyActions",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 59,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyTargetGroups",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyCertificates",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 60,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyTargets",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyListeners",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 61,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyLoadBalancers",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 62,
-      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorUnsupportedProtocol",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 63,
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyRules",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 64,
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyTags",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 65,
-      "symbol": "AWSElasticLoadBalancingActionTypeEnum",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 65,
-      "symbol": "AWSElasticLoadBalancingActionTypeEnum",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyTargetGroups",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 66,
-      "symbol": "AWSElasticLoadBalancingActionTypeEnum.AWSElasticLoadBalancingActionTypeEnumUnknown",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyTargets",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 67,
-      "symbol": "AWSElasticLoadBalancingActionTypeEnum.AWSElasticLoadBalancingActionTypeEnumForward",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyTrustStoreRevocationEntries",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 68,
-      "symbol": "AWSElasticLoadBalancingActionTypeEnum.AWSElasticLoadBalancingActionTypeEnumAuthenticateOidc",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyTrustStores",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 69,
-      "symbol": "AWSElasticLoadBalancingActionTypeEnum.AWSElasticLoadBalancingActionTypeEnumAuthenticateCognito",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 70,
-      "symbol": "AWSElasticLoadBalancingActionTypeEnum.AWSElasticLoadBalancingActionTypeEnumRedirect",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTrustStoreInUse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 71,
-      "symbol": "AWSElasticLoadBalancingActionTypeEnum.AWSElasticLoadBalancingActionTypeEnumFixedResponse",
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTrustStoreNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 74,
-      "symbol": "AWSElasticLoadBalancingAuthenticateCognitoActionConditionalBehaviorEnum",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "line": 72,
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTrustStoreNotReady",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 74,
-      "symbol": "AWSElasticLoadBalancingAuthenticateCognitoActionConditionalBehaviorEnum",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 75,
-      "symbol": "AWSElasticLoadBalancingAuthenticateCognitoActionConditionalBehaviorEnum.AWSElasticLoadBalancingAuthenticateCognitoActionConditionalBehaviorEnumUnknown",
+      "line": 73,
+      "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorUnsupportedProtocol",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 76,
-      "symbol": "AWSElasticLoadBalancingAuthenticateCognitoActionConditionalBehaviorEnum.AWSElasticLoadBalancingAuthenticateCognitoActionConditionalBehaviorEnumDeny",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSElasticLoadBalancingActionTypeEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 76,
+      "symbol": "AWSElasticLoadBalancingActionTypeEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 77,
-      "symbol": "AWSElasticLoadBalancingAuthenticateCognitoActionConditionalBehaviorEnum.AWSElasticLoadBalancingAuthenticateCognitoActionConditionalBehaviorEnumAllow",
+      "symbol": "AWSElasticLoadBalancingActionTypeEnum.AWSElasticLoadBalancingActionTypeEnumUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 78,
-      "symbol": "AWSElasticLoadBalancingAuthenticateCognitoActionConditionalBehaviorEnum.AWSElasticLoadBalancingAuthenticateCognitoActionConditionalBehaviorEnumAuthenticate",
+      "symbol": "AWSElasticLoadBalancingActionTypeEnum.AWSElasticLoadBalancingActionTypeEnumForward",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 79,
+      "symbol": "AWSElasticLoadBalancingActionTypeEnum.AWSElasticLoadBalancingActionTypeEnumAuthenticateOidc",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 80,
+      "symbol": "AWSElasticLoadBalancingActionTypeEnum.AWSElasticLoadBalancingActionTypeEnumAuthenticateCognito",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 81,
-      "symbol": "AWSElasticLoadBalancingAuthenticateOidcActionConditionalBehaviorEnum",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 81,
-      "symbol": "AWSElasticLoadBalancingAuthenticateOidcActionConditionalBehaviorEnum",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSElasticLoadBalancingActionTypeEnum.AWSElasticLoadBalancingActionTypeEnumRedirect",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 82,
-      "symbol": "AWSElasticLoadBalancingAuthenticateOidcActionConditionalBehaviorEnum.AWSElasticLoadBalancingAuthenticateOidcActionConditionalBehaviorEnumUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 83,
-      "symbol": "AWSElasticLoadBalancingAuthenticateOidcActionConditionalBehaviorEnum.AWSElasticLoadBalancingAuthenticateOidcActionConditionalBehaviorEnumDeny",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 84,
-      "symbol": "AWSElasticLoadBalancingAuthenticateOidcActionConditionalBehaviorEnum.AWSElasticLoadBalancingAuthenticateOidcActionConditionalBehaviorEnumAllow",
+      "symbol": "AWSElasticLoadBalancingActionTypeEnum.AWSElasticLoadBalancingActionTypeEnumFixedResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 85,
-      "symbol": "AWSElasticLoadBalancingAuthenticateOidcActionConditionalBehaviorEnum.AWSElasticLoadBalancingAuthenticateOidcActionConditionalBehaviorEnumAuthenticate",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 88,
-      "symbol": "AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum",
+      "symbol": "AWSElasticLoadBalancingAnomalyResultEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 88,
-      "symbol": "AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum",
+      "line": 85,
+      "symbol": "AWSElasticLoadBalancingAnomalyResultEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 89,
-      "symbol": "AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum.AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumUnknown",
+      "line": 86,
+      "symbol": "AWSElasticLoadBalancingAnomalyResultEnum.AWSElasticLoadBalancingAnomalyResultEnumUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 90,
-      "symbol": "AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum.AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumOn",
+      "line": 87,
+      "symbol": "AWSElasticLoadBalancingAnomalyResultEnum.AWSElasticLoadBalancingAnomalyResultEnumAnomalous",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 88,
+      "symbol": "AWSElasticLoadBalancingAnomalyResultEnum.AWSElasticLoadBalancingAnomalyResultEnumNormal",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 91,
-      "symbol": "AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum.AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumOff",
+      "symbol": "AWSElasticLoadBalancingAuthenticateCognitoActionConditionalBehaviorEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 91,
+      "symbol": "AWSElasticLoadBalancingAuthenticateCognitoActionConditionalBehaviorEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 92,
+      "symbol": "AWSElasticLoadBalancingAuthenticateCognitoActionConditionalBehaviorEnum.AWSElasticLoadBalancingAuthenticateCognitoActionConditionalBehaviorEnumUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 93,
+      "symbol": "AWSElasticLoadBalancingAuthenticateCognitoActionConditionalBehaviorEnum.AWSElasticLoadBalancingAuthenticateCognitoActionConditionalBehaviorEnumDeny",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 94,
-      "symbol": "AWSElasticLoadBalancingIpAddressType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 94,
-      "symbol": "AWSElasticLoadBalancingIpAddressType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSElasticLoadBalancingAuthenticateCognitoActionConditionalBehaviorEnum.AWSElasticLoadBalancingAuthenticateCognitoActionConditionalBehaviorEnumAllow",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 95,
-      "symbol": "AWSElasticLoadBalancingIpAddressType.AWSElasticLoadBalancingIpAddressTypeUnknown",
+      "symbol": "AWSElasticLoadBalancingAuthenticateCognitoActionConditionalBehaviorEnum.AWSElasticLoadBalancingAuthenticateCognitoActionConditionalBehaviorEnumAuthenticate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 96,
-      "symbol": "AWSElasticLoadBalancingIpAddressType.AWSElasticLoadBalancingIpAddressTypeIpv4",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 97,
-      "symbol": "AWSElasticLoadBalancingIpAddressType.AWSElasticLoadBalancingIpAddressTypeDualstack",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 100,
-      "symbol": "AWSElasticLoadBalancingLoadBalancerSchemeEnum",
+      "line": 98,
+      "symbol": "AWSElasticLoadBalancingAuthenticateOidcActionConditionalBehaviorEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 100,
-      "symbol": "AWSElasticLoadBalancingLoadBalancerSchemeEnum",
+      "line": 98,
+      "symbol": "AWSElasticLoadBalancingAuthenticateOidcActionConditionalBehaviorEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 99,
+      "symbol": "AWSElasticLoadBalancingAuthenticateOidcActionConditionalBehaviorEnum.AWSElasticLoadBalancingAuthenticateOidcActionConditionalBehaviorEnumUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 100,
+      "symbol": "AWSElasticLoadBalancingAuthenticateOidcActionConditionalBehaviorEnum.AWSElasticLoadBalancingAuthenticateOidcActionConditionalBehaviorEnumDeny",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 101,
-      "symbol": "AWSElasticLoadBalancingLoadBalancerSchemeEnum.AWSElasticLoadBalancingLoadBalancerSchemeEnumUnknown",
+      "symbol": "AWSElasticLoadBalancingAuthenticateOidcActionConditionalBehaviorEnum.AWSElasticLoadBalancingAuthenticateOidcActionConditionalBehaviorEnumAllow",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 102,
-      "symbol": "AWSElasticLoadBalancingLoadBalancerSchemeEnum.AWSElasticLoadBalancingLoadBalancerSchemeEnumInternetFacing",
+      "symbol": "AWSElasticLoadBalancingAuthenticateOidcActionConditionalBehaviorEnum.AWSElasticLoadBalancingAuthenticateOidcActionConditionalBehaviorEnumAuthenticate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 103,
-      "symbol": "AWSElasticLoadBalancingLoadBalancerSchemeEnum.AWSElasticLoadBalancingLoadBalancerSchemeEnumInternal",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 106,
-      "symbol": "AWSElasticLoadBalancingLoadBalancerStateEnum",
+      "line": 105,
+      "symbol": "AWSElasticLoadBalancingDescribeTargetHealthInputIncludeEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 106,
-      "symbol": "AWSElasticLoadBalancingLoadBalancerStateEnum",
+      "line": 105,
+      "symbol": "AWSElasticLoadBalancingDescribeTargetHealthInputIncludeEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 106,
+      "symbol": "AWSElasticLoadBalancingDescribeTargetHealthInputIncludeEnum.AWSElasticLoadBalancingDescribeTargetHealthInputIncludeEnumUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 107,
-      "symbol": "AWSElasticLoadBalancingLoadBalancerStateEnum.AWSElasticLoadBalancingLoadBalancerStateEnumUnknown",
+      "symbol": "AWSElasticLoadBalancingDescribeTargetHealthInputIncludeEnum.AWSElasticLoadBalancingDescribeTargetHealthInputIncludeEnumAnomalyDetection",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 108,
-      "symbol": "AWSElasticLoadBalancingLoadBalancerStateEnum.AWSElasticLoadBalancingLoadBalancerStateEnumActive",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 109,
-      "symbol": "AWSElasticLoadBalancingLoadBalancerStateEnum.AWSElasticLoadBalancingLoadBalancerStateEnumProvisioning",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 110,
-      "symbol": "AWSElasticLoadBalancingLoadBalancerStateEnum.AWSElasticLoadBalancingLoadBalancerStateEnumActiveImpaired",
+      "symbol": "AWSElasticLoadBalancingDescribeTargetHealthInputIncludeEnum.AWSElasticLoadBalancingDescribeTargetHealthInputIncludeEnumAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 111,
-      "symbol": "AWSElasticLoadBalancingLoadBalancerStateEnum.AWSElasticLoadBalancingLoadBalancerStateEnumFailed",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 114,
-      "symbol": "AWSElasticLoadBalancingLoadBalancerTypeEnum",
+      "symbol": "AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 114,
-      "symbol": "AWSElasticLoadBalancingLoadBalancerTypeEnum",
+      "line": 111,
+      "symbol": "AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 115,
-      "symbol": "AWSElasticLoadBalancingLoadBalancerTypeEnum.AWSElasticLoadBalancingLoadBalancerTypeEnumUnknown",
+      "line": 112,
+      "symbol": "AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum.AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 116,
-      "symbol": "AWSElasticLoadBalancingLoadBalancerTypeEnum.AWSElasticLoadBalancingLoadBalancerTypeEnumApplication",
+      "line": 113,
+      "symbol": "AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum.AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumOn",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 114,
+      "symbol": "AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum.AWSElasticLoadBalancingEnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumOff",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 117,
-      "symbol": "AWSElasticLoadBalancingLoadBalancerTypeEnum.AWSElasticLoadBalancingLoadBalancerTypeEnumNetwork",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 118,
-      "symbol": "AWSElasticLoadBalancingLoadBalancerTypeEnum.AWSElasticLoadBalancingLoadBalancerTypeEnumGateway",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 121,
-      "symbol": "AWSElasticLoadBalancingProtocolEnum",
+      "symbol": "AWSElasticLoadBalancingIpAddressType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 121,
-      "symbol": "AWSElasticLoadBalancingProtocolEnum",
+      "line": 117,
+      "symbol": "AWSElasticLoadBalancingIpAddressType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 122,
-      "symbol": "AWSElasticLoadBalancingProtocolEnum.AWSElasticLoadBalancingProtocolEnumUnknown",
+      "line": 118,
+      "symbol": "AWSElasticLoadBalancingIpAddressType.AWSElasticLoadBalancingIpAddressTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 119,
+      "symbol": "AWSElasticLoadBalancingIpAddressType.AWSElasticLoadBalancingIpAddressTypeIpv4",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 120,
+      "symbol": "AWSElasticLoadBalancingIpAddressType.AWSElasticLoadBalancingIpAddressTypeDualstack",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 123,
-      "symbol": "AWSElasticLoadBalancingProtocolEnum.AWSElasticLoadBalancingProtocolEnumHttp",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSElasticLoadBalancingLoadBalancerSchemeEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 123,
+      "symbol": "AWSElasticLoadBalancingLoadBalancerSchemeEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 124,
-      "symbol": "AWSElasticLoadBalancingProtocolEnum.AWSElasticLoadBalancingProtocolEnumHttps",
+      "symbol": "AWSElasticLoadBalancingLoadBalancerSchemeEnum.AWSElasticLoadBalancingLoadBalancerSchemeEnumUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 125,
-      "symbol": "AWSElasticLoadBalancingProtocolEnum.AWSElasticLoadBalancingProtocolEnumTcp",
+      "symbol": "AWSElasticLoadBalancingLoadBalancerSchemeEnum.AWSElasticLoadBalancingLoadBalancerSchemeEnumInternetFacing",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 126,
-      "symbol": "AWSElasticLoadBalancingProtocolEnum.AWSElasticLoadBalancingProtocolEnumTls",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 127,
-      "symbol": "AWSElasticLoadBalancingProtocolEnum.AWSElasticLoadBalancingProtocolEnumUdp",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 128,
-      "symbol": "AWSElasticLoadBalancingProtocolEnum.AWSElasticLoadBalancingProtocolEnumTcpUdp",
+      "symbol": "AWSElasticLoadBalancingLoadBalancerSchemeEnum.AWSElasticLoadBalancingLoadBalancerSchemeEnumInternal",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 129,
-      "symbol": "AWSElasticLoadBalancingProtocolEnum.AWSElasticLoadBalancingProtocolEnumGeneve",
+      "symbol": "AWSElasticLoadBalancingLoadBalancerStateEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 129,
+      "symbol": "AWSElasticLoadBalancingLoadBalancerStateEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 130,
+      "symbol": "AWSElasticLoadBalancingLoadBalancerStateEnum.AWSElasticLoadBalancingLoadBalancerStateEnumUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 131,
+      "symbol": "AWSElasticLoadBalancingLoadBalancerStateEnum.AWSElasticLoadBalancingLoadBalancerStateEnumActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 132,
-      "symbol": "AWSElasticLoadBalancingRedirectActionStatusCodeEnum",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 132,
-      "symbol": "AWSElasticLoadBalancingRedirectActionStatusCodeEnum",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSElasticLoadBalancingLoadBalancerStateEnum.AWSElasticLoadBalancingLoadBalancerStateEnumProvisioning",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 133,
-      "symbol": "AWSElasticLoadBalancingRedirectActionStatusCodeEnum.AWSElasticLoadBalancingRedirectActionStatusCodeEnumUnknown",
+      "symbol": "AWSElasticLoadBalancingLoadBalancerStateEnum.AWSElasticLoadBalancingLoadBalancerStateEnumActiveImpaired",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 134,
-      "symbol": "AWSElasticLoadBalancingRedirectActionStatusCodeEnum.AWSElasticLoadBalancingRedirectActionStatusCodeEnumHttp301",
+      "symbol": "AWSElasticLoadBalancingLoadBalancerStateEnum.AWSElasticLoadBalancingLoadBalancerStateEnumFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 135,
-      "symbol": "AWSElasticLoadBalancingRedirectActionStatusCodeEnum.AWSElasticLoadBalancingRedirectActionStatusCodeEnumHttp302",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 138,
-      "symbol": "AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum",
+      "line": 137,
+      "symbol": "AWSElasticLoadBalancingLoadBalancerTypeEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 138,
-      "symbol": "AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum",
+      "line": 137,
+      "symbol": "AWSElasticLoadBalancingLoadBalancerTypeEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 138,
+      "symbol": "AWSElasticLoadBalancingLoadBalancerTypeEnum.AWSElasticLoadBalancingLoadBalancerTypeEnumUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 139,
-      "symbol": "AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum.AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumUnknown",
+      "symbol": "AWSElasticLoadBalancingLoadBalancerTypeEnum.AWSElasticLoadBalancingLoadBalancerTypeEnumApplication",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 140,
-      "symbol": "AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum.AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv4",
+      "symbol": "AWSElasticLoadBalancingLoadBalancerTypeEnum.AWSElasticLoadBalancingLoadBalancerTypeEnumNetwork",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 141,
-      "symbol": "AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum.AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv6",
+      "symbol": "AWSElasticLoadBalancingLoadBalancerTypeEnum.AWSElasticLoadBalancingLoadBalancerTypeEnumGateway",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 144,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum",
+      "symbol": "AWSElasticLoadBalancingMitigationInEffectEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 144,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum",
+      "symbol": "AWSElasticLoadBalancingMitigationInEffectEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 145,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumUnknown",
+      "symbol": "AWSElasticLoadBalancingMitigationInEffectEnum.AWSElasticLoadBalancingMitigationInEffectEnumUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 146,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumElbRegistrationInProgress",
+      "symbol": "AWSElasticLoadBalancingMitigationInEffectEnum.AWSElasticLoadBalancingMitigationInEffectEnumYes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 147,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumElbInitialHealthChecking",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 148,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetResponseCodeMismatch",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 149,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetTimeout",
+      "symbol": "AWSElasticLoadBalancingMitigationInEffectEnum.AWSElasticLoadBalancingMitigationInEffectEnumNo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 150,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetFailedHealthChecks",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSElasticLoadBalancingProtocolEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 150,
+      "symbol": "AWSElasticLoadBalancingProtocolEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 151,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetNotRegistered",
+      "symbol": "AWSElasticLoadBalancingProtocolEnum.AWSElasticLoadBalancingProtocolEnumUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 152,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetNotInUse",
+      "symbol": "AWSElasticLoadBalancingProtocolEnum.AWSElasticLoadBalancingProtocolEnumHttp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 153,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetDeregistrationInProgress",
+      "symbol": "AWSElasticLoadBalancingProtocolEnum.AWSElasticLoadBalancingProtocolEnumHttps",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 154,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetInvalidState",
+      "symbol": "AWSElasticLoadBalancingProtocolEnum.AWSElasticLoadBalancingProtocolEnumTcp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 155,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetIpUnusable",
+      "symbol": "AWSElasticLoadBalancingProtocolEnum.AWSElasticLoadBalancingProtocolEnumTls",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 156,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetHealthCheckDisabled",
+      "symbol": "AWSElasticLoadBalancingProtocolEnum.AWSElasticLoadBalancingProtocolEnumUdp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 157,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumElbInternalError",
+      "symbol": "AWSElasticLoadBalancingProtocolEnum.AWSElasticLoadBalancingProtocolEnumTcpUdp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 160,
-      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 160,
-      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 158,
+      "symbol": "AWSElasticLoadBalancingProtocolEnum.AWSElasticLoadBalancingProtocolEnumGeneve",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 161,
-      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSElasticLoadBalancingRedirectActionStatusCodeEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 161,
+      "symbol": "AWSElasticLoadBalancingRedirectActionStatusCodeEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 162,
-      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumInitial",
+      "symbol": "AWSElasticLoadBalancingRedirectActionStatusCodeEnum.AWSElasticLoadBalancingRedirectActionStatusCodeEnumUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 163,
-      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumHealthy",
+      "symbol": "AWSElasticLoadBalancingRedirectActionStatusCodeEnum.AWSElasticLoadBalancingRedirectActionStatusCodeEnumHttp301",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 164,
-      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumUnhealthy",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 165,
-      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumUnused",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 166,
-      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumDraining",
+      "symbol": "AWSElasticLoadBalancingRedirectActionStatusCodeEnum.AWSElasticLoadBalancingRedirectActionStatusCodeEnumHttp302",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 167,
-      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumUnavailable",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 170,
-      "symbol": "AWSElasticLoadBalancingTargetTypeEnum",
+      "symbol": "AWSElasticLoadBalancingRevocationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 170,
-      "symbol": "AWSElasticLoadBalancingTargetTypeEnum",
+      "line": 167,
+      "symbol": "AWSElasticLoadBalancingRevocationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 171,
-      "symbol": "AWSElasticLoadBalancingTargetTypeEnum.AWSElasticLoadBalancingTargetTypeEnumUnknown",
+      "line": 168,
+      "symbol": "AWSElasticLoadBalancingRevocationType.AWSElasticLoadBalancingRevocationTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 169,
+      "symbol": "AWSElasticLoadBalancingRevocationType.AWSElasticLoadBalancingRevocationTypeCrl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 172,
-      "symbol": "AWSElasticLoadBalancingTargetTypeEnum.AWSElasticLoadBalancingTargetTypeEnumInstance",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 172,
+      "symbol": "AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 173,
-      "symbol": "AWSElasticLoadBalancingTargetTypeEnum.AWSElasticLoadBalancingTargetTypeEnumIp",
+      "symbol": "AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum.AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 174,
-      "symbol": "AWSElasticLoadBalancingTargetTypeEnum.AWSElasticLoadBalancingTargetTypeEnumLambda",
+      "symbol": "AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum.AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv4",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 175,
+      "symbol": "AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum.AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv6",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 178,
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 178,
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 179,
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 180,
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumElbRegistrationInProgress",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 181,
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumElbInitialHealthChecking",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 182,
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetResponseCodeMismatch",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 183,
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetTimeout",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 184,
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetFailedHealthChecks",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 185,
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetNotRegistered",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 186,
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetNotInUse",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 187,
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetDeregistrationInProgress",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 188,
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetInvalidState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 189,
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetIpUnusable",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 190,
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetHealthCheckDisabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 191,
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumElbInternalError",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 194,
+      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 194,
+      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 195,
+      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 196,
+      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumInitial",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 197,
+      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumHealthy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 198,
+      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumUnhealthy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 199,
+      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumUnused",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 200,
+      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumDraining",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 201,
+      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumUnavailable",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 204,
+      "symbol": "AWSElasticLoadBalancingTargetTypeEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 204,
+      "symbol": "AWSElasticLoadBalancingTargetTypeEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 205,
+      "symbol": "AWSElasticLoadBalancingTargetTypeEnum.AWSElasticLoadBalancingTargetTypeEnumUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 206,
+      "symbol": "AWSElasticLoadBalancingTargetTypeEnum.AWSElasticLoadBalancingTargetTypeEnumInstance",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 207,
+      "symbol": "AWSElasticLoadBalancingTargetTypeEnum.AWSElasticLoadBalancingTargetTypeEnumIp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 208,
+      "symbol": "AWSElasticLoadBalancingTargetTypeEnum.AWSElasticLoadBalancingTargetTypeEnumLambda",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 209,
       "symbol": "AWSElasticLoadBalancingTargetTypeEnum.AWSElasticLoadBalancingTargetTypeEnumAlb",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 212,
+      "symbol": "AWSElasticLoadBalancingTrustStoreStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 212,
+      "symbol": "AWSElasticLoadBalancingTrustStoreStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 213,
+      "symbol": "AWSElasticLoadBalancingTrustStoreStatus.AWSElasticLoadBalancingTrustStoreStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 214,
+      "symbol": "AWSElasticLoadBalancingTrustStoreStatus.AWSElasticLoadBalancingTrustStoreStatusActive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 215,
+      "symbol": "AWSElasticLoadBalancingTrustStoreStatus.AWSElasticLoadBalancingTrustStoreStatusCreating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
