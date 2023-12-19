@@ -1,4 +1,48 @@
+---
+
 # AWS Mobile SDK for iOS CHANGELOG
+
+## Unreleased
+
+-Features for next release
+
+## 2.33.6
+
+### New features
+
+- **AWSCognito**
+  - add UIAdaptivePresentationControllerDelegate to handle user swipe down to dismiss the SafariViewController
+
+- **AWSS3TransferUtility**
+  - added MD5 content verification for multi-part uploads
+
+### Bug Fixes
+
+- **CognitoIdentity**
+  - Don't overwrite AWSServiceConfiguration provided headers.
+
+- **AWS Mobile Client**
+  - make AWSMobileClientError message getter public
+
+- **AWS Mobile Client**
+  - add missing userSub property to SignUpResult
+
+- **AWSS3**
+  - set taskIdentifier attribute to nonatomic in transferutilitytask_private
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSElasticLoadBalancingv2
+  - AWSCloudWatchLogs
+  - AWSTranscribe
+  - AWSLocation
+  - AWSSTS
+  - AWSKinesisVideo
+  - AWSConnect
+  - AWSEC2
+
+### 2.33.5
 
 ### Bug Fixes
 
@@ -898,6 +942,9 @@
   - AWSSQS
   - AWSSNS
   - AWSPolly
+
+- **AWSS3**
+	- Added option to use Content-MD5 for multipart uploads with AWSS3TransferUtility (`useContentMD5` in `AWSS3TransferUtilityMultiPartUploadExpression`)
 
 ## 2.24.1
 

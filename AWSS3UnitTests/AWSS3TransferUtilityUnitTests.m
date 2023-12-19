@@ -221,6 +221,52 @@ static id urlSession = nil;
 }
 
 /**
+ Test the successfull execution of multipart data upload using Content-MD5 for each part upload.
+ **/
+- (void)testMultiPartDataUploadWithContentMD5 {
+    NSString *key = @"testMultiPartDataUpload";
+    NSData *uploadData = [@"1234343454" dataUsingEncoding:NSUTF8StringEncoding];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration forKey:key];
+    AWSS3TransferUtility *transferUtility = [AWSS3TransferUtility S3TransferUtilityForKey:key];
+
+    [awss3client setValue:mockNetworking forKey:@"networking"];
+    [transferUtility setValue:awss3client forKey:@"s3"];
+    [transferUtility setValue:awss3PresignedUrlBuilder forKey:@"preSignedURLBuilder"];
+    [transferUtility setValue:urlSession forKey:@"session"];
+
+    AWSS3CreateMultipartUploadOutput *output = [AWSS3CreateMultipartUploadOutput new];
+    output.uploadId = @"uploadID";
+    AWSTask *createMultipartUploadResultTask = [AWSTask taskWithResult:output];
+    OCMStub([awss3client createMultipartUpload:[OCMArg isKindOfClass:[AWSS3CreateMultipartUploadRequest class]]]).andReturn(createMultipartUploadResultTask);
+
+    NSURL *preSignedURL = [NSURL URLWithString:@"http://asd.com/"];
+    AWSTask *getPreSignedURLResultTask = [AWSTask taskWithResult:preSignedURL];
+    OCMStub([awss3PresignedUrlBuilder getPreSignedURL:[OCMArg isKindOfClass:[AWSS3GetPreSignedURLRequest class]]]).andReturn(getPreSignedURLResultTask);
+
+    MockUploadTask *uploadTask = [[MockUploadTask alloc] init];
+    OCMStub([urlSession uploadTaskWithRequest:[OCMArg isKindOfClass:[NSURLRequest class]]
+                                     fromFile:[OCMArg isKindOfClass:[NSURL class]]]).andReturn(uploadTask);
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    AWSS3TransferUtilityMultiPartUploadExpression *expression = [AWSS3TransferUtilityMultiPartUploadExpression new];
+    expression.useContentMD5 = YES;
+    [[[transferUtility uploadDataUsingMultiPart:uploadData
+                                         bucket:@"unittestBucket"
+                                            key:@"unittestKey.txt"
+                                    contentType:@"text/plain"
+                                     expression:expression
+                              completionHandler:nil]
+      continueWithBlock:^id (AWSTask *task) {
+          XCTAssertNil(task.error);
+          XCTAssertNotNil(task.result);
+          dispatch_semaphore_signal(semaphore);
+          return nil;
+      }] waitUntilFinished];
+    dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    [AWSS3TransferUtility removeS3TransferUtilityForKey:key];
+}
+
+/**
  Test the situation where NSURLSession throws an exception in multipart upload.
  This should return an error back to the caller. One possible scenario of this
  usecase is when temporary file used for upload got deleted by OS.

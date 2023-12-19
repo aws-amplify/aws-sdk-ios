@@ -25,7 +25,7 @@
 #import "AWSElasticLoadBalancingResources.h"
 
 static NSString *const AWSInfoElasticLoadBalancing = @"ElasticLoadBalancing";
-NSString *const AWSElasticLoadBalancingSDKVersion = @"2.33.5";
+NSString *const AWSElasticLoadBalancingSDKVersion = @"2.33.6";
 
 
 @interface AWSElasticLoadBalancingResponseSerializer : AWSXMLResponseSerializer
@@ -42,15 +42,19 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"ALPNPolicyNotFound" : @(AWSElasticLoadBalancingErrorALPNPolicyNotSupported),
                             @"AllocationIdNotFound" : @(AWSElasticLoadBalancingErrorAllocationIdNotFound),
                             @"AvailabilityZoneNotSupported" : @(AWSElasticLoadBalancingErrorAvailabilityZoneNotSupported),
+                            @"CaCertificatesBundleNotFound" : @(AWSElasticLoadBalancingErrorCaCertificatesBundleNotFound),
                             @"CertificateNotFound" : @(AWSElasticLoadBalancingErrorCertificateNotFound),
                             @"DuplicateListener" : @(AWSElasticLoadBalancingErrorDuplicateListener),
                             @"DuplicateLoadBalancerName" : @(AWSElasticLoadBalancingErrorDuplicateLoadBalancerName),
                             @"DuplicateTagKeys" : @(AWSElasticLoadBalancingErrorDuplicateTagKeys),
                             @"DuplicateTargetGroupName" : @(AWSElasticLoadBalancingErrorDuplicateTargetGroupName),
+                            @"DuplicateTrustStoreName" : @(AWSElasticLoadBalancingErrorDuplicateTrustStoreName),
                             @"HealthUnavailable" : @(AWSElasticLoadBalancingErrorHealthUnavailable),
                             @"IncompatibleProtocols" : @(AWSElasticLoadBalancingErrorIncompatibleProtocols),
+                            @"InvalidCaCertificatesBundle" : @(AWSElasticLoadBalancingErrorInvalidCaCertificatesBundle),
                             @"InvalidConfigurationRequest" : @(AWSElasticLoadBalancingErrorInvalidConfigurationRequest),
                             @"InvalidLoadBalancerAction" : @(AWSElasticLoadBalancingErrorInvalidLoadBalancerAction),
+                            @"InvalidRevocationContent" : @(AWSElasticLoadBalancingErrorInvalidRevocationContent),
                             @"InvalidScheme" : @(AWSElasticLoadBalancingErrorInvalidScheme),
                             @"InvalidSecurityGroup" : @(AWSElasticLoadBalancingErrorInvalidSecurityGroup),
                             @"InvalidSubnet" : @(AWSElasticLoadBalancingErrorInvalidSubnet),
@@ -60,6 +64,8 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"OperationNotPermitted" : @(AWSElasticLoadBalancingErrorOperationNotPermitted),
                             @"PriorityInUse" : @(AWSElasticLoadBalancingErrorPriorityInUse),
                             @"ResourceInUse" : @(AWSElasticLoadBalancingErrorResourceInUse),
+                            @"RevocationContentNotFound" : @(AWSElasticLoadBalancingErrorRevocationContentNotFound),
+                            @"RevocationIdNotFound" : @(AWSElasticLoadBalancingErrorRevocationIdNotFound),
                             @"RuleNotFound" : @(AWSElasticLoadBalancingErrorRuleNotFound),
                             @"SSLPolicyNotFound" : @(AWSElasticLoadBalancingErrorSSLPolicyNotFound),
                             @"SubnetNotFound" : @(AWSElasticLoadBalancingErrorSubnetNotFound),
@@ -74,7 +80,12 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"TooManyTags" : @(AWSElasticLoadBalancingErrorTooManyTags),
                             @"TooManyTargetGroups" : @(AWSElasticLoadBalancingErrorTooManyTargetGroups),
                             @"TooManyTargets" : @(AWSElasticLoadBalancingErrorTooManyTargets),
+                            @"TooManyTrustStoreRevocationEntries" : @(AWSElasticLoadBalancingErrorTooManyTrustStoreRevocationEntries),
+                            @"TooManyTrustStores" : @(AWSElasticLoadBalancingErrorTooManyTrustStores),
                             @"TooManyUniqueTargetGroupsPerLoadBalancer" : @(AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer),
+                            @"TrustStoreInUse" : @(AWSElasticLoadBalancingErrorTrustStoreInUse),
+                            @"TrustStoreNotFound" : @(AWSElasticLoadBalancingErrorTrustStoreNotFound),
+                            @"TrustStoreNotReady" : @(AWSElasticLoadBalancingErrorTrustStoreNotReady),
                             @"UnsupportedProtocol" : @(AWSElasticLoadBalancingErrorUnsupportedProtocol),
                             };
 }
@@ -354,6 +365,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSElasticLoadBalancingAddTrustStoreRevocationsOutput *> *)addTrustStoreRevocations:(AWSElasticLoadBalancingAddTrustStoreRevocationsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"AddTrustStoreRevocations"
+                   outputClass:[AWSElasticLoadBalancingAddTrustStoreRevocationsOutput class]];
+}
+
+- (void)addTrustStoreRevocations:(AWSElasticLoadBalancingAddTrustStoreRevocationsInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingAddTrustStoreRevocationsOutput *response, NSError *error))completionHandler {
+    [[self addTrustStoreRevocations:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingAddTrustStoreRevocationsOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingAddTrustStoreRevocationsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSElasticLoadBalancingCreateListenerOutput *> *)createListener:(AWSElasticLoadBalancingCreateListenerInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -446,6 +480,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSElasticLoadBalancingCreateTrustStoreOutput *> *)createTrustStore:(AWSElasticLoadBalancingCreateTrustStoreInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateTrustStore"
+                   outputClass:[AWSElasticLoadBalancingCreateTrustStoreOutput class]];
+}
+
+- (void)createTrustStore:(AWSElasticLoadBalancingCreateTrustStoreInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingCreateTrustStoreOutput *response, NSError *error))completionHandler {
+    [[self createTrustStore:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingCreateTrustStoreOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingCreateTrustStoreOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSElasticLoadBalancingDeleteListenerOutput *> *)deleteListener:(AWSElasticLoadBalancingDeleteListenerInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -528,6 +585,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSElasticLoadBalancingDeleteTargetGroupOutput *response, NSError *error))completionHandler {
     [[self deleteTargetGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDeleteTargetGroupOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingDeleteTargetGroupOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSElasticLoadBalancingDeleteTrustStoreOutput *> *)deleteTrustStore:(AWSElasticLoadBalancingDeleteTrustStoreInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteTrustStore"
+                   outputClass:[AWSElasticLoadBalancingDeleteTrustStoreOutput class]];
+}
+
+- (void)deleteTrustStore:(AWSElasticLoadBalancingDeleteTrustStoreInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingDeleteTrustStoreOutput *response, NSError *error))completionHandler {
+    [[self deleteTrustStore:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDeleteTrustStoreOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingDeleteTrustStoreOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -814,6 +894,121 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSElasticLoadBalancingDescribeTrustStoreAssociationsOutput *> *)describeTrustStoreAssociations:(AWSElasticLoadBalancingDescribeTrustStoreAssociationsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeTrustStoreAssociations"
+                   outputClass:[AWSElasticLoadBalancingDescribeTrustStoreAssociationsOutput class]];
+}
+
+- (void)describeTrustStoreAssociations:(AWSElasticLoadBalancingDescribeTrustStoreAssociationsInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeTrustStoreAssociationsOutput *response, NSError *error))completionHandler {
+    [[self describeTrustStoreAssociations:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeTrustStoreAssociationsOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingDescribeTrustStoreAssociationsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSElasticLoadBalancingDescribeTrustStoreRevocationsOutput *> *)describeTrustStoreRevocations:(AWSElasticLoadBalancingDescribeTrustStoreRevocationsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeTrustStoreRevocations"
+                   outputClass:[AWSElasticLoadBalancingDescribeTrustStoreRevocationsOutput class]];
+}
+
+- (void)describeTrustStoreRevocations:(AWSElasticLoadBalancingDescribeTrustStoreRevocationsInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeTrustStoreRevocationsOutput *response, NSError *error))completionHandler {
+    [[self describeTrustStoreRevocations:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeTrustStoreRevocationsOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingDescribeTrustStoreRevocationsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSElasticLoadBalancingDescribeTrustStoresOutput *> *)describeTrustStores:(AWSElasticLoadBalancingDescribeTrustStoresInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeTrustStores"
+                   outputClass:[AWSElasticLoadBalancingDescribeTrustStoresOutput class]];
+}
+
+- (void)describeTrustStores:(AWSElasticLoadBalancingDescribeTrustStoresInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeTrustStoresOutput *response, NSError *error))completionHandler {
+    [[self describeTrustStores:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeTrustStoresOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingDescribeTrustStoresOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleOutput *> *)getTrustStoreCaCertificatesBundle:(AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetTrustStoreCaCertificatesBundle"
+                   outputClass:[AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleOutput class]];
+}
+
+- (void)getTrustStoreCaCertificatesBundle:(AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleOutput *response, NSError *error))completionHandler {
+    [[self getTrustStoreCaCertificatesBundle:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingGetTrustStoreCaCertificatesBundleOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSElasticLoadBalancingGetTrustStoreRevocationContentOutput *> *)getTrustStoreRevocationContent:(AWSElasticLoadBalancingGetTrustStoreRevocationContentInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetTrustStoreRevocationContent"
+                   outputClass:[AWSElasticLoadBalancingGetTrustStoreRevocationContentOutput class]];
+}
+
+- (void)getTrustStoreRevocationContent:(AWSElasticLoadBalancingGetTrustStoreRevocationContentInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingGetTrustStoreRevocationContentOutput *response, NSError *error))completionHandler {
+    [[self getTrustStoreRevocationContent:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingGetTrustStoreRevocationContentOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingGetTrustStoreRevocationContentOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSElasticLoadBalancingModifyListenerOutput *> *)modifyListener:(AWSElasticLoadBalancingModifyListenerInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -929,6 +1124,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSElasticLoadBalancingModifyTrustStoreOutput *> *)modifyTrustStore:(AWSElasticLoadBalancingModifyTrustStoreInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifyTrustStore"
+                   outputClass:[AWSElasticLoadBalancingModifyTrustStoreOutput class]];
+}
+
+- (void)modifyTrustStore:(AWSElasticLoadBalancingModifyTrustStoreInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingModifyTrustStoreOutput *response, NSError *error))completionHandler {
+    [[self modifyTrustStore:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingModifyTrustStoreOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingModifyTrustStoreOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSElasticLoadBalancingRegisterTargetsOutput *> *)registerTargets:(AWSElasticLoadBalancingRegisterTargetsInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -988,6 +1206,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSElasticLoadBalancingRemoveTagsOutput *response, NSError *error))completionHandler {
     [[self removeTags:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingRemoveTagsOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingRemoveTagsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSElasticLoadBalancingRemoveTrustStoreRevocationsOutput *> *)removeTrustStoreRevocations:(AWSElasticLoadBalancingRemoveTrustStoreRevocationsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"RemoveTrustStoreRevocations"
+                   outputClass:[AWSElasticLoadBalancingRemoveTrustStoreRevocationsOutput class]];
+}
+
+- (void)removeTrustStoreRevocations:(AWSElasticLoadBalancingRemoveTrustStoreRevocationsInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingRemoveTrustStoreRevocationsOutput *response, NSError *error))completionHandler {
+    [[self removeTrustStoreRevocations:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingRemoveTrustStoreRevocationsOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingRemoveTrustStoreRevocationsOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
