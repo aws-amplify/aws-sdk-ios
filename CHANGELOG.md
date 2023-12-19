@@ -4,6 +4,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.33.6
+
 ### New features
 
 - **AWSCognito**
