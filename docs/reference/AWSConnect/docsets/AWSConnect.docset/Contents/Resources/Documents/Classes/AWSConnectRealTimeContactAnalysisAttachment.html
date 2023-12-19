@@ -1,0 +1,2392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSConnectRealTimeContactAnalysisAttachment Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSConnectRealTimeContactAnalysisAttachment" class="dashAnchor"></a>
+    <a title="AWSConnectRealTimeContactAnalysisAttachment Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSConnect 2.33.6 Docs</a> (78% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSConnect.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
+        <div class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSConnect Reference</a>
+        <img id="carat" src="../img/carat.png" alt=""/>
+        AWSConnectRealTimeContactAnalysisAttachment Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnect.html">AWSConnect</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectActionSummary.html">AWSConnectActionSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectActivateEvaluationFormRequest.html">AWSConnectActivateEvaluationFormRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectActivateEvaluationFormResponse.html">AWSConnectActivateEvaluationFormResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAgentConfig.html">AWSConnectAgentConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAgentContactReference.html">AWSConnectAgentContactReference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAgentInfo.html">AWSConnectAgentInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAgentStatus.html">AWSConnectAgentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAgentStatusReference.html">AWSConnectAgentStatusReference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAgentStatusSummary.html">AWSConnectAgentStatusSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAllowedCapabilities.html">AWSConnectAllowedCapabilities</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAnalyticsDataAssociationResult.html">AWSConnectAnalyticsDataAssociationResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAnswerMachineDetectionConfig.html">AWSConnectAnswerMachineDetectionConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectApplication.html">AWSConnectApplication</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectAssignContactCategoryActionDefinition">AWSConnectAssignContactCategoryActionDefinition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAssociateAnalyticsDataSetRequest.html">AWSConnectAssociateAnalyticsDataSetRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAssociateAnalyticsDataSetResponse.html">AWSConnectAssociateAnalyticsDataSetResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAssociateApprovedOriginRequest.html">AWSConnectAssociateApprovedOriginRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAssociateBotRequest.html">AWSConnectAssociateBotRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAssociateDefaultVocabularyRequest.html">AWSConnectAssociateDefaultVocabularyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectAssociateDefaultVocabularyResponse">AWSConnectAssociateDefaultVocabularyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAssociateFlowRequest.html">AWSConnectAssociateFlowRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectAssociateFlowResponse">AWSConnectAssociateFlowResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAssociateInstanceStorageConfigRequest.html">AWSConnectAssociateInstanceStorageConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAssociateInstanceStorageConfigResponse.html">AWSConnectAssociateInstanceStorageConfigResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAssociateLambdaFunctionRequest.html">AWSConnectAssociateLambdaFunctionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAssociateLexBotRequest.html">AWSConnectAssociateLexBotRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAssociatePhoneNumberContactFlowRequest.html">AWSConnectAssociatePhoneNumberContactFlowRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAssociateQueueQuickConnectsRequest.html">AWSConnectAssociateQueueQuickConnectsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAssociateRoutingProfileQueuesRequest.html">AWSConnectAssociateRoutingProfileQueuesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAssociateSecurityKeyRequest.html">AWSConnectAssociateSecurityKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAssociateSecurityKeyResponse.html">AWSConnectAssociateSecurityKeyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAssociateTrafficDistributionGroupUserRequest.html">AWSConnectAssociateTrafficDistributionGroupUserRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectAssociateTrafficDistributionGroupUserResponse">AWSConnectAssociateTrafficDistributionGroupUserResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAttachmentReference.html">AWSConnectAttachmentReference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAttendee.html">AWSConnectAttendee</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAttribute.html">AWSConnectAttribute</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAudioFeatures.html">AWSConnectAudioFeatures</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAvailableNumberSummary.html">AWSConnectAvailableNumberSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectBatchAssociateAnalyticsDataSetRequest.html">AWSConnectBatchAssociateAnalyticsDataSetRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectBatchAssociateAnalyticsDataSetResponse.html">AWSConnectBatchAssociateAnalyticsDataSetResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectBatchDisassociateAnalyticsDataSetRequest.html">AWSConnectBatchDisassociateAnalyticsDataSetRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectBatchDisassociateAnalyticsDataSetResponse.html">AWSConnectBatchDisassociateAnalyticsDataSetResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectBatchGetFlowAssociationRequest.html">AWSConnectBatchGetFlowAssociationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectBatchGetFlowAssociationResponse.html">AWSConnectBatchGetFlowAssociationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectBatchPutContactRequest.html">AWSConnectBatchPutContactRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectBatchPutContactResponse.html">AWSConnectBatchPutContactResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCampaign.html">AWSConnectCampaign</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectChatEvent.html">AWSConnectChatEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectChatMessage.html">AWSConnectChatMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectChatParticipantRoleConfig.html">AWSConnectChatParticipantRoleConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectChatStreamingConfiguration.html">AWSConnectChatStreamingConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectClaimPhoneNumberRequest.html">AWSConnectClaimPhoneNumberRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectClaimPhoneNumberResponse.html">AWSConnectClaimPhoneNumberResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectClaimedPhoneNumberSummary.html">AWSConnectClaimedPhoneNumberSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectConnectionData.html">AWSConnectConnectionData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectContact.html">AWSConnectContact</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectContactDataRequest.html">AWSConnectContactDataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectContactFilter.html">AWSConnectContactFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectContactFlow.html">AWSConnectContactFlow</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectContactFlowModule.html">AWSConnectContactFlowModule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectContactFlowModuleSummary.html">AWSConnectContactFlowModuleSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectContactFlowSummary.html">AWSConnectContactFlowSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectControlPlaneTagFilter.html">AWSConnectControlPlaneTagFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateAgentStatusRequest.html">AWSConnectCreateAgentStatusRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateAgentStatusResponse.html">AWSConnectCreateAgentStatusResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateContactFlowModuleRequest.html">AWSConnectCreateContactFlowModuleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateContactFlowModuleResponse.html">AWSConnectCreateContactFlowModuleResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateContactFlowRequest.html">AWSConnectCreateContactFlowRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateContactFlowResponse.html">AWSConnectCreateContactFlowResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateEvaluationFormRequest.html">AWSConnectCreateEvaluationFormRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateEvaluationFormResponse.html">AWSConnectCreateEvaluationFormResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateHoursOfOperationRequest.html">AWSConnectCreateHoursOfOperationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateHoursOfOperationResponse.html">AWSConnectCreateHoursOfOperationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateInstanceRequest.html">AWSConnectCreateInstanceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateInstanceResponse.html">AWSConnectCreateInstanceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateIntegrationAssociationRequest.html">AWSConnectCreateIntegrationAssociationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateIntegrationAssociationResponse.html">AWSConnectCreateIntegrationAssociationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateParticipantRequest.html">AWSConnectCreateParticipantRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateParticipantResponse.html">AWSConnectCreateParticipantResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreatePersistentContactAssociationRequest.html">AWSConnectCreatePersistentContactAssociationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreatePersistentContactAssociationResponse.html">AWSConnectCreatePersistentContactAssociationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreatePromptRequest.html">AWSConnectCreatePromptRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreatePromptResponse.html">AWSConnectCreatePromptResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateQueueRequest.html">AWSConnectCreateQueueRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateQueueResponse.html">AWSConnectCreateQueueResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateQuickConnectRequest.html">AWSConnectCreateQuickConnectRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateQuickConnectResponse.html">AWSConnectCreateQuickConnectResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateRoutingProfileRequest.html">AWSConnectCreateRoutingProfileRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateRoutingProfileResponse.html">AWSConnectCreateRoutingProfileResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateRuleRequest.html">AWSConnectCreateRuleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateRuleResponse.html">AWSConnectCreateRuleResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateSecurityProfileRequest.html">AWSConnectCreateSecurityProfileRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateSecurityProfileResponse.html">AWSConnectCreateSecurityProfileResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateTaskTemplateRequest.html">AWSConnectCreateTaskTemplateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateTaskTemplateResponse.html">AWSConnectCreateTaskTemplateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateTrafficDistributionGroupRequest.html">AWSConnectCreateTrafficDistributionGroupRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateTrafficDistributionGroupResponse.html">AWSConnectCreateTrafficDistributionGroupResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateUseCaseRequest.html">AWSConnectCreateUseCaseRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateUseCaseResponse.html">AWSConnectCreateUseCaseResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateUserHierarchyGroupRequest.html">AWSConnectCreateUserHierarchyGroupRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateUserHierarchyGroupResponse.html">AWSConnectCreateUserHierarchyGroupResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateUserRequest.html">AWSConnectCreateUserRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateUserResponse.html">AWSConnectCreateUserResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateViewRequest.html">AWSConnectCreateViewRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateViewResponse.html">AWSConnectCreateViewResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateViewVersionRequest.html">AWSConnectCreateViewVersionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateViewVersionResponse.html">AWSConnectCreateViewVersionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateVocabularyRequest.html">AWSConnectCreateVocabularyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCreateVocabularyResponse.html">AWSConnectCreateVocabularyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCredentials.html">AWSConnectCredentials</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCrossChannelBehavior.html">AWSConnectCrossChannelBehavior</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCurrentMetric.html">AWSConnectCurrentMetric</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCurrentMetricData.html">AWSConnectCurrentMetricData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCurrentMetricResult.html">AWSConnectCurrentMetricResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCurrentMetricSortCriteria.html">AWSConnectCurrentMetricSortCriteria</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDateReference.html">AWSConnectDateReference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeactivateEvaluationFormRequest.html">AWSConnectDeactivateEvaluationFormRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeactivateEvaluationFormResponse.html">AWSConnectDeactivateEvaluationFormResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDefaultVocabulary.html">AWSConnectDefaultVocabulary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeleteContactEvaluationRequest.html">AWSConnectDeleteContactEvaluationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeleteContactFlowModuleRequest.html">AWSConnectDeleteContactFlowModuleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectDeleteContactFlowModuleResponse">AWSConnectDeleteContactFlowModuleResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeleteContactFlowRequest.html">AWSConnectDeleteContactFlowRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectDeleteContactFlowResponse">AWSConnectDeleteContactFlowResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeleteEvaluationFormRequest.html">AWSConnectDeleteEvaluationFormRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeleteHoursOfOperationRequest.html">AWSConnectDeleteHoursOfOperationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeleteInstanceRequest.html">AWSConnectDeleteInstanceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeleteIntegrationAssociationRequest.html">AWSConnectDeleteIntegrationAssociationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeletePromptRequest.html">AWSConnectDeletePromptRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeleteQueueRequest.html">AWSConnectDeleteQueueRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeleteQuickConnectRequest.html">AWSConnectDeleteQuickConnectRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeleteRoutingProfileRequest.html">AWSConnectDeleteRoutingProfileRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeleteRuleRequest.html">AWSConnectDeleteRuleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeleteSecurityProfileRequest.html">AWSConnectDeleteSecurityProfileRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeleteTaskTemplateRequest.html">AWSConnectDeleteTaskTemplateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectDeleteTaskTemplateResponse">AWSConnectDeleteTaskTemplateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeleteTrafficDistributionGroupRequest.html">AWSConnectDeleteTrafficDistributionGroupRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectDeleteTrafficDistributionGroupResponse">AWSConnectDeleteTrafficDistributionGroupResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeleteUseCaseRequest.html">AWSConnectDeleteUseCaseRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeleteUserHierarchyGroupRequest.html">AWSConnectDeleteUserHierarchyGroupRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeleteUserRequest.html">AWSConnectDeleteUserRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeleteViewRequest.html">AWSConnectDeleteViewRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectDeleteViewResponse">AWSConnectDeleteViewResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeleteViewVersionRequest.html">AWSConnectDeleteViewVersionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectDeleteViewVersionResponse">AWSConnectDeleteViewVersionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeleteVocabularyRequest.html">AWSConnectDeleteVocabularyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDeleteVocabularyResponse.html">AWSConnectDeleteVocabularyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeAgentStatusRequest.html">AWSConnectDescribeAgentStatusRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeAgentStatusResponse.html">AWSConnectDescribeAgentStatusResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeContactEvaluationRequest.html">AWSConnectDescribeContactEvaluationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeContactEvaluationResponse.html">AWSConnectDescribeContactEvaluationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeContactFlowModuleRequest.html">AWSConnectDescribeContactFlowModuleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeContactFlowModuleResponse.html">AWSConnectDescribeContactFlowModuleResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeContactFlowRequest.html">AWSConnectDescribeContactFlowRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeContactFlowResponse.html">AWSConnectDescribeContactFlowResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeContactRequest.html">AWSConnectDescribeContactRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeContactResponse.html">AWSConnectDescribeContactResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeEvaluationFormRequest.html">AWSConnectDescribeEvaluationFormRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeEvaluationFormResponse.html">AWSConnectDescribeEvaluationFormResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeHoursOfOperationRequest.html">AWSConnectDescribeHoursOfOperationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeHoursOfOperationResponse.html">AWSConnectDescribeHoursOfOperationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeInstanceAttributeRequest.html">AWSConnectDescribeInstanceAttributeRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeInstanceAttributeResponse.html">AWSConnectDescribeInstanceAttributeResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeInstanceRequest.html">AWSConnectDescribeInstanceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeInstanceResponse.html">AWSConnectDescribeInstanceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeInstanceStorageConfigRequest.html">AWSConnectDescribeInstanceStorageConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeInstanceStorageConfigResponse.html">AWSConnectDescribeInstanceStorageConfigResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribePhoneNumberRequest.html">AWSConnectDescribePhoneNumberRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribePhoneNumberResponse.html">AWSConnectDescribePhoneNumberResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribePromptRequest.html">AWSConnectDescribePromptRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribePromptResponse.html">AWSConnectDescribePromptResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeQueueRequest.html">AWSConnectDescribeQueueRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeQueueResponse.html">AWSConnectDescribeQueueResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeQuickConnectRequest.html">AWSConnectDescribeQuickConnectRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeQuickConnectResponse.html">AWSConnectDescribeQuickConnectResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeRoutingProfileRequest.html">AWSConnectDescribeRoutingProfileRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeRoutingProfileResponse.html">AWSConnectDescribeRoutingProfileResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeRuleRequest.html">AWSConnectDescribeRuleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeRuleResponse.html">AWSConnectDescribeRuleResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeSecurityProfileRequest.html">AWSConnectDescribeSecurityProfileRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeSecurityProfileResponse.html">AWSConnectDescribeSecurityProfileResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeTrafficDistributionGroupRequest.html">AWSConnectDescribeTrafficDistributionGroupRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeTrafficDistributionGroupResponse.html">AWSConnectDescribeTrafficDistributionGroupResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeUserHierarchyGroupRequest.html">AWSConnectDescribeUserHierarchyGroupRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeUserHierarchyGroupResponse.html">AWSConnectDescribeUserHierarchyGroupResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeUserHierarchyStructureRequest.html">AWSConnectDescribeUserHierarchyStructureRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeUserHierarchyStructureResponse.html">AWSConnectDescribeUserHierarchyStructureResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeUserRequest.html">AWSConnectDescribeUserRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeUserResponse.html">AWSConnectDescribeUserResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeViewRequest.html">AWSConnectDescribeViewRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeViewResponse.html">AWSConnectDescribeViewResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeVocabularyRequest.html">AWSConnectDescribeVocabularyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDescribeVocabularyResponse.html">AWSConnectDescribeVocabularyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDimensions.html">AWSConnectDimensions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDisassociateAnalyticsDataSetRequest.html">AWSConnectDisassociateAnalyticsDataSetRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDisassociateApprovedOriginRequest.html">AWSConnectDisassociateApprovedOriginRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDisassociateBotRequest.html">AWSConnectDisassociateBotRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDisassociateFlowRequest.html">AWSConnectDisassociateFlowRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectDisassociateFlowResponse">AWSConnectDisassociateFlowResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDisassociateInstanceStorageConfigRequest.html">AWSConnectDisassociateInstanceStorageConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDisassociateLambdaFunctionRequest.html">AWSConnectDisassociateLambdaFunctionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDisassociateLexBotRequest.html">AWSConnectDisassociateLexBotRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDisassociatePhoneNumberContactFlowRequest.html">AWSConnectDisassociatePhoneNumberContactFlowRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDisassociateQueueQuickConnectsRequest.html">AWSConnectDisassociateQueueQuickConnectsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDisassociateRoutingProfileQueuesRequest.html">AWSConnectDisassociateRoutingProfileQueuesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDisassociateSecurityKeyRequest.html">AWSConnectDisassociateSecurityKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDisassociateTrafficDistributionGroupUserRequest.html">AWSConnectDisassociateTrafficDistributionGroupUserRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectDisassociateTrafficDistributionGroupUserResponse">AWSConnectDisassociateTrafficDistributionGroupUserResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDisconnectReason.html">AWSConnectDisconnectReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDismissUserContactRequest.html">AWSConnectDismissUserContactRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectDismissUserContactResponse">AWSConnectDismissUserContactResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDistribution.html">AWSConnectDistribution</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEmailReference.html">AWSConnectEmailReference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEncryptionConfig.html">AWSConnectEncryptionConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEndpoint.html">AWSConnectEndpoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectErrorResult.html">AWSConnectErrorResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluation.html">AWSConnectEvaluation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationAnswerData.html">AWSConnectEvaluationAnswerData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationAnswerInput.html">AWSConnectEvaluationAnswerInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationAnswerOutput.html">AWSConnectEvaluationAnswerOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationForm.html">AWSConnectEvaluationForm</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationFormContent.html">AWSConnectEvaluationFormContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationFormItem.html">AWSConnectEvaluationFormItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationFormNumericQuestionAutomation.html">AWSConnectEvaluationFormNumericQuestionAutomation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationFormNumericQuestionOption.html">AWSConnectEvaluationFormNumericQuestionOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationFormNumericQuestionProperties.html">AWSConnectEvaluationFormNumericQuestionProperties</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationFormQuestion.html">AWSConnectEvaluationFormQuestion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationFormQuestionTypeProperties.html">AWSConnectEvaluationFormQuestionTypeProperties</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationFormScoringStrategy.html">AWSConnectEvaluationFormScoringStrategy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationFormSection.html">AWSConnectEvaluationFormSection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationFormSingleSelectQuestionAutomation.html">AWSConnectEvaluationFormSingleSelectQuestionAutomation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationFormSingleSelectQuestionAutomationOption.html">AWSConnectEvaluationFormSingleSelectQuestionAutomationOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationFormSingleSelectQuestionOption.html">AWSConnectEvaluationFormSingleSelectQuestionOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationFormSingleSelectQuestionProperties.html">AWSConnectEvaluationFormSingleSelectQuestionProperties</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationFormSummary.html">AWSConnectEvaluationFormSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationFormVersionSummary.html">AWSConnectEvaluationFormVersionSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationMetadata.html">AWSConnectEvaluationMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationNote.html">AWSConnectEvaluationNote</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationScore.html">AWSConnectEvaluationScore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEvaluationSummary.html">AWSConnectEvaluationSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectEventBridgeActionDefinition.html">AWSConnectEventBridgeActionDefinition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectFailedRequest.html">AWSConnectFailedRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectFilterV2.html">AWSConnectFilterV2</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectFilters.html">AWSConnectFilters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectFlowAssociationSummary.html">AWSConnectFlowAssociationSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectGetContactAttributesRequest.html">AWSConnectGetContactAttributesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectGetContactAttributesResponse.html">AWSConnectGetContactAttributesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectGetCurrentMetricDataRequest.html">AWSConnectGetCurrentMetricDataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectGetCurrentMetricDataResponse.html">AWSConnectGetCurrentMetricDataResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectGetCurrentUserDataRequest.html">AWSConnectGetCurrentUserDataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectGetCurrentUserDataResponse.html">AWSConnectGetCurrentUserDataResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectGetFederationTokenRequest.html">AWSConnectGetFederationTokenRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectGetFederationTokenResponse.html">AWSConnectGetFederationTokenResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectGetFlowAssociationRequest.html">AWSConnectGetFlowAssociationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectGetFlowAssociationResponse.html">AWSConnectGetFlowAssociationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectGetMetricDataRequest.html">AWSConnectGetMetricDataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectGetMetricDataResponse.html">AWSConnectGetMetricDataResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectGetMetricDataV2Request.html">AWSConnectGetMetricDataV2Request</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectGetMetricDataV2Response.html">AWSConnectGetMetricDataV2Response</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectGetPromptFileRequest.html">AWSConnectGetPromptFileRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectGetPromptFileResponse.html">AWSConnectGetPromptFileResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectGetTaskTemplateRequest.html">AWSConnectGetTaskTemplateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectGetTaskTemplateResponse.html">AWSConnectGetTaskTemplateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectGetTrafficDistributionRequest.html">AWSConnectGetTrafficDistributionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectGetTrafficDistributionResponse.html">AWSConnectGetTrafficDistributionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectHierarchyGroup.html">AWSConnectHierarchyGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectHierarchyGroupCondition.html">AWSConnectHierarchyGroupCondition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectHierarchyGroupSummary.html">AWSConnectHierarchyGroupSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectHierarchyGroupSummaryReference.html">AWSConnectHierarchyGroupSummaryReference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectHierarchyLevel.html">AWSConnectHierarchyLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectHierarchyLevelUpdate.html">AWSConnectHierarchyLevelUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectHierarchyPath.html">AWSConnectHierarchyPath</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectHierarchyPathReference.html">AWSConnectHierarchyPathReference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectHierarchyStructure.html">AWSConnectHierarchyStructure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectHierarchyStructureUpdate.html">AWSConnectHierarchyStructureUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectHistoricalMetric.html">AWSConnectHistoricalMetric</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectHistoricalMetricData.html">AWSConnectHistoricalMetricData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectHistoricalMetricResult.html">AWSConnectHistoricalMetricResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectHoursOfOperation.html">AWSConnectHoursOfOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectHoursOfOperationConfig.html">AWSConnectHoursOfOperationConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectHoursOfOperationSearchCriteria.html">AWSConnectHoursOfOperationSearchCriteria</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectHoursOfOperationSearchFilter.html">AWSConnectHoursOfOperationSearchFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectHoursOfOperationSummary.html">AWSConnectHoursOfOperationSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectHoursOfOperationTimeSlice.html">AWSConnectHoursOfOperationTimeSlice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectImportPhoneNumberRequest.html">AWSConnectImportPhoneNumberRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectImportPhoneNumberResponse.html">AWSConnectImportPhoneNumberResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectInstance.html">AWSConnectInstance</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectInstanceStatusReason.html">AWSConnectInstanceStatusReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectInstanceStorageConfig.html">AWSConnectInstanceStorageConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectInstanceSummary.html">AWSConnectInstanceSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectIntegrationAssociationSummary.html">AWSConnectIntegrationAssociationSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectIntervalDetails.html">AWSConnectIntervalDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectInvisibleFieldInfo.html">AWSConnectInvisibleFieldInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectKinesisFirehoseConfig.html">AWSConnectKinesisFirehoseConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectKinesisStreamConfig.html">AWSConnectKinesisStreamConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectKinesisVideoStreamConfig.html">AWSConnectKinesisVideoStreamConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectLatestSessionDetails.html">AWSConnectLatestSessionDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectLexBot.html">AWSConnectLexBot</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectLexBotConfig.html">AWSConnectLexBotConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectLexV2Bot.html">AWSConnectLexV2Bot</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListAgentStatusRequest.html">AWSConnectListAgentStatusRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListAgentStatusResponse.html">AWSConnectListAgentStatusResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListAnalyticsDataAssociationsRequest.html">AWSConnectListAnalyticsDataAssociationsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListAnalyticsDataAssociationsResponse.html">AWSConnectListAnalyticsDataAssociationsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListApprovedOriginsRequest.html">AWSConnectListApprovedOriginsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListApprovedOriginsResponse.html">AWSConnectListApprovedOriginsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListBotsRequest.html">AWSConnectListBotsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListBotsResponse.html">AWSConnectListBotsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListContactEvaluationsRequest.html">AWSConnectListContactEvaluationsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListContactEvaluationsResponse.html">AWSConnectListContactEvaluationsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListContactFlowModulesRequest.html">AWSConnectListContactFlowModulesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListContactFlowModulesResponse.html">AWSConnectListContactFlowModulesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListContactFlowsRequest.html">AWSConnectListContactFlowsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListContactFlowsResponse.html">AWSConnectListContactFlowsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListContactReferencesRequest.html">AWSConnectListContactReferencesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListContactReferencesResponse.html">AWSConnectListContactReferencesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListDefaultVocabulariesRequest.html">AWSConnectListDefaultVocabulariesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListDefaultVocabulariesResponse.html">AWSConnectListDefaultVocabulariesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListEvaluationFormVersionsRequest.html">AWSConnectListEvaluationFormVersionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListEvaluationFormVersionsResponse.html">AWSConnectListEvaluationFormVersionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListEvaluationFormsRequest.html">AWSConnectListEvaluationFormsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListEvaluationFormsResponse.html">AWSConnectListEvaluationFormsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListFlowAssociationsRequest.html">AWSConnectListFlowAssociationsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListFlowAssociationsResponse.html">AWSConnectListFlowAssociationsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListHoursOfOperationsRequest.html">AWSConnectListHoursOfOperationsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListHoursOfOperationsResponse.html">AWSConnectListHoursOfOperationsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListInstanceAttributesRequest.html">AWSConnectListInstanceAttributesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListInstanceAttributesResponse.html">AWSConnectListInstanceAttributesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListInstanceStorageConfigsRequest.html">AWSConnectListInstanceStorageConfigsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListInstanceStorageConfigsResponse.html">AWSConnectListInstanceStorageConfigsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListInstancesRequest.html">AWSConnectListInstancesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListInstancesResponse.html">AWSConnectListInstancesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListIntegrationAssociationsRequest.html">AWSConnectListIntegrationAssociationsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListIntegrationAssociationsResponse.html">AWSConnectListIntegrationAssociationsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListLambdaFunctionsRequest.html">AWSConnectListLambdaFunctionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListLambdaFunctionsResponse.html">AWSConnectListLambdaFunctionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListLexBotsRequest.html">AWSConnectListLexBotsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListLexBotsResponse.html">AWSConnectListLexBotsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListPhoneNumbersRequest.html">AWSConnectListPhoneNumbersRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListPhoneNumbersResponse.html">AWSConnectListPhoneNumbersResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListPhoneNumbersSummary.html">AWSConnectListPhoneNumbersSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListPhoneNumbersV2Request.html">AWSConnectListPhoneNumbersV2Request</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListPhoneNumbersV2Response.html">AWSConnectListPhoneNumbersV2Response</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListPromptsRequest.html">AWSConnectListPromptsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListPromptsResponse.html">AWSConnectListPromptsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListQueueQuickConnectsRequest.html">AWSConnectListQueueQuickConnectsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListQueueQuickConnectsResponse.html">AWSConnectListQueueQuickConnectsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListQueuesRequest.html">AWSConnectListQueuesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListQueuesResponse.html">AWSConnectListQueuesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListQuickConnectsRequest.html">AWSConnectListQuickConnectsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListQuickConnectsResponse.html">AWSConnectListQuickConnectsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListRealtimeContactAnalysisSegmentsV2Request.html">AWSConnectListRealtimeContactAnalysisSegmentsV2Request</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListRealtimeContactAnalysisSegmentsV2Response.html">AWSConnectListRealtimeContactAnalysisSegmentsV2Response</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListRoutingProfileQueuesRequest.html">AWSConnectListRoutingProfileQueuesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListRoutingProfileQueuesResponse.html">AWSConnectListRoutingProfileQueuesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListRoutingProfilesRequest.html">AWSConnectListRoutingProfilesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListRoutingProfilesResponse.html">AWSConnectListRoutingProfilesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListRulesRequest.html">AWSConnectListRulesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListRulesResponse.html">AWSConnectListRulesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListSecurityKeysRequest.html">AWSConnectListSecurityKeysRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListSecurityKeysResponse.html">AWSConnectListSecurityKeysResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListSecurityProfileApplicationsRequest.html">AWSConnectListSecurityProfileApplicationsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListSecurityProfileApplicationsResponse.html">AWSConnectListSecurityProfileApplicationsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListSecurityProfilePermissionsRequest.html">AWSConnectListSecurityProfilePermissionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListSecurityProfilePermissionsResponse.html">AWSConnectListSecurityProfilePermissionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListSecurityProfilesRequest.html">AWSConnectListSecurityProfilesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListSecurityProfilesResponse.html">AWSConnectListSecurityProfilesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListTagsForResourceRequest.html">AWSConnectListTagsForResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListTagsForResourceResponse.html">AWSConnectListTagsForResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListTaskTemplatesRequest.html">AWSConnectListTaskTemplatesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListTaskTemplatesResponse.html">AWSConnectListTaskTemplatesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListTrafficDistributionGroupUsersRequest.html">AWSConnectListTrafficDistributionGroupUsersRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListTrafficDistributionGroupUsersResponse.html">AWSConnectListTrafficDistributionGroupUsersResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListTrafficDistributionGroupsRequest.html">AWSConnectListTrafficDistributionGroupsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListTrafficDistributionGroupsResponse.html">AWSConnectListTrafficDistributionGroupsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListUseCasesRequest.html">AWSConnectListUseCasesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListUseCasesResponse.html">AWSConnectListUseCasesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListUserHierarchyGroupsRequest.html">AWSConnectListUserHierarchyGroupsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListUserHierarchyGroupsResponse.html">AWSConnectListUserHierarchyGroupsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListUsersRequest.html">AWSConnectListUsersRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListUsersResponse.html">AWSConnectListUsersResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListViewVersionsRequest.html">AWSConnectListViewVersionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListViewVersionsResponse.html">AWSConnectListViewVersionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListViewsRequest.html">AWSConnectListViewsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListViewsResponse.html">AWSConnectListViewsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectMediaConcurrency.html">AWSConnectMediaConcurrency</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectMediaPlacement.html">AWSConnectMediaPlacement</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectMeeting.html">AWSConnectMeeting</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectMeetingFeaturesConfiguration.html">AWSConnectMeetingFeaturesConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectMetricDataV2.html">AWSConnectMetricDataV2</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectMetricFilterV2.html">AWSConnectMetricFilterV2</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectMetricInterval.html">AWSConnectMetricInterval</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectMetricResultV2.html">AWSConnectMetricResultV2</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectMetricV2.html">AWSConnectMetricV2</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectMonitorContactRequest.html">AWSConnectMonitorContactRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectMonitorContactResponse.html">AWSConnectMonitorContactResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectNotificationRecipientType.html">AWSConnectNotificationRecipientType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectNumberReference.html">AWSConnectNumberReference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectNumericQuestionPropertyValueAutomation.html">AWSConnectNumericQuestionPropertyValueAutomation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectOutboundCallerConfig.html">AWSConnectOutboundCallerConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantCapabilities.html">AWSConnectParticipantCapabilities</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantDetails.html">AWSConnectParticipantDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantDetailsToAdd.html">AWSConnectParticipantDetailsToAdd</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantTimerConfiguration.html">AWSConnectParticipantTimerConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantTimerValue.html">AWSConnectParticipantTimerValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantTokenCredentials.html">AWSConnectParticipantTokenCredentials</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectPersistentChat.html">AWSConnectPersistentChat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectPhoneNumberQuickConnectConfig.html">AWSConnectPhoneNumberQuickConnectConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectPhoneNumberStatus.html">AWSConnectPhoneNumberStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectPhoneNumberSummary.html">AWSConnectPhoneNumberSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectProblemDetail.html">AWSConnectProblemDetail</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectPrompt.html">AWSConnectPrompt</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectPromptSearchCriteria.html">AWSConnectPromptSearchCriteria</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectPromptSearchFilter.html">AWSConnectPromptSearchFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectPromptSummary.html">AWSConnectPromptSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectPropertyValidationExceptionProperty.html">AWSConnectPropertyValidationExceptionProperty</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectPutUserStatusRequest.html">AWSConnectPutUserStatusRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectPutUserStatusResponse">AWSConnectPutUserStatusResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectQueue.html">AWSConnectQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectQueueInfo.html">AWSConnectQueueInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectQueueQuickConnectConfig.html">AWSConnectQueueQuickConnectConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectQueueReference.html">AWSConnectQueueReference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectQueueSearchCriteria.html">AWSConnectQueueSearchCriteria</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectQueueSearchFilter.html">AWSConnectQueueSearchFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectQueueSummary.html">AWSConnectQueueSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectQuickConnect.html">AWSConnectQuickConnect</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectQuickConnectConfig.html">AWSConnectQuickConnectConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectQuickConnectSearchCriteria.html">AWSConnectQuickConnectSearchCriteria</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectQuickConnectSearchFilter.html">AWSConnectQuickConnectSearchFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectQuickConnectSummary.html">AWSConnectQuickConnectSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectReadOnlyFieldInfo.html">AWSConnectReadOnlyFieldInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRealTimeContactAnalysisAttachment.html">AWSConnectRealTimeContactAnalysisAttachment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRealTimeContactAnalysisCategoryDetails.html">AWSConnectRealTimeContactAnalysisCategoryDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRealTimeContactAnalysisCharacterInterval.html">AWSConnectRealTimeContactAnalysisCharacterInterval</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRealTimeContactAnalysisIssueDetected.html">AWSConnectRealTimeContactAnalysisIssueDetected</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRealTimeContactAnalysisPointOfInterest.html">AWSConnectRealTimeContactAnalysisPointOfInterest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRealTimeContactAnalysisSegmentAttachments.html">AWSConnectRealTimeContactAnalysisSegmentAttachments</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRealTimeContactAnalysisSegmentCategories.html">AWSConnectRealTimeContactAnalysisSegmentCategories</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRealTimeContactAnalysisSegmentEvent.html">AWSConnectRealTimeContactAnalysisSegmentEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRealTimeContactAnalysisSegmentIssues.html">AWSConnectRealTimeContactAnalysisSegmentIssues</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRealTimeContactAnalysisSegmentTranscript.html">AWSConnectRealTimeContactAnalysisSegmentTranscript</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRealTimeContactAnalysisTimeData.html">AWSConnectRealTimeContactAnalysisTimeData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRealTimeContactAnalysisTranscriptItemRedaction.html">AWSConnectRealTimeContactAnalysisTranscriptItemRedaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRealTimeContactAnalysisTranscriptItemWithCharacterOffsets.html">AWSConnectRealTimeContactAnalysisTranscriptItemWithCharacterOffsets</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRealTimeContactAnalysisTranscriptItemWithContent.html">AWSConnectRealTimeContactAnalysisTranscriptItemWithContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRealtimeContactAnalysisSegment.html">AWSConnectRealtimeContactAnalysisSegment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectReference.html">AWSConnectReference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectReferenceSummary.html">AWSConnectReferenceSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectReleasePhoneNumberRequest.html">AWSConnectReleasePhoneNumberRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectReplicateInstanceRequest.html">AWSConnectReplicateInstanceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectReplicateInstanceResponse.html">AWSConnectReplicateInstanceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRequiredFieldInfo.html">AWSConnectRequiredFieldInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectResourceTagsSearchCriteria.html">AWSConnectResourceTagsSearchCriteria</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectResources.html">AWSConnectResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectResumeContactRecordingRequest.html">AWSConnectResumeContactRecordingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectResumeContactRecordingResponse">AWSConnectResumeContactRecordingResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRoutingProfile.html">AWSConnectRoutingProfile</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRoutingProfileQueueConfig.html">AWSConnectRoutingProfileQueueConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRoutingProfileQueueConfigSummary.html">AWSConnectRoutingProfileQueueConfigSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRoutingProfileQueueReference.html">AWSConnectRoutingProfileQueueReference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRoutingProfileReference.html">AWSConnectRoutingProfileReference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRoutingProfileSearchCriteria.html">AWSConnectRoutingProfileSearchCriteria</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRoutingProfileSearchFilter.html">AWSConnectRoutingProfileSearchFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRoutingProfileSummary.html">AWSConnectRoutingProfileSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRule.html">AWSConnectRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRuleAction.html">AWSConnectRuleAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRuleSummary.html">AWSConnectRuleSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRuleTriggerEventSource.html">AWSConnectRuleTriggerEventSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectS3Config.html">AWSConnectS3Config</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchAvailablePhoneNumbersRequest.html">AWSConnectSearchAvailablePhoneNumbersRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchAvailablePhoneNumbersResponse.html">AWSConnectSearchAvailablePhoneNumbersResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchHoursOfOperationsRequest.html">AWSConnectSearchHoursOfOperationsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchHoursOfOperationsResponse.html">AWSConnectSearchHoursOfOperationsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchPromptsRequest.html">AWSConnectSearchPromptsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchPromptsResponse.html">AWSConnectSearchPromptsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchQueuesRequest.html">AWSConnectSearchQueuesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchQueuesResponse.html">AWSConnectSearchQueuesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchQuickConnectsRequest.html">AWSConnectSearchQuickConnectsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchQuickConnectsResponse.html">AWSConnectSearchQuickConnectsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchResourceTagsRequest.html">AWSConnectSearchResourceTagsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchResourceTagsResponse.html">AWSConnectSearchResourceTagsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchRoutingProfilesRequest.html">AWSConnectSearchRoutingProfilesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchRoutingProfilesResponse.html">AWSConnectSearchRoutingProfilesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchSecurityProfilesRequest.html">AWSConnectSearchSecurityProfilesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchSecurityProfilesResponse.html">AWSConnectSearchSecurityProfilesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchUsersRequest.html">AWSConnectSearchUsersRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchUsersResponse.html">AWSConnectSearchUsersResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchVocabulariesRequest.html">AWSConnectSearchVocabulariesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchVocabulariesResponse.html">AWSConnectSearchVocabulariesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSecurityKey.html">AWSConnectSecurityKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSecurityProfile.html">AWSConnectSecurityProfile</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSecurityProfileSearchCriteria.html">AWSConnectSecurityProfileSearchCriteria</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSecurityProfileSearchSummary.html">AWSConnectSecurityProfileSearchSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSecurityProfileSummary.html">AWSConnectSecurityProfileSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSecurityProfilesSearchFilter.html">AWSConnectSecurityProfilesSearchFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSegmentAttributeValue.html">AWSConnectSegmentAttributeValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSendChatIntegrationEventRequest.html">AWSConnectSendChatIntegrationEventRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSendChatIntegrationEventResponse.html">AWSConnectSendChatIntegrationEventResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSendNotificationActionDefinition.html">AWSConnectSendNotificationActionDefinition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSignInConfig.html">AWSConnectSignInConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSignInDistribution.html">AWSConnectSignInDistribution</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSingleSelectQuestionRuleCategoryAutomation.html">AWSConnectSingleSelectQuestionRuleCategoryAutomation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectStartChatContactRequest.html">AWSConnectStartChatContactRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectStartChatContactResponse.html">AWSConnectStartChatContactResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectStartContactEvaluationRequest.html">AWSConnectStartContactEvaluationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectStartContactEvaluationResponse.html">AWSConnectStartContactEvaluationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectStartContactRecordingRequest.html">AWSConnectStartContactRecordingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectStartContactRecordingResponse">AWSConnectStartContactRecordingResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectStartContactStreamingRequest.html">AWSConnectStartContactStreamingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectStartContactStreamingResponse.html">AWSConnectStartContactStreamingResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectStartOutboundVoiceContactRequest.html">AWSConnectStartOutboundVoiceContactRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectStartOutboundVoiceContactResponse.html">AWSConnectStartOutboundVoiceContactResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectStartTaskContactRequest.html">AWSConnectStartTaskContactRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectStartTaskContactResponse.html">AWSConnectStartTaskContactResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectStartWebRTCContactRequest.html">AWSConnectStartWebRTCContactRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectStartWebRTCContactResponse.html">AWSConnectStartWebRTCContactResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectStopContactRecordingRequest.html">AWSConnectStopContactRecordingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectStopContactRecordingResponse">AWSConnectStopContactRecordingResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectStopContactRequest.html">AWSConnectStopContactRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectStopContactResponse">AWSConnectStopContactResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectStopContactStreamingRequest.html">AWSConnectStopContactStreamingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectStopContactStreamingResponse">AWSConnectStopContactStreamingResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectStringCondition.html">AWSConnectStringCondition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectStringReference.html">AWSConnectStringReference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSubmitContactEvaluationRequest.html">AWSConnectSubmitContactEvaluationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSubmitContactEvaluationResponse.html">AWSConnectSubmitContactEvaluationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSuccessfulRequest.html">AWSConnectSuccessfulRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSuspendContactRecordingRequest.html">AWSConnectSuspendContactRecordingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectSuspendContactRecordingResponse">AWSConnectSuspendContactRecordingResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectTagCondition.html">AWSConnectTagCondition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectTagResourceRequest.html">AWSConnectTagResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectTagSearchCondition.html">AWSConnectTagSearchCondition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectTagSet.html">AWSConnectTagSet</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectTaskActionDefinition.html">AWSConnectTaskActionDefinition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectTaskTemplateConstraints.html">AWSConnectTaskTemplateConstraints</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectTaskTemplateDefaultFieldValue.html">AWSConnectTaskTemplateDefaultFieldValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectTaskTemplateDefaults.html">AWSConnectTaskTemplateDefaults</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectTaskTemplateField.html">AWSConnectTaskTemplateField</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectTaskTemplateFieldIdentifier.html">AWSConnectTaskTemplateFieldIdentifier</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectTaskTemplateMetadata.html">AWSConnectTaskTemplateMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectTelephonyConfig.html">AWSConnectTelephonyConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectThreshold.html">AWSConnectThreshold</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectThresholdV2.html">AWSConnectThresholdV2</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectTrafficDistributionGroup.html">AWSConnectTrafficDistributionGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectTrafficDistributionGroupSummary.html">AWSConnectTrafficDistributionGroupSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectTrafficDistributionGroupUserSummary.html">AWSConnectTrafficDistributionGroupUserSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectTransferContactRequest.html">AWSConnectTransferContactRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectTransferContactResponse.html">AWSConnectTransferContactResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUntagResourceRequest.html">AWSConnectUntagResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateAgentStatusRequest.html">AWSConnectUpdateAgentStatusRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateContactAttributesRequest.html">AWSConnectUpdateContactAttributesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactAttributesResponse">AWSConnectUpdateContactAttributesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateContactEvaluationRequest.html">AWSConnectUpdateContactEvaluationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateContactEvaluationResponse.html">AWSConnectUpdateContactEvaluationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateContactFlowContentRequest.html">AWSConnectUpdateContactFlowContentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowContentResponse">AWSConnectUpdateContactFlowContentResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateContactFlowMetadataRequest.html">AWSConnectUpdateContactFlowMetadataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowMetadataResponse">AWSConnectUpdateContactFlowMetadataResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateContactFlowModuleContentRequest.html">AWSConnectUpdateContactFlowModuleContentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowModuleContentResponse">AWSConnectUpdateContactFlowModuleContentResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateContactFlowModuleMetadataRequest.html">AWSConnectUpdateContactFlowModuleMetadataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowModuleMetadataResponse">AWSConnectUpdateContactFlowModuleMetadataResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateContactFlowNameRequest.html">AWSConnectUpdateContactFlowNameRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowNameResponse">AWSConnectUpdateContactFlowNameResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateContactRequest.html">AWSConnectUpdateContactRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactResponse">AWSConnectUpdateContactResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateContactScheduleRequest.html">AWSConnectUpdateContactScheduleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactScheduleResponse">AWSConnectUpdateContactScheduleResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateEvaluationFormRequest.html">AWSConnectUpdateEvaluationFormRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateEvaluationFormResponse.html">AWSConnectUpdateEvaluationFormResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateHoursOfOperationRequest.html">AWSConnectUpdateHoursOfOperationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateInstanceAttributeRequest.html">AWSConnectUpdateInstanceAttributeRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateInstanceStorageConfigRequest.html">AWSConnectUpdateInstanceStorageConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateParticipantRoleConfigChannelInfo.html">AWSConnectUpdateParticipantRoleConfigChannelInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateParticipantRoleConfigRequest.html">AWSConnectUpdateParticipantRoleConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectUpdateParticipantRoleConfigResponse">AWSConnectUpdateParticipantRoleConfigResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdatePhoneNumberMetadataRequest.html">AWSConnectUpdatePhoneNumberMetadataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdatePhoneNumberRequest.html">AWSConnectUpdatePhoneNumberRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdatePhoneNumberResponse.html">AWSConnectUpdatePhoneNumberResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdatePromptRequest.html">AWSConnectUpdatePromptRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdatePromptResponse.html">AWSConnectUpdatePromptResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateQueueHoursOfOperationRequest.html">AWSConnectUpdateQueueHoursOfOperationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateQueueMaxContactsRequest.html">AWSConnectUpdateQueueMaxContactsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateQueueNameRequest.html">AWSConnectUpdateQueueNameRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateQueueOutboundCallerConfigRequest.html">AWSConnectUpdateQueueOutboundCallerConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateQueueStatusRequest.html">AWSConnectUpdateQueueStatusRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateQuickConnectConfigRequest.html">AWSConnectUpdateQuickConnectConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateQuickConnectNameRequest.html">AWSConnectUpdateQuickConnectNameRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateRoutingProfileAgentAvailabilityTimerRequest.html">AWSConnectUpdateRoutingProfileAgentAvailabilityTimerRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateRoutingProfileConcurrencyRequest.html">AWSConnectUpdateRoutingProfileConcurrencyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateRoutingProfileDefaultOutboundQueueRequest.html">AWSConnectUpdateRoutingProfileDefaultOutboundQueueRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateRoutingProfileNameRequest.html">AWSConnectUpdateRoutingProfileNameRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateRoutingProfileQueuesRequest.html">AWSConnectUpdateRoutingProfileQueuesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateRuleRequest.html">AWSConnectUpdateRuleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateSecurityProfileRequest.html">AWSConnectUpdateSecurityProfileRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateTaskTemplateRequest.html">AWSConnectUpdateTaskTemplateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateTaskTemplateResponse.html">AWSConnectUpdateTaskTemplateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateTrafficDistributionRequest.html">AWSConnectUpdateTrafficDistributionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectUpdateTrafficDistributionResponse">AWSConnectUpdateTrafficDistributionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateUserHierarchyGroupNameRequest.html">AWSConnectUpdateUserHierarchyGroupNameRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateUserHierarchyRequest.html">AWSConnectUpdateUserHierarchyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateUserHierarchyStructureRequest.html">AWSConnectUpdateUserHierarchyStructureRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateUserIdentityInfoRequest.html">AWSConnectUpdateUserIdentityInfoRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateUserPhoneConfigRequest.html">AWSConnectUpdateUserPhoneConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateUserRoutingProfileRequest.html">AWSConnectUpdateUserRoutingProfileRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateUserSecurityProfilesRequest.html">AWSConnectUpdateUserSecurityProfilesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateViewContentRequest.html">AWSConnectUpdateViewContentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateViewContentResponse.html">AWSConnectUpdateViewContentResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateViewMetadataRequest.html">AWSConnectUpdateViewMetadataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectUpdateViewMetadataResponse">AWSConnectUpdateViewMetadataResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUrlReference.html">AWSConnectUrlReference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUseCase.html">AWSConnectUseCase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUser.html">AWSConnectUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUserData.html">AWSConnectUserData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUserDataFilters.html">AWSConnectUserDataFilters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUserIdentityInfo.html">AWSConnectUserIdentityInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUserIdentityInfoLite.html">AWSConnectUserIdentityInfoLite</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUserPhoneConfig.html">AWSConnectUserPhoneConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUserQuickConnectConfig.html">AWSConnectUserQuickConnectConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUserReference.html">AWSConnectUserReference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUserSearchCriteria.html">AWSConnectUserSearchCriteria</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUserSearchFilter.html">AWSConnectUserSearchFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUserSearchSummary.html">AWSConnectUserSearchSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUserSummary.html">AWSConnectUserSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectView.html">AWSConnectView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectViewContent.html">AWSConnectViewContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectViewInputContent.html">AWSConnectViewInputContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectViewSummary.html">AWSConnectViewSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectViewVersionSummary.html">AWSConnectViewVersionSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectVocabulary.html">AWSConnectVocabulary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectVocabularySummary.html">AWSConnectVocabularySummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectVoiceRecordingConfiguration.html">AWSConnectVoiceRecordingConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectWisdomInfo.html">AWSConnectWisdomInfo</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSConnectSDKVersion">AWSConnectSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSConnectVersionNumber">AWSConnectVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSConnectVersionString">AWSConnectVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectActionType.html">AWSConnectActionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectAgentAvailabilityTimer.html">AWSConnectAgentAvailabilityTimer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectAgentStatusState.html">AWSConnectAgentStatusState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectAgentStatusType.html">AWSConnectAgentStatusType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectArtifactStatus.html">AWSConnectArtifactStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectBehaviorType.html">AWSConnectBehaviorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectChannel.html">AWSConnectChannel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectChatEventType.html">AWSConnectChatEventType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectComparison.html">AWSConnectComparison</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectContactFlowModuleState.html">AWSConnectContactFlowModuleState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectContactFlowModuleStatus.html">AWSConnectContactFlowModuleStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectContactFlowState.html">AWSConnectContactFlowState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectContactFlowType.html">AWSConnectContactFlowType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectContactInitiationMethod.html">AWSConnectContactInitiationMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectContactState.html">AWSConnectContactState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectCurrentMetricName.html">AWSConnectCurrentMetricName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectDirectoryType.html">AWSConnectDirectoryType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectEncryptionType.html">AWSConnectEncryptionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectEndpointType.html">AWSConnectEndpointType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectErrorType.html">AWSConnectErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectEvaluationFormQuestionType.html">AWSConnectEvaluationFormQuestionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectEvaluationFormScoringMode.html">AWSConnectEvaluationFormScoringMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectEvaluationFormScoringStatus.html">AWSConnectEvaluationFormScoringStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectEvaluationFormSingleSelectQuestionDisplayMode.html">AWSConnectEvaluationFormSingleSelectQuestionDisplayMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectEvaluationFormVersionStatus.html">AWSConnectEvaluationFormVersionStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectEvaluationStatus.html">AWSConnectEvaluationStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectEventSourceName.html">AWSConnectEventSourceName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectFailureReasonCode.html">AWSConnectFailureReasonCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectFlowAssociationResourceType.html">AWSConnectFlowAssociationResourceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectGrouping.html">AWSConnectGrouping</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectHierarchyGroupMatchType.html">AWSConnectHierarchyGroupMatchType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectHistoricalMetricName.html">AWSConnectHistoricalMetricName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectHoursOfOperationDays.html">AWSConnectHoursOfOperationDays</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectInstanceAttributeType.html">AWSConnectInstanceAttributeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectInstanceStatus.html">AWSConnectInstanceStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectInstanceStorageResourceType.html">AWSConnectInstanceStorageResourceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectIntegrationType.html">AWSConnectIntegrationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectIntervalPeriod.html">AWSConnectIntervalPeriod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectLexVersion.html">AWSConnectLexVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectListFlowAssociationResourceType.html">AWSConnectListFlowAssociationResourceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectMeetingFeatureStatus.html">AWSConnectMeetingFeatureStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectMonitorCapability.html">AWSConnectMonitorCapability</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectNotificationContentType.html">AWSConnectNotificationContentType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectNotificationDeliveryType.html">AWSConnectNotificationDeliveryType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectNumericQuestionPropertyAutomationLabel.html">AWSConnectNumericQuestionPropertyAutomationLabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectParticipantRole.html">AWSConnectParticipantRole</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectParticipantTimerAction.html">AWSConnectParticipantTimerAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectParticipantTimerType.html">AWSConnectParticipantTimerType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectPhoneNumberCountryCode.html">AWSConnectPhoneNumberCountryCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectPhoneNumberType.html">AWSConnectPhoneNumberType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectPhoneNumberWorkflowStatus.html">AWSConnectPhoneNumberWorkflowStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectPhoneType.html">AWSConnectPhoneType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectPropertyValidationExceptionReason.html">AWSConnectPropertyValidationExceptionReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectQueueStatus.html">AWSConnectQueueStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectQueueType.html">AWSConnectQueueType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectQuickConnectType.html">AWSConnectQuickConnectType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectRealTimeContactAnalysisOutputType.html">AWSConnectRealTimeContactAnalysisOutputType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectRealTimeContactAnalysisSegmentType.html">AWSConnectRealTimeContactAnalysisSegmentType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectRealTimeContactAnalysisSentimentLabel.html">AWSConnectRealTimeContactAnalysisSentimentLabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectRealTimeContactAnalysisStatus.html">AWSConnectRealTimeContactAnalysisStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectRealTimeContactAnalysisSupportedChannel.html">AWSConnectRealTimeContactAnalysisSupportedChannel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectReferenceStatus.html">AWSConnectReferenceStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectReferenceType.html">AWSConnectReferenceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectRehydrationType.html">AWSConnectRehydrationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectResourceType.html">AWSConnectResourceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectRulePublishStatus.html">AWSConnectRulePublishStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectSearchableQueueType.html">AWSConnectSearchableQueueType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectSingleSelectQuestionRuleCategoryAutomationCondition.html">AWSConnectSingleSelectQuestionRuleCategoryAutomationCondition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectSortOrder.html">AWSConnectSortOrder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectSourceType.html">AWSConnectSourceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectStatistic.html">AWSConnectStatistic</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectStorageType.html">AWSConnectStorageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectStringComparisonType.html">AWSConnectStringComparisonType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectTaskTemplateFieldType.html">AWSConnectTaskTemplateFieldType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectTaskTemplateStatus.html">AWSConnectTaskTemplateStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectTimerEligibleParticipantRoles.html">AWSConnectTimerEligibleParticipantRoles</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectTrafficDistributionGroupStatus.html">AWSConnectTrafficDistributionGroupStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectTrafficType.html">AWSConnectTrafficType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectUnit.html">AWSConnectUnit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectUseCaseType.html">AWSConnectUseCaseType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectVideoCapability.html">AWSConnectVideoCapability</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectViewStatus.html">AWSConnectViewStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectViewType.html">AWSConnectViewType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectVocabularyLanguageCode.html">AWSConnectVocabularyLanguageCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectVocabularyState.html">AWSConnectVocabularyState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectVoiceRecordingTrack.html">AWSConnectVoiceRecordingTrack</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSConnectRealTimeContactAnalysisAttachment</h1>
+              <div class="declaration">
+                <div class="language">
+                  <p class="aside-title">Objective-C</p>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSConnectRealTimeContactAnalysisAttachment</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSConnectRealTimeContactAnalysisAttachment</span></code></pre>
+
+                </div>
+              </div>
+            <p>Object that describes attached file. </p>
+
+<p>Required parameters: [AttachmentName, AttachmentId]</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectRealTimeContactAnalysisAttachment(py)attachmentId"></a>
+                    <a name="//apple_ref/objc/Property/attachmentId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectRealTimeContactAnalysisAttachment(py)attachmentId">attachmentId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A unique identifier for the attachment.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">attachmentId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">attachmentId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectRealTimeContactAnalysisAttachment(py)attachmentName"></a>
+                    <a name="//apple_ref/objc/Property/attachmentName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectRealTimeContactAnalysisAttachment(py)attachmentName">attachmentName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A case-sensitive name of the attachment being uploaded. Can be redacted.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">attachmentName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">attachmentName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectRealTimeContactAnalysisAttachment(py)contentType"></a>
+                    <a name="//apple_ref/objc/Property/contentType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectRealTimeContactAnalysisAttachment(py)contentType">contentType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">contentType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">contentType</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectRealTimeContactAnalysisAttachment(py)status"></a>
+                    <a name="//apple_ref/objc/Property/status" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectRealTimeContactAnalysisAttachment(py)status">status</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Status of the attachment.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSConnectArtifactStatus.html">AWSConnectArtifactStatus</a></span> <span class="n">status</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">status</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSConnectArtifactStatus.html">AWSConnectArtifactStatus</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-12-19)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>
