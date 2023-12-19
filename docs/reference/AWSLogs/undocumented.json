@@ -45,623 +45,1071 @@
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 26,
-      "symbol": "AWSLogsErrorType.AWSLogsErrorDataAlreadyAccepted",
+      "symbol": "AWSLogsErrorType.AWSLogsErrorAccessDenied",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 27,
-      "symbol": "AWSLogsErrorType.AWSLogsErrorInvalidOperation",
+      "symbol": "AWSLogsErrorType.AWSLogsErrorConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 28,
-      "symbol": "AWSLogsErrorType.AWSLogsErrorInvalidParameter",
+      "symbol": "AWSLogsErrorType.AWSLogsErrorDataAlreadyAccepted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 29,
-      "symbol": "AWSLogsErrorType.AWSLogsErrorInvalidSequenceToken",
+      "symbol": "AWSLogsErrorType.AWSLogsErrorInvalidOperation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 30,
-      "symbol": "AWSLogsErrorType.AWSLogsErrorLimitExceeded",
+      "symbol": "AWSLogsErrorType.AWSLogsErrorInvalidParameter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 31,
-      "symbol": "AWSLogsErrorType.AWSLogsErrorMalformedQuery",
+      "symbol": "AWSLogsErrorType.AWSLogsErrorInvalidSequenceToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 32,
-      "symbol": "AWSLogsErrorType.AWSLogsErrorOperationAborted",
+      "symbol": "AWSLogsErrorType.AWSLogsErrorLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 33,
-      "symbol": "AWSLogsErrorType.AWSLogsErrorResourceAlreadyExists",
+      "symbol": "AWSLogsErrorType.AWSLogsErrorMalformedQuery",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 34,
-      "symbol": "AWSLogsErrorType.AWSLogsErrorResourceNotFound",
+      "symbol": "AWSLogsErrorType.AWSLogsErrorOperationAborted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 35,
-      "symbol": "AWSLogsErrorType.AWSLogsErrorServiceUnavailable",
+      "symbol": "AWSLogsErrorType.AWSLogsErrorResourceAlreadyExists",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 36,
-      "symbol": "AWSLogsErrorType.AWSLogsErrorTooManyTags",
+      "symbol": "AWSLogsErrorType.AWSLogsErrorResourceNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 37,
+      "symbol": "AWSLogsErrorType.AWSLogsErrorServiceQuotaExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 38,
+      "symbol": "AWSLogsErrorType.AWSLogsErrorServiceUnavailable",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 39,
+      "symbol": "AWSLogsErrorType.AWSLogsErrorThrottling",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 40,
+      "symbol": "AWSLogsErrorType.AWSLogsErrorTooManyTags",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 41,
       "symbol": "AWSLogsErrorType.AWSLogsErrorUnrecognizedClient",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 40,
-      "symbol": "AWSLogsDataProtectionStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 40,
-      "symbol": "AWSLogsDataProtectionStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 41,
-      "symbol": "AWSLogsDataProtectionStatus.AWSLogsDataProtectionStatusUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 42,
-      "symbol": "AWSLogsDataProtectionStatus.AWSLogsDataProtectionStatusActivated",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 43,
-      "symbol": "AWSLogsDataProtectionStatus.AWSLogsDataProtectionStatusDeleted",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 44,
-      "symbol": "AWSLogsDataProtectionStatus.AWSLogsDataProtectionStatusArchived",
+      "symbol": "AWSLogsErrorType.AWSLogsErrorValidation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 45,
-      "symbol": "AWSLogsDataProtectionStatus.AWSLogsDataProtectionStatusDisabled",
+      "symbol": "AWSLogsAnomalyDetectorStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 45,
+      "symbol": "AWSLogsAnomalyDetectorStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 46,
+      "symbol": "AWSLogsAnomalyDetectorStatus.AWSLogsAnomalyDetectorStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 47,
+      "symbol": "AWSLogsAnomalyDetectorStatus.AWSLogsAnomalyDetectorStatusInitializing",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 48,
-      "symbol": "AWSLogsDistribution",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 48,
-      "symbol": "AWSLogsDistribution",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSLogsAnomalyDetectorStatus.AWSLogsAnomalyDetectorStatusTraining",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 49,
-      "symbol": "AWSLogsDistribution.AWSLogsDistributionUnknown",
+      "symbol": "AWSLogsAnomalyDetectorStatus.AWSLogsAnomalyDetectorStatusAnalyzing",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 50,
-      "symbol": "AWSLogsDistribution.AWSLogsDistributionRandom",
+      "symbol": "AWSLogsAnomalyDetectorStatus.AWSLogsAnomalyDetectorStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 51,
-      "symbol": "AWSLogsDistribution.AWSLogsDistributionByLogStream",
+      "symbol": "AWSLogsAnomalyDetectorStatus.AWSLogsAnomalyDetectorStatusDeleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 54,
-      "symbol": "AWSLogsExportTaskStatusCode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 54,
-      "symbol": "AWSLogsExportTaskStatusCode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 52,
+      "symbol": "AWSLogsAnomalyDetectorStatus.AWSLogsAnomalyDetectorStatusPaused",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 55,
-      "symbol": "AWSLogsExportTaskStatusCode.AWSLogsExportTaskStatusCodeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSLogsDataProtectionStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 55,
+      "symbol": "AWSLogsDataProtectionStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 56,
-      "symbol": "AWSLogsExportTaskStatusCode.AWSLogsExportTaskStatusCodeCancelled",
+      "symbol": "AWSLogsDataProtectionStatus.AWSLogsDataProtectionStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 57,
-      "symbol": "AWSLogsExportTaskStatusCode.AWSLogsExportTaskStatusCodeCompleted",
+      "symbol": "AWSLogsDataProtectionStatus.AWSLogsDataProtectionStatusActivated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 58,
-      "symbol": "AWSLogsExportTaskStatusCode.AWSLogsExportTaskStatusCodeFailed",
+      "symbol": "AWSLogsDataProtectionStatus.AWSLogsDataProtectionStatusDeleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 59,
-      "symbol": "AWSLogsExportTaskStatusCode.AWSLogsExportTaskStatusCodePending",
+      "symbol": "AWSLogsDataProtectionStatus.AWSLogsDataProtectionStatusArchived",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 60,
-      "symbol": "AWSLogsExportTaskStatusCode.AWSLogsExportTaskStatusCodePendingCancel",
+      "symbol": "AWSLogsDataProtectionStatus.AWSLogsDataProtectionStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 61,
-      "symbol": "AWSLogsExportTaskStatusCode.AWSLogsExportTaskStatusCodeRunning",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 64,
-      "symbol": "AWSLogsInheritedProperty",
+      "line": 63,
+      "symbol": "AWSLogsDeliveryDestinationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 64,
-      "symbol": "AWSLogsInheritedProperty",
+      "line": 63,
+      "symbol": "AWSLogsDeliveryDestinationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 64,
+      "symbol": "AWSLogsDeliveryDestinationType.AWSLogsDeliveryDestinationTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 65,
-      "symbol": "AWSLogsInheritedProperty.AWSLogsInheritedPropertyUnknown",
+      "symbol": "AWSLogsDeliveryDestinationType.AWSLogsDeliveryDestinationTypeS3",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 66,
-      "symbol": "AWSLogsInheritedProperty.AWSLogsInheritedPropertyAccountDataProtection",
+      "symbol": "AWSLogsDeliveryDestinationType.AWSLogsDeliveryDestinationTypeCwl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 69,
-      "symbol": "AWSLogsOrderBy",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 69,
-      "symbol": "AWSLogsOrderBy",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 67,
+      "symbol": "AWSLogsDeliveryDestinationType.AWSLogsDeliveryDestinationTypeFh",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 70,
-      "symbol": "AWSLogsOrderBy.AWSLogsOrderByUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSLogsDistribution",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 70,
+      "symbol": "AWSLogsDistribution",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 71,
-      "symbol": "AWSLogsOrderBy.AWSLogsOrderByLogStreamName",
+      "symbol": "AWSLogsDistribution.AWSLogsDistributionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 72,
-      "symbol": "AWSLogsOrderBy.AWSLogsOrderByLastEventTime",
+      "symbol": "AWSLogsDistribution.AWSLogsDistributionRandom",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 75,
-      "symbol": "AWSLogsPolicyType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 75,
-      "symbol": "AWSLogsPolicyType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 73,
+      "symbol": "AWSLogsDistribution.AWSLogsDistributionByLogStream",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 76,
-      "symbol": "AWSLogsPolicyType.AWSLogsPolicyTypeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 77,
-      "symbol": "AWSLogsPolicyType.AWSLogsPolicyTypeDataProtectionPolicy",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 80,
-      "symbol": "AWSLogsQueryStatus",
+      "symbol": "AWSLogsEvaluationFrequency",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 80,
-      "symbol": "AWSLogsQueryStatus",
+      "line": 76,
+      "symbol": "AWSLogsEvaluationFrequency",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 77,
+      "symbol": "AWSLogsEvaluationFrequency.AWSLogsEvaluationFrequencyUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 78,
+      "symbol": "AWSLogsEvaluationFrequency.AWSLogsEvaluationFrequencyOneMin",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 79,
+      "symbol": "AWSLogsEvaluationFrequency.AWSLogsEvaluationFrequencyFiveMin",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 80,
+      "symbol": "AWSLogsEvaluationFrequency.AWSLogsEvaluationFrequencyTenMin",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 81,
-      "symbol": "AWSLogsQueryStatus.AWSLogsQueryStatusUnknown",
+      "symbol": "AWSLogsEvaluationFrequency.AWSLogsEvaluationFrequencyFifteenMin",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 82,
-      "symbol": "AWSLogsQueryStatus.AWSLogsQueryStatusScheduled",
+      "symbol": "AWSLogsEvaluationFrequency.AWSLogsEvaluationFrequencyThirtyMin",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 83,
-      "symbol": "AWSLogsQueryStatus.AWSLogsQueryStatusRunning",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 84,
-      "symbol": "AWSLogsQueryStatus.AWSLogsQueryStatusComplete",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 85,
-      "symbol": "AWSLogsQueryStatus.AWSLogsQueryStatusFailed",
+      "symbol": "AWSLogsEvaluationFrequency.AWSLogsEvaluationFrequencyOneHour",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 86,
-      "symbol": "AWSLogsQueryStatus.AWSLogsQueryStatusCancelled",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 87,
-      "symbol": "AWSLogsQueryStatus.AWSLogsQueryStatusTimeout",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 90,
-      "symbol": "AWSLogsScope",
+      "symbol": "AWSLogsExportTaskStatusCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 90,
-      "symbol": "AWSLogsScope",
+      "line": 86,
+      "symbol": "AWSLogsExportTaskStatusCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 87,
+      "symbol": "AWSLogsExportTaskStatusCode.AWSLogsExportTaskStatusCodeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 88,
+      "symbol": "AWSLogsExportTaskStatusCode.AWSLogsExportTaskStatusCodeCancelled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 89,
+      "symbol": "AWSLogsExportTaskStatusCode.AWSLogsExportTaskStatusCodeCompleted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 90,
+      "symbol": "AWSLogsExportTaskStatusCode.AWSLogsExportTaskStatusCodeFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 91,
-      "symbol": "AWSLogsScope.AWSLogsScopeUnknown",
+      "symbol": "AWSLogsExportTaskStatusCode.AWSLogsExportTaskStatusCodePending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 92,
-      "symbol": "AWSLogsScope.AWSLogsScopeAll",
+      "symbol": "AWSLogsExportTaskStatusCode.AWSLogsExportTaskStatusCodePendingCancel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 95,
-      "symbol": "AWSLogsStandardUnit",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 95,
-      "symbol": "AWSLogsStandardUnit",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 93,
+      "symbol": "AWSLogsExportTaskStatusCode.AWSLogsExportTaskStatusCodeRunning",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 96,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSLogsInheritedProperty",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 96,
+      "symbol": "AWSLogsInheritedProperty",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 97,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitSeconds",
+      "symbol": "AWSLogsInheritedProperty.AWSLogsInheritedPropertyUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 98,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitMicroseconds",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 99,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitMilliseconds",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 100,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitBytes",
+      "symbol": "AWSLogsInheritedProperty.AWSLogsInheritedPropertyAccountDataProtection",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 101,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitKilobytes",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSLogsLogGroupClass",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 101,
+      "symbol": "AWSLogsLogGroupClass",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 102,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitMegabytes",
+      "symbol": "AWSLogsLogGroupClass.AWSLogsLogGroupClassUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 103,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitGigabytes",
+      "symbol": "AWSLogsLogGroupClass.AWSLogsLogGroupClassStandard",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 104,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitTerabytes",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 105,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitBits",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 106,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitKilobits",
+      "symbol": "AWSLogsLogGroupClass.AWSLogsLogGroupClassInfrequentAccess",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 107,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitMegabits",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSLogsOrderBy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 107,
+      "symbol": "AWSLogsOrderBy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 108,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitGigabits",
+      "symbol": "AWSLogsOrderBy.AWSLogsOrderByUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 109,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitTerabits",
+      "symbol": "AWSLogsOrderBy.AWSLogsOrderByLogStreamName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 110,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitPercent",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 111,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitCount",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 112,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitBytesSecond",
+      "symbol": "AWSLogsOrderBy.AWSLogsOrderByLastEventTime",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 113,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitKilobytesSecond",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSLogsOutputFormat",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 113,
+      "symbol": "AWSLogsOutputFormat",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 114,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitMegabytesSecond",
+      "symbol": "AWSLogsOutputFormat.AWSLogsOutputFormatUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 115,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitGigabytesSecond",
+      "symbol": "AWSLogsOutputFormat.AWSLogsOutputFormatJson",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 116,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitTerabytesSecond",
+      "symbol": "AWSLogsOutputFormat.AWSLogsOutputFormatPlain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 117,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitBitsSecond",
+      "symbol": "AWSLogsOutputFormat.AWSLogsOutputFormatW3c",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 118,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitKilobitsSecond",
+      "symbol": "AWSLogsOutputFormat.AWSLogsOutputFormatRaw",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 119,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitMegabitsSecond",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 120,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitGigabitsSecond",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 121,
-      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitTerabitsSecond",
+      "symbol": "AWSLogsOutputFormat.AWSLogsOutputFormatParquet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
       "line": 122,
+      "symbol": "AWSLogsPolicyType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 122,
+      "symbol": "AWSLogsPolicyType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 123,
+      "symbol": "AWSLogsPolicyType.AWSLogsPolicyTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 124,
+      "symbol": "AWSLogsPolicyType.AWSLogsPolicyTypeDataProtectionPolicy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 127,
+      "symbol": "AWSLogsQueryStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 127,
+      "symbol": "AWSLogsQueryStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 128,
+      "symbol": "AWSLogsQueryStatus.AWSLogsQueryStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 129,
+      "symbol": "AWSLogsQueryStatus.AWSLogsQueryStatusScheduled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 130,
+      "symbol": "AWSLogsQueryStatus.AWSLogsQueryStatusRunning",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 131,
+      "symbol": "AWSLogsQueryStatus.AWSLogsQueryStatusComplete",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 132,
+      "symbol": "AWSLogsQueryStatus.AWSLogsQueryStatusFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 133,
+      "symbol": "AWSLogsQueryStatus.AWSLogsQueryStatusCancelled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 134,
+      "symbol": "AWSLogsQueryStatus.AWSLogsQueryStatusTimeout",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 137,
+      "symbol": "AWSLogsScope",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 137,
+      "symbol": "AWSLogsScope",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 138,
+      "symbol": "AWSLogsScope.AWSLogsScopeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 139,
+      "symbol": "AWSLogsScope.AWSLogsScopeAll",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 142,
+      "symbol": "AWSLogsStandardUnit",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 142,
+      "symbol": "AWSLogsStandardUnit",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 143,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 144,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitSeconds",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 145,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitMicroseconds",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 146,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitMilliseconds",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 147,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitBytes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 148,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitKilobytes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 149,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitMegabytes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 150,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitGigabytes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 151,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitTerabytes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 152,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitBits",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 153,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitKilobits",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 154,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitMegabits",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 155,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitGigabits",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 156,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitTerabits",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 157,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitPercent",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 158,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitCount",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 159,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitBytesSecond",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 160,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitKilobytesSecond",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 161,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitMegabytesSecond",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 162,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitGigabytesSecond",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 163,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitTerabytesSecond",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 164,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitBitsSecond",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 165,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitKilobitsSecond",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 166,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitMegabitsSecond",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 167,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitGigabitsSecond",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 168,
+      "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitTerabitsSecond",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 169,
       "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitCountSecond",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
-      "line": 123,
+      "line": 170,
       "symbol": "AWSLogsStandardUnit.AWSLogsStandardUnitNone",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 173,
+      "symbol": "AWSLogsState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 173,
+      "symbol": "AWSLogsState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 174,
+      "symbol": "AWSLogsState.AWSLogsStateUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 175,
+      "symbol": "AWSLogsState.AWSLogsStateActive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 176,
+      "symbol": "AWSLogsState.AWSLogsStateSuppressed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 177,
+      "symbol": "AWSLogsState.AWSLogsStateBaseline",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 180,
+      "symbol": "AWSLogsSuppressionState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 180,
+      "symbol": "AWSLogsSuppressionState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 181,
+      "symbol": "AWSLogsSuppressionState.AWSLogsSuppressionStateUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 182,
+      "symbol": "AWSLogsSuppressionState.AWSLogsSuppressionStateSuppressed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 183,
+      "symbol": "AWSLogsSuppressionState.AWSLogsSuppressionStateUnsuppressed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 186,
+      "symbol": "AWSLogsSuppressionType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 186,
+      "symbol": "AWSLogsSuppressionType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 187,
+      "symbol": "AWSLogsSuppressionType.AWSLogsSuppressionTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 188,
+      "symbol": "AWSLogsSuppressionType.AWSLogsSuppressionTypeLimited",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 189,
+      "symbol": "AWSLogsSuppressionType.AWSLogsSuppressionTypeInfinite",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 192,
+      "symbol": "AWSLogsSuppressionUnit",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 192,
+      "symbol": "AWSLogsSuppressionUnit",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 193,
+      "symbol": "AWSLogsSuppressionUnit.AWSLogsSuppressionUnitUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 194,
+      "symbol": "AWSLogsSuppressionUnit.AWSLogsSuppressionUnitSeconds",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 195,
+      "symbol": "AWSLogsSuppressionUnit.AWSLogsSuppressionUnitMinutes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLogs/AWSLogsModel.h",
+      "line": 196,
+      "symbol": "AWSLogsSuppressionUnit.AWSLogsSuppressionUnitHours",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
