@@ -25,7 +25,7 @@
 #import "AWSChimeSDKIdentityResources.h"
 
 static NSString *const AWSInfoChimeSDKIdentity = @"ChimeSDKIdentity";
-NSString *const AWSChimeSDKIdentitySDKVersion = @"2.33.6";
+NSString *const AWSChimeSDKIdentitySDKVersion = @"2.33.7";
 
 
 @interface AWSChimeSDKIdentityResponseSerializer : AWSJSONResponseSerializer
