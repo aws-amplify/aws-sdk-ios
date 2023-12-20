@@ -527,6 +527,7 @@
 
     XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionAFSouth1], @"af-south-1");
     XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionCACentral1], @"ca-central-1");
+    XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionCAWest1], @"ca-west-1");
     XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionILCentral1], @"il-central-1");
     XCTAssertEqualObjects([AWSEndpoint regionNameFromType:AWSRegionSAEast1], @"sa-east-1");
 }
@@ -626,6 +627,10 @@
     XCTAssertEqual([@"AWSRegionCACentral1" aws_regionTypeValue], AWSRegionCACentral1);
     XCTAssertEqual([@"CACentral1" aws_regionTypeValue], AWSRegionCACentral1);
     XCTAssertEqual([@"ca-central-1" aws_regionTypeValue], AWSRegionCACentral1);
+    
+    XCTAssertEqual([@"AWSRegionCAWest1" aws_regionTypeValue], AWSRegionCAWest1);
+    XCTAssertEqual([@"CAWest1" aws_regionTypeValue], AWSRegionCAWest1);
+    XCTAssertEqual([@"ca-west-1" aws_regionTypeValue], AWSRegionCAWest1);
 
     XCTAssertEqual([@"AWSRegionILCentral1" aws_regionTypeValue], AWSRegionILCentral1);
     XCTAssertEqual([@"ILCentral1" aws_regionTypeValue], AWSRegionILCentral1);
