@@ -4,7 +4,9 @@
 
 ## Unreleased
 
--Features for next release
+### New features
+- **AWSCore**
+  - Support for `ca-west-1` - Canada West (Calgary) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
 
 ## 2.33.6
 
