@@ -26,6 +26,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseErrorType) {
     AWSFirehoseErrorConcurrentModification,
     AWSFirehoseErrorInvalidArgument,
     AWSFirehoseErrorInvalidKMSResource,
+    AWSFirehoseErrorInvalidSource,
     AWSFirehoseErrorLimitExceeded,
     AWSFirehoseErrorResourceInUse,
     AWSFirehoseErrorResourceNotFound,
@@ -312,6 +313,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @class AWSFirehoseSchemaConfiguration;
 @class AWSFirehoseSerializer;
 @class AWSFirehoseSourceDescription;
+@class AWSFirehoseSplunkBufferingHints;
 @class AWSFirehoseSplunkDestinationConfiguration;
 @class AWSFirehoseSplunkDestinationDescription;
 @class AWSFirehoseSplunkDestinationUpdate;
@@ -3002,11 +3004,34 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @end
 
 /**
+ <p>The buffering options. If no value is specified, the default values for Splunk are used.</p>
+ */
+@interface AWSFirehoseSplunkBufferingHints : AWSModel
+
+
+/**
+ <p>Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 60 (1 minute).</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable intervalInSeconds;
+
+/**
+ <p>Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable sizeInMBs;
+
+@end
+
+/**
  <p>Describes the configuration of a destination in Splunk.</p>
  Required parameters: [HECEndpoint, HECEndpointType, HECToken, S3Configuration]
  */
 @interface AWSFirehoseSplunkDestinationConfiguration : AWSModel
 
+
+/**
+ <p>The buffering options. If no value is specified, the default values for Splunk are used.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseSplunkBufferingHints * _Nullable bufferingHints;
 
 /**
  <p>The Amazon CloudWatch logging options for your delivery stream.</p>
@@ -3062,6 +3087,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 
 
 /**
+ <p>The buffering options. If no value is specified, the default values for Splunk are used.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseSplunkBufferingHints * _Nullable bufferingHints;
+
+/**
  <p>The Amazon CloudWatch logging options for your delivery stream.</p>
  */
 @property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions * _Nullable cloudWatchLoggingOptions;
@@ -3113,6 +3143,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  */
 @interface AWSFirehoseSplunkDestinationUpdate : AWSModel
 
+
+/**
+ <p>The buffering options. If no value is specified, the default values for Splunk are used.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseSplunkBufferingHints * _Nullable bufferingHints;
 
 /**
  <p>The Amazon CloudWatch logging options for your delivery stream.</p>
