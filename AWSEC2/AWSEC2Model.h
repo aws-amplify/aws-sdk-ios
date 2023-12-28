@@ -1822,6 +1822,15 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeR7I_24xlarge,
     AWSEC2InstanceTypeR7I_48xlarge,
     AWSEC2InstanceTypeDL2q_24xlarge,
+    AWSEC2InstanceTypeMAC2_m2_metal,
+    AWSEC2InstanceTypeI4I_12xlarge,
+    AWSEC2InstanceTypeI4I_24xlarge,
+    AWSEC2InstanceTypeC7I_metal_24xl,
+    AWSEC2InstanceTypeC7I_metal_48xl,
+    AWSEC2InstanceTypeM7I_metal_24xl,
+    AWSEC2InstanceTypeM7I_metal_48xl,
+    AWSEC2InstanceTypeR7I_metal_24xl,
+    AWSEC2InstanceTypeR7I_metal_48xl,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {
@@ -5937,6 +5946,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
+/**
+ <p>If you have <a href="https://docs.aws.amazon.com/local-zones/latest/ug/how-local-zones-work.html">Local Zones</a> enabled, you can choose a network border group for Local Zones when you provision and advertise a BYOIPv4 CIDR. Choose the network border group carefully as the EIP and the Amazon Web Services resource it is associated with must reside in the same network border group.</p><p>You can provision BYOIP address ranges to and advertise them in the following Local Zone network border groups:</p><ul><li><p>us-east-1-dfw-2</p></li><li><p>us-west-2-lax-1</p></li><li><p>us-west-2-phx-2</p></li></ul><note><p>You cannot provision or advertise BYOIPv6 address ranges in Local Zones at this time.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkBorderGroup;
+
 @end
 
 /**
@@ -8420,6 +8434,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The description of the address range.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>If you have <a href="https://docs.aws.amazon.com/local-zones/latest/ug/how-local-zones-work.html">Local Zones</a> enabled, you can choose a network border group for Local Zones when you provision and advertise a BYOIPv4 CIDR. Choose the network border group carefully as the EIP and the Amazon Web Services resource it is associated with must reside in the same network border group.</p><p>You can provision BYOIP address ranges to and advertise them in the following Local Zone network border groups:</p><ul><li><p>us-east-1-dfw-2</p></li><li><p>us-west-2-lax-1</p></li><li><p>us-west-2-phx-2</p></li></ul><note><p>You cannot provision or advertise BYOIPv6 address ranges in Local Zones at this time.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkBorderGroup;
 
 /**
  <p>The state of the address pool.</p>
@@ -35466,7 +35485,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable associateCarrierIpAddress;
 
 /**
- <p>Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is <code>true</code>.</p>
+ <p>Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is <code>true</code>.</p><p>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable associatePublicIpAddress;
 
@@ -38390,7 +38409,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable httpPutResponseHopLimit;
 
 /**
- <p>Indicates whether IMDSv2 is <code>optional</code> or <code>required</code>.</p><p><code>optional</code> - When IMDSv2 is optional, you can choose to retrieve instance metadata with or without a session token in your request. If you retrieve the IAM role credentials without a token, the IMDSv1 role credentials are returned. If you retrieve the IAM role credentials using a valid session token, the IMDSv2 role credentials are returned.</p><p><code>required</code> - When IMDSv2 is required, you must send a session token with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p><p>Default: <code>optional</code></p>
+ <p>Indicates whether IMDSv2 is required.</p><ul><li><p><code>optional</code> - IMDSv2 is optional. You can choose whether to send a session token in your instance metadata retrieval requests. If you retrieve IAM role credentials without a session token, you receive the IMDSv1 role credentials. If you retrieve IAM role credentials using a valid session token, you receive the IMDSv2 role credentials.</p></li><li><p><code>required</code> - IMDSv2 is required. You must send a session token in your instance metadata retrieval requests. With this option, retrieving the IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p></li></ul>
  */
 @property (nonatomic, assign) AWSEC2LaunchTemplateHttpTokensState httpTokens;
 
@@ -38428,7 +38447,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable httpPutResponseHopLimit;
 
 /**
- <p>IMDSv2 uses token-backed sessions. Set the use of HTTP tokens to <code>optional</code> (in other words, set the use of IMDSv2 to <code>optional</code>) or <code>required</code> (in other words, set the use of IMDSv2 to <code>required</code>).</p><ul><li><p><code>optional</code> - When IMDSv2 is optional, you can choose to retrieve instance metadata with or without a session token in your request. If you retrieve the IAM role credentials without a token, the IMDSv1 role credentials are returned. If you retrieve the IAM role credentials using a valid session token, the IMDSv2 role credentials are returned.</p></li><li><p><code>required</code> - When IMDSv2 is required, you must send a session token with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p></li></ul><p>Default: <code>optional</code></p>
+ <p>Indicates whether IMDSv2 is required.</p><ul><li><p><code>optional</code> - IMDSv2 is optional. You can choose whether to send a session token in your instance metadata retrieval requests. If you retrieve IAM role credentials without a session token, you receive the IMDSv1 role credentials. If you retrieve IAM role credentials using a valid session token, you receive the IMDSv2 role credentials.</p></li><li><p><code>required</code> - IMDSv2 is required. You must send a session token in your instance metadata retrieval requests. With this option, retrieving the IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p></li></ul><p>Default: If the value of <code>ImdsSupport</code> for the Amazon Machine Image (AMI) for your instance is <code>v2.0</code>, the default is <code>required</code>.</p>
  */
 @property (nonatomic, assign) AWSEC2LaunchTemplateHttpTokensState httpTokens;
 
@@ -38451,7 +38470,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable associateCarrierIpAddress;
 
 /**
- <p>Indicates whether to associate a public IPv4 address with eth0 for a new network interface.</p>
+ <p>Indicates whether to associate a public IPv4 address with eth0 for a new network interface.</p><p>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable associatePublicIpAddress;
 
@@ -38569,7 +38588,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable associateCarrierIpAddress;
 
 /**
- <p>Associates a public IPv4 address with eth0 for a new network interface.</p>
+ <p>Associates a public IPv4 address with eth0 for a new network interface.</p><p>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable associatePublicIpAddress;
 
@@ -45861,6 +45880,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable multiRegion;
 
 /**
+ <p>If you have <a href="https://docs.aws.amazon.com/local-zones/latest/ug/how-local-zones-work.html">Local Zones</a> enabled, you can choose a network border group for Local Zones when you provision and advertise a BYOIPv4 CIDR. Choose the network border group carefully as the EIP and the Amazon Web Services resource it is associated with must reside in the same network border group.</p><p>You can provision BYOIP address ranges to and advertise them in the following Local Zone network border groups:</p><ul><li><p>us-east-1-dfw-2</p></li><li><p>us-west-2-lax-1</p></li><li><p>us-west-2-phx-2</p></li></ul><note><p>You cannot provision or advertise BYOIPv6 address ranges in Local Zones at this time.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkBorderGroup;
+
+/**
  <p>The tags to apply to the address pool.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable poolTagSpecifications;
@@ -47670,7 +47694,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroups;
 
 /**
- <p>The tags to apply to the resources that are created during instance launch.</p><p>You can specify tags for the following resources only:</p><ul><li><p>Instances</p></li><li><p>Volumes</p></li><li><p>Elastic graphics</p></li><li><p>Spot Instance requests</p></li><li><p>Network interfaces</p></li></ul><p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p><note><p>To tag the launch template itself, you must use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">TagSpecification</a> parameter.</p></note>
+ <p>The tags to apply to the resources that are created during instance launch. These tags are not applied to the launch template.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2LaunchTemplateTagSpecificationRequest *> * _Nullable tagSpecifications;
 
