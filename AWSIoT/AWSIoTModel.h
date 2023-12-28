@@ -214,6 +214,11 @@ typedef NS_ENUM(NSInteger, AWSIoTCertificateMode) {
     AWSIoTCertificateModeSniOnly,
 };
 
+typedef NS_ENUM(NSInteger, AWSIoTCertificateProviderOperation) {
+    AWSIoTCertificateProviderOperationUnknown,
+    AWSIoTCertificateProviderOperationCreateCertificateFromCsr,
+};
+
 typedef NS_ENUM(NSInteger, AWSIoTCertificateStatus) {
     AWSIoTCertificateStatusUnknown,
     AWSIoTCertificateStatusActive,
@@ -682,6 +687,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTCancelJobResponse;
 @class AWSIoTCertificate;
 @class AWSIoTCertificateDescription;
+@class AWSIoTCertificateProviderSummary;
 @class AWSIoTCertificateValidity;
 @class AWSIoTClearDefaultAuthorizerRequest;
 @class AWSIoTClearDefaultAuthorizerResponse;
@@ -702,6 +708,8 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTCreateBillingGroupResponse;
 @class AWSIoTCreateCertificateFromCsrRequest;
 @class AWSIoTCreateCertificateFromCsrResponse;
+@class AWSIoTCreateCertificateProviderRequest;
+@class AWSIoTCreateCertificateProviderResponse;
 @class AWSIoTCreateCustomMetricRequest;
 @class AWSIoTCreateCustomMetricResponse;
 @class AWSIoTCreateDimensionRequest;
@@ -764,6 +772,8 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTDeleteBillingGroupResponse;
 @class AWSIoTDeleteCACertificateRequest;
 @class AWSIoTDeleteCACertificateResponse;
+@class AWSIoTDeleteCertificateProviderRequest;
+@class AWSIoTDeleteCertificateProviderResponse;
 @class AWSIoTDeleteCertificateRequest;
 @class AWSIoTDeleteCustomMetricRequest;
 @class AWSIoTDeleteCustomMetricResponse;
@@ -830,6 +840,8 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTDescribeBillingGroupResponse;
 @class AWSIoTDescribeCACertificateRequest;
 @class AWSIoTDescribeCACertificateResponse;
+@class AWSIoTDescribeCertificateProviderRequest;
+@class AWSIoTDescribeCertificateProviderResponse;
 @class AWSIoTDescribeCertificateRequest;
 @class AWSIoTDescribeCertificateResponse;
 @class AWSIoTDescribeCustomMetricRequest;
@@ -996,6 +1008,8 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTListBillingGroupsResponse;
 @class AWSIoTListCACertificatesRequest;
 @class AWSIoTListCACertificatesResponse;
+@class AWSIoTListCertificateProvidersRequest;
+@class AWSIoTListCertificateProvidersResponse;
 @class AWSIoTListCertificatesByCARequest;
 @class AWSIoTListCertificatesByCAResponse;
 @class AWSIoTListCertificatesRequest;
@@ -1244,6 +1258,8 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTUpdateBillingGroupResponse;
 @class AWSIoTUpdateCACertificateParams;
 @class AWSIoTUpdateCACertificateRequest;
+@class AWSIoTUpdateCertificateProviderRequest;
+@class AWSIoTUpdateCertificateProviderResponse;
 @class AWSIoTUpdateCertificateRequest;
 @class AWSIoTUpdateCustomMetricRequest;
 @class AWSIoTUpdateCustomMetricResponse;
@@ -3037,6 +3053,24 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
+ <p>The certificate provider summary.</p>
+ */
+@interface AWSIoTCertificateProviderSummary : AWSModel
+
+
+/**
+ <p>The ARN of the certificate provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateProviderArn;
+
+/**
+ <p>The name of the certificate provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateProviderName;
+
+@end
+
+/**
  <p>When the certificate is valid.</p>
  */
 @interface AWSIoTCertificateValidity : AWSModel
@@ -3447,6 +3481,57 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The certificate data, in PEM format.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable certificatePem;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTCreateCertificateProviderRequest : AWSRequest
+
+
+/**
+ <p>A list of the operations that the certificate provider will use to generate certificates. Valid value: <code>CreateCertificateFromCsr</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable accountDefaultForOperations;
+
+/**
+ <p>The name of the certificate provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateProviderName;
+
+/**
+ <p>A string that you can optionally pass in the <code>CreateCertificateProvider</code> request to make sure the request is idempotent.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The ARN of the Lambda function that defines the authentication logic.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lambdaFunctionArn;
+
+/**
+ <p>Metadata which can be used to manage the certificate provider.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSIoTTag *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTCreateCertificateProviderResponse : AWSModel
+
+
+/**
+ <p>The ARN of the certificate provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateProviderArn;
+
+/**
+ <p>The name of the certificate provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateProviderName;
 
 @end
 
@@ -5138,6 +5223,27 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
+ 
+ */
+@interface AWSIoTDeleteCertificateProviderRequest : AWSRequest
+
+
+/**
+ <p>The name of the certificate provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateProviderName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTDeleteCertificateProviderResponse : AWSModel
+
+
+@end
+
+/**
  <p>The input for the DeleteCertificate operation.</p>
  Required parameters: [certificateId]
  */
@@ -6120,6 +6226,57 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>Information about the registration configuration.</p>
  */
 @property (nonatomic, strong) AWSIoTRegistrationConfig * _Nullable registrationConfig;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTDescribeCertificateProviderRequest : AWSRequest
+
+
+/**
+ <p>The name of the certificate provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateProviderName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTDescribeCertificateProviderResponse : AWSModel
+
+
+/**
+ <p>A list of the operations that the certificate provider will use to generate certificates. Valid value: <code>CreateCertificateFromCsr</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable accountDefaultForOperations;
+
+/**
+ <p>The ARN of the certificate provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateProviderArn;
+
+/**
+ <p>The name of the certificate provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateProviderName;
+
+/**
+ <p>The date-time string that indicates when the certificate provider was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationDate;
+
+/**
+ <p>The Lambda function ARN that's associated with the certificate provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lambdaFunctionArn;
+
+/**
+ <p>The date-time string that indicates when the certificate provider was last updated.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
 
 @end
 
@@ -10133,6 +10290,42 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
+ 
+ */
+@interface AWSIoTListCertificateProvidersRequest : AWSRequest
+
+
+/**
+ <p>Returns the list of certificate providers in ascending alphabetical order.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable ascendingOrder;
+
+/**
+ <p>The token for the next set of results, or <code>null</code> if there are no more results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTListCertificateProvidersResponse : AWSModel
+
+
+/**
+ <p>The list of certificate providers in your Amazon Web Services account.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSIoTCertificateProviderSummary *> * _Nullable certificateProviders;
+
+/**
+ <p>The token for the next set of results, or <code>null</code> if there are no more results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
  <p>The input to the ListCertificatesByCA operation.</p>
  Required parameters: [caCertificateId]
  */
@@ -12502,7 +12695,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>Value added in both Behavior and AdditionalMetricsToRetainV2 to indicate if Device Defender Detect should export the corresponding metrics.</p>
+ <p>The value indicates exporting metrics related to the <code>MetricToRetain </code> when it's true.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable exportMetric;
 
@@ -15930,6 +16123,47 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>If true, removes auto registration.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable removeAutoRegistration;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTUpdateCertificateProviderRequest : AWSRequest
+
+
+/**
+ <p>A list of the operations that the certificate provider will use to generate certificates. Valid value: <code>CreateCertificateFromCsr</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable accountDefaultForOperations;
+
+/**
+ <p>The name of the certificate provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateProviderName;
+
+/**
+ <p>The Lambda function ARN that's associated with the certificate provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lambdaFunctionArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTUpdateCertificateProviderResponse : AWSModel
+
+
+/**
+ <p>The ARN of the certificate provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateProviderArn;
+
+/**
+ <p>The name of the certificate provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateProviderName;
 
 @end
 
