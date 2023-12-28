@@ -660,6 +660,31 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createCertificateFromCsr:(AWSIoTCreateCertificateFromCsrRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateCertificateFromCsrResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Creates an Amazon Web Services IoT Core certificate provider. You can use Amazon Web Services IoT Core certificate provider to customize how to sign a certificate signing request (CSR) in IoT fleet provisioning. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provisioning-cert-provider.html">Customizing certificate signing using Amazon Web Services IoT Core certificate provider</a> from <i>Amazon Web Services IoT Core Developer Guide</i>.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateCertificateProvider</a> action.</p><important><p>After you create a certificate provider, the behavior of <a href="https://docs.aws.amazon.com/iot/latest/developerguide/fleet-provision-api.html#create-cert-csr"><code>CreateCertificateFromCsr</code> API for fleet provisioning</a> will change and all API calls to <code>CreateCertificateFromCsr</code> will invoke the certificate provider to create the certificates. It can take up to a few minutes for this behavior to change after a certificate provider is created.</p></important>
+ 
+ @param request A container for the necessary parameters to execute the CreateCertificateProvider service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTCreateCertificateProviderResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorLimitExceeded`, `AWSIoTErrorResourceAlreadyExists`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTCreateCertificateProviderRequest
+ @see AWSIoTCreateCertificateProviderResponse
+ */
+- (AWSTask<AWSIoTCreateCertificateProviderResponse *> *)createCertificateProvider:(AWSIoTCreateCertificateProviderRequest *)request;
+
+/**
+ <p>Creates an Amazon Web Services IoT Core certificate provider. You can use Amazon Web Services IoT Core certificate provider to customize how to sign a certificate signing request (CSR) in IoT fleet provisioning. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provisioning-cert-provider.html">Customizing certificate signing using Amazon Web Services IoT Core certificate provider</a> from <i>Amazon Web Services IoT Core Developer Guide</i>.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateCertificateProvider</a> action.</p><important><p>After you create a certificate provider, the behavior of <a href="https://docs.aws.amazon.com/iot/latest/developerguide/fleet-provision-api.html#create-cert-csr"><code>CreateCertificateFromCsr</code> API for fleet provisioning</a> will change and all API calls to <code>CreateCertificateFromCsr</code> will invoke the certificate provider to create the certificates. It can take up to a few minutes for this behavior to change after a certificate provider is created.</p></important>
+ 
+ @param request A container for the necessary parameters to execute the CreateCertificateProvider service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorLimitExceeded`, `AWSIoTErrorResourceAlreadyExists`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTCreateCertificateProviderRequest
+ @see AWSIoTCreateCertificateProviderResponse
+ */
+- (void)createCertificateProvider:(AWSIoTCreateCertificateProviderRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateCertificateProviderResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p> Use this API to define a Custom Metric published by your devices to Device Defender. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateCustomMetric</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateCustomMetric service method.
@@ -1452,6 +1477,31 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  @see AWSIoTDeleteCertificateRequest
  */
 - (void)deleteCertificate:(AWSIoTDeleteCertificateRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes a certificate provider.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteCertificateProvider</a> action. </p><p>If you delete the certificate provider resource, the behavior of <code>CreateCertificateFromCsr</code> will resume, and IoT will create certificates signed by IoT from a certificate signing request (CSR).</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteCertificateProvider service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTDeleteCertificateProviderResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorDeleteConflict`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDeleteCertificateProviderRequest
+ @see AWSIoTDeleteCertificateProviderResponse
+ */
+- (AWSTask<AWSIoTDeleteCertificateProviderResponse *> *)deleteCertificateProvider:(AWSIoTDeleteCertificateProviderRequest *)request;
+
+/**
+ <p>Deletes a certificate provider.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteCertificateProvider</a> action. </p><p>If you delete the certificate provider resource, the behavior of <code>CreateCertificateFromCsr</code> will resume, and IoT will create certificates signed by IoT from a certificate signing request (CSR).</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteCertificateProvider service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorDeleteConflict`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDeleteCertificateProviderRequest
+ @see AWSIoTDeleteCertificateProviderResponse
+ */
+- (void)deleteCertificateProvider:(AWSIoTDeleteCertificateProviderRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteCertificateProviderResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p> Deletes a Device Defender detect custom metric. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteCustomMetric</a> action.</p><note><p>Before you can delete a custom metric, you must first remove the custom metric from all security profiles it's a part of. The security profile associated with the custom metric can be found using the <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_ListSecurityProfiles.html">ListSecurityProfiles</a> API with <code>metricName</code> set to your custom metric name.</p></note>
@@ -2353,6 +2403,31 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  @see AWSIoTDescribeCertificateResponse
  */
 - (void)describeCertificate:(AWSIoTDescribeCertificateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeCertificateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes a certificate provider.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeCertificateProvider</a> action. </p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeCertificateProvider service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTDescribeCertificateProviderResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDescribeCertificateProviderRequest
+ @see AWSIoTDescribeCertificateProviderResponse
+ */
+- (AWSTask<AWSIoTDescribeCertificateProviderResponse *> *)describeCertificateProvider:(AWSIoTDescribeCertificateProviderRequest *)request;
+
+/**
+ <p>Describes a certificate provider.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeCertificateProvider</a> action. </p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeCertificateProvider service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDescribeCertificateProviderRequest
+ @see AWSIoTDescribeCertificateProviderResponse
+ */
+- (void)describeCertificateProvider:(AWSIoTDescribeCertificateProviderRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeCertificateProviderResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p> Gets information about a Device Defender detect custom metric. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeCustomMetric</a> action.</p>
@@ -3816,6 +3891,31 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  @see AWSIoTListCACertificatesResponse
  */
 - (void)listCACertificates:(AWSIoTListCACertificatesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListCACertificatesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Lists all your certificate providers in your Amazon Web Services account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCertificateProviders</a> action. </p>
+ 
+ @param request A container for the necessary parameters to execute the ListCertificateProviders service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTListCertificateProvidersResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTListCertificateProvidersRequest
+ @see AWSIoTListCertificateProvidersResponse
+ */
+- (AWSTask<AWSIoTListCertificateProvidersResponse *> *)listCertificateProviders:(AWSIoTListCertificateProvidersRequest *)request;
+
+/**
+ <p>Lists all your certificate providers in your Amazon Web Services account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCertificateProviders</a> action. </p>
+ 
+ @param request A container for the necessary parameters to execute the ListCertificateProviders service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTListCertificateProvidersRequest
+ @see AWSIoTListCertificateProvidersResponse
+ */
+- (void)listCertificateProviders:(AWSIoTListCertificateProvidersRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListCertificateProvidersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Lists the certificates registered in your Amazon Web Services account.</p><p>The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCertificates</a> action.</p>
@@ -5792,6 +5892,31 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  @see AWSIoTUpdateCertificateRequest
  */
 - (void)updateCertificate:(AWSIoTUpdateCertificateRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates a certificate provider.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCertificateProvider</a> action. </p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateCertificateProvider service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTUpdateCertificateProviderResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTUpdateCertificateProviderRequest
+ @see AWSIoTUpdateCertificateProviderResponse
+ */
+- (AWSTask<AWSIoTUpdateCertificateProviderResponse *> *)updateCertificateProvider:(AWSIoTUpdateCertificateProviderRequest *)request;
+
+/**
+ <p>Updates a certificate provider.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCertificateProvider</a> action. </p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateCertificateProvider service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTUpdateCertificateProviderRequest
+ @see AWSIoTUpdateCertificateProviderResponse
+ */
+- (void)updateCertificateProvider:(AWSIoTUpdateCertificateProviderRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateCertificateProviderResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Updates a Device Defender detect custom metric. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCustomMetric</a> action.</p>
