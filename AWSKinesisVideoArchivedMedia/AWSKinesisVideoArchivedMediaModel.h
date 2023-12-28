@@ -485,7 +485,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoArchivedMediaImageSelectorType) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The time interval in milliseconds (ms) at which the images need to be generated from the stream, with a default of 3000 ms. The minimum value that can be provided is 200 ms. If the timestamp range is less than the sampling interval, the Image from the <code>startTimestamp</code> will be returned if available. </p><note><p>The minimum value of 200 ms is a hard limit.</p></note>
+ <p>The time interval in milliseconds (ms) at which the images need to be generated from the stream. The minimum value that can be provided is 200 ms (5 images per second). If the timestamp range is less than the sampling interval, the image from the <code>startTimestamp</code> will be returned if available. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable samplingInterval;
 
@@ -636,7 +636,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoArchivedMediaImageSelectorType) {
 
 
 /**
- <p>Describes the timestamp range and timestamp origin for the range of fragments to return.</p>
+ <p>Describes the timestamp range and timestamp origin for the range of fragments to return.</p><note><p>This is only required when the <code>NextToken</code> isn't passed in the API.</p></note>
  */
 @property (nonatomic, strong) AWSKinesisVideoArchivedMediaFragmentSelector * _Nullable fragmentSelector;
 
