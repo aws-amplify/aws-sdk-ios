@@ -5,8 +5,16 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ### Misc. Updates
 
 - Model updates for the following services
----AWSKinesisVideoArchivedMedia
----
+  - AWSKinesisVideoArchivedMedia
+  - AWSLocation
+  - AWSComprehend
+  - AWSIoT
+  - AWSKMS
+  - AWSPinpoint
+  - AWSFirehose
+  - AWSCognitoIdentityProvider
+  - AWSEC2
+  - AWSConnect
 
 # AWS Mobile SDK for iOS CHANGELOG
 
