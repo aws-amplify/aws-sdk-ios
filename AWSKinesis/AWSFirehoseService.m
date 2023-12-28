@@ -43,6 +43,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"ConcurrentModificationException" : @(AWSFirehoseErrorConcurrentModification),
                             @"InvalidArgumentException" : @(AWSFirehoseErrorInvalidArgument),
                             @"InvalidKMSResourceException" : @(AWSFirehoseErrorInvalidKMSResource),
+                            @"InvalidSourceException" : @(AWSFirehoseErrorInvalidSource),
                             @"LimitExceededException" : @(AWSFirehoseErrorLimitExceeded),
                             @"ResourceInUseException" : @(AWSFirehoseErrorResourceInUse),
                             @"ResourceNotFoundException" : @(AWSFirehoseErrorResourceNotFound),
