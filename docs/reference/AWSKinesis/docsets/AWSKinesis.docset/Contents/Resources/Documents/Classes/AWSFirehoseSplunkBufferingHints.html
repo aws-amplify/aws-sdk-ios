@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSFirehoseKinesisStreamSourceConfiguration Class Reference</title>
+    <title>AWSFirehoseSplunkBufferingHints Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSFirehoseKinesisStreamSourceConfiguration" class="dashAnchor"></a>
-    <a title="AWSFirehoseKinesisStreamSourceConfiguration Class Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSFirehoseSplunkBufferingHints" class="dashAnchor"></a>
+    <a title="AWSFirehoseSplunkBufferingHints Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSKinesis 2.33.8 Docs</a> (76% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSKinesis Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSFirehoseKinesisStreamSourceConfiguration Class Reference
+        AWSFirehoseSplunkBufferingHints Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -660,22 +660,20 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSFirehoseKinesisStreamSourceConfiguration</h1>
+            <h1>AWSFirehoseSplunkBufferingHints</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSFirehoseKinesisStreamSourceConfiguration</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSFirehoseSplunkBufferingHints</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSFirehoseKinesisStreamSourceConfiguration</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSFirehoseSplunkBufferingHints</span></code></pre>
 
                 </div>
               </div>
-            <p>The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream.</p>
-
-<p>Required parameters: [KinesisStreamARN, RoleARN]</p>
+            <p>The buffering options. If no value is specified, the default values for Splunk are used.</p>
 
           </section>
           <section class="section task-group-section">
@@ -684,9 +682,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSFirehoseKinesisStreamSourceConfiguration(py)kinesisStreamARN"></a>
-                    <a name="//apple_ref/objc/Property/kinesisStreamARN" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSFirehoseKinesisStreamSourceConfiguration(py)kinesisStreamARN">kinesisStreamARN</a>
+                    <a name="/c:objc(cs)AWSFirehoseSplunkBufferingHints(py)intervalInSeconds"></a>
+                    <a name="//apple_ref/objc/Property/intervalInSeconds" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseSplunkBufferingHints(py)intervalInSeconds">intervalInSeconds</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -694,19 +692,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ARN of the source Kinesis data stream. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon Kinesis Data Streams ARN Format</a>.</p>
+                        <p>Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 60 (1 minute).</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">kinesisStreamARN</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">intervalInSeconds</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">kinesisStreamARN</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">intervalInSeconds</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -716,9 +714,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSFirehoseKinesisStreamSourceConfiguration(py)roleARN"></a>
-                    <a name="//apple_ref/objc/Property/roleARN" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSFirehoseKinesisStreamSourceConfiguration(py)roleARN">roleARN</a>
+                    <a name="/c:objc(cs)AWSFirehoseSplunkBufferingHints(py)sizeInMBs"></a>
+                    <a name="//apple_ref/objc/Property/sizeInMBs" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseSplunkBufferingHints(py)sizeInMBs">sizeInMBs</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -726,19 +724,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ARN of the role that provides access to the source Kinesis data stream. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">Amazon Web Services Identity and Access Management (IAM) ARN Format</a>.</p>
+                        <p>Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. </p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">roleARN</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">sizeInMBs</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">roleARN</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">sizeInMBs</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
