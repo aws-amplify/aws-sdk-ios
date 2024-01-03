@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSLocationDataSourceConfiguration Class Reference</title>
+    <title>AWSLocationOptimizationMode Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSLocationDataSourceConfiguration" class="dashAnchor"></a>
-    <a title="AWSLocationDataSourceConfiguration Class Reference"></a>
+    <a name="//apple_ref/objc/Enum/AWSLocationOptimizationMode" class="dashAnchor"></a>
+    <a title="AWSLocationOptimizationMode Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSLocation 2.33.8 Docs</a> (90% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSLocation Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSLocationDataSourceConfiguration Class Reference
+        AWSLocationOptimizationMode Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -609,20 +609,24 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSLocationDataSourceConfiguration</h1>
+            <h1>AWSLocationOptimizationMode</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationDataSourceConfiguration</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSLocationOptimizationMode</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSLocationOptimizationModeUnknown</span><span class="p">,</span>
+    <span class="n">AWSLocationOptimizationModeFastestRoute</span><span class="p">,</span>
+    <span class="n">AWSLocationOptimizationModeShortestRoute</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationDataSourceConfiguration</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSLocationOptimizationMode</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                 </div>
               </div>
-            <p><p>Specifies the data storage option chosen for requesting Places.</p><important><p>When using Amazon Location Places:</p><ul><li><p>If using HERE Technologies as a data provider, you can&rsquo;t store results for locations in Japan by setting <code>IntendedUse</code> to <code>Storage</code>. parameter.</p></li><li><p>Under the <code>MobileAssetTracking</code> or <code>MobilAssetManagement</code> pricing plan, you can&rsquo;t store results from your place index resources by setting <code>IntendedUse</code> to <code>Storage</code>. This returns a validation exception error.</p></li></ul><p>For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for Amazon Location Service.</p></important></p>
+            <p>Undocumented</p>
 
           </section>
           <section class="section task-group-section">
@@ -631,9 +635,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSLocationDataSourceConfiguration(py)intendedUse"></a>
-                    <a name="//apple_ref/objc/Property/intendedUse" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLocationDataSourceConfiguration(py)intendedUse">intendedUse</a>
+                    <a name="/c:@E@AWSLocationOptimizationMode@AWSLocationOptimizationModeUnknown"></a>
+                    <a name="//apple_ref/objc/Case/AWSLocationOptimizationModeUnknown" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLocationOptimizationMode@AWSLocationOptimizationModeUnknown">AWSLocationOptimizationModeUnknown</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -641,19 +645,83 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies how the results of an operation will be stored by the caller. </p><p>Valid values include:</p><ul><li><p><code>SingleUse</code> specifies that the results won&rsquo;t be stored. </p></li><li><p><code>Storage</code> specifies that the result can be cached or stored in a database.</p></li></ul><p>Default value: <code>SingleUse</code></p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSLocationIntendedUse.html">AWSLocationIntendedUse</a></span> <span class="n">intendedUse</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLocationOptimizationModeUnknown</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">intendedUse</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSLocationIntendedUse.html">AWSLocationIntendedUse</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknown</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLocationOptimizationMode@AWSLocationOptimizationModeFastestRoute"></a>
+                    <a name="//apple_ref/objc/Case/AWSLocationOptimizationModeFastestRoute" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLocationOptimizationMode@AWSLocationOptimizationModeFastestRoute">AWSLocationOptimizationModeFastestRoute</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLocationOptimizationModeFastestRoute</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">fastestRoute</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLocationOptimizationMode@AWSLocationOptimizationModeShortestRoute"></a>
+                    <a name="//apple_ref/objc/Case/AWSLocationOptimizationModeShortestRoute" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLocationOptimizationMode@AWSLocationOptimizationModeShortestRoute">AWSLocationOptimizationModeShortestRoute</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLocationOptimizationModeShortestRoute</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">shortestRoute</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
 
                         </div>
                       </div>

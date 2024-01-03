@@ -262,328 +262,363 @@
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 63,
-      "symbol": "AWSLocationPositionFiltering",
+      "symbol": "AWSLocationOptimizationMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 63,
-      "symbol": "AWSLocationPositionFiltering",
+      "symbol": "AWSLocationOptimizationMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 64,
-      "symbol": "AWSLocationPositionFiltering.AWSLocationPositionFilteringUnknown",
+      "symbol": "AWSLocationOptimizationMode.AWSLocationOptimizationModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 65,
-      "symbol": "AWSLocationPositionFiltering.AWSLocationPositionFilteringTimeBased",
+      "symbol": "AWSLocationOptimizationMode.AWSLocationOptimizationModeFastestRoute",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 66,
-      "symbol": "AWSLocationPositionFiltering.AWSLocationPositionFilteringDistanceBased",
+      "symbol": "AWSLocationOptimizationMode.AWSLocationOptimizationModeShortestRoute",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
-      "line": 67,
-      "symbol": "AWSLocationPositionFiltering.AWSLocationPositionFilteringAccuracyBased",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
-      "line": 70,
-      "symbol": "AWSLocationPricingPlan",
+      "line": 69,
+      "symbol": "AWSLocationPositionFiltering",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
-      "line": 70,
-      "symbol": "AWSLocationPricingPlan",
+      "line": 69,
+      "symbol": "AWSLocationPositionFiltering",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
+      "line": 70,
+      "symbol": "AWSLocationPositionFiltering.AWSLocationPositionFilteringUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 71,
-      "symbol": "AWSLocationPricingPlan.AWSLocationPricingPlanUnknown",
+      "symbol": "AWSLocationPositionFiltering.AWSLocationPositionFilteringTimeBased",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 72,
-      "symbol": "AWSLocationPricingPlan.AWSLocationPricingPlanRequestBasedUsage",
+      "symbol": "AWSLocationPositionFiltering.AWSLocationPositionFilteringDistanceBased",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 73,
-      "symbol": "AWSLocationPricingPlan.AWSLocationPricingPlanMobileAssetTracking",
+      "symbol": "AWSLocationPositionFiltering.AWSLocationPositionFilteringAccuracyBased",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
-      "line": 74,
-      "symbol": "AWSLocationPricingPlan.AWSLocationPricingPlanMobileAssetManagement",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
-      "line": 77,
-      "symbol": "AWSLocationRouteMatrixErrorCode",
+      "line": 76,
+      "symbol": "AWSLocationPricingPlan",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
-      "line": 77,
-      "symbol": "AWSLocationRouteMatrixErrorCode",
+      "line": 76,
+      "symbol": "AWSLocationPricingPlan",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
+      "line": 77,
+      "symbol": "AWSLocationPricingPlan.AWSLocationPricingPlanUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 78,
-      "symbol": "AWSLocationRouteMatrixErrorCode.AWSLocationRouteMatrixErrorCodeUnknown",
+      "symbol": "AWSLocationPricingPlan.AWSLocationPricingPlanRequestBasedUsage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 79,
-      "symbol": "AWSLocationRouteMatrixErrorCode.AWSLocationRouteMatrixErrorCodeRouteNotFound",
+      "symbol": "AWSLocationPricingPlan.AWSLocationPricingPlanMobileAssetTracking",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 80,
-      "symbol": "AWSLocationRouteMatrixErrorCode.AWSLocationRouteMatrixErrorCodeRouteTooLong",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
-      "line": 81,
-      "symbol": "AWSLocationRouteMatrixErrorCode.AWSLocationRouteMatrixErrorCodePositionsNotFound",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
-      "line": 82,
-      "symbol": "AWSLocationRouteMatrixErrorCode.AWSLocationRouteMatrixErrorCodeDestinationPositionNotFound",
+      "symbol": "AWSLocationPricingPlan.AWSLocationPricingPlanMobileAssetManagement",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 83,
-      "symbol": "AWSLocationRouteMatrixErrorCode.AWSLocationRouteMatrixErrorCodeDeparturePositionNotFound",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
-      "line": 84,
-      "symbol": "AWSLocationRouteMatrixErrorCode.AWSLocationRouteMatrixErrorCodeOtherValidationError",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
-      "line": 87,
-      "symbol": "AWSLocationStatus",
+      "symbol": "AWSLocationRouteMatrixErrorCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
-      "line": 87,
-      "symbol": "AWSLocationStatus",
+      "line": 83,
+      "symbol": "AWSLocationRouteMatrixErrorCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
+      "line": 84,
+      "symbol": "AWSLocationRouteMatrixErrorCode.AWSLocationRouteMatrixErrorCodeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
+      "line": 85,
+      "symbol": "AWSLocationRouteMatrixErrorCode.AWSLocationRouteMatrixErrorCodeRouteNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
+      "line": 86,
+      "symbol": "AWSLocationRouteMatrixErrorCode.AWSLocationRouteMatrixErrorCodeRouteTooLong",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
+      "line": 87,
+      "symbol": "AWSLocationRouteMatrixErrorCode.AWSLocationRouteMatrixErrorCodePositionsNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 88,
-      "symbol": "AWSLocationStatus.AWSLocationStatusUnknown",
+      "symbol": "AWSLocationRouteMatrixErrorCode.AWSLocationRouteMatrixErrorCodeDestinationPositionNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 89,
-      "symbol": "AWSLocationStatus.AWSLocationStatusActive",
+      "symbol": "AWSLocationRouteMatrixErrorCode.AWSLocationRouteMatrixErrorCodeDeparturePositionNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 90,
-      "symbol": "AWSLocationStatus.AWSLocationStatusExpired",
+      "symbol": "AWSLocationRouteMatrixErrorCode.AWSLocationRouteMatrixErrorCodeOtherValidationError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 93,
-      "symbol": "AWSLocationTravelMode",
+      "symbol": "AWSLocationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 93,
-      "symbol": "AWSLocationTravelMode",
+      "symbol": "AWSLocationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 94,
-      "symbol": "AWSLocationTravelMode.AWSLocationTravelModeUnknown",
+      "symbol": "AWSLocationStatus.AWSLocationStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 95,
-      "symbol": "AWSLocationTravelMode.AWSLocationTravelModeCar",
+      "symbol": "AWSLocationStatus.AWSLocationStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 96,
-      "symbol": "AWSLocationTravelMode.AWSLocationTravelModeTruck",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
-      "line": 97,
-      "symbol": "AWSLocationTravelMode.AWSLocationTravelModeWalking",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
-      "line": 98,
-      "symbol": "AWSLocationTravelMode.AWSLocationTravelModeBicycle",
+      "symbol": "AWSLocationStatus.AWSLocationStatusExpired",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 99,
-      "symbol": "AWSLocationTravelMode.AWSLocationTravelModeMotorcycle",
+      "symbol": "AWSLocationTravelMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
+      "line": 99,
+      "symbol": "AWSLocationTravelMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
+      "line": 100,
+      "symbol": "AWSLocationTravelMode.AWSLocationTravelModeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
+      "line": 101,
+      "symbol": "AWSLocationTravelMode.AWSLocationTravelModeCar",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 102,
-      "symbol": "AWSLocationValidationExceptionReason",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
-      "line": 102,
-      "symbol": "AWSLocationValidationExceptionReason",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSLocationTravelMode.AWSLocationTravelModeTruck",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 103,
-      "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonUnknown",
+      "symbol": "AWSLocationTravelMode.AWSLocationTravelModeWalking",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 104,
-      "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonUnknownOperation",
+      "symbol": "AWSLocationTravelMode.AWSLocationTravelModeBicycle",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 105,
-      "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonMissing",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
-      "line": 106,
-      "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonCannotParse",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
-      "line": 107,
-      "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonFieldValidationFailed",
+      "symbol": "AWSLocationTravelMode.AWSLocationTravelModeMotorcycle",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 108,
-      "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonOther",
+      "symbol": "AWSLocationValidationExceptionReason",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
+      "line": 108,
+      "symbol": "AWSLocationValidationExceptionReason",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
+      "line": 109,
+      "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
+      "line": 110,
+      "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonUnknownOperation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 111,
-      "symbol": "AWSLocationVehicleWeightUnit",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
-      "line": 111,
-      "symbol": "AWSLocationVehicleWeightUnit",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonMissing",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 112,
-      "symbol": "AWSLocationVehicleWeightUnit.AWSLocationVehicleWeightUnitUnknown",
+      "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonCannotParse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 113,
-      "symbol": "AWSLocationVehicleWeightUnit.AWSLocationVehicleWeightUnitKilograms",
+      "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonFieldValidationFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
       "line": 114,
+      "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonOther",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
+      "line": 117,
+      "symbol": "AWSLocationVehicleWeightUnit",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
+      "line": 117,
+      "symbol": "AWSLocationVehicleWeightUnit",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
+      "line": 118,
+      "symbol": "AWSLocationVehicleWeightUnit.AWSLocationVehicleWeightUnitUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
+      "line": 119,
+      "symbol": "AWSLocationVehicleWeightUnit.AWSLocationVehicleWeightUnitKilograms",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSLocation/AWSLocationModel.h",
+      "line": 120,
       "symbol": "AWSLocationVehicleWeightUnit.AWSLocationVehicleWeightUnitPounds",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
