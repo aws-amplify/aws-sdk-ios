@@ -1,6 +1,6 @@
----
+# AWS Mobile SDK for iOS CHANGELOG
 
-MOVE THIS SECTION TO THE CORRECT LOCATION
+## Unreleased
 
 ### Misc. Updates
 
@@ -15,12 +15,6 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSCognitoIdentityProvider
   - AWSEC2
   - AWSConnect
-
-# AWS Mobile SDK for iOS CHANGELOG
-
-## Unreleased
-
--Features for next release
 
 ## 2.33.7
 
