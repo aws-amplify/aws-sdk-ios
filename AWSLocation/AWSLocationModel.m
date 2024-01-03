@@ -1454,6 +1454,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"forceDelete" : @"ForceDelete",
              @"keyName" : @"KeyName",
              };
 }
