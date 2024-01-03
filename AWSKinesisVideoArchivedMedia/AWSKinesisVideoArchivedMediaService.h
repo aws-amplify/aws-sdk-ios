@@ -250,11 +250,11 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoArchivedMediaSDKVersion;
 - (void)getHLSStreamingSessionURL:(AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Retrieves a list of Images corresponding to each timestamp for a given time range, sampling interval, and image format configuration.</p>
+ <p>Retrieves a list of images corresponding to each timestamp for a given time range, sampling interval, and image format configuration.</p>
  
  @param request A container for the necessary parameters to execute the GetImages service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoArchivedMediaGetImagesOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoArchivedMediaErrorDomain` domain and the following error code: `AWSKinesisVideoArchivedMediaErrorResourceNotFound`, `AWSKinesisVideoArchivedMediaErrorInvalidArgument`, `AWSKinesisVideoArchivedMediaErrorClientLimitExceeded`, `AWSKinesisVideoArchivedMediaErrorNotAuthorized`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoArchivedMediaGetImagesOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoArchivedMediaErrorDomain` domain and the following error code: `AWSKinesisVideoArchivedMediaErrorResourceNotFound`, `AWSKinesisVideoArchivedMediaErrorInvalidArgument`, `AWSKinesisVideoArchivedMediaErrorClientLimitExceeded`, `AWSKinesisVideoArchivedMediaErrorNotAuthorized`, `AWSKinesisVideoArchivedMediaErrorNoDataRetention`.
  
  @see AWSKinesisVideoArchivedMediaGetImagesInput
  @see AWSKinesisVideoArchivedMediaGetImagesOutput
@@ -262,12 +262,12 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoArchivedMediaSDKVersion;
 - (AWSTask<AWSKinesisVideoArchivedMediaGetImagesOutput *> *)getImages:(AWSKinesisVideoArchivedMediaGetImagesInput *)request;
 
 /**
- <p>Retrieves a list of Images corresponding to each timestamp for a given time range, sampling interval, and image format configuration.</p>
+ <p>Retrieves a list of images corresponding to each timestamp for a given time range, sampling interval, and image format configuration.</p>
  
  @param request A container for the necessary parameters to execute the GetImages service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoArchivedMediaErrorDomain` domain and the following error code: `AWSKinesisVideoArchivedMediaErrorResourceNotFound`, `AWSKinesisVideoArchivedMediaErrorInvalidArgument`, `AWSKinesisVideoArchivedMediaErrorClientLimitExceeded`, `AWSKinesisVideoArchivedMediaErrorNotAuthorized`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoArchivedMediaErrorDomain` domain and the following error code: `AWSKinesisVideoArchivedMediaErrorResourceNotFound`, `AWSKinesisVideoArchivedMediaErrorInvalidArgument`, `AWSKinesisVideoArchivedMediaErrorClientLimitExceeded`, `AWSKinesisVideoArchivedMediaErrorNotAuthorized`, `AWSKinesisVideoArchivedMediaErrorNoDataRetention`.
  
  @see AWSKinesisVideoArchivedMediaGetImagesInput
  @see AWSKinesisVideoArchivedMediaGetImagesOutput

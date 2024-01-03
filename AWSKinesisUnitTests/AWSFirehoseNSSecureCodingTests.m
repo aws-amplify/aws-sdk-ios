@@ -101,6 +101,7 @@
 - (void) test_AWSFirehoseSchemaConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseSerializer API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseSourceDescription API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseSplunkBufferingHints API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseSplunkDestinationConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseSplunkDestinationDescription API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseSplunkDestinationUpdate API_AVAILABLE(ios(11));
@@ -449,6 +450,10 @@
 
 - (void) test_AWSFirehoseSourceDescription {
     [self validateSecureCodingForClass:[AWSFirehoseSourceDescription class]];
+}
+
+- (void) test_AWSFirehoseSplunkBufferingHints {
+    [self validateSecureCodingForClass:[AWSFirehoseSplunkBufferingHints class]];
 }
 
 - (void) test_AWSFirehoseSplunkDestinationConfiguration {

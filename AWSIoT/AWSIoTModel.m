@@ -2155,6 +2155,21 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTCertificateProviderSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificateProviderArn" : @"certificateProviderArn",
+             @"certificateProviderName" : @"certificateProviderName",
+             };
+}
+
+@end
+
 @implementation AWSIoTCertificateValidity
 
 + (BOOL)supportsSecureCoding {
@@ -2509,6 +2524,43 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"certificateArn" : @"certificateArn",
              @"certificateId" : @"certificateId",
              @"certificatePem" : @"certificatePem",
+             };
+}
+
+@end
+
+@implementation AWSIoTCreateCertificateProviderRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"accountDefaultForOperations" : @"accountDefaultForOperations",
+             @"certificateProviderName" : @"certificateProviderName",
+             @"clientToken" : @"clientToken",
+             @"lambdaFunctionArn" : @"lambdaFunctionArn",
+             @"tags" : @"tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTTag class]];
+}
+
+@end
+
+@implementation AWSIoTCreateCertificateProviderResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificateProviderArn" : @"certificateProviderArn",
+             @"certificateProviderName" : @"certificateProviderName",
              };
 }
 
@@ -4194,6 +4246,28 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTDeleteCertificateProviderRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificateProviderName" : @"certificateProviderName",
+             };
+}
+
+@end
+
+@implementation AWSIoTDeleteCertificateProviderResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
 @implementation AWSIoTDeleteCertificateRequest
 
 + (BOOL)supportsSecureCoding {
@@ -5273,6 +5347,55 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)registrationConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTRegistrationConfig class]];
+}
+
+@end
+
+@implementation AWSIoTDescribeCertificateProviderRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificateProviderName" : @"certificateProviderName",
+             };
+}
+
+@end
+
+@implementation AWSIoTDescribeCertificateProviderResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"accountDefaultForOperations" : @"accountDefaultForOperations",
+             @"certificateProviderArn" : @"certificateProviderArn",
+             @"certificateProviderName" : @"certificateProviderName",
+             @"creationDate" : @"creationDate",
+             @"lambdaFunctionArn" : @"lambdaFunctionArn",
+             @"lastModifiedDate" : @"lastModifiedDate",
+             };
+}
+
++ (NSValueTransformer *)creationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -9879,6 +10002,40 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)certificatesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTCACertificate class]];
+}
+
+@end
+
+@implementation AWSIoTListCertificateProvidersRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ascendingOrder" : @"ascendingOrder",
+             @"nextToken" : @"nextToken",
+             };
+}
+
+@end
+
+@implementation AWSIoTListCertificateProvidersResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificateProviders" : @"certificateProviders",
+             @"nextToken" : @"nextToken",
+             };
+}
+
++ (NSValueTransformer *)certificateProvidersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTCertificateProviderSummary class]];
 }
 
 @end
@@ -16175,6 +16332,37 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)registrationConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTRegistrationConfig class]];
+}
+
+@end
+
+@implementation AWSIoTUpdateCertificateProviderRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"accountDefaultForOperations" : @"accountDefaultForOperations",
+             @"certificateProviderName" : @"certificateProviderName",
+             @"lambdaFunctionArn" : @"lambdaFunctionArn",
+             };
+}
+
+@end
+
+@implementation AWSIoTUpdateCertificateProviderResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificateProviderArn" : @"certificateProviderArn",
+             @"certificateProviderName" : @"certificateProviderName",
+             };
 }
 
 @end

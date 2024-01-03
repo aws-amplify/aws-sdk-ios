@@ -1250,7 +1250,7 @@
         },\
         \"AllowResources\":{\
           \"shape\":\"ApiKeyRestrictionsAllowResourcesList\",\
-          \"documentation\":\"<p>A list of allowed resource ARNs that a API key bearer can perform actions on.</p> <ul> <li> <p>The ARN must be the correct ARN for a map, place, or route ARN. You may include wildcards in the resource-id to match multiple resources of the same type.</p> </li> <li> <p>The resources must be in the same <code>partition</code>, <code>region</code>, and <code>account-id</code> as the key that is being created.</p> </li> <li> <p>Other than wildcards, you must include the full ARN, including the <code>arn</code>, <code>partition</code>, <code>service</code>, <code>region</code>, <code>account-id</code> and <code>resource-id</code>, delimited by colons (:).</p> </li> <li> <p>No spaces allowed, even with wildcards. For example, <code>arn:aws:geo:region:<i>account-id</i>:map/ExampleMap*</code>.</p> </li> </ul> <p>For more information about ARN format, see <a href=\\\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\\\">Amazon Resource Names (ARNs)</a>.</p>\"\
+          \"documentation\":\"<p>A list of allowed resource ARNs that a API key bearer can perform actions on.</p> <ul> <li> <p>The ARN must be the correct ARN for a map, place, or route ARN. You may include wildcards in the resource-id to match multiple resources of the same type.</p> </li> <li> <p>The resources must be in the same <code>partition</code>, <code>region</code>, and <code>account-id</code> as the key that is being created.</p> </li> <li> <p>Other than wildcards, you must include the full ARN, including the <code>arn</code>, <code>partition</code>, <code>service</code>, <code>region</code>, <code>account-id</code> and <code>resource-id</code> delimited by colons (:).</p> </li> <li> <p>No spaces allowed, even with wildcards. For example, <code>arn:aws:geo:region:<i>account-id</i>:map/ExampleMap*</code>.</p> </li> </ul> <p>For more information about ARN format, see <a href=\\\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\\\">Amazon Resource Names (ARNs)</a>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>API Restrictions on the allowed actions, resources, and referers for an API key resource.</p>\"\
@@ -1927,6 +1927,10 @@
         \"DestinationPosition\"\
       ],\
       \"members\":{\
+        \"ArrivalTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>Specifies the desired time of arrival. Uses the given time to calculate the route. Otherwise, the best time of day to travel with the best traffic conditions is used to calculate the route.</p> <note> <p>ArrivalTime is not supported Esri.</p> </note>\"\
+        },\
         \"CalculatorName\":{\
           \"shape\":\"ResourceName\",\
           \"documentation\":\"<p>The name of the route calculator resource that you want to use to calculate the route. </p>\",\
@@ -1947,7 +1951,7 @@
         },\
         \"DepartureTime\":{\
           \"shape\":\"Timestamp\",\
-          \"documentation\":\"<p>Specifies the desired time of departure. Uses the given time to calculate the route. Otherwise, the best time of day to travel with the best traffic conditions is used to calculate the route.</p> <note> <p>Setting a departure time in the past returns a <code>400 ValidationException</code> error.</p> </note> <ul> <li> <p>In <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. For example, <code>2020â07-2T12:15:20.000Z+01:00</code> </p> </li> </ul>\"\
+          \"documentation\":\"<p>Specifies the desired time of departure. Uses the given time to calculate the route. Otherwise, the best time of day to travel with the best traffic conditions is used to calculate the route.</p> <ul> <li> <p>In <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. For example, <code>2020â07-2T12:15:20.000Z+01:00</code> </p> </li> </ul>\"\
         },\
         \"DestinationPosition\":{\
           \"shape\":\"Position\",\
@@ -1966,6 +1970,10 @@
           \"documentation\":\"<p>The optional <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html\\\">API key</a> to authorize the request.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"key\"\
+        },\
+        \"OptimizeFor\":{\
+          \"shape\":\"OptimizationMode\",\
+          \"documentation\":\"<p>Specifies the distance to optimize for when calculating a route.</p>\"\
         },\
         \"TravelMode\":{\
           \"shape\":\"TravelMode\",\
@@ -2505,6 +2513,12 @@
       \"type\":\"structure\",\
       \"required\":[\"KeyName\"],\
       \"members\":{\
+        \"ForceDelete\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>ForceDelete bypasses an API key's expiry conditions and deletes the key. Set the parameter <code>true</code> to delete the key or to <code>false</code> to not preemptively delete the API key.</p> <p>Valid values: <code>true</code>, or <code>false</code>.</p> <p>Required: No</p> <note> <p>This action is irreversible. Only use ForceDelete if you are certain the key is no longer in use.</p> </note>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"forceDelete\"\
+        },\
         \"KeyName\":{\
           \"shape\":\"ResourceName\",\
           \"documentation\":\"<p>The name of the API key to delete.</p>\",\
@@ -3685,7 +3699,7 @@
       \"members\":{\
         \"FilterGeometry\":{\
           \"shape\":\"TrackingFilterGeometry\",\
-          \"documentation\":\"<p>The geomerty used to filter device positions.</p>\"\
+          \"documentation\":\"<p>The geometry used to filter device positions.</p>\"\
         },\
         \"MaxResults\":{\
           \"shape\":\"ListDevicePositionsRequestMaxResultsInteger\",\
@@ -4388,6 +4402,13 @@
       \"min\":1,\
       \"pattern\":\"^[-._\\\\w]+$\"\
     },\
+    \"OptimizationMode\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"FastestRoute\",\
+        \"ShortestRoute\"\
+      ]\
+    },\
     \"Place\":{\
       \"type\":\"structure\",\
       \"required\":[\"Geometry\"],\
@@ -4432,6 +4453,10 @@
         \"Street\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>The name for a street or a road to identify a location. For example, <code>Main Street</code>.</p>\"\
+        },\
+        \"SubMunicipality\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>An area that's part of a larger municipality. For example, <code>Blissville </code> is a submunicipality in the Queen County in New York.</p> <note> <p>This property supported by Esri and OpenData. The Esri property is <code>district</code>, and the OpenData property is <code>borough</code>.</p> </note>\"\
         },\
         \"SubRegion\":{\
           \"shape\":\"String\",\

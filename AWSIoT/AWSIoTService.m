@@ -25,7 +25,7 @@
 #import "AWSIoTResources.h"
 
 static NSString *const AWSInfoIoT = @"IoT";
-NSString *const AWSIoTSDKVersion = @"2.33.7";
+NSString *const AWSIoTSDKVersion = @"2.33.8";
 
 
 @interface AWSIoTResponseSerializer : AWSJSONResponseSerializer
@@ -753,6 +753,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTCreateCertificateFromCsrResponse *response, NSError *error))completionHandler {
     [[self createCertificateFromCsr:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateCertificateFromCsrResponse *> * _Nonnull task) {
         AWSIoTCreateCertificateFromCsrResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTCreateCertificateProviderResponse *> *)createCertificateProvider:(AWSIoTCreateCertificateProviderRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/certificate-providers/{certificateProviderName}"
+                  targetPrefix:@""
+                 operationName:@"CreateCertificateProvider"
+                   outputClass:[AWSIoTCreateCertificateProviderResponse class]];
+}
+
+- (void)createCertificateProvider:(AWSIoTCreateCertificateProviderRequest *)request
+     completionHandler:(void (^)(AWSIoTCreateCertificateProviderResponse *response, NSError *error))completionHandler {
+    [[self createCertificateProvider:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateCertificateProviderResponse *> * _Nonnull task) {
+        AWSIoTCreateCertificateProviderResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1491,6 +1514,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDeleteCertificateProviderResponse *> *)deleteCertificateProvider:(AWSIoTDeleteCertificateProviderRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/certificate-providers/{certificateProviderName}"
+                  targetPrefix:@""
+                 operationName:@"DeleteCertificateProvider"
+                   outputClass:[AWSIoTDeleteCertificateProviderResponse class]];
+}
+
+- (void)deleteCertificateProvider:(AWSIoTDeleteCertificateProviderRequest *)request
+     completionHandler:(void (^)(AWSIoTDeleteCertificateProviderResponse *response, NSError *error))completionHandler {
+    [[self deleteCertificateProvider:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDeleteCertificateProviderResponse *> * _Nonnull task) {
+        AWSIoTDeleteCertificateProviderResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -2330,6 +2376,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTDescribeCertificateResponse *response, NSError *error))completionHandler {
     [[self describeCertificate:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeCertificateResponse *> * _Nonnull task) {
         AWSIoTDescribeCertificateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDescribeCertificateProviderResponse *> *)describeCertificateProvider:(AWSIoTDescribeCertificateProviderRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/certificate-providers/{certificateProviderName}"
+                  targetPrefix:@""
+                 operationName:@"DescribeCertificateProvider"
+                   outputClass:[AWSIoTDescribeCertificateProviderResponse class]];
+}
+
+- (void)describeCertificateProvider:(AWSIoTDescribeCertificateProviderRequest *)request
+     completionHandler:(void (^)(AWSIoTDescribeCertificateProviderResponse *response, NSError *error))completionHandler {
+    [[self describeCertificateProvider:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeCertificateProviderResponse *> * _Nonnull task) {
+        AWSIoTDescribeCertificateProviderResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -3683,6 +3752,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTListCACertificatesResponse *response, NSError *error))completionHandler {
     [[self listCACertificates:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListCACertificatesResponse *> * _Nonnull task) {
         AWSIoTListCACertificatesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListCertificateProvidersResponse *> *)listCertificateProviders:(AWSIoTListCertificateProvidersRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/certificate-providers/"
+                  targetPrefix:@""
+                 operationName:@"ListCertificateProviders"
+                   outputClass:[AWSIoTListCertificateProvidersResponse class]];
+}
+
+- (void)listCertificateProviders:(AWSIoTListCertificateProvidersRequest *)request
+     completionHandler:(void (^)(AWSIoTListCertificateProvidersResponse *response, NSError *error))completionHandler {
+    [[self listCertificateProviders:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListCertificateProvidersResponse *> * _Nonnull task) {
+        AWSIoTListCertificateProvidersResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -5519,6 +5611,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTUpdateCertificateProviderResponse *> *)updateCertificateProvider:(AWSIoTUpdateCertificateProviderRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/certificate-providers/{certificateProviderName}"
+                  targetPrefix:@""
+                 operationName:@"UpdateCertificateProvider"
+                   outputClass:[AWSIoTUpdateCertificateProviderResponse class]];
+}
+
+- (void)updateCertificateProvider:(AWSIoTUpdateCertificateProviderRequest *)request
+     completionHandler:(void (^)(AWSIoTUpdateCertificateProviderResponse *response, NSError *error))completionHandler {
+    [[self updateCertificateProvider:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUpdateCertificateProviderResponse *> * _Nonnull task) {
+        AWSIoTUpdateCertificateProviderResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;

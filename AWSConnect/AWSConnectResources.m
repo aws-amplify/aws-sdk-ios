@@ -317,6 +317,22 @@
       \"documentation\":\"<p>Associates an agent with a traffic distribution group.</p>\",\
       \"idempotent\":true\
     },\
+    \"AssociateUserProficiencies\":{\
+      \"name\":\"AssociateUserProficiencies\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/users/{InstanceId}/{UserId}/associate-proficiencies\"\
+      },\
+      \"input\":{\"shape\":\"AssociateUserProficienciesRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>&gt;Associates a set of proficiencies with a user.</p>\"\
+    },\
     \"BatchAssociateAnalyticsDataSet\":{\
       \"name\":\"BatchAssociateAnalyticsDataSet\",\
       \"http\":{\
@@ -573,6 +589,24 @@
         {\"shape\":\"InternalServiceException\"}\
       ],\
       \"documentation\":\"<p>Enables rehydration of chats for the lifespan of a contact. For more information about chat rehydration, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html\\\">Enable persistent chat</a> in the <i>Amazon Connect Administrator Guide</i>. </p>\"\
+    },\
+    \"CreatePredefinedAttribute\":{\
+      \"name\":\"CreatePredefinedAttribute\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/predefined-attributes/{InstanceId}\"\
+      },\
+      \"input\":{\"shape\":\"CreatePredefinedAttributeRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"DuplicateResourceException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Creates a new predefined attribute for the specified Amazon Connect instance.</p>\"\
     },\
     \"CreatePrompt\":{\
       \"name\":\"CreatePrompt\",\
@@ -973,6 +1007,24 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Deletes an Amazon Web Services resource association from an Amazon Connect instance. The association must not have any use cases associated with it.</p>\"\
+    },\
+    \"DeletePredefinedAttribute\":{\
+      \"name\":\"DeletePredefinedAttribute\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/predefined-attributes/{InstanceId}/{Name}\"\
+      },\
+      \"input\":{\"shape\":\"DeletePredefinedAttributeRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceInUseException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes a predefined attribute from the specified Amazon Connect instance.</p>\",\
+      \"idempotent\":true\
     },\
     \"DeletePrompt\":{\
       \"name\":\"DeletePrompt\",\
@@ -1397,6 +1449,23 @@
       ],\
       \"documentation\":\"<p>Gets details and status of a phone number thatâs claimed to your Amazon Connect instance or traffic distribution group.</p> <important> <p>If the number is claimed to a traffic distribution group, and you are calling in the Amazon Web Services Region where the traffic distribution group was created, you can use either a phone number ARN or UUID value for the <code>PhoneNumberId</code> URI request parameter. However, if the number is claimed to a traffic distribution group and you are calling this API in the alternate Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a <code>ResourceNotFoundException</code>.</p> </important>\"\
     },\
+    \"DescribePredefinedAttribute\":{\
+      \"name\":\"DescribePredefinedAttribute\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/predefined-attributes/{InstanceId}/{Name}\"\
+      },\
+      \"input\":{\"shape\":\"DescribePredefinedAttributeRequest\"},\
+      \"output\":{\"shape\":\"DescribePredefinedAttributeResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Describes a predefined attribute for the specified Amazon Connect instance.</p>\"\
+    },\
     \"DescribePrompt\":{\
       \"name\":\"DescribePrompt\",\
       \"http\":{\
@@ -1797,6 +1866,22 @@
       ],\
       \"documentation\":\"<p>Disassociates an agent from a traffic distribution group.</p>\",\
       \"idempotent\":true\
+    },\
+    \"DisassociateUserProficiencies\":{\
+      \"name\":\"DisassociateUserProficiencies\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/users/{InstanceId}/{UserId}/disassociate-proficiencies\"\
+      },\
+      \"input\":{\"shape\":\"DisassociateUserProficienciesRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Disassociates a set of proficiencies from a user.</p>\"\
     },\
     \"DismissUserContact\":{\
       \"name\":\"DismissUserContact\",\
@@ -2354,6 +2439,23 @@
       ],\
       \"documentation\":\"<p>Lists phone numbers claimed to your Amazon Connect instance or traffic distribution group. If the provided <code>TargetArn</code> is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with traffic distribution group.</p> <p>For more information about phone numbers, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html\\\">Set Up Phone Numbers for Your Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p> <note> <ul> <li> <p>When given an instance ARN, <code>ListPhoneNumbersV2</code> returns only the phone numbers claimed to the instance.</p> </li> <li> <p>When given a traffic distribution group ARN <code>ListPhoneNumbersV2</code> returns only the phone numbers claimed to the traffic distribution group.</p> </li> </ul> </note>\"\
     },\
+    \"ListPredefinedAttributes\":{\
+      \"name\":\"ListPredefinedAttributes\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/predefined-attributes/{InstanceId}\"\
+      },\
+      \"input\":{\"shape\":\"ListPredefinedAttributesRequest\"},\
+      \"output\":{\"shape\":\"ListPredefinedAttributesResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Lists predefined attributes for the specified Amazon Connect instance.</p>\"\
+    },\
     \"ListPrompts\":{\
       \"name\":\"ListPrompts\",\
       \"http\":{\
@@ -2659,6 +2761,23 @@
       ],\
       \"documentation\":\"<p>Provides summary information about the hierarchy groups for the specified Amazon Connect instance.</p> <p>For more information about agent hierarchies, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html\\\">Set Up Agent Hierarchies</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
+    \"ListUserProficiencies\":{\
+      \"name\":\"ListUserProficiencies\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/users/{InstanceId}/{UserId}/proficiencies\"\
+      },\
+      \"input\":{\"shape\":\"ListUserProficienciesRequest\"},\
+      \"output\":{\"shape\":\"ListUserProficienciesResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Lists proficiencies associated with a user.</p>\"\
+    },\
     \"ListUsers\":{\
       \"name\":\"ListUsers\",\
       \"http\":{\
@@ -2731,6 +2850,26 @@
       ],\
       \"documentation\":\"<p>Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user specified by <i>userId</i> will be set to silent monitoring mode on the contact.</p>\"\
     },\
+    \"PauseContact\":{\
+      \"name\":\"PauseContact\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/contact/pause\"\
+      },\
+      \"input\":{\"shape\":\"PauseContactRequest\"},\
+      \"output\":{\"shape\":\"PauseContactResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"ConflictException\"}\
+      ],\
+      \"documentation\":\"<p>Allows pausing an ongoing task contact.</p>\"\
+    },\
     \"PutUserStatus\":{\
       \"name\":\"PutUserStatus\",\
       \"http\":{\
@@ -2787,6 +2926,25 @@
       ],\
       \"documentation\":\"<p>Replicates an Amazon Connect instance in the specified Amazon Web Services Region and copies configuration information for Amazon Connect resources across Amazon Web Services Regions. </p> <p>For more information about replicating an Amazon Connect instance, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/create-replica-connect-instance.html\\\">Create a replica of your existing Amazon Connect instance</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
+    \"ResumeContact\":{\
+      \"name\":\"ResumeContact\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/contact/resume\"\
+      },\
+      \"input\":{\"shape\":\"ResumeContactRequest\"},\
+      \"output\":{\"shape\":\"ResumeContactResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ConflictException\"}\
+      ],\
+      \"documentation\":\"<p>Allows resuming a task contact in a paused state.</p>\"\
+    },\
     \"ResumeContactRecording\":{\
       \"name\":\"ResumeContactRecording\",\
       \"http\":{\
@@ -2818,6 +2976,23 @@
       ],\
       \"documentation\":\"<p>Searches for available phone numbers that you can claim to your Amazon Connect instance or traffic distribution group. If the provided <code>TargetArn</code> is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with the traffic distribution group.</p>\"\
     },\
+    \"SearchContacts\":{\
+      \"name\":\"SearchContacts\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/search-contacts\"\
+      },\
+      \"input\":{\"shape\":\"SearchContactsRequest\"},\
+      \"output\":{\"shape\":\"SearchContactsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>Searches contacts in an Amazon Connect instance.</p>\"\
+    },\
     \"SearchHoursOfOperations\":{\
       \"name\":\"SearchHoursOfOperations\",\
       \"http\":{\
@@ -2834,6 +3009,23 @@
         {\"shape\":\"InternalServiceException\"}\
       ],\
       \"documentation\":\"<p>Searches the hours of operation in an Amazon Connect instance, with optional filtering.</p>\"\
+    },\
+    \"SearchPredefinedAttributes\":{\
+      \"name\":\"SearchPredefinedAttributes\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/search-predefined-attributes\"\
+      },\
+      \"input\":{\"shape\":\"SearchPredefinedAttributesRequest\"},\
+      \"output\":{\"shape\":\"SearchPredefinedAttributesResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Predefined attributes that meet certain criteria.</p>\"\
     },\
     \"SearchPrompts\":{\
       \"name\":\"SearchPrompts\",\
@@ -3191,6 +3383,24 @@
       ],\
       \"documentation\":\"<p>When a contact is being recorded, this API suspends recording whatever is selected in the flow configuration: call, screen, or both. If only call recording or only screen recording is enabled, then it would be suspended. For example, you might suspend the screen recording while collecting sensitive information, such as a credit card number. Then use ResumeContactRecording to restart recording the screen.</p> <p>The period of time that the recording is suspended is filled with silence in the final recording.</p> <p>Voice and screen recordings are supported.</p>\"\
     },\
+    \"TagContact\":{\
+      \"name\":\"TagContact\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/contact/tags\"\
+      },\
+      \"input\":{\"shape\":\"TagContactRequest\"},\
+      \"output\":{\"shape\":\"TagContactResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>Adds the specified tags to the contact resource. For more information about this API is used, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html\\\">Set up granular billing for a detailed view of your Amazon Connect usage</a>. </p>\",\
+      \"idempotent\":true\
+    },\
     \"TagResource\":{\
       \"name\":\"TagResource\",\
       \"http\":{\
@@ -3225,6 +3435,24 @@
         {\"shape\":\"InternalServiceException\"}\
       ],\
       \"documentation\":\"<p>Transfers contacts from one agent or queue to another agent or queue at any point after a contact is created. You can transfer a contact to another queue by providing the flow which orchestrates the contact to the destination queue. This gives you more control over contact handling and helps you adhere to the service level agreement (SLA) guaranteed to your customers.</p> <p>Note the following requirements:</p> <ul> <li> <p>Transfer is supported for only <code>TASK</code> contacts.</p> </li> <li> <p>Do not use both <code>QueueId</code> and <code>UserId</code> in the same call.</p> </li> <li> <p>The following flow types are supported: Inbound flow, Transfer to agent flow, and Transfer to queue flow.</p> </li> <li> <p>The <code>TransferContact</code> API can be called only on active contacts.</p> </li> <li> <p>A contact cannot be transferred more than 11 times.</p> </li> </ul>\"\
+    },\
+    \"UntagContact\":{\
+      \"name\":\"UntagContact\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/contact/tags/{InstanceId}/{ContactId}\"\
+      },\
+      \"input\":{\"shape\":\"UntagContactRequest\"},\
+      \"output\":{\"shape\":\"UntagContactResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>Removes the specified tags from the contact resource. For more information about this API is used, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html\\\">Set up granular billing for a detailed view of your Amazon Connect usage</a>.</p>\",\
+      \"idempotent\":true\
     },\
     \"UntagResource\":{\
       \"name\":\"UntagResource\",\
@@ -3401,6 +3629,24 @@
       ],\
       \"documentation\":\"<p>The name of the flow.</p> <p>You can also create and update flows using the <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html\\\">Amazon Connect Flow language</a>.</p>\"\
     },\
+    \"UpdateContactRoutingData\":{\
+      \"name\":\"UpdateContactRoutingData\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/contacts/{InstanceId}/{ContactId}/routing-data\"\
+      },\
+      \"input\":{\"shape\":\"UpdateContactRoutingDataRequest\"},\
+      \"output\":{\"shape\":\"UpdateContactRoutingDataResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceConflictException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"AccessDeniedException\"}\
+      ],\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Updates routing priority and age on the contact (<b>QueuePriority</b> and <b>QueueTimeAdjustmentInSeconds</b>). These properties can be used to change a customer's position in the queue. For example, you can move a contact to the back of the queue by setting a lower routing priority relative to other contacts in queue; or you can move a contact to the front of the queue by increasing the routing age which will make the contact look artificially older and therefore higher up in the first-in-first-out routing order. Note that adjusting the routing age of a contact affects only its position in queue, and not its actual queue wait time as reported through metrics. These properties can also be updated by using <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/change-routing-priority.html\\\">the Set routing priority / age flow block</a>.</p>\"\
+    },\
     \"UpdateContactSchedule\":{\
       \"name\":\"UpdateContactSchedule\",\
       \"http\":{\
@@ -3542,6 +3788,22 @@
         {\"shape\":\"InternalServiceException\"}\
       ],\
       \"documentation\":\"<p>Updates a phone numberâs metadata.</p> <important> <p>To verify the status of a previous UpdatePhoneNumberMetadata operation, call the <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html\\\">DescribePhoneNumber</a> API.</p> </important>\"\
+    },\
+    \"UpdatePredefinedAttribute\":{\
+      \"name\":\"UpdatePredefinedAttribute\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/predefined-attributes/{InstanceId}/{Name}\"\
+      },\
+      \"input\":{\"shape\":\"UpdatePredefinedAttributeRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Updates a predefined attribute for the specified Amazon Connect instance.</p>\"\
     },\
     \"UpdatePrompt\":{\
       \"name\":\"UpdatePrompt\",\
@@ -3905,6 +4167,22 @@
       ],\
       \"documentation\":\"<p>Updates the phone configuration settings for the specified user.</p>\"\
     },\
+    \"UpdateUserProficiencies\":{\
+      \"name\":\"UpdateUserProficiencies\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/users/{InstanceId}/{UserId}/proficiencies\"\
+      },\
+      \"input\":{\"shape\":\"UpdateUserProficienciesRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Updates the properties associated with the proficiencies of a user.</p>\"\
+    },\
     \"UpdateUserRoutingProfile\":{\
       \"name\":\"UpdateUserRoutingProfile\",\
       \"http\":{\
@@ -4010,7 +4288,10 @@
         \"CREATE_TASK\",\
         \"ASSIGN_CONTACT_CATEGORY\",\
         \"GENERATE_EVENTBRIDGE_EVENT\",\
-        \"SEND_NOTIFICATION\"\
+        \"SEND_NOTIFICATION\",\
+        \"CREATE_CASE\",\
+        \"UPDATE_CASE\",\
+        \"END_ASSOCIATED_TASKS\"\
       ]\
     },\
     \"ActivateEvaluationFormRequest\":{\
@@ -4123,6 +4404,32 @@
       \"max\":100,\
       \"min\":1\
     },\
+    \"AgentHierarchyGroups\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"L1Ids\":{\
+          \"shape\":\"HierarchyGroupIdList\",\
+          \"documentation\":\"<p>The identifiers for level 1 hierarchy groups.</p>\"\
+        },\
+        \"L2Ids\":{\
+          \"shape\":\"HierarchyGroupIdList\",\
+          \"documentation\":\"<p>The identifiers for level 2 hierarchy groups.</p>\"\
+        },\
+        \"L3Ids\":{\
+          \"shape\":\"HierarchyGroupIdList\",\
+          \"documentation\":\"<p>The identifiers for level 3 hierarchy groups.</p>\"\
+        },\
+        \"L4Ids\":{\
+          \"shape\":\"HierarchyGroupIdList\",\
+          \"documentation\":\"<p>The identifiers for level 4 hierarchy groups.</p>\"\
+        },\
+        \"L5Ids\":{\
+          \"shape\":\"HierarchyGroupIdList\",\
+          \"documentation\":\"<p>The identifiers for level 5 hierarchy groups.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A structure that defines agent hierarchy group levels which can be used to filter search results. Important: Agent hierarchy group level information in search result is a snapshot, it does not represent current agent hierarchy who handled the contact.</p>\"\
+    },\
     \"AgentInfo\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -4133,6 +4440,10 @@
         \"ConnectedToAgentTimestamp\":{\
           \"shape\":\"timestamp\",\
           \"documentation\":\"<p>The timestamp when the contact was connected to the agent.</p>\"\
+        },\
+        \"AgentPauseDurationInSeconds\":{\
+          \"shape\":\"AgentPauseDurationInSeconds\",\
+          \"documentation\":\"<p>Agent pause duration for a contact in seconds.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about the agent who accepted the contact.</p>\"\
@@ -4142,10 +4453,20 @@
       \"max\":100,\
       \"min\":1\
     },\
+    \"AgentPauseDurationInSeconds\":{\
+      \"type\":\"integer\",\
+      \"min\":0\
+    },\
     \"AgentResourceId\":{\
       \"type\":\"string\",\
       \"max\":256,\
       \"min\":1\
+    },\
+    \"AgentResourceIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"AgentResourceId\"},\
+      \"max\":100,\
+      \"min\":0\
     },\
     \"AgentStatus\":{\
       \"type\":\"structure\",\
@@ -4180,7 +4501,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"LastModifiedTime\":{\
           \"shape\":\"Timestamp\",\
@@ -4755,6 +5076,32 @@
       \"members\":{\
       }\
     },\
+    \"AssociateUserProficienciesRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"UserId\",\
+        \"UserProficiencies\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN of the instance).</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"UserId\":{\
+          \"shape\":\"UserId\",\
+          \"documentation\":\"<p>The identifier of the user account.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"UserId\"\
+        },\
+        \"UserProficiencies\":{\
+          \"shape\":\"UserProficiencyList\",\
+          \"documentation\":\"<p>The proficiencies to associate with the user.</p>\"\
+        }\
+      }\
+    },\
     \"AssociationId\":{\
       \"type\":\"string\",\
       \"max\":100,\
@@ -5052,6 +5399,10 @@
         \"TASK\"\
       ]\
     },\
+    \"ChannelList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Channel\"}\
+    },\
     \"ChannelToCountMap\":{\
       \"type\":\"map\",\
       \"key\":{\"shape\":\"Channel\"},\
@@ -5171,7 +5522,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"ClientToken\",\
@@ -5230,7 +5581,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"PhoneNumberStatus\":{\
           \"shape\":\"PhoneNumberStatus\",\
@@ -5260,6 +5611,15 @@
       \"type\":\"integer\",\
       \"max\":10,\
       \"min\":1\
+    },\
+    \"ConflictException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Message\":{\"shape\":\"Message\"}\
+      },\
+      \"documentation\":\"<p>Operation cannot be performed at this time as there is a conflict with another operation or contact state.</p>\",\
+      \"error\":{\"httpStatusCode\":409},\
+      \"exception\":true\
     },\
     \"ConnectionData\":{\
       \"type\":\"structure\",\
@@ -5330,6 +5690,22 @@
           \"shape\":\"timestamp\",\
           \"documentation\":\"<p>The timestamp when contact was last updated.</p>\"\
         },\
+        \"LastPausedTimestamp\":{\
+          \"shape\":\"timestamp\",\
+          \"documentation\":\"<p>The timestamp when the contact was last paused.</p>\"\
+        },\
+        \"LastResumedTimestamp\":{\
+          \"shape\":\"timestamp\",\
+          \"documentation\":\"<p>The timestamp when the contact was last resumed.</p>\"\
+        },\
+        \"TotalPauseCount\":{\
+          \"shape\":\"TotalPauseCount\",\
+          \"documentation\":\"<p>Total pause count for a contact.</p>\"\
+        },\
+        \"TotalPauseDurationInSeconds\":{\
+          \"shape\":\"TotalPauseDurationInSeconds\",\
+          \"documentation\":\"<p>Total pause duration for a contact in seconds.</p>\"\
+        },\
         \"ScheduledTimestamp\":{\
           \"shape\":\"timestamp\",\
           \"documentation\":\"<p>The timestamp, in Unix epoch time format, at which to start running the inbound flow. </p>\"\
@@ -5341,9 +5717,31 @@
         \"WisdomInfo\":{\
           \"shape\":\"WisdomInfo\",\
           \"documentation\":\"<p>Information about Amazon Connect Wisdom.</p>\"\
+        },\
+        \"QueueTimeAdjustmentSeconds\":{\
+          \"shape\":\"QueueTimeAdjustmentSeconds\",\
+          \"documentation\":\"<p>An integer that represents the queue time adjust to be applied to the contact, in seconds (longer / larger queue time are routed preferentially). Cannot be specified if the QueuePriority is specified. Must be statically defined and a valid integer value.</p>\"\
+        },\
+        \"QueuePriority\":{\
+          \"shape\":\"QueuePriority\",\
+          \"documentation\":\"<p>An integer that represents the queue priority to be applied to the contact (lower priorities are routed preferentially). Cannot be specified if the QueueTimeAdjustmentSeconds is specified. Must be statically defined, must be larger than zero, and a valid integer value. Default Value is 5.</p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"ContactTagMap\",\
+          \"documentation\":\"<p>Tags associated with the contact. This contains both Amazon Web Services generated and user-defined tags.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a contact.</p>\"\
+    },\
+    \"ContactAnalysis\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Transcript\":{\
+          \"shape\":\"Transcript\",\
+          \"documentation\":\"<p>A structure that defines filters can be used to search with text within an Amazon Connect Contact Lens analyzed transcript.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A structure that defines filters can be used to search within outputs analyzed by Amazon Connect Contact Lens in a contact.</p>\"\
     },\
     \"ContactDataRequest\":{\
       \"type\":\"structure\",\
@@ -5424,7 +5822,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a flow.</p>\"\
@@ -5468,7 +5866,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a flow module.</p>\"\
@@ -5640,6 +6038,84 @@
       \"key\":{\"shape\":\"ReferenceKey\"},\
       \"value\":{\"shape\":\"Reference\"}\
     },\
+    \"ContactSearchSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Arn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the contact</p>\"\
+        },\
+        \"Id\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact summary.</p>\"\
+        },\
+        \"InitialContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>If this contact is related to other contacts, this is the ID of the initial contact.</p>\"\
+        },\
+        \"PreviousContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>If this contact is not the first contact, this is the ID of the previous contact.</p>\"\
+        },\
+        \"InitiationMethod\":{\
+          \"shape\":\"ContactInitiationMethod\",\
+          \"documentation\":\"<p>Indicates how the contact was initiated.</p>\"\
+        },\
+        \"Channel\":{\
+          \"shape\":\"Channel\",\
+          \"documentation\":\"<p>How the contact reached your contact center.</p>\"\
+        },\
+        \"QueueInfo\":{\
+          \"shape\":\"ContactSearchSummaryQueueInfo\",\
+          \"documentation\":\"<p>If this contact was queued, this contains information about the queue.</p>\"\
+        },\
+        \"AgentInfo\":{\
+          \"shape\":\"ContactSearchSummaryAgentInfo\",\
+          \"documentation\":\"<p>Information about the agent who accepted the contact.</p>\"\
+        },\
+        \"InitiationTimestamp\":{\
+          \"shape\":\"timestamp\",\
+          \"documentation\":\"<p>The date and time this contact was initiated, in UTC time. For INBOUND, this is when the contact arrived. For OUTBOUND, this is when the agent began dialing. For CALLBACK, this is when the callback contact was created. For TRANSFER and QUEUE_TRANSFER, this is when the transfer was initiated. For API, this is when the request arrived. For EXTERNAL_OUTBOUND, this is when the agent started dialing the external participant. For MONITOR, this is when the supervisor started listening to a contact.</p>\"\
+        },\
+        \"DisconnectTimestamp\":{\
+          \"shape\":\"timestamp\",\
+          \"documentation\":\"<p>The timestamp when the customer endpoint disconnected from Amazon Connect.</p>\"\
+        },\
+        \"ScheduledTimestamp\":{\
+          \"shape\":\"timestamp\",\
+          \"documentation\":\"<p>The timestamp, in Unix epoch time format, at which to start running the inbound flow.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information of returned contact.</p>\"\
+    },\
+    \"ContactSearchSummaryAgentInfo\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Id\":{\
+          \"shape\":\"AgentResourceId\",\
+          \"documentation\":\"<p>The identifier of the agent who accepted the contact.</p>\"\
+        },\
+        \"ConnectedToAgentTimestamp\":{\
+          \"shape\":\"timestamp\",\
+          \"documentation\":\"<p>The timestamp when the contact was connected to the agent.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about the agent who accepted the contact.</p>\"\
+    },\
+    \"ContactSearchSummaryQueueInfo\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Id\":{\
+          \"shape\":\"QueueId\",\
+          \"documentation\":\"<p>The unique identifier for the queue.</p>\"\
+        },\
+        \"EnqueueTimestamp\":{\
+          \"shape\":\"timestamp\",\
+          \"documentation\":\"<p>The timestamp when the contact was added to the queue.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>If this contact was queued, this contains information about the queue.</p>\"\
+    },\
     \"ContactState\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -5658,6 +6134,33 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"ContactState\"},\
       \"max\":9\
+    },\
+    \"ContactTagKey\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1,\
+      \"pattern\":\"^(?!aws:)[a-zA-Z+-=._:/]+$\"\
+    },\
+    \"ContactTagKeys\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ContactTagKey\"},\
+      \"max\":6,\
+      \"min\":1\
+    },\
+    \"ContactTagMap\":{\
+      \"type\":\"map\",\
+      \"key\":{\"shape\":\"ContactTagKey\"},\
+      \"value\":{\"shape\":\"ContactTagValue\"},\
+      \"max\":6,\
+      \"min\":1\
+    },\
+    \"ContactTagValue\":{\
+      \"type\":\"string\",\
+      \"max\":256\
+    },\
+    \"Contacts\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ContactSearchSummary\"}\
     },\
     \"Content\":{\
       \"type\":\"string\",\
@@ -5720,7 +6223,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -5736,6 +6239,24 @@
           \"documentation\":\"<p>The identifier of the agent status.</p>\"\
         }\
       }\
+    },\
+    \"CreateCaseActionDefinition\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Fields\",\
+        \"TemplateId\"\
+      ],\
+      \"members\":{\
+        \"Fields\":{\
+          \"shape\":\"FieldValues\",\
+          \"documentation\":\"<p>An array of objects with <code>Field ID</code> and <code>Value</code> data.</p>\"\
+        },\
+        \"TemplateId\":{\
+          \"shape\":\"TemplateId\",\
+          \"documentation\":\"<p>A unique identifier of a template.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The <code>CreateCase</code> action definition.</p>\"\
     },\
     \"CreateContactFlowModuleRequest\":{\
       \"type\":\"structure\",\
@@ -5765,7 +6286,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"ClientToken\",\
@@ -5820,7 +6341,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -5924,7 +6445,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6028,7 +6549,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6129,6 +6650,30 @@
         }\
       }\
     },\
+    \"CreatePredefinedAttributeRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"Name\",\
+        \"Values\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"Name\":{\
+          \"shape\":\"PredefinedAttributeName\",\
+          \"documentation\":\"<p> The name of the predefined attribute. </p>\"\
+        },\
+        \"Values\":{\
+          \"shape\":\"PredefinedAttributeValues\",\
+          \"documentation\":\"<p> The values of the predefined attribute. </p>\"\
+        }\
+      }\
+    },\
     \"CreatePromptRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -6157,7 +6702,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6215,7 +6760,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6260,7 +6805,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6315,7 +6860,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"AgentAvailabilityTimer\":{\
           \"shape\":\"AgentAvailabilityTimer\",\
@@ -6430,7 +6975,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"AllowedAccessControlTags\":{\
           \"shape\":\"AllowedAccessControlTags\",\
@@ -6551,7 +7096,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6594,7 +7139,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6634,7 +7179,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6701,7 +7246,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -6840,7 +7385,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -7250,6 +7795,27 @@
           \"documentation\":\"<p>The identifier for the integration association.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"IntegrationAssociationId\"\
+        }\
+      }\
+    },\
+    \"DeletePredefinedAttributeRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"Name\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p> The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"Name\":{\
+          \"shape\":\"PredefinedAttributeName\",\
+          \"documentation\":\"<p> The name of the predefined attribute.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Name\"\
         }\
       }\
     },\
@@ -7929,6 +8495,36 @@
         }\
       }\
     },\
+    \"DescribePredefinedAttributeRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"Name\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"Name\":{\
+          \"shape\":\"PredefinedAttributeName\",\
+          \"documentation\":\"<p>The name of the predefined attribute.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Name\"\
+        }\
+      }\
+    },\
+    \"DescribePredefinedAttributeResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PredefinedAttribute\":{\
+          \"shape\":\"PredefinedAttribute\",\
+          \"documentation\":\"<p>Information about the predefined attribute.</p>\"\
+        }\
+      }\
+    },\
     \"DescribePromptRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -8312,7 +8908,11 @@
           \"shape\":\"Channel\",\
           \"documentation\":\"<p>The channel used for grouping and filters.</p>\"\
         },\
-        \"RoutingProfile\":{\"shape\":\"RoutingProfileReference\"}\
+        \"RoutingProfile\":{\"shape\":\"RoutingProfileReference\"},\
+        \"RoutingStepExpression\":{\
+          \"shape\":\"RoutingExpression\",\
+          \"documentation\":\"<p>The expression of a step in a routing criteria.</p>\"\
+        }\
       },\
       \"documentation\":\"<p>Contains information about the dimensions for a set of metrics.</p>\"\
     },\
@@ -8643,6 +9243,32 @@
       \"members\":{\
       }\
     },\
+    \"DisassociateUserProficienciesRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"UserId\",\
+        \"UserProficiencies\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"UserId\":{\
+          \"shape\":\"UserId\",\
+          \"documentation\":\"<p>The identifier of the user account.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"UserId\"\
+        },\
+        \"UserProficiencies\":{\
+          \"shape\":\"UserProficiencyDisassociateList\",\
+          \"documentation\":\"<p>The proficiencies to disassociate from the user.</p>\"\
+        }\
+      }\
+    },\
     \"DisconnectReason\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -8712,6 +9338,7 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"Distribution\"}\
     },\
+    \"Double\":{\"type\":\"double\"},\
     \"DuplicateResourceException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -8736,6 +9363,12 @@
       },\
       \"documentation\":\"<p>Information about a reference when the <code>referenceType</code> is <code>EMAIL</code>. Otherwise, null.</p>\"\
     },\
+    \"EmptyFieldValue\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      },\
+      \"documentation\":\"<p>An empty value.</p>\"\
+    },\
     \"EncryptionConfig\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -8757,6 +9390,12 @@
     \"EncryptionType\":{\
       \"type\":\"string\",\
       \"enum\":[\"KMS\"]\
+    },\
+    \"EndAssociatedTasksActionDefinition\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      },\
+      \"documentation\":\"<p>End associated tasks related to a case.</p>\"\
     },\
     \"Endpoint\":{\
       \"type\":\"structure\",\
@@ -8854,7 +9493,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about a contact evaluation.</p>\"\
@@ -8990,7 +9629,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about the evaluation form.</p>\"\
@@ -9677,7 +10316,9 @@
         \"OnZendeskTicketStatusUpdate\",\
         \"OnSalesforceCaseCreate\",\
         \"OnContactEvaluationSubmit\",\
-        \"OnMetricDataUpdate\"\
+        \"OnMetricDataUpdate\",\
+        \"OnCaseCreate\",\
+        \"OnCaseUpdate\"\
       ]\
     },\
     \"FailedRequest\":{\
@@ -9717,6 +10358,60 @@
         \"INTERNAL_ERROR\"\
       ]\
     },\
+    \"FieldStringValue\":{\
+      \"type\":\"string\",\
+      \"max\":500,\
+      \"min\":0\
+    },\
+    \"FieldValue\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Id\",\
+        \"Value\"\
+      ],\
+      \"members\":{\
+        \"Id\":{\
+          \"shape\":\"FieldValueId\",\
+          \"documentation\":\"<p>Unique identifier of a field.</p>\"\
+        },\
+        \"Value\":{\
+          \"shape\":\"FieldValueUnion\",\
+          \"documentation\":\"<p>Union of potential field value types.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Object for case field values.</p>\"\
+    },\
+    \"FieldValueId\":{\
+      \"type\":\"string\",\
+      \"max\":500,\
+      \"min\":1\
+    },\
+    \"FieldValueUnion\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"BooleanValue\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>A Boolean number value type.</p>\"\
+        },\
+        \"DoubleValue\":{\
+          \"shape\":\"Double\",\
+          \"documentation\":\"<p>a Double number value type.</p>\"\
+        },\
+        \"EmptyValue\":{\
+          \"shape\":\"EmptyFieldValue\",\
+          \"documentation\":\"<p>An empty value.</p>\"\
+        },\
+        \"StringValue\":{\
+          \"shape\":\"FieldStringValue\",\
+          \"documentation\":\"<p>String value type.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Object to store union of Field values.</p>\"\
+    },\
+    \"FieldValues\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"FieldValue\"}\
+    },\
     \"FilterV2\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -9751,6 +10446,10 @@
         \"RoutingProfiles\":{\
           \"shape\":\"RoutingProfiles\",\
           \"documentation\":\"<p>A list of up to 100 routing profile IDs or ARNs.</p>\"\
+        },\
+        \"RoutingStepExpressions\":{\
+          \"shape\":\"RoutingExpressions\",\
+          \"documentation\":\"<p>A list of expressions as a filter, in which an expression is an object of a step in a routing criteria.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains the filter to apply when retrieving metrics.</p>\"\
@@ -10107,7 +10806,7 @@
         },\
         \"Metrics\":{\
           \"shape\":\"MetricsV2\",\
-          \"documentation\":\"<p>The metrics to retrieve. Specify the name, groupings, and filters for each metric. The following historical metrics are available. For a description of each metric, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html\\\">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.</p> <dl> <dt>ABANDONMENT_RATE</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AGENT_ADHERENT_TIME</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_ANSWER_RATE</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AGENT_NON_ADHERENT_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AGENT_NON_RESPONSE</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_NON_RESPONSE_WITHOUT_CUSTOMER_ABANDONS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <p>Data for this metric is available starting from October 1, 2023 0:00:00 GMT.</p> </dd> <dt>AGENT_OCCUPANCY</dt> <dd> <p>Unit: Percentage</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_SCHEDULE_ADHERENCE</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AGENT_SCHEDULED_TIME</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_ABANDON_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_AFTER_CONTACT_WORK_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_AGENT_CONNECTING_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <note> <p>The <code>Negate</code> key in Metric Level Filters is not applicable for this metric.</p> </note> </dd> <dt>AVG_CONTACT_DURATION</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_CONVERSATION_DURATION</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_GREETING_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_HANDLE_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_HOLD_TIME_ALL_CONTACTS</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_HOLDS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_INTERACTION_AND_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_INTERACTION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_INTERRUPTIONS_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_INTERRUPTION_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_NON_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_QUEUE_ANSWER_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_RESOLUTION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_TALK_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_TALK_TIME_CUSTOMER</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>CONTACTS_ABANDONED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>CONTACTS_CREATED</dt> <dd> <p>Unit: Count</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_HANDLED</dt> <dd> <p>Unit: Count</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_HOLD_ABANDONS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>CONTACTS_ON_HOLD_AGENT_DISCONNECT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_ON_HOLD_CUSTOMER_DISCONNECT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_PUT_ON_HOLD</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_EXTERNAL</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_INTERNAL</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_QUEUED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>CONTACTS_RESOLVED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p> <p>Threshold: For <code>ThresholdValue</code> enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\").</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_TRANSFERRED_OUT_BY_AGENT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>MAX_QUEUED_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>PERCENT_NON_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Percentage</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>PERCENT_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Percentage</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>PERCENT_TALK_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Percentage</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>PERCENT_TALK_TIME_CUSTOMER</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Percentage</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>SERVICE_LEVEL</dt> <dd> <p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_AFTER_CONTACT_WORK_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_CONNECTING_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>. This metric only supports the following filter keys as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <note> <p>The <code>Negate</code> key in Metric Level Filters is not applicable for this metric.</p> </note> </dd> <dt>SUM_CONTACT_FLOW_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_CONTACT_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_CONTACTS_ANSWERED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_CONTACTS_ABANDONED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_CONTACTS_DISCONNECTED </dt> <dd> <p>Valid metric filter key: <code>DISCONNECT_REASON</code> </p> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>SUM_ERROR_STATUS_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_HANDLE_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_HOLD_TIME</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_IDLE_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_INTERACTION_AND_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_INTERACTION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_NON_PRODUCTIVE_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_ONLINE_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_RETRY_CALLBACK_ATTEMPTS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p> </dd> </dl>\"\
+          \"documentation\":\"<p>The metrics to retrieve. Specify the name, groupings, and filters for each metric. The following historical metrics are available. For a description of each metric, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html\\\">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.</p> <dl> <dt>ABANDONMENT_RATE</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AGENT_ADHERENT_TIME</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_ANSWER_RATE</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AGENT_NON_ADHERENT_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AGENT_NON_RESPONSE</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_NON_RESPONSE_WITHOUT_CUSTOMER_ABANDONS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <p>Data for this metric is available starting from October 1, 2023 0:00:00 GMT.</p> </dd> <dt>AGENT_OCCUPANCY</dt> <dd> <p>Unit: Percentage</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy </p> </dd> <dt>AGENT_SCHEDULE_ADHERENCE</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AGENT_SCHEDULED_TIME</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\\\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_ABANDON_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_ACTIVE_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_AFTER_CONTACT_WORK_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_AGENT_CONNECTING_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <note> <p>The <code>Negate</code> key in Metric Level Filters is not applicable for this metric.</p> </note> </dd> <dt>AVG_AGENT_PAUSE_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>AVG_CONTACT_DURATION</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_CONVERSATION_DURATION</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_GREETING_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_HANDLE_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_HOLD_TIME_ALL_CONTACTS</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_HOLDS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_INTERACTION_AND_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_INTERACTION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_INTERRUPTIONS_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_INTERRUPTION_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_NON_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_QUEUE_ANSWER_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_RESOLUTION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_TALK_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>AVG_TALK_TIME_CUSTOMER</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>CONTACTS_ABANDONED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>CONTACTS_CREATED</dt> <dd> <p>Unit: Count</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_HANDLED</dt> <dd> <p>Unit: Count</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_HOLD_ABANDONS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>CONTACTS_ON_HOLD_AGENT_DISCONNECT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_ON_HOLD_CUSTOMER_DISCONNECT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_PUT_ON_HOLD</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_EXTERNAL</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_INTERNAL</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>CONTACTS_QUEUED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>CONTACTS_RESOLVED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p> <p>Threshold: For <code>ThresholdValue</code> enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\").</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_TRANSFERRED_OUT_BY_AGENT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>MAX_QUEUED_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>PERCENT_NON_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Percentage</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>PERCENT_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Percentage</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>PERCENT_TALK_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Percentage</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>PERCENT_TALK_TIME_CUSTOMER</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Percentage</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>SERVICE_LEVEL</dt> <dd> <p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_AFTER_CONTACT_WORK_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_CONNECTING_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>. This metric only supports the following filter keys as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <note> <p>The <code>Negate</code> key in Metric Level Filters is not applicable for this metric.</p> </note> </dd> <dt>SUM_CONTACT_FLOW_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_CONTACT_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_CONTACTS_ANSWERED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_CONTACTS_ABANDONED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> <dt>SUM_CONTACTS_DISCONNECTED </dt> <dd> <p>Valid metric filter key: <code>DISCONNECT_REASON</code> </p> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> </dd> <dt>SUM_ERROR_STATUS_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_HANDLE_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_HOLD_TIME</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_IDLE_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_INTERACTION_AND_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_INTERACTION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_NON_PRODUCTIVE_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_ONLINE_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p> </dd> <dt>SUM_RETRY_CALLBACK_ATTEMPTS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p> </dd> </dl>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken2500\",\
@@ -10256,7 +10955,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -10302,7 +11001,8 @@
       \"enum\":[\
         \"QUEUE\",\
         \"CHANNEL\",\
-        \"ROUTING_PROFILE\"\
+        \"ROUTING_PROFILE\",\
+        \"ROUTING_STEP_EXPRESSION\"\
       ]\
     },\
     \"GroupingV2\":{\"type\":\"string\"},\
@@ -10341,7 +11041,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"LastModifiedTime\":{\
           \"shape\":\"Timestamp\",\
@@ -10369,6 +11069,12 @@
       \"documentation\":\"<p>A leaf node condition which can be used to specify a hierarchy group condition.</p>\"\
     },\
     \"HierarchyGroupId\":{\"type\":\"string\"},\
+    \"HierarchyGroupIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"HierarchyGroupId\"},\
+      \"max\":10,\
+      \"min\":0\
+    },\
     \"HierarchyGroupMatchType\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -10698,7 +11404,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"LastModifiedTime\":{\
           \"shape\":\"Timestamp\",\
@@ -10873,7 +11579,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"ClientToken\",\
@@ -10896,6 +11602,10 @@
       }\
     },\
     \"InboundCallsEnabled\":{\"type\":\"boolean\"},\
+    \"InitiationMethodList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ContactInitiationMethod\"}\
+    },\
     \"Instance\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -12335,6 +13045,44 @@
         }\
       }\
     },\
+    \"ListPredefinedAttributesRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"InstanceId\"],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResult100\",\
+          \"documentation\":\"<p>The maximum number of results to return per page. </p>\",\
+          \"box\":true,\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        }\
+      }\
+    },\
+    \"ListPredefinedAttributesResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>If there are additional results, this is the token for the next set of results.</p>\"\
+        },\
+        \"PredefinedAttributeSummaryList\":{\
+          \"shape\":\"PredefinedAttributeSummaryList\",\
+          \"documentation\":\"<p>Summary of the predefined attributes.</p>\"\
+        }\
+      }\
+    },\
     \"ListPromptsRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"InstanceId\"],\
@@ -13140,6 +13888,61 @@
         }\
       }\
     },\
+    \"ListUserProficienciesRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"UserId\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"UserId\":{\
+          \"shape\":\"UserId\",\
+          \"documentation\":\"<p>The identifier of the user account.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"UserId\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResult100\",\
+          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"box\":true,\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        }\
+      }\
+    },\
+    \"ListUserProficienciesResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>If there are additional results, this is the token for the next set of results.</p>\"\
+        },\
+        \"UserProficiencyList\":{\
+          \"shape\":\"UserProficiencyList\",\
+          \"documentation\":\"<p>Information about the user proficiencies.</p>\"\
+        },\
+        \"LastModifiedTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The last time that the user's proficiencies are were modified.</p>\"\
+        },\
+        \"LastModifiedRegion\":{\
+          \"shape\":\"RegionName\",\
+          \"documentation\":\"<p>The region in which a user's proficiencies were last modified.</p>\"\
+        }\
+      }\
+    },\
     \"ListUsersRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"InstanceId\"],\
@@ -13632,7 +14435,7 @@
       \"members\":{\
         \"UserTags\":{\
           \"shape\":\"UserTagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }. Amazon Connect users with the specified tags will be notified.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }. Amazon Connect users with the specified tags will be notified.</p>\"\
         },\
         \"UserIds\":{\
           \"shape\":\"UserIdList\",\
@@ -13868,6 +14671,32 @@
     \"Password\":{\
       \"type\":\"string\",\
       \"pattern\":\"/^(?=.*[a-z])(?=.*[A-Z])(?=.*\\\\d)[a-zA-Z\\\\d\\\\S]{8,64}$/\"\
+    },\
+    \"PauseContactRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ContactId\",\
+        \"InstanceId\"\
+      ],\
+      \"members\":{\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact.</p>\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the <code>instanceId</code> in the ARN of the instance.</p>\"\
+        },\
+        \"ContactFlowId\":{\
+          \"shape\":\"ContactFlowId\",\
+          \"documentation\":\"<p>The identifier of the flow.</p>\"\
+        }\
+      }\
+    },\
+    \"PauseContactResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
     },\
     \"Percentage\":{\
       \"type\":\"integer\",\
@@ -14253,6 +15082,100 @@
         \"DESK_PHONE\"\
       ]\
     },\
+    \"PredefinedAttribute\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Name\":{\
+          \"shape\":\"PredefinedAttributeName\",\
+          \"documentation\":\"<p>The name of the predefined attribute.</p>\"\
+        },\
+        \"Values\":{\
+          \"shape\":\"PredefinedAttributeValues\",\
+          \"documentation\":\"<p>The values of the predefined attribute.</p>\"\
+        },\
+        \"LastModifiedTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>Last modified time.</p>\"\
+        },\
+        \"LastModifiedRegion\":{\
+          \"shape\":\"RegionName\",\
+          \"documentation\":\"<p>Last modified region.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about a predefined attribute.</p>\"\
+    },\
+    \"PredefinedAttributeName\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1\
+    },\
+    \"PredefinedAttributeSearchConditionList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"PredefinedAttributeSearchCriteria\"}\
+    },\
+    \"PredefinedAttributeSearchCriteria\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"OrConditions\":{\
+          \"shape\":\"PredefinedAttributeSearchConditionList\",\
+          \"documentation\":\"<p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>\"\
+        },\
+        \"AndConditions\":{\
+          \"shape\":\"PredefinedAttributeSearchConditionList\",\
+          \"documentation\":\"<p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>\"\
+        },\
+        \"StringCondition\":{\"shape\":\"StringCondition\"}\
+      },\
+      \"documentation\":\"<p>The search criteria to be used to return predefined attributes.</p>\"\
+    },\
+    \"PredefinedAttributeSearchSummaryList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"PredefinedAttribute\"}\
+    },\
+    \"PredefinedAttributeStringValue\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1\
+    },\
+    \"PredefinedAttributeStringValuesList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"PredefinedAttributeStringValue\"},\
+      \"max\":75,\
+      \"min\":1\
+    },\
+    \"PredefinedAttributeSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Name\":{\
+          \"shape\":\"PredefinedAttributeName\",\
+          \"documentation\":\"<p>The name of the predefined attribute.</p>\"\
+        },\
+        \"LastModifiedTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>Last modified time.</p>\"\
+        },\
+        \"LastModifiedRegion\":{\
+          \"shape\":\"RegionName\",\
+          \"documentation\":\"<p>Last modified region.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Summary of a predefined attribute.</p>\"\
+    },\
+    \"PredefinedAttributeSummaryList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"PredefinedAttributeSummary\"}\
+    },\
+    \"PredefinedAttributeValues\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"StringList\":{\
+          \"shape\":\"PredefinedAttributeStringValuesList\",\
+          \"documentation\":\"<p>Predefined attribute values of type string list.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about values of a predefined attribute.</p>\",\
+      \"union\":true\
+    },\
     \"Prefix\":{\
       \"type\":\"string\",\
       \"max\":128,\
@@ -14284,6 +15207,12 @@
       \"max\":50,\
       \"min\":1\
     },\
+    \"ProficiencyLevel\":{\
+      \"type\":\"float\",\
+      \"box\":true,\
+      \"max\":5.0,\
+      \"min\":1.0\
+    },\
     \"Prompt\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -14305,7 +15234,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"LastModifiedTime\":{\
           \"shape\":\"Timestamp\",\
@@ -14519,7 +15448,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"LastModifiedTime\":{\
           \"shape\":\"Timestamp\",\
@@ -14538,6 +15467,12 @@
       \"min\":1\
     },\
     \"QueueId\":{\"type\":\"string\"},\
+    \"QueueIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"QueueId\"},\
+      \"max\":100,\
+      \"min\":0\
+    },\
     \"QueueInfo\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -14559,6 +15494,11 @@
     \"QueueName\":{\
       \"type\":\"string\",\
       \"max\":256,\
+      \"min\":1\
+    },\
+    \"QueuePriority\":{\
+      \"type\":\"long\",\
+      \"max\":9223372036854775807,\
       \"min\":1\
     },\
     \"QueueQuickConnectConfig\":{\
@@ -14671,6 +15611,7 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"QueueSummary\"}\
     },\
+    \"QueueTimeAdjustmentSeconds\":{\"type\":\"integer\"},\
     \"QueueType\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -14714,7 +15655,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"LastModifiedTime\":{\
           \"shape\":\"Timestamp\",\
@@ -15557,6 +16498,42 @@
       \"members\":{\
       }\
     },\
+    \"ResumeContactRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ContactId\",\
+        \"InstanceId\"\
+      ],\
+      \"members\":{\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact.</p>\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the <code>instanceId</code> in the ARN of the instance.</p>\"\
+        },\
+        \"ContactFlowId\":{\
+          \"shape\":\"ContactFlowId\",\
+          \"documentation\":\"<p>The identifier of the flow.</p>\"\
+        }\
+      }\
+    },\
+    \"ResumeContactResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"RoutingExpression\":{\
+      \"type\":\"string\",\
+      \"max\":3000,\
+      \"min\":1\
+    },\
+    \"RoutingExpressions\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"RoutingExpression\"},\
+      \"max\":50\
+    },\
     \"RoutingProfile\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -15590,7 +16567,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"NumberOfAssociatedQueues\":{\
           \"shape\":\"Long\",\
@@ -15865,7 +16842,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about a rule.</p>\"\
@@ -15893,6 +16870,18 @@
         \"SendNotificationAction\":{\
           \"shape\":\"SendNotificationActionDefinition\",\
           \"documentation\":\"<p>Information about the send notification action.</p> <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnRealTimeChatAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code> </p>\"\
+        },\
+        \"CreateCaseAction\":{\
+          \"shape\":\"CreateCaseActionDefinition\",\
+          \"documentation\":\"<p>Information about the create case action.</p> <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code>.</p>\"\
+        },\
+        \"UpdateCaseAction\":{\
+          \"shape\":\"UpdateCaseActionDefinition\",\
+          \"documentation\":\"<p>Information about the update case action.</p> <p>Supported only for <code>TriggerEventSource</code> values: <code>OnCaseCreate</code> | <code>OnCaseUpdate</code>.</p>\"\
+        },\
+        \"EndAssociatedTasksAction\":{\
+          \"shape\":\"EndAssociatedTasksActionDefinition\",\
+          \"documentation\":\"<p>Information about the end associated tasks action.</p> <p>Supported only for <code>TriggerEventSource</code> values: <code>OnCaseUpdate</code>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about the action to be performed when a rule is triggered.</p>\"\
@@ -16066,6 +17055,131 @@
         }\
       }\
     },\
+    \"SearchContactsMatchType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"MATCH_ALL\",\
+        \"MATCH_ANY\"\
+      ]\
+    },\
+    \"SearchContactsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"TimeRange\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance</p>\"\
+        },\
+        \"TimeRange\":{\
+          \"shape\":\"SearchContactsTimeRange\",\
+          \"documentation\":\"<p>Time range that you want to search results</p>\"\
+        },\
+        \"SearchCriteria\":{\
+          \"shape\":\"SearchCriteria\",\
+          \"documentation\":\"<p>The search criteria to be used to return contacts.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResult100\",\
+          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"box\":true\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"LargeNextToken\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\"\
+        },\
+        \"Sort\":{\
+          \"shape\":\"Sort\",\
+          \"documentation\":\"<p>Specifies a field to sort by and a sort order</p>\"\
+        }\
+      }\
+    },\
+    \"SearchContactsResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Contacts\"],\
+      \"members\":{\
+        \"Contacts\":{\
+          \"shape\":\"Contacts\",\
+          \"documentation\":\"<p>Information about the contacts.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"LargeNextToken\",\
+          \"documentation\":\"<p>If there are additional results, this is the token for the next set of results.</p>\"\
+        },\
+        \"TotalCount\":{\
+          \"shape\":\"TotalCount\",\
+          \"documentation\":\"<p>The total number of contacts which matched your search query.</p>\"\
+        }\
+      }\
+    },\
+    \"SearchContactsTimeRange\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Type\",\
+        \"StartTime\",\
+        \"EndTime\"\
+      ],\
+      \"members\":{\
+        \"Type\":{\
+          \"shape\":\"SearchContactsTimeRangeType\",\
+          \"documentation\":\"<p>The type of timestamp to search</p>\"\
+        },\
+        \"StartTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The start time of the time range.</p>\"\
+        },\
+        \"EndTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The end time of the time range.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A structure of time range that you want to search results</p>\"\
+    },\
+    \"SearchContactsTimeRangeType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"INITIATION_TIMESTAMP\",\
+        \"SCHEDULED_TIMESTAMP\",\
+        \"CONNECTED_TO_AGENT_TIMESTAMP\",\
+        \"DISCONNECT_TIMESTAMP\"\
+      ]\
+    },\
+    \"SearchCriteria\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"AgentIds\":{\
+          \"shape\":\"AgentResourceIdList\",\
+          \"documentation\":\"<p>The array of agent ids</p>\"\
+        },\
+        \"AgentHierarchyGroups\":{\
+          \"shape\":\"AgentHierarchyGroups\",\
+          \"documentation\":\"<p>The agent hierarchy groups</p>\"\
+        },\
+        \"Channels\":{\
+          \"shape\":\"ChannelList\",\
+          \"documentation\":\"<p>The array of channels</p>\"\
+        },\
+        \"ContactAnalysis\":{\
+          \"shape\":\"ContactAnalysis\",\
+          \"documentation\":\"<p>The ContactAnalysis object used in search criteria</p>\"\
+        },\
+        \"InitiationMethods\":{\
+          \"shape\":\"InitiationMethodList\",\
+          \"documentation\":\"<p>The array of initiaton methods</p>\"\
+        },\
+        \"QueueIds\":{\
+          \"shape\":\"QueueIdList\",\
+          \"documentation\":\"<p>The array of queue ids.</p>\"\
+        },\
+        \"SearchableContactAttributes\":{\
+          \"shape\":\"SearchableContactAttributes\",\
+          \"documentation\":\"<p>The SearchableContactAttributes object used in search criteria</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A structure of search criteria to be used to return contacts</p>\"\
+    },\
     \"SearchHoursOfOperationsRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"InstanceId\"],\
@@ -16107,6 +17221,46 @@
         \"ApproximateTotalCount\":{\
           \"shape\":\"ApproximateTotalCount\",\
           \"documentation\":\"<p>The total number of hours of operations which matched your search query.</p>\"\
+        }\
+      }\
+    },\
+    \"SearchPredefinedAttributesRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"InstanceId\"],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken2500\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResult100\",\
+          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"box\":true\
+        },\
+        \"SearchCriteria\":{\
+          \"shape\":\"PredefinedAttributeSearchCriteria\",\
+          \"documentation\":\"<p>The search criteria to be used to return predefined attributes.</p>\"\
+        }\
+      }\
+    },\
+    \"SearchPredefinedAttributesResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PredefinedAttributes\":{\
+          \"shape\":\"PredefinedAttributeSearchSummaryList\",\
+          \"documentation\":\"<p>Predefined attributes matched by the search criteria.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken2500\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\"\
+        },\
+        \"ApproximateTotalCount\":{\
+          \"shape\":\"ApproximateTotalCount\",\
+          \"documentation\":\"<p>The approximate number of predefined attributes which matched your search query.</p>\"\
         }\
       }\
     },\
@@ -16370,6 +17524,17 @@
         }\
       }\
     },\
+    \"SearchText\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"sensitive\":true\
+    },\
+    \"SearchTextList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"SearchText\"},\
+      \"max\":100,\
+      \"min\":0\
+    },\
     \"SearchUsersRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"InstanceId\"],\
@@ -16456,6 +17621,63 @@
         }\
       }\
     },\
+    \"SearchableContactAttributeKey\":{\
+      \"type\":\"string\",\
+      \"max\":100,\
+      \"min\":0,\
+      \"sensitive\":true\
+    },\
+    \"SearchableContactAttributeValue\":{\
+      \"type\":\"string\",\
+      \"max\":100,\
+      \"min\":0,\
+      \"sensitive\":true\
+    },\
+    \"SearchableContactAttributeValueList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"SearchableContactAttributeValue\"},\
+      \"max\":20,\
+      \"min\":0\
+    },\
+    \"SearchableContactAttributes\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Criteria\"],\
+      \"members\":{\
+        \"Criteria\":{\
+          \"shape\":\"SearchableContactAttributesCriteriaList\",\
+          \"documentation\":\"<p>The array of searhale contact attribute criteria</p>\"\
+        },\
+        \"MatchType\":{\
+          \"shape\":\"SearchContactsMatchType\",\
+          \"documentation\":\"<p>The match type of multiple searchable contact attributes criteria.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A structure that defines searchable contact attributes which can be used to filter search results. </p>\"\
+    },\
+    \"SearchableContactAttributesCriteria\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Key\",\
+        \"Values\"\
+      ],\
+      \"members\":{\
+        \"Key\":{\
+          \"shape\":\"SearchableContactAttributeKey\",\
+          \"documentation\":\"<p>The searchable contact attribute key</p>\"\
+        },\
+        \"Values\":{\
+          \"shape\":\"SearchableContactAttributeValueList\",\
+          \"documentation\":\"<p>The array of contact attribute values used to filter search results.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The criteria of searchable contact attributes.</p>\"\
+    },\
+    \"SearchableContactAttributesCriteriaList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"SearchableContactAttributesCriteria\"},\
+      \"max\":15,\
+      \"min\":0\
+    },\
     \"SearchableQueueType\":{\
       \"type\":\"string\",\
       \"enum\":[\"STANDARD\"]\
@@ -16507,7 +17729,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"AllowedAccessControlTags\":{\
           \"shape\":\"AllowedAccessControlTags\",\
@@ -16598,7 +17820,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about the returned security profiles.</p>\"\
@@ -16830,11 +18052,40 @@
       \"min\":1\
     },\
     \"SnapshotVersion\":{\"type\":\"string\"},\
+    \"Sort\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"FieldName\",\
+        \"Order\"\
+      ],\
+      \"members\":{\
+        \"FieldName\":{\
+          \"shape\":\"SortableFieldName\",\
+          \"documentation\":\"<p>The name of the field on which to sort.</p>\"\
+        },\
+        \"Order\":{\
+          \"shape\":\"SortOrder\",\
+          \"documentation\":\"<p>An ascending or descending sort.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A structure that defines the sort by and a sort order</p>\"\
+    },\
     \"SortOrder\":{\
       \"type\":\"string\",\
       \"enum\":[\
         \"ASCENDING\",\
         \"DESCENDING\"\
+      ]\
+    },\
+    \"SortableFieldName\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"INITIATION_TIMESTAMP\",\
+        \"SCHEDULED_TIMESTAMP\",\
+        \"CONNECTED_TO_AGENT_TIMESTAMP\",\
+        \"DISCONNECT_TIMESTAMP\",\
+        \"INITIATION_METHOD\",\
+        \"CHANNEL\"\
       ]\
     },\
     \"SourceApplicationName\":{\
@@ -16852,7 +18103,8 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"SALESFORCE\",\
-        \"ZENDESK\"\
+        \"ZENDESK\",\
+        \"CASES\"\
       ]\
     },\
     \"StartChatContactRequest\":{\
@@ -17055,6 +18307,22 @@
         \"InstanceId\"\
       ],\
       \"members\":{\
+        \"Name\":{\
+          \"shape\":\"Name\",\
+          \"documentation\":\"<p>The name of a voice contact that is shown to an agent in the Contact Control Panel (CCP).</p>\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"Description\",\
+          \"documentation\":\"<p>A description of the voice contact that is shown to an agent in the Contact Control Panel (CCP).</p>\"\
+        },\
+        \"References\":{\
+          \"shape\":\"ContactReferences\",\
+          \"documentation\":\"<p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Contacts can have the following reference types at the time of creation: <code>URL</code> | <code>NUMBER</code> | <code>STRING</code> | <code>DATE</code> | <code>EMAIL</code>. <code>ATTACHMENT</code> is not a supported reference type during voice contact creation.</p>\"\
+        },\
+        \"RelatedContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The <code>contactId</code> that is related to this contact. Linking voice, task, or chat by using <code>RelatedContactID</code> copies over contact attributes from the related contact to the new contact. All updates to user-defined attributes in the new contact are limited to the individual contact ID. There are no limits to the number of contacts that can be linked by using <code>RelatedContactId</code>. </p>\"\
+        },\
         \"DestinationPhoneNumber\":{\
           \"shape\":\"PhoneNumber\",\
           \"documentation\":\"<p>The phone number of the customer, in E.164 format.</p>\"\
@@ -17366,7 +18634,7 @@
           \"documentation\":\"<p>The type of comparison to be made when evaluating the string condition.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>A leaf node condition which can be used to specify a string condition. </p>\"\
+      \"documentation\":\"<p>A leaf node condition which can be used to specify a string condition.</p> <note> <p>The currently supported values for <code>FieldName</code> are <code>name</code> and <code>description</code>.</p> </note>\"\
     },\
     \"StringReference\":{\
       \"type\":\"structure\",\
@@ -17510,6 +18778,33 @@
       },\
       \"documentation\":\"<p>A leaf node condition which can be used to specify a tag condition, for example, <code>HAVE BPO = 123</code>. </p>\"\
     },\
+    \"TagContactRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ContactId\",\
+        \"InstanceId\",\
+        \"Tags\"\
+      ],\
+      \"members\":{\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact in this instance of Amazon Connect. </p>\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"ContactTagMap\",\
+          \"documentation\":\"<p>The tags to be assigned to the contact resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p> <note> <p>Authorization is not supported by this tag.</p> </note>\"\
+        }\
+      }\
+    },\
+    \"TagContactResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
     \"TagKey\":{\
       \"type\":\"string\",\
       \"max\":128,\
@@ -17552,7 +18847,7 @@
         },\
         \"tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -17846,6 +19141,11 @@
       },\
       \"documentation\":\"<p>The distribution of traffic between the instance and its replicas.</p>\"\
     },\
+    \"TemplateId\":{\
+      \"type\":\"string\",\
+      \"max\":500,\
+      \"min\":1\
+    },\
     \"Threshold\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -17909,6 +19209,16 @@
       \"error\":{\"httpStatusCode\":429},\
       \"exception\":true\
     },\
+    \"TotalCount\":{\"type\":\"long\"},\
+    \"TotalPauseCount\":{\
+      \"type\":\"integer\",\
+      \"max\":10,\
+      \"min\":0\
+    },\
+    \"TotalPauseDurationInSeconds\":{\
+      \"type\":\"integer\",\
+      \"min\":0\
+    },\
     \"TrafficDistributionGroup\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -17938,7 +19248,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"IsDefault\":{\
           \"shape\":\"Boolean\",\
@@ -18029,6 +19339,50 @@
         \"CAMPAIGN\"\
       ]\
     },\
+    \"Transcript\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Criteria\"],\
+      \"members\":{\
+        \"Criteria\":{\
+          \"shape\":\"TranscriptCriteriaList\",\
+          \"documentation\":\"<p>The array of transcript search criteria</p>\"\
+        },\
+        \"MatchType\":{\
+          \"shape\":\"SearchContactsMatchType\",\
+          \"documentation\":\"<p>The match type of multiple transcript criteira</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The transcript object used to search results.</p>\"\
+    },\
+    \"TranscriptCriteria\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ParticipantRole\",\
+        \"SearchText\",\
+        \"MatchType\"\
+      ],\
+      \"members\":{\
+        \"ParticipantRole\":{\
+          \"shape\":\"ParticipantRole\",\
+          \"documentation\":\"<p>The participant role in a transcript</p>\"\
+        },\
+        \"SearchText\":{\
+          \"shape\":\"SearchTextList\",\
+          \"documentation\":\"<p>The words or phrases used to search within a transcript.</p>\"\
+        },\
+        \"MatchType\":{\
+          \"shape\":\"SearchContactsMatchType\",\
+          \"documentation\":\"<p>The match type of search texts in a transcript criteria.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The transcript criteria used to search</p>\"\
+    },\
+    \"TranscriptCriteriaList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"TranscriptCriteria\"},\
+      \"max\":6,\
+      \"min\":0\
+    },\
     \"TransferContactRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -18089,6 +19443,39 @@
         \"COUNT\",\
         \"PERCENT\"\
       ]\
+    },\
+    \"UntagContactRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"ContactId\",\
+        \"InstanceId\",\
+        \"TagKeys\"\
+      ],\
+      \"members\":{\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact in this instance of Amazon Connect. </p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"ContactId\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"TagKeys\":{\
+          \"shape\":\"ContactTagKeys\",\
+          \"documentation\":\"<p>A list of tag keys. Existing tags on the contact whose keys are members of this list will be removed.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"TagKeys\"\
+        }\
+      }\
+    },\
+    \"UntagContactResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
     },\
     \"UntagResourceRequest\":{\
       \"type\":\"structure\",\
@@ -18157,6 +19544,17 @@
           \"documentation\":\"<p>A number indicating the reset order of the agent status.</p>\"\
         }\
       }\
+    },\
+    \"UpdateCaseActionDefinition\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Fields\"],\
+      \"members\":{\
+        \"Fields\":{\
+          \"shape\":\"FieldValues\",\
+          \"documentation\":\"<p>An array of objects with <code>Field ID</code> and Value data.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The <code>UpdateCase</code> action definition.</p>\"\
     },\
     \"UpdateContactAttributesRequest\":{\
       \"type\":\"structure\",\
@@ -18437,6 +19835,40 @@
       }\
     },\
     \"UpdateContactResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"UpdateContactRoutingDataRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"ContactId\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\\\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact in this instance of Amazon Connect. </p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"ContactId\"\
+        },\
+        \"QueueTimeAdjustmentSeconds\":{\
+          \"shape\":\"QueueTimeAdjustmentSeconds\",\
+          \"documentation\":\"<p>The number of seconds to add or subtract from the contact's routing age. Contacts are routed to agents on a first-come, first-serve basis. This means that changing their amount of time in queue compared to others also changes their position in queue.</p>\"\
+        },\
+        \"QueuePriority\":{\
+          \"shape\":\"QueuePriority\",\
+          \"documentation\":\"<p>Priority of the contact in the queue. The default priority for new contacts is 5. You can raise the priority of a contact compared to other contacts in the queue by assigning them a higher priority, such as 1 or 2.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateContactRoutingDataResponse\":{\
       \"type\":\"structure\",\
       \"members\":{\
       }\
@@ -18740,6 +20172,31 @@
         \"PhoneNumberArn\":{\
           \"shape\":\"ARN\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the phone number.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdatePredefinedAttributeRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"Name\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"Name\":{\
+          \"shape\":\"PredefinedAttributeName\",\
+          \"documentation\":\"<p>The name of the predefined attribute.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Name\"\
+        },\
+        \"Values\":{\
+          \"shape\":\"PredefinedAttributeValues\",\
+          \"documentation\":\"<p>The values of the predefined attribute.</p>\"\
         }\
       }\
     },\
@@ -19450,6 +20907,32 @@
         }\
       }\
     },\
+    \"UpdateUserProficienciesRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"UserId\",\
+        \"UserProficiencies\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p> The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"UserId\":{\
+          \"shape\":\"UserId\",\
+          \"documentation\":\"<p>The identifier of the user account.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"UserId\"\
+        },\
+        \"UserProficiencies\":{\
+          \"shape\":\"UserProficiencyList\",\
+          \"documentation\":\"<p>The proficiencies to be updated for the user. Proficiencies must first be associated to the user. You can do this using AssociateUserProficiencies API.</p>\"\
+        }\
+      }\
+    },\
     \"UpdateUserRoutingProfileRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -19834,6 +21317,55 @@
       },\
       \"documentation\":\"<p>Contains information about the phone configuration settings for a user.</p>\"\
     },\
+    \"UserProficiency\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"AttributeName\",\
+        \"AttributeValue\",\
+        \"Level\"\
+      ],\
+      \"members\":{\
+        \"AttributeName\":{\
+          \"shape\":\"PredefinedAttributeName\",\
+          \"documentation\":\"<p>The name of user's proficiency. You must use name of predefined attribute present in the Amazon Connect instance.</p>\"\
+        },\
+        \"AttributeValue\":{\
+          \"shape\":\"PredefinedAttributeStringValue\",\
+          \"documentation\":\"<p>The value of user's proficiency. You must use value of predefined attribute present in the Amazon Connect instance.</p>\"\
+        },\
+        \"Level\":{\
+          \"shape\":\"ProficiencyLevel\",\
+          \"documentation\":\"<p>The level of the proficiency. The valid values are 1, 2, 3, 4 and 5.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about proficiency of a user.</p>\"\
+    },\
+    \"UserProficiencyDisassociate\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"AttributeName\",\
+        \"AttributeValue\"\
+      ],\
+      \"members\":{\
+        \"AttributeName\":{\
+          \"shape\":\"PredefinedAttributeName\",\
+          \"documentation\":\"<p>The name of user's proficiency.</p>\"\
+        },\
+        \"AttributeValue\":{\
+          \"shape\":\"PredefinedAttributeStringValue\",\
+          \"documentation\":\"<p>The value of user's proficiency.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about proficiency to be disassociated from the user.</p>\"\
+    },\
+    \"UserProficiencyDisassociateList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"UserProficiencyDisassociate\"}\
+    },\
+    \"UserProficiencyList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"UserProficiency\"}\
+    },\
     \"UserQuickConnectConfig\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -19933,7 +21465,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"Username\":{\
           \"shape\":\"AgentUsername\",\
@@ -20270,7 +21802,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"Tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a custom vocabulary.</p>\"\

@@ -25,7 +25,7 @@
 #import "AWSComprehendResources.h"
 
 static NSString *const AWSInfoComprehend = @"Comprehend";
-NSString *const AWSComprehendSDKVersion = @"2.33.7";
+NSString *const AWSComprehendSDKVersion = @"2.33.8";
 
 
 @interface AWSComprehendResponseSerializer : AWSJSONResponseSerializer
@@ -1222,6 +1222,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendDetectTargetedSentimentResponse *response, NSError *error))completionHandler {
     [[self detectTargetedSentiment:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDetectTargetedSentimentResponse *> * _Nonnull task) {
         AWSComprehendDetectTargetedSentimentResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendDetectToxicContentResponse *> *)detectToxicContent:(AWSComprehendDetectToxicContentRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DetectToxicContent"
+                   outputClass:[AWSComprehendDetectToxicContentResponse class]];
+}
+
+- (void)detectToxicContent:(AWSComprehendDetectToxicContentRequest *)request
+     completionHandler:(void (^)(AWSComprehendDetectToxicContentResponse *response, NSError *error))completionHandler {
+    [[self detectToxicContent:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDetectToxicContentResponse *> * _Nonnull task) {
+        AWSComprehendDetectToxicContentResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

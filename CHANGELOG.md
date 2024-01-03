@@ -1,10 +1,24 @@
----
-
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
 -Features for next release
+
+## 2.33.8
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSKinesisVideoArchivedMedia
+  - AWSLocation
+  - AWSComprehend
+  - AWSIoT
+  - AWSKMS
+  - AWSPinpoint
+  - AWSFirehose
+  - AWSCognitoIdentityProvider
+  - AWSEC2
+  - AWSConnect
 
 ## 2.33.7
 

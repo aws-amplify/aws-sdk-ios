@@ -3505,6 +3505,21 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 @end
 
+@implementation AWSFirehoseSplunkBufferingHints
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"intervalInSeconds" : @"IntervalInSeconds",
+             @"sizeInMBs" : @"SizeInMBs",
+             };
+}
+
+@end
+
 @implementation AWSFirehoseSplunkDestinationConfiguration
 
 + (BOOL)supportsSecureCoding {
@@ -3513,6 +3528,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"bufferingHints" : @"BufferingHints",
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
              @"HECAcknowledgmentTimeoutInSeconds" : @"HECAcknowledgmentTimeoutInSeconds",
              @"HECEndpoint" : @"HECEndpoint",
@@ -3523,6 +3539,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"s3BackupMode" : @"S3BackupMode",
              @"s3Configuration" : @"S3Configuration",
              };
+}
+
++ (NSValueTransformer *)bufferingHintsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseSplunkBufferingHints class]];
 }
 
 + (NSValueTransformer *)cloudWatchLoggingOptionsJSONTransformer {
@@ -3593,6 +3613,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"bufferingHints" : @"BufferingHints",
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
              @"HECAcknowledgmentTimeoutInSeconds" : @"HECAcknowledgmentTimeoutInSeconds",
              @"HECEndpoint" : @"HECEndpoint",
@@ -3603,6 +3624,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"s3BackupMode" : @"S3BackupMode",
              @"s3DestinationDescription" : @"S3DestinationDescription",
              };
+}
+
++ (NSValueTransformer *)bufferingHintsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseSplunkBufferingHints class]];
 }
 
 + (NSValueTransformer *)cloudWatchLoggingOptionsJSONTransformer {
@@ -3673,6 +3698,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"bufferingHints" : @"BufferingHints",
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
              @"HECAcknowledgmentTimeoutInSeconds" : @"HECAcknowledgmentTimeoutInSeconds",
              @"HECEndpoint" : @"HECEndpoint",
@@ -3683,6 +3709,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"s3BackupMode" : @"S3BackupMode",
              @"s3Update" : @"S3Update",
              };
+}
+
++ (NSValueTransformer *)bufferingHintsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseSplunkBufferingHints class]];
 }
 
 + (NSValueTransformer *)cloudWatchLoggingOptionsJSONTransformer {

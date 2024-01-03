@@ -60,6 +60,12 @@ typedef NS_ENUM(NSInteger, AWSLocationIntendedUse) {
     AWSLocationIntendedUseStorage,
 };
 
+typedef NS_ENUM(NSInteger, AWSLocationOptimizationMode) {
+    AWSLocationOptimizationModeUnknown,
+    AWSLocationOptimizationModeFastestRoute,
+    AWSLocationOptimizationModeShortestRoute,
+};
+
 typedef NS_ENUM(NSInteger, AWSLocationPositionFiltering) {
     AWSLocationPositionFilteringUnknown,
     AWSLocationPositionFilteringTimeBased,
@@ -311,7 +317,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable allowReferers;
 
 /**
- <p>A list of allowed resource ARNs that a API key bearer can perform actions on.</p><ul><li><p>The ARN must be the correct ARN for a map, place, or route ARN. You may include wildcards in the resource-id to match multiple resources of the same type.</p></li><li><p>The resources must be in the same <code>partition</code>, <code>region</code>, and <code>account-id</code> as the key that is being created.</p></li><li><p>Other than wildcards, you must include the full ARN, including the <code>arn</code>, <code>partition</code>, <code>service</code>, <code>region</code>, <code>account-id</code> and <code>resource-id</code>, delimited by colons (:).</p></li><li><p>No spaces allowed, even with wildcards. For example, <code>arn:aws:geo:region:<i>account-id</i>:map/ExampleMap*</code>.</p></li></ul><p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
+ <p>A list of allowed resource ARNs that a API key bearer can perform actions on.</p><ul><li><p>The ARN must be the correct ARN for a map, place, or route ARN. You may include wildcards in the resource-id to match multiple resources of the same type.</p></li><li><p>The resources must be in the same <code>partition</code>, <code>region</code>, and <code>account-id</code> as the key that is being created.</p></li><li><p>Other than wildcards, you must include the full ARN, including the <code>arn</code>, <code>partition</code>, <code>service</code>, <code>region</code>, <code>account-id</code> and <code>resource-id</code> delimited by colons (:).</p></li><li><p>No spaces allowed, even with wildcards. For example, <code>arn:aws:geo:region:<i>account-id</i>:map/ExampleMap*</code>.</p></li></ul><p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable allowResources;
 
@@ -870,6 +876,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
+ <p>Specifies the desired time of arrival. Uses the given time to calculate the route. Otherwise, the best time of day to travel with the best traffic conditions is used to calculate the route.</p><note><p>ArrivalTime is not supported Esri.</p></note>
+ */
+@property (nonatomic, strong) NSDate * _Nullable arrivalTime;
+
+/**
  <p>The name of the route calculator resource that you want to use to calculate the route. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable calculatorName;
@@ -890,7 +901,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSArray<NSNumber *> * _Nullable departurePosition;
 
 /**
- <p>Specifies the desired time of departure. Uses the given time to calculate the route. Otherwise, the best time of day to travel with the best traffic conditions is used to calculate the route.</p><note><p>Setting a departure time in the past returns a <code>400 ValidationException</code> error.</p></note><ul><li><p>In <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. For example, <code>2020–07-2T12:15:20.000Z+01:00</code></p></li></ul>
+ <p>Specifies the desired time of departure. Uses the given time to calculate the route. Otherwise, the best time of day to travel with the best traffic conditions is used to calculate the route.</p><ul><li><p>In <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. For example, <code>2020–07-2T12:15:20.000Z+01:00</code></p></li></ul>
  */
 @property (nonatomic, strong) NSDate * _Nullable departureTime;
 
@@ -913,6 +924,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize the request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable key;
+
+/**
+ <p>Specifies the distance to optimize for when calculating a route.</p>
+ */
+@property (nonatomic, assign) AWSLocationOptimizationMode optimizeFor;
 
 /**
  <p>Specifies the mode of transport when calculating a route. Used in estimating the speed of travel and road compatibility. You can choose <code>Car</code>, <code>Truck</code>, <code>Walking</code>, <code>Bicycle</code> or <code>Motorcycle</code> as options for the <code>TravelMode</code>.</p><note><p><code>Bicycle</code> and <code>Motorcycle</code> are only valid when using Grab as a data provider, and only within Southeast Asia.</p><p><code>Truck</code> is not available for Grab.</p><p>For more details on the using Grab for routing, including areas of coverage, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a> in the <i>Amazon Location Service Developer Guide</i>.</p></note><p>The <code>TravelMode</code> you specify also determines how you specify route preferences: </p><ul><li><p>If traveling by <code>Car</code> use the <code>CarModeOptions</code> parameter.</p></li><li><p>If traveling by <code>Truck</code> use the <code>TruckModeOptions</code> parameter.</p></li></ul><p>Default Value: <code>Car</code></p>
@@ -1446,6 +1462,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  */
 @interface AWSLocationDeleteKeyRequest : AWSRequest
 
+
+/**
+ <p>ForceDelete bypasses an API key's expiry conditions and deletes the key. Set the parameter <code>true</code> to delete the key or to <code>false</code> to not preemptively delete the API key.</p><p>Valid values: <code>true</code>, or <code>false</code>.</p><p>Required: No</p><note><p>This action is irreversible. Only use ForceDelete if you are certain the key is no longer in use.</p></note>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable forceDelete;
 
 /**
  <p>The name of the API key to delete.</p>
@@ -2536,7 +2557,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
- <p>The geomerty used to filter device positions.</p>
+ <p>The geometry used to filter device positions.</p>
  */
 @property (nonatomic, strong) AWSLocationTrackingFilterGeometry * _Nullable filterGeometry;
 
@@ -3304,6 +3325,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  <p>The name for a street or a road to identify a location. For example, <code>Main Street</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable street;
+
+/**
+ <p>An area that's part of a larger municipality. For example, <code>Blissville </code> is a submunicipality in the Queen County in New York.</p><note><p>This property supported by Esri and OpenData. The Esri property is <code>district</code>, and the OpenData property is <code>borough</code>.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable subMunicipality;
 
 /**
  <p>A county, or an area that's part of a larger region. For example, <code>Metro Vancouver</code>.</p>
