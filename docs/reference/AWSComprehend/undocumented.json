@@ -2206,6 +2206,76 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 372,
+      "symbol": "AWSComprehendToxicContentType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 372,
+      "symbol": "AWSComprehendToxicContentType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 373,
+      "symbol": "AWSComprehendToxicContentType.AWSComprehendToxicContentTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 374,
+      "symbol": "AWSComprehendToxicContentType.AWSComprehendToxicContentTypeGraphic",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 375,
+      "symbol": "AWSComprehendToxicContentType.AWSComprehendToxicContentTypeHarassmentOrAbuse",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 376,
+      "symbol": "AWSComprehendToxicContentType.AWSComprehendToxicContentTypeHateSpeech",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 377,
+      "symbol": "AWSComprehendToxicContentType.AWSComprehendToxicContentTypeInsult",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 378,
+      "symbol": "AWSComprehendToxicContentType.AWSComprehendToxicContentTypeProfanity",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 379,
+      "symbol": "AWSComprehendToxicContentType.AWSComprehendToxicContentTypeSexual",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 380,
+      "symbol": "AWSComprehendToxicContentType.AWSComprehendToxicContentTypeViolenceOrThreat",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSComprehend/AWSComprehendResources.h",
       "line": 18,
       "symbol": "AWSComprehendResources",

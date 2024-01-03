@@ -17,7 +17,7 @@
     <a title="AWSComprehend Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSComprehend 2.33.7 Docs</a> (80% documented)</p>
+        <p><a href="../index.html">AWSComprehend 2.33.8 Docs</a> (80% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSComprehend.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -360,6 +360,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendDetectTargetedSentimentResponse.html">AWSComprehendDetectTargetedSentimentResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendDetectToxicContentRequest.html">AWSComprehendDetectToxicContentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendDetectToxicContentResponse.html">AWSComprehendDetectToxicContentResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendDocumentClass.html">AWSComprehendDocumentClass</a>
@@ -824,10 +830,19 @@
                 <a href="../Classes/AWSComprehendTaskConfig.html">AWSComprehendTaskConfig</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendTextSegment.html">AWSComprehendTextSegment</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendTopicsDetectionJobFilter.html">AWSComprehendTopicsDetectionJobFilter</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendTopicsDetectionJobProperties.html">AWSComprehendTopicsDetectionJobProperties</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendToxicContent.html">AWSComprehendToxicContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendToxicLabels.html">AWSComprehendToxicLabels</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendUntagResourceRequest.html">AWSComprehendUntagResourceRequest</a>
@@ -985,6 +1000,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSComprehendTargetedSentimentEntityType.html">AWSComprehendTargetedSentimentEntityType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSComprehendToxicContentType.html">AWSComprehendToxicContentType</a>
               </li>
             </ul>
           </li>
@@ -2100,7 +2118,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Inspects a batch of documents and returns a sentiment analysis for each entity identified in the documents.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+                        <p>Inspects a batch of documents and returns a sentiment analysis for each entity identified in the documents.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendBatchDetectTargetedSentimentRequest</p>
@@ -2165,7 +2183,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Inspects a batch of documents and returns a sentiment analysis for each entity identified in the documents.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+                        <p>Inspects a batch of documents and returns a sentiment analysis for each entity identified in the documents.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendBatchDetectTargetedSentimentRequest</p>
@@ -2245,7 +2263,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a new document classification request to analyze a single document in real-time, using a previously created and trained custom model and an endpoint.</p><p>You can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p><p>If the system detects errors while processing a page in the input document, the API response includes an entry in <code>Errors</code> that describes the errors.</p><p>If the system detects a document-level error in your input document, the API returns an <code>InvalidRequestException</code> error response. For details about this exception, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html"> Errors in semi-structured documents</a> in the Comprehend Developer Guide. </p>
+                        <p>Creates a classification request to analyze a single document in real-time. <code>ClassifyDocument</code> supports the following model types:</p><ul><li><p>Custom classifier - a custom model that you have created and trained. For input, you can provide plain text, a single-page document (PDF, Word, or image), or Amazon Textract API output. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html">Custom classification</a> in the <i>Amazon Comprehend Developer Guide</i>.</p></li><li><p>Prompt safety classifier - Amazon Comprehend provides a pre-trained model for classifying input prompts for generative AI applications. For input, you provide English plain text input. For prompt safety classification, the response includes only the <code>Classes</code> field. For more information about prompt safety classifiers, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/trust-safety.html#prompt-classification">Prompt safety classification</a> in the <i>Amazon Comprehend Developer Guide</i>.</p></li></ul><p>If the system detects errors while processing a page in the input document, the API response includes an <code>Errors</code> field that describes the errors.</p><p>If the system detects a document-level error in your input document, the API returns an <code>InvalidRequestException</code> error response. For details about this exception, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html"> Errors in semi-structured documents</a> in the Comprehend Developer Guide. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendClassifyDocumentRequest</p>
@@ -2309,7 +2327,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a new document classification request to analyze a single document in real-time, using a previously created and trained custom model and an endpoint.</p><p>You can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p><p>If the system detects errors while processing a page in the input document, the API response includes an entry in <code>Errors</code> that describes the errors.</p><p>If the system detects a document-level error in your input document, the API returns an <code>InvalidRequestException</code> error response. For details about this exception, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html"> Errors in semi-structured documents</a> in the Comprehend Developer Guide. </p>
+                        <p>Creates a classification request to analyze a single document in real-time. <code>ClassifyDocument</code> supports the following model types:</p><ul><li><p>Custom classifier - a custom model that you have created and trained. For input, you can provide plain text, a single-page document (PDF, Word, or image), or Amazon Textract API output. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html">Custom classification</a> in the <i>Amazon Comprehend Developer Guide</i>.</p></li><li><p>Prompt safety classifier - Amazon Comprehend provides a pre-trained model for classifying input prompts for generative AI applications. For input, you provide English plain text input. For prompt safety classification, the response includes only the <code>Classes</code> field. For more information about prompt safety classifiers, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/trust-safety.html#prompt-classification">Prompt safety classification</a> in the <i>Amazon Comprehend Developer Guide</i>.</p></li></ul><p>If the system detects errors while processing a page in the input document, the API response includes an <code>Errors</code> field that describes the errors.</p><p>If the system detects a document-level error in your input document, the API returns an <code>InvalidRequestException</code> error response. For details about this exception, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html"> Errors in semi-structured documents</a> in the Comprehend Developer Guide. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendClassifyDocumentRequest</p>
@@ -7120,7 +7138,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Inspects the input text and returns a sentiment analysis for each entity identified in the text.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+                        <p>Inspects the input text and returns a sentiment analysis for each entity identified in the text.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendDetectTargetedSentimentRequest</p>
@@ -7185,7 +7203,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Inspects the input text and returns a sentiment analysis for each entity identified in the text.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+                        <p>Inspects the input text and returns a sentiment analysis for each entity identified in the text.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendDetectTargetedSentimentRequest</p>
@@ -7228,6 +7246,149 @@
                               <td>
                                 <div>
                                   <p>A container for the necessary parameters to execute the DetectTargetedSentiment service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSComprehendErrorDomain">AWSComprehendErrorDomain</a></code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTextSizeLimitExceeded</code>, <code>AWSComprehendErrorUnsupportedLanguage</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSComprehend(im)detectToxicContent:"></a>
+                    <a name="//apple_ref/objc/Method/-detectToxicContent:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSComprehend(im)detectToxicContent:">-detectToxicContent:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Performs toxicity analysis on the list of text strings that you provide as input. The API response contains a results list that matches the size of the input list. For more information about toxicity detection, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/toxicity-detection.html">Toxicity detection</a> in the <i>Amazon Comprehend Developer Guide</i>. </p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendDetectToxicContentRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendDetectToxicContentResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">detectToxicContent</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSComprehendDetectToxicContentRequest.html">AWSComprehendDetectToxicContentRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectToxicContent</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDetectToxicContentRequest.html">AWSComprehendDetectToxicContentRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DetectToxicContent service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSComprehendDetectToxicContentResponse.html">AWSComprehendDetectToxicContentResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSComprehendErrorDomain">AWSComprehendErrorDomain</a></code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTextSizeLimitExceeded</code>, <code>AWSComprehendErrorUnsupportedLanguage</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSComprehend(im)detectToxicContent:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-detectToxicContent:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSComprehend(im)detectToxicContent:completionHandler:">-detectToxicContent:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Performs toxicity analysis on the list of text strings that you provide as input. The API response contains a results list that matches the size of the input list. For more information about toxicity detection, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/toxicity-detection.html">Toxicity detection</a> in the <i>Amazon Comprehend Developer Guide</i>. </p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendDetectToxicContentRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendDetectToxicContentResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="nf">detectToxicContent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSComprehendDetectToxicContentRequest.html">AWSComprehendDetectToxicContentRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+     <span class="nf">completionHandler</span><span class="p">:</span>
+         <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSComprehendDetectToxicContentResponse.html">AWSComprehendDetectToxicContentResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                            <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectToxicContent</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDetectToxicContentRequest.html">AWSComprehendDetectToxicContentRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDetectToxicContentResponse.html">AWSComprehendDetectToxicContentResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DetectToxicContent service method.</p>
                                 </div>
                               </td>
                             </tr>
@@ -10146,7 +10307,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Starts an asynchronous document classification job. Use the <code>DescribeDocumentClassificationJob</code> operation to track the progress of the job.</p>
+                        <p>Starts an asynchronous document classification job using a custom classification model. Use the <code>DescribeDocumentClassificationJob</code> operation to track the progress of the job.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendStartDocumentClassificationJobRequest</p>
@@ -10211,7 +10372,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Starts an asynchronous document classification job. Use the <code>DescribeDocumentClassificationJob</code> operation to track the progress of the job.</p>
+                        <p>Starts an asynchronous document classification job using a custom classification model. Use the <code>DescribeDocumentClassificationJob</code> operation to track the progress of the job.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendStartDocumentClassificationJobRequest</p>
@@ -13459,7 +13620,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-12-20)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-01-03)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
