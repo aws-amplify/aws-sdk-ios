@@ -26,7 +26,7 @@ NSString *const AWSS3PresignedURLErrorDomain = @"com.amazonaws.AWSS3PresignedURL
 static NSString *const AWSS3PreSignedURLBuilderAcceleratedEndpoint = @"s3-accelerate.amazonaws.com";
 
 static NSString *const AWSInfoS3PreSignedURLBuilder = @"S3PreSignedURLBuilder";
-static NSString *const AWSS3PreSignedURLBuilderSDKVersion = @"2.33.7";
+static NSString *const AWSS3PreSignedURLBuilderSDKVersion = @"2.33.8";
 
 @interface AWSS3PreSignedURLBuilder()
 

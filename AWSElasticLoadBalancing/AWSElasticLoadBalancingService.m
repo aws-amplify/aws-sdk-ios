@@ -25,7 +25,7 @@
 #import "AWSElasticLoadBalancingResources.h"
 
 static NSString *const AWSInfoElasticLoadBalancing = @"ElasticLoadBalancing";
-NSString *const AWSElasticLoadBalancingSDKVersion = @"2.33.7";
+NSString *const AWSElasticLoadBalancingSDKVersion = @"2.33.8";
 
 
 @interface AWSElasticLoadBalancingResponseSerializer : AWSXMLResponseSerializer
