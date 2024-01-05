@@ -307,12 +307,12 @@ typedef NS_ENUM(NSInteger, AWSSageMakerRuntimeErrorType) {
 /**
  <p>The stream processing failed because of an unknown error, exception or failure. Try your request again.</p>
  */
-@property (nonatomic, strong)  _Nullable internalStreamFailure;
+@property (nonatomic, strong) NSError* _Nullable internalStreamFailure;
 
 /**
  <p> An error occurred while streaming the response body. This error can have the following error codes:</p><dl><dt>ModelInvocationTimeExceeded</dt><dd><p>The model failed to finish sending the response within the timeout period allowed by Amazon SageMaker.</p></dd><dt>StreamBroken</dt><dd><p>The Transmission Control Protocol (TCP) connection between the client and the model was reset or closed.</p></dd></dl>
  */
-@property (nonatomic, strong)  _Nullable modelStreamError;
+@property (nonatomic, strong) NSError* _Nullable modelStreamError;
 
 /**
  <p>A wrapper for pieces of the payload that's returned in response to a streaming inference request. A streaming inference response consists of one or more payload parts. </p>
