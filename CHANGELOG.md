@@ -2,7 +2,10 @@
 
 ## Unreleased
 
--Features for next release
+### New features
+
+- **AWSS3TransferUtility**
+  - Adding support for path-style access requests
 
 ## 2.33.9
 
