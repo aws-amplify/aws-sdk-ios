@@ -3640,12 +3640,12 @@ typedef NS_ENUM(NSInteger, AWSLogsSuppressionUnit) {
 /**
  <p>This exception is returned if an unknown error occurs.</p>
  */
-@property (nonatomic, strong)  _Nullable sessionStreamingException;
+@property (nonatomic, strong) NSError* _Nullable sessionStreamingException;
 
 /**
  <p>This exception is returned in the stream when the Live Tail session times out. Live Tail sessions time out after three hours.</p>
  */
-@property (nonatomic, strong)  _Nullable sessionTimeoutException;
+@property (nonatomic, strong) NSError* _Nullable sessionTimeoutException;
 
 /**
  <p>This object contains information about this Live Tail session, including the log groups included and the log stream filters, if any.</p>
