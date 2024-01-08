@@ -41,8 +41,10 @@ static NSDictionary *errorCodeDictionary = nil;
     errorCodeDictionary = @{
                             @"InternalDependencyException" : @(AWSSageMakerRuntimeErrorInternalDependency),
                             @"InternalFailure" : @(AWSSageMakerRuntimeErrorInternalFailure),
+                            @"InternalStreamFailure" : @(AWSSageMakerRuntimeErrorInternalStreamFailure),
                             @"ModelError" : @(AWSSageMakerRuntimeErrorModel),
                             @"ModelNotReadyException" : @(AWSSageMakerRuntimeErrorModelNotReady),
+                            @"ModelStreamError" : @(AWSSageMakerRuntimeErrorModelStream),
                             @"ServiceUnavailable" : @(AWSSageMakerRuntimeErrorServiceUnavailable),
                             @"ValidationError" : @(AWSSageMakerRuntimeErrorValidation),
                             };
@@ -317,6 +319,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSSageMakerRuntimeInvokeEndpointAsyncOutput *response, NSError *error))completionHandler {
     [[self invokeEndpointAsync:request] continueWithBlock:^id _Nullable(AWSTask<AWSSageMakerRuntimeInvokeEndpointAsyncOutput *> * _Nonnull task) {
         AWSSageMakerRuntimeInvokeEndpointAsyncOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSageMakerRuntimeInvokeEndpointWithResponseStreamOutput *> *)invokeEndpointWithResponseStream:(AWSSageMakerRuntimeInvokeEndpointWithResponseStreamInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/endpoints/{EndpointName}/invocations-response-stream"
+                  targetPrefix:@""
+                 operationName:@"InvokeEndpointWithResponseStream"
+                   outputClass:[AWSSageMakerRuntimeInvokeEndpointWithResponseStreamOutput class]];
+}
+
+- (void)invokeEndpointWithResponseStream:(AWSSageMakerRuntimeInvokeEndpointWithResponseStreamInput *)request
+     completionHandler:(void (^)(AWSSageMakerRuntimeInvokeEndpointWithResponseStreamOutput *response, NSError *error))completionHandler {
+    [[self invokeEndpointWithResponseStream:request] continueWithBlock:^id _Nullable(AWSTask<AWSSageMakerRuntimeInvokeEndpointWithResponseStreamOutput *> * _Nonnull task) {
+        AWSSageMakerRuntimeInvokeEndpointWithResponseStreamOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

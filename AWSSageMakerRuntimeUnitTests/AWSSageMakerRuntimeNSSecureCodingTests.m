@@ -23,6 +23,10 @@
 - (void) test_AWSSageMakerRuntimeInvokeEndpointAsyncOutput API_AVAILABLE(ios(11));
 - (void) test_AWSSageMakerRuntimeInvokeEndpointInput API_AVAILABLE(ios(11));
 - (void) test_AWSSageMakerRuntimeInvokeEndpointOutput API_AVAILABLE(ios(11));
+- (void) test_AWSSageMakerRuntimeInvokeEndpointWithResponseStreamInput API_AVAILABLE(ios(11));
+- (void) test_AWSSageMakerRuntimeInvokeEndpointWithResponseStreamOutput API_AVAILABLE(ios(11));
+- (void) test_AWSSageMakerRuntimePayloadPart API_AVAILABLE(ios(11));
+- (void) test_AWSSageMakerRuntimeResponseStream API_AVAILABLE(ios(11));
 
 @end
 
@@ -42,6 +46,22 @@
 
 - (void) test_AWSSageMakerRuntimeInvokeEndpointOutput {
     [self validateSecureCodingForClass:[AWSSageMakerRuntimeInvokeEndpointOutput class]];
+}
+
+- (void) test_AWSSageMakerRuntimeInvokeEndpointWithResponseStreamInput {
+    [self validateSecureCodingForClass:[AWSSageMakerRuntimeInvokeEndpointWithResponseStreamInput class]];
+}
+
+- (void) test_AWSSageMakerRuntimeInvokeEndpointWithResponseStreamOutput {
+    [self validateSecureCodingForClass:[AWSSageMakerRuntimeInvokeEndpointWithResponseStreamOutput class]];
+}
+
+- (void) test_AWSSageMakerRuntimePayloadPart {
+    [self validateSecureCodingForClass:[AWSSageMakerRuntimePayloadPart class]];
+}
+
+- (void) test_AWSSageMakerRuntimeResponseStream {
+    [self validateSecureCodingForClass:[AWSSageMakerRuntimeResponseStream class]];
 }
 
 @end
