@@ -115,6 +115,10 @@
 - (void) test_AWSLogsListTagsForResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsListTagsLogGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsListTagsLogGroupResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLogsLiveTailSessionLogEvent API_AVAILABLE(ios(11));
+- (void) test_AWSLogsLiveTailSessionMetadata API_AVAILABLE(ios(11));
+- (void) test_AWSLogsLiveTailSessionStart API_AVAILABLE(ios(11));
+- (void) test_AWSLogsLiveTailSessionUpdate API_AVAILABLE(ios(11));
 - (void) test_AWSLogsLogGroup API_AVAILABLE(ios(11));
 - (void) test_AWSLogsLogGroupField API_AVAILABLE(ios(11));
 - (void) test_AWSLogsLogStream API_AVAILABLE(ios(11));
@@ -155,6 +159,9 @@
 - (void) test_AWSLogsResourcePolicy API_AVAILABLE(ios(11));
 - (void) test_AWSLogsResultField API_AVAILABLE(ios(11));
 - (void) test_AWSLogsSearchedLogStream API_AVAILABLE(ios(11));
+- (void) test_AWSLogsStartLiveTailRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsStartLiveTailResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLogsStartLiveTailResponseStream API_AVAILABLE(ios(11));
 - (void) test_AWSLogsStartQueryRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsStartQueryResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsStopQueryRequest API_AVAILABLE(ios(11));
@@ -558,6 +565,22 @@
     [self validateSecureCodingForClass:[AWSLogsListTagsLogGroupResponse class]];
 }
 
+- (void) test_AWSLogsLiveTailSessionLogEvent {
+    [self validateSecureCodingForClass:[AWSLogsLiveTailSessionLogEvent class]];
+}
+
+- (void) test_AWSLogsLiveTailSessionMetadata {
+    [self validateSecureCodingForClass:[AWSLogsLiveTailSessionMetadata class]];
+}
+
+- (void) test_AWSLogsLiveTailSessionStart {
+    [self validateSecureCodingForClass:[AWSLogsLiveTailSessionStart class]];
+}
+
+- (void) test_AWSLogsLiveTailSessionUpdate {
+    [self validateSecureCodingForClass:[AWSLogsLiveTailSessionUpdate class]];
+}
+
 - (void) test_AWSLogsLogGroup {
     [self validateSecureCodingForClass:[AWSLogsLogGroup class]];
 }
@@ -716,6 +739,18 @@
 
 - (void) test_AWSLogsSearchedLogStream {
     [self validateSecureCodingForClass:[AWSLogsSearchedLogStream class]];
+}
+
+- (void) test_AWSLogsStartLiveTailRequest {
+    [self validateSecureCodingForClass:[AWSLogsStartLiveTailRequest class]];
+}
+
+- (void) test_AWSLogsStartLiveTailResponse {
+    [self validateSecureCodingForClass:[AWSLogsStartLiveTailResponse class]];
+}
+
+- (void) test_AWSLogsStartLiveTailResponseStream {
+    [self validateSecureCodingForClass:[AWSLogsStartLiveTailResponseStream class]];
 }
 
 - (void) test_AWSLogsStartQueryRequest {

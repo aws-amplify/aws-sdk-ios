@@ -1739,6 +1739,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLogsStartLiveTailResponse *> *)startLiveTail:(AWSLogsStartLiveTailRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"StartLiveTail"
+                   outputClass:[AWSLogsStartLiveTailResponse class]];
+}
+
+- (void)startLiveTail:(AWSLogsStartLiveTailRequest *)request
+     completionHandler:(void (^)(AWSLogsStartLiveTailResponse *response, NSError *error))completionHandler {
+    [[self startLiveTail:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsStartLiveTailResponse *> * _Nonnull task) {
+        AWSLogsStartLiveTailResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLogsStartQueryResponse *> *)startQuery:(AWSLogsStartQueryRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST

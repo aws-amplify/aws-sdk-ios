@@ -2304,6 +2304,80 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsLiveTailSessionLogEvent
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ingestionTime" : @"ingestionTime",
+             @"logGroupIdentifier" : @"logGroupIdentifier",
+             @"logStreamName" : @"logStreamName",
+             @"message" : @"message",
+             @"timestamp" : @"timestamp",
+             };
+}
+
+@end
+
+@implementation AWSLogsLiveTailSessionMetadata
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"sampled" : @"sampled",
+             };
+}
+
+@end
+
+@implementation AWSLogsLiveTailSessionStart
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logEventFilterPattern" : @"logEventFilterPattern",
+             @"logGroupIdentifiers" : @"logGroupIdentifiers",
+             @"logStreamNamePrefixes" : @"logStreamNamePrefixes",
+             @"logStreamNames" : @"logStreamNames",
+             @"requestId" : @"requestId",
+             @"sessionId" : @"sessionId",
+             };
+}
+
+@end
+
+@implementation AWSLogsLiveTailSessionUpdate
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"sessionMetadata" : @"sessionMetadata",
+             @"sessionResults" : @"sessionResults",
+             };
+}
+
++ (NSValueTransformer *)sessionMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsLiveTailSessionMetadata class]];
+}
+
++ (NSValueTransformer *)sessionResultsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLogsLiveTailSessionLogEvent class]];
+}
+
+@end
+
 @implementation AWSLogsLogGroup
 
 + (BOOL)supportsSecureCoding {
@@ -3328,6 +3402,66 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
              @"logStreamName" : @"logStreamName",
              @"searchedCompletely" : @"searchedCompletely",
              };
+}
+
+@end
+
+@implementation AWSLogsStartLiveTailRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logEventFilterPattern" : @"logEventFilterPattern",
+             @"logGroupIdentifiers" : @"logGroupIdentifiers",
+             @"logStreamNamePrefixes" : @"logStreamNamePrefixes",
+             @"logStreamNames" : @"logStreamNames",
+             };
+}
+
+@end
+
+@implementation AWSLogsStartLiveTailResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"responseStream" : @"responseStream",
+             };
+}
+
++ (NSValueTransformer *)responseStreamJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsStartLiveTailResponseStream class]];
+}
+
+@end
+
+@implementation AWSLogsStartLiveTailResponseStream
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"sessionStreamingException" : @"SessionStreamingException",
+             @"sessionTimeoutException" : @"SessionTimeoutException",
+             @"sessionStart" : @"sessionStart",
+             @"sessionUpdate" : @"sessionUpdate",
+             };
+}
+
++ (NSValueTransformer *)sessionStartJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsLiveTailSessionStart class]];
+}
+
++ (NSValueTransformer *)sessionUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsLiveTailSessionUpdate class]];
 }
 
 @end
