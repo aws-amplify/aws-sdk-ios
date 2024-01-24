@@ -19,10 +19,10 @@ jobs:
           cd $(ls -d */|head -n 1)
           pathCoverage=Build/Build/ProfileData/${PWD##*/}/Coverage.profdata
           cd ${{ github.workspace }}
-          ls Build/Build/Products/Debug-iphonesimulator/
-          xcrun llvm-cov export -format="lcov" -instr-profile $pathCoverage Build/Build/Products/Debug-iphonesimulator/AWSAllUnitTests.o >> aws-sdk-ios-Coverage.lcov
+          cat $pathCoverage
+          xcrun llvm-cov export -format="lcov" -instr-profile $pathCoverage Build/Build/Products/Debug-iphonesimulator/AWSAllTestsHost.app/AWSAllTestsHost >> aws-sdk-ios-Coverage.lcov
       - name: Run AWS Auth SDK Unit Tests
-        run: xcodebuild test -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSMobileClient -sdk 'iphonesimulator' -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' -derivedDataPath Build/ -enableCodeCoverage YES | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
+        run: xcodebuild test -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSMobileClient -sdk 'iphonesimulator' -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' -derivedDataPath Build/ -enableCodeCoverage YES -only-testing:"AWSMobileClientUnitTests" | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
       - name: Generate Auth SDK Coverage Report
         continue-on-error: true
         run: |
@@ -30,8 +30,7 @@ jobs:
           cd $(ls -d */|head -n 1)
           pathCoverage=Build/Build/ProfileData/${PWD##*/}/Coverage.profdata
           cd ${{ github.workspace }}
-          ls Build/Build/Products/Debug-iphonesimulator/
-          xcrun llvm-cov export -format="lcov" -instr-profile $pathCoverage Build/Build/Products/Debug-iphonesimulator/AWSMobileClient.o >> aws-sdk-ios-Coverage.lcov
+          xcrun llvm-cov export -format="lcov" -instr-profile $pathCoverage Build/Build/Products/Debug-iphonesimulator/AWSAuthSDKTestApp.app/Frameworks/AWSMobileClient.framework/AWSMobileClient >> aws-sdk-ios-Coverage.lcov
       - name: Upload Report
         uses: codecov/codecov-action@eaaf4bedf32dbdc6b720b63067d99c4d77d6047d # v3.1.4
         with:
