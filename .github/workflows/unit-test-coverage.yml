@@ -19,8 +19,14 @@ jobs:
           cd $(ls -d */|head -n 1)
           pathCoverage=Build/Build/ProfileData/${PWD##*/}/Coverage.profdata
           cd ${{ github.workspace }}
-          cat $pathCoverage
-          xcrun llvm-cov export -format="lcov" -instr-profile $pathCoverage Build/Build/Products/Debug-iphonesimulator/AWSAllTestsHost.app/AWSAllTestsHost >> aws-sdk-ios-Coverage.lcov
+          cp $pathCoverage ./Coverage.profdata
+      - name: Store Coverage Report File
+        uses: actions/upload-artifact@c7d193f32edcb7bfad88892161225aeda64e9392 # v4.0.0
+        with:
+          name: SDK-Coverage.profdata
+          path: ${{ github.workspace }}/Coverage.profdata
+          if-no-files-found: error
+          retention-days: 1
       - name: Run AWS Auth SDK Unit Tests
         run: xcodebuild test -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSMobileClient -sdk 'iphonesimulator' -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' -derivedDataPath Build/ -enableCodeCoverage YES -only-testing:"AWSMobileClientUnitTests" | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
       - name: Generate Auth SDK Coverage Report
