@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -182,7 +182,8 @@
         {\"shape\":\"AccessDeniedException\"},\
         {\"shape\":\"InternalServerException\"},\
         {\"shape\":\"ThrottlingException\"},\
-        {\"shape\":\"ValidationException\"}\
+        {\"shape\":\"ValidationException\"},\
+        {\"shape\":\"ConflictException\"}\
       ],\
       \"documentation\":\"<p>Sends an event. </p> <note> <p> <code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p> </note> <p>The Amazon Connect Participant Service APIs do not use <a href=\\\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\\\">Signature Version 4 authentication</a>.</p>\"\
     },\
@@ -692,7 +693,8 @@
         \"AGENT\",\
         \"CUSTOMER\",\
         \"SYSTEM\",\
-        \"CUSTOM_BOT\"\
+        \"CUSTOM_BOT\",\
+        \"SUPERVISOR\"\
       ]\
     },\
     \"ParticipantToken\":{\
@@ -764,7 +766,8 @@
         \"PARTICIPANT\",\
         \"HIERARCHY_LEVEL\",\
         \"HIERARCHY_GROUP\",\
-        \"USER\"\
+        \"USER\",\
+        \"PHONE_NUMBER\"\
       ]\
     },\
     \"ScanDirection\":{\
