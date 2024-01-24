@@ -403,6 +403,56 @@
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "211FFCEC26C306E000F0DB75"
+               BuildableName = "AWSChimeSDKIdentityUnitTests.xctest"
+               BlueprintName = "AWSChimeSDKIdentityUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "211FFCDD26C3069900F0DB75"
+               BuildableName = "AWSChimeSDKMessagingUnitTests.xctest"
+               BlueprintName = "AWSChimeSDKMessagingUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2109E54A2547557A0057043C"
+               BuildableName = "AWSLocationUnitTests.xctest"
+               BlueprintName = "AWSLocationUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FAFFD94C2334292000E2317C"
+               BuildableName = "AWSCoreConfigurationTest.xctest"
+               BlueprintName = "AWSCoreConfigurationTest"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FAFFD95B2334293B00E2317C"
+               BuildableName = "AWSCoreServiceConfigurationTest.xctest"
+               BlueprintName = "AWSCoreServiceConfigurationTest"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
