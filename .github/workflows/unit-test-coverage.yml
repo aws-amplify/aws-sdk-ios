@@ -1,0 +1,27 @@
+name: Run Unit Tests with Coverage
+
+on:
+  push:
+    branches: [ feat/coverage ]
+
+jobs:
+  unit-tests:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
+      - name: Run unit tests
+        run: xcodebuild test -project AWSiOSSDKv2.xcodeproj -scheme AWSAllUnitTests -sdk 'iphonesimulator' -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' -derivedDataPath Build/ -enableCodeCoverage YES -clonedSourcePackagesDirPath ~/Library/Developer/Xcode/DerivedData/aws-sdk-ios | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
+      - name: Generate Coverage Report
+        continue-on-error: true
+        run: |
+          cd Build/Build/ProfileData
+          cd $(ls -d */|head -n 1)
+          pathCoverage=Build/Build/ProfileData/${PWD##*/}/Coverage.profdata
+          cd ${{ github.workspace }}
+          xcrun llvm-cov export -format="lcov" -instr-profile $pathCoverage Build/Build/Products/Debug-iphonesimulator/AWSAllUnitTests.o > aws-sdk-ios-Coverage.lcov
+      - name: Upload Report
+        uses: codecov/codecov-action@eaaf4bedf32dbdc6b720b63067d99c4d77d6047d # v3.1.4
+        with:
+          flags: AWS-SDK
+          verbose: true
