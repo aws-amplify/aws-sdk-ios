@@ -13,6 +13,7 @@
   - AWSLocation
   - AWSConnectParticipant
   - AWSConnect
+  - AWSEC2
 
 ## 2.33.8
 
