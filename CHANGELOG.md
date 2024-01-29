@@ -1,18 +1,18 @@
 ---
 
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSLocation
----AWSConnectParticipant
----AWSConnect
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
 -Features for next release
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSDynamoDB
+  - AWSLocation
+  - AWSConnectParticipant
+  - AWSConnect
 
 ## 2.33.8
 
