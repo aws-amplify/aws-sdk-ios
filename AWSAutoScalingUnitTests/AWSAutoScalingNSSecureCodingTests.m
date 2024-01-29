@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -111,6 +111,7 @@
 - (void) test_AWSAutoScalingGetPredictiveScalingForecastAnswer API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingGetPredictiveScalingForecastType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingInstance API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingInstanceMaintenancePolicy API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingInstanceMetadataOptions API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingInstanceMonitoring API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingInstanceRefresh API_AVAILABLE(ios(11));
@@ -567,6 +568,10 @@
 
 - (void) test_AWSAutoScalingInstance {
     [self validateSecureCodingForClass:[AWSAutoScalingInstance class]];
+}
+
+- (void) test_AWSAutoScalingInstanceMaintenancePolicy {
+    [self validateSecureCodingForClass:[AWSAutoScalingInstanceMaintenancePolicy class]];
 }
 
 - (void) test_AWSAutoScalingInstanceMetadataOptions {
