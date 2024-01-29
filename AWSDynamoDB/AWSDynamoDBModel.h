@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -54,6 +54,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBErrorType) {
     AWSDynamoDBErrorTransactionCanceled,
     AWSDynamoDBErrorTransactionConflict,
     AWSDynamoDBErrorTransactionInProgress,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBApproximateCreationDateTimePrecision) {
+    AWSDynamoDBApproximateCreationDateTimePrecisionUnknown,
+    AWSDynamoDBApproximateCreationDateTimePrecisionMillisecond,
+    AWSDynamoDBApproximateCreationDateTimePrecisionMicrosecond,
 };
 
 typedef NS_ENUM(NSInteger, AWSDynamoDBAttributeAction) {
@@ -157,6 +163,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBDestinationStatus) {
     AWSDynamoDBDestinationStatusDisabling,
     AWSDynamoDBDestinationStatusDisabled,
     AWSDynamoDBDestinationStatusEnableFailed,
+    AWSDynamoDBDestinationStatusUpdating,
 };
 
 typedef NS_ENUM(NSInteger, AWSDynamoDBExportFormat) {
@@ -427,6 +434,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBDescribeTableReplicaAutoScalingOutput;
 @class AWSDynamoDBDescribeTimeToLiveInput;
 @class AWSDynamoDBDescribeTimeToLiveOutput;
+@class AWSDynamoDBEnableKinesisStreamingConfiguration;
 @class AWSDynamoDBEndpoint;
 @class AWSDynamoDBExecuteStatementInput;
 @class AWSDynamoDBExecuteStatementOutput;
@@ -546,6 +554,9 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBUpdateGlobalTableSettingsOutput;
 @class AWSDynamoDBUpdateItemInput;
 @class AWSDynamoDBUpdateItemOutput;
+@class AWSDynamoDBUpdateKinesisStreamingConfiguration;
+@class AWSDynamoDBUpdateKinesisStreamingDestinationInput;
+@class AWSDynamoDBUpdateKinesisStreamingDestinationOutput;
 @class AWSDynamoDBUpdateReplicationGroupMemberAction;
 @class AWSDynamoDBUpdateTableInput;
 @class AWSDynamoDBUpdateTableOutput;
@@ -2225,6 +2236,19 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p>Enables setting the configuration for Kinesis Streaming.</p>
+ */
+@interface AWSDynamoDBEnableKinesisStreamingConfiguration : AWSModel
+
+
+/**
+ <p>Toggle for the precision of Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBApproximateCreationDateTimePrecision approximateCreationDateTimePrecision;
+
+@end
+
+/**
  <p>An endpoint information details.</p>
  Required parameters: [Address, CachePeriodInMinutes]
  */
@@ -3259,6 +3283,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
+ <p>The precision of the Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBApproximateCreationDateTimePrecision approximateCreationDateTimePrecision;
+
+/**
  <p>The current status of replication.</p>
  */
 @property (nonatomic, assign) AWSDynamoDBDestinationStatus destinationStatus;
@@ -3282,6 +3311,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
+ <p>The source for the Kinesis streaming information that is being enabled.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBEnableKinesisStreamingConfiguration * _Nullable enableKinesisStreamingConfiguration;
+
+/**
  <p>The ARN for a Kinesis data stream.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable streamArn;
@@ -3303,6 +3337,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>The current status of the replication.</p>
  */
 @property (nonatomic, assign) AWSDynamoDBDestinationStatus destinationStatus;
+
+/**
+ <p>The destination for the Kinesis streaming information that is being enabled.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBEnableKinesisStreamingConfiguration * _Nullable enableKinesisStreamingConfiguration;
 
 /**
  <p>The ARN for the specific Kinesis data stream.</p>
@@ -3694,7 +3733,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
- <p> Represents a PartiQL statment that uses parameters. </p>
+ <p> Represents a PartiQL statement that uses parameters. </p>
  Required parameters: [Statement]
  */
 @interface AWSDynamoDBParameterizedStatement : AWSModel
@@ -3711,7 +3750,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBReturnValuesOnConditionCheckFailure returnValuesOnConditionCheckFailure;
 
 /**
- <p> A PartiQL statment that uses parameters. </p>
+ <p> A PartiQL statement that uses parameters. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable statement;
 
@@ -5706,6 +5745,70 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Information about item collections, if any, that were affected by the <code>UpdateItem</code> operation. <code>ItemCollectionMetrics</code> is only returned if the <code>ReturnItemCollectionMetrics</code> parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.</p><p>Each <code>ItemCollectionMetrics</code> element consists of:</p><ul><li><p><code>ItemCollectionKey</code> - The partition key value of the item collection. This is the same as the partition key value of the item itself.</p></li><li><p><code>SizeEstimateRangeGB</code> - An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p><p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p></li></ul>
  */
 @property (nonatomic, strong) AWSDynamoDBItemCollectionMetrics * _Nullable itemCollectionMetrics;
+
+@end
+
+/**
+ <p>Enables updating the configuration for Kinesis Streaming.</p>
+ */
+@interface AWSDynamoDBUpdateKinesisStreamingConfiguration : AWSModel
+
+
+/**
+ <p>Enables updating the precision of Kinesis data stream timestamp. </p>
+ */
+@property (nonatomic, assign) AWSDynamoDBApproximateCreationDateTimePrecision approximateCreationDateTimePrecision;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBUpdateKinesisStreamingDestinationInput : AWSRequest
+
+
+/**
+ <p>The ARN for the Kinesis stream input.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamArn;
+
+/**
+ <p>The table name for the Kinesis streaming destination input.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+/**
+ <p>The command to update the Kinesis stream configuration.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBUpdateKinesisStreamingConfiguration * _Nullable updateKinesisStreamingConfiguration;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBUpdateKinesisStreamingDestinationOutput : AWSModel
+
+
+/**
+ <p>The status of the attempt to update the Kinesis streaming destination output.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBDestinationStatus destinationStatus;
+
+/**
+ <p>The ARN for the Kinesis stream input.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamArn;
+
+/**
+ <p>The table name for the Kinesis streaming destination output.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+/**
+ <p>The command to update the Kinesis streaming destination configuration.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBUpdateKinesisStreamingConfiguration * _Nullable updateKinesisStreamingConfiguration;
 
 @end
 
