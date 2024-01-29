@@ -143,7 +143,7 @@ static NSString *const AWSInfoIoTDataManager = @"IoTDataManager";
                  minimumConnectionTimeInterval:20.0
                   maximumReconnectTimeInterval:128.0
                                        runLoop:[NSRunLoop currentRunLoop]
-                                   runLoopMode:NSDefaultRunLoopMode
+                                   runLoopMode:NSRunLoopCommonModes
                                autoResubscribe:YES
                           lastWillAndTestament:[AWSIoTMQTTLastWillAndTestament new] ];
 }
