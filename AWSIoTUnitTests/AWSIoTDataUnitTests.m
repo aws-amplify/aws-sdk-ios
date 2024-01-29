@@ -114,7 +114,7 @@ static id mockNetworking = nil;
     XCTAssertEqual(dm.mqttConfiguration.baseReconnectTimeInterval, 1.0);
     XCTAssertEqual(dm.mqttConfiguration.minimumConnectionTimeInterval, 20.0);
     XCTAssertEqual(dm.mqttConfiguration.maximumReconnectTimeInterval, 128.0);
-    XCTAssertEqual(dm.mqttConfiguration.runLoopMode, NSDefaultRunLoopMode);
+    XCTAssertEqual(dm.mqttConfiguration.runLoopMode, NSRunLoopCommonModes);
     XCTAssertEqual(dm.mqttConfiguration.autoResubscribe, YES);
     XCTAssertEqualObjects(dm.mqttConfiguration.lastWillAndTestament.topic, @"");
     XCTAssertEqualObjects(dm.mqttConfiguration.lastWillAndTestament.message, @"");

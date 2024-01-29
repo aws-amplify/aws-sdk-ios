@@ -412,7 +412,7 @@
                                 }
                                 
                                 [_delegate session:self handleEvent:AWSMQTTSessionEventConnected];
-                                [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+                                [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
                             }
                             else {
                                 [self error:AWSMQTTSessionEventConnectionRefused];
