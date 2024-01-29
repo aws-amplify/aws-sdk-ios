@@ -40,7 +40,7 @@ typedef enum {
 
 @interface AWSMQTTEncoder : NSObject <NSStreamDelegate> 
 
-@property (weak) id<AWSMQTTEncoderDelegate> delegate;
+@property (nonatomic, weak) id<AWSMQTTEncoderDelegate> delegate;
 @property (assign) AWSMQTTEncoderStatus status;
 
 - (id)initWithStream:(NSOutputStream*)aStream;
