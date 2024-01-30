@@ -9303,7 +9303,8 @@
         \"available\",\
         \"information\",\
         \"impaired\",\
-        \"unavailable\"\
+        \"unavailable\",\
+        \"constrained\"\
       ]\
     },\
     \"AvailabilityZoneStringList\":{\
@@ -12653,7 +12654,7 @@
       \"members\":{\
         \"ClientToken\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html\\\">How to ensure idempotency</a>.</p>\"\
+          \"documentation\":\"<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html\\\">Ensuring idempotency</a>.</p>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -13732,7 +13733,7 @@
         },\
         \"ClientToken\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">How to ensure idempotency</a>.</p> <p>Constraint: Maximum 64 ASCII characters.</p>\",\
+          \"documentation\":\"<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">Ensuring idempotency</a>.</p> <p>Constraint: Maximum 64 ASCII characters.</p>\",\
           \"idempotencyToken\":true\
         },\
         \"DryRun\":{\
@@ -13867,6 +13868,11 @@
           \"shape\":\"TagSpecificationList\",\
           \"documentation\":\"<p>The tags to assign to the network ACL.</p>\",\
           \"locationName\":\"TagSpecification\"\
+        },\
+        \"ClientToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html\\\">Ensuring idempotency</a>.</p>\",\
+          \"idempotencyToken\":true\
         }\
       }\
     },\
@@ -13877,6 +13883,11 @@
           \"shape\":\"NetworkAcl\",\
           \"documentation\":\"<p>Information about the network ACL.</p>\",\
           \"locationName\":\"networkAcl\"\
+        },\
+        \"ClientToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>\",\
+          \"locationName\":\"clientToken\"\
         }\
       }\
     },\
@@ -14442,6 +14453,11 @@
           \"shape\":\"TagSpecificationList\",\
           \"documentation\":\"<p>The tags to assign to the route table.</p>\",\
           \"locationName\":\"TagSpecification\"\
+        },\
+        \"ClientToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html\\\">Ensuring idempotency</a>.</p>\",\
+          \"idempotencyToken\":true\
         }\
       }\
     },\
@@ -14452,6 +14468,11 @@
           \"shape\":\"RouteTable\",\
           \"documentation\":\"<p>Information about the route table.</p>\",\
           \"locationName\":\"routeTable\"\
+        },\
+        \"ClientToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>\",\
+          \"locationName\":\"clientToken\"\
         }\
       }\
     },\
@@ -54748,7 +54769,8 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"pending\",\
-        \"available\"\
+        \"available\",\
+        \"unavailable\"\
       ]\
     },\
     \"Subscription\":{\
