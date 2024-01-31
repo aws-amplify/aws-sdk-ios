@@ -269,7 +269,7 @@
         return NO;
     };
     self.mqttStatus = AWSIoTMQTTStatusConnecting;
-    self.clientCerts = [[NSArray alloc] initWithObjects:(__bridge id)identityRef, nil];
+    self.clientCerts = [[NSArray alloc] initWithObjects:(__bridge_transfer id)identityRef, nil];
     self.host = host;
     self.port = port;
     self.cleanSession = cleanSession;
