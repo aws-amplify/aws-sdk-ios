@@ -206,12 +206,13 @@ static BOOL _tagCertificateEnabled = NO;
 
                 SecKeyRef publicKeyRef = [AWSIoTKeychain getPublicKeyRef:publicTag];
                 SecKeyRef privateKeyRef = [AWSIoTKeychain getPrivateKeyRef:privateTag];
+                SecIdentityRef identityRef = [AWSIoTKeychain getIdentityRef:newPrivateTag certificateLabel:newCertTag];
 
                 if ([AWSIoTKeychain deleteAsymmetricKeysWithPublicTag:publicTag privateTag:privateTag] &&
                     [AWSIoTKeychain addPrivateKeyRef:privateKeyRef tag:newPrivateTag] &&
                     [AWSIoTKeychain addPublicKeyRef:publicKeyRef tag:newPublicTag] &&
                     [AWSIoTKeychain addCertificateToKeychain:certificatePem tag:newCertTag] &&
-                    [AWSIoTKeychain getIdentityRef:newPrivateTag certificateLabel:newCertTag] != nil) {
+                    identityRef != nil) {
                     AWSIoTCreateCertificateResponse* resp = [[AWSIoTCreateCertificateResponse alloc] init];
                     resp.certificateId = certificateId;
                     resp.certificatePem = certificatePem;
@@ -219,6 +220,9 @@ static BOOL _tagCertificateEnabled = NO;
 
                     validatedResponse = resp;
                 }
+                CFRelease(identityRef);
+                CFRelease(privateKeyRef);
+                CFRelease(publicKeyRef);
             }
         }
 
@@ -370,6 +374,7 @@ static BOOL _tagCertificateEnabled = NO;
             return errorCleanup();
         }
     
+        CFRelease(secImportItems);
         return cleanup();
     }
     AWSDDLogError(@"Unable to import from PKCS12 data");
