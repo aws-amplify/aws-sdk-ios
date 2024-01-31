@@ -34,7 +34,7 @@
 @interface AWSIoTMQTTClient() <AWSSRWebSocketDelegate, NSStreamDelegate, AWSMQTTSessionDelegate>
 
 @property(atomic, assign, readwrite) AWSIoTMQTTStatus mqttStatus;
-@property(nonatomic, strong) AWSMQTTSession* session;
+@property(atomic, strong) AWSMQTTSession* session;
 @property(nonatomic, strong) NSMutableDictionary * topicListeners;
 
 @property(atomic, assign) BOOL userDidIssueDisconnect; //Flag to indicate if requestor has issued a disconnect
@@ -113,6 +113,12 @@
         _streamsThread = nil;
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [self.reconnectTimer invalidate];
+    [self.connectionAgeTimer invalidate];
 }
 
 - (instancetype)initWithDelegate:(id<AWSIoTMQTTClientDelegate>)delegate {
@@ -708,7 +714,7 @@
 - (void)notifyConnectionStatus {
     //Set the connection status on the callback.
     __weak AWSIoTMQTTClient *weakSelf = self;
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+    dispatch_sync(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
         if (weakSelf.connectStatusCallback != nil) {
             weakSelf.connectStatusCallback(weakSelf.mqttStatus);
         }
@@ -768,26 +774,27 @@
     
     // clean up the defaultRunLoopTimer.
     [defaultRunLoopTimer invalidate];
-    
-    if (!self.runLoopShouldContinue ) {
-        if (self.connectionAgeTimer != nil) {
-            [self.connectionAgeTimer invalidate];
-            self.connectionAgeTimer = nil;
+    @synchronized(self) {
+        if (!self.runLoopShouldContinue ) {
+            if (self.connectionAgeTimer != nil) {
+                [self.connectionAgeTimer invalidate];
+                self.connectionAgeTimer = nil;
+            }
+            [self.session close];
+
+            [self cleanUpToDecoderStream];
+
+            if (self.webSocket) {
+                [self.webSocket close];
+                self.webSocket = nil;
+            }
+
+            //Set status
+            self.mqttStatus = AWSIoTMQTTStatusDisconnected;
+
+            // Let the client know it has been disconnected.
+            [self notifyConnectionStatus];
         }
-        [self.session close];
-
-        [self cleanUpToDecoderStream];
-
-        if (self.webSocket) {
-            [self.webSocket close];
-            self.webSocket = nil;
-        }
-
-        //Set status
-        self.mqttStatus = AWSIoTMQTTStatusDisconnected;
-        
-        // Let the client know it has been disconnected.
-        [self notifyConnectionStatus];
     }
 }
 
