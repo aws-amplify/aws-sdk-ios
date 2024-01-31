@@ -496,8 +496,9 @@
     
     if (self.presignedURL) {
         AWSDDLogInfo(@"Using PresignedURL.");
+        __weak AWSIoTMQTTClient *weakSelf = self;
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-            [self initWebSocketConnectionForURL:self.presignedURL];
+            [weakSelf initWebSocketConnectionForURL:weakSelf.presignedURL];
         });
         
     } else if (self.customAuthorizerName != nil) {
@@ -706,13 +707,14 @@
 
 - (void)notifyConnectionStatus {
     //Set the connection status on the callback.
+    __weak AWSIoTMQTTClient *weakSelf = self;
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        if (self.connectStatusCallback != nil) {
-            self.connectStatusCallback(self.mqttStatus);
+        if (weakSelf.connectStatusCallback != nil) {
+            weakSelf.connectStatusCallback(weakSelf.mqttStatus);
         }
         
-        if (self.clientDelegate != nil) {
-            [self.clientDelegate connectionStatusChanged:self.mqttStatus client:self];
+        if (weakSelf.clientDelegate != nil) {
+            [weakSelf.clientDelegate connectionStatusChanged:weakSelf.mqttStatus client:weakSelf];
         }
     });
 }
@@ -728,8 +730,9 @@
     //The unit of measure for the dispatch_time function is nano seconds.
 
     dispatch_assert_queue_not(self.timerQueue);
+    __weak AWSIoTMQTTClient *weakSelf = self;
     dispatch_async(self.timerQueue, ^{
-        [self scheduleReconnection];
+        [weakSelf scheduleReconnection];
     });
 }
 
@@ -1172,8 +1175,9 @@
                 }
                 if (topicModel.extendedCallback != nil) {
                     AWSDDLogVerbose(@"<<%@>>topicModel.extendedcallback.", [NSThread currentThread]);
+                    __weak AWSIoTMQTTClient *weakSelf = self;
                     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-                        topicModel.extendedCallback(self, topic, iotMessage.messageData);
+                        topicModel.extendedCallback(weakSelf, topic, iotMessage.messageData);
                     });
                 }
                 if (topicModel.fullCallback != nil) {
@@ -1185,8 +1189,9 @@
                 
                 if (self.clientDelegate != nil ) {
                     AWSDDLogVerbose(@"<<%@>>Calling receviedMessageData on client Delegate.", [NSThread currentThread]);
+                    __weak AWSIoTMQTTClient *weakSelf = self;
                     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-                        [self.clientDelegate receivedMessageData:message.data onTopic:topic];
+                        [weakSelf.clientDelegate receivedMessageData:message.data onTopic:topic];
                     });
                 }
                 
