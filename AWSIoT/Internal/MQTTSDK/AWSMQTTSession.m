@@ -118,6 +118,11 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [timer invalidate];
+}
+
 #pragma mark Connection Management
 
 - (id)connectToInputStream:(NSInputStream *)readStream
