@@ -661,7 +661,7 @@ static __strong NSData *CRLFCRLF;
     [self _updateSecureStreamOptions];
     
     if (!_scheduledRunloops.count) {
-        [self scheduleInRunLoop:[NSRunLoop AWSSR_networkRunLoop] forMode:NSRunLoopCommonModes];
+        [self scheduleInRunLoop:[NSRunLoop AWSSR_networkRunLoop] forMode:NSDefaultRunLoopMode];
     }
     
     
@@ -1227,7 +1227,7 @@ static const uint8_t SRPayloadLenMask   = 0x7F;
         // Cleanup NSStream delegate's in the same RunLoop used by the streams themselves:
         // This way we'll prevent race conditions between handleEvent and SRWebsocket's dealloc
         NSTimer *timer = [NSTimer timerWithTimeInterval:(0.0f) target:self selector:@selector(_cleanupSelfReference:) userInfo:nil repeats:NO];
-        [[NSRunLoop AWSSR_networkRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+        [[NSRunLoop AWSSR_networkRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
     }
 }
 
@@ -1898,7 +1898,7 @@ static NSRunLoop *networkRunLoop = nil;
         CFRunLoopAddSource(CFRunLoopGetCurrent(), source, kCFRunLoopDefaultMode);
         CFRelease(source);
         
-        while ([_runLoop runMode:NSRunLoopCommonModes beforeDate:[NSDate distantFuture]]) {
+        while ([_runLoop runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]) {
             
         }
         assert(NO);
