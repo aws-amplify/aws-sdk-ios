@@ -39,7 +39,7 @@
 - (void)open {
     AWSDDLogDebug(@"opening encoder stream.");
     [self.stream setDelegate:self];
-    [self.stream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    [self.stream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     [self.stream open];
 }
 

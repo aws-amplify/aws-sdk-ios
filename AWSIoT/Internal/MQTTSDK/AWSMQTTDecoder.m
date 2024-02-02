@@ -42,7 +42,7 @@ int maxLengthMultiplier = 128 * 128 * 128;
 - (void)open {
     AWSDDLogDebug(@"opening decoder stream.");
     [stream setDelegate:self];
-    [stream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    [stream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     [stream open];
 }
 

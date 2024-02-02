@@ -667,7 +667,7 @@
         if (self.toDecoderStream) {
             self.toDecoderStream.delegate = nil;
             [self.toDecoderStream close];
-            [self.toDecoderStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+            [self.toDecoderStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
             self.toDecoderStream = nil;
         }
     }
@@ -755,10 +755,10 @@
                                                             selector:@selector(timerHandler:)
                                                             userInfo:nil
                                                              repeats:YES];
-    [runLoopForStreamsThread addTimer:defaultRunLoopTimer forMode:NSRunLoopCommonModes];
+    [runLoopForStreamsThread addTimer:defaultRunLoopTimer forMode:NSDefaultRunLoopMode];
     
     self.runLoopShouldContinue = YES;
-    [self.toDecoderStream scheduleInRunLoop:runLoopForStreamsThread forMode:NSRunLoopCommonModes];
+    [self.toDecoderStream scheduleInRunLoop:runLoopForStreamsThread forMode:NSDefaultRunLoopMode];
     [self.toDecoderStream open];
     
     //Update the runLoop and runLoopMode in session.
@@ -769,7 +769,7 @@
         //"websocketDidFail"
         
         //Run one cycle of the runloop. This will return after a input source event or timer event is processed
-        [runLoopForStreamsThread runMode:NSRunLoopCommonModes beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+        [runLoopForStreamsThread runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
     }
     
     // clean up the defaultRunLoopTimer.
@@ -1339,7 +1339,7 @@
                                                     userInfo:nil
                                                      repeats:NO];
         [[NSRunLoop currentRunLoop] addTimer:self.reconnectTimer forMode:NSRunLoopCommonModes];
-        [[NSRunLoop currentRunLoop] runMode:NSRunLoopCommonModes beforeDate:[NSDate distantFuture]];
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
     }
 }
 
