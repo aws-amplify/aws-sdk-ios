@@ -32,11 +32,7 @@
     AWSMQTTMessage*         connectMessage; //Connect message that is passed in by MQTTClient. Used to send connect message.
 
     dispatch_queue_t serialQueue; // Serial queue to keep ticks increments in sync
-    NSTimer*             timer; //Timer that fires every second. Used to orchestrate pings and retries.
     unsigned int         ticks;  //Number of seconds ( or clock ticks )
-
-//    AWSMQTTEncoder*         encoder; //Low level protocol handler that converts a message into out bound network data
-//    AWSMQTTDecoder*         decoder; //Low level protocol handler that converts in bound network data into a Message
 
     NSMutableDictionary* txFlows; //Required for QOS1. Outbound publishes will be stored in txFlows until a PubAck is received
     NSMutableDictionary* rxFlows; //Required for handling QOS 2.
@@ -64,8 +60,9 @@
 @property (strong,atomic) NSMutableArray* queue; //Queue to temporarily hold messages if encoder is busy sending another message
 @property (strong,atomic) NSMutableArray* timerRing; // circular array of 60. Each element is a set that contains the messages that need to be retried.
 @property (nonatomic, strong) dispatch_queue_t drainSenderSerialQueue;
-@property (nonatomic, strong) AWSMQTTEncoder* encoder;
-@property (nonatomic, strong) AWSMQTTDecoder* decoder;
+@property (nonatomic, strong) AWSMQTTEncoder* encoder; //Low level protocol handler that converts a message into out bound network data
+@property (nonatomic, strong) AWSMQTTDecoder* decoder; //Low level protocol handler that converts in bound network data into a Message
+@property (nonatomic, strong) NSTimer* timer; //Timer that fires every second. Used to orchestrate pings and retries.
 
 @end
 
@@ -120,7 +117,7 @@
 
 - (void)dealloc
 {
-    [timer invalidate];
+    [self.timer invalidate];
 }
 
 #pragma mark Connection Management
@@ -154,9 +151,9 @@
 - (void)close {
     [self.encoder close];
     [self.decoder close];
-    if (timer != nil) {
-        [timer invalidate];
-        timer = nil;
+    if (self.timer != nil) {
+        [self.timer invalidate];
+        self.timer = nil;
     }
 }
 
@@ -405,10 +402,10 @@
                             const UInt8 *bytes = [[msg data] bytes];
                             if (bytes[1] == 0) {
                                 status = AWSMQTTSessionStatusConnected;
-                                if (timer != nil ) {
-                                    [timer invalidate];
+                                if (self.timer != nil ) {
+                                    [self.timer invalidate];
                                 }
-                                timer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:1.0]
+                                self.timer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:1.0]
                                                                  interval:1.0
                                                                    target:self
                                                                  selector:@selector(timerHandler:)
@@ -419,7 +416,7 @@
                                 }
                                 
                                 [_delegate session:self handleEvent:AWSMQTTSessionEventConnected];
-                                [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+                                [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
                             }
                             else {
                                 [self error:AWSMQTTSessionEventConnectionRefused];
@@ -657,10 +654,10 @@
 
     [self.decoder close];
 
-    if (timer != nil) {
-        [timer invalidate];
-        
-        timer = nil;
+    if (self.timer != nil) {
+        [self.timer invalidate];
+
+        self.timer = nil;
     }
     status = AWSMQTTSessionStatusError;
     
