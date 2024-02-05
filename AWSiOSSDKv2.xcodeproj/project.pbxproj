@@ -581,6 +581,8 @@
 		5C1590172755727C00F88085 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
 		5C1978DD2702364800F9C11E /* AWSLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1978DC2702364800F9C11E /* AWSLocationTests.swift */; };
 		5C71F33F295672B8001183A4 /* guten_tag.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5C71F33E295672B8001183A4 /* guten_tag.wav */; };
+		68EE1A6C2B713D8100B7CF41 /* AWSIoTStreamThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 68EE1A6B2B713D8100B7CF41 /* AWSIoTStreamThread.h */; };
+		68EE1A6E2B713D8900B7CF41 /* AWSIoTStreamThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE1A6D2B713D8900B7CF41 /* AWSIoTStreamThread.m */; };
 		6BE9D6AA25A54EBA00AB5C9A /* AWSIotDataManagerRetainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9D6A925A54EBA00AB5C9A /* AWSIotDataManagerRetainTests.swift */; };
 		6BE9D74025A6D52100AB5C9A /* MQTTStatusCallBackWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9D73F25A6D52100AB5C9A /* MQTTStatusCallBackWrapper.swift */; };
 		6BE9D74225A6D62000AB5C9A /* AWSIotDataManagerQoSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9D74125A6D62000AB5C9A /* AWSIotDataManagerQoSTests.swift */; };
@@ -3141,6 +3143,8 @@
 		5C1978DB2702364800F9C11E /* AWSLocationTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSLocationTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5C1978DC2702364800F9C11E /* AWSLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSLocationTests.swift; sourceTree = "<group>"; };
 		5C71F33E295672B8001183A4 /* guten_tag.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = guten_tag.wav; sourceTree = "<group>"; };
+		68EE1A6B2B713D8100B7CF41 /* AWSIoTStreamThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSIoTStreamThread.h; sourceTree = "<group>"; };
+		68EE1A6D2B713D8900B7CF41 /* AWSIoTStreamThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSIoTStreamThread.m; sourceTree = "<group>"; };
 		6BE9D6A925A54EBA00AB5C9A /* AWSIotDataManagerRetainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSIotDataManagerRetainTests.swift; sourceTree = "<group>"; };
 		6BE9D73F25A6D52100AB5C9A /* MQTTStatusCallBackWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTTStatusCallBackWrapper.swift; sourceTree = "<group>"; };
 		6BE9D74125A6D62000AB5C9A /* AWSIotDataManagerQoSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSIotDataManagerQoSTests.swift; sourceTree = "<group>"; };
@@ -7065,6 +7069,8 @@
 				CE9DE6391C6A78D70060793F /* AWSIoTKeychain.m */,
 				CE9DE63A1C6A78D70060793F /* AWSIoTMQTTClient.h */,
 				CE9DE63B1C6A78D70060793F /* AWSIoTMQTTClient.m */,
+				68EE1A6B2B713D8100B7CF41 /* AWSIoTStreamThread.h */,
+				68EE1A6D2B713D8900B7CF41 /* AWSIoTStreamThread.m */,
 				CE9DE63C1C6A78D70060793F /* AWSIoTWebSocketOutputStream.h */,
 				CE9DE63D1C6A78D70060793F /* AWSIoTWebSocketOutputStream.m */,
 				CE9DE63E1C6A78D70060793F /* MQTTSDK */,
@@ -8278,6 +8284,7 @@
 			files = (
 				CE9DE6521C6A78D70060793F /* AWSIoTDataResources.h in Headers */,
 				CE9DE65A1C6A78D70060793F /* AWSIoTResources.h in Headers */,
+				68EE1A6C2B713D8100B7CF41 /* AWSIoTStreamThread.h in Headers */,
 				CE9DE6231C6A78AF0060793F /* AWSIoT.h in Headers */,
 				CE9DE6561C6A78D70060793F /* AWSIoTManager.h in Headers */,
 				CE9DE6581C6A78D70060793F /* AWSIoTModel.h in Headers */,
@@ -13183,6 +13190,7 @@
 				CE9DE6671C6A78D70060793F /* AWSMQTTDecoder.m in Sources */,
 				CE9DE6511C6A78D70060793F /* AWSIoTDataModel.m in Sources */,
 				CE9DE64F1C6A78D70060793F /* AWSIoTDataManager.m in Sources */,
+				68EE1A6E2B713D8900B7CF41 /* AWSIoTStreamThread.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
