@@ -114,7 +114,8 @@
     if (self.outputStream) {
         self.outputStream.delegate = nil;
         [self.outputStream close];
-        [self.outputStream removeFromRunLoop:self.runLoopForStreamsThread forMode:NSDefaultRunLoopMode];
+        [self.outputStream removeFromRunLoop:self.runLoopForStreamsThread 
+                                     forMode:NSDefaultRunLoopMode];
         self.outputStream = nil;
     }
 

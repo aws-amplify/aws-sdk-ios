@@ -630,8 +630,16 @@
 
     //Cancel the current streams thread
     [self.streamsThread cancel];
+
     __weak AWSIoTMQTTClient *weakSelf = self;
     self.streamsThread.onStop = ^{
+        //If the userDidIssueDisconnect has been set to NO, it means a new connection has been requested,
+        //so we should disregard these updates
+        if (!weakSelf || !weakSelf.userDidIssueDisconnect) {
+            return;
+        }
+
+        //Invalidate connection age timer and close socket
         if (weakSelf.connectionAgeTimer != nil) {
             [weakSelf.connectionAgeTimer invalidate];
             weakSelf.connectionAgeTimer = nil;
@@ -642,10 +650,8 @@
             weakSelf.webSocket = nil;
         }
 
-        //Set status
+        //Notify disconnected status.
         weakSelf.mqttStatus = AWSIoTMQTTStatusDisconnected;
-
-        // Let the client know it has been disconnected.
         [weakSelf notifyConnectionStatus];
     };
 
@@ -731,14 +737,18 @@
 
 - (void)notifyConnectionStatus {
     //Set the connection status on the callback.
+    AWSIoTMQTTStatus mqttStatus = self.mqttStatus;
     __weak AWSIoTMQTTClient *weakSelf = self;
+    __weak void (^connectStatusCallback)(AWSIoTMQTTStatus status) = self.connectStatusCallback;
+    __weak id<AWSIoTMQTTClientDelegate> clientDelegate = self.clientDelegate;
     dispatch_barrier_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        if (weakSelf.connectStatusCallback != nil) {
-            weakSelf.connectStatusCallback(weakSelf.mqttStatus);
+        if (connectStatusCallback != nil) {
+            connectStatusCallback(mqttStatus);
         }
-        
-        if (weakSelf.clientDelegate != nil) {
-            [weakSelf.clientDelegate connectionStatusChanged:weakSelf.mqttStatus client:weakSelf];
+
+        if (clientDelegate != nil) {
+            [clientDelegate connectionStatusChanged:mqttStatus
+                                             client:weakSelf];
         }
     });
 }
