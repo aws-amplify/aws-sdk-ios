@@ -18,9 +18,13 @@
 
 @interface AWSIoTStreamThread()
 
+@property(atomic, strong, nullable) AWSMQTTSession *session;
+@property(atomic, strong, nullable) NSOutputStream *encoderOutputStream;
+@property(atomic, strong, nullable) NSInputStream  *decoderInputStream;
+@property(atomic, strong, nullable) NSOutputStream *outputStream;
 @property(atomic, assign) BOOL isRunning;
-@property(atomic, strong) NSTimer *defaultRunLoopTimer;
-@property(atomic, strong) NSRunLoop *runLoopForStreamsThread;
+@property(atomic, strong, nullable) NSTimer *defaultRunLoopTimer;
+@property(atomic, strong, nullable) NSRunLoop *runLoopForStreamsThread;
 @end
 
 @implementation AWSIoTStreamThread
@@ -131,7 +135,7 @@
 }
 
 - (void)timerHandler:(NSTimer*)theTimer {
-    AWSDDLogVerbose(@"Default run loop timer executed on Thread: [%@]. isCancelled = %@", self, self.isCancelled ? @"YES" : @"NO");
+    AWSDDLogVerbose(@"Default run loop timer executed on Thread: [%@]. isRunning = %@. isCancelled = %@", self, self.isRunning ? @"YES" : @"NO", self.isCancelled ? @"YES" : @"NO");
 }
 
 @end

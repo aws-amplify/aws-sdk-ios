@@ -20,10 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AWSIoTStreamThread : NSThread
 
-@property(atomic, strong, nullable) AWSMQTTSession *session;
-@property(atomic, strong, nullable) NSOutputStream *encoderOutputStream;      // MQTT encoder writes to this one
-@property(atomic, strong, nullable) NSInputStream  *decoderInputStream;      // MQTT decoder reads from this one
-@property(atomic, strong, nullable) NSOutputStream *outputStream;    // We write to this one
 @property(strong, nullable) void (^onStop)(void);
 
 -(instancetype)initWithSession:(nonnull AWSMQTTSession *)session
