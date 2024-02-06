@@ -1,10 +1,11 @@
----
-
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
--Features for next release
+### Bug Fixes
+
+- **AWSIoT**
+  - Fixing crash in AWSIoTMQTTClient (See [PR #5185](https://github.com/aws-amplify/aws-sdk-ios/pull/5185))
 
 ### Misc. Updates
 
