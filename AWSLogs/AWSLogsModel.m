@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
              @"policyName" : @"policyName",
              @"policyType" : @"policyType",
              @"scope" : @"scope",
+             @"selectionCriteria" : @"selectionCriteria",
              };
 }
 
@@ -40,11 +41,16 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
         if ([value caseInsensitiveCompare:@"DATA_PROTECTION_POLICY"] == NSOrderedSame) {
             return @(AWSLogsPolicyTypeDataProtectionPolicy);
         }
+        if ([value caseInsensitiveCompare:@"SUBSCRIPTION_FILTER_POLICY"] == NSOrderedSame) {
+            return @(AWSLogsPolicyTypeSubscriptionFilterPolicy);
+        }
         return @(AWSLogsPolicyTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSLogsPolicyTypeDataProtectionPolicy:
                 return @"DATA_PROTECTION_POLICY";
+            case AWSLogsPolicyTypeSubscriptionFilterPolicy:
+                return @"SUBSCRIPTION_FILTER_POLICY";
             default:
                 return nil;
         }
@@ -480,11 +486,16 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
         if ([value caseInsensitiveCompare:@"DATA_PROTECTION_POLICY"] == NSOrderedSame) {
             return @(AWSLogsPolicyTypeDataProtectionPolicy);
         }
+        if ([value caseInsensitiveCompare:@"SUBSCRIPTION_FILTER_POLICY"] == NSOrderedSame) {
+            return @(AWSLogsPolicyTypeSubscriptionFilterPolicy);
+        }
         return @(AWSLogsPolicyTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSLogsPolicyTypeDataProtectionPolicy:
                 return @"DATA_PROTECTION_POLICY";
+            case AWSLogsPolicyTypeSubscriptionFilterPolicy:
+                return @"SUBSCRIPTION_FILTER_POLICY";
             default:
                 return nil;
         }
@@ -888,11 +899,16 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
         if ([value caseInsensitiveCompare:@"DATA_PROTECTION_POLICY"] == NSOrderedSame) {
             return @(AWSLogsPolicyTypeDataProtectionPolicy);
         }
+        if ([value caseInsensitiveCompare:@"SUBSCRIPTION_FILTER_POLICY"] == NSOrderedSame) {
+            return @(AWSLogsPolicyTypeSubscriptionFilterPolicy);
+        }
         return @(AWSLogsPolicyTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSLogsPolicyTypeDataProtectionPolicy:
                 return @"DATA_PROTECTION_POLICY";
+            case AWSLogsPolicyTypeSubscriptionFilterPolicy:
+                return @"SUBSCRIPTION_FILTER_POLICY";
             default:
                 return nil;
         }
@@ -2304,6 +2320,80 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsLiveTailSessionLogEvent
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ingestionTime" : @"ingestionTime",
+             @"logGroupIdentifier" : @"logGroupIdentifier",
+             @"logStreamName" : @"logStreamName",
+             @"message" : @"message",
+             @"timestamp" : @"timestamp",
+             };
+}
+
+@end
+
+@implementation AWSLogsLiveTailSessionMetadata
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"sampled" : @"sampled",
+             };
+}
+
+@end
+
+@implementation AWSLogsLiveTailSessionStart
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logEventFilterPattern" : @"logEventFilterPattern",
+             @"logGroupIdentifiers" : @"logGroupIdentifiers",
+             @"logStreamNamePrefixes" : @"logStreamNamePrefixes",
+             @"logStreamNames" : @"logStreamNames",
+             @"requestId" : @"requestId",
+             @"sessionId" : @"sessionId",
+             };
+}
+
+@end
+
+@implementation AWSLogsLiveTailSessionUpdate
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"sessionMetadata" : @"sessionMetadata",
+             @"sessionResults" : @"sessionResults",
+             };
+}
+
++ (NSValueTransformer *)sessionMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsLiveTailSessionMetadata class]];
+}
+
++ (NSValueTransformer *)sessionResultsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLogsLiveTailSessionLogEvent class]];
+}
+
+@end
+
 @implementation AWSLogsLogGroup
 
 + (BOOL)supportsSecureCoding {
@@ -2317,6 +2407,7 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
              @"dataProtectionStatus" : @"dataProtectionStatus",
              @"inheritedProperties" : @"inheritedProperties",
              @"kmsKeyId" : @"kmsKeyId",
+             @"logGroupArn" : @"logGroupArn",
              @"logGroupClass" : @"logGroupClass",
              @"logGroupName" : @"logGroupName",
              @"metricFilterCount" : @"metricFilterCount",
@@ -2677,6 +2768,7 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
              @"policyName" : @"policyName",
              @"policyType" : @"policyType",
              @"scope" : @"scope",
+             @"selectionCriteria" : @"selectionCriteria",
              };
 }
 
@@ -2685,11 +2777,16 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
         if ([value caseInsensitiveCompare:@"DATA_PROTECTION_POLICY"] == NSOrderedSame) {
             return @(AWSLogsPolicyTypeDataProtectionPolicy);
         }
+        if ([value caseInsensitiveCompare:@"SUBSCRIPTION_FILTER_POLICY"] == NSOrderedSame) {
+            return @(AWSLogsPolicyTypeSubscriptionFilterPolicy);
+        }
         return @(AWSLogsPolicyTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSLogsPolicyTypeDataProtectionPolicy:
                 return @"DATA_PROTECTION_POLICY";
+            case AWSLogsPolicyTypeSubscriptionFilterPolicy:
+                return @"SUBSCRIPTION_FILTER_POLICY";
             default:
                 return nil;
         }
@@ -3328,6 +3425,66 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
              @"logStreamName" : @"logStreamName",
              @"searchedCompletely" : @"searchedCompletely",
              };
+}
+
+@end
+
+@implementation AWSLogsStartLiveTailRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logEventFilterPattern" : @"logEventFilterPattern",
+             @"logGroupIdentifiers" : @"logGroupIdentifiers",
+             @"logStreamNamePrefixes" : @"logStreamNamePrefixes",
+             @"logStreamNames" : @"logStreamNames",
+             };
+}
+
+@end
+
+@implementation AWSLogsStartLiveTailResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"responseStream" : @"responseStream",
+             };
+}
+
++ (NSValueTransformer *)responseStreamJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsStartLiveTailResponseStream class]];
+}
+
+@end
+
+@implementation AWSLogsStartLiveTailResponseStream
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"sessionStreamingException" : @"SessionStreamingException",
+             @"sessionTimeoutException" : @"SessionTimeoutException",
+             @"sessionStart" : @"sessionStart",
+             @"sessionUpdate" : @"sessionUpdate",
+             };
+}
+
++ (NSValueTransformer *)sessionStartJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsLiveTailSessionStart class]];
+}
+
++ (NSValueTransformer *)sessionUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsLiveTailSessionUpdate class]];
 }
 
 @end
