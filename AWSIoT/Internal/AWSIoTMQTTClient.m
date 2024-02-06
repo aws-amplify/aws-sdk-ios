@@ -32,6 +32,8 @@
 @implementation AWSIoTMQTTQueueMessage
 @end
 
+typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
+
 @interface AWSIoTMQTTClient() <AWSSRWebSocketDelegate, NSStreamDelegate, AWSMQTTSessionDelegate>
 
 @property(atomic, assign, readwrite) AWSIoTMQTTStatus mqttStatus;
@@ -73,7 +75,7 @@
 @property(nonatomic, strong) NSOutputStream *encoderOutputStream;   // MQTT Encoder output stream
 @property(nonatomic, strong) NSOutputStream *websocketOutputStream; // Websocket output stream
 
-@property (nonatomic, copy) void (^connectStatusCallback)(AWSIoTMQTTStatus status);
+@property (nonatomic, copy) StatusCallback connectStatusCallback;
 
 @property (atomic, strong) AWSIoTStreamThread *streamsThread;
 @property (atomic, strong) NSThread *reconnectThread;
@@ -739,11 +741,12 @@
     //Set the connection status on the callback.
     AWSIoTMQTTStatus mqttStatus = self.mqttStatus;
     __weak AWSIoTMQTTClient *weakSelf = self;
-    __weak void (^connectStatusCallback)(AWSIoTMQTTStatus status) = self.connectStatusCallback;
+    __weak StatusCallback connectStatusCallback = self.connectStatusCallback;
     __weak id<AWSIoTMQTTClientDelegate> clientDelegate = self.clientDelegate;
     dispatch_barrier_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        if (connectStatusCallback != nil) {
-            connectStatusCallback(mqttStatus);
+        StatusCallback callback = connectStatusCallback;
+        if (callback != nil) {
+            callback(mqttStatus);
         }
 
         if (clientDelegate != nil) {
