@@ -117,7 +117,7 @@ final class AWSS3PreSignedURLBuilderUnitTests: XCTestCase {
 
     /// Given: a `AWSS3GetPreSignedURLRequest` with `preferredAccessStyle` set to `.virtualHosted` and a `bucketName` that is not compliant.
     /// When: `AWSS3PreSignedURLBuilder.getPresignedURL(_:)` is invoked
-    /// Then: The generated request uses Virtual-Hosted style to create the URL.
+    /// Then: The generated request uses path style to create the URL.
     func testPreferredAccessStyle_withVirtualHostedStyle_andInvalidBucket() {
         let request = createRequest(
             bucket: "invalid_virtual_hosted_bucket_name",
