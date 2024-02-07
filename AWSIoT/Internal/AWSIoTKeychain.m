@@ -137,17 +137,12 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     if (identityRef) {
         SecCertificateRef cert = NULL;
         OSStatus status = SecIdentityCopyCertificate(identityRef, &cert);
+        CFRelease(identityRef);
         if (status == noErr) {
-            if (identityRef) {
-                CFRelease(identityRef);
-            }
             return YES;
         } else {
             AWSDDLogError(@"SecIdentityCopyCertificate failed [%d]", (int)status);
         }
-    }
-    if (identityRef) {
-        CFRelease(identityRef);
     }
     return NO;
 }
@@ -212,9 +207,7 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     }
     
     BOOL result = [AWSIoTKeychain addCertificateRef:certRef tag:tag];
-    if (certRef) {
-        CFRelease(certRef);
-    }
+    CFRelease(certRef);
     return result;
 }
 
