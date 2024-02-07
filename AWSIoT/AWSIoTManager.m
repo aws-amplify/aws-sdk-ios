@@ -206,13 +206,13 @@ static BOOL _tagCertificateEnabled = NO;
 
                 SecKeyRef publicKeyRef = [AWSIoTKeychain getPublicKeyRef:publicTag];
                 SecKeyRef privateKeyRef = [AWSIoTKeychain getPrivateKeyRef:privateTag];
-                SecIdentityRef identityRef = [AWSIoTKeychain getIdentityRef:newPrivateTag certificateLabel:newCertTag];
+                SecIdentityRef identityRef = nil;
 
                 if ([AWSIoTKeychain deleteAsymmetricKeysWithPublicTag:publicTag privateTag:privateTag] &&
                     [AWSIoTKeychain addPrivateKeyRef:privateKeyRef tag:newPrivateTag] &&
                     [AWSIoTKeychain addPublicKeyRef:publicKeyRef tag:newPublicTag] &&
                     [AWSIoTKeychain addCertificateToKeychain:certificatePem tag:newCertTag] &&
-                    identityRef != nil) {
+                    (identityRef = [AWSIoTKeychain getIdentityRef:newPrivateTag certificateLabel:newCertTag])) {
                     AWSIoTCreateCertificateResponse* resp = [[AWSIoTCreateCertificateResponse alloc] init];
                     resp.certificateId = certificateId;
                     resp.certificatePem = certificatePem;
