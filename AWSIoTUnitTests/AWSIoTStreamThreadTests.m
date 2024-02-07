@@ -17,6 +17,11 @@
 #import "OCMock.h"
 #import "AWSIoTStreamThread.h"
 
+@interface AWSIoTStreamThread()
+@property(nonatomic, assign) NSTimeInterval defaultRunLoopTimeInterval;
+@end
+
+
 @interface AWSIoTStreamThreadTests : XCTestCase
 
 @property (nonatomic, strong) AWSIoTStreamThread *thread;
@@ -24,25 +29,30 @@
 @property (nonatomic, strong) NSInputStream *decoderInputStream;
 @property (nonatomic, strong) NSOutputStream *encoderOutputStream;
 @property (nonatomic, strong) NSOutputStream *outputStream;
-@property (nonatomic, strong) XCTestExpectation *startExpectation;
 
 @end
 
 @implementation AWSIoTStreamThreadTests
 
 - (void)setUp {
+    // Mock the dependencies
     self.decoderInputStream = OCMClassMock([NSInputStream class]);
     self.encoderOutputStream = OCMClassMock([NSOutputStream class]);
     self.outputStream = OCMClassMock([NSOutputStream class]);
-    self.startExpectation = [self expectationWithDescription:@"AWSIoTStreamThread.start expectation"];
     self.session = OCMClassMock([AWSMQTTSession class]);
+
+    // Create an expectation and fulfill it when session.connectToInputStream:outputStream is invoked
+    XCTestExpectation *startExpectation = [self expectationWithDescription:@"AWSIoTStreamThread.start expectation"];
     OCMStub([self.session connectToInputStream:[OCMArg any] outputStream:[OCMArg any]])
-        .andCall(self.startExpectation, @selector(fulfill));
+        .andCall(startExpectation, @selector(fulfill));
+    
     self.thread = [[AWSIoTStreamThread alloc] initWithSession:self.session
                                            decoderInputStream:self.decoderInputStream
                                           encoderOutputStream:self.encoderOutputStream
                                                  outputStream:self.outputStream];
+    self.thread.defaultRunLoopTimeInterval = 0.1;
     [self.thread start];
+    [self waitForExpectations:@[startExpectation] timeout:1];
 }
 
 - (void)tearDown {
@@ -56,8 +66,7 @@
 /// Given: A AWSIoTStreamThread
 /// When: The thread is started
 /// Then: The output stream is opened and the session is connected to the decoder and encoder streams
-- (void)testStart_shouldCloseStreams_andInvokeOnStop {
-    [self waitForExpectationsWithTimeout:1 handler:nil];
+- (void)testStart_shouldOpenStream_andInvokeConnectOnSession {
     OCMVerify([self.outputStream open]);
     OCMVerify([self.session connectToInputStream:[OCMArg any] outputStream:[OCMArg any]]);
 }
@@ -72,7 +81,7 @@
     };
 
     [self.thread cancel];
-    [self waitForExpectationsWithTimeout:1 handler:nil];
+    [self waitForExpectations:@[stopExpectation] timeout:1];
 
     OCMVerify([self.decoderInputStream close]);
     OCMVerify([self.encoderOutputStream close]);

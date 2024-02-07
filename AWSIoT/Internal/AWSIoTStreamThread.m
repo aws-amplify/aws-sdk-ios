@@ -24,6 +24,7 @@
 @property(nonatomic, strong, nullable) NSOutputStream *outputStream;
 @property(nonatomic, strong, nullable) NSTimer *defaultRunLoopTimer;
 @property(nonatomic, strong, nullable) NSRunLoop *runLoopForStreamsThread;
+@property(nonatomic, assign) NSTimeInterval defaultRunLoopTimeInterval;
 @property(nonatomic, assign) BOOL isRunning;
 @end
 
@@ -47,6 +48,7 @@
         _decoderInputStream = decoderInputStream;
         _encoderOutputStream = encoderOutputStream;
         _outputStream = outputStream;
+        _defaultRunLoopTimeInterval = 10;
     }
     return self;
 }
@@ -86,7 +88,7 @@
         //This will continue run until the thread is cancelled
         //Run one cycle of the runloop. This will return after a input source event or timer event is processed
         [self.runLoopForStreamsThread runMode:NSDefaultRunLoopMode
-                                   beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+                                   beforeDate:[NSDate dateWithTimeIntervalSinceNow:self.defaultRunLoopTimeInterval]];
     }
 
     [self cleanUp];
