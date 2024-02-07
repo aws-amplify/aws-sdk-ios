@@ -220,9 +220,15 @@ static BOOL _tagCertificateEnabled = NO;
 
                     validatedResponse = resp;
                 }
-                CFRelease(identityRef);
-                CFRelease(privateKeyRef);
-                CFRelease(publicKeyRef);
+                if (identityRef) {
+                    CFRelease(identityRef);
+                }
+                if (privateKeyRef) {
+                    CFRelease(privateKeyRef);
+                }
+                if (publicKeyRef) {
+                    CFRelease(publicKeyRef);
+                }
             }
         }
 

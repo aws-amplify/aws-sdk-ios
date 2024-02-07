@@ -113,7 +113,10 @@ unsigned char setTag = 0x31;
     [scr appendData:signdata];
     
     [self addByte:seqTag intoData:scr];
-    CFRelease(privateKeyRef);
+
+    if (privateKeyRef) {
+        CFRelease(privateKeyRef);
+    }
 
     return [scr copy];
 }

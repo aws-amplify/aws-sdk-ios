@@ -37,7 +37,7 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 @interface AWSIoTMQTTClient() <AWSSRWebSocketDelegate, NSStreamDelegate, AWSMQTTSessionDelegate>
 
 @property(atomic, assign, readwrite) AWSIoTMQTTStatus mqttStatus;
-@property(atomic, strong) AWSMQTTSession* session;
+@property(nonatomic, strong) AWSMQTTSession* session;
 @property(nonatomic, strong) NSMutableDictionary * topicListeners;
 
 @property(atomic, assign) BOOL userDidIssueDisconnect; //Flag to indicate if requestor has issued a disconnect
@@ -77,8 +77,8 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 
 @property (nonatomic, copy) StatusCallback connectStatusCallback;
 
-@property (atomic, strong) AWSIoTStreamThread *streamsThread;
-@property (atomic, strong) NSThread *reconnectThread;
+@property (nonatomic, strong) AWSIoTStreamThread *streamsThread;
+@property (nonatomic, strong) NSThread *reconnectThread;
 
 @property (strong,atomic) dispatch_semaphore_t timerSemaphore;
 @property (strong,atomic) dispatch_queue_t timerQueue;
@@ -357,8 +357,10 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
     }
     CFReadStreamSetProperty(readStream, kCFStreamPropertySSLSettings, sslSettings);
     CFWriteStreamSetProperty(writeStream, kCFStreamPropertySSLSettings, sslSettings);
-    CFRelease(sslSettings);
-    
+    if (sslSettings) {
+        CFRelease(sslSettings);
+    }
+
     //The "x-amzn-mqtt-ca" protocol is only supported on port 443.
     if (self.port == 443) {
         //SSLSetALPNProtocols is only available from iOS 11 onwards.
@@ -372,19 +374,23 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
             CFArrayRef protocols = CFArrayCreate(NULL, (void *)strs, 1, &kCFTypeArrayCallBacks);
 
             SSLSetALPNProtocols(context, protocols);
-            CFRelease(protocols);
+            if (protocols) {
+                CFRelease(protocols);
+            }
         }
     }
 
     //Cancel previous streams thread if necessary
-    if (self.streamsThread && !self.streamsThread.isCancelled) {
-        AWSDDLogVerbose(@"Issued Cancel on thread [%@]", self.streamsThread);
-        [self.streamsThread cancel];
+    @synchronized(self) {
+        if (self.streamsThread && !self.streamsThread.isCancelled) {
+            AWSDDLogVerbose(@"Issued Cancel on thread [%@]", self.streamsThread);
+            [self.streamsThread cancel];
+        }
+        self.streamsThread = [[AWSIoTStreamThread alloc] initWithSession:self.session
+                                                      decoderInputStream:inputStream
+                                                     encoderOutputStream:outputStream];
+        [self.streamsThread start];
     }
-    self.streamsThread = [[AWSIoTStreamThread alloc] initWithSession:self.session
-                                                  decoderInputStream:inputStream
-                                                 encoderOutputStream:outputStream];
-    [self.streamsThread start];
     return YES;
 }
 
@@ -635,26 +641,27 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
 
     __weak AWSIoTMQTTClient *weakSelf = self;
     self.streamsThread.onStop = ^{
+        __strong AWSIoTMQTTClient *strongSelf = weakSelf;
         //If the userDidIssueDisconnect has been set to NO, it means a new connection has been requested,
         //so we should disregard these updates
-        if (!weakSelf || !weakSelf.userDidIssueDisconnect) {
+        if (!strongSelf || !strongSelf.userDidIssueDisconnect) {
             return;
         }
 
         //Invalidate connection age timer and close socket
-        if (weakSelf.connectionAgeTimer != nil) {
-            [weakSelf.connectionAgeTimer invalidate];
-            weakSelf.connectionAgeTimer = nil;
+        if (strongSelf.connectionAgeTimer != nil) {
+            [strongSelf.connectionAgeTimer invalidate];
+            strongSelf.connectionAgeTimer = nil;
         }
 
-        if (weakSelf.webSocket) {
-            [weakSelf.webSocket close];
-            weakSelf.webSocket = nil;
+        if (strongSelf.webSocket) {
+            [strongSelf.webSocket close];
+            strongSelf.webSocket = nil;
         }
 
         //Notify disconnected status.
-        weakSelf.mqttStatus = AWSIoTMQTTStatusDisconnected;
-        [weakSelf notifyConnectionStatus];
+        strongSelf.mqttStatus = AWSIoTMQTTStatusDisconnected;
+        [strongSelf notifyConnectionStatus];
     };
 
     AWSDDLogInfo(@"AWSIoTMQTTClient: Disconnect message issued.");
@@ -741,10 +748,10 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
     //Set the connection status on the callback.
     AWSIoTMQTTStatus mqttStatus = self.mqttStatus;
     __weak AWSIoTMQTTClient *weakSelf = self;
-    __weak StatusCallback connectStatusCallback = self.connectStatusCallback;
-    __weak id<AWSIoTMQTTClientDelegate> clientDelegate = self.clientDelegate;
+    __weak StatusCallback connectStatusCallback = weakSelf.connectStatusCallback;
+    __weak id<AWSIoTMQTTClientDelegate> clientDelegate = weakSelf.clientDelegate;
     dispatch_barrier_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        StatusCallback callback = connectStatusCallback;
+        __strong StatusCallback callback = connectStatusCallback;
         if (callback != nil) {
             callback(mqttStatus);
         }
@@ -1220,16 +1227,19 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
     self.encoderOutputStream = [AWSIoTWebSocketOutputStreamFactory createAWSIoTWebSocketOutputStreamWithWebSocket:webSocket];
     
     //Cancel previous streams thread if necessary
-    if (self.streamsThread && !self.streamsThread.isCancelled) {
-        AWSDDLogVerbose(@"Issued Cancel on thread [%@]", self.streamsThread);
-        [self.streamsThread cancel];
+    @synchronized(self) {
+        if (self.streamsThread && !self.streamsThread.isCancelled) {
+            AWSDDLogVerbose(@"Issued Cancel on thread [%@]", self.streamsThread);
+            [self.streamsThread cancel];
+        }
+
+        self.streamsThread = [[AWSIoTStreamThread alloc] initWithSession:self.session
+                                                      decoderInputStream:inputStream
+                                                     encoderOutputStream:self.encoderOutputStream
+                                                            outputStream:self.websocketOutputStream];
+        [self.streamsThread start];
     }
-    
-    self.streamsThread = [[AWSIoTStreamThread alloc] initWithSession:self.session
-                                                  decoderInputStream:inputStream
-                                                 encoderOutputStream:self.encoderOutputStream
-                                                        outputStream:self.websocketOutputStream];
-    [self.streamsThread start];
+
 }
 
 

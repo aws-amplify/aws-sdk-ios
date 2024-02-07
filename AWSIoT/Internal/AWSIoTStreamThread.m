@@ -18,13 +18,13 @@
 
 @interface AWSIoTStreamThread()
 
-@property(atomic, strong, nullable) AWSMQTTSession *session;
-@property(atomic, strong, nullable) NSOutputStream *encoderOutputStream;
-@property(atomic, strong, nullable) NSInputStream  *decoderInputStream;
-@property(atomic, strong, nullable) NSOutputStream *outputStream;
-@property(atomic, assign) BOOL isRunning;
-@property(atomic, strong, nullable) NSTimer *defaultRunLoopTimer;
-@property(atomic, strong, nullable) NSRunLoop *runLoopForStreamsThread;
+@property(nonatomic, strong, nullable) AWSMQTTSession *session;
+@property(nonatomic, strong, nullable) NSOutputStream *encoderOutputStream;
+@property(nonatomic, strong, nullable) NSInputStream  *decoderInputStream;
+@property(nonatomic, strong, nullable) NSOutputStream *outputStream;
+@property(nonatomic, strong, nullable) NSTimer *defaultRunLoopTimer;
+@property(nonatomic, strong, nullable) NSRunLoop *runLoopForStreamsThread;
+@property(nonatomic, assign) BOOL isRunning;
 @end
 
 @implementation AWSIoTStreamThread
