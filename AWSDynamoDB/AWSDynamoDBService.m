@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
 #import "AWSDynamoDBRequestRetryHandler.h"
 
 static NSString *const AWSInfoDynamoDB = @"DynamoDB";
-NSString *const AWSDynamoDBSDKVersion = @"2.33.8";
+NSString *const AWSDynamoDBSDKVersion = @"2.33.9";
 
 
 @interface AWSDynamoDBResponseSerializer : AWSJSONResponseSerializer
@@ -1436,6 +1436,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSDynamoDBUpdateItemOutput *response, NSError *error))completionHandler {
     [[self updateItem:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBUpdateItemOutput *> * _Nonnull task) {
         AWSDynamoDBUpdateItemOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSDynamoDBUpdateKinesisStreamingDestinationOutput *> *)updateKinesisStreamingDestination:(AWSDynamoDBUpdateKinesisStreamingDestinationInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"DynamoDB_20120810"
+                 operationName:@"UpdateKinesisStreamingDestination"
+                   outputClass:[AWSDynamoDBUpdateKinesisStreamingDestinationOutput class]];
+}
+
+- (void)updateKinesisStreamingDestination:(AWSDynamoDBUpdateKinesisStreamingDestinationInput *)request
+     completionHandler:(void (^)(AWSDynamoDBUpdateKinesisStreamingDestinationOutput *response, NSError *error))completionHandler {
+    [[self updateKinesisStreamingDestination:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBUpdateKinesisStreamingDestinationOutput *> * _Nonnull task) {
+        AWSDynamoDBUpdateKinesisStreamingDestinationOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

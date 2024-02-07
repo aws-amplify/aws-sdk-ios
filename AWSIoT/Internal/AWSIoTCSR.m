@@ -64,9 +64,12 @@ unsigned char setTag = 0x31;
     NSString *privateTag = [AWSIoTKeychain.privateKeyTag stringByAppendingString:certificateId];
     
     _publicKeyBits = [AWSIoTKeychain getPublicKeyBits:publicTag];
-    SecKeyRef privateKeyRef = [AWSIoTKeychain getPrivateKeyRef:privateTag];
+    if (!_publicKeyBits) {
+        return nil;
+    }
 
-    if (!_publicKeyBits || !privateKeyRef) {
+    SecKeyRef privateKeyRef = [AWSIoTKeychain getPrivateKeyRef:privateTag];
+    if (!privateKeyRef) {
         return nil;
     }
     
@@ -113,7 +116,9 @@ unsigned char setTag = 0x31;
     [scr appendData:signdata];
     
     [self addByte:seqTag intoData:scr];
-    
+
+    CFRelease(privateKeyRef);
+
     return [scr copy];
 }
 

@@ -4,6 +4,22 @@
 
 -Features for next release
 
+## 2.33.9
+
+### Bug Fixes
+
+- **AWSIoT**
+  - Fixing crash in AWSIoTMQTTClient (See [PR #5185](https://github.com/aws-amplify/aws-sdk-ios/pull/5185))
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSDynamoDB
+  - AWSLocation
+  - AWSConnectParticipant
+  - AWSConnect
+  - AWSEC2
+
 ## 2.33.8
 
 ### Misc. Updates
