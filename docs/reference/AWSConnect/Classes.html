@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSConnect 2.33.8 Docs</a> (78% documented)</p>
+        <p><a href="index.html">AWSConnect 2.33.9 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSConnect.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -2575,7 +2575,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A structure that defines agent hierarchy group levels which can be used to filter search results. Important: Agent hierarchy group level information in search result is a snapshot, it does not represent current agent hierarchy who handled the contact.</p>
+                        <p>A structure that defines search criteria for contacts using agent hierarchy group levels. For more information about agent hierarchies, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html">Set Up Agent Hierarchies</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
 
                         <a href="Classes/AWSConnectAgentHierarchyGroups.html" class="slightly-smaller">See more</a>
                       </div>
@@ -4297,7 +4297,7 @@ Required parameters: [Type]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A structure that defines filters can be used to search within outputs analyzed by Amazon Connect Contact Lens in a contact.</p>
+                        <p>A structure that defines search criteria for contacts using analysis outputs from Amazon Connect Contact Lens.</p>
 
                         <a href="Classes/AWSConnectContactAnalysis.html" class="slightly-smaller">See more</a>
                       </div>
@@ -18716,7 +18716,7 @@ Required parameters: [Label]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A structure of time range that you want to search results</p>
+                        <p>A structure of time range that you want to search results.</p>
 
 <p>Required parameters: [Type, StartTime, EndTime]</p>
 
@@ -18751,7 +18751,7 @@ Required parameters: [Label]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A structure of search criteria to be used to return contacts</p>
+                        <p>A structure of search criteria to be used to return contacts.</p>
 
                         <a href="Classes/AWSConnectSearchCriteria.html" class="slightly-smaller">See more</a>
                       </div>
@@ -19424,7 +19424,7 @@ Required parameters: [Label]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A structure that defines searchable contact attributes which can be used to filter search results. </p>
+                        <p>A structure that defines search criteria based on user-defined contact attributes that are configured for contact search.</p>
 
 <p>Required parameters: [Criteria]</p>
 
@@ -19459,7 +19459,7 @@ Required parameters: [Label]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The criteria of searchable contact attributes.</p>
+                        <p>The search criteria based on user-defned contact attribute key and values to search on.</p>
 
 <p>Required parameters: [Key, Values]</p>
 
@@ -19929,7 +19929,7 @@ Required parameters: [Label]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A structure that defines the sort by and a sort order</p>
+                        <p>A structure that defineds the field name to sort by and a sort order.</p>
 
 <p>Required parameters: [FieldName, Order]</p>
 
@@ -21455,7 +21455,7 @@ Required parameters: [Label]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The transcript object used to search results.</p>
+                        <p>A structure that defines search criteria and matching logic to search for contacts by matching text with transcripts analyzed by Amazon Connect Contact Lens.</p>
 
 <p>Required parameters: [Criteria]</p>
 
@@ -21490,7 +21490,7 @@ Required parameters: [Label]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The transcript criteria used to search</p>
+                        <p>A structure that defines search criteria base on words or phrases, participants in the Contact Lens conversational analytics transcript.</p>
 
 <p>Required parameters: [ParticipantRole, SearchText, MatchType]</p>
 
@@ -24689,7 +24689,7 @@ Required parameters: [Label]</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-01-03)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-02-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
