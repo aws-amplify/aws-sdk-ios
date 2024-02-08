@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -919,24 +919,6 @@
       \"endpointdiscovery\":{\
       }\
     },\
-    \"UpdateKinesisStreamingDestination\":{\
-      \"name\":\"UpdateKinesisStreamingDestination\",\
-      \"http\":{\
-        \"method\":\"POST\",\
-        \"requestUri\":\"/\"\
-      },\
-      \"input\":{\"shape\":\"UpdateKinesisStreamingDestinationInput\"},\
-      \"output\":{\"shape\":\"UpdateKinesisStreamingDestinationOutput\"},\
-      \"errors\":[\
-        {\"shape\":\"InternalServerError\"},\
-        {\"shape\":\"LimitExceededException\"},\
-        {\"shape\":\"ResourceInUseException\"},\
-        {\"shape\":\"ResourceNotFoundException\"}\
-      ],\
-      \"documentation\":\"<p>The command to update the Kinesis stream destination.</p>\",\
-      \"endpointdiscovery\":{\
-      }\
-    },\
     \"UpdateTable\":{\
       \"name\":\"UpdateTable\",\
       \"http\":{\
@@ -991,13 +973,6 @@
     }\
   },\
   \"shapes\":{\
-    \"ApproximateCreationDateTimePrecision\":{\
-      \"type\":\"string\",\
-      \"enum\":[\
-        \"MILLISECOND\",\
-        \"MICROSECOND\"\
-      ]\
-    },\
     \"ArchivalReason\":{\"type\":\"string\"},\
     \"ArchivalSummary\":{\
       \"type\":\"structure\",\
@@ -2625,8 +2600,7 @@
         \"ACTIVE\",\
         \"DISABLING\",\
         \"DISABLED\",\
-        \"ENABLE_FAILED\",\
-        \"UPDATING\"\
+        \"ENABLE_FAILED\"\
       ]\
     },\
     \"DoubleObject\":{\"type\":\"double\"},\
@@ -2637,16 +2611,6 @@
       },\
       \"documentation\":\"<p> There was an attempt to insert an item with the same primary key as an item that already exists in the DynamoDB table.</p>\",\
       \"exception\":true\
-    },\
-    \"EnableKinesisStreamingConfiguration\":{\
-      \"type\":\"structure\",\
-      \"members\":{\
-        \"ApproximateCreationDateTimePrecision\":{\
-          \"shape\":\"ApproximateCreationDateTimePrecision\",\
-          \"documentation\":\"<p>Toggle for the precision of Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>\"\
-        }\
-      },\
-      \"documentation\":\"<p>Enables setting the configuration for Kinesis Streaming.</p>\"\
     },\
     \"Endpoint\":{\
       \"type\":\"structure\",\
@@ -3842,10 +3806,6 @@
         \"DestinationStatusDescription\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>The human-readable string that corresponds to the replica status.</p>\"\
-        },\
-        \"ApproximateCreationDateTimePrecision\":{\
-          \"shape\":\"ApproximateCreationDateTimePrecision\",\
-          \"documentation\":\"<p>The precision of the Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes a Kinesis data stream destination.</p>\"\
@@ -3868,10 +3828,6 @@
         \"StreamArn\":{\
           \"shape\":\"StreamArn\",\
           \"documentation\":\"<p>The ARN for a Kinesis data stream.</p>\"\
-        },\
-        \"EnableKinesisStreamingConfiguration\":{\
-          \"shape\":\"EnableKinesisStreamingConfiguration\",\
-          \"documentation\":\"<p>The source for the Kinesis streaming information that is being enabled.</p>\"\
         }\
       }\
     },\
@@ -3889,10 +3845,6 @@
         \"DestinationStatus\":{\
           \"shape\":\"DestinationStatus\",\
           \"documentation\":\"<p>The current status of the replication.</p>\"\
-        },\
-        \"EnableKinesisStreamingConfiguration\":{\
-          \"shape\":\"EnableKinesisStreamingConfiguration\",\
-          \"documentation\":\"<p>The destination for the Kinesis streaming information that is being enabled.</p>\"\
         }\
       }\
     },\
@@ -4266,7 +4218,7 @@
       \"members\":{\
         \"Statement\":{\
           \"shape\":\"PartiQLStatement\",\
-          \"documentation\":\"<p> A PartiQL statement that uses parameters. </p>\"\
+          \"documentation\":\"<p> A PartiQL statment that uses parameters. </p>\"\
         },\
         \"Parameters\":{\
           \"shape\":\"PreparedStatementParameters\",\
@@ -4277,7 +4229,7 @@
           \"documentation\":\"<p>An optional parameter that returns the item attributes for a PartiQL <code>ParameterizedStatement</code> operation that failed a condition check.</p> <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>\"\
         }\
       },\
-      \"documentation\":\"<p> Represents a PartiQL statement that uses parameters. </p>\"\
+      \"documentation\":\"<p> Represents a PartiQL statment that uses parameters. </p>\"\
     },\
     \"ParameterizedStatements\":{\
       \"type\":\"list\",\
@@ -6331,58 +6283,6 @@
         }\
       },\
       \"documentation\":\"<p>Represents the output of an <code>UpdateItem</code> operation.</p>\"\
-    },\
-    \"UpdateKinesisStreamingConfiguration\":{\
-      \"type\":\"structure\",\
-      \"members\":{\
-        \"ApproximateCreationDateTimePrecision\":{\
-          \"shape\":\"ApproximateCreationDateTimePrecision\",\
-          \"documentation\":\"<p>Enables updating the precision of Kinesis data stream timestamp. </p>\"\
-        }\
-      },\
-      \"documentation\":\"<p>Enables updating the configuration for Kinesis Streaming.</p>\"\
-    },\
-    \"UpdateKinesisStreamingDestinationInput\":{\
-      \"type\":\"structure\",\
-      \"required\":[\
-        \"TableName\",\
-        \"StreamArn\"\
-      ],\
-      \"members\":{\
-        \"TableName\":{\
-          \"shape\":\"TableName\",\
-          \"documentation\":\"<p>The table name for the Kinesis streaming destination input.</p>\"\
-        },\
-        \"StreamArn\":{\
-          \"shape\":\"StreamArn\",\
-          \"documentation\":\"<p>The ARN for the Kinesis stream input.</p>\"\
-        },\
-        \"UpdateKinesisStreamingConfiguration\":{\
-          \"shape\":\"UpdateKinesisStreamingConfiguration\",\
-          \"documentation\":\"<p>The command to update the Kinesis stream configuration.</p>\"\
-        }\
-      }\
-    },\
-    \"UpdateKinesisStreamingDestinationOutput\":{\
-      \"type\":\"structure\",\
-      \"members\":{\
-        \"TableName\":{\
-          \"shape\":\"TableName\",\
-          \"documentation\":\"<p>The table name for the Kinesis streaming destination output.</p>\"\
-        },\
-        \"StreamArn\":{\
-          \"shape\":\"StreamArn\",\
-          \"documentation\":\"<p>The ARN for the Kinesis stream input.</p>\"\
-        },\
-        \"DestinationStatus\":{\
-          \"shape\":\"DestinationStatus\",\
-          \"documentation\":\"<p>The status of the attempt to update the Kinesis streaming destination output.</p>\"\
-        },\
-        \"UpdateKinesisStreamingConfiguration\":{\
-          \"shape\":\"UpdateKinesisStreamingConfiguration\",\
-          \"documentation\":\"<p>The command to update the Kinesis streaming destination configuration.</p>\"\
-        }\
-      }\
     },\
     \"UpdateReplicationGroupMemberAction\":{\
       \"type\":\"structure\",\

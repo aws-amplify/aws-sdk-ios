@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -2409,41 +2409,6 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 @end
 
-@implementation AWSDynamoDBEnableKinesisStreamingConfiguration
-
-+ (BOOL)supportsSecureCoding {
-    return YES;
-}
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"approximateCreationDateTimePrecision" : @"ApproximateCreationDateTimePrecision",
-             };
-}
-
-+ (NSValueTransformer *)approximateCreationDateTimePrecisionJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"MILLISECOND"] == NSOrderedSame) {
-            return @(AWSDynamoDBApproximateCreationDateTimePrecisionMillisecond);
-        }
-        if ([value caseInsensitiveCompare:@"MICROSECOND"] == NSOrderedSame) {
-            return @(AWSDynamoDBApproximateCreationDateTimePrecisionMicrosecond);
-        }
-        return @(AWSDynamoDBApproximateCreationDateTimePrecisionUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSDynamoDBApproximateCreationDateTimePrecisionMillisecond:
-                return @"MILLISECOND";
-            case AWSDynamoDBApproximateCreationDateTimePrecisionMicrosecond:
-                return @"MICROSECOND";
-            default:
-                return nil;
-        }
-    }];
-}
-
-@end
-
 @implementation AWSDynamoDBEndpoint
 
 + (BOOL)supportsSecureCoding {
@@ -3997,32 +3962,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"approximateCreationDateTimePrecision" : @"ApproximateCreationDateTimePrecision",
              @"destinationStatus" : @"DestinationStatus",
              @"destinationStatusDescription" : @"DestinationStatusDescription",
              @"streamArn" : @"StreamArn",
              };
-}
-
-+ (NSValueTransformer *)approximateCreationDateTimePrecisionJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"MILLISECOND"] == NSOrderedSame) {
-            return @(AWSDynamoDBApproximateCreationDateTimePrecisionMillisecond);
-        }
-        if ([value caseInsensitiveCompare:@"MICROSECOND"] == NSOrderedSame) {
-            return @(AWSDynamoDBApproximateCreationDateTimePrecisionMicrosecond);
-        }
-        return @(AWSDynamoDBApproximateCreationDateTimePrecisionUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSDynamoDBApproximateCreationDateTimePrecisionMillisecond:
-                return @"MILLISECOND";
-            case AWSDynamoDBApproximateCreationDateTimePrecisionMicrosecond:
-                return @"MICROSECOND";
-            default:
-                return nil;
-        }
-    }];
 }
 
 + (NSValueTransformer *)destinationStatusJSONTransformer {
@@ -4042,9 +3985,6 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
         if ([value caseInsensitiveCompare:@"ENABLE_FAILED"] == NSOrderedSame) {
             return @(AWSDynamoDBDestinationStatusEnableFailed);
         }
-        if ([value caseInsensitiveCompare:@"UPDATING"] == NSOrderedSame) {
-            return @(AWSDynamoDBDestinationStatusUpdating);
-        }
         return @(AWSDynamoDBDestinationStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4058,8 +3998,6 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
                 return @"DISABLED";
             case AWSDynamoDBDestinationStatusEnableFailed:
                 return @"ENABLE_FAILED";
-            case AWSDynamoDBDestinationStatusUpdating:
-                return @"UPDATING";
             default:
                 return nil;
         }
@@ -4076,14 +4014,9 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"enableKinesisStreamingConfiguration" : @"EnableKinesisStreamingConfiguration",
              @"streamArn" : @"StreamArn",
              @"tableName" : @"TableName",
              };
-}
-
-+ (NSValueTransformer *)enableKinesisStreamingConfigurationJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBEnableKinesisStreamingConfiguration class]];
 }
 
 @end
@@ -4097,7 +4030,6 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"destinationStatus" : @"DestinationStatus",
-             @"enableKinesisStreamingConfiguration" : @"EnableKinesisStreamingConfiguration",
              @"streamArn" : @"StreamArn",
              @"tableName" : @"TableName",
              };
@@ -4120,9 +4052,6 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
         if ([value caseInsensitiveCompare:@"ENABLE_FAILED"] == NSOrderedSame) {
             return @(AWSDynamoDBDestinationStatusEnableFailed);
         }
-        if ([value caseInsensitiveCompare:@"UPDATING"] == NSOrderedSame) {
-            return @(AWSDynamoDBDestinationStatusUpdating);
-        }
         return @(AWSDynamoDBDestinationStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4136,16 +4065,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
                 return @"DISABLED";
             case AWSDynamoDBDestinationStatusEnableFailed:
                 return @"ENABLE_FAILED";
-            case AWSDynamoDBDestinationStatusUpdating:
-                return @"UPDATING";
             default:
                 return nil;
         }
     }];
-}
-
-+ (NSValueTransformer *)enableKinesisStreamingConfigurationJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBEnableKinesisStreamingConfiguration class]];
 }
 
 @end
@@ -7553,123 +7476,6 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)itemCollectionMetricsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBItemCollectionMetrics class]];
-}
-
-@end
-
-@implementation AWSDynamoDBUpdateKinesisStreamingConfiguration
-
-+ (BOOL)supportsSecureCoding {
-    return YES;
-}
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"approximateCreationDateTimePrecision" : @"ApproximateCreationDateTimePrecision",
-             };
-}
-
-+ (NSValueTransformer *)approximateCreationDateTimePrecisionJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"MILLISECOND"] == NSOrderedSame) {
-            return @(AWSDynamoDBApproximateCreationDateTimePrecisionMillisecond);
-        }
-        if ([value caseInsensitiveCompare:@"MICROSECOND"] == NSOrderedSame) {
-            return @(AWSDynamoDBApproximateCreationDateTimePrecisionMicrosecond);
-        }
-        return @(AWSDynamoDBApproximateCreationDateTimePrecisionUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSDynamoDBApproximateCreationDateTimePrecisionMillisecond:
-                return @"MILLISECOND";
-            case AWSDynamoDBApproximateCreationDateTimePrecisionMicrosecond:
-                return @"MICROSECOND";
-            default:
-                return nil;
-        }
-    }];
-}
-
-@end
-
-@implementation AWSDynamoDBUpdateKinesisStreamingDestinationInput
-
-+ (BOOL)supportsSecureCoding {
-    return YES;
-}
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"streamArn" : @"StreamArn",
-             @"tableName" : @"TableName",
-             @"updateKinesisStreamingConfiguration" : @"UpdateKinesisStreamingConfiguration",
-             };
-}
-
-+ (NSValueTransformer *)updateKinesisStreamingConfigurationJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBUpdateKinesisStreamingConfiguration class]];
-}
-
-@end
-
-@implementation AWSDynamoDBUpdateKinesisStreamingDestinationOutput
-
-+ (BOOL)supportsSecureCoding {
-    return YES;
-}
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"destinationStatus" : @"DestinationStatus",
-             @"streamArn" : @"StreamArn",
-             @"tableName" : @"TableName",
-             @"updateKinesisStreamingConfiguration" : @"UpdateKinesisStreamingConfiguration",
-             };
-}
-
-+ (NSValueTransformer *)destinationStatusJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"ENABLING"] == NSOrderedSame) {
-            return @(AWSDynamoDBDestinationStatusEnabling);
-        }
-        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
-            return @(AWSDynamoDBDestinationStatusActive);
-        }
-        if ([value caseInsensitiveCompare:@"DISABLING"] == NSOrderedSame) {
-            return @(AWSDynamoDBDestinationStatusDisabling);
-        }
-        if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
-            return @(AWSDynamoDBDestinationStatusDisabled);
-        }
-        if ([value caseInsensitiveCompare:@"ENABLE_FAILED"] == NSOrderedSame) {
-            return @(AWSDynamoDBDestinationStatusEnableFailed);
-        }
-        if ([value caseInsensitiveCompare:@"UPDATING"] == NSOrderedSame) {
-            return @(AWSDynamoDBDestinationStatusUpdating);
-        }
-        return @(AWSDynamoDBDestinationStatusUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSDynamoDBDestinationStatusEnabling:
-                return @"ENABLING";
-            case AWSDynamoDBDestinationStatusActive:
-                return @"ACTIVE";
-            case AWSDynamoDBDestinationStatusDisabling:
-                return @"DISABLING";
-            case AWSDynamoDBDestinationStatusDisabled:
-                return @"DISABLED";
-            case AWSDynamoDBDestinationStatusEnableFailed:
-                return @"ENABLE_FAILED";
-            case AWSDynamoDBDestinationStatusUpdating:
-                return @"UPDATING";
-            default:
-                return nil;
-        }
-    }];
-}
-
-+ (NSValueTransformer *)updateKinesisStreamingConfigurationJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBUpdateKinesisStreamingConfiguration class]];
 }
 
 @end

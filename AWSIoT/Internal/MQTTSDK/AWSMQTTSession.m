@@ -25,15 +25,19 @@
     AWSMQTTSessionStatus    status;  //Current status of the session. Can be one of the values specified in the MQTTSessionStatus enum
     NSString*            clientId; //Unique Client ID passed in by the MQTTClient.
     UInt16               txMsgId; //unique ID for the message. Counter that starts from 1
-
+    
     UInt16               keepAliveInterval;  //client will send a PINGREQ once every keepAliveInterval to the server.
     NSInteger            idleTimer; // counter used to know when to send the PINGREQ
     BOOL                 cleanSessionFlag; //used to clear the queue
     AWSMQTTMessage*         connectMessage; //Connect message that is passed in by MQTTClient. Used to send connect message.
-
+    
     dispatch_queue_t serialQueue; // Serial queue to keep ticks increments in sync
+    NSTimer*             timer; //Timer that fires every second. Used to orchestrate pings and retries.
     unsigned int         ticks;  //Number of seconds ( or clock ticks )
-
+    
+    AWSMQTTEncoder*         encoder; //Low level protocol handler that converts a message into out bound network data
+    AWSMQTTDecoder*         decoder; //Low level protocol handler that converts in bound network data into a Message
+    
     NSMutableDictionary* txFlows; //Required for QOS1. Outbound publishes will be stored in txFlows until a PubAck is received
     NSMutableDictionary* rxFlows; //Required for handling QOS 2.
     unsigned int         retryThreshold; //used to throtttle retries. Overloading the publishes beyond service limit will result in message loss.
@@ -60,9 +64,6 @@
 @property (strong,atomic) NSMutableArray* queue; //Queue to temporarily hold messages if encoder is busy sending another message
 @property (strong,atomic) NSMutableArray* timerRing; // circular array of 60. Each element is a set that contains the messages that need to be retried.
 @property (nonatomic, strong) dispatch_queue_t drainSenderSerialQueue;
-@property (nonatomic, strong) AWSMQTTEncoder* encoder; //Low level protocol handler that converts a message into out bound network data
-@property (nonatomic, strong) AWSMQTTDecoder* decoder; //Low level protocol handler that converts in bound network data into a Message
-@property (nonatomic, strong) NSTimer* timer; //Timer that fires every second. Used to orchestrate pings and retries.
 
 @end
 
@@ -115,11 +116,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [self.timer invalidate];
-}
-
 #pragma mark Connection Management
 
 - (id)connectToInputStream:(NSInputStream *)readStream
@@ -128,19 +124,19 @@
     status = AWSMQTTSessionStatusCreated;
     
     //Setup encoder
-    self.encoder = [[AWSMQTTEncoder alloc] initWithStream:writeStream];
+    encoder = [[AWSMQTTEncoder alloc] initWithStream:writeStream];
 
     //Setup decoder
-    self.decoder = [[AWSMQTTDecoder alloc] initWithStream:readStream];
+    decoder = [[AWSMQTTDecoder alloc] initWithStream:readStream];
 
     //setup the session as the delegate to the encoder and decoder.
-    [self.encoder setDelegate:self];
-    [self.decoder setDelegate:self];
-
+    [encoder setDelegate:self];
+    [decoder setDelegate:self];
+    
     //Open the encoder, which will associate it with the runLoop of the current thread and start the encoding process.
-    [self.encoder open];
+    [encoder open];
     //Open the decoder, which will associate it with the runLoop of the current thread and start the decoding process.
-    [self.decoder open];
+    [decoder open];
     return self;
 }
 
@@ -149,11 +145,11 @@
 }
 
 - (void)close {
-    [self.encoder close];
-    [self.decoder close];
-    if (self.timer != nil) {
-        [self.timer invalidate];
-        self.timer = nil;
+    [encoder close];
+    [decoder close];
+    if (timer != nil) {
+        [timer invalidate];
+        timer = nil;
     }
 }
 
@@ -289,9 +285,9 @@
     
     //Send a pingreq if idleTimer is > keepAliveInterval. The idleTimer is increment per iteration of the timer, i.e., every second
     if (idleTimer >= keepAliveInterval) {
-        if ([self.encoder status] == AWSMQTTEncoderStatusReady) {
+        if ([encoder status] == AWSMQTTEncoderStatusReady) {
             AWSDDLogVerbose(@"<<%@>> sending PINGREQ", [NSThread currentThread]);
-            [self.encoder encodeMessage:[AWSMQTTMessage pingreqMessage]];
+            [encoder encodeMessage:[AWSMQTTMessage pingreqMessage]];
             idleTimer = 0;
         }
     }
@@ -337,7 +333,7 @@
 
 - (void)encoder:(AWSMQTTEncoder*)sender handleEvent:(AWSMQTTEncoderEvent) eventCode {
     AWSDDLogVerbose(@"%s [Line %d], eventCode: %d", __PRETTY_FUNCTION__, __LINE__, eventCode);
-    if(sender == self.encoder) {
+    if(sender == encoder) {
         switch (eventCode) {
             case AWSMQTTEncoderEventReady:
                 AWSDDLogVerbose(@"MQTTSessionStatus = %d", status);
@@ -369,7 +365,7 @@
 
 - (void)decoder:(AWSMQTTDecoder*)sender handleEvent:(AWSMQTTDecoderEvent)eventCode {
     AWSDDLogVerbose(@"%s [Line %d] eventCode:%d", __PRETTY_FUNCTION__, __LINE__, eventCode);
-    if(sender == self.decoder) {
+    if(sender == decoder) {
         AWSMQTTSessionEvent event;
         switch (eventCode) {
             case AWSMQTTDecoderEventConnectionClosed:
@@ -390,7 +386,7 @@
     
     AWSDDLogVerbose(@"%s [Line %d] messageType=%d, status=%d", __PRETTY_FUNCTION__, __LINE__, [msg type], status);
     AWSAWSMQTTMessageType messageType = [msg type];
-    if(sender == self.decoder){
+    if(sender == decoder){
         switch (status) {
             case AWSMQTTSessionStatusConnecting:
                 switch (messageType) {
@@ -402,10 +398,10 @@
                             const UInt8 *bytes = [[msg data] bytes];
                             if (bytes[1] == 0) {
                                 status = AWSMQTTSessionStatusConnected;
-                                if (self.timer != nil ) {
-                                    [self.timer invalidate];
+                                if (timer != nil ) {
+                                    [timer invalidate];
                                 }
-                                self.timer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:1.0]
+                                timer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:1.0]
                                                                  interval:1.0
                                                                    target:self
                                                                  selector:@selector(timerHandler:)
@@ -416,7 +412,7 @@
                                 }
                                 
                                 [_delegate session:self handleEvent:AWSMQTTSessionEventConnected];
-                                [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
+                                [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
                             }
                             else {
                                 [self error:AWSMQTTSessionEventConnectionRefused];
@@ -650,14 +646,14 @@
 
 - (void)error:(AWSMQTTSessionEvent)eventCode {
     AWSDDLogError(@"MQTT session error, code: %d", eventCode);
-    [self.encoder close];
-
-    [self.decoder close];
-
-    if (self.timer != nil) {
-        [self.timer invalidate];
-
-        self.timer = nil;
+    [encoder close];
+    
+    [decoder close];
+    
+    if (timer != nil) {
+        [timer invalidate];
+        
+        timer = nil;
     }
     status = AWSMQTTSessionStatusError;
     
@@ -673,10 +669,10 @@
 
 # pragma mark Message Send methods
 - (void)send:(AWSMQTTMessage*)msg {
-    if ([self.encoder status] == AWSMQTTEncoderStatusReady) {
+    if ([encoder status] == AWSMQTTEncoderStatusReady) {
         [self drainSenderQueue];
         AWSDDLogVerbose(@"<<%@>>: MQTTSession.send msg to server", [NSThread currentThread]);
-        [self.encoder encodeMessage:msg];
+        [encoder encodeMessage:msg];
     }
     else {
         dispatch_assert_queue_not(self.drainSenderSerialQueue);
@@ -695,8 +691,8 @@
 }
 
 - (BOOL)isReadyToPublish {
-    AWSDDLogVerbose(@"<<%@>> MQTTEncoderStatus = %d", [NSThread currentThread],[self.encoder status]);
-    return self.encoder && [self.encoder status] == AWSMQTTEncoderStatusReady;
+    AWSDDLogVerbose(@"<<%@>> MQTTEncoderStatus = %d", [NSThread currentThread],[encoder status]);
+    return encoder && [encoder status] == AWSMQTTEncoderStatusReady;
 }
 
 - (void)drainSenderQueue {
@@ -715,7 +711,7 @@
         AWSDDLogDebug(@"Sending message from session queue");
         AWSMQTTMessage *msg = [self.queue objectAtIndex:0];
         [self.queue removeObjectAtIndex:0];
-        [self.encoder encodeMessage:msg];
+        [encoder encodeMessage:msg];
     }
 }
 
@@ -733,7 +729,7 @@
         AWSDDLogDebug(@"Sending message from session queue" );
         AWSMQTTMessage *msg = [self.queue objectAtIndex:0];
         [self.queue removeObjectAtIndex:0];
-        [self.encoder encodeMessage:msg];
+        [encoder encodeMessage:msg];
         count = count + 1;
     }
 }

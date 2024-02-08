@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -1417,31 +1417,6 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  @see AWSDynamoDBUpdateItemOutput
  */
 - (void)updateItem:(AWSDynamoDBUpdateItemInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBUpdateItemOutput * _Nullable response, NSError * _Nullable error))completionHandler;
-
-/**
- <p>The command to update the Kinesis stream destination.</p>
- 
- @param request A container for the necessary parameters to execute the UpdateKinesisStreamingDestination service method.
-
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBUpdateKinesisStreamingDestinationOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorInternalServer`, `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorResourceInUse`, `AWSDynamoDBErrorResourceNotFound`.
- 
- @see AWSDynamoDBUpdateKinesisStreamingDestinationInput
- @see AWSDynamoDBUpdateKinesisStreamingDestinationOutput
- */
-- (AWSTask<AWSDynamoDBUpdateKinesisStreamingDestinationOutput *> *)updateKinesisStreamingDestination:(AWSDynamoDBUpdateKinesisStreamingDestinationInput *)request;
-
-/**
- <p>The command to update the Kinesis stream destination.</p>
- 
- @param request A container for the necessary parameters to execute the UpdateKinesisStreamingDestination service method.
- @param completionHandler The completion handler to call when the load request is complete.
-                          `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorInternalServer`, `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorResourceInUse`, `AWSDynamoDBErrorResourceNotFound`.
- 
- @see AWSDynamoDBUpdateKinesisStreamingDestinationInput
- @see AWSDynamoDBUpdateKinesisStreamingDestinationOutput
- */
-- (void)updateKinesisStreamingDestination:(AWSDynamoDBUpdateKinesisStreamingDestinationInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBUpdateKinesisStreamingDestinationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB Streams settings for a given table.</p><important><p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a> of global tables. </p></important><p>You can only perform one of the following operations at once:</p><ul><li><p>Modify the provisioned throughput settings of the table.</p></li><li><p>Remove a global secondary index from the table.</p></li><li><p>Create a new global secondary index on the table. After the index begins backfilling, you can use <code>UpdateTable</code> to perform other operations.</p></li></ul><p><code>UpdateTable</code> is an asynchronous operation; while it is executing, the table status changes from <code>ACTIVE</code> to <code>UPDATING</code>. While it is <code>UPDATING</code>, you cannot issue another <code>UpdateTable</code> request. When the table returns to the <code>ACTIVE</code> state, the <code>UpdateTable</code> operation is complete.</p>

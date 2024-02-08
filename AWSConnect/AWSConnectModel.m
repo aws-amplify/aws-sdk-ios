@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -1195,9 +1195,6 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"ENHANCED_CONTACT_MONITORING"] == NSOrderedSame) {
             return @(AWSConnectInstanceAttributeTypeEnhancedContactMonitoring);
         }
-        if ([value caseInsensitiveCompare:@"ENHANCED_CHAT_MONITORING"] == NSOrderedSame) {
-            return @(AWSConnectInstanceAttributeTypeEnhancedChatMonitoring);
-        }
         return @(AWSConnectInstanceAttributeTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1221,8 +1218,6 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"HIGH_VOLUME_OUTBOUND";
             case AWSConnectInstanceAttributeTypeEnhancedContactMonitoring:
                 return @"ENHANCED_CONTACT_MONITORING";
-            case AWSConnectInstanceAttributeTypeEnhancedChatMonitoring:
-                return @"ENHANCED_CHAT_MONITORING";
             default:
                 return nil;
         }
@@ -7473,9 +7468,6 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"ENHANCED_CONTACT_MONITORING"] == NSOrderedSame) {
             return @(AWSConnectInstanceAttributeTypeEnhancedContactMonitoring);
         }
-        if ([value caseInsensitiveCompare:@"ENHANCED_CHAT_MONITORING"] == NSOrderedSame) {
-            return @(AWSConnectInstanceAttributeTypeEnhancedChatMonitoring);
-        }
         return @(AWSConnectInstanceAttributeTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -7499,8 +7491,6 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"HIGH_VOLUME_OUTBOUND";
             case AWSConnectInstanceAttributeTypeEnhancedContactMonitoring:
                 return @"ENHANCED_CONTACT_MONITORING";
-            case AWSConnectInstanceAttributeTypeEnhancedChatMonitoring:
-                return @"ENHANCED_CHAT_MONITORING";
             default:
                 return nil;
         }
@@ -15358,9 +15348,6 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"CUSTOM_BOT"] == NSOrderedSame) {
             return @(AWSConnectParticipantRoleCustomBot);
         }
-        if ([value caseInsensitiveCompare:@"SUPERVISOR"] == NSOrderedSame) {
-            return @(AWSConnectParticipantRoleSupervisor);
-        }
         return @(AWSConnectParticipantRoleUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -15372,8 +15359,6 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"SYSTEM";
             case AWSConnectParticipantRoleCustomBot:
                 return @"CUSTOM_BOT";
-            case AWSConnectParticipantRoleSupervisor:
-                return @"SUPERVISOR";
             default:
                 return nil;
         }
@@ -17728,9 +17713,6 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"CUSTOM_BOT"] == NSOrderedSame) {
             return @(AWSConnectParticipantRoleCustomBot);
         }
-        if ([value caseInsensitiveCompare:@"SUPERVISOR"] == NSOrderedSame) {
-            return @(AWSConnectParticipantRoleSupervisor);
-        }
         return @(AWSConnectParticipantRoleUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -17742,8 +17724,6 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"SYSTEM";
             case AWSConnectParticipantRoleCustomBot:
                 return @"CUSTOM_BOT";
-            case AWSConnectParticipantRoleSupervisor:
-                return @"SUPERVISOR";
             default:
                 return nil;
         }
@@ -17809,9 +17789,6 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"CUSTOM_BOT"] == NSOrderedSame) {
             return @(AWSConnectParticipantRoleCustomBot);
         }
-        if ([value caseInsensitiveCompare:@"SUPERVISOR"] == NSOrderedSame) {
-            return @(AWSConnectParticipantRoleSupervisor);
-        }
         return @(AWSConnectParticipantRoleUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -17823,8 +17800,6 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"SYSTEM";
             case AWSConnectParticipantRoleCustomBot:
                 return @"CUSTOM_BOT";
-            case AWSConnectParticipantRoleSupervisor:
-                return @"SUPERVISOR";
             default:
                 return nil;
         }
@@ -17889,9 +17864,6 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"CUSTOM_BOT"] == NSOrderedSame) {
             return @(AWSConnectParticipantRoleCustomBot);
         }
-        if ([value caseInsensitiveCompare:@"SUPERVISOR"] == NSOrderedSame) {
-            return @(AWSConnectParticipantRoleSupervisor);
-        }
         return @(AWSConnectParticipantRoleUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -17903,8 +17875,6 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"SYSTEM";
             case AWSConnectParticipantRoleCustomBot:
                 return @"CUSTOM_BOT";
-            case AWSConnectParticipantRoleSupervisor:
-                return @"SUPERVISOR";
             default:
                 return nil;
         }
@@ -22668,9 +22638,6 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"CUSTOM_BOT"] == NSOrderedSame) {
             return @(AWSConnectParticipantRoleCustomBot);
         }
-        if ([value caseInsensitiveCompare:@"SUPERVISOR"] == NSOrderedSame) {
-            return @(AWSConnectParticipantRoleSupervisor);
-        }
         return @(AWSConnectParticipantRoleUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -22682,8 +22649,6 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"SYSTEM";
             case AWSConnectParticipantRoleCustomBot:
                 return @"CUSTOM_BOT";
-            case AWSConnectParticipantRoleSupervisor:
-                return @"SUPERVISOR";
             default:
                 return nil;
         }
@@ -23269,9 +23234,6 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"ENHANCED_CONTACT_MONITORING"] == NSOrderedSame) {
             return @(AWSConnectInstanceAttributeTypeEnhancedContactMonitoring);
         }
-        if ([value caseInsensitiveCompare:@"ENHANCED_CHAT_MONITORING"] == NSOrderedSame) {
-            return @(AWSConnectInstanceAttributeTypeEnhancedChatMonitoring);
-        }
         return @(AWSConnectInstanceAttributeTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -23295,8 +23257,6 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"HIGH_VOLUME_OUTBOUND";
             case AWSConnectInstanceAttributeTypeEnhancedContactMonitoring:
                 return @"ENHANCED_CONTACT_MONITORING";
-            case AWSConnectInstanceAttributeTypeEnhancedChatMonitoring:
-                return @"ENHANCED_CHAT_MONITORING";
             default:
                 return nil;
         }

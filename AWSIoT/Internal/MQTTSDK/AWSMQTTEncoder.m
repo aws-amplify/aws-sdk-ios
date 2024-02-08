@@ -17,12 +17,13 @@
 #import "AWSMQTTEncoder.h"
 
 @interface AWSMQTTEncoder () {
+    NSOutputStream* stream;
     NSMutableData*  buffer;
     NSInteger       byteIndex;
 }
 
 @property (nonatomic, strong) dispatch_queue_t encodeQueue;
-@property (nonatomic, strong) NSOutputStream* stream;
+
 @end
 
 @implementation AWSMQTTEncoder
@@ -30,29 +31,29 @@
 - (id)initWithStream:(NSOutputStream*)aStream
 {
     _status = AWSMQTTEncoderStatusInitializing;
-    self.stream = aStream;
-    [self.stream setDelegate:self];
-    self.encodeQueue = dispatch_queue_create("com.amazon.aws.iot.encoder-queue", DISPATCH_QUEUE_SERIAL);
+    stream = aStream;
+    [stream setDelegate:self];
+    _encodeQueue = dispatch_queue_create("com.amazon.aws.iot.encoder-queue", DISPATCH_QUEUE_SERIAL);
     return self;
 }
 
 - (void)open {
     AWSDDLogDebug(@"opening encoder stream.");
-    [self.stream setDelegate:self];
-    [self.stream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [self.stream open];
+    [stream setDelegate:self];
+    [stream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [stream open];
 }
 
 - (void)close {
     AWSDDLogDebug(@"closing encoder stream.");
-    [self.stream close];
-    [self.stream setDelegate:nil];
-    self.stream = nil;
+    [stream close];
+    [stream setDelegate:nil];
+    stream = nil;
 }
 
 //This is executed in the runLoop.
 - (void)stream:(NSStream*)sender handleEvent:(NSStreamEvent)eventCode {
-    if(self.stream == nil)
+    if(stream == nil)
         return;
 
     AWSDDLogVerbose(@"%s [Line %d] EventCode:%lu, Thread: %@", __PRETTY_FUNCTION__, __LINE__, (unsigned long)eventCode, [NSThread currentThread]);
@@ -140,7 +141,7 @@
         [buffer appendData:[msg data]];
     }
 
-    n = [self.stream write:[buffer bytes] maxLength:[buffer length]];
+    n = [stream write:[buffer bytes] maxLength:[buffer length]];
     if (n == -1) {
         _status = AWSMQTTEncoderStatusError;
         [_delegate encoder:self handleEvent:AWSMQTTEncoderEventErrorOccurred];
@@ -163,7 +164,7 @@
     ptr = (UInt8*) [buffer bytes] + byteIndex;
     // Number of bytes pending for transfer
     length = [buffer length] - byteIndex;
-    n = [self.stream write:ptr maxLength:length];
+    n = [stream write:ptr maxLength:length];
     if (n == -1) {
         _status = AWSMQTTEncoderStatusError;
         [_delegate encoder:self handleEvent:AWSMQTTEncoderEventErrorOccurred];

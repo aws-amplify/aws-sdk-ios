@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -329,7 +329,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
  
  @param request A container for the necessary parameters to execute the SendEvent service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectParticipantSendEventResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectParticipantErrorDomain` domain and the following error code: `AWSConnectParticipantErrorAccessDenied`, `AWSConnectParticipantErrorInternalServer`, `AWSConnectParticipantErrorThrottling`, `AWSConnectParticipantErrorValidation`, `AWSConnectParticipantErrorConflict`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectParticipantSendEventResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectParticipantErrorDomain` domain and the following error code: `AWSConnectParticipantErrorAccessDenied`, `AWSConnectParticipantErrorInternalServer`, `AWSConnectParticipantErrorThrottling`, `AWSConnectParticipantErrorValidation`.
  
  @see AWSConnectParticipantSendEventRequest
  @see AWSConnectParticipantSendEventResponse
@@ -342,7 +342,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
  @param request A container for the necessary parameters to execute the SendEvent service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectParticipantErrorDomain` domain and the following error code: `AWSConnectParticipantErrorAccessDenied`, `AWSConnectParticipantErrorInternalServer`, `AWSConnectParticipantErrorThrottling`, `AWSConnectParticipantErrorValidation`, `AWSConnectParticipantErrorConflict`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectParticipantErrorDomain` domain and the following error code: `AWSConnectParticipantErrorAccessDenied`, `AWSConnectParticipantErrorInternalServer`, `AWSConnectParticipantErrorThrottling`, `AWSConnectParticipantErrorValidation`.
  
  @see AWSConnectParticipantSendEventRequest
  @see AWSConnectParticipantSendEventResponse

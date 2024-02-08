@@ -67,11 +67,6 @@
     return nil;
 }
 
-- (void)dealloc
-{
-    [self.timer invalidate];
-}
-
 - (instancetype)initWithName:(NSString *)name
                        debug:(BOOL)enableDebugging
                    versioned:(BOOL)enableVersioning

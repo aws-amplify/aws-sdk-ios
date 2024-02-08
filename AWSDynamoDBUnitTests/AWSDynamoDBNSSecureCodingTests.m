@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -96,7 +96,6 @@
 - (void) test_AWSDynamoDBDescribeTableReplicaAutoScalingOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDescribeTimeToLiveInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDescribeTimeToLiveOutput API_AVAILABLE(ios(11));
-- (void) test_AWSDynamoDBEnableKinesisStreamingConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBEndpoint API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBExecuteStatementInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBExecuteStatementOutput API_AVAILABLE(ios(11));
@@ -216,9 +215,6 @@
 - (void) test_AWSDynamoDBUpdateGlobalTableSettingsOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBUpdateItemInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBUpdateItemOutput API_AVAILABLE(ios(11));
-- (void) test_AWSDynamoDBUpdateKinesisStreamingConfiguration API_AVAILABLE(ios(11));
-- (void) test_AWSDynamoDBUpdateKinesisStreamingDestinationInput API_AVAILABLE(ios(11));
-- (void) test_AWSDynamoDBUpdateKinesisStreamingDestinationOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBUpdateReplicationGroupMemberAction API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBUpdateTableInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBUpdateTableOutput API_AVAILABLE(ios(11));
@@ -538,10 +534,6 @@
 
 - (void) test_AWSDynamoDBDescribeTimeToLiveOutput {
     [self validateSecureCodingForClass:[AWSDynamoDBDescribeTimeToLiveOutput class]];
-}
-
-- (void) test_AWSDynamoDBEnableKinesisStreamingConfiguration {
-    [self validateSecureCodingForClass:[AWSDynamoDBEnableKinesisStreamingConfiguration class]];
 }
 
 - (void) test_AWSDynamoDBEndpoint {
@@ -1018,18 +1010,6 @@
 
 - (void) test_AWSDynamoDBUpdateItemOutput {
     [self validateSecureCodingForClass:[AWSDynamoDBUpdateItemOutput class]];
-}
-
-- (void) test_AWSDynamoDBUpdateKinesisStreamingConfiguration {
-    [self validateSecureCodingForClass:[AWSDynamoDBUpdateKinesisStreamingConfiguration class]];
-}
-
-- (void) test_AWSDynamoDBUpdateKinesisStreamingDestinationInput {
-    [self validateSecureCodingForClass:[AWSDynamoDBUpdateKinesisStreamingDestinationInput class]];
-}
-
-- (void) test_AWSDynamoDBUpdateKinesisStreamingDestinationOutput {
-    [self validateSecureCodingForClass:[AWSDynamoDBUpdateKinesisStreamingDestinationOutput class]];
 }
 
 - (void) test_AWSDynamoDBUpdateReplicationGroupMemberAction {

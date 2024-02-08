@@ -548,9 +548,7 @@ static __strong NSData *CRLFCRLF;
     NSData *message = CFBridgingRelease(CFHTTPMessageCopySerializedMessage(request));
     
     AWSSRFastLog(@"%@", [[NSString alloc]initWithData:message encoding:NSUTF8StringEncoding]);
-    if (request) {
-        CFRelease(request);
-    }
+    CFRelease(request);
 
     [self _writeData:message];
     [self _readHTTPHeader];
@@ -1898,10 +1896,8 @@ static NSRunLoop *networkRunLoop = nil;
         };
         CFRunLoopSourceRef source = CFRunLoopSourceCreate(NULL, 0, &sourceCtx);
         CFRunLoopAddSource(CFRunLoopGetCurrent(), source, kCFRunLoopDefaultMode);
-        if (source) {
-            CFRelease(source);
-        }
-
+        CFRelease(source);
+        
         while ([_runLoop runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]) {
             
         }
