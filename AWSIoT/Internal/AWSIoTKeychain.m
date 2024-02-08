@@ -137,13 +137,13 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     if (identityRef) {
         SecCertificateRef cert = NULL;
         OSStatus status = SecIdentityCopyCertificate(identityRef, &cert);
+        CFRelease(identityRef);
         if (status == noErr) {
             return YES;
         } else {
             AWSDDLogError(@"SecIdentityCopyCertificate failed [%d]", (int)status);
         }
     }
-    
     return NO;
 }
 
@@ -205,7 +205,10 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
         AWSDDLogError(@"Error create Sec Certificate from data");
         return NO;
     }
-    return [AWSIoTKeychain addCertificateRef:certRef tag:tag];
+    
+    BOOL result = [AWSIoTKeychain addCertificateRef:certRef tag:tag];
+    CFRelease(certRef);
+    return result;
 }
 
 + (BOOL)addCertificateRef:(SecCertificateRef)certRef {
@@ -305,7 +308,7 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
         publicKeyRef = NULL;
     }
     
-    return (__bridge NSData *)publicKeyRef;
+    return (__bridge_transfer NSData *)publicKeyRef;
 }
 
 + (SecKeyRef)getPrivateKeyRef:(NSString*)tag {
@@ -347,7 +350,7 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
         privateKeyBits = NULL;
     }
     
-    return (__bridge NSData *)privateKeyBits;
+    return (__bridge_transfer NSData *)privateKeyBits;
 }
 
 + (SecIdentityRef)getIdentityRef:(NSString*)privateKeyTag certificateLabel:(NSString *)certificateLabel {
@@ -374,8 +377,7 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
 + (BOOL)addPublicKeyRef:(SecKeyRef)pubkeyRef tag:(NSString*)tag {
     
     OSStatus sanityCheck = noErr;
-    CFTypeRef persistPeer = NULL;
-    
+
     NSMutableDictionary * publicKeyAttr = [[NSMutableDictionary alloc] init];
     
     [publicKeyAttr setObject:(id)kSecClassKey forKey:(id)kSecClass];
@@ -386,7 +388,7 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     [publicKeyAttr setObject:[NSNumber numberWithBool:YES] forKey:(id)kSecReturnPersistentRef];
     [publicKeyAttr setObject:(__bridge id)[AWSIoTKeychain accessibilityType] forKey:(id)kSecAttrAccessible];
 
-    sanityCheck = SecItemAdd((CFDictionaryRef) publicKeyAttr, (CFTypeRef *)&persistPeer);
+    sanityCheck = SecItemAdd((CFDictionaryRef) publicKeyAttr, nil);
     if ((sanityCheck != noErr) && (sanityCheck != errSecDuplicateItem)){
         AWSDDLogError(@"addPublicKeyRef error: %d",(int)sanityCheck);
         return NO;
@@ -422,8 +424,6 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
 + (BOOL)addPrivateKeyRef:(SecKeyRef)privkeyRef tag:(NSString*)tag {
     
     OSStatus sanityCheck = noErr;
-    CFTypeRef persistPeer = NULL;
-    
     NSMutableDictionary * privateKeyAttr = [[NSMutableDictionary alloc] init];
     
     [privateKeyAttr setObject:(id)kSecClassKey forKey:(id)kSecClass];
@@ -434,7 +434,7 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     [privateKeyAttr setObject:[NSNumber numberWithBool:YES] forKey:(id)kSecReturnPersistentRef];
     [privateKeyAttr setObject:(__bridge id)[AWSIoTKeychain accessibilityType] forKey:(id)kSecAttrAccessible];
 
-    sanityCheck = SecItemAdd((CFDictionaryRef) privateKeyAttr, (CFTypeRef *)&persistPeer);
+    sanityCheck = SecItemAdd((CFDictionaryRef) privateKeyAttr, nil);
     if ((sanityCheck != noErr) && (sanityCheck != errSecDuplicateItem)){
         AWSDDLogError(@"addPrivateKeyRef error: %d",(int)sanityCheck);
         return NO;

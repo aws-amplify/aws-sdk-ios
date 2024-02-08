@@ -206,18 +206,28 @@ static BOOL _tagCertificateEnabled = NO;
 
                 SecKeyRef publicKeyRef = [AWSIoTKeychain getPublicKeyRef:publicTag];
                 SecKeyRef privateKeyRef = [AWSIoTKeychain getPrivateKeyRef:privateTag];
+                SecIdentityRef identityRef = nil;
 
                 if ([AWSIoTKeychain deleteAsymmetricKeysWithPublicTag:publicTag privateTag:privateTag] &&
                     [AWSIoTKeychain addPrivateKeyRef:privateKeyRef tag:newPrivateTag] &&
                     [AWSIoTKeychain addPublicKeyRef:publicKeyRef tag:newPublicTag] &&
                     [AWSIoTKeychain addCertificateToKeychain:certificatePem tag:newCertTag] &&
-                    [AWSIoTKeychain getIdentityRef:newPrivateTag certificateLabel:newCertTag] != nil) {
+                    (identityRef = [AWSIoTKeychain getIdentityRef:newPrivateTag certificateLabel:newCertTag])) {
                     AWSIoTCreateCertificateResponse* resp = [[AWSIoTCreateCertificateResponse alloc] init];
                     resp.certificateId = certificateId;
                     resp.certificatePem = certificatePem;
                     resp.certificateArn = certificateArn;
 
                     validatedResponse = resp;
+                }
+                if (identityRef) {
+                    CFRelease(identityRef);
+                }
+                if (privateKeyRef) {
+                    CFRelease(privateKeyRef);
+                }
+                if (publicKeyRef) {
+                    CFRelease(publicKeyRef);
                 }
             }
         }
@@ -229,13 +239,11 @@ static BOOL _tagCertificateEnabled = NO;
 }
 
 + (BOOL)importIdentityFromPKCS12Data:(NSData *)pkcs12Data passPhrase:(NSString *)passPhrase certificateId:(NSString *)certificateId {
-    SecKeyRef privateKey = NULL;
-    SecKeyRef publicKey = NULL;
-    SecCertificateRef certRef = NULL;
+    __block SecKeyRef privateKey = NULL;
+    __block SecKeyRef publicKey = NULL;
+    __block SecCertificateRef certRef = NULL;
 
-    [AWSIoTManager readPk12:pkcs12Data passPhrase:passPhrase certRef:&certRef privateKeyRef:&privateKey publicKeyRef:&publicKey];
-
-    if (!certRef || !privateKey || !publicKey) {
+    void (^cleanup)(void) = ^void {
         if (certRef) {
             CFRelease(certRef);
         }
@@ -245,6 +253,12 @@ static BOOL _tagCertificateEnabled = NO;
         if (publicKey) {
             CFRelease(publicKey);
         }
+    };
+
+    [AWSIoTManager readPk12:pkcs12Data passPhrase:passPhrase certRef:&certRef privateKeyRef:&privateKey publicKeyRef:&publicKey];
+
+    if (!certRef || !privateKey || !publicKey) {
+        cleanup();
         AWSDDLogError(@"Unable to extract PKCS12 data. Ensure the passPhrase is correct.");
         return NO;
     }
@@ -254,27 +268,26 @@ static BOOL _tagCertificateEnabled = NO;
     NSString *certTag = [AWSIoTManager certTagWithCertificateId:certificateId];
 
     if (![AWSIoTKeychain addPrivateKeyRef:privateKey tag:privateTag]) {
-        if (publicKey) {
-            CFRelease(publicKey);
-        }
+        cleanup();
         AWSDDLogError(@"Unable to add private key");
         return NO;
     }
 
     if (![AWSIoTKeychain addPublicKeyRef:publicKey tag:publicTag]) {
         [AWSIoTKeychain deleteAsymmetricKeysWithPublicTag:publicTag privateTag:privateTag];
-        
+        cleanup();
         AWSDDLogError(@"Unable to add public key");
         return NO;
     }
 
     if (![AWSIoTKeychain addCertificateRef:certRef tag:certTag]) {
         [AWSIoTKeychain deleteAsymmetricKeysWithPublicTag:publicTag privateTag:privateTag];
-        
+        cleanup();
         AWSDDLogError(@"Unable to add certificate");
         return NO;
     }
 
+    cleanup();
     return YES;
 }
 
@@ -283,40 +296,38 @@ static BOOL _tagCertificateEnabled = NO;
 //
 + (BOOL)readPk12:(NSData *)pk12Data passPhrase:(NSString *)passPhrase certRef:(SecCertificateRef *)certRef privateKeyRef:(SecKeyRef *)privateKeyRef publicKeyRef:(SecKeyRef *)publicKeyRef
 {
-    SecPolicyRef policy = NULL;
-    SecTrustRef trust = NULL;
-    
+    __block SecPolicyRef policy = NULL;
+    __block SecTrustRef trust = NULL;
+    __block CFArrayRef secImportItems = NULL;
+
     // cleanup stuff in a block so we don't need to do this over and over again.
-    static BOOL (^cleanup)(void);
-    static BOOL (^errorCleanup)(void);
-    static dispatch_once_t once;
-    dispatch_once(&once, ^{
-        cleanup = ^BOOL {
-            if(policy) {
-                CFRelease(policy);
-            }
-        
-            if(trust) {
-                CFRelease(trust);
-            }
-        
-            return YES;
-        };
-        
-        errorCleanup = ^BOOL {
-            *privateKeyRef = NULL;
-            *publicKeyRef = NULL;
-            *certRef = NULL;
-        
-            cleanup();
-        
-            return NO;
-        };
-    });
-    
+    BOOL (^cleanup)(void) = ^BOOL {
+        if (secImportItems) {
+            CFRelease(secImportItems);
+        }
+
+        if (policy) {
+            CFRelease(policy);
+        }
+
+        if (trust) {
+            CFRelease(trust);
+        }
+
+        return YES;
+    };
+
+    BOOL (^errorCleanup)(void) = ^BOOL {
+        *privateKeyRef = NULL;
+        *publicKeyRef = NULL;
+        *certRef = NULL;
+
+        cleanup();
+
+        return NO;
+    };
+
     CFDictionaryRef secImportOptions = (__bridge CFDictionaryRef) @{(__bridge id) kSecImportExportPassphrase : passPhrase};
-    CFArrayRef secImportItems = NULL;
-    
     OSStatus status = SecPKCS12Import((__bridge CFDataRef) pk12Data, (CFDictionaryRef) secImportOptions, &secImportItems);
     
     if (status == errSecSuccess && CFArrayGetCount(secImportItems) > 0)
@@ -369,7 +380,7 @@ static BOOL _tagCertificateEnabled = NO;
             AWSDDLogError(@"Unable to copy public key");
             return errorCleanup();
         }
-    
+
         return cleanup();
     }
     AWSDDLogError(@"Unable to import from PKCS12 data");
