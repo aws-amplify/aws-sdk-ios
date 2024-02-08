@@ -262,1791 +262,1833 @@
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 59,
-      "symbol": "AWSDynamoDBAttributeAction",
+      "symbol": "AWSDynamoDBApproximateCreationDateTimePrecision",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 59,
-      "symbol": "AWSDynamoDBAttributeAction",
+      "symbol": "AWSDynamoDBApproximateCreationDateTimePrecision",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 60,
-      "symbol": "AWSDynamoDBAttributeAction.AWSDynamoDBAttributeActionUnknown",
+      "symbol": "AWSDynamoDBApproximateCreationDateTimePrecision.AWSDynamoDBApproximateCreationDateTimePrecisionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 61,
-      "symbol": "AWSDynamoDBAttributeAction.AWSDynamoDBAttributeActionAdd",
+      "symbol": "AWSDynamoDBApproximateCreationDateTimePrecision.AWSDynamoDBApproximateCreationDateTimePrecisionMillisecond",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 62,
-      "symbol": "AWSDynamoDBAttributeAction.AWSDynamoDBAttributeActionPut",
+      "symbol": "AWSDynamoDBApproximateCreationDateTimePrecision.AWSDynamoDBApproximateCreationDateTimePrecisionMicrosecond",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 63,
-      "symbol": "AWSDynamoDBAttributeAction.AWSDynamoDBAttributeActionDelete",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 66,
-      "symbol": "AWSDynamoDBBackupStatus",
+      "line": 65,
+      "symbol": "AWSDynamoDBAttributeAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 66,
-      "symbol": "AWSDynamoDBBackupStatus",
+      "line": 65,
+      "symbol": "AWSDynamoDBAttributeAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 66,
+      "symbol": "AWSDynamoDBAttributeAction.AWSDynamoDBAttributeActionUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 67,
-      "symbol": "AWSDynamoDBBackupStatus.AWSDynamoDBBackupStatusUnknown",
+      "symbol": "AWSDynamoDBAttributeAction.AWSDynamoDBAttributeActionAdd",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 68,
-      "symbol": "AWSDynamoDBBackupStatus.AWSDynamoDBBackupStatusCreating",
+      "symbol": "AWSDynamoDBAttributeAction.AWSDynamoDBAttributeActionPut",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 69,
-      "symbol": "AWSDynamoDBBackupStatus.AWSDynamoDBBackupStatusDeleted",
+      "symbol": "AWSDynamoDBAttributeAction.AWSDynamoDBAttributeActionDelete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 70,
-      "symbol": "AWSDynamoDBBackupStatus.AWSDynamoDBBackupStatusAvailable",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 73,
-      "symbol": "AWSDynamoDBBackupType",
+      "line": 72,
+      "symbol": "AWSDynamoDBBackupStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 73,
-      "symbol": "AWSDynamoDBBackupType",
+      "line": 72,
+      "symbol": "AWSDynamoDBBackupStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 73,
+      "symbol": "AWSDynamoDBBackupStatus.AWSDynamoDBBackupStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 74,
-      "symbol": "AWSDynamoDBBackupType.AWSDynamoDBBackupTypeUnknown",
+      "symbol": "AWSDynamoDBBackupStatus.AWSDynamoDBBackupStatusCreating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 75,
-      "symbol": "AWSDynamoDBBackupType.AWSDynamoDBBackupTypeUser",
+      "symbol": "AWSDynamoDBBackupStatus.AWSDynamoDBBackupStatusDeleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 76,
-      "symbol": "AWSDynamoDBBackupType.AWSDynamoDBBackupTypeSystem",
+      "symbol": "AWSDynamoDBBackupStatus.AWSDynamoDBBackupStatusAvailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 77,
-      "symbol": "AWSDynamoDBBackupType.AWSDynamoDBBackupTypeAwsBackup",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 80,
-      "symbol": "AWSDynamoDBBackupTypeFilter",
+      "line": 79,
+      "symbol": "AWSDynamoDBBackupType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 80,
-      "symbol": "AWSDynamoDBBackupTypeFilter",
+      "line": 79,
+      "symbol": "AWSDynamoDBBackupType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 80,
+      "symbol": "AWSDynamoDBBackupType.AWSDynamoDBBackupTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 81,
-      "symbol": "AWSDynamoDBBackupTypeFilter.AWSDynamoDBBackupTypeFilterUnknown",
+      "symbol": "AWSDynamoDBBackupType.AWSDynamoDBBackupTypeUser",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 82,
-      "symbol": "AWSDynamoDBBackupTypeFilter.AWSDynamoDBBackupTypeFilterUser",
+      "symbol": "AWSDynamoDBBackupType.AWSDynamoDBBackupTypeSystem",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 83,
+      "symbol": "AWSDynamoDBBackupType.AWSDynamoDBBackupTypeAwsBackup",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 86,
+      "symbol": "AWSDynamoDBBackupTypeFilter",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 86,
+      "symbol": "AWSDynamoDBBackupTypeFilter",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 87,
+      "symbol": "AWSDynamoDBBackupTypeFilter.AWSDynamoDBBackupTypeFilterUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 88,
+      "symbol": "AWSDynamoDBBackupTypeFilter.AWSDynamoDBBackupTypeFilterUser",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 89,
       "symbol": "AWSDynamoDBBackupTypeFilter.AWSDynamoDBBackupTypeFilterSystem",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 84,
+      "line": 90,
       "symbol": "AWSDynamoDBBackupTypeFilter.AWSDynamoDBBackupTypeFilterAwsBackup",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 85,
+      "line": 91,
       "symbol": "AWSDynamoDBBackupTypeFilter.AWSDynamoDBBackupTypeFilterAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 88,
+      "line": 94,
       "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 88,
+      "line": 94,
       "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 89,
+      "line": 95,
       "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 90,
+      "line": 96,
       "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumConditionalCheckFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 91,
+      "line": 97,
       "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumItemCollectionSizeLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 92,
+      "line": 98,
       "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumRequestLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 93,
+      "line": 99,
       "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumValidationError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 94,
+      "line": 100,
       "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumProvisionedThroughputExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 95,
+      "line": 101,
       "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumTransactionConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 96,
+      "line": 102,
       "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumThrottlingError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 97,
+      "line": 103,
       "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumInternalServerError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 98,
+      "line": 104,
       "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumResourceNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 99,
+      "line": 105,
       "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumAccessDenied",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 100,
+      "line": 106,
       "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumDuplicateItem",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 103,
+      "line": 109,
       "symbol": "AWSDynamoDBBillingMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 103,
+      "line": 109,
       "symbol": "AWSDynamoDBBillingMode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 104,
-      "symbol": "AWSDynamoDBBillingMode.AWSDynamoDBBillingModeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 105,
-      "symbol": "AWSDynamoDBBillingMode.AWSDynamoDBBillingModeProvisioned",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 106,
-      "symbol": "AWSDynamoDBBillingMode.AWSDynamoDBBillingModePayPerRequest",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 109,
-      "symbol": "AWSDynamoDBComparisonOperator",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 109,
-      "symbol": "AWSDynamoDBComparisonOperator",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 110,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorUnknown",
+      "symbol": "AWSDynamoDBBillingMode.AWSDynamoDBBillingModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 111,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorEQ",
+      "symbol": "AWSDynamoDBBillingMode.AWSDynamoDBBillingModeProvisioned",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 112,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorNE",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 113,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorIN",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 114,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorLE",
+      "symbol": "AWSDynamoDBBillingMode.AWSDynamoDBBillingModePayPerRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 115,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorLT",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBComparisonOperator",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 115,
+      "symbol": "AWSDynamoDBComparisonOperator",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 116,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorGE",
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 117,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorGT",
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorEQ",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 118,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorBetween",
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorNE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 119,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorNotNull",
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorIN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 120,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorNull",
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorLE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 121,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorContains",
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorLT",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 122,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorNotContains",
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorGE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 123,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorBeginsWith",
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorGT",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 124,
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorBetween",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 125,
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorNotNull",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 126,
-      "symbol": "AWSDynamoDBConditionalOperator",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 126,
-      "symbol": "AWSDynamoDBConditionalOperator",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorNull",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 127,
-      "symbol": "AWSDynamoDBConditionalOperator.AWSDynamoDBConditionalOperatorUnknown",
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorContains",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 128,
-      "symbol": "AWSDynamoDBConditionalOperator.AWSDynamoDBConditionalOperatorAnd",
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorNotContains",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 129,
-      "symbol": "AWSDynamoDBConditionalOperator.AWSDynamoDBConditionalOperatorOr",
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorBeginsWith",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 132,
-      "symbol": "AWSDynamoDBContinuousBackupsStatus",
+      "symbol": "AWSDynamoDBConditionalOperator",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 132,
-      "symbol": "AWSDynamoDBContinuousBackupsStatus",
+      "symbol": "AWSDynamoDBConditionalOperator",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 133,
-      "symbol": "AWSDynamoDBContinuousBackupsStatus.AWSDynamoDBContinuousBackupsStatusUnknown",
+      "symbol": "AWSDynamoDBConditionalOperator.AWSDynamoDBConditionalOperatorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 134,
-      "symbol": "AWSDynamoDBContinuousBackupsStatus.AWSDynamoDBContinuousBackupsStatusEnabled",
+      "symbol": "AWSDynamoDBConditionalOperator.AWSDynamoDBConditionalOperatorAnd",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 135,
-      "symbol": "AWSDynamoDBContinuousBackupsStatus.AWSDynamoDBContinuousBackupsStatusDisabled",
+      "symbol": "AWSDynamoDBConditionalOperator.AWSDynamoDBConditionalOperatorOr",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 138,
-      "symbol": "AWSDynamoDBContributorInsightsAction",
+      "symbol": "AWSDynamoDBContinuousBackupsStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 138,
-      "symbol": "AWSDynamoDBContributorInsightsAction",
+      "symbol": "AWSDynamoDBContinuousBackupsStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 139,
-      "symbol": "AWSDynamoDBContributorInsightsAction.AWSDynamoDBContributorInsightsActionUnknown",
+      "symbol": "AWSDynamoDBContinuousBackupsStatus.AWSDynamoDBContinuousBackupsStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 140,
-      "symbol": "AWSDynamoDBContributorInsightsAction.AWSDynamoDBContributorInsightsActionEnable",
+      "symbol": "AWSDynamoDBContinuousBackupsStatus.AWSDynamoDBContinuousBackupsStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 141,
-      "symbol": "AWSDynamoDBContributorInsightsAction.AWSDynamoDBContributorInsightsActionDisable",
+      "symbol": "AWSDynamoDBContinuousBackupsStatus.AWSDynamoDBContinuousBackupsStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 144,
-      "symbol": "AWSDynamoDBContributorInsightsStatus",
+      "symbol": "AWSDynamoDBContributorInsightsAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 144,
-      "symbol": "AWSDynamoDBContributorInsightsStatus",
+      "symbol": "AWSDynamoDBContributorInsightsAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 145,
-      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusUnknown",
+      "symbol": "AWSDynamoDBContributorInsightsAction.AWSDynamoDBContributorInsightsActionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 146,
-      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusEnabling",
+      "symbol": "AWSDynamoDBContributorInsightsAction.AWSDynamoDBContributorInsightsActionEnable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 147,
-      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusEnabled",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 148,
-      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusDisabling",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 149,
-      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusDisabled",
+      "symbol": "AWSDynamoDBContributorInsightsAction.AWSDynamoDBContributorInsightsActionDisable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 150,
-      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusFailed",
+      "symbol": "AWSDynamoDBContributorInsightsStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 150,
+      "symbol": "AWSDynamoDBContributorInsightsStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 151,
+      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 152,
+      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusEnabling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 153,
-      "symbol": "AWSDynamoDBDestinationStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 153,
-      "symbol": "AWSDynamoDBDestinationStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusEnabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 154,
-      "symbol": "AWSDynamoDBDestinationStatus.AWSDynamoDBDestinationStatusUnknown",
+      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusDisabling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 155,
-      "symbol": "AWSDynamoDBDestinationStatus.AWSDynamoDBDestinationStatusEnabling",
+      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 156,
-      "symbol": "AWSDynamoDBDestinationStatus.AWSDynamoDBDestinationStatusActive",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 157,
-      "symbol": "AWSDynamoDBDestinationStatus.AWSDynamoDBDestinationStatusDisabling",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 158,
-      "symbol": "AWSDynamoDBDestinationStatus.AWSDynamoDBDestinationStatusDisabled",
+      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 159,
-      "symbol": "AWSDynamoDBDestinationStatus.AWSDynamoDBDestinationStatusEnableFailed",
+      "symbol": "AWSDynamoDBDestinationStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 159,
+      "symbol": "AWSDynamoDBDestinationStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 160,
+      "symbol": "AWSDynamoDBDestinationStatus.AWSDynamoDBDestinationStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 161,
+      "symbol": "AWSDynamoDBDestinationStatus.AWSDynamoDBDestinationStatusEnabling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 162,
-      "symbol": "AWSDynamoDBExportFormat",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 162,
-      "symbol": "AWSDynamoDBExportFormat",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSDynamoDBDestinationStatus.AWSDynamoDBDestinationStatusActive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 163,
-      "symbol": "AWSDynamoDBExportFormat.AWSDynamoDBExportFormatUnknown",
+      "symbol": "AWSDynamoDBDestinationStatus.AWSDynamoDBDestinationStatusDisabling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 164,
-      "symbol": "AWSDynamoDBExportFormat.AWSDynamoDBExportFormatDynamodbJson",
+      "symbol": "AWSDynamoDBDestinationStatus.AWSDynamoDBDestinationStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 165,
-      "symbol": "AWSDynamoDBExportFormat.AWSDynamoDBExportFormatIon",
+      "symbol": "AWSDynamoDBDestinationStatus.AWSDynamoDBDestinationStatusEnableFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 168,
-      "symbol": "AWSDynamoDBExportStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 168,
-      "symbol": "AWSDynamoDBExportStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 166,
+      "symbol": "AWSDynamoDBDestinationStatus.AWSDynamoDBDestinationStatusUpdating",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 169,
-      "symbol": "AWSDynamoDBExportStatus.AWSDynamoDBExportStatusUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBExportFormat",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 169,
+      "symbol": "AWSDynamoDBExportFormat",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 170,
-      "symbol": "AWSDynamoDBExportStatus.AWSDynamoDBExportStatusInProgress",
+      "symbol": "AWSDynamoDBExportFormat.AWSDynamoDBExportFormatUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 171,
-      "symbol": "AWSDynamoDBExportStatus.AWSDynamoDBExportStatusCompleted",
+      "symbol": "AWSDynamoDBExportFormat.AWSDynamoDBExportFormatDynamodbJson",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 172,
-      "symbol": "AWSDynamoDBExportStatus.AWSDynamoDBExportStatusFailed",
+      "symbol": "AWSDynamoDBExportFormat.AWSDynamoDBExportFormatIon",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 175,
-      "symbol": "AWSDynamoDBExportType",
+      "symbol": "AWSDynamoDBExportStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 175,
-      "symbol": "AWSDynamoDBExportType",
+      "symbol": "AWSDynamoDBExportStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 176,
-      "symbol": "AWSDynamoDBExportType.AWSDynamoDBExportTypeUnknown",
+      "symbol": "AWSDynamoDBExportStatus.AWSDynamoDBExportStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 177,
-      "symbol": "AWSDynamoDBExportType.AWSDynamoDBExportTypeFullExport",
+      "symbol": "AWSDynamoDBExportStatus.AWSDynamoDBExportStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 178,
-      "symbol": "AWSDynamoDBExportType.AWSDynamoDBExportTypeIncrementalExport",
+      "symbol": "AWSDynamoDBExportStatus.AWSDynamoDBExportStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 181,
-      "symbol": "AWSDynamoDBExportViewType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 181,
-      "symbol": "AWSDynamoDBExportViewType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 179,
+      "symbol": "AWSDynamoDBExportStatus.AWSDynamoDBExportStatusFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 182,
-      "symbol": "AWSDynamoDBExportViewType.AWSDynamoDBExportViewTypeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBExportType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 182,
+      "symbol": "AWSDynamoDBExportType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 183,
-      "symbol": "AWSDynamoDBExportViewType.AWSDynamoDBExportViewTypeNewImage",
+      "symbol": "AWSDynamoDBExportType.AWSDynamoDBExportTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 184,
-      "symbol": "AWSDynamoDBExportViewType.AWSDynamoDBExportViewTypeNewAndOldImages",
+      "symbol": "AWSDynamoDBExportType.AWSDynamoDBExportTypeFullExport",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 187,
-      "symbol": "AWSDynamoDBGlobalTableStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 187,
-      "symbol": "AWSDynamoDBGlobalTableStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 185,
+      "symbol": "AWSDynamoDBExportType.AWSDynamoDBExportTypeIncrementalExport",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 188,
-      "symbol": "AWSDynamoDBGlobalTableStatus.AWSDynamoDBGlobalTableStatusUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBExportViewType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 188,
+      "symbol": "AWSDynamoDBExportViewType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 189,
-      "symbol": "AWSDynamoDBGlobalTableStatus.AWSDynamoDBGlobalTableStatusCreating",
+      "symbol": "AWSDynamoDBExportViewType.AWSDynamoDBExportViewTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 190,
-      "symbol": "AWSDynamoDBGlobalTableStatus.AWSDynamoDBGlobalTableStatusActive",
+      "symbol": "AWSDynamoDBExportViewType.AWSDynamoDBExportViewTypeNewImage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 191,
-      "symbol": "AWSDynamoDBGlobalTableStatus.AWSDynamoDBGlobalTableStatusDeleting",
+      "symbol": "AWSDynamoDBExportViewType.AWSDynamoDBExportViewTypeNewAndOldImages",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 192,
-      "symbol": "AWSDynamoDBGlobalTableStatus.AWSDynamoDBGlobalTableStatusUpdating",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 195,
-      "symbol": "AWSDynamoDBImportStatus",
+      "line": 194,
+      "symbol": "AWSDynamoDBGlobalTableStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 195,
-      "symbol": "AWSDynamoDBImportStatus",
+      "line": 194,
+      "symbol": "AWSDynamoDBGlobalTableStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 195,
+      "symbol": "AWSDynamoDBGlobalTableStatus.AWSDynamoDBGlobalTableStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 196,
-      "symbol": "AWSDynamoDBImportStatus.AWSDynamoDBImportStatusUnknown",
+      "symbol": "AWSDynamoDBGlobalTableStatus.AWSDynamoDBGlobalTableStatusCreating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 197,
-      "symbol": "AWSDynamoDBImportStatus.AWSDynamoDBImportStatusInProgress",
+      "symbol": "AWSDynamoDBGlobalTableStatus.AWSDynamoDBGlobalTableStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 198,
-      "symbol": "AWSDynamoDBImportStatus.AWSDynamoDBImportStatusCompleted",
+      "symbol": "AWSDynamoDBGlobalTableStatus.AWSDynamoDBGlobalTableStatusDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 199,
-      "symbol": "AWSDynamoDBImportStatus.AWSDynamoDBImportStatusCancelling",
+      "symbol": "AWSDynamoDBGlobalTableStatus.AWSDynamoDBGlobalTableStatusUpdating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 200,
-      "symbol": "AWSDynamoDBImportStatus.AWSDynamoDBImportStatusCancelled",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 201,
-      "symbol": "AWSDynamoDBImportStatus.AWSDynamoDBImportStatusFailed",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 204,
-      "symbol": "AWSDynamoDBIndexStatus",
+      "line": 202,
+      "symbol": "AWSDynamoDBImportStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 204,
-      "symbol": "AWSDynamoDBIndexStatus",
+      "line": 202,
+      "symbol": "AWSDynamoDBImportStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 203,
+      "symbol": "AWSDynamoDBImportStatus.AWSDynamoDBImportStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 204,
+      "symbol": "AWSDynamoDBImportStatus.AWSDynamoDBImportStatusInProgress",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 205,
-      "symbol": "AWSDynamoDBIndexStatus.AWSDynamoDBIndexStatusUnknown",
+      "symbol": "AWSDynamoDBImportStatus.AWSDynamoDBImportStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 206,
-      "symbol": "AWSDynamoDBIndexStatus.AWSDynamoDBIndexStatusCreating",
+      "symbol": "AWSDynamoDBImportStatus.AWSDynamoDBImportStatusCancelling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 207,
-      "symbol": "AWSDynamoDBIndexStatus.AWSDynamoDBIndexStatusUpdating",
+      "symbol": "AWSDynamoDBImportStatus.AWSDynamoDBImportStatusCancelled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 208,
-      "symbol": "AWSDynamoDBIndexStatus.AWSDynamoDBIndexStatusDeleting",
+      "symbol": "AWSDynamoDBImportStatus.AWSDynamoDBImportStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 209,
-      "symbol": "AWSDynamoDBIndexStatus.AWSDynamoDBIndexStatusActive",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 212,
-      "symbol": "AWSDynamoDBInputCompressionType",
+      "line": 211,
+      "symbol": "AWSDynamoDBIndexStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 212,
-      "symbol": "AWSDynamoDBInputCompressionType",
+      "line": 211,
+      "symbol": "AWSDynamoDBIndexStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 212,
+      "symbol": "AWSDynamoDBIndexStatus.AWSDynamoDBIndexStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 213,
-      "symbol": "AWSDynamoDBInputCompressionType.AWSDynamoDBInputCompressionTypeUnknown",
+      "symbol": "AWSDynamoDBIndexStatus.AWSDynamoDBIndexStatusCreating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 214,
-      "symbol": "AWSDynamoDBInputCompressionType.AWSDynamoDBInputCompressionTypeGzip",
+      "symbol": "AWSDynamoDBIndexStatus.AWSDynamoDBIndexStatusUpdating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 215,
-      "symbol": "AWSDynamoDBInputCompressionType.AWSDynamoDBInputCompressionTypeZstd",
+      "symbol": "AWSDynamoDBIndexStatus.AWSDynamoDBIndexStatusDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 216,
-      "symbol": "AWSDynamoDBInputCompressionType.AWSDynamoDBInputCompressionTypeNone",
+      "symbol": "AWSDynamoDBIndexStatus.AWSDynamoDBIndexStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 219,
-      "symbol": "AWSDynamoDBInputFormat",
+      "symbol": "AWSDynamoDBInputCompressionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 219,
-      "symbol": "AWSDynamoDBInputFormat",
+      "symbol": "AWSDynamoDBInputCompressionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 220,
-      "symbol": "AWSDynamoDBInputFormat.AWSDynamoDBInputFormatUnknown",
+      "symbol": "AWSDynamoDBInputCompressionType.AWSDynamoDBInputCompressionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 221,
-      "symbol": "AWSDynamoDBInputFormat.AWSDynamoDBInputFormatDynamodbJson",
+      "symbol": "AWSDynamoDBInputCompressionType.AWSDynamoDBInputCompressionTypeGzip",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 222,
-      "symbol": "AWSDynamoDBInputFormat.AWSDynamoDBInputFormatIon",
+      "symbol": "AWSDynamoDBInputCompressionType.AWSDynamoDBInputCompressionTypeZstd",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 223,
-      "symbol": "AWSDynamoDBInputFormat.AWSDynamoDBInputFormatCsv",
+      "symbol": "AWSDynamoDBInputCompressionType.AWSDynamoDBInputCompressionTypeNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 226,
-      "symbol": "AWSDynamoDBKeyType",
+      "symbol": "AWSDynamoDBInputFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 226,
-      "symbol": "AWSDynamoDBKeyType",
+      "symbol": "AWSDynamoDBInputFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 227,
-      "symbol": "AWSDynamoDBKeyType.AWSDynamoDBKeyTypeUnknown",
+      "symbol": "AWSDynamoDBInputFormat.AWSDynamoDBInputFormatUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 228,
-      "symbol": "AWSDynamoDBKeyType.AWSDynamoDBKeyTypeHash",
+      "symbol": "AWSDynamoDBInputFormat.AWSDynamoDBInputFormatDynamodbJson",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 229,
-      "symbol": "AWSDynamoDBKeyType.AWSDynamoDBKeyTypeRange",
+      "symbol": "AWSDynamoDBInputFormat.AWSDynamoDBInputFormatIon",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 232,
-      "symbol": "AWSDynamoDBPointInTimeRecoveryStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 232,
-      "symbol": "AWSDynamoDBPointInTimeRecoveryStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 230,
+      "symbol": "AWSDynamoDBInputFormat.AWSDynamoDBInputFormatCsv",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 233,
-      "symbol": "AWSDynamoDBPointInTimeRecoveryStatus.AWSDynamoDBPointInTimeRecoveryStatusUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBKeyType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 233,
+      "symbol": "AWSDynamoDBKeyType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 234,
-      "symbol": "AWSDynamoDBPointInTimeRecoveryStatus.AWSDynamoDBPointInTimeRecoveryStatusEnabled",
+      "symbol": "AWSDynamoDBKeyType.AWSDynamoDBKeyTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 235,
-      "symbol": "AWSDynamoDBPointInTimeRecoveryStatus.AWSDynamoDBPointInTimeRecoveryStatusDisabled",
+      "symbol": "AWSDynamoDBKeyType.AWSDynamoDBKeyTypeHash",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 238,
-      "symbol": "AWSDynamoDBProjectionType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 238,
-      "symbol": "AWSDynamoDBProjectionType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 236,
+      "symbol": "AWSDynamoDBKeyType.AWSDynamoDBKeyTypeRange",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 239,
-      "symbol": "AWSDynamoDBProjectionType.AWSDynamoDBProjectionTypeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBPointInTimeRecoveryStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 239,
+      "symbol": "AWSDynamoDBPointInTimeRecoveryStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 240,
-      "symbol": "AWSDynamoDBProjectionType.AWSDynamoDBProjectionTypeAll",
+      "symbol": "AWSDynamoDBPointInTimeRecoveryStatus.AWSDynamoDBPointInTimeRecoveryStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 241,
-      "symbol": "AWSDynamoDBProjectionType.AWSDynamoDBProjectionTypeKeysOnly",
+      "symbol": "AWSDynamoDBPointInTimeRecoveryStatus.AWSDynamoDBPointInTimeRecoveryStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 242,
-      "symbol": "AWSDynamoDBProjectionType.AWSDynamoDBProjectionTypeInclude",
+      "symbol": "AWSDynamoDBPointInTimeRecoveryStatus.AWSDynamoDBPointInTimeRecoveryStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 245,
-      "symbol": "AWSDynamoDBReplicaStatus",
+      "symbol": "AWSDynamoDBProjectionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 245,
-      "symbol": "AWSDynamoDBReplicaStatus",
+      "symbol": "AWSDynamoDBProjectionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 246,
-      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusUnknown",
+      "symbol": "AWSDynamoDBProjectionType.AWSDynamoDBProjectionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 247,
-      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusCreating",
+      "symbol": "AWSDynamoDBProjectionType.AWSDynamoDBProjectionTypeAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 248,
-      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusCreationFailed",
+      "symbol": "AWSDynamoDBProjectionType.AWSDynamoDBProjectionTypeKeysOnly",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 249,
-      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusUpdating",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 250,
-      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusDeleting",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 251,
-      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusActive",
+      "symbol": "AWSDynamoDBProjectionType.AWSDynamoDBProjectionTypeInclude",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 252,
-      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusRegionDisabled",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 253,
-      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusInaccessibleEncryptionCredentials",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 256,
-      "symbol": "AWSDynamoDBReturnConsumedCapacity",
+      "symbol": "AWSDynamoDBReplicaStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 256,
-      "symbol": "AWSDynamoDBReturnConsumedCapacity",
+      "line": 252,
+      "symbol": "AWSDynamoDBReplicaStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 253,
+      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 254,
+      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusCreating",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 255,
+      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusCreationFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 256,
+      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusUpdating",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 257,
-      "symbol": "AWSDynamoDBReturnConsumedCapacity.AWSDynamoDBReturnConsumedCapacityUnknown",
+      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 258,
-      "symbol": "AWSDynamoDBReturnConsumedCapacity.AWSDynamoDBReturnConsumedCapacityIndexes",
+      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 259,
-      "symbol": "AWSDynamoDBReturnConsumedCapacity.AWSDynamoDBReturnConsumedCapacityTotal",
+      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusRegionDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 260,
-      "symbol": "AWSDynamoDBReturnConsumedCapacity.AWSDynamoDBReturnConsumedCapacityNone",
+      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusInaccessibleEncryptionCredentials",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 263,
-      "symbol": "AWSDynamoDBReturnItemCollectionMetrics",
+      "symbol": "AWSDynamoDBReturnConsumedCapacity",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 263,
-      "symbol": "AWSDynamoDBReturnItemCollectionMetrics",
+      "symbol": "AWSDynamoDBReturnConsumedCapacity",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 264,
-      "symbol": "AWSDynamoDBReturnItemCollectionMetrics.AWSDynamoDBReturnItemCollectionMetricsUnknown",
+      "symbol": "AWSDynamoDBReturnConsumedCapacity.AWSDynamoDBReturnConsumedCapacityUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 265,
-      "symbol": "AWSDynamoDBReturnItemCollectionMetrics.AWSDynamoDBReturnItemCollectionMetricsSize",
+      "symbol": "AWSDynamoDBReturnConsumedCapacity.AWSDynamoDBReturnConsumedCapacityIndexes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 266,
-      "symbol": "AWSDynamoDBReturnItemCollectionMetrics.AWSDynamoDBReturnItemCollectionMetricsNone",
+      "symbol": "AWSDynamoDBReturnConsumedCapacity.AWSDynamoDBReturnConsumedCapacityTotal",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 269,
-      "symbol": "AWSDynamoDBReturnValue",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 269,
-      "symbol": "AWSDynamoDBReturnValue",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 267,
+      "symbol": "AWSDynamoDBReturnConsumedCapacity.AWSDynamoDBReturnConsumedCapacityNone",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 270,
-      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBReturnItemCollectionMetrics",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 270,
+      "symbol": "AWSDynamoDBReturnItemCollectionMetrics",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 271,
-      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueNone",
+      "symbol": "AWSDynamoDBReturnItemCollectionMetrics.AWSDynamoDBReturnItemCollectionMetricsUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 272,
-      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueAllOld",
+      "symbol": "AWSDynamoDBReturnItemCollectionMetrics.AWSDynamoDBReturnItemCollectionMetricsSize",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 273,
-      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueUpdatedOld",
+      "symbol": "AWSDynamoDBReturnItemCollectionMetrics.AWSDynamoDBReturnItemCollectionMetricsNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 274,
-      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueAllNew",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 275,
-      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueUpdatedNew",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 278,
-      "symbol": "AWSDynamoDBReturnValuesOnConditionCheckFailure",
+      "line": 276,
+      "symbol": "AWSDynamoDBReturnValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 278,
-      "symbol": "AWSDynamoDBReturnValuesOnConditionCheckFailure",
+      "line": 276,
+      "symbol": "AWSDynamoDBReturnValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 277,
+      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 278,
+      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueNone",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 279,
-      "symbol": "AWSDynamoDBReturnValuesOnConditionCheckFailure.AWSDynamoDBReturnValuesOnConditionCheckFailureUnknown",
+      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueAllOld",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 280,
-      "symbol": "AWSDynamoDBReturnValuesOnConditionCheckFailure.AWSDynamoDBReturnValuesOnConditionCheckFailureAllOld",
+      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueUpdatedOld",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 281,
-      "symbol": "AWSDynamoDBReturnValuesOnConditionCheckFailure.AWSDynamoDBReturnValuesOnConditionCheckFailureNone",
+      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueAllNew",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 284,
-      "symbol": "AWSDynamoDBS3SseAlgorithm",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 284,
-      "symbol": "AWSDynamoDBS3SseAlgorithm",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 282,
+      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueUpdatedNew",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 285,
-      "symbol": "AWSDynamoDBS3SseAlgorithm.AWSDynamoDBS3SseAlgorithmUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBReturnValuesOnConditionCheckFailure",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 285,
+      "symbol": "AWSDynamoDBReturnValuesOnConditionCheckFailure",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 286,
-      "symbol": "AWSDynamoDBS3SseAlgorithm.AWSDynamoDBS3SseAlgorithmAES256",
+      "symbol": "AWSDynamoDBReturnValuesOnConditionCheckFailure.AWSDynamoDBReturnValuesOnConditionCheckFailureUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 287,
-      "symbol": "AWSDynamoDBS3SseAlgorithm.AWSDynamoDBS3SseAlgorithmKms",
+      "symbol": "AWSDynamoDBReturnValuesOnConditionCheckFailure.AWSDynamoDBReturnValuesOnConditionCheckFailureAllOld",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 290,
-      "symbol": "AWSDynamoDBSSEStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 290,
-      "symbol": "AWSDynamoDBSSEStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 288,
+      "symbol": "AWSDynamoDBReturnValuesOnConditionCheckFailure.AWSDynamoDBReturnValuesOnConditionCheckFailureNone",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 291,
-      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBS3SseAlgorithm",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 291,
+      "symbol": "AWSDynamoDBS3SseAlgorithm",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 292,
-      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusEnabling",
+      "symbol": "AWSDynamoDBS3SseAlgorithm.AWSDynamoDBS3SseAlgorithmUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 293,
-      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusEnabled",
+      "symbol": "AWSDynamoDBS3SseAlgorithm.AWSDynamoDBS3SseAlgorithmAES256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 294,
-      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusDisabling",
+      "symbol": "AWSDynamoDBS3SseAlgorithm.AWSDynamoDBS3SseAlgorithmKms",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 295,
-      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusDisabled",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 296,
-      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusUpdating",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 299,
-      "symbol": "AWSDynamoDBSSEType",
+      "line": 297,
+      "symbol": "AWSDynamoDBSSEStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 299,
-      "symbol": "AWSDynamoDBSSEType",
+      "line": 297,
+      "symbol": "AWSDynamoDBSSEStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 298,
+      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 299,
+      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusEnabling",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 300,
-      "symbol": "AWSDynamoDBSSEType.AWSDynamoDBSSETypeUnknown",
+      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 301,
-      "symbol": "AWSDynamoDBSSEType.AWSDynamoDBSSETypeAES256",
+      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusDisabling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 302,
-      "symbol": "AWSDynamoDBSSEType.AWSDynamoDBSSETypeKms",
+      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 305,
-      "symbol": "AWSDynamoDBScalarAttributeType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 305,
-      "symbol": "AWSDynamoDBScalarAttributeType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 303,
+      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusUpdating",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 306,
-      "symbol": "AWSDynamoDBScalarAttributeType.AWSDynamoDBScalarAttributeTypeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBSSEType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 306,
+      "symbol": "AWSDynamoDBSSEType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 307,
-      "symbol": "AWSDynamoDBScalarAttributeType.AWSDynamoDBScalarAttributeTypeS",
+      "symbol": "AWSDynamoDBSSEType.AWSDynamoDBSSETypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 308,
-      "symbol": "AWSDynamoDBScalarAttributeType.AWSDynamoDBScalarAttributeTypeN",
+      "symbol": "AWSDynamoDBSSEType.AWSDynamoDBSSETypeAES256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 309,
-      "symbol": "AWSDynamoDBScalarAttributeType.AWSDynamoDBScalarAttributeTypeB",
+      "symbol": "AWSDynamoDBSSEType.AWSDynamoDBSSETypeKms",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 312,
-      "symbol": "AWSDynamoDBSelect",
+      "symbol": "AWSDynamoDBScalarAttributeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 312,
-      "symbol": "AWSDynamoDBSelect",
+      "symbol": "AWSDynamoDBScalarAttributeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 313,
-      "symbol": "AWSDynamoDBSelect.AWSDynamoDBSelectUnknown",
+      "symbol": "AWSDynamoDBScalarAttributeType.AWSDynamoDBScalarAttributeTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 314,
-      "symbol": "AWSDynamoDBSelect.AWSDynamoDBSelectAllAttributes",
+      "symbol": "AWSDynamoDBScalarAttributeType.AWSDynamoDBScalarAttributeTypeS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 315,
-      "symbol": "AWSDynamoDBSelect.AWSDynamoDBSelectAllProjectedAttributes",
+      "symbol": "AWSDynamoDBScalarAttributeType.AWSDynamoDBScalarAttributeTypeN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 316,
-      "symbol": "AWSDynamoDBSelect.AWSDynamoDBSelectSpecificAttributes",
+      "symbol": "AWSDynamoDBScalarAttributeType.AWSDynamoDBScalarAttributeTypeB",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 317,
-      "symbol": "AWSDynamoDBSelect.AWSDynamoDBSelectCount",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 320,
-      "symbol": "AWSDynamoDBStreamViewType",
+      "line": 319,
+      "symbol": "AWSDynamoDBSelect",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 320,
-      "symbol": "AWSDynamoDBStreamViewType",
+      "line": 319,
+      "symbol": "AWSDynamoDBSelect",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 320,
+      "symbol": "AWSDynamoDBSelect.AWSDynamoDBSelectUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 321,
-      "symbol": "AWSDynamoDBStreamViewType.AWSDynamoDBStreamViewTypeUnknown",
+      "symbol": "AWSDynamoDBSelect.AWSDynamoDBSelectAllAttributes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 322,
-      "symbol": "AWSDynamoDBStreamViewType.AWSDynamoDBStreamViewTypeNewImage",
+      "symbol": "AWSDynamoDBSelect.AWSDynamoDBSelectAllProjectedAttributes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 323,
-      "symbol": "AWSDynamoDBStreamViewType.AWSDynamoDBStreamViewTypeOldImage",
+      "symbol": "AWSDynamoDBSelect.AWSDynamoDBSelectSpecificAttributes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 324,
-      "symbol": "AWSDynamoDBStreamViewType.AWSDynamoDBStreamViewTypeNewAndOldImages",
+      "symbol": "AWSDynamoDBSelect.AWSDynamoDBSelectCount",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 325,
-      "symbol": "AWSDynamoDBStreamViewType.AWSDynamoDBStreamViewTypeKeysOnly",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 328,
-      "symbol": "AWSDynamoDBTableClass",
+      "line": 327,
+      "symbol": "AWSDynamoDBStreamViewType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 328,
-      "symbol": "AWSDynamoDBTableClass",
+      "line": 327,
+      "symbol": "AWSDynamoDBStreamViewType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 328,
+      "symbol": "AWSDynamoDBStreamViewType.AWSDynamoDBStreamViewTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 329,
-      "symbol": "AWSDynamoDBTableClass.AWSDynamoDBTableClassUnknown",
+      "symbol": "AWSDynamoDBStreamViewType.AWSDynamoDBStreamViewTypeNewImage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 330,
-      "symbol": "AWSDynamoDBTableClass.AWSDynamoDBTableClassStandard",
+      "symbol": "AWSDynamoDBStreamViewType.AWSDynamoDBStreamViewTypeOldImage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 331,
-      "symbol": "AWSDynamoDBTableClass.AWSDynamoDBTableClassStandardInfrequentAccess",
+      "symbol": "AWSDynamoDBStreamViewType.AWSDynamoDBStreamViewTypeNewAndOldImages",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 334,
-      "symbol": "AWSDynamoDBTableStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 334,
-      "symbol": "AWSDynamoDBTableStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 332,
+      "symbol": "AWSDynamoDBStreamViewType.AWSDynamoDBStreamViewTypeKeysOnly",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 335,
-      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBTableClass",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 335,
+      "symbol": "AWSDynamoDBTableClass",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 336,
-      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusCreating",
+      "symbol": "AWSDynamoDBTableClass.AWSDynamoDBTableClassUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 337,
-      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusUpdating",
+      "symbol": "AWSDynamoDBTableClass.AWSDynamoDBTableClassStandard",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 338,
-      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusDeleting",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 339,
-      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusActive",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 340,
-      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusInaccessibleEncryptionCredentials",
+      "symbol": "AWSDynamoDBTableClass.AWSDynamoDBTableClassStandardInfrequentAccess",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 341,
-      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusArchiving",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 342,
-      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusArchived",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 345,
-      "symbol": "AWSDynamoDBTimeToLiveStatus",
+      "symbol": "AWSDynamoDBTableStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 345,
-      "symbol": "AWSDynamoDBTimeToLiveStatus",
+      "line": 341,
+      "symbol": "AWSDynamoDBTableStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 342,
+      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 343,
+      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusCreating",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 344,
+      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusUpdating",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 345,
+      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusDeleting",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 346,
-      "symbol": "AWSDynamoDBTimeToLiveStatus.AWSDynamoDBTimeToLiveStatusUnknown",
+      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 347,
-      "symbol": "AWSDynamoDBTimeToLiveStatus.AWSDynamoDBTimeToLiveStatusEnabling",
+      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusInaccessibleEncryptionCredentials",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 348,
-      "symbol": "AWSDynamoDBTimeToLiveStatus.AWSDynamoDBTimeToLiveStatusDisabling",
+      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusArchiving",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 349,
+      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusArchived",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 352,
+      "symbol": "AWSDynamoDBTimeToLiveStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 352,
+      "symbol": "AWSDynamoDBTimeToLiveStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 353,
+      "symbol": "AWSDynamoDBTimeToLiveStatus.AWSDynamoDBTimeToLiveStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 354,
+      "symbol": "AWSDynamoDBTimeToLiveStatus.AWSDynamoDBTimeToLiveStatusEnabling",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 355,
+      "symbol": "AWSDynamoDBTimeToLiveStatus.AWSDynamoDBTimeToLiveStatusDisabling",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 356,
       "symbol": "AWSDynamoDBTimeToLiveStatus.AWSDynamoDBTimeToLiveStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 350,
+      "line": 357,
       "symbol": "AWSDynamoDBTimeToLiveStatus.AWSDynamoDBTimeToLiveStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
