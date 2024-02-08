@@ -22,6 +22,7 @@ jobs:
   unit-test:
     name: Unit Test
     strategy:
+      fail-fast: false
       matrix:
         scheme:
           - AWSAPIGateway

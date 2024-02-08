@@ -6,7 +6,7 @@ on:
       identifier:
         required: true
         type: string
-  pull_request_target:
+  pull_request:
     branches:
       - main
 
@@ -19,7 +19,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  validation:
+    runs-on: ubuntu-latest
+    if: ${{ !github.event.pull_request || (github.event.pull_request.user.login == 'awsmobilesdk' || contains(fromJSON('["OWNER", "MEMBER"]'), github.event.pull_request.author_association)) }}
+    steps:
+      - run: echo "Integration Tests can be run"
   integration-test:
+    needs: [validation]
     name: Integration Test
     environment: IntegrationTest
     strategy:
