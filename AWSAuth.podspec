@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
    s.name         = 'AWSAuth'
-   s.version      = '2.33.8'
+   s.version      = '2.33.9'
    s.summary      = 'Amazon Web Services SDK for iOS.'
  
    s.description  = 'The AWS SDK for iOS provides a library, code samples, and documentation for developers to build connected mobile applications using AWS.'
@@ -14,23 +14,23 @@ Pod::Spec.new do |s|
    s.requires_arc = true
 
    s.subspec 'Core' do  |authcore|
-      authcore.dependency 'AWSAuthCore', '2.33.8'
+      authcore.dependency 'AWSAuthCore', '2.33.9'
    end
 
    s.subspec 'FacebookSignIn' do  |facebook|
-      facebook.dependency 'AWSFacebookSignIn', '2.33.8'
+      facebook.dependency 'AWSFacebookSignIn', '2.33.9'
    end
 
    s.subspec 'GoogleSignIn' do  |google|
-      google.dependency 'AWSGoogleSignIn', '2.33.8'
+      google.dependency 'AWSGoogleSignIn', '2.33.9'
    end
 
    s.subspec 'UserPoolsSignIn' do  |up|
-      up.dependency 'AWSUserPoolsSignIn', '2.33.8'
+      up.dependency 'AWSUserPoolsSignIn', '2.33.9'
    end
 
    s.subspec 'UI' do  |ui|
-      ui.dependency 'AWSAuthUI', '2.33.8'
+      ui.dependency 'AWSAuthUI', '2.33.9'
    end
 
 end
