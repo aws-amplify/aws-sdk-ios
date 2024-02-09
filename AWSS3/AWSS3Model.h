@@ -43,6 +43,11 @@ typedef NS_ENUM(NSInteger, AWSS3BucketAccelerateStatus) {
     AWSS3BucketAccelerateStatusSuspended,
 };
 
+typedef NS_ENUM(NSInteger, AWSS3BucketAccessStyle) {
+    AWSS3BucketAccessStyleVirtualHosted,
+    AWSS3BucketAccessStylePath
+};
+
 typedef NS_ENUM(NSInteger, AWSS3BucketCannedACL) {
     AWSS3BucketCannedACLUnknown,
     AWSS3BucketCannedACLPrivate,

@@ -696,6 +696,15 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 
 @property NSInteger timeoutIntervalForResource;
 
+/**
+ The preferred access style for the bucket. The default is `AWSS3BucketAccessStyleVirtualHosted`.
+ 
+ Virtual-hosted-style requests require that the bucket name must be DNS-compliant and must not contain periods `(".")`.
+ 
+ If virtual-hosted-style access is set as preferred but the bucket name does not meet these conditions, path-style access will be used instead.
+ */
+@property (nonatomic, assign) AWSS3BucketAccessStyle preferredAccessStyle;
+
 @end
 
 NS_ASSUME_NONNULL_END
