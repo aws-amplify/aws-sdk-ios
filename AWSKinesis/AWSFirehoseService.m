@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -44,10 +44,17 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidArgumentException" : @(AWSFirehoseErrorInvalidArgument),
                             @"InvalidKMSResourceException" : @(AWSFirehoseErrorInvalidKMSResource),
                             @"InvalidSourceException" : @(AWSFirehoseErrorInvalidSource),
+                            @"InvalidStreamTypeException" : @(AWSFirehoseErrorInvalidStreamType),
                             @"LimitExceededException" : @(AWSFirehoseErrorLimitExceeded),
                             @"ResourceInUseException" : @(AWSFirehoseErrorResourceInUse),
                             @"ResourceNotFoundException" : @(AWSFirehoseErrorResourceNotFound),
                             @"ServiceUnavailableException" : @(AWSFirehoseErrorServiceUnavailable),
+                            @"TagrisAccessDeniedException" : @(AWSFirehoseErrorTagrisAccessDenied),
+                            @"TagrisInternalServiceException" : @(AWSFirehoseErrorTagrisInternalService),
+                            @"TagrisInvalidArnException" : @(AWSFirehoseErrorTagrisInvalidArn),
+                            @"TagrisInvalidParameterException" : @(AWSFirehoseErrorTagrisInvalidParameter),
+                            @"TagrisPartialResourcesExistResultsException" : @(AWSFirehoseErrorTagrisPartialResourcesExistResults),
+                            @"TagrisThrottledException" : @(AWSFirehoseErrorTagrisThrottled),
                             };
 }
 
@@ -351,6 +358,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSFirehoseGetKinesisStreamOutput *> *)getKinesisStream:(AWSFirehoseGetKinesisStreamInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Firehose_20150804"
+                 operationName:@"GetKinesisStream"
+                   outputClass:[AWSFirehoseGetKinesisStreamOutput class]];
+}
+
+- (void)getKinesisStream:(AWSFirehoseGetKinesisStreamInput *)request
+     completionHandler:(void (^)(AWSFirehoseGetKinesisStreamOutput *response, NSError *error))completionHandler {
+    [[self getKinesisStream:request] continueWithBlock:^id _Nullable(AWSTask<AWSFirehoseGetKinesisStreamOutput *> * _Nonnull task) {
+        AWSFirehoseGetKinesisStreamOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSFirehoseListDeliveryStreamsOutput *> *)listDeliveryStreams:(AWSFirehoseListDeliveryStreamsInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -548,6 +578,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSFirehoseUpdateDestinationOutput *response, NSError *error))completionHandler {
     [[self updateDestination:request] continueWithBlock:^id _Nullable(AWSTask<AWSFirehoseUpdateDestinationOutput *> * _Nonnull task) {
         AWSFirehoseUpdateDestinationOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSFirehoseTagrisVerifyResourcesExistOutput *> *)verifyResourcesExistForTagris:(AWSFirehoseTagrisVerifyResourcesExistInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Firehose_20150804"
+                 operationName:@"VerifyResourcesExistForTagris"
+                   outputClass:[AWSFirehoseTagrisVerifyResourcesExistOutput class]];
+}
+
+- (void)verifyResourcesExistForTagris:(AWSFirehoseTagrisVerifyResourcesExistInput *)request
+     completionHandler:(void (^)(AWSFirehoseTagrisVerifyResourcesExistOutput *response, NSError *error))completionHandler {
+    [[self verifyResourcesExistForTagris:request] continueWithBlock:^id _Nullable(AWSTask<AWSFirehoseTagrisVerifyResourcesExistOutput *> * _Nonnull task) {
+        AWSFirehoseTagrisVerifyResourcesExistOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

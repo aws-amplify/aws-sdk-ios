@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -188,6 +188,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSFirehose FirehoseForKey:key] describeDeliveryStream:[AWSFirehoseDescribeDeliveryStreamInput new] completionHandler:^(AWSFirehoseDescribeDeliveryStreamOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSFirehose removeFirehoseForKey:key];
+}
+
+- (void)testGetKinesisStream {
+    NSString *key = @"testGetKinesisStream";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSFirehose registerFirehoseWithConfiguration:configuration forKey:key];
+
+    AWSFirehose *awsClient = [AWSFirehose FirehoseForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSFirehose FirehoseForKey:key] getKinesisStream:[AWSFirehoseGetKinesisStreamInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSFirehose removeFirehoseForKey:key];
+}
+
+- (void)testGetKinesisStreamCompletionHandler {
+    NSString *key = @"testGetKinesisStream";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSFirehose registerFirehoseWithConfiguration:configuration forKey:key];
+
+    AWSFirehose *awsClient = [AWSFirehose FirehoseForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSFirehose FirehoseForKey:key] getKinesisStream:[AWSFirehoseGetKinesisStreamInput new] completionHandler:^(AWSFirehoseGetKinesisStreamOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -620,6 +668,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSFirehose FirehoseForKey:key] updateDestination:[AWSFirehoseUpdateDestinationInput new] completionHandler:^(AWSFirehoseUpdateDestinationOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSFirehose removeFirehoseForKey:key];
+}
+
+- (void)testVerifyResourcesExistForTagris {
+    NSString *key = @"testVerifyResourcesExistForTagris";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSFirehose registerFirehoseWithConfiguration:configuration forKey:key];
+
+    AWSFirehose *awsClient = [AWSFirehose FirehoseForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSFirehose FirehoseForKey:key] verifyResourcesExistForTagris:[AWSFirehoseTagrisVerifyResourcesExistInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSFirehose removeFirehoseForKey:key];
+}
+
+- (void)testVerifyResourcesExistForTagrisCompletionHandler {
+    NSString *key = @"testVerifyResourcesExistForTagris";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSFirehose registerFirehoseWithConfiguration:configuration forKey:key];
+
+    AWSFirehose *awsClient = [AWSFirehose FirehoseForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSFirehose FirehoseForKey:key] verifyResourcesExistForTagris:[AWSFirehoseTagrisVerifyResourcesExistInput new] completionHandler:^(AWSFirehoseTagrisVerifyResourcesExistOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
