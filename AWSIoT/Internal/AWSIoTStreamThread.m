@@ -26,6 +26,7 @@
 @property(nonatomic, strong, nullable) NSRunLoop *runLoopForStreamsThread;
 @property(nonatomic, assign) NSTimeInterval defaultRunLoopTimeInterval;
 @property(nonatomic, assign) BOOL isRunning;
+@property(nonatomic, assign) BOOL shouldDisconnect;
 @end
 
 @implementation AWSIoTStreamThread
@@ -49,6 +50,7 @@
         _encoderOutputStream = encoderOutputStream;
         _outputStream = outputStream;
         _defaultRunLoopTimeInterval = 10;
+        _shouldDisconnect = NO;
     }
     return self;
 }
@@ -102,33 +104,44 @@
     [super cancel];
 }
 
+- (void)cancelAndDisconnect:(BOOL)shouldDisconnect {
+    AWSDDLogVerbose(@"Issued Cancel and Disconnect = [%@] on thread [%@]", shouldDisconnect ? @"YES" : @"NO", (NSThread *)self);
+    self.shouldDisconnect = shouldDisconnect;
+    self.isRunning = NO;
+    [super cancel];
+}
+
 - (void)cleanUp {
     if (self.defaultRunLoopTimer) {
         [self.defaultRunLoopTimer invalidate];
         self.defaultRunLoopTimer = nil;
     }
 
-    if (self.session) {
-        [self.session close];
-        self.session = nil;
-    }
+    if (self.shouldDisconnect) {
+        if (self.session) {
+            [self.session close];
+            self.session = nil;
+        }
 
-    if (self.outputStream) {
-        self.outputStream.delegate = nil;
-        [self.outputStream close];
-        [self.outputStream removeFromRunLoop:self.runLoopForStreamsThread 
-                                     forMode:NSDefaultRunLoopMode];
-        self.outputStream = nil;
-    }
+        if (self.outputStream) {
+            self.outputStream.delegate = nil;
+            [self.outputStream close];
+            [self.outputStream removeFromRunLoop:self.runLoopForStreamsThread
+                                         forMode:NSDefaultRunLoopMode];
+            self.outputStream = nil;
+        }
 
-    if (self.decoderInputStream) {
-        [self.decoderInputStream close];
-        self.decoderInputStream = nil;
-    }
+        if (self.decoderInputStream) {
+            [self.decoderInputStream close];
+            self.decoderInputStream = nil;
+        }
 
-    if (self.encoderOutputStream) {
-        [self.encoderOutputStream close];
-        self.encoderOutputStream = nil;
+        if (self.encoderOutputStream) {
+            [self.encoderOutputStream close];
+            self.encoderOutputStream = nil;
+        }
+    } else {
+        AWSDDLogVerbose(@"Skipping disconnect for thread: [%@]", (NSThread *)self);
     }
 
     if (self.onStop) {

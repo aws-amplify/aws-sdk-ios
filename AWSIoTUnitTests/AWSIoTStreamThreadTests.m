@@ -72,21 +72,59 @@
 }
 
 /// Given: A running AWSIoTStreamThread
-/// When: The thread is cancelled
+/// When: The thread is cancelled with disconnect set to YES
 /// Then: The session is closed and all streams are closed
-- (void)testCancel_shouldCloseStreams_andInvokeOnStop {
+- (void)testCancelAndDisconnect_shouldCloseStreams_andInvokeOnStop {
     XCTestExpectation *stopExpectation = [self expectationWithDescription:@"AWSIoTStreamThread.onStop expectation"];
     self.thread.onStop = ^{
         [stopExpectation fulfill];
     };
 
-    [self.thread cancel];
+    [self.thread cancelAndDisconnect:YES];
     [self waitForExpectations:@[stopExpectation] timeout:1];
 
     OCMVerify([self.decoderInputStream close]);
     OCMVerify([self.encoderOutputStream close]);
     OCMVerify([self.outputStream close]);
     OCMVerify([self.session close]);
+}
+
+/// Given: A running AWSIoTStreamThread
+/// When: The thread is cancelled with disconnect set to NO
+/// Then: Neither the session nor the streams are closed
+- (void)testCancel_shouldNotCloseStreams_andInvokeOnStop {
+    XCTestExpectation *stopExpectation = [self expectationWithDescription:@"AWSIoTStreamThread.onStop expectation"];
+    self.thread.onStop = ^{
+        [stopExpectation fulfill];
+    };
+
+    __block BOOL didInvokeSessionClose = NO;
+    [OCMStub([self.session close]) andDo:^(NSInvocation *invocation) {
+        didInvokeSessionClose = YES;
+    }];
+
+    __block BOOL didInvokeDecoderInputStreamClose = NO;
+    [OCMStub([self.decoderInputStream close]) andDo:^(NSInvocation *invocation) {
+        didInvokeDecoderInputStreamClose = YES;
+    }];
+
+    __block BOOL didInvokeEncoderDecoderInputStreamClose = NO;
+    [OCMStub([self.encoderOutputStream close]) andDo:^(NSInvocation *invocation) {
+        didInvokeEncoderDecoderInputStreamClose = YES;
+    }];
+
+    __block BOOL didInvokeOutputStreamClose = NO;
+    [OCMStub([self.outputStream close]) andDo:^(NSInvocation *invocation) {
+        didInvokeOutputStreamClose = YES;
+    }];
+
+    [self.thread cancelAndDisconnect:NO];
+    [self waitForExpectations:@[stopExpectation] timeout:1];
+
+    XCTAssertFalse(didInvokeSessionClose);
+    XCTAssertFalse(didInvokeDecoderInputStreamClose);
+    XCTAssertFalse(didInvokeEncoderDecoderInputStreamClose);
+    XCTAssertFalse(didInvokeOutputStreamClose);
 }
 
 @end

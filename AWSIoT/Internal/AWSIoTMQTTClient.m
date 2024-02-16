@@ -384,7 +384,7 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
     @synchronized(self) {
         if (self.streamsThread && !self.streamsThread.isCancelled) {
             AWSDDLogVerbose(@"Issued Cancel on thread [%@]", self.streamsThread);
-            [self.streamsThread cancel];
+            [self.streamsThread cancelAndDisconnect:self.userDidIssueDisconnect];
         }
         self.streamsThread = [[AWSIoTStreamThread alloc] initWithSession:self.session
                                                       decoderInputStream:inputStream
@@ -637,7 +637,7 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
     self.connectionAgeInSeconds = 0;
 
     //Cancel the current streams thread
-    [self.streamsThread cancel];
+    [self.streamsThread cancelAndDisconnect:YES];
 
     __weak AWSIoTMQTTClient *weakSelf = self;
     self.streamsThread.onStop = ^{
@@ -1230,7 +1230,7 @@ typedef void (^StatusCallback)(AWSIoTMQTTStatus status);
     @synchronized(self) {
         if (self.streamsThread && !self.streamsThread.isCancelled) {
             AWSDDLogVerbose(@"Issued Cancel on thread [%@]", self.streamsThread);
-            [self.streamsThread cancel];
+            [self.streamsThread cancelAndDisconnect:self.userDidIssueDisconnect];
         }
 
         self.streamsThread = [[AWSIoTStreamThread alloc] initWithSession:self.session

@@ -30,6 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
             decoderInputStream:(nonnull NSInputStream *)decoderInputStream
            encoderOutputStream:(nonnull NSOutputStream *)decoderOutputStream
                   outputStream:(nullable NSOutputStream *)outputStream;
+
+- (void)cancelAndDisconnect:(BOOL)shouldDisconnect;
 @end
 
 NS_ASSUME_NONNULL_END
