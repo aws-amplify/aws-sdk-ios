@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.33.10
+
 ### New features
 
 - **AWSS3TransferUtility**
