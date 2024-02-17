@@ -4,6 +4,18 @@
 
 -Features for next release
 
+## 2.33.10
+
+### New features
+
+- **AWSS3TransferUtility**
+  - Adding support for path-style access requests
+
+### Bug Fixes
+
+- **AWSIoT**
+  - Fixing auto reconnection not working properly
+
 ## 2.33.9
 
 ### Bug Fixes

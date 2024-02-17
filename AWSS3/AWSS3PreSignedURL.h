@@ -14,6 +14,7 @@
 //
 
 #import <AWSCore/AWSCore.h>
+#import "AWSS3Model.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -42,6 +43,7 @@ typedef NS_ENUM(NSInteger, AWSS3PresignedURLErrorType) {
     AWSS3PresignedURLErrorInvalidRequestParameters,
     AWSS3PresignedURLErrorInvalidBucketName,
     AWSS3PresignedURLErrorInvalidBucketNameForAccelerateModeEnabled,
+    AWSS3PresignedURLErrorInvalidAccessStyleForAccelerateModeEnabled,
 };
 
 @class AWSS3GetPreSignedURLRequest;
@@ -213,6 +215,15 @@ typedef NS_ENUM(NSInteger, AWSS3PresignedURLErrorType) {
  The name of the bucket
  */
 @property (nonatomic, strong) NSString *bucket;
+
+/**
+ The preferred access style for the bucket. The default is `AWSS3BucketAccessStyleVirtualHosted`.
+ 
+ Virtual-hosted-style requests require that the bucket name must be DNS-compliant and must not contain periods `(".")`.
+ 
+ If virtual-hosted-style access is set as preferred but the bucket name does not meet these conditions, path-style access will be used instead.
+ */
+@property (nonatomic, assign) AWSS3BucketAccessStyle preferredAccessStyle;
 
 /**
  The name of the S3 object
