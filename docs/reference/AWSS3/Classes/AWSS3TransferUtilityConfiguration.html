@@ -17,7 +17,7 @@
     <a title="AWSS3TransferUtilityConfiguration Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSS3 2.33.9 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSS3 2.33.10 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSS3.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -960,6 +960,9 @@
                 <a href="../Enums/AWSS3BucketAccelerateStatus.html">AWSS3BucketAccelerateStatus</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSS3BucketAccessStyle.html">AWSS3BucketAccessStyle</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSS3BucketCannedACL.html">AWSS3BucketCannedACL</a>
               </li>
               <li class="nav-group-task">
@@ -1161,6 +1164,15 @@
 
 <span class="k">@property</span> <span class="n">NSInteger</span> <span class="n">timeoutIntervalForResource</span><span class="p">;</span>
 
+<span class="cm">/**
+ The preferred access style for the bucket. The default is `AWSS3BucketAccessStyleVirtualHosted`.
+ 
+ Virtual-hosted-style requests require that the bucket name must be DNS-compliant and must not contain periods `(".")`.
+ 
+ If virtual-hosted-style access is set as preferred but the bucket name does not meet these conditions, path-style access will be used instead.
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSS3BucketAccessStyle.html">AWSS3BucketAccessStyle</a></span> <span class="n">preferredAccessStyle</span><span class="p">;</span>
+
 <span class="k">@end</span></code></pre>
 
                 </div>
@@ -1336,12 +1348,48 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSS3TransferUtilityConfiguration(py)preferredAccessStyle"></a>
+                    <a name="//apple_ref/objc/Property/preferredAccessStyle" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSS3TransferUtilityConfiguration(py)preferredAccessStyle">preferredAccessStyle</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The preferred access style for the bucket. The default is <code>AWSS3BucketAccessStyleVirtualHosted</code>.</p>
+
+<p>Virtual-hosted-style requests require that the bucket name must be DNS-compliant and must not contain periods <code>(&quot;.&quot;)</code>.</p>
+
+<p>If virtual-hosted-style access is set as preferred but the bucket name does not meet these conditions, path-style access will be used instead.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSS3BucketAccessStyle.html">AWSS3BucketAccessStyle</a></span> <span class="n">preferredAccessStyle</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">preferredAccessStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSS3BucketAccessStyle.html">AWSS3BucketAccessStyle</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-02-08)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-02-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

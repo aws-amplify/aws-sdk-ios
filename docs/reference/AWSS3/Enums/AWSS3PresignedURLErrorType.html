@@ -17,7 +17,7 @@
     <a title="AWSS3PresignedURLErrorType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSS3 2.33.9 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSS3 2.33.10 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSS3.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -960,6 +960,9 @@
                 <a href="../Enums/AWSS3BucketAccelerateStatus.html">AWSS3BucketAccelerateStatus</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSS3BucketAccessStyle.html">AWSS3BucketAccessStyle</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSS3BucketCannedACL.html">AWSS3BucketCannedACL</a>
               </li>
               <li class="nav-group-task">
@@ -1148,7 +1151,7 @@
             <h1>AWSS3PresignedURLErrorType</h1>
               <div class="declaration">
                 <div class="language">
-                  
+                  <p class="aside-title">Objective-C</p>
                   <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSS3PresignedURLErrorType</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">AWSS3PresignedURLErrorUnknown</span><span class="p">,</span>
     <span class="n">AWSS3PresignedURLErrorAccessKeyIsNil</span><span class="p">,</span>
@@ -1164,7 +1167,13 @@
     <span class="n">AWSS3PresignedURLErrorInvalidRequestParameters</span><span class="p">,</span>
     <span class="n">AWSS3PresignedURLErrorInvalidBucketName</span><span class="p">,</span>
     <span class="n">AWSS3PresignedURLErrorInvalidBucketNameForAccelerateModeEnabled</span><span class="p">,</span>
+    <span class="n">AWSS3PresignedURLErrorInvalidAccessStyleForAccelerateModeEnabled</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSS3PresignedURLErrorType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                 </div>
               </div>
@@ -1197,6 +1206,11 @@
                           <pre class="highlight objective_c"><code><span class="n">AWSS3PresignedURLErrorUnknown</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">presignedURLErrorUnknown</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1222,6 +1236,11 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">AWSS3PresignedURLErrorAccessKeyIsNil</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">presignedURLErrorAccessKeyIsNil</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
 
                         </div>
                       </div>
@@ -1251,6 +1270,11 @@
                           <pre class="highlight objective_c"><code><span class="n">AWSS3PresignedURLErrorSecretKeyIsNil</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">presignedURLErrorSecretKeyIsNil</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1276,6 +1300,11 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">AWSS3PresignedURLErrorBucketNameIsNil</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">presignedURLErrorBucketNameIsNil</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
 
                         </div>
                       </div>
@@ -1305,6 +1334,11 @@
                           <pre class="highlight objective_c"><code><span class="n">AWSS3PresignedURLErrorKeyNameIsNil</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">presignedURLErrorKeyNameIsNil</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1330,6 +1364,11 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">AWSS3PresignedURLErrorInvalidExpiresDate</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">presignedURLErrorInvalidExpiresDate</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
 
                         </div>
                       </div>
@@ -1359,6 +1398,11 @@
                           <pre class="highlight objective_c"><code><span class="n">AWSS3PresignedURLErrorUnsupportedHTTPVerbs</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">presignedURLErrorUnsupportedHTTPVerbs</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1384,6 +1428,11 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">AWSS3PresignedURLErrorEndpointIsNil</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">presignedURLErrorEndpointIsNil</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
 
                         </div>
                       </div>
@@ -1413,6 +1462,11 @@
                           <pre class="highlight objective_c"><code><span class="n">AWSS3PresignedURLErrorInvalidServiceType</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">presignedURLErrorInvalidServiceType</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1438,6 +1492,11 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">AWSS3PreSignedURLErrorCredentialProviderIsNil</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">preSignedURLErrorCredentialProviderIsNil</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
 
                         </div>
                       </div>
@@ -1467,6 +1526,11 @@
                           <pre class="highlight objective_c"><code><span class="n">AWSS3PreSignedURLErrorInternalError</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">preSignedURLErrorInternalError</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1492,6 +1556,11 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">AWSS3PresignedURLErrorInvalidRequestParameters</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">presignedURLErrorInvalidRequestParameters</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
 
                         </div>
                       </div>
@@ -1521,6 +1590,11 @@
                           <pre class="highlight objective_c"><code><span class="n">AWSS3PresignedURLErrorInvalidBucketName</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">presignedURLErrorInvalidBucketName</span> <span class="o">=</span> <span class="mi">12</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1548,6 +1622,43 @@
                           <pre class="highlight objective_c"><code><span class="n">AWSS3PresignedURLErrorInvalidBucketNameForAccelerateModeEnabled</span></code></pre>
 
                         </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">presignedURLErrorInvalidBucketNameForAccelerateModeEnabled</span> <span class="o">=</span> <span class="mi">13</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSS3PresignedURLErrorType@AWSS3PresignedURLErrorInvalidAccessStyleForAccelerateModeEnabled"></a>
+                    <a name="//apple_ref/objc/Case/AWSS3PresignedURLErrorInvalidAccessStyleForAccelerateModeEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSS3PresignedURLErrorType@AWSS3PresignedURLErrorInvalidAccessStyleForAccelerateModeEnabled">AWSS3PresignedURLErrorInvalidAccessStyleForAccelerateModeEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSS3PresignedURLErrorInvalidAccessStyleForAccelerateModeEnabled</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">presignedURLErrorInvalidAccessStyleForAccelerateModeEnabled</span> <span class="o">=</span> <span class="mi">14</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1557,7 +1668,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-02-08)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-02-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
