@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -1001,7 +1001,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)invoke:(AWSLambdaInvocationRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaInvocationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <important><p>For asynchronous function invocation, use <a>Invoke</a>.</p></important><p>Invokes a function asynchronously.</p>
+ <important><p>For asynchronous function invocation, use <a>Invoke</a>.</p></important><p>Invokes a function asynchronously.</p><note><p>If you do use the InvokeAsync action, note that it doesn't support the use of X-Ray active tracing. Trace ID is not propagated to the function, even if X-Ray active tracing is turned on.</p></note>
  
  @param request A container for the necessary parameters to execute the InvokeAsync service method.
 
@@ -1013,7 +1013,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask<AWSLambdaInvokeAsyncResponse *> *)invokeAsync:(AWSLambdaInvokeAsyncRequest *)request;
 
 /**
- <important><p>For asynchronous function invocation, use <a>Invoke</a>.</p></important><p>Invokes a function asynchronously.</p>
+ <important><p>For asynchronous function invocation, use <a>Invoke</a>.</p></important><p>Invokes a function asynchronously.</p><note><p>If you do use the InvokeAsync action, note that it doesn't support the use of X-Ray active tracing. Trace ID is not propagated to the function, even if X-Ray active tracing is turned on.</p></note>
  
  @param request A container for the necessary parameters to execute the InvokeAsync service method.
  @param completionHandler The completion handler to call when the load request is complete.
