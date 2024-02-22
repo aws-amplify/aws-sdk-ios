@@ -2,7 +2,22 @@
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSKinesisVideo
+  - AWSFirehose
+  - AWSLambda
+  - AWSDynamoDB
+  - AWSConnectParticipant
+  - AWSSNS
+  - AWSPolly
+  - AWSCognitoIdentityProvider
+  - AWSElasticLoadBalancingv2
+  - AWSEC2
+  - AWSComprehend
+  - AWSAutoScaling
+  - AWSConnect
 
 ## 2.33.10
 
