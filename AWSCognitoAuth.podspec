@@ -19,4 +19,5 @@ Pod::Spec.new do |s|
   s.source_files = 'AWSCognitoAuth/**/*.{h,m,c}'
   s.public_header_files = 'AWSCognitoAuth/*.h'
   s.private_header_files = 'AWSCognitoAuth/Internal/*.h'
+  s.resource_bundle = { 'AWSCognitoAuth' => ['AWSCognitoAuth/PrivacyInfo.xcprivacy']}
 end

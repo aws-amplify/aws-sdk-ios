@@ -17,5 +17,5 @@ Pod::Spec.new do |s|
    s.source_files = 'AWSAuthSDK/Sources/AWSGoogleSignIn/*.{h,m}', 'AWSAuthSDK/Dependencies/GoogleHeaders/*.h'
    s.public_header_files = 'AWSAuthSDK/Sources/AWSGoogleSignIn/*.h'
    s.private_header_files = 'AWSAuthSDK/Dependencies/GoogleHeaders/*.h'
-   s.resource_bundle = {  'AWSGoogleSignIn' => 'AWSAuthSDK/Sources/AWSGoogleSignIn/Images.xcassets' }
+   s.resource_bundle = {  'AWSGoogleSignIn' => ['AWSAuthSDK/Sources/AWSGoogleSignIn/Images.xcassets','AWSAuthSDK/Sources/AWSGoogleSignIn/PrivacyInfo.xcprivacy']  }
  end

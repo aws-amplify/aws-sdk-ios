@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.dependency 'AWSCore', '2.33.10'
 
   s.source_files = 'AWSAPIGateway/*.{h,m}'
+  s.resource_bundle = { 'AWSAPIGateway' => ['AWSAPIGateway/PrivacyInfo.xcprivacy']}
 end

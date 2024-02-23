@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.dependency 'AWSCore', '2.33.10'
   s.source_files = 'AWSIoT/*.{h,m}', 'AWSIoT/**/*.{h,m}'
   s.private_header_files = 'AWSIoT/Internal/*.h'
+  s.resource_bundle = { 'AWSIoT' => ['AWSIoT/PrivacyInfo.xcprivacy']}
 end

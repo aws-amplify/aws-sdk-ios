@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.dependency 'AWSCore', '2.33.10'
   s.source_files = 'AWSElasticLoadBalancing/*.{h,m}'
+  s.resource_bundle = { 'AWSElasticLoadBalancing' => ['AWSElasticLoadBalancing/PrivacyInfo.xcprivacy']}
 end

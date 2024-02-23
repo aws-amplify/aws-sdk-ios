@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.public_header_files = 'AWSCognitoIdentityProviderASF/*.h'
   s.source_files = 'AWSCognitoIdentityProviderASF/**/*.{h,m,c}'
   s.private_header_files = 'AWSCognitoIdentityProviderASF/Internal/*.h'
+  s.resource_bundle = { 'AWSCognitoIdentityProviderASF' => ['AWSCognitoIdentityProviderASF/PrivacyInfo.xcprivacy']}
 end

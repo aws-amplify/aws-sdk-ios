@@ -17,5 +17,5 @@ Pod::Spec.new do |s|
    s.source_files = 'AWSAuthSDK/Sources/AWSAuthUI/*.{h,m}', 'AWSAuthSDK/Sources/AWSAuthUI/**/*.{h,m}', 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/UserPoolsUI/AWSFormTableCell.h', 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/UserPoolsUI/AWSTableInputCell.h', 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/UserPoolsUI/AWSFormTableDelegate.h', 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/UserPoolsUI/AWSUserPoolsUIHelper.h'
    s.public_header_files = 'AWSAuthSDK/Sources/AWSAuthUI/AWSAuthUI.h', 'AWSAuthSDK/Sources/AWSAuthUI/AWSAuthUIViewController.h', 'AWSAuthSDK/Sources/AWSAuthUI/AWSAuthUIConfiguration.h'
    s.private_header_files = 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/UserPoolsUI/AWSFormTableCell.h', 'AWSAuthSDK/Sources/AWSAuthUI/AWSSignInViewController.h', 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/UserPoolsUI/AWSTableInputCell.h', 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/UserPoolsUI/AWSFormTableDelegate.h'
-   s.resource_bundles = { 'AWSAuthUI' => ['AWSAuthSDK/Sources/AWSAuthUI/*.{storyboard}', 'AWSAuthSDK/Sources/AWSAuthUI/Images.xcassets'] }
+   s.resource_bundles = { 'AWSAuthUI' => ['AWSAuthSDK/Sources/AWSAuthUI/*.{storyboard}', 'AWSAuthSDK/Sources/AWSAuthUI/Images.xcassets', 'AWSAuthSDK/Sources/AWSAuthUI/PrivacyInfo.xcprivacy'] }
  end
