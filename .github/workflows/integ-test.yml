@@ -6,7 +6,7 @@ on:
       identifier:
         required: true
         type: string
-  pull_request:
+  pull_request_target:
     branches:
       - main
 
@@ -67,6 +67,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
         with:
+          ref: ${{ github.event.pull_request.head.sha || github.ref_name }}
           persist-credentials: false
 
       - name: Configure AWS Credentials
