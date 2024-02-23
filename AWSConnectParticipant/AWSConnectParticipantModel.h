@@ -531,7 +531,7 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 @property (nonatomic, strong) NSString * _Nullable content;
 
 /**
- <p>The content type of the request. Supported types are:</p><ul><li><p>application/vnd.amazonaws.connect.event.typing</p></li><li><p>application/vnd.amazonaws.connect.event.connection.acknowledged</p></li><li><p>application/vnd.amazonaws.connect.event.message.delivered</p></li><li><p>application/vnd.amazonaws.connect.event.message.read</p></li></ul>
+ <p>The content type of the request. Supported types are:</p><ul><li><p>application/vnd.amazonaws.connect.event.typing</p></li><li><p>application/vnd.amazonaws.connect.event.connection.acknowledged (will be deprecated on December 31, 2024) </p></li><li><p>application/vnd.amazonaws.connect.event.message.delivered</p></li><li><p>application/vnd.amazonaws.connect.event.message.read</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
 
