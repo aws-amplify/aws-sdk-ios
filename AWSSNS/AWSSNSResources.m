@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -121,7 +121,8 @@
         {\"shape\":\"NotFoundException\"},\
         {\"shape\":\"InternalErrorException\"},\
         {\"shape\":\"AuthorizationErrorException\"},\
-        {\"shape\":\"FilterPolicyLimitExceededException\"}\
+        {\"shape\":\"FilterPolicyLimitExceededException\"},\
+        {\"shape\":\"ReplayLimitExceededException\"}\
       ],\
       \"documentation\":\"<p>Verifies an endpoint owner's intent to receive messages by validating the token sent to the endpoint by an earlier <code>Subscribe</code> action. If the token is valid, the action creates a new subscription and returns its Amazon Resource Name (ARN). This call requires an AWS signature only when the <code>AuthenticateOnUnsubscribe</code> flag is set to \\\"true\\\".</p>\"\
     },\
@@ -141,7 +142,7 @@
         {\"shape\":\"InternalErrorException\"},\
         {\"shape\":\"AuthorizationErrorException\"}\
       ],\
-      \"documentation\":\"<p>Creates a platform application object for one of the supported push notification services, such as APNS and GCM (Firebase Cloud Messaging), to which devices and mobile apps may register. You must specify <code>PlatformPrincipal</code> and <code>PlatformCredential</code> attributes when using the <code>CreatePlatformApplication</code> action.</p> <p> <code>PlatformPrincipal</code> and <code>PlatformCredential</code> are received from the notification service.</p> <ul> <li> <p>For <code>ADM</code>, <code>PlatformPrincipal</code> is <code>client id</code> and <code>PlatformCredential</code> is <code>client secret</code>.</p> </li> <li> <p>For <code>Baidu</code>, <code>PlatformPrincipal</code> is <code>API key</code> and <code>PlatformCredential</code> is <code>secret key</code>.</p> </li> <li> <p>For <code>APNS</code> and <code>APNS_SANDBOX</code> using certificate credentials, <code>PlatformPrincipal</code> is <code>SSL certificate</code> and <code>PlatformCredential</code> is <code>private key</code>.</p> </li> <li> <p>For <code>APNS</code> and <code>APNS_SANDBOX</code> using token credentials, <code>PlatformPrincipal</code> is <code>signing key ID</code> and <code>PlatformCredential</code> is <code>signing key</code>.</p> </li> <li> <p>For <code>GCM</code> (Firebase Cloud Messaging), there is no <code>PlatformPrincipal</code> and the <code>PlatformCredential</code> is <code>API key</code>.</p> </li> <li> <p>For <code>MPNS</code>, <code>PlatformPrincipal</code> is <code>TLS certificate</code> and <code>PlatformCredential</code> is <code>private key</code>.</p> </li> <li> <p>For <code>WNS</code>, <code>PlatformPrincipal</code> is <code>Package Security Identifier</code> and <code>PlatformCredential</code> is <code>secret key</code>.</p> </li> </ul> <p>You can use the returned <code>PlatformApplicationArn</code> as an attribute for the <code>CreatePlatformEndpoint</code> action.</p>\"\
+      \"documentation\":\"<p>Creates a platform application object for one of the supported push notification services, such as APNS and GCM (Firebase Cloud Messaging), to which devices and mobile apps may register. You must specify <code>PlatformPrincipal</code> and <code>PlatformCredential</code> attributes when using the <code>CreatePlatformApplication</code> action.</p> <p> <code>PlatformPrincipal</code> and <code>PlatformCredential</code> are received from the notification service.</p> <ul> <li> <p>For <code>ADM</code>, <code>PlatformPrincipal</code> is <code>client id</code> and <code>PlatformCredential</code> is <code>client secret</code>.</p> </li> <li> <p>For <code>Baidu</code>, <code>PlatformPrincipal</code> is <code>API key</code> and <code>PlatformCredential</code> is <code>secret key</code>.</p> </li> <li> <p>For <code>APNS</code> and <code>APNS_SANDBOX</code> using certificate credentials, <code>PlatformPrincipal</code> is <code>SSL certificate</code> and <code>PlatformCredential</code> is <code>private key</code>.</p> </li> <li> <p>For <code>APNS</code> and <code>APNS_SANDBOX</code> using token credentials, <code>PlatformPrincipal</code> is <code>signing key ID</code> and <code>PlatformCredential</code> is <code>signing key</code>.</p> </li> <li> <p>For GCM (Firebase Cloud Messaging) using key credentials, there is no <code>PlatformPrincipal</code>. The <code>PlatformCredential</code> is <code>API key</code>.</p> </li> <li> <p>For GCM (Firebase Cloud Messaging) using token credentials, there is no <code>PlatformPrincipal</code>. The <code>PlatformCredential</code> is a JSON formatted private key file. When using the Amazon Web Services CLI, the file must be in string format and special characters must be ignored. To format the file correctly, Amazon SNS recommends using the following command: <code>SERVICE_JSON=`jq @json &lt;&lt;&lt; cat service.json`</code>.</p> </li> <li> <p>For <code>MPNS</code>, <code>PlatformPrincipal</code> is <code>TLS certificate</code> and <code>PlatformCredential</code> is <code>private key</code>.</p> </li> <li> <p>For <code>WNS</code>, <code>PlatformPrincipal</code> is <code>Package Security Identifier</code> and <code>PlatformCredential</code> is <code>secret key</code>.</p> </li> </ul> <p>You can use the returned <code>PlatformApplicationArn</code> as an attribute for the <code>CreatePlatformEndpoint</code> action.</p>\"\
     },\
     \"CreatePlatformEndpoint\":{\
       \"name\":\"CreatePlatformEndpoint\",\
@@ -265,6 +266,7 @@
       \"input\":{\"shape\":\"DeleteTopicInput\"},\
       \"errors\":[\
         {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"InvalidStateException\"},\
         {\"shape\":\"InternalErrorException\"},\
         {\"shape\":\"AuthorizationErrorException\"},\
         {\"shape\":\"NotFoundException\"},\
@@ -753,6 +755,7 @@
       \"errors\":[\
         {\"shape\":\"InvalidParameterException\"},\
         {\"shape\":\"FilterPolicyLimitExceededException\"},\
+        {\"shape\":\"ReplayLimitExceededException\"},\
         {\"shape\":\"InternalErrorException\"},\
         {\"shape\":\"NotFoundException\"},\
         {\"shape\":\"AuthorizationErrorException\"}\
@@ -789,13 +792,14 @@
       \"errors\":[\
         {\"shape\":\"SubscriptionLimitExceededException\"},\
         {\"shape\":\"FilterPolicyLimitExceededException\"},\
+        {\"shape\":\"ReplayLimitExceededException\"},\
         {\"shape\":\"InvalidParameterException\"},\
         {\"shape\":\"InternalErrorException\"},\
         {\"shape\":\"NotFoundException\"},\
         {\"shape\":\"AuthorizationErrorException\"},\
         {\"shape\":\"InvalidSecurityException\"}\
       ],\
-      \"documentation\":\"<p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or if the endpoint and the topic are not in the same Amazon Web Services account, the endpoint owner must run the <code>ConfirmSubscription</code> action to confirm the subscription.</p> <p>You call the <code>ConfirmSubscription</code> action with the token from the subscription response. Confirmation tokens are valid for three days.</p> <p>This action is throttled at 100 transactions per second (TPS).</p>\"\
+      \"documentation\":\"<p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or if the endpoint and the topic are not in the same Amazon Web Services account, the endpoint owner must run the <code>ConfirmSubscription</code> action to confirm the subscription.</p> <p>You call the <code>ConfirmSubscription</code> action with the token from the subscription response. Confirmation tokens are valid for two days.</p> <p>This action is throttled at 100 transactions per second (TPS).</p>\"\
     },\
     \"TagResource\":{\
       \"name\":\"TagResource\",\
@@ -1081,7 +1085,7 @@
         },\
         \"Attributes\":{\
           \"shape\":\"MapStringToString\",\
-          \"documentation\":\"<p>For a list of attributes, see <a href=\\\"https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html\\\">SetPlatformApplicationAttributes</a>.</p>\"\
+          \"documentation\":\"<p>For a list of attributes, see <a href=\\\"https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html\\\"> <code>SetPlatformApplicationAttributes</code> </a>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Input for CreatePlatformApplication action.</p>\"\
@@ -1091,7 +1095,7 @@
       \"members\":{\
         \"PlatformApplicationArn\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>PlatformApplicationArn is returned.</p>\"\
+          \"documentation\":\"<p> <code>PlatformApplicationArn</code> is returned.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Response from CreatePlatformApplication action.</p>\"\
@@ -1105,7 +1109,7 @@
       \"members\":{\
         \"PlatformApplicationArn\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>PlatformApplicationArn returned from CreatePlatformApplication is used to create a an endpoint.</p>\"\
+          \"documentation\":\"<p> <code>PlatformApplicationArn</code> returned from CreatePlatformApplication is used to create a an endpoint.</p>\"\
         },\
         \"Token\":{\
           \"shape\":\"String\",\
@@ -1117,7 +1121,7 @@
         },\
         \"Attributes\":{\
           \"shape\":\"MapStringToString\",\
-          \"documentation\":\"<p>For a list of attributes, see <a href=\\\"https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html\\\">SetEndpointAttributes</a>.</p>\"\
+          \"documentation\":\"<p>For a list of attributes, see <a href=\\\"https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html\\\"> <code>SetEndpointAttributes</code> </a>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Input for CreatePlatformEndpoint action.</p>\"\
@@ -1151,7 +1155,7 @@
         },\
         \"Attributes\":{\
           \"shape\":\"TopicAttributesMap\",\
-          \"documentation\":\"<p>A map of attributes with their corresponding values.</p> <p>The following lists the names, descriptions, and values of the special request parameters that the <code>CreateTopic</code> action uses:</p> <ul> <li> <p> <code>DeliveryPolicy</code> â The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p> </li> <li> <p> <code>DisplayName</code> â The display name to use for a topic with SMS subscriptions.</p> </li> <li> <p> <code>FifoTopic</code> â Set to true to create a FIFO topic.</p> </li> <li> <p> <code>Policy</code> â The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.</p> </li> <li> <p> <code>SignatureVersion</code> â The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, <code>SignatureVersion</code> is set to <code>1</code>.</p> </li> <li> <p> <code>TracingConfig</code> â Tracing mode of an Amazon SNS topic. By default <code>TracingConfig</code> is set to <code>PassThrough</code>, and the topic passes through the tracing header it receives from an Amazon SNS publisher to its subscriptions. If set to <code>Active</code>, Amazon SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. This is only supported on standard topics.</p> </li> </ul> <p>The following attribute applies only to <a href=\\\"https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html\\\">server-side encryption</a>:</p> <ul> <li> <p> <code>KmsMasterKeyId</code> â The ID of an Amazon Web Services managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href=\\\"https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms\\\">Key Terms</a>. For more examples, see <a href=\\\"https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters\\\">KeyId</a> in the <i>Key Management Service API Reference</i>. </p> </li> </ul> <p>The following attributes apply only to <a href=\\\"https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html\\\">FIFO topics</a>:</p> <ul> <li> <p> <code>FifoTopic</code> â When this is set to <code>true</code>, a FIFO topic is created.</p> </li> <li> <p> <code>ContentBasedDeduplication</code> â Enables content-based deduplication for FIFO topics.</p> <ul> <li> <p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>. If you create a FIFO topic and this attribute is <code>false</code>, you must specify a value for the <code>MessageDeduplicationId</code> parameter for the <a href=\\\"https://docs.aws.amazon.com/sns/latest/api/API_Publish.html\\\">Publish</a> action. </p> </li> <li> <p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p> <p>(Optional) To override the generated value, you can specify a value for the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code> action.</p> </li> </ul> </li> </ul>\"\
+          \"documentation\":\"<p>A map of attributes with their corresponding values.</p> <p>The following lists the names, descriptions, and values of the special request parameters that the <code>CreateTopic</code> action uses:</p> <ul> <li> <p> <code>DeliveryPolicy</code> â The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p> </li> <li> <p> <code>DisplayName</code> â The display name to use for a topic with SMS subscriptions.</p> </li> <li> <p> <code>FifoTopic</code> â Set to true to create a FIFO topic.</p> </li> <li> <p> <code>Policy</code> â The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.</p> </li> <li> <p> <code>SignatureVersion</code> â The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, <code>SignatureVersion</code> is set to <code>1</code>.</p> </li> <li> <p> <code>TracingConfig</code> â Tracing mode of an Amazon SNS topic. By default <code>TracingConfig</code> is set to <code>PassThrough</code>, and the topic passes through the tracing header it receives from an Amazon SNS publisher to its subscriptions. If set to <code>Active</code>, Amazon SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. This is only supported on standard topics.</p> </li> </ul> <p>The following attribute applies only to <a href=\\\"https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html\\\">server-side encryption</a>:</p> <ul> <li> <p> <code>KmsMasterKeyId</code> â The ID of an Amazon Web Services managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href=\\\"https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms\\\">Key Terms</a>. For more examples, see <a href=\\\"https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters\\\">KeyId</a> in the <i>Key Management Service API Reference</i>. </p> </li> </ul> <p>The following attributes apply only to <a href=\\\"https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html\\\">FIFO topics</a>:</p> <ul> <li> <p> <code>ArchivePolicy</code> â Adds or updates an inline policy document to archive messages stored in the specified Amazon SNS topic.</p> </li> <li> <p> <code>BeginningArchiveTime</code> â The earliest starting point at which a message in the topicâs archive can be replayed from. This point in time is based on the configured message retention period set by the topicâs message archiving policy.</p> </li> <li> <p> <code>ContentBasedDeduplication</code> â Enables content-based deduplication for FIFO topics.</p> <ul> <li> <p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>. If you create a FIFO topic and this attribute is <code>false</code>, you must specify a value for the <code>MessageDeduplicationId</code> parameter for the <a href=\\\"https://docs.aws.amazon.com/sns/latest/api/API_Publish.html\\\">Publish</a> action. </p> </li> <li> <p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p> <p>(Optional) To override the generated value, you can specify a value for the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code> action.</p> </li> </ul> </li> </ul>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagList\",\
@@ -1184,10 +1188,10 @@
       \"members\":{\
         \"EndpointArn\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>EndpointArn of endpoint to delete.</p>\"\
+          \"documentation\":\"<p> <code>EndpointArn</code> of endpoint to delete.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Input for DeleteEndpoint action.</p>\"\
+      \"documentation\":\"<p>Input for <code>DeleteEndpoint</code> action.</p>\"\
     },\
     \"DeletePlatformApplicationInput\":{\
       \"type\":\"structure\",\
@@ -1195,10 +1199,10 @@
       \"members\":{\
         \"PlatformApplicationArn\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>PlatformApplicationArn of platform application object to delete.</p>\"\
+          \"documentation\":\"<p> <code>PlatformApplicationArn</code> of platform application object to delete.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Input for DeletePlatformApplication action.</p>\"\
+      \"documentation\":\"<p>Input for <code>DeletePlatformApplication</code> action.</p>\"\
     },\
     \"DeleteSMSSandboxPhoneNumberInput\":{\
       \"type\":\"structure\",\
@@ -1306,10 +1310,10 @@
       \"members\":{\
         \"EndpointArn\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>EndpointArn for GetEndpointAttributes input.</p>\"\
+          \"documentation\":\"<p> <code>EndpointArn</code> for <code>GetEndpointAttributes</code> input.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Input for GetEndpointAttributes action.</p>\"\
+      \"documentation\":\"<p>Input for <code>GetEndpointAttributes</code> action.</p>\"\
     },\
     \"GetEndpointAttributesResponse\":{\
       \"type\":\"structure\",\
@@ -1319,7 +1323,7 @@
           \"documentation\":\"<p>Attributes include the following:</p> <ul> <li> <p> <code>CustomUserData</code> â arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.</p> </li> <li> <p> <code>Enabled</code> â flag that enables/disables delivery to the endpoint. Amazon SNS will set this to false when a notification service indicates to Amazon SNS that the endpoint is invalid. Users can set it back to true, typically after updating Token.</p> </li> <li> <p> <code>Token</code> â device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.</p> <note> <p>The device token for the iOS platform is returned in lowercase.</p> </note> </li> </ul>\"\
         }\
       },\
-      \"documentation\":\"<p>Response from GetEndpointAttributes of the EndpointArn.</p>\"\
+      \"documentation\":\"<p>Response from <code>GetEndpointAttributes</code> of the <code>EndpointArn</code>.</p>\"\
     },\
     \"GetPlatformApplicationAttributesInput\":{\
       \"type\":\"structure\",\
@@ -1327,20 +1331,20 @@
       \"members\":{\
         \"PlatformApplicationArn\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>PlatformApplicationArn for GetPlatformApplicationAttributesInput.</p>\"\
+          \"documentation\":\"<p> <code>PlatformApplicationArn</code> for GetPlatformApplicationAttributesInput.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Input for GetPlatformApplicationAttributes action.</p>\"\
+      \"documentation\":\"<p>Input for <code>GetPlatformApplicationAttributes</code> action.</p>\"\
     },\
     \"GetPlatformApplicationAttributesResponse\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"Attributes\":{\
           \"shape\":\"MapStringToString\",\
-          \"documentation\":\"<p>Attributes include the following:</p> <ul> <li> <p> <code>AppleCertificateExpiryDate</code> â The expiry date of the SSL certificate used to configure certificate-based authentication.</p> </li> <li> <p> <code>ApplePlatformTeamID</code> â The Apple developer account ID used to configure token-based authentication.</p> </li> <li> <p> <code>ApplePlatformBundleID</code> â The app identifier used to configure token-based authentication.</p> </li> <li> <p> <code>EventEndpointCreated</code> â Topic ARN to which EndpointCreated event notifications should be sent.</p> </li> <li> <p> <code>EventEndpointDeleted</code> â Topic ARN to which EndpointDeleted event notifications should be sent.</p> </li> <li> <p> <code>EventEndpointUpdated</code> â Topic ARN to which EndpointUpdate event notifications should be sent.</p> </li> <li> <p> <code>EventDeliveryFailure</code> â Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.</p> </li> </ul>\"\
+          \"documentation\":\"<p>Attributes include the following:</p> <ul> <li> <p> <code>AppleCertificateExpiryDate</code> â The expiry date of the SSL certificate used to configure certificate-based authentication.</p> </li> <li> <p> <code>ApplePlatformTeamID</code> â The Apple developer account ID used to configure token-based authentication.</p> </li> <li> <p> <code>ApplePlatformBundleID</code> â The app identifier used to configure token-based authentication.</p> </li> <li> <p> <code>AuthenticationMethod</code> â Returns the credential type used when sending push notifications from application to APNS/APNS_Sandbox, or application to GCM.</p> <ul> <li> <p>APNS â Returns the token or certificate.</p> </li> <li> <p>GCM â Returns the token or key.</p> </li> </ul> </li> <li> <p> <code>EventEndpointCreated</code> â Topic ARN to which EndpointCreated event notifications should be sent.</p> </li> <li> <p> <code>EventEndpointDeleted</code> â Topic ARN to which EndpointDeleted event notifications should be sent.</p> </li> <li> <p> <code>EventEndpointUpdated</code> â Topic ARN to which EndpointUpdate event notifications should be sent.</p> </li> <li> <p> <code>EventDeliveryFailure</code> â Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.</p> </li> </ul>\"\
         }\
       },\
-      \"documentation\":\"<p>Response for GetPlatformApplicationAttributes action.</p>\"\
+      \"documentation\":\"<p>Response for <code>GetPlatformApplicationAttributes</code> action.</p>\"\
     },\
     \"GetSMSAttributesInput\":{\
       \"type\":\"structure\",\
@@ -1487,6 +1491,19 @@
       },\
       \"exception\":true\
     },\
+    \"InvalidStateException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"string\"}\
+      },\
+      \"documentation\":\"<p>Indicates that the specified state is not a valid state for an event source.</p>\",\
+      \"error\":{\
+        \"code\":\"InvalidState\",\
+        \"httpStatusCode\":400,\
+        \"senderFault\":true\
+      },\
+      \"exception\":true\
+    },\
     \"Iso2CountryCode\":{\
       \"type\":\"string\",\
       \"documentation\":\"The two-character code, in ISO 3166-1 alpha-2 format, for the country or region. For example, GB or US.\",\
@@ -1511,7 +1528,7 @@
       \"members\":{\
         \"message\":{\"shape\":\"string\"}\
       },\
-      \"documentation\":\"<p>The request was rejected because the specified customer master key (CMK) isn't enabled.</p>\",\
+      \"documentation\":\"<p>The request was rejected because the specified Amazon Web Services KMS key isn't enabled.</p>\",\
       \"error\":{\
         \"code\":\"KMSDisabled\",\
         \"httpStatusCode\":400,\
@@ -1524,7 +1541,7 @@
       \"members\":{\
         \"message\":{\"shape\":\"string\"}\
       },\
-      \"documentation\":\"<p>The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <a href=\\\"https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html\\\">How Key State Affects Use of a Customer Master Key</a> in the <i>Key Management Service Developer Guide</i>.</p>\",\
+      \"documentation\":\"<p>The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <a href=\\\"https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html\\\">Key states of Amazon Web Services KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>\",\
       \"error\":{\
         \"code\":\"KMSInvalidState\",\
         \"httpStatusCode\":400,\
@@ -1596,28 +1613,28 @@
       \"members\":{\
         \"PlatformApplicationArn\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.</p>\"\
+          \"documentation\":\"<p> <code>PlatformApplicationArn</code> for <code>ListEndpointsByPlatformApplicationInput</code> action.</p>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>NextToken string is used when calling ListEndpointsByPlatformApplication action to retrieve additional records that are available after the first page results.</p>\"\
+          \"documentation\":\"<p> <code>NextToken</code> string is used when calling <code>ListEndpointsByPlatformApplication</code> action to retrieve additional records that are available after the first page results.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Input for ListEndpointsByPlatformApplication action.</p>\"\
+      \"documentation\":\"<p>Input for <code>ListEndpointsByPlatformApplication</code> action.</p>\"\
     },\
     \"ListEndpointsByPlatformApplicationResponse\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"Endpoints\":{\
           \"shape\":\"ListOfEndpoints\",\
-          \"documentation\":\"<p>Endpoints returned for ListEndpointsByPlatformApplication action.</p>\"\
+          \"documentation\":\"<p>Endpoints returned for <code>ListEndpointsByPlatformApplication</code> action.</p>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>NextToken string is returned when calling ListEndpointsByPlatformApplication action if additional records are available after the first page results.</p>\"\
+          \"documentation\":\"<p> <code>NextToken</code> string is returned when calling <code>ListEndpointsByPlatformApplication</code> action if additional records are available after the first page results.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Response for ListEndpointsByPlatformApplication action.</p>\"\
+      \"documentation\":\"<p>Response for <code>ListEndpointsByPlatformApplication</code> action.</p>\"\
     },\
     \"ListOfEndpoints\":{\
       \"type\":\"list\",\
@@ -1682,24 +1699,24 @@
       \"members\":{\
         \"NextToken\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>NextToken string is used when calling ListPlatformApplications action to retrieve additional records that are available after the first page results.</p>\"\
+          \"documentation\":\"<p> <code>NextToken</code> string is used when calling <code>ListPlatformApplications</code> action to retrieve additional records that are available after the first page results.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Input for ListPlatformApplications action.</p>\"\
+      \"documentation\":\"<p>Input for <code>ListPlatformApplications</code> action.</p>\"\
     },\
     \"ListPlatformApplicationsResponse\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"PlatformApplications\":{\
           \"shape\":\"ListOfPlatformApplications\",\
-          \"documentation\":\"<p>Platform applications returned when calling ListPlatformApplications action.</p>\"\
+          \"documentation\":\"<p>Platform applications returned when calling <code>ListPlatformApplications</code> action.</p>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>NextToken string is returned when calling ListPlatformApplications action if additional records are available after the first page results.</p>\"\
+          \"documentation\":\"<p> <code>NextToken</code> string is returned when calling <code>ListPlatformApplications</code> action if additional records are available after the first page results.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Response for ListPlatformApplications action.</p>\"\
+      \"documentation\":\"<p>Response for <code>ListPlatformApplications</code> action.</p>\"\
     },\
     \"ListSMSSandboxPhoneNumbersInput\":{\
       \"type\":\"structure\",\
@@ -1936,7 +1953,10 @@
       },\
       \"exception\":true\
     },\
-    \"PhoneNumber\":{\"type\":\"string\"},\
+    \"PhoneNumber\":{\
+      \"type\":\"string\",\
+      \"sensitive\":true\
+    },\
     \"PhoneNumberInformation\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -1945,7 +1965,7 @@
           \"documentation\":\"<p>The date and time when the phone number was created.</p>\"\
         },\
         \"PhoneNumber\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"PhoneNumber\",\
           \"documentation\":\"<p>The phone number.</p>\"\
         },\
         \"Status\":{\
@@ -1979,7 +1999,8 @@
     \"PhoneNumberString\":{\
       \"type\":\"string\",\
       \"max\":20,\
-      \"pattern\":\"^(\\\\+[0-9]{8,}|[0-9]{0,9})$\"\
+      \"pattern\":\"^(\\\\+[0-9]{8,}|[0-9]{0,9})$\",\
+      \"sensitive\":true\
     },\
     \"PlatformApplication\":{\
       \"type\":\"structure\",\
@@ -2118,7 +2139,7 @@
           \"documentation\":\"<p>If you don't specify a value for the <code>TargetArn</code> parameter, you must specify a value for the <code>PhoneNumber</code> or <code>TopicArn</code> parameters.</p>\"\
         },\
         \"PhoneNumber\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"PhoneNumber\",\
           \"documentation\":\"<p>The phone number to which you want to deliver an SMS message. Use E.164 format.</p> <p>If you don't specify a value for the <code>PhoneNumber</code> parameter, you must specify a value for the <code>TargetArn</code> or <code>TopicArn</code> parameters.</p>\"\
         },\
         \"Message\":{\
@@ -2197,6 +2218,19 @@
       },\
       \"documentation\":\"<p>Input for RemovePermission action.</p>\"\
     },\
+    \"ReplayLimitExceededException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"string\"}\
+      },\
+      \"documentation\":\"<p>Indicates that the request parameter has exceeded the maximum number of concurrent message replays.</p>\",\
+      \"error\":{\
+        \"code\":\"ReplayLimitExceeded\",\
+        \"httpStatusCode\":403,\
+        \"senderFault\":true\
+      },\
+      \"exception\":true\
+    },\
     \"ResourceNotFoundException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -2254,14 +2288,14 @@
       \"members\":{\
         \"EndpointArn\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>EndpointArn used for SetEndpointAttributes action.</p>\"\
+          \"documentation\":\"<p>EndpointArn used for <code>SetEndpointAttributes</code> action.</p>\"\
         },\
         \"Attributes\":{\
           \"shape\":\"MapStringToString\",\
           \"documentation\":\"<p>A map of the endpoint attributes. Attributes in this map include the following:</p> <ul> <li> <p> <code>CustomUserData</code> â arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.</p> </li> <li> <p> <code>Enabled</code> â flag that enables/disables delivery to the endpoint. Amazon SNS will set this to false when a notification service indicates to Amazon SNS that the endpoint is invalid. Users can set it back to true, typically after updating Token.</p> </li> <li> <p> <code>Token</code> â device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.</p> </li> </ul>\"\
         }\
       },\
-      \"documentation\":\"<p>Input for SetEndpointAttributes action.</p>\"\
+      \"documentation\":\"<p>Input for <code>SetEndpointAttributes</code> action.</p>\"\
     },\
     \"SetPlatformApplicationAttributesInput\":{\
       \"type\":\"structure\",\
@@ -2272,14 +2306,14 @@
       \"members\":{\
         \"PlatformApplicationArn\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>PlatformApplicationArn for SetPlatformApplicationAttributes action.</p>\"\
+          \"documentation\":\"<p> <code>PlatformApplicationArn</code> for <code>SetPlatformApplicationAttributes</code> action.</p>\"\
         },\
         \"Attributes\":{\
           \"shape\":\"MapStringToString\",\
-          \"documentation\":\"<p>A map of the platform application attributes. Attributes in this map include the following:</p> <ul> <li> <p> <code>PlatformCredential</code> â The credential received from the notification service.</p> <ul> <li> <p>For ADM, <code>PlatformCredential</code>is client secret.</p> </li> <li> <p>For Apple Services using certificate credentials, <code>PlatformCredential</code> is private key.</p> </li> <li> <p>For Apple Services using token credentials, <code>PlatformCredential</code> is signing key.</p> </li> <li> <p>For GCM (Firebase Cloud Messaging), <code>PlatformCredential</code> is API key. </p> </li> </ul> </li> </ul> <ul> <li> <p> <code>PlatformPrincipal</code> â The principal received from the notification service.</p> <ul> <li> <p>For ADM, <code>PlatformPrincipal</code>is client id.</p> </li> <li> <p>For Apple Services using certificate credentials, <code>PlatformPrincipal</code> is SSL certificate.</p> </li> <li> <p>For Apple Services using token credentials, <code>PlatformPrincipal</code> is signing key ID.</p> </li> <li> <p>For GCM (Firebase Cloud Messaging), there is no <code>PlatformPrincipal</code>. </p> </li> </ul> </li> </ul> <ul> <li> <p> <code>EventEndpointCreated</code> â Topic ARN to which <code>EndpointCreated</code> event notifications are sent.</p> </li> <li> <p> <code>EventEndpointDeleted</code> â Topic ARN to which <code>EndpointDeleted</code> event notifications are sent.</p> </li> <li> <p> <code>EventEndpointUpdated</code> â Topic ARN to which <code>EndpointUpdate</code> event notifications are sent.</p> </li> <li> <p> <code>EventDeliveryFailure</code> â Topic ARN to which <code>DeliveryFailure</code> event notifications are sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.</p> </li> <li> <p> <code>SuccessFeedbackRoleArn</code> â IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.</p> </li> <li> <p> <code>FailureFeedbackRoleArn</code> â IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.</p> </li> <li> <p> <code>SuccessFeedbackSampleRate</code> â Sample rate percentage (0-100) of successfully delivered messages.</p> </li> </ul> <p>The following attributes only apply to <code>APNs</code> token-based authentication:</p> <ul> <li> <p> <code>ApplePlatformTeamID</code> â The identifier that's assigned to your Apple developer account team.</p> </li> <li> <p> <code>ApplePlatformBundleID</code> â The bundle identifier that's assigned to your iOS app.</p> </li> </ul>\"\
+          \"documentation\":\"<p>A map of the platform application attributes. Attributes in this map include the following:</p> <ul> <li> <p> <code>PlatformCredential</code> â The credential received from the notification service.</p> <ul> <li> <p>For ADM, <code>PlatformCredential</code>is client secret.</p> </li> <li> <p>For Apple Services using certificate credentials, <code>PlatformCredential</code> is private key.</p> </li> <li> <p>For Apple Services using token credentials, <code>PlatformCredential</code> is signing key.</p> </li> <li> <p>For GCM (Firebase Cloud Messaging) using key credentials, there is no <code>PlatformPrincipal</code>. The <code>PlatformCredential</code> is <code>API key</code>.</p> </li> <li> <p>For GCM (Firebase Cloud Messaging) using token credentials, there is no <code>PlatformPrincipal</code>. The <code>PlatformCredential</code> is a JSON formatted private key file. When using the Amazon Web Services CLI, the file must be in string format and special characters must be ignored. To format the file correctly, Amazon SNS recommends using the following command: <code>SERVICE_JSON=`jq @json &lt;&lt;&lt; cat service.json`</code>.</p> </li> </ul> </li> </ul> <ul> <li> <p> <code>PlatformPrincipal</code> â The principal received from the notification service.</p> <ul> <li> <p>For ADM, <code>PlatformPrincipal</code>is client id.</p> </li> <li> <p>For Apple Services using certificate credentials, <code>PlatformPrincipal</code> is SSL certificate.</p> </li> <li> <p>For Apple Services using token credentials, <code>PlatformPrincipal</code> is signing key ID.</p> </li> <li> <p>For GCM (Firebase Cloud Messaging), there is no <code>PlatformPrincipal</code>. </p> </li> </ul> </li> </ul> <ul> <li> <p> <code>EventEndpointCreated</code> â Topic ARN to which <code>EndpointCreated</code> event notifications are sent.</p> </li> <li> <p> <code>EventEndpointDeleted</code> â Topic ARN to which <code>EndpointDeleted</code> event notifications are sent.</p> </li> <li> <p> <code>EventEndpointUpdated</code> â Topic ARN to which <code>EndpointUpdate</code> event notifications are sent.</p> </li> <li> <p> <code>EventDeliveryFailure</code> â Topic ARN to which <code>DeliveryFailure</code> event notifications are sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.</p> </li> <li> <p> <code>SuccessFeedbackRoleArn</code> â IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.</p> </li> <li> <p> <code>FailureFeedbackRoleArn</code> â IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.</p> </li> <li> <p> <code>SuccessFeedbackSampleRate</code> â Sample rate percentage (0-100) of successfully delivered messages.</p> </li> </ul> <p>The following attributes only apply to <code>APNs</code> token-based authentication:</p> <ul> <li> <p> <code>ApplePlatformTeamID</code> â The identifier that's assigned to your Apple developer account team.</p> </li> <li> <p> <code>ApplePlatformBundleID</code> â The bundle identifier that's assigned to your iOS app.</p> </li> </ul>\"\
         }\
       },\
-      \"documentation\":\"<p>Input for SetPlatformApplicationAttributes action.</p>\"\
+      \"documentation\":\"<p>Input for <code>SetPlatformApplicationAttributes</code> action.</p>\"\
     },\
     \"SetSMSAttributesInput\":{\
       \"type\":\"structure\",\
@@ -2377,7 +2411,7 @@
         },\
         \"Attributes\":{\
           \"shape\":\"SubscriptionAttributesMap\",\
-          \"documentation\":\"<p>A map of attributes with their corresponding values.</p> <p>The following lists the names, descriptions, and values of the special request parameters that the <code>Subscribe</code> action uses:</p> <ul> <li> <p> <code>DeliveryPolicy</code> â The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p> </li> <li> <p> <code>FilterPolicy</code> â The simple JSON object that lets your subscriber receive only a subset of messages, rather than receiving every message published to the topic.</p> </li> <li> <p> <code>FilterPolicyScope</code> â This attribute lets you choose the filtering scope by using one of the following string value types:</p> <ul> <li> <p> <code>MessageAttributes</code> (default) â The filter is applied on the message attributes.</p> </li> <li> <p> <code>MessageBody</code> â The filter is applied on the message body.</p> </li> </ul> </li> <li> <p> <code>RawMessageDelivery</code> â When set to <code>true</code>, enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints to process JSON formatting, which is otherwise created for Amazon SNS metadata.</p> </li> <li> <p> <code>RedrivePolicy</code> â When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue. Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable) or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held in the dead-letter queue for further analysis or reprocessing.</p> </li> </ul> <p>The following attribute applies only to Amazon Kinesis Data Firehose delivery stream subscriptions:</p> <ul> <li> <p> <code>SubscriptionRoleArn</code> â The ARN of the IAM role that has the following:</p> <ul> <li> <p>Permission to write to the Kinesis Data Firehose delivery stream</p> </li> <li> <p>Amazon SNS listed as a trusted entity</p> </li> </ul> <p>Specifying a valid ARN for this attribute is required for Kinesis Data Firehose delivery stream subscriptions. For more information, see <a href=\\\"https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html\\\">Fanout to Kinesis Data Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p> </li> </ul>\"\
+          \"documentation\":\"<p>A map of attributes with their corresponding values.</p> <p>The following lists the names, descriptions, and values of the special request parameters that the <code>Subscribe</code> action uses:</p> <ul> <li> <p> <code>DeliveryPolicy</code> â The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p> </li> <li> <p> <code>FilterPolicy</code> â The simple JSON object that lets your subscriber receive only a subset of messages, rather than receiving every message published to the topic.</p> </li> <li> <p> <code>FilterPolicyScope</code> â This attribute lets you choose the filtering scope by using one of the following string value types:</p> <ul> <li> <p> <code>MessageAttributes</code> (default) â The filter is applied on the message attributes.</p> </li> <li> <p> <code>MessageBody</code> â The filter is applied on the message body.</p> </li> </ul> </li> <li> <p> <code>RawMessageDelivery</code> â When set to <code>true</code>, enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints to process JSON formatting, which is otherwise created for Amazon SNS metadata.</p> </li> <li> <p> <code>RedrivePolicy</code> â When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue. Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable) or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held in the dead-letter queue for further analysis or reprocessing.</p> </li> </ul> <p>The following attribute applies only to Amazon Kinesis Data Firehose delivery stream subscriptions:</p> <ul> <li> <p> <code>SubscriptionRoleArn</code> â The ARN of the IAM role that has the following:</p> <ul> <li> <p>Permission to write to the Kinesis Data Firehose delivery stream</p> </li> <li> <p>Amazon SNS listed as a trusted entity</p> </li> </ul> <p>Specifying a valid ARN for this attribute is required for Kinesis Data Firehose delivery stream subscriptions. For more information, see <a href=\\\"https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html\\\">Fanout to Kinesis Data Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p> </li> </ul> <p>The following attributes apply only to <a href=\\\"https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html\\\">FIFO topics</a>:</p> <ul> <li> <p> <code>ReplayPolicy</code> â Adds or updates an inline policy document for a subscription to replay messages stored in the specified Amazon SNS topic.</p> </li> <li> <p> <code>ReplayStatus</code> â Retrieves the status of the subscription message replay, which can be one of the following:</p> <ul> <li> <p> <code>Completed</code> â The replay has successfully redelivered all messages, and is now delivering newly published messages. If an ending point was specified in the <code>ReplayPolicy</code> then the subscription will no longer receive newly published messages.</p> </li> <li> <p> <code>In progress</code> â The replay is currently replaying the selected messages.</p> </li> <li> <p> <code>Failed</code> â The replay was unable to complete.</p> </li> <li> <p> <code>Pending</code> â The default state while the replay initiates.</p> </li> </ul> </li> </ul>\"\
         },\
         \"ReturnSubscriptionArn\":{\
           \"shape\":\"boolean\",\

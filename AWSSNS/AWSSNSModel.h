@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -35,6 +35,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
     AWSSNSErrorInvalidParameter,
     AWSSNSErrorInvalidParameterValue,
     AWSSNSErrorInvalidSecurity,
+    AWSSNSErrorInvalidState,
     AWSSNSErrorKMSAccessDenied,
     AWSSNSErrorKMSDisabled,
     AWSSNSErrorKMSInvalidState,
@@ -44,6 +45,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
     AWSSNSErrorNotFound,
     AWSSNSErrorOptedOut,
     AWSSNSErrorPlatformApplicationDisabled,
+    AWSSNSErrorReplayLimitExceeded,
     AWSSNSErrorResourceNotFound,
     AWSSNSErrorStaleTag,
     AWSSNSErrorSubscriptionLimitExceeded,
@@ -321,7 +323,7 @@ typedef NS_ENUM(NSInteger, AWSSNSSMSSandboxPhoneNumberVerificationStatus) {
 
 
 /**
- <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">SetPlatformApplicationAttributes</a>.</p>
+ <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html"><code>SetPlatformApplicationAttributes</code></a>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -344,7 +346,7 @@ typedef NS_ENUM(NSInteger, AWSSNSSMSSandboxPhoneNumberVerificationStatus) {
 
 
 /**
- <p>PlatformApplicationArn is returned.</p>
+ <p><code>PlatformApplicationArn</code> is returned.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable platformApplicationArn;
 
@@ -358,7 +360,7 @@ typedef NS_ENUM(NSInteger, AWSSNSSMSSandboxPhoneNumberVerificationStatus) {
 
 
 /**
- <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html">SetEndpointAttributes</a>.</p>
+ <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html"><code>SetEndpointAttributes</code></a>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -368,7 +370,7 @@ typedef NS_ENUM(NSInteger, AWSSNSSMSSandboxPhoneNumberVerificationStatus) {
 @property (nonatomic, strong) NSString * _Nullable customUserData;
 
 /**
- <p>PlatformApplicationArn returned from CreatePlatformApplication is used to create a an endpoint.</p>
+ <p><code>PlatformApplicationArn</code> returned from CreatePlatformApplication is used to create a an endpoint.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable platformApplicationArn;
 
@@ -413,7 +415,7 @@ typedef NS_ENUM(NSInteger, AWSSNSSMSSandboxPhoneNumberVerificationStatus) {
 
 
 /**
- <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters that the <code>CreateTopic</code> action uses:</p><ul><li><p><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p></li><li><p><code>DisplayName</code> – The display name to use for a topic with SMS subscriptions.</p></li><li><p><code>FifoTopic</code> – Set to true to create a FIFO topic.</p></li><li><p><code>Policy</code> – The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.</p></li><li><p><code>SignatureVersion</code> – The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, <code>SignatureVersion</code> is set to <code>1</code>.</p></li><li><p><code>TracingConfig</code> – Tracing mode of an Amazon SNS topic. By default <code>TracingConfig</code> is set to <code>PassThrough</code>, and the topic passes through the tracing header it receives from an Amazon SNS publisher to its subscriptions. If set to <code>Active</code>, Amazon SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. This is only supported on standard topics.</p></li></ul><p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side encryption</a>:</p><ul><li><p><code>KmsMasterKeyId</code> – The ID of an Amazon Web Services managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API Reference</i>. </p></li></ul><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p><ul><li><p><code>FifoTopic</code> – When this is set to <code>true</code>, a FIFO topic is created.</p></li><li><p><code>ContentBasedDeduplication</code> – Enables content-based deduplication for FIFO topics.</p><ul><li><p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>. If you create a FIFO topic and this attribute is <code>false</code>, you must specify a value for the <code>MessageDeduplicationId</code> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a> action. </p></li><li><p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p><p>(Optional) To override the generated value, you can specify a value for the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code> action.</p></li></ul></li></ul>
+ <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters that the <code>CreateTopic</code> action uses:</p><ul><li><p><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p></li><li><p><code>DisplayName</code> – The display name to use for a topic with SMS subscriptions.</p></li><li><p><code>FifoTopic</code> – Set to true to create a FIFO topic.</p></li><li><p><code>Policy</code> – The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.</p></li><li><p><code>SignatureVersion</code> – The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, <code>SignatureVersion</code> is set to <code>1</code>.</p></li><li><p><code>TracingConfig</code> – Tracing mode of an Amazon SNS topic. By default <code>TracingConfig</code> is set to <code>PassThrough</code>, and the topic passes through the tracing header it receives from an Amazon SNS publisher to its subscriptions. If set to <code>Active</code>, Amazon SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. This is only supported on standard topics.</p></li></ul><p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side encryption</a>:</p><ul><li><p><code>KmsMasterKeyId</code> – The ID of an Amazon Web Services managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API Reference</i>. </p></li></ul><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p><ul><li><p><code>ArchivePolicy</code> – Adds or updates an inline policy document to archive messages stored in the specified Amazon SNS topic.</p></li><li><p><code>BeginningArchiveTime</code> – The earliest starting point at which a message in the topic’s archive can be replayed from. This point in time is based on the configured message retention period set by the topic’s message archiving policy.</p></li><li><p><code>ContentBasedDeduplication</code> – Enables content-based deduplication for FIFO topics.</p><ul><li><p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>. If you create a FIFO topic and this attribute is <code>false</code>, you must specify a value for the <code>MessageDeduplicationId</code> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a> action. </p></li><li><p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p><p>(Optional) To override the generated value, you can specify a value for the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code> action.</p></li></ul></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -448,28 +450,28 @@ typedef NS_ENUM(NSInteger, AWSSNSSMSSandboxPhoneNumberVerificationStatus) {
 @end
 
 /**
- <p>Input for DeleteEndpoint action.</p>
+ <p>Input for <code>DeleteEndpoint</code> action.</p>
  Required parameters: [EndpointArn]
  */
 @interface AWSSNSDeleteEndpointInput : AWSRequest
 
 
 /**
- <p>EndpointArn of endpoint to delete.</p>
+ <p><code>EndpointArn</code> of endpoint to delete.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable endpointArn;
 
 @end
 
 /**
- <p>Input for DeletePlatformApplication action.</p>
+ <p>Input for <code>DeletePlatformApplication</code> action.</p>
  Required parameters: [PlatformApplicationArn]
  */
 @interface AWSSNSDeletePlatformApplicationInput : AWSRequest
 
 
 /**
- <p>PlatformApplicationArn of platform application object to delete.</p>
+ <p><code>PlatformApplicationArn</code> of platform application object to delete.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable platformApplicationArn;
 
@@ -554,21 +556,21 @@ typedef NS_ENUM(NSInteger, AWSSNSSMSSandboxPhoneNumberVerificationStatus) {
 @end
 
 /**
- <p>Input for GetEndpointAttributes action.</p>
+ <p>Input for <code>GetEndpointAttributes</code> action.</p>
  Required parameters: [EndpointArn]
  */
 @interface AWSSNSGetEndpointAttributesInput : AWSRequest
 
 
 /**
- <p>EndpointArn for GetEndpointAttributes input.</p>
+ <p><code>EndpointArn</code> for <code>GetEndpointAttributes</code> input.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable endpointArn;
 
 @end
 
 /**
- <p>Response from GetEndpointAttributes of the EndpointArn.</p>
+ <p>Response from <code>GetEndpointAttributes</code> of the <code>EndpointArn</code>.</p>
  */
 @interface AWSSNSGetEndpointAttributesResponse : AWSModel
 
@@ -581,27 +583,27 @@ typedef NS_ENUM(NSInteger, AWSSNSSMSSandboxPhoneNumberVerificationStatus) {
 @end
 
 /**
- <p>Input for GetPlatformApplicationAttributes action.</p>
+ <p>Input for <code>GetPlatformApplicationAttributes</code> action.</p>
  Required parameters: [PlatformApplicationArn]
  */
 @interface AWSSNSGetPlatformApplicationAttributesInput : AWSRequest
 
 
 /**
- <p>PlatformApplicationArn for GetPlatformApplicationAttributesInput.</p>
+ <p><code>PlatformApplicationArn</code> for GetPlatformApplicationAttributesInput.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable platformApplicationArn;
 
 @end
 
 /**
- <p>Response for GetPlatformApplicationAttributes action.</p>
+ <p>Response for <code>GetPlatformApplicationAttributes</code> action.</p>
  */
 @interface AWSSNSGetPlatformApplicationAttributesResponse : AWSModel
 
 
 /**
- <p>Attributes include the following:</p><ul><li><p><code>AppleCertificateExpiryDate</code> – The expiry date of the SSL certificate used to configure certificate-based authentication.</p></li><li><p><code>ApplePlatformTeamID</code> – The Apple developer account ID used to configure token-based authentication.</p></li><li><p><code>ApplePlatformBundleID</code> – The app identifier used to configure token-based authentication.</p></li><li><p><code>EventEndpointCreated</code> – Topic ARN to which EndpointCreated event notifications should be sent.</p></li><li><p><code>EventEndpointDeleted</code> – Topic ARN to which EndpointDeleted event notifications should be sent.</p></li><li><p><code>EventEndpointUpdated</code> – Topic ARN to which EndpointUpdate event notifications should be sent.</p></li><li><p><code>EventDeliveryFailure</code> – Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.</p></li></ul>
+ <p>Attributes include the following:</p><ul><li><p><code>AppleCertificateExpiryDate</code> – The expiry date of the SSL certificate used to configure certificate-based authentication.</p></li><li><p><code>ApplePlatformTeamID</code> – The Apple developer account ID used to configure token-based authentication.</p></li><li><p><code>ApplePlatformBundleID</code> – The app identifier used to configure token-based authentication.</p></li><li><p><code>AuthenticationMethod</code> – Returns the credential type used when sending push notifications from application to APNS/APNS_Sandbox, or application to GCM.</p><ul><li><p>APNS – Returns the token or certificate.</p></li><li><p>GCM – Returns the token or key.</p></li></ul></li><li><p><code>EventEndpointCreated</code> – Topic ARN to which EndpointCreated event notifications should be sent.</p></li><li><p><code>EventEndpointDeleted</code> – Topic ARN to which EndpointDeleted event notifications should be sent.</p></li><li><p><code>EventEndpointUpdated</code> – Topic ARN to which EndpointUpdate event notifications should be sent.</p></li><li><p><code>EventDeliveryFailure</code> – Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.</p></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -709,37 +711,37 @@ typedef NS_ENUM(NSInteger, AWSSNSSMSSandboxPhoneNumberVerificationStatus) {
 @end
 
 /**
- <p>Input for ListEndpointsByPlatformApplication action.</p>
+ <p>Input for <code>ListEndpointsByPlatformApplication</code> action.</p>
  Required parameters: [PlatformApplicationArn]
  */
 @interface AWSSNSListEndpointsByPlatformApplicationInput : AWSRequest
 
 
 /**
- <p>NextToken string is used when calling ListEndpointsByPlatformApplication action to retrieve additional records that are available after the first page results.</p>
+ <p><code>NextToken</code> string is used when calling <code>ListEndpointsByPlatformApplication</code> action to retrieve additional records that are available after the first page results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.</p>
+ <p><code>PlatformApplicationArn</code> for <code>ListEndpointsByPlatformApplicationInput</code> action.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable platformApplicationArn;
 
 @end
 
 /**
- <p>Response for ListEndpointsByPlatformApplication action.</p>
+ <p>Response for <code>ListEndpointsByPlatformApplication</code> action.</p>
  */
 @interface AWSSNSListEndpointsByPlatformApplicationResponse : AWSModel
 
 
 /**
- <p>Endpoints returned for ListEndpointsByPlatformApplication action.</p>
+ <p>Endpoints returned for <code>ListEndpointsByPlatformApplication</code> action.</p>
  */
 @property (nonatomic, strong) NSArray<AWSSNSEndpoint *> * _Nullable endpoints;
 
 /**
- <p>NextToken string is returned when calling ListEndpointsByPlatformApplication action if additional records are available after the first page results.</p>
+ <p><code>NextToken</code> string is returned when calling <code>ListEndpointsByPlatformApplication</code> action if additional records are available after the first page results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -813,31 +815,31 @@ typedef NS_ENUM(NSInteger, AWSSNSSMSSandboxPhoneNumberVerificationStatus) {
 @end
 
 /**
- <p>Input for ListPlatformApplications action.</p>
+ <p>Input for <code>ListPlatformApplications</code> action.</p>
  */
 @interface AWSSNSListPlatformApplicationsInput : AWSRequest
 
 
 /**
- <p>NextToken string is used when calling ListPlatformApplications action to retrieve additional records that are available after the first page results.</p>
+ <p><code>NextToken</code> string is used when calling <code>ListPlatformApplications</code> action to retrieve additional records that are available after the first page results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
 /**
- <p>Response for ListPlatformApplications action.</p>
+ <p>Response for <code>ListPlatformApplications</code> action.</p>
  */
 @interface AWSSNSListPlatformApplicationsResponse : AWSModel
 
 
 /**
- <p>NextToken string is returned when calling ListPlatformApplications action if additional records are available after the first page results.</p>
+ <p><code>NextToken</code> string is returned when calling <code>ListPlatformApplications</code> action if additional records are available after the first page results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>Platform applications returned when calling ListPlatformApplications action.</p>
+ <p>Platform applications returned when calling <code>ListPlatformApplications</code> action.</p>
  */
 @property (nonatomic, strong) NSArray<AWSSNSPlatformApplication *> * _Nullable platformApplications;
 
@@ -1337,7 +1339,7 @@ typedef NS_ENUM(NSInteger, AWSSNSSMSSandboxPhoneNumberVerificationStatus) {
 @end
 
 /**
- <p>Input for SetEndpointAttributes action.</p>
+ <p>Input for <code>SetEndpointAttributes</code> action.</p>
  Required parameters: [EndpointArn, Attributes]
  */
 @interface AWSSNSSetEndpointAttributesInput : AWSRequest
@@ -1349,26 +1351,26 @@ typedef NS_ENUM(NSInteger, AWSSNSSMSSandboxPhoneNumberVerificationStatus) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
 /**
- <p>EndpointArn used for SetEndpointAttributes action.</p>
+ <p>EndpointArn used for <code>SetEndpointAttributes</code> action.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable endpointArn;
 
 @end
 
 /**
- <p>Input for SetPlatformApplicationAttributes action.</p>
+ <p>Input for <code>SetPlatformApplicationAttributes</code> action.</p>
  Required parameters: [PlatformApplicationArn, Attributes]
  */
 @interface AWSSNSSetPlatformApplicationAttributesInput : AWSRequest
 
 
 /**
- <p>A map of the platform application attributes. Attributes in this map include the following:</p><ul><li><p><code>PlatformCredential</code> – The credential received from the notification service.</p><ul><li><p>For ADM, <code>PlatformCredential</code>is client secret.</p></li><li><p>For Apple Services using certificate credentials, <code>PlatformCredential</code> is private key.</p></li><li><p>For Apple Services using token credentials, <code>PlatformCredential</code> is signing key.</p></li><li><p>For GCM (Firebase Cloud Messaging), <code>PlatformCredential</code> is API key. </p></li></ul></li></ul><ul><li><p><code>PlatformPrincipal</code> – The principal received from the notification service.</p><ul><li><p>For ADM, <code>PlatformPrincipal</code>is client id.</p></li><li><p>For Apple Services using certificate credentials, <code>PlatformPrincipal</code> is SSL certificate.</p></li><li><p>For Apple Services using token credentials, <code>PlatformPrincipal</code> is signing key ID.</p></li><li><p>For GCM (Firebase Cloud Messaging), there is no <code>PlatformPrincipal</code>. </p></li></ul></li></ul><ul><li><p><code>EventEndpointCreated</code> – Topic ARN to which <code>EndpointCreated</code> event notifications are sent.</p></li><li><p><code>EventEndpointDeleted</code> – Topic ARN to which <code>EndpointDeleted</code> event notifications are sent.</p></li><li><p><code>EventEndpointUpdated</code> – Topic ARN to which <code>EndpointUpdate</code> event notifications are sent.</p></li><li><p><code>EventDeliveryFailure</code> – Topic ARN to which <code>DeliveryFailure</code> event notifications are sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.</p></li><li><p><code>SuccessFeedbackRoleArn</code> – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.</p></li><li><p><code>FailureFeedbackRoleArn</code> – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.</p></li><li><p><code>SuccessFeedbackSampleRate</code> – Sample rate percentage (0-100) of successfully delivered messages.</p></li></ul><p>The following attributes only apply to <code>APNs</code> token-based authentication:</p><ul><li><p><code>ApplePlatformTeamID</code> – The identifier that's assigned to your Apple developer account team.</p></li><li><p><code>ApplePlatformBundleID</code> – The bundle identifier that's assigned to your iOS app.</p></li></ul>
+ <p>A map of the platform application attributes. Attributes in this map include the following:</p><ul><li><p><code>PlatformCredential</code> – The credential received from the notification service.</p><ul><li><p>For ADM, <code>PlatformCredential</code>is client secret.</p></li><li><p>For Apple Services using certificate credentials, <code>PlatformCredential</code> is private key.</p></li><li><p>For Apple Services using token credentials, <code>PlatformCredential</code> is signing key.</p></li><li><p>For GCM (Firebase Cloud Messaging) using key credentials, there is no <code>PlatformPrincipal</code>. The <code>PlatformCredential</code> is <code>API key</code>.</p></li><li><p>For GCM (Firebase Cloud Messaging) using token credentials, there is no <code>PlatformPrincipal</code>. The <code>PlatformCredential</code> is a JSON formatted private key file. When using the Amazon Web Services CLI, the file must be in string format and special characters must be ignored. To format the file correctly, Amazon SNS recommends using the following command: <code>SERVICE_JSON=`jq @json &lt;&lt;&lt; cat service.json`</code>.</p></li></ul></li></ul><ul><li><p><code>PlatformPrincipal</code> – The principal received from the notification service.</p><ul><li><p>For ADM, <code>PlatformPrincipal</code>is client id.</p></li><li><p>For Apple Services using certificate credentials, <code>PlatformPrincipal</code> is SSL certificate.</p></li><li><p>For Apple Services using token credentials, <code>PlatformPrincipal</code> is signing key ID.</p></li><li><p>For GCM (Firebase Cloud Messaging), there is no <code>PlatformPrincipal</code>. </p></li></ul></li></ul><ul><li><p><code>EventEndpointCreated</code> – Topic ARN to which <code>EndpointCreated</code> event notifications are sent.</p></li><li><p><code>EventEndpointDeleted</code> – Topic ARN to which <code>EndpointDeleted</code> event notifications are sent.</p></li><li><p><code>EventEndpointUpdated</code> – Topic ARN to which <code>EndpointUpdate</code> event notifications are sent.</p></li><li><p><code>EventDeliveryFailure</code> – Topic ARN to which <code>DeliveryFailure</code> event notifications are sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.</p></li><li><p><code>SuccessFeedbackRoleArn</code> – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.</p></li><li><p><code>FailureFeedbackRoleArn</code> – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.</p></li><li><p><code>SuccessFeedbackSampleRate</code> – Sample rate percentage (0-100) of successfully delivered messages.</p></li></ul><p>The following attributes only apply to <code>APNs</code> token-based authentication:</p><ul><li><p><code>ApplePlatformTeamID</code> – The identifier that's assigned to your Apple developer account team.</p></li><li><p><code>ApplePlatformBundleID</code> – The bundle identifier that's assigned to your iOS app.</p></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
 /**
- <p>PlatformApplicationArn for SetPlatformApplicationAttributes action.</p>
+ <p><code>PlatformApplicationArn</code> for <code>SetPlatformApplicationAttributes</code> action.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable platformApplicationArn;
 
@@ -1452,7 +1454,7 @@ typedef NS_ENUM(NSInteger, AWSSNSSMSSandboxPhoneNumberVerificationStatus) {
 
 
 /**
- <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters that the <code>Subscribe</code> action uses:</p><ul><li><p><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p></li><li><p><code>FilterPolicy</code> – The simple JSON object that lets your subscriber receive only a subset of messages, rather than receiving every message published to the topic.</p></li><li><p><code>FilterPolicyScope</code> – This attribute lets you choose the filtering scope by using one of the following string value types:</p><ul><li><p><code>MessageAttributes</code> (default) – The filter is applied on the message attributes.</p></li><li><p><code>MessageBody</code> – The filter is applied on the message body.</p></li></ul></li><li><p><code>RawMessageDelivery</code> – When set to <code>true</code>, enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints to process JSON formatting, which is otherwise created for Amazon SNS metadata.</p></li><li><p><code>RedrivePolicy</code> – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue. Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable) or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held in the dead-letter queue for further analysis or reprocessing.</p></li></ul><p>The following attribute applies only to Amazon Kinesis Data Firehose delivery stream subscriptions:</p><ul><li><p><code>SubscriptionRoleArn</code> – The ARN of the IAM role that has the following:</p><ul><li><p>Permission to write to the Kinesis Data Firehose delivery stream</p></li><li><p>Amazon SNS listed as a trusted entity</p></li></ul><p>Specifying a valid ARN for this attribute is required for Kinesis Data Firehose delivery stream subscriptions. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout to Kinesis Data Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p></li></ul>
+ <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters that the <code>Subscribe</code> action uses:</p><ul><li><p><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p></li><li><p><code>FilterPolicy</code> – The simple JSON object that lets your subscriber receive only a subset of messages, rather than receiving every message published to the topic.</p></li><li><p><code>FilterPolicyScope</code> – This attribute lets you choose the filtering scope by using one of the following string value types:</p><ul><li><p><code>MessageAttributes</code> (default) – The filter is applied on the message attributes.</p></li><li><p><code>MessageBody</code> – The filter is applied on the message body.</p></li></ul></li><li><p><code>RawMessageDelivery</code> – When set to <code>true</code>, enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints to process JSON formatting, which is otherwise created for Amazon SNS metadata.</p></li><li><p><code>RedrivePolicy</code> – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue. Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable) or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held in the dead-letter queue for further analysis or reprocessing.</p></li></ul><p>The following attribute applies only to Amazon Kinesis Data Firehose delivery stream subscriptions:</p><ul><li><p><code>SubscriptionRoleArn</code> – The ARN of the IAM role that has the following:</p><ul><li><p>Permission to write to the Kinesis Data Firehose delivery stream</p></li><li><p>Amazon SNS listed as a trusted entity</p></li></ul><p>Specifying a valid ARN for this attribute is required for Kinesis Data Firehose delivery stream subscriptions. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout to Kinesis Data Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p></li></ul><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p><ul><li><p><code>ReplayPolicy</code> – Adds or updates an inline policy document for a subscription to replay messages stored in the specified Amazon SNS topic.</p></li><li><p><code>ReplayStatus</code> – Retrieves the status of the subscription message replay, which can be one of the following:</p><ul><li><p><code>Completed</code> – The replay has successfully redelivered all messages, and is now delivering newly published messages. If an ending point was specified in the <code>ReplayPolicy</code> then the subscription will no longer receive newly published messages.</p></li><li><p><code>In progress</code> – The replay is currently replaying the selected messages.</p></li><li><p><code>Failed</code> – The replay was unable to complete.</p></li><li><p><code>Pending</code> – The default state while the replay initiates.</p></li></ul></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
