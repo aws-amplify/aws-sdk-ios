@@ -188,7 +188,7 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
     NSString* trimmedKey = [AWSPinpointStringUtils clipString:theKey
                                                    toMaxChars:AWSPinpointEventMaxAttributeAndMetricKeyLength andAppendEllipses:NO];
     if(trimmedKey.length < theKey.length) {
-        AWSDDLogWarn(@"The %@ key has been trimmed to a length of %0d characters", theType, AWSPinpointEventMaxAttributeAndMetricKeyLength);
+        AWSDDLogWarn(@"The %@ key has been trimmed to a length of %0ld characters", theType, (long)AWSPinpointEventMaxAttributeAndMetricKeyLength);
     }
     
     return trimmedKey;
@@ -198,7 +198,7 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
     NSString* trimmedValue = [AWSPinpointStringUtils clipString:theValue
                                                      toMaxChars:AWSPinpointEventMaxAttributeValueLength andAppendEllipses:NO];
     if(trimmedValue.length < theValue.length) {
-        AWSDDLogWarn( @"The attribute value has been trimmed to a length of %0d characters", AWSPinpointEventMaxAttributeValueLength);
+        AWSDDLogWarn( @"The attribute value has been trimmed to a length of %0ld characters", (long)AWSPinpointEventMaxAttributeValueLength);
     }
     
     return trimmedValue;

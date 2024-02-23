@@ -49,7 +49,6 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidParameterValue" : @(AWSCloudWatchErrorInvalidParameterValue),
                             @"LimitExceeded" : @(AWSCloudWatchErrorLimitExceeded),
                             @"MissingParameter" : @(AWSCloudWatchErrorMissingRequiredParameter),
-                            @"ResourceNotFound" : @(AWSCloudWatchErrorResourceNotFound),
                             };
 }
 
