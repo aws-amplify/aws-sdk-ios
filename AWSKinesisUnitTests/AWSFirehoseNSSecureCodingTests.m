@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -100,6 +100,12 @@
 - (void) test_AWSFirehoseS3DestinationUpdate API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseSchemaConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseSerializer API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseSnowflakeDestinationConfiguration API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseSnowflakeDestinationDescription API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseSnowflakeDestinationUpdate API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseSnowflakeRetryOptions API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseSnowflakeRoleConfiguration API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseSnowflakeVpcConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseSourceDescription API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseSplunkBufferingHints API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseSplunkDestinationConfiguration API_AVAILABLE(ios(11));
@@ -446,6 +452,30 @@
 
 - (void) test_AWSFirehoseSerializer {
     [self validateSecureCodingForClass:[AWSFirehoseSerializer class]];
+}
+
+- (void) test_AWSFirehoseSnowflakeDestinationConfiguration {
+    [self validateSecureCodingForClass:[AWSFirehoseSnowflakeDestinationConfiguration class]];
+}
+
+- (void) test_AWSFirehoseSnowflakeDestinationDescription {
+    [self validateSecureCodingForClass:[AWSFirehoseSnowflakeDestinationDescription class]];
+}
+
+- (void) test_AWSFirehoseSnowflakeDestinationUpdate {
+    [self validateSecureCodingForClass:[AWSFirehoseSnowflakeDestinationUpdate class]];
+}
+
+- (void) test_AWSFirehoseSnowflakeRetryOptions {
+    [self validateSecureCodingForClass:[AWSFirehoseSnowflakeRetryOptions class]];
+}
+
+- (void) test_AWSFirehoseSnowflakeRoleConfiguration {
+    [self validateSecureCodingForClass:[AWSFirehoseSnowflakeRoleConfiguration class]];
+}
+
+- (void) test_AWSFirehoseSnowflakeVpcConfiguration {
+    [self validateSecureCodingForClass:[AWSFirehoseSnowflakeVpcConfiguration class]];
 }
 
 - (void) test_AWSFirehoseSourceDescription {
