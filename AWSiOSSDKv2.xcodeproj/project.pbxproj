@@ -545,6 +545,8 @@
 		2146090E2B88F493002FCE7B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 2146090D2B88F493002FCE7B /* PrivacyInfo.xcprivacy */; };
 		214609102B88F4A2002FCE7B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 2146090F2B88F4A2002FCE7B /* PrivacyInfo.xcprivacy */; };
 		214609122B88F4B0002FCE7B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 214609112B88F4B0002FCE7B /* PrivacyInfo.xcprivacy */; };
+		2146099E2B88FC4F002FCE7B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 2146099D2B88FC4F002FCE7B /* PrivacyInfo.xcprivacy */; };
+		214609A02B88FC95002FCE7B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 2146099F2B88FC95002FCE7B /* PrivacyInfo.xcprivacy */; };
 		21607DE425547FB00012FE96 /* AWSLocationTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21607DE325547FB00012FE96 /* AWSLocationTrackerTests.swift */; };
 		217100032551B09100FAB22F /* TrackingListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217100022551B09100FAB22F /* TrackingListener.swift */; };
 		2171007D2551B0AD00FAB22F /* TrackingPublishedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171007C2551B0AD00FAB22F /* TrackingPublishedEvent.swift */; };
@@ -3176,6 +3178,8 @@
 		2146090D2B88F493002FCE7B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		2146090F2B88F4A2002FCE7B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		214609112B88F4B0002FCE7B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		2146099D2B88FC4F002FCE7B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		2146099F2B88FC95002FCE7B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		21607DE325547FB00012FE96 /* AWSLocationTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSLocationTrackerTests.swift; sourceTree = "<group>"; };
 		21607F4F255480080012FE96 /* AWSLocationUnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSLocationUnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		217100022551B09100FAB22F /* TrackingListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingListener.swift; sourceTree = "<group>"; };
@@ -7670,6 +7674,7 @@
 		EFDE85AE1ED203D9008841EC /* AWSCognitoAuth */ = {
 			isa = PBXGroup;
 			children = (
+				2146099D2B88FC4F002FCE7B /* PrivacyInfo.xcprivacy */,
 				EFDE85AF1ED203D9008841EC /* AWSCognitoAuth.h */,
 				EFDE85B01ED203D9008841EC /* AWSCognitoAuth.m */,
 				EFDE85B11ED203D9008841EC /* Info.plist */,
@@ -7690,6 +7695,7 @@
 		EFDE85B91FC5DC8C00D281A2 /* AWSCognitoIdentityProviderASF */ = {
 			isa = PBXGroup;
 			children = (
+				2146099F2B88FC95002FCE7B /* PrivacyInfo.xcprivacy */,
 				EFDE85FF1FC656F900D281A2 /* Internal */,
 				EFDE85E81FC5E7F000D281A2 /* AWSCognitoIdentityProviderASF.h */,
 				EFDE85FD1FC6535E00D281A2 /* AWSCognitoIdentityProviderASF.m */,
@@ -12221,6 +12227,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				214609A02B88FC95002FCE7B /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -12228,6 +12235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2146099E2B88FC4F002FCE7B /* PrivacyInfo.xcprivacy in Resources */,
 				EF22118A1ED75A0400F432F7 /* LICENSE in Resources */,
 				EF22118B1ED75A0400F432F7 /* README.md in Resources */,
 			);
