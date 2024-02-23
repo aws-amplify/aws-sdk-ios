@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -1308,7 +1308,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendToxicContentType) {
 
 
 /**
- <p>The language of the input documents. Currently, English is the only valid language.</p>
+ <p>The language of the input documents.</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
@@ -2624,7 +2624,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendToxicContentType) {
 
 
 /**
- <p>The language of the input documents. Currently, English is the only valid language.</p>
+ <p>The language of the input text. Enter the language code for English (en) or Spanish (es).</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
@@ -5510,7 +5510,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendToxicContentType) {
 @property (nonatomic, assign) AWSComprehendJobStatus jobStatus;
 
 /**
- <p>The language code of the input documents</p>
+ <p>The language code of the input documents.</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
@@ -6270,7 +6270,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendToxicContentType) {
 @property (nonatomic, strong) NSString * _Nullable jobName;
 
 /**
- <p>The language of the input documents. Currently, English is the only valid language.</p>
+ <p>The language of the input documents. Enter the language code for English (en) or Spanish (es).</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 

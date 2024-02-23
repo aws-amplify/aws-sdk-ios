@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -2135,7 +2135,7 @@
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>The language of the input documents. Currently, English is the only valid language.</p>\"\
+          \"documentation\":\"<p>The language of the input documents.</p>\"\
         }\
       }\
     },\
@@ -3211,7 +3211,7 @@
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>The language of the input documents. Currently, English is the only valid language.</p>\"\
+          \"documentation\":\"<p>The language of the input text. Enter the language code for English (en) or Spanish (es).</p>\"\
         }\
       }\
     },\
@@ -6004,7 +6004,7 @@
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>The language code of the input documents</p>\"\
+          \"documentation\":\"<p>The language code of the input documents.</p>\"\
         },\
         \"DataAccessRoleArn\":{\
           \"shape\":\"IamRoleArn\",\
@@ -6783,7 +6783,7 @@
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>The language of the input documents. Currently, English is the only valid language.</p>\"\
+          \"documentation\":\"<p>The language of the input documents. Enter the language code for English (en) or Spanish (es).</p>\"\
         },\
         \"ClientRequestToken\":{\
           \"shape\":\"ClientRequestTokenString\",\
