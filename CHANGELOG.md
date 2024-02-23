@@ -2,6 +2,58 @@
 
 ## Unreleased
 
+### New features
+
+- Updating the iOS deployment target to 12.0 for the following services:
+  - AWSAPIGateway
+  - AWSAuth
+  - AWSAuthCore
+  - AWSAuthUI
+  - AWSAutoScaling
+  - AWSChimeSDKIdentity
+  - AWSChimeSDKMessaging
+  - AWSCloudWatch
+  - AWSCognitoAuth
+  - AWSCognitoIdentityProvider
+  - AWSCognitoIdentityProviderASF
+  - AWSComprehend
+  - AWSConnect
+  - AWSConnectParticipant
+  - AWSCore
+  - AWSDynamoDB
+  - AWSEC2
+  - AWSElasticLoadBalancing
+  - AWSFacebookSignIn
+  - AWSGoogleSignIn
+  - AWSiOSSDKv2
+  - AWSIoT
+  - AWSKinesis
+  - AWSKinesisVideo
+  - AWSKinesisVideoArchivedMedia
+  - AWSKinesisVideoSignaling
+  - AWSKinesisVideoWebRTCStorage
+  - AWSKMS
+  - AWSLambda
+  - AWSLex
+  - AWSLocation
+  - AWSLogs
+  - AWSMachineLearning
+  - AWSMobileClient
+  - AWSPinpoint
+  - AWSPolly
+  - AWSRekognition
+  - AWSS3
+  - AWSSageMakerRuntime
+  - AWSSES
+  - AWSSimpleDB
+  - AWSSNS
+  - AWSSQS
+  - AWSTextract
+  - AWSTranscribe
+  - AWSTranscribeStreaming
+  - AWSTranslate
+  - AWSUserPoolsSignIn
+
 ### Misc. Updates
 - **AWSIoT**
   - Updating `AWSIoTMQTTConfiguration.keepAliveTimeInterval`'s default value in its attribute comment.
