@@ -127,6 +127,9 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
                             status: (AWSS3TransferUtilityTransferStatusType) status
                        retry_count: (NSUInteger) retryCount
                      databaseQueue: (AWSFMDatabaseQueue *) databaseQueue {
+    if (eTag == nil) {
+        eTag = @"";
+    }
     NSString *const AWSS3TransferUtilityUpdateTransferUtilityStatusAndETag = @"UPDATE awstransfer "
     @"SET status=:status, etag = :etag, session_task_id = :session_task_id, retry_count = :retry_count "
     @"WHERE transfer_id=:transfer_id and "
