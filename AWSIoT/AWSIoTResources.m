@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -1772,7 +1772,7 @@
         {\"shape\":\"UnauthorizedException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Returns a unique endpoint specific to the Amazon Web Services account making the call.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">DescribeEndpoint</a> action.</p>\"\
+      \"documentation\":\"<p>Returns or creates a unique endpoint specific to the Amazon Web Services account making the call.</p> <note> <p>The first time <code>DescribeEndpoint</code> is called, an endpoint is created. All subsequent calls to <code>DescribeEndpoint</code> return the same endpoint.</p> </note> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">DescribeEndpoint</a> action.</p>\"\
     },\
     \"DescribeEventConfigurations\":{\
       \"name\":\"DescribeEventConfigurations\",\
@@ -2440,7 +2440,7 @@
         {\"shape\":\"InternalFailureException\"},\
         {\"shape\":\"InvalidRequestException\"}\
       ],\
-      \"documentation\":\"<p>Gets a registration code used to register a CA certificate with IoT.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">GetRegistrationCode</a> action.</p>\"\
+      \"documentation\":\"<p>Gets a registration code used to register a CA certificate with IoT.</p> <p>IoT will create a registration code as part of this API call if the registration code doesn't exist or has been deleted. If you already have a registration code, this API call will return the same registration code.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">GetRegistrationCode</a> action.</p>\"\
     },\
     \"GetStatistics\":{\
       \"name\":\"GetStatistics\",\
@@ -4212,6 +4212,7 @@
       \"output\":{\"shape\":\"UpdatePackageResponse\"},\
       \"errors\":[\
         {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ConflictException\"},\
         {\"shape\":\"InternalServerException\"},\
         {\"shape\":\"ValidationException\"},\
         {\"shape\":\"ResourceNotFoundException\"}\
@@ -4230,6 +4231,7 @@
       \"output\":{\"shape\":\"UpdatePackageConfigurationResponse\"},\
       \"errors\":[\
         {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ConflictException\"},\
         {\"shape\":\"InternalServerException\"},\
         {\"shape\":\"ValidationException\"}\
       ],\
@@ -4247,6 +4249,7 @@
       \"output\":{\"shape\":\"UpdatePackageVersionResponse\"},\
       \"errors\":[\
         {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ConflictException\"},\
         {\"shape\":\"InternalServerException\"},\
         {\"shape\":\"ValidationException\"},\
         {\"shape\":\"ResourceNotFoundException\"}\
@@ -7066,6 +7069,10 @@
         \"tlsConfig\":{\
           \"shape\":\"TlsConfig\",\
           \"documentation\":\"<p>An object that specifies the TLS configuration for a domain.</p>\"\
+        },\
+        \"serverCertificateConfig\":{\
+          \"shape\":\"ServerCertificateConfig\",\
+          \"documentation\":\"<p>The server certificate configuration.</p>\"\
         }\
       }\
     },\
@@ -7288,7 +7295,7 @@
         },\
         \"destinationPackageVersions\":{\
           \"shape\":\"DestinationPackageVersions\",\
-          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>\"\
+          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\\\">Package version lifecycle</a>. </p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>\"\
         }\
       }\
     },\
@@ -7356,7 +7363,7 @@
         },\
         \"destinationPackageVersions\":{\
           \"shape\":\"DestinationPackageVersions\",\
-          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>\"\
+          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\\\">Package version lifecycle</a>.</p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>\"\
         }\
       }\
     },\
@@ -9541,6 +9548,10 @@
         \"tlsConfig\":{\
           \"shape\":\"TlsConfig\",\
           \"documentation\":\"<p>An object that specifies the TLS configuration for a domain.</p>\"\
+        },\
+        \"serverCertificateConfig\":{\
+          \"shape\":\"ServerCertificateConfig\",\
+          \"documentation\":\"<p>The server certificate configuration.</p>\"\
         }\
       }\
     },\
@@ -9800,7 +9811,7 @@
         },\
         \"destinationPackageVersions\":{\
           \"shape\":\"DestinationPackageVersions\",\
-          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>\"\
+          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\\\">Package version lifecycle</a>.</p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>\"\
         }\
       }\
     },\
@@ -10965,6 +10976,7 @@
       },\
       \"documentation\":\"<p>Parameters used when defining a mitigation action that enable Amazon Web Services IoT Core logging.</p>\"\
     },\
+    \"EnableOCSPCheck\":{\"type\":\"boolean\"},\
     \"EnableTopicRuleRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"ruleName\"],\
@@ -12386,7 +12398,7 @@
         },\
         \"destinationPackageVersions\":{\
           \"shape\":\"DestinationPackageVersions\",\
-          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>\"\
+          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\\\">Package version lifecycle</a>.The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\\\">Package version lifecycle</a>.</p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The <code>Job</code> object contains details about a job.</p>\"\
@@ -15479,9 +15491,7 @@
         \"THING_GROUP\",\
         \"CLIENT_ID\",\
         \"SOURCE_IP\",\
-        \"PRINCIPAL_ID\",\
-        \"EVENT_TYPE\",\
-        \"DEVICE_DEFENDER\"\
+        \"PRINCIPAL_ID\"\
       ]\
     },\
     \"LoggingOptionsPayload\":{\
@@ -17677,6 +17687,16 @@
       \"member\":{\"shape\":\"AcmCertificateArn\"},\
       \"max\":1,\
       \"min\":0\
+    },\
+    \"ServerCertificateConfig\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"enableOCSPCheck\":{\
+          \"shape\":\"EnableOCSPCheck\",\
+          \"documentation\":\"<p>A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/iot-custom-domain-ocsp-config.html\\\">Configuring OCSP server-certificate stapling in domain configuration</a> from Amazon Web Services IoT Core Developer Guide.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The server certificate configuration.</p>\"\
     },\
     \"ServerCertificateStatus\":{\
       \"type\":\"string\",\
@@ -19876,6 +19896,10 @@
         \"tlsConfig\":{\
           \"shape\":\"TlsConfig\",\
           \"documentation\":\"<p>An object that specifies the TLS configuration for a domain.</p>\"\
+        },\
+        \"serverCertificateConfig\":{\
+          \"shape\":\"ServerCertificateConfig\",\
+          \"documentation\":\"<p>The server certificate configuration.</p>\"\
         }\
       }\
     },\

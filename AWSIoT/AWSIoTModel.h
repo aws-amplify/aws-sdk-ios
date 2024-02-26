@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -445,8 +445,6 @@ typedef NS_ENUM(NSInteger, AWSIoTLogTargetType) {
     AWSIoTLogTargetTypeClientId,
     AWSIoTLogTargetTypeSourceIp,
     AWSIoTLogTargetTypePrincipalId,
-    AWSIoTLogTargetTypeEventType,
-    AWSIoTLogTargetTypeDeviceDefender,
 };
 
 typedef NS_ENUM(NSInteger, AWSIoTMessageFormat) {
@@ -1181,6 +1179,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTSecurityProfileIdentifier;
 @class AWSIoTSecurityProfileTarget;
 @class AWSIoTSecurityProfileTargetMapping;
+@class AWSIoTServerCertificateConfig;
 @class AWSIoTServerCertificateSummary;
 @class AWSIoTSetDefaultAuthorizerRequest;
 @class AWSIoTSetDefaultAuthorizerResponse;
@@ -3664,6 +3663,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable serverCertificateArns;
 
 /**
+ <p>The server certificate configuration.</p>
+ */
+@property (nonatomic, strong) AWSIoTServerCertificateConfig * _Nullable serverCertificateConfig;
+
+/**
  <p>The type of service delivered by the endpoint.</p><note><p>Amazon Web Services IoT Core currently supports only the <code>DATA</code> service type.</p></note>
  */
 @property (nonatomic, assign) AWSIoTServiceType serviceType;
@@ -3872,7 +3876,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p><p><b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>
+ <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>. </p><p><b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable destinationPackageVersions;
 
@@ -3988,7 +3992,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p><p><b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>
+ <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p><p><b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable destinationPackageVersions;
 
@@ -6511,6 +6515,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSDate * _Nullable lastStatusChangeDate;
 
 /**
+ <p>The server certificate configuration.</p>
+ */
+@property (nonatomic, strong) AWSIoTServerCertificateConfig * _Nullable serverCertificateConfig;
+
+/**
  <p>A list containing summary information about the server certificate included in the domain configuration.</p>
  */
 @property (nonatomic, strong) NSArray<AWSIoTServerCertificateSummary *> * _Nullable serverCertificates;
@@ -6808,7 +6817,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p><p><b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>
+ <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p><p><b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable destinationPackageVersions;
 
@@ -9233,7 +9242,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p><p><b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>
+ <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p><p><b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable destinationPackageVersions;
 
@@ -14285,6 +14294,19 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
+ <p>The server certificate configuration.</p>
+ */
+@interface AWSIoTServerCertificateConfig : AWSModel
+
+
+/**
+ <p>A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not.</p><p>For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-custom-domain-ocsp-config.html">Configuring OCSP server-certificate stapling in domain configuration</a> from Amazon Web Services IoT Core Developer Guide.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enableOCSPCheck;
+
+@end
+
+/**
  <p>An object that contains information about a server certificate.</p>
  */
 @interface AWSIoTServerCertificateSummary : AWSModel
@@ -16337,6 +16359,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>Removes the authorization configuration from a domain.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable removeAuthorizerConfig;
+
+/**
+ <p>The server certificate configuration.</p>
+ */
+@property (nonatomic, strong) AWSIoTServerCertificateConfig * _Nullable serverCertificateConfig;
 
 /**
  <p>An object that specifies the TLS configuration for a domain.</p>

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -354,6 +354,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"enabledMetrics" : @"EnabledMetrics",
              @"healthCheckGracePeriod" : @"HealthCheckGracePeriod",
              @"healthCheckType" : @"HealthCheckType",
+             @"instanceMaintenancePolicy" : @"InstanceMaintenancePolicy",
              @"instances" : @"Instances",
              @"launchConfigurationName" : @"LaunchConfigurationName",
              @"launchTemplate" : @"LaunchTemplate",
@@ -388,6 +389,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)enabledMetricsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingEnabledMetric class]];
+}
+
++ (NSValueTransformer *)instanceMaintenancePolicyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingInstanceMaintenancePolicy class]];
 }
 
 + (NSValueTransformer *)instancesJSONTransformer {
@@ -700,6 +705,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"healthCheckGracePeriod" : @"HealthCheckGracePeriod",
              @"healthCheckType" : @"HealthCheckType",
              @"instanceId" : @"InstanceId",
+             @"instanceMaintenancePolicy" : @"InstanceMaintenancePolicy",
              @"launchConfigurationName" : @"LaunchConfigurationName",
              @"launchTemplate" : @"LaunchTemplate",
              @"lifecycleHookSpecificationList" : @"LifecycleHookSpecificationList",
@@ -717,6 +723,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"trafficSources" : @"TrafficSources",
              @"VPCZoneIdentifier" : @"VPCZoneIdentifier",
              };
+}
+
++ (NSValueTransformer *)instanceMaintenancePolicyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingInstanceMaintenancePolicy class]];
 }
 
 + (NSValueTransformer *)launchTemplateJSONTransformer {
@@ -1976,6 +1986,21 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSAutoScalingInstanceMaintenancePolicy
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxHealthyPercentage" : @"MaxHealthyPercentage",
+             @"minHealthyPercentage" : @"MinHealthyPercentage",
+             };
+}
+
+@end
+
 @implementation AWSAutoScalingInstanceMetadataOptions
 
 + (BOOL)supportsSecureCoding {
@@ -2236,6 +2261,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"instanceGenerations" : @"InstanceGenerations",
              @"localStorage" : @"LocalStorage",
              @"localStorageTypes" : @"LocalStorageTypes",
+             @"maxSpotPriceAsPercentageOfOptimalOnDemandPrice" : @"MaxSpotPriceAsPercentageOfOptimalOnDemandPrice",
              @"memoryGiBPerVCpu" : @"MemoryGiBPerVCpu",
              @"memoryMiB" : @"MemoryMiB",
              @"networkBandwidthGbps" : @"NetworkBandwidthGbps",
@@ -3500,6 +3526,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"checkpointDelay" : @"CheckpointDelay",
              @"checkpointPercentages" : @"CheckpointPercentages",
              @"instanceWarmup" : @"InstanceWarmup",
+             @"maxHealthyPercentage" : @"MaxHealthyPercentage",
              @"minHealthyPercentage" : @"MinHealthyPercentage",
              @"scaleInProtectedInstances" : @"ScaleInProtectedInstances",
              @"skipMatching" : @"SkipMatching",
@@ -4131,6 +4158,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"desiredCapacityType" : @"DesiredCapacityType",
              @"healthCheckGracePeriod" : @"HealthCheckGracePeriod",
              @"healthCheckType" : @"HealthCheckType",
+             @"instanceMaintenancePolicy" : @"InstanceMaintenancePolicy",
              @"launchConfigurationName" : @"LaunchConfigurationName",
              @"launchTemplate" : @"LaunchTemplate",
              @"maxInstanceLifetime" : @"MaxInstanceLifetime",
@@ -4143,6 +4171,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"terminationPolicies" : @"TerminationPolicies",
              @"VPCZoneIdentifier" : @"VPCZoneIdentifier",
              };
+}
+
++ (NSValueTransformer *)instanceMaintenancePolicyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingInstanceMaintenancePolicy class]];
 }
 
 + (NSValueTransformer *)launchTemplateJSONTransformer {
