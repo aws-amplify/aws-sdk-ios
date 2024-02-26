@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -580,6 +580,7 @@
 - (void) test_AWSIoTSecurityProfileIdentifier API_AVAILABLE(ios(11));
 - (void) test_AWSIoTSecurityProfileTarget API_AVAILABLE(ios(11));
 - (void) test_AWSIoTSecurityProfileTargetMapping API_AVAILABLE(ios(11));
+- (void) test_AWSIoTServerCertificateConfig API_AVAILABLE(ios(11));
 - (void) test_AWSIoTServerCertificateSummary API_AVAILABLE(ios(11));
 - (void) test_AWSIoTSetDefaultAuthorizerRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTSetDefaultAuthorizerResponse API_AVAILABLE(ios(11));
@@ -2959,6 +2960,10 @@
 
 - (void) test_AWSIoTSecurityProfileTargetMapping {
     [self validateSecureCodingForClass:[AWSIoTSecurityProfileTargetMapping class]];
+}
+
+- (void) test_AWSIoTServerCertificateConfig {
+    [self validateSecureCodingForClass:[AWSIoTServerCertificateConfig class]];
 }
 
 - (void) test_AWSIoTServerCertificateSummary {
