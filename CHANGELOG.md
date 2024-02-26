@@ -1,11 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSIoT
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -26,6 +18,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSComprehend
   - AWSAutoScaling
   - AWSConnect
+  - AWSIoT (**Breaking Change**)
 
 ## 2.33.10
 
