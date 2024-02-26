@@ -13,7 +13,6 @@
 			<false/>
 			<key>NSPrivacyCollectedDataTypePurposes</key>
 			<array>
-				<string></string>
 				<string>NSPrivacyCollectedDataTypePurposeAnalytics</string>
 			</array>
 		</dict>
