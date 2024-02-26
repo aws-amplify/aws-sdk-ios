@@ -18,6 +18,7 @@
   - AWSComprehend
   - AWSAutoScaling
   - AWSConnect
+  - AWSIoT (**Breaking Change**)
 
 ## 2.33.10
 
