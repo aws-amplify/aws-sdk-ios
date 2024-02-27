@@ -22,11 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSInteger, AWSIoTKeyChainAccessibility) {
     AWSIoTKeyChainAccessibilityWhenUnlocked = 1,
     AWSIoTKeyChainAccessibilityAfterFirstUnlock,
-    AWSIoTKeyChainAccessibilityAlways,
+    AWSIoTKeyChainAccessibilityAlways __deprecated_enum_msg("Use an accessibility level that provides some user protection, such as AWSIoTKeyChainAccessibilityAfterFirstUnlock"),
     AWSIoTKeyChainAccessibilityWhenPasscodeSetThisDeviceOnly,
     AWSIoTKeyChainAccessibilityWhenUnlockedThisDeviceOnly,
     AWSIoTKeyChainAccessibilityAfterFirstUnlockThisDeviceOnly,
-    AWSIoTKeyChainAccessibilityAlwaysThisDeviceOnly,
+    AWSIoTKeyChainAccessibilityAlwaysThisDeviceOnly __deprecated_enum_msg("Use an accessibility level that provides some user protection, such as AWSIoTKeyChainAccessibilityAfterFirstUnlockThisDeviceOnly"),
 };
 
 NS_ASSUME_NONNULL_END

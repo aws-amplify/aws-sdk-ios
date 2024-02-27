@@ -522,6 +522,8 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     _accessibility = accessibility;
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 + (CFTypeRef)accessibilityType {
     switch (_accessibility) {
         case AWSIoTKeyChainAccessibilityWhenUnlocked:
@@ -542,5 +544,6 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
             return nil;
     }
 }
+#pragma clang diagnostic pop
 
 @end

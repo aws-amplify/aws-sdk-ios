@@ -87,12 +87,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoAuthUICKeyChainStoreAuthenticationType) {
 typedef NS_ENUM(NSInteger, AWSCognitoAuthUICKeyChainStoreAccessibility) {
     AWSCognitoAuthUICKeyChainStoreAccessibilityWhenUnlocked = 1,
     AWSCognitoAuthUICKeyChainStoreAccessibilityAfterFirstUnlock,
-    AWSCognitoAuthUICKeyChainStoreAccessibilityAlways,
+    AWSCognitoAuthUICKeyChainStoreAccessibilityAlways __deprecated_enum_msg("Use an accessibility level that provides some user protection, such as AWSCognitoAuthUICKeyChainStoreAccessibilityAfterFirstUnlock"),
     AWSCognitoAuthUICKeyChainStoreAccessibilityWhenPasscodeSetThisDeviceOnly
     __OSX_AVAILABLE_STARTING(__MAC_10_10, __IPHONE_8_0),
     AWSCognitoAuthUICKeyChainStoreAccessibilityWhenUnlockedThisDeviceOnly,
     AWSCognitoAuthUICKeyChainStoreAccessibilityAfterFirstUnlockThisDeviceOnly,
-    AWSCognitoAuthUICKeyChainStoreAccessibilityAlwaysThisDeviceOnly,
+    AWSCognitoAuthUICKeyChainStoreAccessibilityAlwaysThisDeviceOnly __deprecated_enum_msg("Use an accessibility level that provides some user protection, such as AWSCognitoAuthUICKeyChainStoreAccessibilityAfterFirstUnlockThisDeviceOnly"),
 }
 __OSX_AVAILABLE_STARTING(__MAC_10_9, __IPHONE_4_0);
 
