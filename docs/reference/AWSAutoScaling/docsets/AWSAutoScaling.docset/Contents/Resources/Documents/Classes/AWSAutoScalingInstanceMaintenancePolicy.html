@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSAutoScalingStartInstanceRefreshType Class Reference</title>
+    <title>AWSAutoScalingInstanceMaintenancePolicy Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSAutoScalingStartInstanceRefreshType" class="dashAnchor"></a>
-    <a title="AWSAutoScalingStartInstanceRefreshType Class Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSAutoScalingInstanceMaintenancePolicy" class="dashAnchor"></a>
+    <a title="AWSAutoScalingInstanceMaintenancePolicy Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSAutoScaling 2.34.0 Docs</a> (81% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSAutoScaling Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSAutoScalingStartInstanceRefreshType Class Reference
+        AWSAutoScalingInstanceMaintenancePolicy Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -690,20 +690,21 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSAutoScalingStartInstanceRefreshType</h1>
+            <h1>AWSAutoScalingInstanceMaintenancePolicy</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSAutoScalingStartInstanceRefreshType</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSAutoScalingInstanceMaintenancePolicy</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSAutoScalingStartInstanceRefreshType</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSAutoScalingInstanceMaintenancePolicy</span></code></pre>
 
                 </div>
               </div>
-            
+            <p>Describes an instance maintenance policy.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html">Set instance maintenance policy</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -711,9 +712,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSAutoScalingStartInstanceRefreshType(py)autoScalingGroupName"></a>
-                    <a name="//apple_ref/objc/Property/autoScalingGroupName" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSAutoScalingStartInstanceRefreshType(py)autoScalingGroupName">autoScalingGroupName</a>
+                    <a name="/c:objc(cs)AWSAutoScalingInstanceMaintenancePolicy(py)maxHealthyPercentage"></a>
+                    <a name="//apple_ref/objc/Property/maxHealthyPercentage" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSAutoScalingInstanceMaintenancePolicy(py)maxHealthyPercentage">maxHealthyPercentage</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -721,19 +722,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The name of the Auto Scaling group.</p>
+                        <p>Specifies the upper threshold as a percentage of the desired capacity of the Auto Scaling group. It represents the maximum percentage of the group that can be in service and healthy, or pending, to support your workload when replacing instances. Value range is 100 to 200. To clear a previously set value, specify a value of <code>-1</code>.</p><p>Both <code>MinHealthyPercentage</code> and <code>MaxHealthyPercentage</code> must be specified, and the difference between them cannot be greater than 100. A large range increases the number of instances that can be replaced at the same time.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">autoScalingGroupName</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">maxHealthyPercentage</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">autoScalingGroupName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">maxHealthyPercentage</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -743,9 +744,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSAutoScalingStartInstanceRefreshType(py)desiredConfiguration"></a>
-                    <a name="//apple_ref/objc/Property/desiredConfiguration" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSAutoScalingStartInstanceRefreshType(py)desiredConfiguration">desiredConfiguration</a>
+                    <a name="/c:objc(cs)AWSAutoScalingInstanceMaintenancePolicy(py)minHealthyPercentage"></a>
+                    <a name="//apple_ref/objc/Property/minHealthyPercentage" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSAutoScalingInstanceMaintenancePolicy(py)minHealthyPercentage">minHealthyPercentage</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -753,83 +754,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The desired configuration. For example, the desired configuration can specify a new launch template or a new version of the current launch template.</p><p>Once the instance refresh succeeds, Amazon EC2 Auto Scaling updates the settings of the Auto Scaling group to reflect the new desired configuration. </p><note><p>When you specify a new launch template or a new version of the current launch template for your desired configuration, consider enabling the <code>SkipMatching</code> property in preferences. If it&rsquo;s enabled, Amazon EC2 Auto Scaling skips replacing instances that already use the specified launch template and instance types. This can help you reduce the number of replacements that are required to apply updates. </p></note></p>
+                        <p>Specifies the lower threshold as a percentage of the desired capacity of the Auto Scaling group. It represents the minimum percentage of the group to keep in service, healthy, and ready to use to support your workload when replacing instances. Value range is 0 to 100. To clear a previously set value, specify a value of <code>-1</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSAutoScalingDesiredConfiguration.html">AWSAutoScalingDesiredConfiguration</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">desiredConfiguration</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">minHealthyPercentage</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">desiredConfiguration</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDesiredConfiguration.html">AWSAutoScalingDesiredConfiguration</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)AWSAutoScalingStartInstanceRefreshType(py)preferences"></a>
-                    <a name="//apple_ref/objc/Property/preferences" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSAutoScalingStartInstanceRefreshType(py)preferences">preferences</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p><p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum and maximum healthy percentages, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p><ul><li><p>Auto rollback</p></li><li><p>Checkpoints</p></li><li><p>CloudWatch alarms</p></li><li><p>Skip matching</p></li></ul></p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSAutoScalingRefreshPreferences.html">AWSAutoScalingRefreshPreferences</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">preferences</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">preferences</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingRefreshPreferences.html">AWSAutoScalingRefreshPreferences</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)AWSAutoScalingStartInstanceRefreshType(py)strategy"></a>
-                    <a name="//apple_ref/objc/Property/strategy" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSAutoScalingStartInstanceRefreshType(py)strategy">strategy</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The strategy to use for the instance refresh. The only valid value is <code>Rolling</code>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSAutoScalingRefreshStrategy.html">AWSAutoScalingRefreshStrategy</a></span> <span class="n">strategy</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">strategy</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSAutoScalingRefreshStrategy.html">AWSAutoScalingRefreshStrategy</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">minHealthyPercentage</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
