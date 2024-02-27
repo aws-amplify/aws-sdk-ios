@@ -33,7 +33,7 @@ class AWSS3TransferUtilityCreatePartialFileTests: XCTestCase {
         self.transferUtility = transferUtility
 
         AWSDDLog.sharedInstance.logLevel = .verbose
-        AWSDDLog.sharedInstance.add(AWSDDTTYLogger())
+        AWSDDLog.sharedInstance.add(AWSDDTTYLogger.sharedInstance)
     }
 
     func testCreatingPartialFile() throws {

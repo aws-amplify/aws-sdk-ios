@@ -13,34 +13,18 @@
 //   to endorse or promote products derived from this software without specific
 //   prior written permission of Deusty, LLC.
 
-#import "AWSDDASLLogger.h"
-
-@protocol AWSDDLogger;
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- *  This class provides the ability to capture the ASL (Apple System Logs)
- */
-API_DEPRECATED("Use AWSDDOSLogger instead", macosx(10.4,10.12), ios(2.0,10.0), watchos(2.0,3.0), tvos(9.0,10.0))
-@interface AWSDDASLLogCapture : NSObject
+typedef NSString *AWSDDLoggerName NS_EXTENSIBLE_STRING_ENUM;
 
-/**
- *  Start capturing logs
- */
-+ (void)start;
+FOUNDATION_EXPORT AWSDDLoggerName const AWSDDLoggerNameOS NS_SWIFT_NAME(AWSDDLoggerName.os);     // AWSDDOSLogger
+FOUNDATION_EXPORT AWSDDLoggerName const AWSDDLoggerNameFile NS_SWIFT_NAME(AWSDDLoggerName.file); // AWSDDFileLogger
 
-/**
- *  Stop capturing logs
- */
-+ (void)stop;
+FOUNDATION_EXPORT AWSDDLoggerName const AWSDDLoggerNameTTY NS_SWIFT_NAME(AWSDDLoggerName.tty);   // AWSDDTTYLogger
 
-/**
- *  The current capture level.
- *  @note Default log level: AWSDDLogLevelVerbose (i.e. capture all ASL messages).
- */
-@property (class) AWSDDLogLevel captureLevel;
-
-@end
+API_DEPRECATED("Use AWSDDOSLogger instead", macosx(10.4, 10.12), ios(2.0, 10.0), watchos(2.0, 3.0), tvos(9.0, 10.0))
+FOUNDATION_EXPORT AWSDDLoggerName const AWSDDLoggerNameASL NS_SWIFT_NAME(AWSDDLoggerName.asl);   // AWSDDASLLogger
 
 NS_ASSUME_NONNULL_END

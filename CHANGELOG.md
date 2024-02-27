@@ -54,6 +54,9 @@
   - AWSTranslate
   - AWSUserPoolsSignIn
 
+- **AWSCore**
+  - Updating CocoaLumberjack to version 3.4.8
+
 ### Misc. Updates
 - **AWSIoT**
   - Updating `AWSIoTMQTTConfiguration.keepAliveTimeInterval`'s default value in its attribute comment.
