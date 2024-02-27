@@ -17,7 +17,7 @@
     <a title="AWSIoT Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSIoT 2.33.10 Docs</a> (84% documented)</p>
+        <p><a href="../index.html">AWSIoT 2.34.0 Docs</a> (84% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSIoT.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -1794,6 +1794,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTSecurityProfileTargetMapping.html">AWSIoTSecurityProfileTargetMapping</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTServerCertificateConfig.html">AWSIoTServerCertificateConfig</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTServerCertificateSummary.html">AWSIoTServerCertificateSummary</a>
@@ -16530,7 +16533,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a unique endpoint specific to the Amazon Web Services account making the call.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeEndpoint</a> action.</p>
+                        <p>Returns or creates a unique endpoint specific to the Amazon Web Services account making the call.</p><note><p>The first time <code>DescribeEndpoint</code> is called, an endpoint is created. All subsequent calls to <code>DescribeEndpoint</code> return the same endpoint.</p></note><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeEndpoint</a> action.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTDescribeEndpointRequest</p>
@@ -16594,7 +16597,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a unique endpoint specific to the Amazon Web Services account making the call.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeEndpoint</a> action.</p>
+                        <p>Returns or creates a unique endpoint specific to the Amazon Web Services account making the call.</p><note><p>The first time <code>DescribeEndpoint</code> is called, an endpoint is created. All subsequent calls to <code>DescribeEndpoint</code> return the same endpoint.</p></note><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeEndpoint</a> action.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTDescribeEndpointRequest</p>
@@ -22029,7 +22032,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets a registration code used to register a CA certificate with IoT.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetRegistrationCode</a> action.</p>
+                        <p>Gets a registration code used to register a CA certificate with IoT.</p><p>IoT will create a registration code as part of this API call if the registration code doesn&rsquo;t exist or has been deleted. If you already have a registration code, this API call will return the same registration code.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetRegistrationCode</a> action.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTGetRegistrationCodeRequest</p>
@@ -22093,7 +22096,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets a registration code used to register a CA certificate with IoT.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetRegistrationCode</a> action.</p>
+                        <p>Gets a registration code used to register a CA certificate with IoT.</p><p>IoT will create a registration code as part of this API call if the registration code doesn&rsquo;t exist or has been deleted. If you already have a registration code, this API call will return the same registration code.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetRegistrationCode</a> action.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTGetRegistrationCodeRequest</p>
@@ -37062,7 +37065,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSIoTUpdatePackageResponse">AWSIoTUpdatePackageResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorInternalServer</code>, <code>AWSIoTErrorValidation</code>, <code>AWSIoTErrorResourceNotFound</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSIoTUpdatePackageResponse">AWSIoTUpdatePackageResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorConflict</code>, <code>AWSIoTErrorInternalServer</code>, <code>AWSIoTErrorValidation</code>, <code>AWSIoTErrorResourceNotFound</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -37133,7 +37136,7 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorInternalServer</code>, <code>AWSIoTErrorValidation</code>, <code>AWSIoTErrorResourceNotFound</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorConflict</code>, <code>AWSIoTErrorInternalServer</code>, <code>AWSIoTErrorValidation</code>, <code>AWSIoTErrorResourceNotFound</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -37203,7 +37206,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSIoTUpdatePackageConfigurationResponse">AWSIoTUpdatePackageConfigurationResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorInternalServer</code>, <code>AWSIoTErrorValidation</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSIoTUpdatePackageConfigurationResponse">AWSIoTUpdatePackageConfigurationResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorConflict</code>, <code>AWSIoTErrorInternalServer</code>, <code>AWSIoTErrorValidation</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -37277,7 +37280,7 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorInternalServer</code>, <code>AWSIoTErrorValidation</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorConflict</code>, <code>AWSIoTErrorInternalServer</code>, <code>AWSIoTErrorValidation</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -37346,7 +37349,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSIoTUpdatePackageVersionResponse">AWSIoTUpdatePackageVersionResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorInternalServer</code>, <code>AWSIoTErrorValidation</code>, <code>AWSIoTErrorResourceNotFound</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSIoTUpdatePackageVersionResponse">AWSIoTUpdatePackageVersionResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorConflict</code>, <code>AWSIoTErrorInternalServer</code>, <code>AWSIoTErrorValidation</code>, <code>AWSIoTErrorResourceNotFound</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -37419,7 +37422,7 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorInternalServer</code>, <code>AWSIoTErrorValidation</code>, <code>AWSIoTErrorResourceNotFound</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorConflict</code>, <code>AWSIoTErrorInternalServer</code>, <code>AWSIoTErrorValidation</code>, <code>AWSIoTErrorResourceNotFound</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -38858,7 +38861,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-02-17)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-02-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
