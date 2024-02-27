@@ -1429,6 +1429,13 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "line": 232,
+      "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdBurcu",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSPolly/AWSPollyResources.h",
       "line": 18,
       "symbol": "AWSPollyResources",
