@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSKinesis 2.33.10 Docs</a> (76% documented)</p>
+        <p><a href="index.html">AWSKinesis 2.34.0 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKinesis.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -294,6 +294,24 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSFirehoseSerializer.html">AWSFirehoseSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseSnowflakeDestinationConfiguration.html">AWSFirehoseSnowflakeDestinationConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseSnowflakeDestinationDescription.html">AWSFirehoseSnowflakeDestinationDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseSnowflakeDestinationUpdate.html">AWSFirehoseSnowflakeDestinationUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseSnowflakeRetryOptions.html">AWSFirehoseSnowflakeRetryOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseSnowflakeRoleConfiguration.html">AWSFirehoseSnowflakeRoleConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseSnowflakeVpcConfiguration.html">AWSFirehoseSnowflakeVpcConfiguration</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSFirehoseSourceDescription.html">AWSFirehoseSourceDescription</a>
@@ -630,6 +648,12 @@
                 <a href="Enums/AWSFirehoseS3BackupMode.html">AWSFirehoseS3BackupMode</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSFirehoseSnowflakeDataLoadingOption.html">AWSFirehoseSnowflakeDataLoadingOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSFirehoseSnowflakeS3BackupMode.html">AWSFirehoseSnowflakeS3BackupMode</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSFirehoseSplunkS3BackupMode.html">AWSFirehoseSplunkS3BackupMode</a>
               </li>
               <li class="nav-group-task">
@@ -847,7 +871,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to the Serverless offering for Amazon OpenSearch Service.</p>
+                        <p>Configures retry behavior in case Firehose is unable to deliver documents to the Serverless offering for Amazon OpenSearch Service.</p>
 
                         <a href="Classes/AWSFirehoseAmazonOpenSearchServerlessRetryOptions.html" class="slightly-smaller">See more</a>
                       </div>
@@ -1014,7 +1038,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service. </p>
+                        <p>Configures retry behavior in case Firehose is unable to deliver documents to Amazon OpenSearch Service. </p>
 
                         <a href="Classes/AWSFirehoseAmazonopensearchserviceRetryOptions.html" class="slightly-smaller">See more</a>
                       </div>
@@ -1082,7 +1106,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes hints for the buffering to perform before delivering data to the destination. These options are treated as hints, and therefore Kinesis Data Firehose might choose to use different values when it is optimal. The <code>SizeInMBs</code> and <code>IntervalInSeconds</code> parameters are optional. However, if specify a value for one of them, you must also provide a value for the other.</p>
+                        <p>Describes hints for the buffering to perform before delivering data to the destination. These options are treated as hints, and therefore Firehose might choose to use different values when it is optimal. The <code>SizeInMBs</code> and <code>IntervalInSeconds</code> parameters are optional. However, if specify a value for one of them, you must also provide a value for the other.</p>
 
                         <a href="Classes/AWSFirehoseBufferingHints.html" class="slightly-smaller">See more</a>
                       </div>
@@ -1247,7 +1271,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies that you want Kinesis Data Firehose to convert data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. Kinesis Data Firehose uses the serializer and deserializer that you specify, in addition to the column information from the Amazon Web Services Glue table, to deserialize your input data from JSON and then serialize it to the Parquet or ORC format. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/record-format-conversion.html">Kinesis Data Firehose Record Format Conversion</a>.</p>
+                        <p>Specifies that you want Firehose to convert data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. Firehose uses the serializer and deserializer that you specify, in addition to the column information from the Amazon Web Services Glue table, to deserialize your input data from JSON and then serialize it to the Parquet or ORC format. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/record-format-conversion.html">Firehose Record Format Conversion</a>.</p>
 
                         <a href="Classes/AWSFirehoseDataFormatConversionConfiguration.html" class="slightly-smaller">See more</a>
                       </div>
@@ -1510,7 +1534,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The deserializer you want Kinesis Data Firehose to use for converting the input data from JSON. Kinesis Data Firehose then serializes the data to its final format using the <a>Serializer</a>. Kinesis Data Firehose supports two types of deserializers: the <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-JSON">Apache Hive JSON SerDe</a> and the <a href="https://github.com/rcongiu/Hive-JSON-Serde">OpenX JSON SerDe</a>.</p>
+                        <p>The deserializer you want Firehose to use for converting the input data from JSON. Firehose then serializes the data to its final format using the <a>Serializer</a>. Firehose supports two types of deserializers: the <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-JSON">Apache Hive JSON SerDe</a> and the <a href="https://github.com/rcongiu/Hive-JSON-Serde">OpenX JSON SerDe</a>.</p>
 
                         <a href="Classes/AWSFirehoseDeserializer.html" class="slightly-smaller">See more</a>
                       </div>
@@ -1578,7 +1602,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Indicates the method for setting up document ID. The supported methods are Kinesis Data Firehose generated document ID and OpenSearch Service generated document ID.</p><p/>
+                        <p><p>Indicates the method for setting up document ID. The supported methods are Firehose generated document ID and OpenSearch Service generated document ID.</p><p/>
 Required parameters: [DefaultDocumentIdFormat]</p>
 
                         <a href="Classes/AWSFirehoseDocumentIdOptions.html" class="slightly-smaller">See more</a>
@@ -1779,7 +1803,7 @@ Required parameters: [DefaultDocumentIdFormat]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon ES.</p>
+                        <p>Configures retry behavior in case Firehose is unable to deliver documents to Amazon ES.</p>
 
                         <a href="Classes/AWSFirehoseElasticsearchRetryOptions.html" class="slightly-smaller">See more</a>
                       </div>
@@ -1983,7 +2007,7 @@ Required parameters: [DefaultDocumentIdFormat]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The native Hive / HCatalog JsonSerDe. Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the OpenX SerDe.</p>
+                        <p>The native Hive / HCatalog JsonSerDe. Used by Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the OpenX SerDe.</p>
 
                         <a href="Classes/AWSFirehoseHiveJsonSerDe.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2016,7 +2040,7 @@ Required parameters: [DefaultDocumentIdFormat]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes the buffering options that can be applied before data is delivered to the HTTP endpoint destination. Kinesis Data Firehose treats these options as hints, and it might choose to use more optimal values. The <code>SizeInMBs</code> and <code>IntervalInSeconds</code> parameters are optional. However, if specify a value for one of them, you must also provide a value for the other. </p>
+                        <p>Describes the buffering options that can be applied before data is delivered to the HTTP endpoint destination. Firehose treats these options as hints, and it might choose to use more optimal values. The <code>SizeInMBs</code> and <code>IntervalInSeconds</code> parameters are optional. However, if specify a value for one of them, you must also provide a value for the other. </p>
 
                         <a href="Classes/AWSFirehoseHttpEndpointBufferingHints.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2286,7 +2310,7 @@ Required parameters: [DefaultDocumentIdFormat]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn&rsquo;t receive a valid acknowledgment of receipt from the specified HTTP endpoint destination.</p>
+                        <p>Describes the retry behavior in case Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn&rsquo;t receive a valid acknowledgment of receipt from the specified HTTP endpoint destination.</p>
 
                         <a href="Classes/AWSFirehoseHttpEndpointRetryOptions.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2422,7 +2446,7 @@ Required parameters: [DefaultDocumentIdFormat]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Details about a Kinesis data stream used as the source for a Kinesis Data Firehose delivery stream.</p>
+                        <p>Details about a Kinesis data stream used as the source for a Firehose delivery stream.</p>
 
                         <a href="Classes/AWSFirehoseKinesisStreamSourceDescription.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2618,7 +2642,7 @@ Required parameters: [DefaultDocumentIdFormat]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Details about the Amazon MSK cluster used as the source for a Kinesis Data Firehose delivery stream.</p>
+                        <p>Details about the Amazon MSK cluster used as the source for a Firehose delivery stream.</p>
 
                         <a href="Classes/AWSFirehoseMSKSourceDescription.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2651,7 +2675,7 @@ Required parameters: [DefaultDocumentIdFormat]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The OpenX SerDe. Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the native Hive / HCatalog JsonSerDe.</p>
+                        <p>The OpenX SerDe. Used by Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the native Hive / HCatalog JsonSerDe.</p>
 
                         <a href="Classes/AWSFirehoseOpenXJsonSerDe.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2717,7 +2741,7 @@ Required parameters: [DefaultDocumentIdFormat]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data before it writes it to Amazon S3. This parameter is required if <code>Enabled</code> is set to true.</p>
+                        <p>Specifies the serializer that you want Firehose to use to convert the format of your data before it writes it to Amazon S3. This parameter is required if <code>Enabled</code> is set to true.</p>
 
                         <a href="Classes/AWSFirehoseOutputFormatConfiguration.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2816,9 +2840,8 @@ Required parameters: [DefaultDocumentIdFormat]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes a data processor.</p>
-
-<p>Required parameters: [Type]</p>
+                        <p><p>Describes a data processor.</p><note><p>If you want to add a new line delimiter between records in objects that are delivered to Amazon S3, choose <code>AppendDelimiterToRecord</code> as a processor type. You don’t have to put a processor parameter when you select <code>AppendDelimiterToRecord</code>. </p></note>
+Required parameters: [Type]</p>
 
                         <a href="Classes/AWSFirehoseProcessor.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3185,7 +3208,7 @@ Required parameters: [DefaultDocumentIdFormat]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon Redshift.</p>
+                        <p>Configures retry behavior in case Firehose is unable to deliver documents to Amazon Redshift.</p>
 
                         <a href="Classes/AWSFirehoseRedshiftRetryOptions.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3218,7 +3241,7 @@ Required parameters: [DefaultDocumentIdFormat]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p> The retry behavior in case Kinesis Data Firehose is unable to deliver data to an Amazon S3 prefix.</p>
+                        <p> The retry behavior in case Firehose is unable to deliver data to an Amazon S3 prefix.</p>
 
                         <a href="Classes/AWSFirehoseRetryOptions.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3354,7 +3377,7 @@ Required parameters: [DefaultDocumentIdFormat]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the schema to which you want Kinesis Data Firehose to configure your data before it writes it to Amazon S3. This parameter is required if <code>Enabled</code> is set to true.</p>
+                        <p>Specifies the schema to which you want Firehose to configure your data before it writes it to Amazon S3. This parameter is required if <code>Enabled</code> is set to true.</p>
 
                         <a href="Classes/AWSFirehoseSchemaConfiguration.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3387,7 +3410,7 @@ Required parameters: [DefaultDocumentIdFormat]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The serializer that you want Kinesis Data Firehose to use to convert data to the target format before writing it to Amazon S3. Kinesis Data Firehose supports two types of serializers: the <a href="https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/orc/OrcSerde.html">ORC SerDe</a> and the <a href="https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/parquet/serde/ParquetHiveSerDe.html">Parquet SerDe</a>.</p>
+                        <p>The serializer that you want Firehose to use to convert data to the target format before writing it to Amazon S3. Firehose supports two types of serializers: the <a href="https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/orc/OrcSerde.html">ORC SerDe</a> and the <a href="https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/parquet/serde/ParquetHiveSerDe.html">Parquet SerDe</a>.</p>
 
                         <a href="Classes/AWSFirehoseSerializer.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3410,6 +3433,208 @@ Required parameters: [DefaultDocumentIdFormat]</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSFirehoseSnowflakeDestinationConfiguration"></a>
+                    <a name="//apple_ref/objc/Class/AWSFirehoseSnowflakeDestinationConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseSnowflakeDestinationConfiguration">AWSFirehoseSnowflakeDestinationConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Configure Snowflake destination</p>
+
+<p>Required parameters: [AccountUrl, PrivateKey, User, Database, Schema, Table, RoleARN, S3Configuration]</p>
+
+                        <a href="Classes/AWSFirehoseSnowflakeDestinationConfiguration.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSFirehoseSnowflakeDestinationConfiguration</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSFirehoseSnowflakeDestinationConfiguration</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFirehoseSnowflakeDestinationDescription"></a>
+                    <a name="//apple_ref/objc/Class/AWSFirehoseSnowflakeDestinationDescription" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseSnowflakeDestinationDescription">AWSFirehoseSnowflakeDestinationDescription</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Optional Snowflake destination description</p>
+
+                        <a href="Classes/AWSFirehoseSnowflakeDestinationDescription.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSFirehoseSnowflakeDestinationDescription</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSFirehoseSnowflakeDestinationDescription</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFirehoseSnowflakeDestinationUpdate"></a>
+                    <a name="//apple_ref/objc/Class/AWSFirehoseSnowflakeDestinationUpdate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseSnowflakeDestinationUpdate">AWSFirehoseSnowflakeDestinationUpdate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Update to configuration settings</p>
+
+                        <a href="Classes/AWSFirehoseSnowflakeDestinationUpdate.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSFirehoseSnowflakeDestinationUpdate</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSFirehoseSnowflakeDestinationUpdate</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFirehoseSnowflakeRetryOptions"></a>
+                    <a name="//apple_ref/objc/Class/AWSFirehoseSnowflakeRetryOptions" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseSnowflakeRetryOptions">AWSFirehoseSnowflakeRetryOptions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Specify how long Firehose retries sending data to the New Relic HTTP endpoint. After sending data, Firehose first waits for an acknowledgment from the HTTP endpoint. If an error occurs or the acknowledgment doesn’t arrive within the acknowledgment timeout period, Firehose starts the retry duration counter. It keeps retrying until the retry duration expires. After that, Firehose considers it a data delivery failure and backs up the data to your Amazon S3 bucket. Every time that Firehose sends data to the HTTP endpoint (either the initial attempt or a retry), it restarts the acknowledgement timeout counter and waits for an acknowledgement from the HTTP endpoint. Even if the retry duration expires, Firehose still waits for the acknowledgment until it receives it or the acknowledgement timeout period is reached. If the acknowledgment times out, Firehose determines whether there&rsquo;s time left in the retry counter. If there is time left, it retries again and repeats the logic until it receives an acknowledgment or determines that the retry time has expired. If you don&rsquo;t want Firehose to retry sending data, set this value to 0.</p>
+
+                        <a href="Classes/AWSFirehoseSnowflakeRetryOptions.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSFirehoseSnowflakeRetryOptions</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSFirehoseSnowflakeRetryOptions</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFirehoseSnowflakeRoleConfiguration"></a>
+                    <a name="//apple_ref/objc/Class/AWSFirehoseSnowflakeRoleConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseSnowflakeRoleConfiguration">AWSFirehoseSnowflakeRoleConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Optionally configure a Snowflake role. Otherwise the default user role will be used.</p>
+
+                        <a href="Classes/AWSFirehoseSnowflakeRoleConfiguration.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSFirehoseSnowflakeRoleConfiguration</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSFirehoseSnowflakeRoleConfiguration</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFirehoseSnowflakeVpcConfiguration"></a>
+                    <a name="//apple_ref/objc/Class/AWSFirehoseSnowflakeVpcConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseSnowflakeVpcConfiguration">AWSFirehoseSnowflakeVpcConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Configure a Snowflake VPC</p>
+
+<p>Required parameters: [PrivateLinkVpceId]</p>
+
+                        <a href="Classes/AWSFirehoseSnowflakeVpcConfiguration.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSFirehoseSnowflakeVpcConfiguration</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSFirehoseSnowflakeVpcConfiguration</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSFirehoseSourceDescription"></a>
                     <a name="//apple_ref/objc/Class/AWSFirehoseSourceDescription" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSFirehoseSourceDescription">AWSFirehoseSourceDescription</a>
@@ -3420,7 +3645,7 @@ Required parameters: [DefaultDocumentIdFormat]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Details about a Kinesis data stream used as the source for a Kinesis Data Firehose delivery stream.</p>
+                        <p>Details about a Kinesis data stream used as the source for a Firehose delivery stream.</p>
 
                         <a href="Classes/AWSFirehoseSourceDescription.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3587,7 +3812,7 @@ Required parameters: [DefaultDocumentIdFormat]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Splunk, or if it doesn&rsquo;t receive an acknowledgment from Splunk.</p>
+                        <p>Configures retry behavior in case Firehose is unable to deliver documents to Splunk, or if it doesn&rsquo;t receive an acknowledgment from Splunk.</p>
 
                         <a href="Classes/AWSFirehoseSplunkRetryOptions.html" class="slightly-smaller">See more</a>
                       </div>
@@ -4113,7 +4338,7 @@ Required parameters: [DefaultDocumentIdFormat]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><fullname>Amazon Kinesis Data Firehose API Reference</fullname><p>Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.</p></p>
+                        <p><fullname>Amazon Data Firehose</fullname><p>Amazon Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.</p></p>
 
                         <a href="Classes/AWSFirehose.html" class="slightly-smaller">See more</a>
                       </div>
@@ -5778,7 +6003,7 @@ Required parameters: [DefaultDocumentIdFormat]</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-02-17)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-02-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

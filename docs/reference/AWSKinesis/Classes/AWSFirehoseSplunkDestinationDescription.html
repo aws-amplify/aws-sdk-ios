@@ -17,7 +17,7 @@
     <a title="AWSFirehoseSplunkDestinationDescription Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSKinesis 2.33.10 Docs</a> (76% documented)</p>
+        <p><a href="../index.html">AWSKinesis 2.34.0 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKinesis.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -294,6 +294,24 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSFirehoseSerializer.html">AWSFirehoseSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSnowflakeDestinationConfiguration.html">AWSFirehoseSnowflakeDestinationConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSnowflakeDestinationDescription.html">AWSFirehoseSnowflakeDestinationDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSnowflakeDestinationUpdate.html">AWSFirehoseSnowflakeDestinationUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSnowflakeRetryOptions.html">AWSFirehoseSnowflakeRetryOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSnowflakeRoleConfiguration.html">AWSFirehoseSnowflakeRoleConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSnowflakeVpcConfiguration.html">AWSFirehoseSnowflakeVpcConfiguration</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSFirehoseSourceDescription.html">AWSFirehoseSourceDescription</a>
@@ -630,6 +648,12 @@
                 <a href="../Enums/AWSFirehoseS3BackupMode.html">AWSFirehoseS3BackupMode</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseSnowflakeDataLoadingOption.html">AWSFirehoseSnowflakeDataLoadingOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseSnowflakeS3BackupMode.html">AWSFirehoseSnowflakeS3BackupMode</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSFirehoseSplunkS3BackupMode.html">AWSFirehoseSplunkS3BackupMode</a>
               </li>
               <li class="nav-group-task">
@@ -756,7 +780,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The amount of time that Kinesis Data Firehose waits to receive an acknowledgment from Splunk after it sends it data. At the end of the timeout period, Kinesis Data Firehose either tries to send the data again or considers it an error, based on your retry settings.</p>
+                        <p>The amount of time that Firehose waits to receive an acknowledgment from Splunk after it sends it data. At the end of the timeout period, Firehose either tries to send the data again or considers it an error, based on your retry settings.</p>
 
                       </div>
                       <div class="declaration">
@@ -788,7 +812,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The HTTP Event Collector (HEC) endpoint to which Kinesis Data Firehose sends your data.</p>
+                        <p>The HTTP Event Collector (HEC) endpoint to which Firehose sends your data.</p>
 
                       </div>
                       <div class="declaration">
@@ -916,7 +940,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The retry behavior in case Kinesis Data Firehose is unable to deliver data to Splunk or if it doesn&rsquo;t receive an acknowledgment of receipt from Splunk.</p>
+                        <p>The retry behavior in case Firehose is unable to deliver data to Splunk or if it doesn&rsquo;t receive an acknowledgment of receipt from Splunk.</p>
 
                       </div>
                       <div class="declaration">
@@ -948,7 +972,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Defines how documents should be delivered to Amazon S3. When set to <code>FailedDocumentsOnly</code>, Kinesis Data Firehose writes any data that could not be indexed to the configured Amazon S3 destination. When set to <code>AllDocuments</code>, Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents to Amazon S3. Default value is <code>FailedDocumentsOnly</code>. </p>
+                        <p>Defines how documents should be delivered to Amazon S3. When set to <code>FailedDocumentsOnly</code>, Firehose writes any data that could not be indexed to the configured Amazon S3 destination. When set to <code>AllDocuments</code>, Firehose delivers all incoming records to Amazon S3, and also writes failed documents to Amazon S3. Default value is <code>FailedDocumentsOnly</code>. </p>
 
                       </div>
                       <div class="declaration">
@@ -1004,7 +1028,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-02-17)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-02-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

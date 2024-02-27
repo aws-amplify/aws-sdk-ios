@@ -17,7 +17,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSKinesis 2.33.10 Docs</a> (76% documented)</p>
+        <p><a href="index.html">AWSKinesis 2.34.0 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKinesis.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -294,6 +294,24 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSFirehoseSerializer.html">AWSFirehoseSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseSnowflakeDestinationConfiguration.html">AWSFirehoseSnowflakeDestinationConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseSnowflakeDestinationDescription.html">AWSFirehoseSnowflakeDestinationDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseSnowflakeDestinationUpdate.html">AWSFirehoseSnowflakeDestinationUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseSnowflakeRetryOptions.html">AWSFirehoseSnowflakeRetryOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseSnowflakeRoleConfiguration.html">AWSFirehoseSnowflakeRoleConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseSnowflakeVpcConfiguration.html">AWSFirehoseSnowflakeVpcConfiguration</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSFirehoseSourceDescription.html">AWSFirehoseSourceDescription</a>
@@ -628,6 +646,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSFirehoseS3BackupMode.html">AWSFirehoseS3BackupMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSFirehoseSnowflakeDataLoadingOption.html">AWSFirehoseSnowflakeDataLoadingOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSFirehoseSnowflakeS3BackupMode.html">AWSFirehoseSnowflakeS3BackupMode</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSFirehoseSplunkS3BackupMode.html">AWSFirehoseSplunkS3BackupMode</a>
@@ -1551,6 +1575,7 @@
     <span class="n">AWSFirehoseProcessorParameterNameSubRecordType</span><span class="p">,</span>
     <span class="n">AWSFirehoseProcessorParameterNameDelimiter</span><span class="p">,</span>
     <span class="n">AWSFirehoseProcessorParameterNameCompressionFormat</span><span class="p">,</span>
+    <span class="n">AWSFirehoseProcessorParameterNameDataMessageExtraction</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                         </div>
@@ -1588,6 +1613,7 @@
     <span class="n">AWSFirehoseProcessorTypeUnknown</span><span class="p">,</span>
     <span class="n">AWSFirehoseProcessorTypeRecordDeAggregation</span><span class="p">,</span>
     <span class="n">AWSFirehoseProcessorTypeDecompression</span><span class="p">,</span>
+    <span class="n">AWSFirehoseProcessorTypeCloudWatchLogProcessing</span><span class="p">,</span>
     <span class="n">AWSFirehoseProcessorTypeLambda</span><span class="p">,</span>
     <span class="n">AWSFirehoseProcessorTypeMetadataExtraction</span><span class="p">,</span>
     <span class="n">AWSFirehoseProcessorTypeAppendDelimiterToRecord</span><span class="p">,</span>
@@ -1671,6 +1697,81 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSFirehoseS3BackupMode</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSFirehoseSnowflakeDataLoadingOption"></a>
+                    <a name="//apple_ref/objc/Enum/AWSFirehoseSnowflakeDataLoadingOption" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSFirehoseSnowflakeDataLoadingOption">AWSFirehoseSnowflakeDataLoadingOption</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSFirehoseSnowflakeDataLoadingOption.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSFirehoseSnowflakeDataLoadingOption</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSFirehoseSnowflakeDataLoadingOptionUnknown</span><span class="p">,</span>
+    <span class="n">AWSFirehoseSnowflakeDataLoadingOptionJsonMapping</span><span class="p">,</span>
+    <span class="n">AWSFirehoseSnowflakeDataLoadingOptionVariantContentMapping</span><span class="p">,</span>
+    <span class="n">AWSFirehoseSnowflakeDataLoadingOptionVariantContentAndMetadataMapping</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSFirehoseSnowflakeDataLoadingOption</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSFirehoseSnowflakeS3BackupMode"></a>
+                    <a name="//apple_ref/objc/Enum/AWSFirehoseSnowflakeS3BackupMode" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSFirehoseSnowflakeS3BackupMode">AWSFirehoseSnowflakeS3BackupMode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSFirehoseSnowflakeS3BackupMode.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSFirehoseSnowflakeS3BackupMode</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSFirehoseSnowflakeS3BackupModeUnknown</span><span class="p">,</span>
+    <span class="n">AWSFirehoseSnowflakeS3BackupModeFailedDataOnly</span><span class="p">,</span>
+    <span class="n">AWSFirehoseSnowflakeS3BackupModeAllData</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSFirehoseSnowflakeS3BackupMode</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -2034,7 +2135,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-02-17)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-02-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

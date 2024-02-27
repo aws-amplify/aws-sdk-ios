@@ -17,7 +17,7 @@
     <a title="AWSFirehoseExtendedS3DestinationUpdate Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSKinesis 2.33.10 Docs</a> (76% documented)</p>
+        <p><a href="../index.html">AWSKinesis 2.34.0 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKinesis.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -294,6 +294,24 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSFirehoseSerializer.html">AWSFirehoseSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSnowflakeDestinationConfiguration.html">AWSFirehoseSnowflakeDestinationConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSnowflakeDestinationDescription.html">AWSFirehoseSnowflakeDestinationDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSnowflakeDestinationUpdate.html">AWSFirehoseSnowflakeDestinationUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSnowflakeRetryOptions.html">AWSFirehoseSnowflakeRetryOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSnowflakeRoleConfiguration.html">AWSFirehoseSnowflakeRoleConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSnowflakeVpcConfiguration.html">AWSFirehoseSnowflakeVpcConfiguration</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSFirehoseSourceDescription.html">AWSFirehoseSourceDescription</a>
@@ -630,6 +648,12 @@
                 <a href="../Enums/AWSFirehoseS3BackupMode.html">AWSFirehoseS3BackupMode</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseSnowflakeDataLoadingOption.html">AWSFirehoseSnowflakeDataLoadingOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseSnowflakeS3BackupMode.html">AWSFirehoseSnowflakeS3BackupMode</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSFirehoseSplunkS3BackupMode.html">AWSFirehoseSplunkS3BackupMode</a>
               </li>
               <li class="nav-group-task">
@@ -810,6 +834,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSFirehoseExtendedS3DestinationUpdate(py)customTimeZone"></a>
+                    <a name="//apple_ref/objc/Property/customTimeZone" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseExtendedS3DestinationUpdate(py)customTimeZone">customTimeZone</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The time zone you prefer. UTC is the default.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">customTimeZone</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">customTimeZone</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSFirehoseExtendedS3DestinationUpdate(py)dataFormatConversionConfiguration"></a>
                     <a name="//apple_ref/objc/Property/dataFormatConversionConfiguration" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSFirehoseExtendedS3DestinationUpdate(py)dataFormatConversionConfiguration">dataFormatConversionConfiguration</a>
@@ -916,7 +972,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html">Custom Prefixes for Amazon S3 Objects</a>.</p>
+                        <p>A prefix that Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html">Custom Prefixes for Amazon S3 Objects</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -929,6 +985,38 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">errorOutputPrefix</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFirehoseExtendedS3DestinationUpdate(py)fileExtension"></a>
+                    <a name="//apple_ref/objc/Property/fileExtension" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseExtendedS3DestinationUpdate(py)fileExtension">fileExtension</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Specify a file extension. It will override the default file extension</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">fileExtension</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">fileExtension</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -1100,7 +1188,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-02-17)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-02-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

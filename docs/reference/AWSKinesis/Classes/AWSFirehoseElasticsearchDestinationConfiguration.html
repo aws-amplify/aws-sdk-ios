@@ -17,7 +17,7 @@
     <a title="AWSFirehoseElasticsearchDestinationConfiguration Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSKinesis 2.33.10 Docs</a> (76% documented)</p>
+        <p><a href="../index.html">AWSKinesis 2.34.0 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKinesis.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -294,6 +294,24 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSFirehoseSerializer.html">AWSFirehoseSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSnowflakeDestinationConfiguration.html">AWSFirehoseSnowflakeDestinationConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSnowflakeDestinationDescription.html">AWSFirehoseSnowflakeDestinationDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSnowflakeDestinationUpdate.html">AWSFirehoseSnowflakeDestinationUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSnowflakeRetryOptions.html">AWSFirehoseSnowflakeRetryOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSnowflakeRoleConfiguration.html">AWSFirehoseSnowflakeRoleConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSnowflakeVpcConfiguration.html">AWSFirehoseSnowflakeVpcConfiguration</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSFirehoseSourceDescription.html">AWSFirehoseSourceDescription</a>
@@ -630,6 +648,12 @@
                 <a href="../Enums/AWSFirehoseS3BackupMode.html">AWSFirehoseS3BackupMode</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseSnowflakeDataLoadingOption.html">AWSFirehoseSnowflakeDataLoadingOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseSnowflakeS3BackupMode.html">AWSFirehoseSnowflakeS3BackupMode</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSFirehoseSplunkS3BackupMode.html">AWSFirehoseSplunkS3BackupMode</a>
               </li>
               <li class="nav-group-task">
@@ -790,7 +814,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data Firehose generated document ID and OpenSearch Service generated document ID.</p>
+                        <p>Indicates the method for setting up document ID. The supported methods are Firehose generated document ID and OpenSearch Service generated document ID.</p>
 
                       </div>
                       <div class="declaration">
@@ -950,7 +974,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon ES. The default value is 300 (5 minutes).</p>
+                        <p>The retry behavior in case Firehose is unable to deliver documents to Amazon ES. The default value is 300 (5 minutes).</p>
 
                       </div>
                       <div class="declaration">
@@ -982,7 +1006,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Grant Kinesis Data Firehose Access to an Amazon S3 Destination</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>
+                        <p>The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Grant Firehose Access to an Amazon S3 Destination</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -1014,7 +1038,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Defines how documents should be delivered to Amazon S3. When it is set to <code>FailedDocumentsOnly</code>, Kinesis Data Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with <code>AmazonOpenSearchService-failed/</code> appended to the key prefix. When set to <code>AllDocuments</code>, Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents with <code>AmazonOpenSearchService-failed/</code> appended to the prefix. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup">Amazon S3 Backup for the Amazon ES Destination</a>. Default value is <code>FailedDocumentsOnly</code>.</p><p>You can&rsquo;t change this backup mode after you create the delivery stream. </p>
+                        <p>Defines how documents should be delivered to Amazon S3. When it is set to <code>FailedDocumentsOnly</code>, Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with <code>AmazonOpenSearchService-failed/</code> appended to the key prefix. When set to <code>AllDocuments</code>, Firehose delivers all incoming records to Amazon S3, and also writes failed documents with <code>AmazonOpenSearchService-failed/</code> appended to the prefix. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup">Amazon S3 Backup for the Amazon ES Destination</a>. Default value is <code>FailedDocumentsOnly</code>.</p><p>You can&rsquo;t change this backup mode after you create the delivery stream. </p>
 
                       </div>
                       <div class="declaration">
@@ -1078,7 +1102,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per index. If you try to specify a new type for an existing index that already has another type, Kinesis Data Firehose returns an error during run time.</p><p>For Elasticsearch 7.x, don&rsquo;t specify a <code>TypeName</code>.</p>
+                        <p>The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per index. If you try to specify a new type for an existing index that already has another type, Firehose returns an error during run time.</p><p>For Elasticsearch 7.x, don&rsquo;t specify a <code>TypeName</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -1134,7 +1158,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-02-17)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-02-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
