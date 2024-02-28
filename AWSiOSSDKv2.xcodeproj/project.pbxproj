@@ -598,12 +598,13 @@
 		5C1590172755727C00F88085 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
 		5C1978DD2702364800F9C11E /* AWSLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1978DC2702364800F9C11E /* AWSLocationTests.swift */; };
 		5C71F33F295672B8001183A4 /* guten_tag.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5C71F33E295672B8001183A4 /* guten_tag.wav */; };
+		687952932B8FE2C5001E8990 /* AWSDDLog+Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687952922B8FE2C5001E8990 /* AWSDDLog+Optional.swift */; };
 		6883619E2B72D1C200D74FF4 /* AWSS3PreSignedURLBuilderUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6883619D2B72D1C200D74FF4 /* AWSS3PreSignedURLBuilderUnitTests.swift */; };
 		688361A12B73D25B00D74FF4 /* AWSIoTStreamThreadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 688361A02B73D25B00D74FF4 /* AWSIoTStreamThreadTests.m */; };
 		68A45B792B8D5F7D00A0851E /* AWSCocoaLumberjack.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45B542B8D5F7C00A0851E /* AWSCocoaLumberjack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		68A45B7B2B8D5F7D00A0851E /* AWSDDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A45B572B8D5F7C00A0851E /* AWSDDASLLogger.m */; };
 		68A45B7C2B8D5F7D00A0851E /* AWSDDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A45B582B8D5F7C00A0851E /* AWSDDFileLogger.m */; };
-		68A45B7D2B8D5F7D00A0851E /* AWSDDFileLogger+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45B592B8D5F7C00A0851E /* AWSDDFileLogger+Internal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68A45B7D2B8D5F7D00A0851E /* AWSDDFileLogger+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45B592B8D5F7C00A0851E /* AWSDDFileLogger+Internal.h */; };
 		68A45B7E2B8D5F7D00A0851E /* AWSDDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A45B5A2B8D5F7C00A0851E /* AWSDDTTYLogger.m */; };
 		68A45B7F2B8D5F7D00A0851E /* AWSDDContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A45B5C2B8D5F7C00A0851E /* AWSDDContextFilterLogFormatter.m */; };
 		68A45B802B8D5F7D00A0851E /* AWSDDDispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A45B5D2B8D5F7C00A0851E /* AWSDDDispatchQueueLogFormatter.m */; };
@@ -3212,6 +3213,7 @@
 		5C1978DB2702364800F9C11E /* AWSLocationTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSLocationTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5C1978DC2702364800F9C11E /* AWSLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSLocationTests.swift; sourceTree = "<group>"; };
 		5C71F33E295672B8001183A4 /* guten_tag.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = guten_tag.wav; sourceTree = "<group>"; };
+		687952922B8FE2C5001E8990 /* AWSDDLog+Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AWSDDLog+Optional.swift"; sourceTree = "<group>"; };
 		6883619D2B72D1C200D74FF4 /* AWSS3PreSignedURLBuilderUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSS3PreSignedURLBuilderUnitTests.swift; sourceTree = "<group>"; };
 		688361A02B73D25B00D74FF4 /* AWSIoTStreamThreadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSIoTStreamThreadTests.m; sourceTree = "<group>"; };
 		68A45B542B8D5F7C00A0851E /* AWSCocoaLumberjack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCocoaLumberjack.h; sourceTree = "<group>"; };
@@ -6045,6 +6047,7 @@
 				68A45BA82B8D6ADE00A0851E /* AWSDDFileLogger+Buffering.h */,
 				68A45B5E2B8D5F7C00A0851E /* AWSDDFileLogger+Buffering.m */,
 				68A45B592B8D5F7C00A0851E /* AWSDDFileLogger+Internal.h */,
+				687952922B8FE2C5001E8990 /* AWSDDLog+Optional.swift */,
 				68A45BAB2B8D6ADE00A0851E /* AWSDDMultiFormatter.h */,
 			);
 			path = Extensions;
@@ -13029,6 +13032,7 @@
 				68A45B842B8D5F7D00A0851E /* AWSDDOSLogger.m in Sources */,
 				CE0D42A61C6A673E006B91B5 /* AWSModel.m in Sources */,
 				CE0D425F1C6A673E006B91B5 /* AWSMTLReflection.m in Sources */,
+				687952932B8FE2C5001E8990 /* AWSDDLog+Optional.swift in Sources */,
 				CE0D42A41C6A673E006B91B5 /* AWSLogging.m in Sources */,
 				68A45B822B8D5F7D00A0851E /* AWSDDMultiFormatter.m in Sources */,
 				CE0D42AE1C6A673E006B91B5 /* AWSXMLWriter.m in Sources */,
@@ -17682,6 +17686,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -17700,6 +17705,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
