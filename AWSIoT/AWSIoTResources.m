@@ -4939,7 +4939,7 @@
         },\
         \"namespaceId\":{\
           \"shape\":\"NamespaceId\",\
-          \"documentation\":\"<p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is in public preview.</p> </note>\",\
+          \"documentation\":\"<p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For more information, see <a href=\\\"https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html\\\">Setting up IoT Greengrass core devices.</a> </p> </note>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"namespaceId\"\
         }\
@@ -7275,7 +7275,7 @@
         },\
         \"namespaceId\":{\
           \"shape\":\"NamespaceId\",\
-          \"documentation\":\"<p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is in public preview.</p> </note>\"\
+          \"documentation\":\"<p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For more information, see <a href=\\\"https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html\\\">Setting up IoT Greengrass core devices.</a> </p> </note>\"\
         },\
         \"jobTemplateArn\":{\
           \"shape\":\"JobTemplateArn\",\
@@ -8599,7 +8599,7 @@
         },\
         \"namespaceId\":{\
           \"shape\":\"NamespaceId\",\
-          \"documentation\":\"<p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is in public preview.</p> </note>\",\
+          \"documentation\":\"<p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For more information, see <a href=\\\"https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html\\\">Setting up IoT Greengrass core devices.</a> </p> </note>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"namespaceId\"\
         }\
@@ -8623,7 +8623,7 @@
         },\
         \"namespaceId\":{\
           \"shape\":\"NamespaceId\",\
-          \"documentation\":\"<p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is in public preview.</p> </note>\",\
+          \"documentation\":\"<p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For more information, see <a href=\\\"https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html\\\">Setting up IoT Greengrass core devices.</a> </p> </note>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"namespaceId\"\
         }\
@@ -12370,7 +12370,7 @@
         },\
         \"namespaceId\":{\
           \"shape\":\"NamespaceId\",\
-          \"documentation\":\"<p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is in public preview.</p> </note>\"\
+          \"documentation\":\"<p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For more information, see <a href=\\\"https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html\\\">Setting up IoT Greengrass core devices.</a> </p> </note>\"\
         },\
         \"jobTemplateArn\":{\
           \"shape\":\"JobTemplateArn\",\
@@ -13811,7 +13811,7 @@
         },\
         \"namespaceId\":{\
           \"shape\":\"NamespaceId\",\
-          \"documentation\":\"<p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is in public preview.</p> </note>\",\
+          \"documentation\":\"<p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For more information, see <a href=\\\"https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html\\\">Setting up IoT Greengrass core devices.</a> </p> </note>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"namespaceId\"\
         },\
@@ -13919,7 +13919,7 @@
         },\
         \"namespaceId\":{\
           \"shape\":\"NamespaceId\",\
-          \"documentation\":\"<p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is in public preview.</p> </note>\",\
+          \"documentation\":\"<p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For more information, see <a href=\\\"https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html\\\">Setting up IoT Greengrass core devices.</a> </p> </note>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"namespaceId\"\
         }\
@@ -17573,8 +17573,8 @@
           \"documentation\":\"<p>The token used to get the next set of results, or <code>null</code> if there are no additional results.</p>\"\
         },\
         \"maxResults\":{\
-          \"shape\":\"QueryMaxResults\",\
-          \"documentation\":\"<p>The maximum number of results to return per page at one time. The response might contain fewer results but will never contain more.</p>\"\
+          \"shape\":\"SearchQueryMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return per page at one time. This maximum number cannot exceed 100. The response might contain fewer results but will never contain more. You can use <a href=\\\"https://docs.aws.amazon.com/iot/latest/apireference/API_SearchIndex.html#iot-SearchIndex-request-nextToken\\\"> <code>nextToken</code> </a> to retrieve the next set of results until <code>nextToken</code> returns <code>NULL</code>.</p>\"\
         },\
         \"queryVersion\":{\
           \"shape\":\"QueryVersion\",\
@@ -17598,6 +17598,10 @@
           \"documentation\":\"<p>The thing groups that match the search query.</p>\"\
         }\
       }\
+    },\
+    \"SearchQueryMaxResults\":{\
+      \"type\":\"integer\",\
+      \"min\":1\
     },\
     \"SearchableAttributes\":{\
       \"type\":\"list\",\
@@ -20075,7 +20079,7 @@
         },\
         \"namespaceId\":{\
           \"shape\":\"NamespaceId\",\
-          \"documentation\":\"<p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is in public preview.</p> </note>\",\
+          \"documentation\":\"<p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For more information, see <a href=\\\"https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html\\\">Setting up IoT Greengrass core devices.</a> </p> </note>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"namespaceId\"\
         },\
