@@ -1,6 +1,6 @@
 // Software License Agreement (BSD License)
 //
-// Copyright (c) 2010-2016, Deusty, LLC
+// Copyright (c) 2010-2024, Deusty, LLC
 // All rights reserved.
 //
 // Redistribution and use of this software in source and binary forms,
@@ -13,6 +13,15 @@
 //   to endorse or promote products derived from this software without specific
 //   prior written permission of Deusty, LLC.
 
+#import <TargetConditionals.h>
+
+#if !TARGET_OS_WATCH
+
+#include <asl.h>
+#include <notify.h>
+#include <notify_keys.h>
+#include <sys/time.h>
+
 #import "AWSDDASLLogCapture.h"
 
 // Disable legacy macros
@@ -20,49 +29,13 @@
     #define AWSDD_LEGACY_MACROS 0
 #endif
 
-#import "AWSDDLog.h"
+static __auto_type _cancel = YES;
+static __auto_type _captureLevel = AWSDDLogLevelVerbose;
 
-#include <asl.h>
-#include <notify.h>
-#include <notify_keys.h>
-#include <sys/time.h>
-
-static BOOL _cancel = YES;
-static AWSDDLogLevel _captureLevel = AWSDDLogLevelVerbose;
-
-#ifdef __IPHONE_8_0
-    #define AWSDDASL_IOS_PIVOT_VERSION __IPHONE_8_0
-#endif
-#ifdef __MAC_10_10
-    #define AWSDDASL_OSX_PIVOT_VERSION __MAC_10_10
-#endif
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 @implementation AWSDDASLLogCapture
-
-static aslmsg (*dd_asl_next)(aslresponse obj);
-static void (*dd_asl_release)(aslresponse obj);
-
-+ (void)initialize
-{
-    #if (defined(AWSDDASL_IOS_PIVOT_VERSION) && __IPHONE_OS_VERSION_MAX_ALLOWED >= AWSDDASL_IOS_PIVOT_VERSION) || (defined(AWSDDASL_OSX_PIVOT_VERSION) && __MAC_OS_X_VERSION_MAX_ALLOWED >= AWSDDASL_OSX_PIVOT_VERSION)
-        #if __IPHONE_OS_VERSION_MIN_REQUIRED < AWSDDASL_IOS_PIVOT_VERSION || __MAC_OS_X_VERSION_MIN_REQUIRED < AWSDDASL_OSX_PIVOT_VERSION
-            #pragma GCC diagnostic push
-            #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-                // Building on falsely advertised SDK, targeting deprecated API
-                dd_asl_next    = &aslresponse_next;
-                dd_asl_release = &aslresponse_free;
-            #pragma GCC diagnostic pop
-        #else
-            // Building on lastest, correct SDK, targeting latest API
-            dd_asl_next    = &asl_next;
-            dd_asl_release = &asl_release;
-        #endif
-    #else
-        // Building on old SDKs, targeting deprecated API
-        dd_asl_next    = &aslresponse_next;
-        dd_asl_release = &aslresponse_free;
-    #endif
-}
+#pragma clang diagnostic pop
 
 + (void)start {
     // Ignore subsequent calls
@@ -93,29 +66,29 @@ static void (*dd_asl_release)(aslresponse obj);
 
 + (void)configureAslQuery:(aslmsg)query {
     const char param[] = "7";  // ASL_LEVEL_DEBUG, which is everything. We'll rely on regular AWSDDlog log level to filter
-    
+
     asl_set_query(query, ASL_KEY_LEVEL, param, ASL_QUERY_OP_LESS_EQUAL | ASL_QUERY_OP_NUMERIC);
 
     // Don't retrieve logs from our own AWSDDASLLogger
     asl_set_query(query, kAWSDDASLKeyAWSDDLog, kAWSDDASLAWSDDLogValue, ASL_QUERY_OP_NOT_EQUAL);
-    
-#if !TARGET_OS_IPHONE || TARGET_SIMULATOR
-    int processId = [[NSProcessInfo processInfo] processIdentifier];
+
+#if !TARGET_OS_IPHONE || (defined(TARGET_SIMULATOR) && TARGET_SIMULATOR)
+    __auto_type processId = [[NSProcessInfo processInfo] processIdentifier];
     char pid[16];
-    sprintf(pid, "%d", processId);
+    snprintf(pid, sizeof(pid), "%d", processId);
     asl_set_query(query, ASL_KEY_PID, pid, ASL_QUERY_OP_EQUAL | ASL_QUERY_OP_NUMERIC);
 #endif
 }
 
 + (void)aslMessageReceived:(aslmsg)msg {
-    const char* messageCString = asl_get( msg, ASL_KEY_MSG );
+    __auto_type messageCString = asl_get(msg, ASL_KEY_MSG);
     if (messageCString == NULL)
         return;
 
-    int flag;
+    AWSDDLogFlag flag;
     BOOL async;
 
-    const char* levelCString = asl_get(msg, ASL_KEY_LEVEL);
+    __auto_type levelCString = asl_get(msg, ASL_KEY_LEVEL);
     switch (levelCString? atoi(levelCString) : 0) {
         // By default all NSLog's with a ASL_LEVEL_WARNING level
         case ASL_LEVEL_EMERG    :
@@ -136,25 +109,25 @@ static void (*dd_asl_release)(aslresponse obj);
     //  NSString * sender = [NSString stringWithCString:asl_get(msg, ASL_KEY_SENDER) encoding:NSUTF8StringEncoding];
     NSString *message = @(messageCString);
 
-    const char* secondsCString = asl_get( msg, ASL_KEY_TIME );
-    const char* nanoCString = asl_get( msg, ASL_KEY_TIME_NSEC );
-    NSTimeInterval seconds = secondsCString ? strtod(secondsCString, NULL) : [NSDate timeIntervalSinceReferenceDate] - NSTimeIntervalSince1970;
-    double nanoSeconds = nanoCString? strtod(nanoCString, NULL) : 0;
-    NSTimeInterval totalSeconds = seconds + (nanoSeconds / 1e9);
+    __auto_type secondsCString = asl_get(msg, ASL_KEY_TIME);
+    __auto_type nanoCString = asl_get(msg, ASL_KEY_TIME_NSEC);
+    __auto_type seconds = secondsCString ? strtod(secondsCString, NULL) : [NSDate timeIntervalSinceReferenceDate] - NSTimeIntervalSince1970;
+    __auto_type nanoSeconds = nanoCString? strtod(nanoCString, NULL) : 0;
+    __auto_type totalSeconds = seconds + (nanoSeconds / 1e9);
 
-    NSDate *timeStamp = [NSDate dateWithTimeIntervalSince1970:totalSeconds];
+    __auto_type timeStamp = [NSDate dateWithTimeIntervalSince1970:totalSeconds];
 
-    AWSDDLogMessage *logMessage = [[AWSDDLogMessage alloc]initWithMessage:message
-                                                              level:_captureLevel
-                                                               flag:flag
-                                                            context:0
-                                                             file:@"AWSDDASLLogCapture"
-                                                           function:0
-                                                               line:0
-                                                                tag:nil
-                                                            options:0
-                                                          timestamp:timeStamp];
-    
+    __auto_type logMessage = [[AWSDDLogMessage alloc] initWithMessage:message
+                                                                level:_captureLevel
+                                                                 flag:flag
+                                                              context:0
+                                                                 file:@"AWSDDASLLogCapture"
+                                                             function:nil
+                                                                 line:0
+                                                                  tag:nil
+                                                              options:AWSDDLogMessageDontCopyMessage
+                                                            timestamp:timeStamp];
+
     [AWSDDLog log:async message:logMessage];
 }
 
@@ -171,7 +144,7 @@ static void (*dd_asl_release)(aslresponse obj);
             .tv_sec = 0
         };
         gettimeofday(&timeval, NULL);
-        unsigned long long startTime = timeval.tv_sec;
+        __auto_type startTime = (unsigned long long)timeval.tv_sec;
         __block unsigned long long lastSeenID = 0;
 
         /*
@@ -190,7 +163,7 @@ static void (*dd_asl_release)(aslresponse obj);
             // At least one message has been posted; build a search query.
             @autoreleasepool
             {
-                aslmsg query = asl_new(ASL_TYPE_QUERY);
+                __auto_type query = asl_new(ASL_TYPE_QUERY);
                 char stringValue[64];
 
                 if (lastSeenID > 0) {
@@ -205,16 +178,16 @@ static void (*dd_asl_release)(aslresponse obj);
 
                 // Iterate over new messages.
                 aslmsg msg;
-                aslresponse response = asl_search(NULL, query);
-                
-                while ((msg = dd_asl_next(response)))
+                __auto_type response = asl_search(NULL, query);
+
+                while ((msg = asl_next(response)))
                 {
                     [self aslMessageReceived:msg];
 
                     // Keep track of which messages we've seen.
-                    lastSeenID = atoll(asl_get(msg, ASL_KEY_MSG_ID));
+                    lastSeenID = (unsigned long long)atoll(asl_get(msg, ASL_KEY_MSG_ID));
                 }
-                dd_asl_release(response);
+                asl_release(response);
                 asl_free(query);
 
                 if (_cancel) {
@@ -228,3 +201,5 @@ static void (*dd_asl_release)(aslresponse obj);
 }
 
 @end
+
+#endif

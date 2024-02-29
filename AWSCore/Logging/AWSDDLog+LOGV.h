@@ -1,6 +1,6 @@
 // Software License Agreement (BSD License)
 //
-// Copyright (c) 2010-2016, Deusty, LLC
+// Copyright (c) 2010-2024, Deusty, LLC
 // All rights reserved.
 //
 // Redistribution and use of this software in source and binary forms,
@@ -21,6 +21,13 @@
 #import "AWSDDLog.h"
 
 /**
+ * The constant/variable/method responsible for controlling the current log level.
+ **/
+#ifndef LOG_LEVEL_DEF
+    #define LOG_LEVEL_DEF [AWSDDLog sharedInstance].logLevel
+#endif
+
+/**
  * Whether async should be used by log messages, excluding error messages that are always sent sync.
  **/
 #ifndef LOG_ASYNC_ENABLED
@@ -31,17 +38,17 @@
  * This is the single macro that all other macros below compile into.
  * This big multiline macro makes all the other macros easier to read.
  **/
-#define LOGV_MACRO(isAsynchronous, lvl, flg, ctx, atag, fnct, frmt, avalist) \
-        [AWSDDLog log : isAsynchronous                                     \
-             level : lvl                                                \
-              flag : flg                                                \
-           context : ctx                                                \
-              file : __FILE__                                           \
-          function : fnct                                               \
-              line : __LINE__                                           \
-               tag : atag                                               \
-            format : frmt                                               \
-              args : avalist]
+#define LOGV_MACRO(isAsynchronous, lvl, flg, ctx, atag, fnct, frmt, avalist)    \
+        [AWSDDLog log : isAsynchronous                                          \
+                level : lvl                                                     \
+                 flag : flg                                                     \
+              context : ctx                                                     \
+                 file : __FILE__                                                \
+             function : fnct                                                    \
+                 line : __LINE__                                                \
+                  tag : atag                                                    \
+               format : frmt                                                    \
+                 args : avalist]
 
 /**
  * Define version of the macro that only execute if the log level is above the threshold.
@@ -73,4 +80,3 @@
 #define AWSDDLogVInfo(frmt, avalist)    LOGV_MAYBE(LOG_ASYNC_ENABLED, LOG_LEVEL_DEF, AWSDDLogFlagInfo,    0, nil, __PRETTY_FUNCTION__, frmt, avalist)
 #define AWSDDLogVDebug(frmt, avalist)   LOGV_MAYBE(LOG_ASYNC_ENABLED, LOG_LEVEL_DEF, AWSDDLogFlagDebug,   0, nil, __PRETTY_FUNCTION__, frmt, avalist)
 #define AWSDDLogVVerbose(frmt, avalist) LOGV_MAYBE(LOG_ASYNC_ENABLED, LOG_LEVEL_DEF, AWSDDLogFlagVerbose, 0, nil, __PRETTY_FUNCTION__, frmt, avalist)
-

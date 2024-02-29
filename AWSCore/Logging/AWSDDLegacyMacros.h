@@ -1,6 +1,6 @@
 // Software License Agreement (BSD License)
 //
-// Copyright (c) 2010-2016, Deusty, LLC
+// Copyright (c) 2010-2024, Deusty, LLC
 // All rights reserved.
 //
 // Redistribution and use of this software in source and binary forms,
@@ -20,8 +20,12 @@
  **/
 #if AWSDD_LEGACY_MACROS
 
-#warning CocoaLumberjack 1.9.x legacy macros enabled. \
+#warning AWSCocoaLumberjack 1.9.x legacy macros enabled. \
 Disable legacy macros by importing AWSCocoaLumberjack.h or AWSDDLogMacros.h instead of AWSDDLog.h or add `#define AWSDD_LEGACY_MACROS 0` before importing AWSDDLog.h.
+
+#ifndef LOG_LEVEL_DEF
+    #define LOG_LEVEL_DEF [AWSDDLog sharedInstance].logLevel
+#endif
 
 #define LOG_FLAG_ERROR    AWSDDLogFlagError
 #define LOG_FLAG_WARN     AWSDDLogFlagWarning
@@ -57,7 +61,7 @@ Disable legacy macros by importing AWSCocoaLumberjack.h or AWSDDLogMacros.h inst
                format : (frmt), ## __VA_ARGS__]
 
 #define AWSDD_LOG_MAYBE(async, lvl, flg, ctx, fnct, frmt, ...)                       \
-        do { if(lvl & flg) AWSDD_LOG_MACRO(async, lvl, flg, ctx, nil, fnct, frmt, ##__VA_ARGS__); } while(0)
+        do { if((lvl & flg) != 0) AWSDD_LOG_MACRO(async, lvl, flg, ctx, nil, fnct, frmt, ##__VA_ARGS__); } while(0)
 
 #define LOG_OBJC_MAYBE(async, lvl, flg, ctx, frmt, ...) \
         AWSDD_LOG_MAYBE(async, lvl, flg, ctx, __PRETTY_FUNCTION__, frmt, ## __VA_ARGS__)

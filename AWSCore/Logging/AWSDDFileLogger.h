@@ -1,6 +1,6 @@
 // Software License Agreement (BSD License)
 //
-// Copyright (c) 2010-2016, Deusty, LLC
+// Copyright (c) 2010-2024, Deusty, LLC
 // All rights reserved.
 //
 // Redistribution and use of this software in source and binary forms,
@@ -21,6 +21,8 @@
 #import "AWSDDLog.h"
 
 @class AWSDDLogFileInfo;
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  * This class provides a logger to write log statements to a file.
@@ -46,16 +48,51 @@ extern unsigned long long const kAWSDDDefaultLogFilesDiskQuota;
 #pragma mark -
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+/// The serializer is responsible for turning a log message into binary for writing into a file.
+/// It allows storing log messages in a non-text format.
+/// The serialier should not be used for filtering or formatting messages!
+/// Also, it must be fast!
+@protocol AWSDDFileLogMessageSerializer <NSObject>
+@required
+
+/// Returns the binary representation of the message.
+/// - Parameter message: The formatted log message to serialize.
+//
+
+/// Returns the binary representation of the message.
+/// - Parameters:
+///   - string: The string to serialize. Usually, this is the formatted message, but it can also be e.g. a log file header.
+///   - message: The message which represents the `string`. This is null, if `string` is e.g. a log file header.
+/// - Note: The `message` parameter should not be used for formatting! It should simply be used to extract the necessary metadata for serializing.
+- (NSData *)dataForString:(NSString *)string
+   originatingFromMessage:(nullable AWSDDLogMessage *)message NS_SWIFT_NAME(dataForString(_:originatingFrom:));
+
+@end
+
+/// The (default) plain text message serializer.
+@interface AWSDDFileLogPlainTextMessageSerializer : NSObject <AWSDDFileLogMessageSerializer>
+
+- (instancetype)init;
+
+@end
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+@class AWSDDFileLogger;
 /**
- *  The LogFileManager protocol is designed to allow you to control all aspects of your log files.
+ *  The AWSLogFileManager protocol is designed to allow you to control all aspects of your log files.
  *
  *  The primary purpose of this is to allow you to do something with the log files after they have been rolled.
  *  Perhaps you want to compress them to save disk space.
  *  Perhaps you want to upload them to an FTP server.
  *  Perhaps you want to run some analytics on the file.
  *
- *  A default LogFileManager is, of course, provided.
- *  The default LogFileManager simply deletes old log files according to the maximumNumberOfLogFiles property.
+ *  A default AWSLogFileManager is, of course, provided.
+ *  The default AWSLogFileManager simply deletes old log files according to the maximumNumberOfLogFiles property.
  *
  *  This protocol provides various methods to fetch the list of log files.
  *
@@ -77,7 +114,7 @@ extern unsigned long long const kAWSDDDefaultLogFilesDiskQuota;
 /**
  * The maximum number of archived log files to keep on disk.
  * For example, if this property is set to 3,
- * then the LogFileManager will only keep 3 archived log files (plus the current active log file) on disk.
+ * then the AWSLogFileManager will only keep 3 archived log files (plus the current active log file) on disk.
  * Once the active log file is rolled/archived, then the oldest of the existing 3 rolled/archived log files is deleted.
  *
  * You may optionally disable this option by setting it to zero.
@@ -85,7 +122,7 @@ extern unsigned long long const kAWSDDDefaultLogFilesDiskQuota;
 @property (readwrite, assign, atomic) NSUInteger maximumNumberOfLogFiles;
 
 /**
- * The maximum space that logs can take. On rolling logfile all old logfiles that exceed logFilesDiskQuota will
+ * The maximum space that logs can take. On rolling logfile all old log files that exceed logFilesDiskQuota will
  * be deleted.
  *
  * You may optionally disable this option by setting it to zero.
@@ -143,22 +180,45 @@ extern unsigned long long const kAWSDDDefaultLogFilesDiskQuota;
 
 /**
  * Generates a new unique log file path, and creates the corresponding log file.
+ * This method is executed directly on the file logger's internal queue.
+ * The file has to exist by the time the method returns.
  **/
-- (NSString *)createNewLogFile;
+- (nullable NSString *)createNewLogFileWithError:(NSError **)error;
 
 @optional
 
-// Notifications from AWSDDFileLogger
+/// The log message serializer.
+@property (nonatomic, readonly, strong) id<AWSDDFileLogMessageSerializer> logMessageSerializer;
 
-/**
- *  Called when a log file was archieved
- */
-- (void)didArchiveLogFile:(NSString *)logFilePath NS_SWIFT_NAME(didArchiveLogFile(atPath:));
+/// Manually perform a cleanup of the log files managed by this manager.
+/// This can be called from any queue!
+- (BOOL)cleanupLogFilesWithError:(NSError **)error;
 
-/**
- *  Called when the roll action was executed and the log was archieved
- */
-- (void)didRollAndArchiveLogFile:(NSString *)logFilePath NS_SWIFT_NAME(didRollAndArchiveLogFile(atPath:));
+// MARK: Private methods (only to be used by AWSDDFileLogger)
+
+// MARK: Notifications from AWSDDFileLogger
+/// Called when the log file manager was added to a file logger.
+/// This should be used to make the manager "active" - like starting internal timers etc.
+/// Executed on global queue with default priority.
+/// - Parameter fileLogger: The file logger this manager was added to.
+/// - Important: The manager **must not** keep a strong reference to `fileLogger` or a retain cycle will be created!
+- (void)didAddToFileLogger:(AWSDDFileLogger *)fileLogger;
+
+/// Called when a log file was archived. Executed on global queue with default priority.
+/// @param logFilePath The path to the log file that was archived.
+/// @param wasRolled Whether or not the archiving happend after rolling the log file.
+- (void)didArchiveLogFile:(NSString *)logFilePath wasRolled:(BOOL)wasRolled NS_SWIFT_NAME(didArchiveLogFile(atPath:wasRolled:));
+
+// MARK: Deprecated APIs
+/// Creates a new log file ignoring any errors. Deprecated in favor of `-createNewLogFileWithError:`.
+/// Will only be called if `-createNewLogFileWithError:` is not implemented.
+- (nullable NSString *)createNewLogFile __attribute__((deprecated("Use -createNewLogFileWithError:"))) NS_SWIFT_UNAVAILABLE("Use -createNewLogFileWithError:");
+
+/// Called when a log file was archived. Executed on global queue with default priority.
+- (void)didArchiveLogFile:(NSString *)logFilePath NS_SWIFT_NAME(didArchiveLogFile(atPath:)) __attribute__((deprecated("Use -didArchiveLogFile:wasRolled:")));
+
+/// Called when the roll action was executed and the log was archived. Executed on global queue with default priority.
+- (void)didRollAndArchiveLogFile:(NSString *)logFilePath NS_SWIFT_NAME(didRollAndArchiveLogFile(atPath:)) __attribute__((deprecated("Use -didArchiveLogFile:wasRolled:")));
 
 @end
 
@@ -182,14 +242,10 @@ extern unsigned long long const kAWSDDDefaultLogFilesDiskQuota;
 @interface AWSDDLogFileManagerDefault : NSObject <AWSDDLogFileManager>
 
 /**
- *  Default initializer
+ *  If logDirectory is not specified, then a folder called "Logs" is created in the app's cache directory.
+ *  While running on the simulator, the "Logs" folder is located in the library temporary directory.
  */
-- (instancetype)init;
-
-/**
- *  Designated initialized, requires the logs directory
- */
-- (instancetype)initWithLogsDirectory:(NSString *)logsDirectory NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithLogsDirectory:(nullable NSString *)logsDirectory NS_DESIGNATED_INITIALIZER;
 
 #if TARGET_OS_IPHONE
 /*
@@ -203,8 +259,12 @@ extern unsigned long long const kAWSDDDefaultLogFilesDiskQuota;
  *    null
  *    cy#
  **/
-- (instancetype)initWithLogsDirectory:(NSString *)logsDirectory defaultFileProtectionLevel:(NSString *)fileProtectionLevel;
+- (instancetype)initWithLogsDirectory:(nullable NSString *)logsDirectory
+           defaultFileProtectionLevel:(NSFileProtectionType)fileProtectionLevel;
 #endif
+
+/// Convenience  initializer.
+- (instancetype)init;
 
 /*
  * Methods to override.
@@ -214,7 +274,7 @@ extern unsigned long long const kAWSDDDefaultLogFilesDiskQuota;
  *
  * If you wish to change default filename, you can override following two methods.
  * - `newLogFileName` method would be called on new logfile creation.
- * - `isLogFile:` method would be called to filter logfiles from all other files in logsDirectory.
+ * - `isLogFile:` method would be called to filter log files from all other files in logsDirectory.
  *   You have to parse given filename and return YES if it is logFile.
  *
  * **NOTE**
@@ -248,6 +308,17 @@ extern unsigned long long const kAWSDDDefaultLogFilesDiskQuota;
  **/
 - (BOOL)isLogFile:(NSString *)fileName NS_SWIFT_NAME(isLogFile(withName:));
 
+/**
+ * New log files are created empty by default in `createNewLogFile:` method
+ *
+ * If you wish to specify a common file header to use in your log files,
+ * you can set the initial log file contents by overriding `logFileHeader`
+ **/
+@property (readonly, copy, nullable) NSString *logFileHeader;
+
+/// The log message serializer.
+@property (nonatomic, strong) id<AWSDDFileLogMessageSerializer> logMessageSerializer;
+
 /* Inherited from AWSDDLogFileManager protocol:
 
    @property (readwrite, assign, atomic) NSUInteger maximumNumberOfLogFiles;
@@ -262,7 +333,6 @@ extern unsigned long long const kAWSDDDefaultLogFilesDiskQuota;
    - (NSArray *)sortedLogFilePaths;
    - (NSArray *)sortedLogFileNames;
    - (NSArray *)sortedLogFileInfos;
-
  */
 
 @end
@@ -283,15 +353,11 @@ extern unsigned long long const kAWSDDDefaultLogFilesDiskQuota;
  **/
 @interface AWSDDLogFileFormatterDefault : NSObject <AWSDDLogFormatter>
 
-/**
- *  Default initializer
- */
-- (instancetype)init;
+/// Designated initializer, requires a date formatter
+- (instancetype)initWithDateFormatter:(nullable NSDateFormatter *)dateFormatter NS_DESIGNATED_INITIALIZER;
 
-/**
- *  Designated initializer, requires a date formatter
- */
-- (instancetype)initWithDateFormatter:(NSDateFormatter *)dateFormatter NS_DESIGNATED_INITIALIZER;
+/// Convenience initializer
+- (instancetype)init;
 
 @end
 
@@ -302,33 +368,59 @@ extern unsigned long long const kAWSDDDefaultLogFilesDiskQuota;
 /**
  *  The standard implementation for a file logger
  */
-@interface AWSDDFileLogger : AWSDDAbstractLogger <AWSDDLogger> {
-	AWSDDLogFileInfo *_currentLogFileInfo;
-}
+@interface AWSDDFileLogger : AWSDDAbstractLogger <AWSDDLogger>
 
 /**
- *  Default initializer
+ *  Default initializer.
  */
 - (instancetype)init;
 
 /**
- *  Designated initializer, requires a `AWSDDLogFileManager` instance
+ *  Designated initializer, requires a `AWSDDLogFileManager` instance.
+ *  A global queue w/ default priority is used to run callbacks.
+ *  If needed, specify queue using `initWithLogFileManager:completionQueue:`.
  */
-- (instancetype)initWithLogFileManager:(id <AWSDDLogFileManager>)logFileManager NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithLogFileManager:(id <AWSDDLogFileManager>)logFileManager;
+
+/**
+ *  Designated initializer, requires a `AWSDDLogFileManager` instance.
+ *  The completionQueue is used to execute `didArchiveLogFile:wasRolled:`,
+ *  and the callback in `rollLogFileWithCompletionBlock:`.
+ *  If nil, a global queue w/ default priority is used.
+ */
+- (instancetype)initWithLogFileManager:(id <AWSDDLogFileManager>)logFileManager
+                       completionQueue:(nullable dispatch_queue_t)dispatchQueue NS_DESIGNATED_INITIALIZER;
+
+/**
+ *  Deprecated. Use `willLogMessage:`
+ */
+- (void)willLogMessage __attribute__((deprecated("Use -willLogMessage:"))) NS_REQUIRES_SUPER;
+
+/**
+ *  Deprecated. Use `didLogMessage:`
+ */
+- (void)didLogMessage __attribute__((deprecated("Use -didLogMessage:"))) NS_REQUIRES_SUPER;
 
 /**
  *  Called when the logger is about to write message. Call super before your implementation.
  */
-- (void)willLogMessage NS_REQUIRES_SUPER;
+- (void)willLogMessage:(AWSDDLogFileInfo *)logFileInfo NS_REQUIRES_SUPER;
 
 /**
  *  Called when the logger wrote message. Call super after your implementation.
  */
-- (void)didLogMessage NS_REQUIRES_SUPER;
+- (void)didLogMessage:(AWSDDLogFileInfo *)logFileInfo NS_REQUIRES_SUPER;
 
 /**
- *  Called when the logger checks archive or not current log file. 
- *  Override this method to exdend standart behavior. By default returns NO.
+ *  Writes all in-memory log data to the permanent storage. Call super before your implementation.
+ *  Don't call this method directly, instead use the `[AWSDDLog flushLog]` to ensure all log messages are included in flush.
+ */
+- (void)flush NS_REQUIRES_SUPER;
+
+/**
+ *  Called when the logger checks archive or not current log file.
+ *  Override this method to extend standard behavior. By default returns NO.
+ *  This is executed directly on the logger's internal queue, so keep processing light!
  */
 - (BOOL)shouldArchiveRecentLogFileInfo:(AWSDDLogFileInfo *)recentLogFileInfo;
 
@@ -397,13 +489,14 @@ extern unsigned long long const kAWSDDDefaultLogFilesDiskQuota;
  *  You can optionally force the current log file to be rolled with this method.
  *  CompletionBlock will be called on main queue.
  */
-- (void)rollLogFileWithCompletionBlock:(void (^)(void))completionBlock NS_SWIFT_NAME(rollLogFile(withCompletion:));
+- (void)rollLogFileWithCompletionBlock:(nullable void (^)(void))completionBlock
+    NS_SWIFT_NAME(rollLogFile(withCompletion:));
 
 /**
  *  Method is deprecated.
  *  @deprecated Use `rollLogFileWithCompletionBlock:` method instead.
  */
-- (void)rollLogFile __attribute((deprecated));
+- (void)rollLogFile __attribute__((deprecated("Use -rollLogFileWithCompletionBlock:")));
 
 // Inherited from AWSDDAbstractLogger
 
@@ -415,9 +508,9 @@ extern unsigned long long const kAWSDDDefaultLogFilesDiskQuota;
  * If there is an existing log file that is suitable,
  * within the constraints of `maximumFileSize` and `rollingFrequency`, then it is returned.
  *
- * Otherwise a new file is created and returned.
+ * Otherwise a new file is created and returned. If this failes, `NULL` is returned.
  **/
-@property (nonatomic, readonly, strong) AWSDDLogFileInfo *currentLogFileInfo;
+@property (nonatomic, nullable, readonly, strong) AWSDDLogFileInfo *currentLogFileInfo;
 
 @end
 
@@ -444,22 +537,20 @@ extern unsigned long long const kAWSDDDefaultLogFilesDiskQuota;
 @property (strong, nonatomic, readonly) NSString *filePath;
 @property (strong, nonatomic, readonly) NSString *fileName;
 
-#if FOUNDATION_SWIFT_SDK_EPOCH_AT_LEAST(8)
 @property (strong, nonatomic, readonly) NSDictionary<NSFileAttributeKey, id> *fileAttributes;
-#else
-@property (strong, nonatomic, readonly) NSDictionary<NSString *, id> *fileAttributes;
-#endif
 
-@property (strong, nonatomic, readonly) NSDate *creationDate;
-@property (strong, nonatomic, readonly) NSDate *modificationDate;
+@property (strong, nonatomic, nullable, readonly) NSDate *creationDate;
+@property (strong, nonatomic, nullable, readonly) NSDate *modificationDate;
 
 @property (nonatomic, readonly) unsigned long long fileSize;
 
 @property (nonatomic, readonly) NSTimeInterval age;
 
+@property (nonatomic, readonly) BOOL isSymlink;
+
 @property (nonatomic, readwrite) BOOL isArchived;
 
-+ (instancetype)logFileWithPath:(NSString *)filePath NS_SWIFT_UNAVAILABLE("Use init(filePath:)");
++ (nullable instancetype)logFileWithPath:(nullable NSString *)filePath NS_SWIFT_UNAVAILABLE("Use init(filePath:)");
 
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithFilePath:(NSString *)filePath NS_DESIGNATED_INITIALIZER;
@@ -467,46 +558,14 @@ extern unsigned long long const kAWSDDDefaultLogFilesDiskQuota;
 - (void)reset;
 - (void)renameFile:(NSString *)newFileName NS_SWIFT_NAME(renameFile(to:));
 
-#if TARGET_IPHONE_SIMULATOR
-
-// So here's the situation.
-// Extended attributes are perfect for what we're trying to do here (marking files as archived).
-// This is exactly what extended attributes were designed for.
-//
-// But Apple screws us over on the simulator.
-// Everytime you build-and-go, they copy the application into a new folder on the hard drive,
-// and as part of the process they strip extended attributes from our log files.
-// Normally, a copy of a file preserves extended attributes.
-// So obviously Apple has gone to great lengths to piss us off.
-//
-// Thus we use a slightly different tactic for marking log files as archived in the simulator.
-// That way it "just works" and there's no confusion when testing.
-//
-// The difference in method names is indicative of the difference in functionality.
-// On the simulator we add an attribute by appending a filename extension.
-//
-// For example:
-// "mylog.txt" -> "mylog.archived.txt"
-// "mylog"     -> "mylog.archived"
-
-- (BOOL)hasExtensionAttributeWithName:(NSString *)attrName;
-
-- (void)addExtensionAttributeWithName:(NSString *)attrName;
-- (void)removeExtensionAttributeWithName:(NSString *)attrName;
-
-#else /* if TARGET_IPHONE_SIMULATOR */
-
-// Normal use of extended attributes used everywhere else,
-// such as on Macs and on iPhone devices.
-
 - (BOOL)hasExtendedAttributeWithName:(NSString *)attrName;
 
 - (void)addExtendedAttributeWithName:(NSString *)attrName;
 - (void)removeExtendedAttributeWithName:(NSString *)attrName;
 
-#endif /* if TARGET_IPHONE_SIMULATOR */
-
 - (NSComparisonResult)reverseCompareByCreationDate:(AWSDDLogFileInfo *)another;
 - (NSComparisonResult)reverseCompareByModificationDate:(AWSDDLogFileInfo *)another;
 
 @end
+
+NS_ASSUME_NONNULL_END

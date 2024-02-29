@@ -1,6 +1,6 @@
 // Software License Agreement (BSD License)
 //
-// Copyright (c) 2010-2016, Deusty, LLC
+// Copyright (c) 2010-2024, Deusty, LLC
 // All rights reserved.
 //
 // Redistribution and use of this software in source and binary forms,
@@ -28,20 +28,21 @@
     // iOS or tvOS or watchOS
     #import <UIKit/UIColor.h>
     typedef UIColor AWSDDColor;
-    static inline AWSDDColor* AWSDDMakeColor(CGFloat r, CGFloat g, CGFloat b) {return [AWSDDColor colorWithRed:(r/255.0f) green:(g/255.0f) blue:(b/255.0f) alpha:1.0f];}
+    static inline AWSDDColor* _Nonnull AWSDDMakeColor(CGFloat r, CGFloat g, CGFloat b) {return [AWSDDColor colorWithRed:(r/(CGFloat)255.0) green:(g/(CGFloat)255.0) blue:(b/(CGFloat)255.0) alpha:1.0];}
 #elif defined(AWSDD_CLI) || !__has_include(<AppKit/NSColor.h>)
     // OS X CLI
-    #import "CLIColor.h"
+    #import "AWSCLIColor.h"
     typedef CLIColor AWSDDColor;
-    static inline AWSDDColor* AWSDDMakeColor(CGFloat r, CGFloat g, CGFloat b) {return [AWSDDColor colorWithCalibratedRed:(r/255.0f) green:(g/255.0f) blue:(b/255.0f) alpha:1.0f];}
+    static inline AWSDDColor* _Nonnull AWSDDMakeColor(CGFloat r, CGFloat g, CGFloat b) {return [AWSDDColor colorWithCalibratedRed:(r/255.0) green:(g/255.0) blue:(b/255.0) alpha:1.0];}
 #else
     // OS X with AppKit
     #import <AppKit/NSColor.h>
     typedef NSColor AWSDDColor;
-    static inline AWSDDColor* AWSDDMakeColor(CGFloat r, CGFloat g, CGFloat b) {return [AWSDDColor colorWithCalibratedRed:(r/255.0f) green:(g/255.0f) blue:(b/255.0f) alpha:1.0f];}
+    static inline AWSDDColor  * _Nonnull AWSDDMakeColor(CGFloat r, CGFloat g, CGFloat b) {return [AWSDDColor colorWithCalibratedRed:(r/255.0) green:(g/255.0) blue:(b/255.0) alpha:1.0];}
 #endif
 #pragma clang diagnostic pop
 
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  * This class provides a logger for Terminal output or Xcode console output,
@@ -60,9 +61,9 @@
 @interface AWSDDTTYLogger : AWSDDAbstractLogger <AWSDDLogger>
 
 /**
- *  Singleton method
+ *  Singleton instance. Returns `nil` if the initialization of the AWSDDTTYLogger fails.
  */
-@property (class, readonly, strong) AWSDDTTYLogger *sharedInstance;
+@property (nonatomic, class, readonly, strong, nullable) AWSDDTTYLogger *sharedInstance;
 
 /* Inherited from the AWSDDLogger protocol:
  *
@@ -104,6 +105,11 @@
 @property (nonatomic, readwrite, assign) BOOL automaticallyAppendNewlineForCustomFormatters;
 
 /**
+ Using this initializer is not supported. Please use `AWSDDTTYLogger.sharedInstance`.
+ **/
+- (instancetype)init NS_UNAVAILABLE;
+
+/**
  * The default color set (foregroundColor, backgroundColor) is:
  *
  * - AWSDDLogFlagError   = (red, nil)
@@ -125,7 +131,7 @@
  *
  * This method invokes setForegroundColor:backgroundColor:forFlag:context: and applies it to `LOG_CONTEXT_ALL`.
  **/
-- (void)setForegroundColor:(AWSDDColor *)txtColor backgroundColor:(AWSDDColor *)bgColor forFlag:(AWSDDLogFlag)mask;
+- (void)setForegroundColor:(nullable AWSDDColor *)txtColor backgroundColor:(nullable AWSDDColor *)bgColor forFlag:(AWSDDLogFlag)mask;
 
 /**
  * Just like setForegroundColor:backgroundColor:flag, but allows you to specify a particular logging context.
@@ -133,12 +139,12 @@
  * A logging context is often used to identify log messages coming from a 3rd party framework,
  * although logging context's can be used for many different functions.
  *
- * Use LOG_CONTEXT_ALL to set the deafult color for all contexts that have no specific color set defined.
+ * Use LOG_CONTEXT_ALL to set the default color for all contexts that have no specific color set defined.
  *
  * Logging context's are explained in further detail here:
  * Documentation/CustomContext.md
  **/
-- (void)setForegroundColor:(AWSDDColor *)txtColor backgroundColor:(AWSDDColor *)bgColor forFlag:(AWSDDLogFlag)mask context:(NSInteger)ctxt;
+- (void)setForegroundColor:(nullable AWSDDColor *)txtColor backgroundColor:(nullable AWSDDColor *)bgColor forFlag:(AWSDDLogFlag)mask context:(NSInteger)ctxt;
 
 /**
  * Similar to the methods above, but allows you to map AWSDDLogMessage->tag to a particular color profile.
@@ -147,14 +153,14 @@
  * static NSString *const PurpleTag = @"PurpleTag";
  *
  * #define AWSDDLogPurple(frmt, ...) LOG_OBJC_TAG_MACRO(NO, 0, 0, 0, PurpleTag, frmt, ##__VA_ARGS__)
- * 
+ *
  * And then where you configure CocoaLumberjack:
  *
  * purple = AWSDDMakeColor((64/255.0), (0/255.0), (128/255.0));
  *
  * or any UIColor/NSColor constructor.
  *
- * Note: For CLI OS X projects that don't link with AppKit use CLIColor objects instead
+ * Note: For CLI OS X projects that don't link with AppKit use AWSCLIColor objects instead
  *
  * [[AWSDDTTYLogger sharedInstance] setForegroundColor:purple backgroundColor:nil forTag:PurpleTag];
  * [AWSDDLog addLogger:[AWSDDTTYLogger sharedInstance]];
@@ -163,7 +169,7 @@
  *
  * AWSDDLogPurple(@"I'm a purple log message!");
  **/
-- (void)setForegroundColor:(AWSDDColor *)txtColor backgroundColor:(AWSDDColor *)bgColor forTag:(id <NSCopying>)tag;
+- (void)setForegroundColor:(nullable AWSDDColor *)txtColor backgroundColor:(nullable AWSDDColor *)bgColor forTag:(id <NSCopying>)tag;
 
 /**
  * Clearing color profiles.
@@ -176,3 +182,5 @@
 - (void)clearAllColors;
 
 @end
+
+NS_ASSUME_NONNULL_END

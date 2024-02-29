@@ -1,6 +1,6 @@
 // Software License Agreement (BSD License)
 //
-// Copyright (c) 2010-2016, Deusty, LLC
+// Copyright (c) 2010-2024, Deusty, LLC
 // All rights reserved.
 //
 // Redistribution and use of this software in source and binary forms,
@@ -22,6 +22,8 @@
 
 #import "AWSDDLog.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 // Custom key set on messages sent to ASL
 extern const char* const kAWSDDASLKeyAWSDDLog;
 
@@ -41,6 +43,7 @@ extern const char* const kAWSDDASLAWSDDLogValue;
  * However, if you instead choose to use file logging (for faster performance),
  * you may choose to use a file logger and a tty logger.
  **/
+API_DEPRECATED("Use AWSDDOSLogger instead", macosx(10.4,10.12), ios(2.0,10.0), watchos(2.0,3.0), tvos(9.0,10.0))
 @interface AWSDDASLLogger : AWSDDAbstractLogger <AWSDDLogger>
 
 /**
@@ -48,7 +51,7 @@ extern const char* const kAWSDDASLAWSDDLogValue;
  *
  *  @return the shared instance
  */
-@property (class, readonly, strong) AWSDDASLLogger *sharedInstance;
+@property (nonatomic, class, readonly, strong) AWSDDASLLogger *sharedInstance;
 
 // Inherited from AWSDDAbstractLogger
 
@@ -56,3 +59,5 @@ extern const char* const kAWSDDASLAWSDDLogValue;
 // - (void)setLogFormatter:(id <AWSDDLogFormatter>)formatter;
 
 @end
+
+NS_ASSUME_NONNULL_END

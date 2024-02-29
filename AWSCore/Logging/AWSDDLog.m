@@ -1,6 +1,6 @@
 // Software License Agreement (BSD License)
 //
-// Copyright (c) 2010-2016, Deusty, LLC
+// Copyright (c) 2010-2024, Deusty, LLC
 // All rights reserved.
 //
 // Redistribution and use of this software in source and binary forms,
@@ -13,28 +13,27 @@
 //   to endorse or promote products derived from this software without specific
 //   prior written permission of Deusty, LLC.
 
+#if !__has_feature(objc_arc)
+#error This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
+
+#import <pthread.h>
+#import <objc/runtime.h>
+#import <sys/qos.h>
+
+#if TARGET_OS_IOS
+    #import <UIKit/UIDevice.h>
+    #import <UIKit/UIApplication.h>
+#elif !defined(AWSDD_CLI) && __has_include(<AppKit/NSApplication.h>)
+    #import <AppKit/NSApplication.h>
+#endif
+
 // Disable legacy macros
 #ifndef AWSDD_LEGACY_MACROS
     #define AWSDD_LEGACY_MACROS 0
 #endif
 
 #import "AWSDDLog.h"
-
-#import <pthread.h>
-#import <dispatch/dispatch.h>
-#import <objc/runtime.h>
-#import <mach/mach_host.h>
-#import <mach/host_info.h>
-#import <libkern/OSAtomic.h>
-#import <Availability.h>
-#if TARGET_OS_IOS
-    #import <UIKit/UIDevice.h>
-#endif
-
-
-#if !__has_feature(objc_arc)
-#error This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
-#endif
 
 // We probably shouldn't be using AWSDDLog() statements within the AWSDDLog implementation.
 // But we still want to leave our log statements for any future debugging,
@@ -44,25 +43,15 @@
 // We maintain the NS prefix on the macros to be explicit about the fact that we're using NSLog.
 
 #ifndef AWSDD_DEBUG
-    #define AWSDD_DEBUG NO
+    #define AWSDD_DEBUG 0
 #endif
 
 #define NSLogDebug(frmt, ...) do{ if(AWSDD_DEBUG) NSLog((frmt), ##__VA_ARGS__); } while(0)
 
-// Specifies the maximum queue size of the logging thread.
-//
-// Since most logging is asynchronous, its possible for rogue threads to flood the logging queue.
-// That is, to issue an abundance of log statements faster than the logging thread can keepup.
-// Typically such a scenario occurs when log statements are added haphazardly within large loops,
-// but may also be possible if relatively slow loggers are being used.
-//
-// This property caps the queue size at a given number of outstanding log statements.
-// If a thread attempts to issue a log statement when the queue is already maxed out,
-// the issuing thread will block until the queue size drops below the max again.
-
-#ifndef AWSDDLOG_MAX_QUEUE_SIZE
-    #define AWSDDLOG_MAX_QUEUE_SIZE 1000 // Should not exceed INT32_MAX
-#endif
+#define AWSDDLogAssertOnGlobalLoggingQueue() \
+NSAssert(dispatch_get_specific(GlobalLoggingQueueIdentityKey), @"This method must be called on the logging thread/queue!")
+#define AWSDDLogAssertNotOnGlobalLoggingQueue() \
+NSAssert(!dispatch_get_specific(GlobalLoggingQueueIdentityKey), @"This method must not be called on the logging thread/queue!")
 
 // The "global logging queue" refers to [AWSDDLog loggingQueue].
 // It is the queue that all log statements go through.
@@ -85,9 +74,9 @@ static void *const GlobalLoggingQueueIdentityKey = (void *)&GlobalLoggingQueueId
 @property (nonatomic, readonly) AWSDDLogLevel level;
 @property (nonatomic, readonly) dispatch_queue_t loggerQueue;
 
-+ (AWSDDLoggerNode *)nodeWithLogger:(id <AWSDDLogger>)logger
-                     loggerQueue:(dispatch_queue_t)loggerQueue
-                           level:(AWSDDLogLevel)level;
++ (instancetype)nodeWithLogger:(id <AWSDDLogger>)logger
+                   loggerQueue:(dispatch_queue_t)loggerQueue
+                         level:(AWSDDLogLevel)level;
 
 @end
 
@@ -110,12 +99,8 @@ static void *const GlobalLoggingQueueIdentityKey = (void *)&GlobalLoggingQueueId
 static dispatch_queue_t _loggingQueue;
 
 // Individual loggers are executed concurrently per log statement.
-// Each logger has it's own associated queue, and a dispatch group is used for synchrnoization.
+// Each logger has it's own associated queue, and a dispatch group is used for synchronization.
 static dispatch_group_t _loggingGroup;
-
-// In order to prevent to queue from growing infinitely large,
-// a maximum size is enforced (AWSDDLOG_MAX_QUEUE_SIZE).
-static dispatch_semaphore_t _queueSemaphore;
 
 // Minor optimization for uniprocessor machines
 static NSUInteger _numProcessors;
@@ -127,13 +112,13 @@ static NSUInteger _numProcessors;
  *  @return The singleton `AWSDDLog`.
  */
 + (instancetype)sharedInstance {
-    static id sharedInstance = nil;
-    
+    static AWSDDLog *sharedInstance = nil;
+
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] init];
     });
-    
+
     return sharedInstance;
 }
 
@@ -143,27 +128,25 @@ static NSUInteger _numProcessors;
  * method may never be invoked if the class is not used.) The runtime sends the initialize message to
  * classes in a thread-safe manner. Superclasses receive this message before their subclasses.
  *
- * This method may also be called directly (assumably by accident), hence the safety mechanism.
+ * This method may also be called directly, hence the safety mechanism.
  **/
 + (void)initialize {
     static dispatch_once_t AWSDDLogOnceToken;
-    
+
     dispatch_once(&AWSDDLogOnceToken, ^{
         NSLogDebug(@"AWSDDLog: Using grand central dispatch");
-        
+
         _loggingQueue = dispatch_queue_create("cocoa.lumberjack", NULL);
         _loggingGroup = dispatch_group_create();
-        
+
         void *nonNullValue = GlobalLoggingQueueIdentityKey; // Whatever, just not null
         dispatch_queue_set_specific(_loggingQueue, GlobalLoggingQueueIdentityKey, nonNullValue, NULL);
-        
-        _queueSemaphore = dispatch_semaphore_create(AWSDDLOG_MAX_QUEUE_SIZE);
-        
+
         // Figure out how many processors are available.
         // This may be used later for an optimization on uniprocessor machines.
-        
+
         _numProcessors = MAX([NSProcessInfo processInfo].processorCount, (NSUInteger) 1);
-        
+
         NSLogDebug(@"AWSDDLog: numProcessors = %@", @(_numProcessors));
     });
 }
@@ -174,37 +157,36 @@ static NSUInteger _numProcessors;
  *
  *  @return An initialized `AWSDDLog` instance.
  */
-- (id)init {
+- (instancetype)init {
     self = [super init];
-    
+
     if (self) {
         self._loggers = [[NSMutableArray alloc] initWithCapacity:4];
         self.logLevel = AWSDDLogLevelWarning;//default to warning
-        
+
 #if TARGET_OS_IOS
-        NSString *notificationName = @"UIApplicationWillTerminateNotification";
+        __auto_type notificationName = UIApplicationWillTerminateNotification;
 #else
         NSString *notificationName = nil;
-        
-        // On Command Line Tool apps AppKit may not be avaliable
-#ifdef NSAppKitVersionNumber10_0
-        
+
+        // On Command Line Tool apps AppKit may not be available
+#if !defined(AWSDD_CLI) && __has_include(<AppKit/NSApplication.h>)
         if (NSApp) {
-            notificationName = @"NSApplicationWillTerminateNotification";
+            notificationName = NSApplicationWillTerminateNotification;
         }
-        
 #endif
-        
+
         if (!notificationName) {
             // If there is no NSApp -> we are running Command Line Tool app.
             // In this case terminate notification wouldn't be fired, so we use workaround.
+            __weak __auto_type weakSelf = self;
             atexit_b (^{
-                [self applicationWillTerminate:nil];
+                [weakSelf applicationWillTerminate:nil];
             });
         }
-        
+
 #endif /* if TARGET_OS_IOS */
-        
+
         if (notificationName) {
             [[NSNotificationCenter defaultCenter] addObserver:self
                                                      selector:@selector(applicationWillTerminate:)
@@ -212,7 +194,7 @@ static NSUInteger _numProcessors;
                                                        object:nil];
         }
     }
-    
+
     return self;
 }
 
@@ -251,7 +233,7 @@ static NSUInteger _numProcessors;
     if (!logger) {
         return;
     }
-    
+
     dispatch_async(_loggingQueue, ^{ @autoreleasepool {
         [self lt_addLogger:logger level:level];
     } });
@@ -265,7 +247,7 @@ static NSUInteger _numProcessors;
     if (!logger) {
         return;
     }
-    
+
     dispatch_async(_loggingQueue, ^{ @autoreleasepool {
         [self lt_removeLogger:logger];
     } });
@@ -287,11 +269,11 @@ static NSUInteger _numProcessors;
 
 - (NSArray<id<AWSDDLogger>> *)allLoggers {
     __block NSArray *theLoggers;
-    
+
     dispatch_sync(_loggingQueue, ^{ @autoreleasepool {
         theLoggers = [self lt_allLoggers];
     } });
-    
+
     return theLoggers;
 }
 
@@ -301,11 +283,11 @@ static NSUInteger _numProcessors;
 
 - (NSArray<AWSDDLoggerInformation *> *)allLoggersWithLevel {
     __block NSArray *theLoggersWithLevel;
-    
+
     dispatch_sync(_loggingQueue, ^{ @autoreleasepool {
         theLoggersWithLevel = [self lt_allLoggersWithLevel];
     } });
-    
+
     return theLoggersWithLevel;
 }
 
@@ -341,23 +323,9 @@ static NSUInteger _numProcessors;
     // Now assume we have another separate thread that attempts to issue log message G.
     // It should block until log messages A and B have been unqueued.
 
-
-    // We are using a counting semaphore provided by GCD.
-    // The semaphore is initialized with our AWSDDLOG_MAX_QUEUE_SIZE value.
-    // Everytime we want to queue a log message we decrement this value.
-    // If the resulting value is less than zero,
-    // the semaphore function waits in FIFO order for a signal to occur before returning.
-    //
-    // A dispatch semaphore is an efficient implementation of a traditional counting semaphore.
-    // Dispatch semaphores call down to the kernel only when the calling thread needs to be blocked.
-    // If the calling semaphore does not need to block, no kernel call is made.
-
-    dispatch_semaphore_wait(_queueSemaphore, DISPATCH_TIME_FOREVER);
-
-    // We've now sure we won't overflow the queue.
-    // It is time to queue our log message.
-
-    dispatch_block_t logBlock = ^{
+    __auto_type logBlock = ^{
+        // We're now sure we won't overflow the queue.
+        // It is time to queue our log message.
         @autoreleasepool {
             [self lt_log:logMessage];
         }
@@ -365,13 +333,14 @@ static NSUInteger _numProcessors;
 
     if (asyncFlag) {
         dispatch_async(_loggingQueue, logBlock);
+    } else if (dispatch_get_specific(GlobalLoggingQueueIdentityKey)) {
+        // We've logged an error message while on the logging queue...
+        logBlock();
     } else {
         dispatch_sync(_loggingQueue, logBlock);
     }
 }
 
-// Note: make sure to follow best security practices and ensure that all inputs are validated and sanitized.
-// Verify that the number of formatting directives in the format string corresponds to the number of arguments to be formatted.
 + (void)log:(BOOL)asynchronous
       level:(AWSDDLogLevel)level
        flag:(AWSDDLogFlag)flag
@@ -382,26 +351,21 @@ static NSUInteger _numProcessors;
         tag:(id)tag
      format:(NSString *)format, ... {
     va_list args;
-    
+
     if (format) {
         va_start(args, format);
-        
-        NSString *message = [[NSString alloc] initWithFormat:format arguments:args];
-        
-        va_end(args);
-        
-        va_start(args, format);
-        
+
         [self log:asynchronous
-          message:message
             level:level
              flag:flag
           context:context
              file:file
          function:function
              line:line
-              tag:tag];
-        
+              tag:tag
+           format:format
+             args:args];
+
         va_end(args);
     }
 }
@@ -416,26 +380,21 @@ static NSUInteger _numProcessors;
         tag:(id)tag
      format:(NSString *)format, ... {
     va_list args;
-    
+
     if (format) {
         va_start(args, format);
-        
-        NSString *message = [[NSString alloc] initWithFormat:format arguments:args];
-        
-        va_end(args);
-        
-        va_start(args, format);
-        
+
         [self log:asynchronous
-          message:message
             level:level
              flag:flag
           context:context
              file:file
          function:function
              line:line
-              tag:tag];
-        
+              tag:tag
+           format:format
+             args:args];
+
         va_end(args);
     }
 }
@@ -464,63 +423,31 @@ static NSUInteger _numProcessors;
      format:(NSString *)format
        args:(va_list)args {
     if (format) {
-        NSString *message = [[NSString alloc] initWithFormat:format arguments:args];
-        [self log:asynchronous
-          message:message
-            level:level
-             flag:flag
-          context:context
-             file:file
-         function:function
-             line:line
-              tag:tag];
-    }
-}
+        // Null checks are handled by -initWithMessage:
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnullable-to-nonnull-conversion"
+        __auto_type logMessage = [[AWSDDLogMessage alloc] initWithFormat:format
+                                                                    args:args
+                                                                   level:level
+                                                                    flag:flag
+                                                                 context:context
+                                                                    file:@(file)
+                                                                function:@(function)
+                                                                    line:line
+                                                                     tag:tag
+                                                                 options:(AWSDDLogMessageOptions)0
+                                                               timestamp:nil];
+#pragma clang diagnostic pop
 
-+ (void)log:(BOOL)asynchronous
-    message:(NSString *)message
-      level:(AWSDDLogLevel)level
-       flag:(AWSDDLogFlag)flag
-    context:(NSInteger)context
-       file:(const char *)file
-   function:(const char *)function
-       line:(NSUInteger)line
-        tag:(id)tag {
-    [self.sharedInstance log:asynchronous message:message level:level flag:flag context:context file:file function:function line:line tag:tag];
-}
-
-- (void)log:(BOOL)asynchronous
-    message:(NSString *)message
-      level:(AWSDDLogLevel)level
-       flag:(AWSDDLogFlag)flag
-    context:(NSInteger)context
-       file:(const char *)file
-   function:(const char *)function
-       line:(NSUInteger)line
-        tag:(id)tag {
-    if(level & flag){
-        AWSDDLogMessage *logMessage = [[AWSDDLogMessage alloc] initWithMessage:message
-                                                                         level:level
-                                                                          flag:flag
-                                                                       context:context
-                                                                          file:[NSString stringWithFormat:@"%s", file]
-                                                                      function:[NSString stringWithFormat:@"%s", function]
-                                                                          line:line
-                                                                           tag:tag
-                                                                       options:(AWSDDLogMessageOptions)0
-                                                                     timestamp:nil];
-        
         [self queueLogMessage:logMessage asynchronously:asynchronous];
     }
 }
 
-+ (void)log:(BOOL)asynchronous
-    message:(AWSDDLogMessage *)logMessage {
++ (void)log:(BOOL)asynchronous message:(AWSDDLogMessage *)logMessage {
     [self.sharedInstance log:asynchronous message:logMessage];
 }
 
-- (void)log:(BOOL)asynchronous
-    message:(AWSDDLogMessage *)logMessage {
+- (void)log:(BOOL)asynchronous message:(AWSDDLogMessage *)logMessage {
     [self queueLogMessage:logMessage asynchronously:asynchronous];
 }
 
@@ -529,9 +456,12 @@ static NSUInteger _numProcessors;
 }
 
 - (void)flushLog {
-    dispatch_sync(_loggingQueue, ^{ @autoreleasepool {
-        [self lt_flush];
-    } });
+    AWSDDLogAssertNotOnGlobalLoggingQueue();
+    dispatch_sync(_loggingQueue, ^{
+        @autoreleasepool {
+            [self lt_flush];
+        }
+    });
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -539,69 +469,65 @@ static NSUInteger _numProcessors;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 + (BOOL)isRegisteredClass:(Class)class {
-    SEL getterSel = @selector(ddLogLevel);
-    SEL setterSel = @selector(ddSetLogLevel:);
-
-#if TARGET_OS_IPHONE && !TARGET_OS_SIMULATOR
+    __auto_type getterSel = @selector(ddLogLevel);
+    __auto_type setterSel = @selector(ddSetLogLevel:);
 
     // Issue #6 (GoogleCode) - Crashes on iOS 4.2.1 and iPhone 4
-    //
     // Crash caused by class_getClassMethod(2).
-    //
     //     "It's a bug with UIAccessibilitySafeCategory__NSObject so it didn't pop up until
     //      users had VoiceOver enabled [...]. I was able to work around it by searching the
     //      result of class_copyMethodList() instead of calling class_getClassMethod()"
+    //
+    // Issue #24 (GitHub) - Crashing in in ARC+Simulator
+    // The method +[AWSDDLog isRegisteredClass] will crash a project when using it with ARC + Simulator.
+    // For running in the Simulator, it needs to execute the non-iOS code. Unless we're running on iOS 17+.
 
-    BOOL result = NO;
+#if TARGET_OS_IPHONE
+#if TARGET_OS_SIMULATOR
+    if (@available(iOS 17, tvOS 17, *)) {
+#endif
+        __auto_type result = NO;
+        unsigned int methodCount, i;
+        __auto_type methodList = class_copyMethodList(object_getClass(class), &methodCount);
 
-    unsigned int methodCount, i;
-    Method *methodList = class_copyMethodList(object_getClass(class), &methodCount);
+        if (methodList != NULL) {
+            __auto_type getterFound = NO;
+            __auto_type setterFound = NO;
 
-    if (methodList != NULL) {
-        BOOL getterFound = NO;
-        BOOL setterFound = NO;
+            for (i = 0; i < methodCount; ++i) {
+                __auto_type currentSel = method_getName(methodList[i]);
 
-        for (i = 0; i < methodCount; ++i) {
-            SEL currentSel = method_getName(methodList[i]);
+                if (currentSel == getterSel) {
+                    getterFound = YES;
+                } else if (currentSel == setterSel) {
+                    setterFound = YES;
+                }
 
-            if (currentSel == getterSel) {
-                getterFound = YES;
-            } else if (currentSel == setterSel) {
-                setterFound = YES;
+                if (getterFound && setterFound) {
+                    result = YES;
+                    break;
+                }
             }
 
-            if (getterFound && setterFound) {
-                result = YES;
-                break;
-            }
+            free(methodList);
         }
 
-        free(methodList);
+        return result;
+#if TARGET_OS_SIMULATOR
+    } else {
+#endif /* TARGET_OS_SIMULATOR */
+#endif /* TARGET_OS_IPHONE */
+#if !TARGET_OS_IPHONE || TARGET_OS_SIMULATOR
+        __auto_type getter = class_getClassMethod(class, getterSel);
+        __auto_type setter = class_getClassMethod(class, setterSel);
+        return (getter != NULL) && (setter != NULL);
+#endif /* !TARGET_OS_IPHONE || TARGET_OS_SIMULATOR */
+#if TARGET_OS_IPHONE && TARGET_OS_SIMULATOR
     }
-
-    return result;
-
-#else /* if TARGET_OS_IPHONE && !TARGET_OS_SIMULATOR */
-
-    // Issue #24 (GitHub) - Crashing in in ARC+Simulator
-    //
-    // The method +[AWSDDLog isRegisteredClass] will crash a project when using it with ARC + Simulator.
-    // For running in the Simulator, it needs to execute the non-iOS code.
-
-    Method getter = class_getClassMethod(class, getterSel);
-    Method setter = class_getClassMethod(class, setterSel);
-
-    if ((getter != NULL) && (setter != NULL)) {
-        return YES;
-    }
-
-    return NO;
-
-#endif /* if TARGET_OS_IPHONE && !TARGET_OS_SIMULATOR */
+#endif /* TARGET_OS_IPHONE && TARGET_OS_SIMULATOR */
 }
 
 + (NSArray *)registeredClasses {
-
     // We're going to get the list of all registered classes.
     // The Objective-C runtime library automatically registers all the classes defined in your source code.
     //
@@ -617,33 +543,29 @@ static NSUInteger _numProcessors;
     Class *classes = NULL;
 
     while (numClasses == 0) {
-
         numClasses = (NSUInteger)MAX(objc_getClassList(NULL, 0), 0);
 
         // numClasses now tells us how many classes we have (but it might change)
         // So we can allocate our buffer, and get pointers to all the class definitions.
-
-        NSUInteger bufferSize = numClasses;
-
-        classes = numClasses ? (Class *)malloc(sizeof(Class) * bufferSize) : NULL;
+        __auto_type bufferSize = numClasses;
+        classes = numClasses ? (Class *)calloc(bufferSize, sizeof(Class)) : NULL;
         if (classes == NULL) {
-            return @[]; //no memory or classes?
+            return @[]; // no memory or classes?
         }
 
         numClasses = (NSUInteger)MAX(objc_getClassList(classes, (int)bufferSize),0);
-
         if (numClasses > bufferSize || numClasses == 0) {
-            //apparently more classes added between calls (or a problem); try again
+            // apparently more classes added between calls (or a problem); try again
             free(classes);
+            classes = NULL;
             numClasses = 0;
         }
     }
 
     // We can now loop through the classes, and test each one to see if it is a AWSDDLogging class.
-
-    NSMutableArray *result = [NSMutableArray arrayWithCapacity:numClasses];
-
+    __auto_type result = [NSMutableArray arrayWithCapacity:numClasses];
     for (NSUInteger i = 0; i < numClasses; i++) {
+        // Cannot use `__auto_type` here, since this will lead to crashes when deallocating!
         Class class = classes[i];
 
         if ([self isRegisteredClass:class]) {
@@ -657,8 +579,8 @@ static NSUInteger _numProcessors;
 }
 
 + (NSArray *)registeredClassNames {
-    NSArray *registeredClasses = [self registeredClasses];
-    NSMutableArray *result = [NSMutableArray arrayWithCapacity:[registeredClasses count]];
+    __auto_type registeredClasses = [self registeredClasses];
+    __auto_type result = [NSMutableArray arrayWithCapacity:[registeredClasses count]];
 
     for (Class class in registeredClasses) {
         [result addObject:NSStringFromClass(class)];
@@ -674,9 +596,9 @@ static NSUInteger _numProcessors;
 }
 
 + (AWSDDLogLevel)levelForClassWithName:(NSString *)aClassName {
-    Class aClass = NSClassFromString(aClassName);
-
-    return [self levelForClass:aClass];
+    Class clazz = NSClassFromString(aClassName);
+    if (clazz == nil) return (AWSDDLogLevel)-1;
+    return [self levelForClass:clazz];
 }
 
 + (void)setLevel:(AWSDDLogLevel)level forClass:(Class)aClass {
@@ -686,8 +608,9 @@ static NSUInteger _numProcessors;
 }
 
 + (void)setLevel:(AWSDDLogLevel)level forClassWithName:(NSString *)aClassName {
-    Class aClass = NSClassFromString(aClassName);
-    [self setLevel:level forClass:aClass];
+    Class clazz = NSClassFromString(aClassName);
+    if (clazz == nil) return;
+    [self setLevel:level forClass:clazz];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -698,39 +621,34 @@ static NSUInteger _numProcessors;
     // Add to loggers array.
     // Need to create loggerQueue if loggerNode doesn't provide one.
 
-    for (AWSDDLoggerNode* node in self._loggers) {
-        if (node->_logger == logger
-            && node->_level == level) {
+    for (AWSDDLoggerNode *node in self._loggers) {
+        if (node->_logger == logger && node->_level == level) {
             // Exactly same logger already added, exit
             return;
         }
     }
 
-    NSAssert(dispatch_get_specific(GlobalLoggingQueueIdentityKey),
-             @"This method should only be run on the logging thread/queue");
+    AWSDDLogAssertOnGlobalLoggingQueue();
 
     dispatch_queue_t loggerQueue = NULL;
-
     if ([logger respondsToSelector:@selector(loggerQueue)]) {
         // Logger may be providing its own queue
-
-        loggerQueue = [logger loggerQueue];
+        loggerQueue = logger.loggerQueue;
     }
 
     if (loggerQueue == nil) {
         // Automatically create queue for the logger.
         // Use the logger name as the queue name if possible.
-
         const char *loggerQueueName = NULL;
 
         if ([logger respondsToSelector:@selector(loggerName)]) {
-            loggerQueueName = [[logger loggerName] UTF8String];
+            loggerQueueName = logger.loggerName.UTF8String;
         }
 
         loggerQueue = dispatch_queue_create(loggerQueueName, NULL);
     }
 
-    AWSDDLoggerNode *loggerNode = [AWSDDLoggerNode nodeWithLogger:logger loggerQueue:loggerQueue level:level];
+    __auto_type loggerNode = [AWSDDLoggerNode nodeWithLogger:logger loggerQueue:loggerQueue level:level];
     [self._loggers addObject:loggerNode];
 
     if ([logger respondsToSelector:@selector(didAddLoggerInQueue:)]) {
@@ -747,8 +665,7 @@ static NSUInteger _numProcessors;
 - (void)lt_removeLogger:(id <AWSDDLogger>)logger {
     // Find associated loggerNode in list of added loggers
 
-    NSAssert(dispatch_get_specific(GlobalLoggingQueueIdentityKey),
-             @"This method should only be run on the logging thread/queue");
+    AWSDDLogAssertOnGlobalLoggingQueue();
 
     AWSDDLoggerNode *loggerNode = nil;
 
@@ -758,27 +675,26 @@ static NSUInteger _numProcessors;
             break;
         }
     }
-    
+
     if (loggerNode == nil) {
         NSLogDebug(@"AWSDDLog: Request to remove logger which wasn't added");
         return;
     }
-    
+
     // Notify logger
     if ([logger respondsToSelector:@selector(willRemoveLogger)]) {
         dispatch_async(loggerNode->_loggerQueue, ^{ @autoreleasepool {
             [logger willRemoveLogger];
         } });
     }
-    
+
     // Remove from loggers array
     [self._loggers removeObject:loggerNode];
 }
 
 - (void)lt_removeAllLoggers {
-    NSAssert(dispatch_get_specific(GlobalLoggingQueueIdentityKey),
-             @"This method should only be run on the logging thread/queue");
-    
+    AWSDDLogAssertOnGlobalLoggingQueue();
+
     // Notify all loggers
     for (AWSDDLoggerNode *loggerNode in self._loggers) {
         if ([loggerNode->_logger respondsToSelector:@selector(willRemoveLogger)]) {
@@ -787,19 +703,18 @@ static NSUInteger _numProcessors;
             } });
         }
     }
-    
-    // Remove all loggers from array
 
+    // Remove all loggers from array
     [self._loggers removeAllObjects];
 }
 
 - (NSArray *)lt_allLoggers {
-    NSAssert(dispatch_get_specific(GlobalLoggingQueueIdentityKey),
-             @"This method should only be run on the logging thread/queue");
+    AWSDDLogAssertOnGlobalLoggingQueue();
 
-    NSMutableArray *theLoggers = [NSMutableArray new];
+    __auto_type loggerNodes = self._loggers;
+    __auto_type theLoggers = [NSMutableArray arrayWithCapacity:loggerNodes.count];
 
-    for (AWSDDLoggerNode *loggerNode in self._loggers) {
+    for (AWSDDLoggerNode *loggerNode in loggerNodes) {
         [theLoggers addObject:loggerNode->_logger];
     }
 
@@ -807,24 +722,24 @@ static NSUInteger _numProcessors;
 }
 
 - (NSArray *)lt_allLoggersWithLevel {
-    NSAssert(dispatch_get_specific(GlobalLoggingQueueIdentityKey),
-             @"This method should only be run on the logging thread/queue");
-    
-    NSMutableArray *theLoggersWithLevel = [NSMutableArray new];
-    
-    for (AWSDDLoggerNode *loggerNode in self._loggers) {
+    AWSDDLogAssertOnGlobalLoggingQueue();
+
+
+    __auto_type loggerNodes = self._loggers;
+    __auto_type theLoggersWithLevel = [NSMutableArray arrayWithCapacity:loggerNodes.count];
+
+    for (AWSDDLoggerNode *loggerNode in loggerNodes) {
         [theLoggersWithLevel addObject:[AWSDDLoggerInformation informationWithLogger:loggerNode->_logger
                                                                          andLevel:loggerNode->_level]];
     }
-    
+
     return [theLoggersWithLevel copy];
 }
 
 - (void)lt_log:(AWSDDLogMessage *)logMessage {
-    // Execute the given log message on each of our loggers.
+    AWSDDLogAssertOnGlobalLoggingQueue();
 
-    NSAssert(dispatch_get_specific(GlobalLoggingQueueIdentityKey),
-             @"This method should only be run on the logging thread/queue");
+    // Execute the given log message on each of our loggers.
 
     if (_numProcessors > 1) {
         // Execute each logger concurrently, each within its own queue.
@@ -840,55 +755,54 @@ static NSUInteger _numProcessors;
             if (!(logMessage->_flag & loggerNode->_level)) {
                 continue;
             }
-            
+
             dispatch_group_async(_loggingGroup, loggerNode->_loggerQueue, ^{ @autoreleasepool {
                 [loggerNode->_logger logMessage:logMessage];
             } });
         }
-        
+
         dispatch_group_wait(_loggingGroup, DISPATCH_TIME_FOREVER);
     } else {
-        // Execute each logger serialy, each within its own queue.
-        
+        // Execute each logger serially, each within its own queue.
+
         for (AWSDDLoggerNode *loggerNode in self._loggers) {
             // skip the loggers that shouldn't write this message based on the log level
 
             if (!(logMessage->_flag & loggerNode->_level)) {
                 continue;
             }
-            
+
+#if AWSDD_DEBUG
+            // we must assure that we aren not on loggerNode->_loggerQueue.
+            if (loggerNode->_loggerQueue == NULL) {
+              // tell that we can't dispatch logger node on queue that is NULL.
+              NSLogDebug(@"AWSDDLog: current node has loggerQueue == NULL");
+            }
+            else {
+              dispatch_async(loggerNode->_loggerQueue, ^{
+                if (dispatch_get_specific(GlobalLoggingQueueIdentityKey)) {
+                  // tell that we somehow on logging queue?
+                  NSLogDebug(@"AWSDDLog: current node has loggerQueue == globalLoggingQueue");
+                }
+              });
+            }
+#endif
+            // next, we must check that node is OK.
             dispatch_sync(loggerNode->_loggerQueue, ^{ @autoreleasepool {
                 [loggerNode->_logger logMessage:logMessage];
             } });
         }
     }
-
-    // If our queue got too big, there may be blocked threads waiting to add log messages to the queue.
-    // Since we've now dequeued an item from the log, we may need to unblock the next thread.
-
-    // We are using a counting semaphore provided by GCD.
-    // The semaphore is initialized with our AWSDDLOG_MAX_QUEUE_SIZE value.
-    // When a log message is queued this value is decremented.
-    // When a log message is dequeued this value is incremented.
-    // If the value ever drops below zero,
-    // the queueing thread blocks and waits in FIFO order for us to signal it.
-    //
-    // A dispatch semaphore is an efficient implementation of a traditional counting semaphore.
-    // Dispatch semaphores call down to the kernel only when the calling thread needs to be blocked.
-    // If the calling semaphore does not need to block, no kernel call is made.
-
-    dispatch_semaphore_signal(_queueSemaphore);
 }
 
 - (void)lt_flush {
     // All log statements issued before the flush method was invoked have now been executed.
     //
-    // Now we need to propogate the flush request to any loggers that implement the flush method.
+    // Now we need to propagate the flush request to any loggers that implement the flush method.
     // This is designed for loggers that buffer IO.
-    
-    NSAssert(dispatch_get_specific(GlobalLoggingQueueIdentityKey),
-             @"This method should only be run on the logging thread/queue");
-    
+
+    AWSDDLogAssertOnGlobalLoggingQueue();
+
     for (AWSDDLoggerNode *loggerNode in self._loggers) {
         if ([loggerNode->_logger respondsToSelector:@selector(flush)]) {
             dispatch_group_async(_loggingGroup, loggerNode->_loggerQueue, ^{ @autoreleasepool {
@@ -896,7 +810,7 @@ static NSUInteger _numProcessors;
             } });
         }
     }
-    
+
     dispatch_group_wait(_loggingGroup, DISPATCH_TIME_FOREVER);
 }
 
@@ -912,8 +826,7 @@ NSString * __nullable AWSDDExtractFileNameWithoutExtension(const char *filePath,
     char *lastSlash = NULL;
     char *lastDot = NULL;
 
-    char *p = (char *)filePath;
-
+    __auto_type p = (char *)filePath;
     while (*p != '\0') {
         if (*p == '/') {
             lastSlash = p;
@@ -979,9 +892,9 @@ NSString * __nullable AWSDDExtractFileNameWithoutExtension(const char *filePath,
 
         if (loggerQueue) {
             _loggerQueue = loggerQueue;
-            #if !OS_OBJECT_USE_OBJC
+#if !OS_OBJECT_USE_OBJC
             dispatch_retain(loggerQueue);
-            #endif
+#endif
         }
 
         _level = level;
@@ -989,16 +902,16 @@ NSString * __nullable AWSDDExtractFileNameWithoutExtension(const char *filePath,
     return self;
 }
 
-+ (AWSDDLoggerNode *)nodeWithLogger:(id <AWSDDLogger>)logger loggerQueue:(dispatch_queue_t)loggerQueue level:(AWSDDLogLevel)level {
-    return [[AWSDDLoggerNode alloc] initWithLogger:logger loggerQueue:loggerQueue level:level];
++ (instancetype)nodeWithLogger:(id <AWSDDLogger>)logger loggerQueue:(dispatch_queue_t)loggerQueue level:(AWSDDLogLevel)level {
+    return [[self alloc] initWithLogger:logger loggerQueue:loggerQueue level:level];
 }
 
 - (void)dealloc {
-    #if !OS_OBJECT_USE_OBJC
+#if !OS_OBJECT_USE_OBJC
     if (_loggerQueue) {
         dispatch_release(_loggerQueue);
     }
-    #endif
+#endif
 }
 
 @end
@@ -1009,116 +922,97 @@ NSString * __nullable AWSDDExtractFileNameWithoutExtension(const char *filePath,
 
 @implementation AWSDDLogMessage
 
-// Can we use DISPATCH_CURRENT_QUEUE_LABEL ?
-// Can we use dispatch_get_current_queue (without it crashing) ?
-//
-// a) Compiling against newer SDK's (iOS 7+/OS X 10.9+) where DISPATCH_CURRENT_QUEUE_LABEL is defined
-//    on a (iOS 7.0+/OS X 10.9+) runtime version
-//
-// b) Systems where dispatch_get_current_queue is not yet deprecated and won't crash (< iOS 6.0/OS X 10.9)
-//
-//    dispatch_get_current_queue(void);
-//      __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_10_6,__MAC_10_9,__IPHONE_4_0,__IPHONE_6_0)
-
-#if TARGET_OS_IOS
-
-// Compiling for iOS
-
-static BOOL _use_dispatch_current_queue_label;
-static BOOL _use_dispatch_get_current_queue;
-
-static void _dispatch_queue_label_init_once(void * __attribute__((unused)) context)
-{
-    _use_dispatch_current_queue_label = (UIDevice.currentDevice.systemVersion.floatValue >= 7.0f);
-    _use_dispatch_get_current_queue = (!_use_dispatch_current_queue_label && UIDevice.currentDevice.systemVersion.floatValue >= 6.1f);
-}
-
-static __inline__ __attribute__((__always_inline__)) void _dispatch_queue_label_init()
-{
-    static dispatch_once_t onceToken;
-    dispatch_once_f(&onceToken, NULL, _dispatch_queue_label_init_once);
-}
-
-  #define USE_DISPATCH_CURRENT_QUEUE_LABEL (_dispatch_queue_label_init(), _use_dispatch_current_queue_label)
-  #define USE_DISPATCH_GET_CURRENT_QUEUE   (_dispatch_queue_label_init(), _use_dispatch_get_current_queue)
-
-#elif TARGET_OS_WATCH || TARGET_OS_TV
-
-// Compiling for watchOS, tvOS
-
-  #define USE_DISPATCH_CURRENT_QUEUE_LABEL YES
-  #define USE_DISPATCH_GET_CURRENT_QUEUE   NO
-
-#else
-
-// Compiling for Mac OS X
-
-  #ifndef MAC_OS_X_VERSION_10_9
-    #define MAC_OS_X_VERSION_10_9            1090
-  #endif
-
-  #if MAC_OS_X_VERSION_MIN_REQUIRED >= MAC_OS_X_VERSION_10_9 // Mac OS X 10.9 or later required
-
-    #define USE_DISPATCH_CURRENT_QUEUE_LABEL YES
-    #define USE_DISPATCH_GET_CURRENT_QUEUE   NO
-
-  #else
-
-static BOOL _use_dispatch_current_queue_label;
-static BOOL _use_dispatch_get_current_queue;
-
-static void _dispatch_queue_label_init_once(void * __attribute__((unused)) context)
-{
-    _use_dispatch_current_queue_label = [NSTimer instancesRespondToSelector : @selector(tolerance)]; // OS X 10.9+
-    _use_dispatch_get_current_queue = !_use_dispatch_current_queue_label;                            // < OS X 10.9
-}
-
-static __inline__ __attribute__((__always_inline__)) void _dispatch_queue_label_init()
-{
-    static dispatch_once_t onceToken;
-    dispatch_once_f(&onceToken, NULL, _dispatch_queue_label_init_once);
-}
-
-    #define USE_DISPATCH_CURRENT_QUEUE_LABEL (_dispatch_queue_label_init(), _use_dispatch_current_queue_label)
-    #define USE_DISPATCH_GET_CURRENT_QUEUE   (_dispatch_queue_label_init(), _use_dispatch_get_current_queue)
-
-  #endif
-
-#endif /* if TARGET_OS_IOS */
-
-// Should we use pthread_threadid_np ?
-// With iOS 8+/OSX 10.10+ NSLog uses pthread_threadid_np instead of pthread_mach_thread_np
-
-#if TARGET_OS_IOS
-
-// Compiling for iOS
-
-  #ifndef kCFCoreFoundationVersionNumber_iOS_8_0
-    #define kCFCoreFoundationVersionNumber_iOS_8_0 1140.10
-  #endif
-
-  #define USE_PTHREAD_THREADID_NP                (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iOS_8_0)
-
-#elif TARGET_OS_WATCH || TARGET_OS_TV
-
-// Compiling for watchOS, tvOS
-
-  #define USE_PTHREAD_THREADID_NP                YES
-
-#else
-
-// Compiling for Mac OS X
-
-  #ifndef kCFCoreFoundationVersionNumber10_10
-    #define kCFCoreFoundationVersionNumber10_10    1151.16
-  #endif
-
-  #define USE_PTHREAD_THREADID_NP                (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber10_10)
-
-#endif /* if TARGET_OS_IOS */
-
 - (instancetype)init {
     self = [super init];
+    return self;
+}
+
+- (instancetype)initWithFormat:(NSString *)messageFormat
+                     formatted:(NSString *)message
+                         level:(AWSDDLogLevel)level
+                          flag:(AWSDDLogFlag)flag
+                       context:(NSInteger)context
+                          file:(NSString *)file
+                      function:(NSString *)function
+                          line:(NSUInteger)line
+                           tag:(id)tag
+                       options:(AWSDDLogMessageOptions)options
+                     timestamp:(NSDate *)timestamp {
+    NSParameterAssert(messageFormat);
+    NSParameterAssert(message);
+    NSParameterAssert(file);
+
+    if ((self = [super init])) {
+        __auto_type copyMessage = (options & AWSDDLogMessageDontCopyMessage) == 0;
+        _messageFormat = copyMessage ? [messageFormat copy] : messageFormat;
+        _message       = copyMessage ? [message copy] : message;
+        _level         = level;
+        _flag          = flag;
+        _context       = context;
+
+        __auto_type copyFile = (options & AWSDDLogMessageCopyFile) != 0;
+        _file = copyFile ? [file copy] : file;
+
+        __auto_type copyFunction = (options & AWSDDLogMessageCopyFunction) != 0;
+        _function = copyFunction ? [function copy] : function;
+
+        _line         = line;
+        _representedObject = tag;
+#if AWSDD_LEGACY_MESSAGE_TAG
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        _tag = tag;
+#pragma clang diagnostic pop
+#endif
+        _options      = options;
+        _timestamp    = timestamp ?: [NSDate date];
+
+        __uint64_t tid;
+        if (pthread_threadid_np(NULL, &tid) == 0) {
+            _threadID = [[NSString alloc] initWithFormat:@"%llu", tid];
+        } else {
+            _threadID = @"N/A";
+        }
+        _threadName   = NSThread.currentThread.name;
+
+        // Get the file name without extension
+        _fileName = [_file lastPathComponent];
+        __auto_type dotLocation = [_fileName rangeOfString:@"." options:NSBackwardsSearch].location;
+        if (dotLocation != NSNotFound) {
+            _fileName = [_fileName substringToIndex:dotLocation];
+        }
+
+        // Try to get the current queue's label
+        _queueLabel = @(dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL));
+        _qos = (NSUInteger) qos_class_self();
+    }
+    return self;
+}
+
+- (instancetype)initWithFormat:(NSString *)messageFormat
+                          args:(va_list)messageArgs
+                         level:(AWSDDLogLevel)level
+                          flag:(AWSDDLogFlag)flag
+                       context:(NSInteger)context
+                          file:(NSString *)file
+                      function:(NSString *)function
+                          line:(NSUInteger)line
+                           tag:(id)tag
+                       options:(AWSDDLogMessageOptions)options
+                     timestamp:(NSDate *)timestamp {
+    __auto_type copyMessage = (options & AWSDDLogMessageDontCopyMessage) == 0;
+    NSString *format = copyMessage ? [messageFormat copy] : messageFormat;
+    self = [self initWithFormat:format
+                      formatted:[[NSString alloc] initWithFormat:format arguments:messageArgs]
+                          level:level
+                           flag:flag
+                        context:context
+                           file:file
+                       function:function
+                           line:line
+                            tag:tag
+                        options:options | AWSDDLogMessageDontCopyMessage // we already did the copying if needed.
+                      timestamp:timestamp];
     return self;
 }
 
@@ -1132,60 +1026,79 @@ static __inline__ __attribute__((__always_inline__)) void _dispatch_queue_label_
                             tag:(id)tag
                         options:(AWSDDLogMessageOptions)options
                       timestamp:(NSDate *)timestamp {
-    if ((self = [super init])) {
-        BOOL copyMessage = (options & AWSDDLogMessageDontCopyMessage) == 0;
-        _message      = copyMessage ? [message copy] : message;
-        _level        = level;
-        _flag         = flag;
-        _context      = context;
-
-        BOOL copyFile = (options & AWSDDLogMessageCopyFile) != 0;
-        _file = copyFile ? [file copy] : file;
-
-        BOOL copyFunction = (options & AWSDDLogMessageCopyFunction) != 0;
-        _function = copyFunction ? [function copy] : function;
-
-        _line         = line;
-        _tag          = tag;
-        _options      = options;
-        _timestamp    = timestamp ?: [NSDate new];
-
-        if (USE_PTHREAD_THREADID_NP) {
-            __uint64_t tid;
-            pthread_threadid_np(NULL, &tid);
-            _threadID = [[NSString alloc] initWithFormat:@"%llu", tid];
-        } else {
-            _threadID = [[NSString alloc] initWithFormat:@"%x", pthread_mach_thread_np(pthread_self())];
-        }
-        _threadName   = NSThread.currentThread.name;
-
-        // Get the file name without extension
-        _fileName = [_file lastPathComponent];
-        NSUInteger dotLocation = [_fileName rangeOfString:@"." options:NSBackwardsSearch].location;
-        if (dotLocation != NSNotFound)
-        {
-            _fileName = [_fileName substringToIndex:dotLocation];
-        }
-        
-        // Try to get the current queue's label
-        if (USE_DISPATCH_CURRENT_QUEUE_LABEL) {
-            _queueLabel = [[NSString alloc] initWithFormat:@"%s", dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL)];
-        } else if (USE_DISPATCH_GET_CURRENT_QUEUE) {
-            #pragma clang diagnostic push
-            #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-            dispatch_queue_t currentQueue = dispatch_get_current_queue();
-            #pragma clang diagnostic pop
-            _queueLabel = [[NSString alloc] initWithFormat:@"%s", dispatch_queue_get_label(currentQueue)];
-        } else {
-            _queueLabel = @""; // iOS 6.x only
-        }
-    }
+    self = [self initWithFormat:message
+                      formatted:message
+                          level:level
+                           flag:flag
+                        context:context
+                           file:file
+                       function:function
+                           line:line
+                            tag:tag
+                        options:options
+                      timestamp:timestamp];
     return self;
+}
+
+NS_INLINE BOOL _nullable_strings_equal(NSString* _Nullable lhs, NSString* _Nullable rhs)
+{
+    if (lhs == nil) {
+        if (rhs == nil) {
+            return YES;
+        }
+    } else if (rhs != nil && [lhs isEqualToString:(NSString* _Nonnull)rhs]) {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)isEqual:(id)other {
+    // Subclasses of NSObject should not call [super isEqual:] here.
+    // See https://stackoverflow.com/questions/36593038/confused-about-the-default-isequal-and-hash-implements
+    if (other == self) {
+        return YES;
+    } else if (!other || ![other isKindOfClass:[AWSDDLogMessage class]]) {
+        return NO;
+    } else {
+        __auto_type otherMsg = (AWSDDLogMessage *)other;
+        return [otherMsg->_message isEqualToString:_message]
+        && [otherMsg->_messageFormat isEqualToString:_messageFormat]
+        && otherMsg->_level == _level
+        && otherMsg->_flag == _flag
+        && otherMsg->_context == _context
+        && [otherMsg->_file isEqualToString:_file]
+        && _nullable_strings_equal(otherMsg->_function, _function)
+        && otherMsg->_line == _line
+        && (([otherMsg->_representedObject respondsToSelector:@selector(isEqual:)] && [otherMsg->_representedObject isEqual:_representedObject]) || otherMsg->_representedObject == _representedObject)
+        && [otherMsg->_timestamp isEqualToDate:_timestamp]
+        && [otherMsg->_threadID isEqualToString:_threadID] // If the thread ID is the same, the name will likely be the same as well.
+        && [otherMsg->_queueLabel isEqualToString:_queueLabel]
+        && otherMsg->_qos == _qos;
+    }
+}
+
+- (NSUInteger)hash {
+    // Subclasses of NSObject should not call [super hash] here.
+    // See https://stackoverflow.com/questions/36593038/confused-about-the-default-isequal-and-hash-implements
+    return _message.hash
+    ^ _messageFormat.hash
+    ^ _level
+    ^ _flag
+    ^ _context
+    ^ _file.hash
+    ^ _function.hash
+    ^ _line
+    ^ ([_representedObject respondsToSelector:@selector(hash)] ? [_representedObject hash] : (NSUInteger)_representedObject)
+    ^ _timestamp.hash
+    ^ _threadID.hash
+    ^ _queueLabel.hash
+    ^ _qos;
 }
 
 - (id)copyWithZone:(NSZone * __attribute__((unused)))zone {
     AWSDDLogMessage *newMessage = [AWSDDLogMessage new];
-    
+
+    newMessage->_messageFormat = _messageFormat;
     newMessage->_message = _message;
     newMessage->_level = _level;
     newMessage->_flag = _flag;
@@ -1194,14 +1107,26 @@ static __inline__ __attribute__((__always_inline__)) void _dispatch_queue_label_
     newMessage->_fileName = _fileName;
     newMessage->_function = _function;
     newMessage->_line = _line;
+    newMessage->_representedObject = _representedObject;
+#if AWSDD_LEGACY_MESSAGE_TAG
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     newMessage->_tag = _tag;
+#pragma clang diagnostic pop
+#endif
     newMessage->_options = _options;
     newMessage->_timestamp = _timestamp;
     newMessage->_threadID = _threadID;
     newMessage->_threadName = _threadName;
     newMessage->_queueLabel = _queueLabel;
+    newMessage->_qos = _qos;
 
     return newMessage;
+}
+
+// ensure compatibility even when built with AWSDD_LEGACY_MESSAGE_TAG to 0.
+- (id)tag {
+    return _representedObject;
 }
 
 @end
@@ -1218,7 +1143,7 @@ static __inline__ __attribute__((__always_inline__)) void _dispatch_queue_label_
         const char *loggerQueueName = NULL;
 
         if ([self respondsToSelector:@selector(loggerName)]) {
-            loggerQueueName = [[self loggerName] UTF8String];
+            loggerQueueName = self.loggerName.UTF8String;
         }
 
         _loggerQueue = dispatch_queue_create(loggerQueueName, NULL);
@@ -1237,8 +1162,8 @@ static __inline__ __attribute__((__always_inline__)) void _dispatch_queue_label_
         //
         // This is used primarily for thread-safety assertions (via the isOnInternalLoggerQueue method below).
 
-        void *key = (__bridge void *)self;
-        void *nonNullValue = (__bridge void *)self;
+        __auto_type key = (__bridge void *)self;
+        __auto_type nonNullValue = (__bridge void *)self;
 
         dispatch_queue_set_specific(_loggerQueue, key, nonNullValue, NULL);
     }
@@ -1247,13 +1172,11 @@ static __inline__ __attribute__((__always_inline__)) void _dispatch_queue_label_
 }
 
 - (void)dealloc {
-    #if !OS_OBJECT_USE_OBJC
-
+#if !OS_OBJECT_USE_OBJC
     if (_loggerQueue) {
         dispatch_release(_loggerQueue);
     }
-
-    #endif
+#endif
 }
 
 - (void)logMessage:(AWSDDLogMessage * __attribute__((unused)))logMessage {
@@ -1298,7 +1221,7 @@ static __inline__ __attribute__((__always_inline__)) void _dispatch_queue_label_
     //
     // globalLoggingQueue : The queue that all log messages go through before they arrive in our loggerQueue.
     //
-    // All log statements go through the serial gloabalLoggingQueue before they arrive at our loggerQueue.
+    // All log statements go through the serial globalLoggingQueue before they arrive at our loggerQueue.
     // Thus this method also goes through the serial globalLoggingQueue to ensure intuitive operation.
 
     // IMPORTANT NOTE:
@@ -1310,14 +1233,10 @@ static __inline__ __attribute__((__always_inline__)) void _dispatch_queue_label_
     // This is the intended result. Fix it by accessing the ivar directly.
     // Great strides have been take to ensure this is safe to do. Plus it's MUCH faster.
 
-    NSAssert(![self isOnGlobalLoggingQueue], @"Core architecture requirement failure");
-    NSAssert(![self isOnInternalLoggerQueue], @"MUST access ivar directly, NOT via self.* syntax.");
-
-    dispatch_queue_t globalLoggingQueue = [AWSDDLog loggingQueue];
+    AWSDDAbstractLoggerAssertLockedPropertyAccess();
 
     __block id <AWSDDLogFormatter> result;
-
-    dispatch_sync(globalLoggingQueue, ^{
+    dispatch_sync(AWSDDLog.loggingQueue, ^{
         dispatch_sync(self->_loggerQueue, ^{
             result = self->_logFormatter;
         });
@@ -1329,10 +1248,9 @@ static __inline__ __attribute__((__always_inline__)) void _dispatch_queue_label_
 - (void)setLogFormatter:(id <AWSDDLogFormatter>)logFormatter {
     // The design of this method is documented extensively in the logFormatter message (above in code).
 
-    NSAssert(![self isOnGlobalLoggingQueue], @"Core architecture requirement failure");
-    NSAssert(![self isOnInternalLoggerQueue], @"MUST access ivar directly, NOT via self.* syntax.");
+    AWSDDAbstractLoggerAssertLockedPropertyAccess();
 
-    dispatch_block_t block = ^{
+    __auto_type block = ^{
         @autoreleasepool {
             if (self->_logFormatter != logFormatter) {
                 if ([self->_logFormatter respondsToSelector:@selector(willRemoveFromLogger:)]) {
@@ -1340,7 +1258,7 @@ static __inline__ __attribute__((__always_inline__)) void _dispatch_queue_label_
                 }
 
                 self->_logFormatter = logFormatter;
- 
+
                 if ([self->_logFormatter respondsToSelector:@selector(didAddToLogger:inQueue:)]) {
                     [self->_logFormatter didAddToLogger:self inQueue:self->_loggerQueue];
                 } else if ([self->_logFormatter respondsToSelector:@selector(didAddToLogger:)]) {
@@ -1350,9 +1268,7 @@ static __inline__ __attribute__((__always_inline__)) void _dispatch_queue_label_
         }
     };
 
-    dispatch_queue_t globalLoggingQueue = [AWSDDLog loggingQueue];
-
-    dispatch_async(globalLoggingQueue, ^{
+    dispatch_async(AWSDDLog.loggingQueue, ^{
         dispatch_async(self->_loggerQueue, block);
     });
 }
@@ -1370,9 +1286,7 @@ static __inline__ __attribute__((__always_inline__)) void _dispatch_queue_label_
 }
 
 - (BOOL)isOnInternalLoggerQueue {
-    void *key = (__bridge void *)self;
-
-    return (dispatch_get_specific(key) != NULL);
+    return dispatch_get_specific((__bridge void *)self) != NULL;
 }
 
 @end
@@ -1401,8 +1315,8 @@ static __inline__ __attribute__((__always_inline__)) void _dispatch_queue_label_
     return self;
 }
 
-+ (AWSDDLoggerInformation *)informationWithLogger:(id <AWSDDLogger>)logger andLevel:(AWSDDLogLevel)level {
-    return [[AWSDDLoggerInformation alloc] initWithLogger:logger andLevel:level];
++ (instancetype)informationWithLogger:(id <AWSDDLogger>)logger andLevel:(AWSDDLogLevel)level {
+    return [[self alloc] initWithLogger:logger andLevel:level];
 }
 
 @end

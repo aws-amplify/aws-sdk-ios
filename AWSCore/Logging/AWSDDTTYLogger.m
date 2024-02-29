@@ -1,6 +1,6 @@
 // Software License Agreement (BSD License)
 //
-// Copyright (c) 2010-2016, Deusty, LLC
+// Copyright (c) 2010-2024, Deusty, LLC
 // All rights reserved.
 //
 // Redistribution and use of this software in source and binary forms,
@@ -13,14 +13,13 @@
 //   to endorse or promote products derived from this software without specific
 //   prior written permission of Deusty, LLC.
 
-#import "AWSDDTTYLogger.h"
-
-#import <unistd.h>
-#import <sys/uio.h>
-
 #if !__has_feature(objc_arc)
 #error This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
+
+#import <sys/uio.h>
+
+#import "AWSDDTTYLogger.h"
 
 // We probably shouldn't be using AWSDDLog() statements within the AWSDDLog implementation.
 // But we still want to leave our log statements for any future debugging,
@@ -79,19 +78,19 @@
 
 #define MAP_TO_TERMINAL_APP_COLORS 1
 
+typedef struct {
+    uint8_t r;
+    uint8_t g;
+    uint8_t b;
+} AWSDDRGBColor;
 
 @interface AWSDDTTYLoggerColorProfile : NSObject {
-    @public
+@public
     AWSDDLogFlag mask;
     NSInteger context;
 
-    uint8_t fg_r;
-    uint8_t fg_g;
-    uint8_t fg_b;
-
-    uint8_t bg_r;
-    uint8_t bg_g;
-    uint8_t bg_b;
+    AWSDDRGBColor fg;
+    AWSDDRGBColor bg;
 
     NSUInteger fgCodeIndex;
     NSString *fgCodeRaw;
@@ -109,23 +108,19 @@
     size_t resetCodeLen;
 }
 
-- (instancetype)initWithForegroundColor:(AWSDDColor *)fgColor backgroundColor:(AWSDDColor *)bgColor flag:(AWSDDLogFlag)mask context:(NSInteger)ctxt;
+- (nullable instancetype)initWithForegroundColor:(nullable AWSDDColor *)fgColor backgroundColor:(nullable AWSDDColor *)bgColor flag:(AWSDDLogFlag)mask context:(NSInteger)ctxt;
 
 @end
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark -
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 @interface AWSDDTTYLogger () {
     NSString *_appName;
     char *_app;
     size_t _appLen;
-    
+
     NSString *_processID;
     char *_pid;
     size_t _pidLen;
-    
+
     BOOL _colorsEnabled;
     NSMutableArray *_colorProfilesArray;
     NSMutableDictionary *_colorProfilesDict;
@@ -133,6 +128,7 @@
 
 @end
 
+#pragma mark -
 
 @implementation AWSDDTTYLogger
 
@@ -140,138 +136,141 @@ static BOOL isaColorTTY;
 static BOOL isaColor256TTY;
 static BOOL isaXcodeColorTTY;
 
-static NSArray *codes_fg = nil;
-static NSArray *codes_bg = nil;
+static NSArray *codesFg = nil;
+static NSArray *codesBg = nil;
 static NSArray *colors   = nil;
 
 static AWSDDTTYLogger *sharedInstance;
 
 /**
- * Initializes the colors array, as well as the codes_fg and codes_bg arrays, for 16 color mode.
+ * Initializes the colors array, as well as the `codesFg` and `codesBg` arrays, for 16 color mode.
  *
  * This method is used when the application is running from within a shell that only supports 16 color mode.
  * This method is not invoked if the application is running within Xcode, or via normal UI app launch.
  **/
-+ (void)initialize_colors_16 {
-    if (codes_fg || codes_bg || colors) {
++ (void)initializeColors16 {
+    if (codesFg || codesBg || colors) {
         return;
     }
 
-    NSMutableArray *m_codes_fg = [NSMutableArray arrayWithCapacity:16];
-    NSMutableArray *m_codes_bg = [NSMutableArray arrayWithCapacity:16];
-    NSMutableArray *m_colors   = [NSMutableArray arrayWithCapacity:16];
+    __auto_type mColors = [NSMutableArray arrayWithCapacity:16];
 
     // In a standard shell only 16 colors are supported.
     //
     // More information about ansi escape codes can be found online.
     // http://en.wikipedia.org/wiki/ANSI_escape_code
+    codesFg = @[
+        @"30m",  // normal - black
+        @"31m",  // normal - red
+        @"32m",  // normal - green
+        @"33m",  // normal - yellow
+        @"34m",  // normal - blue
+        @"35m",  // normal - magenta
+        @"36m",  // normal - cyan
+        @"37m",  // normal - gray
+        @"1;30m",  // bright - darkgray
+        @"1;31m",  // bright - red
+        @"1;32m",  // bright - green
+        @"1;33m",  // bright - yellow
+        @"1;34m",  // bright - blue
+        @"1;35m",  // bright - magenta
+        @"1;36m",  // bright - cyan
+        @"1;37m",  // bright - white
+    ];
 
-    [m_codes_fg addObject:@"30m"];   // normal - black
-    [m_codes_fg addObject:@"31m"];   // normal - red
-    [m_codes_fg addObject:@"32m"];   // normal - green
-    [m_codes_fg addObject:@"33m"];   // normal - yellow
-    [m_codes_fg addObject:@"34m"];   // normal - blue
-    [m_codes_fg addObject:@"35m"];   // normal - magenta
-    [m_codes_fg addObject:@"36m"];   // normal - cyan
-    [m_codes_fg addObject:@"37m"];   // normal - gray
-    [m_codes_fg addObject:@"1;30m"]; // bright - darkgray
-    [m_codes_fg addObject:@"1;31m"]; // bright - red
-    [m_codes_fg addObject:@"1;32m"]; // bright - green
-    [m_codes_fg addObject:@"1;33m"]; // bright - yellow
-    [m_codes_fg addObject:@"1;34m"]; // bright - blue
-    [m_codes_fg addObject:@"1;35m"]; // bright - magenta
-    [m_codes_fg addObject:@"1;36m"]; // bright - cyan
-    [m_codes_fg addObject:@"1;37m"]; // bright - white
-
-    [m_codes_bg addObject:@"40m"];   // normal - black
-    [m_codes_bg addObject:@"41m"];   // normal - red
-    [m_codes_bg addObject:@"42m"];   // normal - green
-    [m_codes_bg addObject:@"43m"];   // normal - yellow
-    [m_codes_bg addObject:@"44m"];   // normal - blue
-    [m_codes_bg addObject:@"45m"];   // normal - magenta
-    [m_codes_bg addObject:@"46m"];   // normal - cyan
-    [m_codes_bg addObject:@"47m"];   // normal - gray
-    [m_codes_bg addObject:@"1;40m"]; // bright - darkgray
-    [m_codes_bg addObject:@"1;41m"]; // bright - red
-    [m_codes_bg addObject:@"1;42m"]; // bright - green
-    [m_codes_bg addObject:@"1;43m"]; // bright - yellow
-    [m_codes_bg addObject:@"1;44m"]; // bright - blue
-    [m_codes_bg addObject:@"1;45m"]; // bright - magenta
-    [m_codes_bg addObject:@"1;46m"]; // bright - cyan
-    [m_codes_bg addObject:@"1;47m"]; // bright - white
+    codesBg = @[
+        @"40m",  // normal - black
+        @"41m",  // normal - red
+        @"42m",  // normal - green
+        @"43m",  // normal - yellow
+        @"44m",  // normal - blue
+        @"45m",  // normal - magenta
+        @"46m",  // normal - cyan
+        @"47m",  // normal - gray
+        @"1;40m",  // bright - darkgray
+        @"1;41m",  // bright - red
+        @"1;42m",  // bright - green
+        @"1;43m",  // bright - yellow
+        @"1;44m",  // bright - blue
+        @"1;45m",  // bright - magenta
+        @"1;46m",  // bright - cyan
+        @"1;47m",  // bright - white
+    ];
 
 #if MAP_TO_TERMINAL_APP_COLORS
 
     // Standard Terminal.app colors:
     //
     // These are the default colors used by Apple's Terminal.app.
-
-    [m_colors addObject:AWSDDMakeColor(  0,   0,   0)]; // normal - black
-    [m_colors addObject:AWSDDMakeColor(194,  54,  33)]; // normal - red
-    [m_colors addObject:AWSDDMakeColor( 37, 188,  36)]; // normal - green
-    [m_colors addObject:AWSDDMakeColor(173, 173,  39)]; // normal - yellow
-    [m_colors addObject:AWSDDMakeColor( 73,  46, 225)]; // normal - blue
-    [m_colors addObject:AWSDDMakeColor(211,  56, 211)]; // normal - magenta
-    [m_colors addObject:AWSDDMakeColor( 51, 187, 200)]; // normal - cyan
-    [m_colors addObject:AWSDDMakeColor(203, 204, 205)]; // normal - gray
-    [m_colors addObject:AWSDDMakeColor(129, 131, 131)]; // bright - darkgray
-    [m_colors addObject:AWSDDMakeColor(252,  57,  31)]; // bright - red
-    [m_colors addObject:AWSDDMakeColor( 49, 231,  34)]; // bright - green
-    [m_colors addObject:AWSDDMakeColor(234, 236,  35)]; // bright - yellow
-    [m_colors addObject:AWSDDMakeColor( 88,  51, 255)]; // bright - blue
-    [m_colors addObject:AWSDDMakeColor(249,  53, 248)]; // bright - magenta
-    [m_colors addObject:AWSDDMakeColor( 20, 240, 240)]; // bright - cyan
-    [m_colors addObject:AWSDDMakeColor(233, 235, 235)]; // bright - white
+    const AWSDDRGBColor rgbColors[] = {
+        {  0,   0,   0}, // normal - black
+        {194,  54,  33}, // normal - red
+        { 37, 188,  36}, // normal - green
+        {173, 173,  39}, // normal - yellow
+        { 73,  46, 225}, // normal - blue
+        {211,  56, 211}, // normal - magenta
+        { 51, 187, 200}, // normal - cyan
+        {203, 204, 205}, // normal - gray
+        {129, 131, 131}, // bright - darkgray
+        {252,  57,  31}, // bright - red
+        { 49, 231,  34}, // bright - green
+        {234, 236,  35}, // bright - yellow
+        { 88,  51, 255}, // bright - blue
+        {249,  53, 248}, // bright - magenta
+        { 20, 240, 240}, // bright - cyan
+        {233, 235, 235}, // bright - white
+    };
 
 #else /* if MAP_TO_TERMINAL_APP_COLORS */
 
     // Standard xterm colors:
     //
     // These are the default colors used by most xterm shells.
-
-    [m_colors addObject:AWSDDMakeColor(  0,   0,   0)]; // normal - black
-    [m_colors addObject:AWSDDMakeColor(205,   0,   0)]; // normal - red
-    [m_colors addObject:AWSDDMakeColor(  0, 205,   0)]; // normal - green
-    [m_colors addObject:AWSDDMakeColor(205, 205,   0)]; // normal - yellow
-    [m_colors addObject:AWSDDMakeColor(  0,   0, 238)]; // normal - blue
-    [m_colors addObject:AWSDDMakeColor(205,   0, 205)]; // normal - magenta
-    [m_colors addObject:AWSDDMakeColor(  0, 205, 205)]; // normal - cyan
-    [m_colors addObject:AWSDDMakeColor(229, 229, 229)]; // normal - gray
-    [m_colors addObject:AWSDDMakeColor(127, 127, 127)]; // bright - darkgray
-    [m_colors addObject:AWSDDMakeColor(255,   0,   0)]; // bright - red
-    [m_colors addObject:AWSDDMakeColor(  0, 255,   0)]; // bright - green
-    [m_colors addObject:AWSDDMakeColor(255, 255,   0)]; // bright - yellow
-    [m_colors addObject:AWSDDMakeColor( 92,  92, 255)]; // bright - blue
-    [m_colors addObject:AWSDDMakeColor(255,   0, 255)]; // bright - magenta
-    [m_colors addObject:AWSDDMakeColor(  0, 255, 255)]; // bright - cyan
-    [m_colors addObject:AWSDDMakeColor(255, 255, 255)]; // bright - white
-
+    const AWSDDRGBColor rgbColors[] = {
+        {  0,   0,   0}, // normal - black
+        {205,   0,   0}, // normal - red
+        {  0, 205,   0}, // normal - green
+        {205, 205,   0}, // normal - yellow
+        {  0,   0, 238}, // normal - blue
+        {205,   0, 205}, // normal - magenta
+        {  0, 205, 205}, // normal - cyan
+        {229, 229, 229}, // normal - gray
+        {127, 127, 127}, // bright - darkgray
+        {255,   0,   0}, // bright - red
+        {  0, 255,   0}, // bright - green
+        {255, 255,   0}, // bright - yellow
+        { 92,  92, 255}, // bright - blue
+        {255,   0, 255}, // bright - magenta
+        {  0, 255, 255}, // bright - cyan
+        {255, 255, 255}, // bright - white
+    };
 #endif /* if MAP_TO_TERMINAL_APP_COLORS */
 
-    codes_fg = [m_codes_fg copy];
-    codes_bg = [m_codes_bg copy];
-    colors   = [m_colors   copy];
+    for (size_t i = 0; i < sizeof(rgbColors) / sizeof(rgbColors[0]); ++i) {
+        [mColors addObject:AWSDDMakeColor(rgbColors[i].r, rgbColors[i].g, rgbColors[i].b)];
+    }
+    colors = [mColors copy];
 
-    NSAssert([codes_fg count] == [codes_bg count], @"Invalid colors/codes array(s)");
-    NSAssert([codes_fg count] == [colors count],   @"Invalid colors/codes array(s)");
+    NSAssert([codesFg count] == [codesBg count], @"Invalid colors/codes array(s)");
+    NSAssert([codesFg count] == [colors count],   @"Invalid colors/codes array(s)");
 }
 
 /**
- * Initializes the colors array, as well as the codes_fg and codes_bg arrays, for 256 color mode.
+ * Initializes the colors array, as well as the `codesFg` and `codesBg` arrays, for 256 color mode.
  *
  * This method is used when the application is running from within a shell that supports 256 color mode.
  * This method is not invoked if the application is running within Xcode, or via normal UI app launch.
  **/
-+ (void)initialize_colors_256 {
-    if (codes_fg || codes_bg || colors) {
++ (void)initializeColors256 {
+    if (codesFg || codesBg || colors) {
         return;
     }
 
-    NSMutableArray *m_codes_fg = [NSMutableArray arrayWithCapacity:(256 - 16)];
-    NSMutableArray *m_codes_bg = [NSMutableArray arrayWithCapacity:(256 - 16)];
-    NSMutableArray *m_colors   = [NSMutableArray arrayWithCapacity:(256 - 16)];
+    __auto_type mCodesFg = [NSMutableArray arrayWithCapacity:(256 - 16)];
+    __auto_type mCodesBg = [NSMutableArray arrayWithCapacity:(256 - 16)];
+    __auto_type mColors  = [NSMutableArray arrayWithCapacity:(256 - 16)];
 
-    #if MAP_TO_TERMINAL_APP_COLORS
+#if MAP_TO_TERMINAL_APP_COLORS
 
     // Standard Terminal.app colors:
     //
@@ -298,301 +297,304 @@ static AWSDDTTYLogger *sharedInstance;
     // http://en.wikipedia.org/wiki/ANSI_escape_code
 
     // Colors
+    const AWSDDRGBColor rgbColors[] = {
+        { 47,  49,  49},
+        { 60,  42, 144},
+        { 66,  44, 183},
+        { 73,  46, 222},
+        { 81,  50, 253},
+        { 88,  51, 255},
 
-    [m_colors addObject:AWSDDMakeColor( 47,  49,  49)];
-    [m_colors addObject:AWSDDMakeColor( 60,  42, 144)];
-    [m_colors addObject:AWSDDMakeColor( 66,  44, 183)];
-    [m_colors addObject:AWSDDMakeColor( 73,  46, 222)];
-    [m_colors addObject:AWSDDMakeColor( 81,  50, 253)];
-    [m_colors addObject:AWSDDMakeColor( 88,  51, 255)];
-    
-    [m_colors addObject:AWSDDMakeColor( 42, 128,  37)];
-    [m_colors addObject:AWSDDMakeColor( 42, 127, 128)];
-    [m_colors addObject:AWSDDMakeColor( 44, 126, 169)];
-    [m_colors addObject:AWSDDMakeColor( 56, 125, 209)];
-    [m_colors addObject:AWSDDMakeColor( 59, 124, 245)];
-    [m_colors addObject:AWSDDMakeColor( 66, 123, 255)];
-    
-    [m_colors addObject:AWSDDMakeColor( 51, 163,  41)];
-    [m_colors addObject:AWSDDMakeColor( 39, 162, 121)];
-    [m_colors addObject:AWSDDMakeColor( 42, 161, 162)];
-    [m_colors addObject:AWSDDMakeColor( 53, 160, 202)];
-    [m_colors addObject:AWSDDMakeColor( 45, 159, 240)];
-    [m_colors addObject:AWSDDMakeColor( 58, 158, 255)];
-    
-    [m_colors addObject:AWSDDMakeColor( 31, 196,  37)];
-    [m_colors addObject:AWSDDMakeColor( 48, 196, 115)];
-    [m_colors addObject:AWSDDMakeColor( 39, 195, 155)];
-    [m_colors addObject:AWSDDMakeColor( 49, 195, 195)];
-    [m_colors addObject:AWSDDMakeColor( 32, 194, 235)];
-    [m_colors addObject:AWSDDMakeColor( 53, 193, 255)];
-    
-    [m_colors addObject:AWSDDMakeColor( 50, 229,  35)];
-    [m_colors addObject:AWSDDMakeColor( 40, 229, 109)];
-    [m_colors addObject:AWSDDMakeColor( 27, 229, 149)];
-    [m_colors addObject:AWSDDMakeColor( 49, 228, 189)];
-    [m_colors addObject:AWSDDMakeColor( 33, 228, 228)];
-    [m_colors addObject:AWSDDMakeColor( 53, 227, 255)];
-    
-    [m_colors addObject:AWSDDMakeColor( 27, 254,  30)];
-    [m_colors addObject:AWSDDMakeColor( 30, 254, 103)];
-    [m_colors addObject:AWSDDMakeColor( 45, 254, 143)];
-    [m_colors addObject:AWSDDMakeColor( 38, 253, 182)];
-    [m_colors addObject:AWSDDMakeColor( 38, 253, 222)];
-    [m_colors addObject:AWSDDMakeColor( 42, 253, 252)];
-    
-    [m_colors addObject:AWSDDMakeColor(140,  48,  40)];
-    [m_colors addObject:AWSDDMakeColor(136,  51, 136)];
-    [m_colors addObject:AWSDDMakeColor(135,  52, 177)];
-    [m_colors addObject:AWSDDMakeColor(134,  52, 217)];
-    [m_colors addObject:AWSDDMakeColor(135,  56, 248)];
-    [m_colors addObject:AWSDDMakeColor(134,  53, 255)];
-    
-    [m_colors addObject:AWSDDMakeColor(125, 125,  38)];
-    [m_colors addObject:AWSDDMakeColor(124, 125, 125)];
-    [m_colors addObject:AWSDDMakeColor(122, 124, 166)];
-    [m_colors addObject:AWSDDMakeColor(123, 124, 207)];
-    [m_colors addObject:AWSDDMakeColor(123, 122, 247)];
-    [m_colors addObject:AWSDDMakeColor(124, 121, 255)];
-    
-    [m_colors addObject:AWSDDMakeColor(119, 160,  35)];
-    [m_colors addObject:AWSDDMakeColor(117, 160, 120)];
-    [m_colors addObject:AWSDDMakeColor(117, 160, 160)];
-    [m_colors addObject:AWSDDMakeColor(115, 159, 201)];
-    [m_colors addObject:AWSDDMakeColor(116, 158, 240)];
-    [m_colors addObject:AWSDDMakeColor(117, 157, 255)];
-    
-    [m_colors addObject:AWSDDMakeColor(113, 195,  39)];
-    [m_colors addObject:AWSDDMakeColor(110, 194, 114)];
-    [m_colors addObject:AWSDDMakeColor(111, 194, 154)];
-    [m_colors addObject:AWSDDMakeColor(108, 194, 194)];
-    [m_colors addObject:AWSDDMakeColor(109, 193, 234)];
-    [m_colors addObject:AWSDDMakeColor(108, 192, 255)];
-    
-    [m_colors addObject:AWSDDMakeColor(105, 228,  30)];
-    [m_colors addObject:AWSDDMakeColor(103, 228, 109)];
-    [m_colors addObject:AWSDDMakeColor(105, 228, 148)];
-    [m_colors addObject:AWSDDMakeColor(100, 227, 188)];
-    [m_colors addObject:AWSDDMakeColor( 99, 227, 227)];
-    [m_colors addObject:AWSDDMakeColor( 99, 226, 253)];
-    
-    [m_colors addObject:AWSDDMakeColor( 92, 253,  34)];
-    [m_colors addObject:AWSDDMakeColor( 96, 253, 103)];
-    [m_colors addObject:AWSDDMakeColor( 97, 253, 142)];
-    [m_colors addObject:AWSDDMakeColor( 88, 253, 182)];
-    [m_colors addObject:AWSDDMakeColor( 93, 253, 221)];
-    [m_colors addObject:AWSDDMakeColor( 88, 254, 251)];
-    
-    [m_colors addObject:AWSDDMakeColor(177,  53,  34)];
-    [m_colors addObject:AWSDDMakeColor(174,  54, 131)];
-    [m_colors addObject:AWSDDMakeColor(172,  55, 172)];
-    [m_colors addObject:AWSDDMakeColor(171,  57, 213)];
-    [m_colors addObject:AWSDDMakeColor(170,  55, 249)];
-    [m_colors addObject:AWSDDMakeColor(170,  57, 255)];
-    
-    [m_colors addObject:AWSDDMakeColor(165, 123,  37)];
-    [m_colors addObject:AWSDDMakeColor(163, 123, 123)];
-    [m_colors addObject:AWSDDMakeColor(162, 123, 164)];
-    [m_colors addObject:AWSDDMakeColor(161, 122, 205)];
-    [m_colors addObject:AWSDDMakeColor(161, 121, 241)];
-    [m_colors addObject:AWSDDMakeColor(161, 121, 255)];
-    
-    [m_colors addObject:AWSDDMakeColor(158, 159,  33)];
-    [m_colors addObject:AWSDDMakeColor(157, 158, 118)];
-    [m_colors addObject:AWSDDMakeColor(157, 158, 159)];
-    [m_colors addObject:AWSDDMakeColor(155, 157, 199)];
-    [m_colors addObject:AWSDDMakeColor(155, 157, 239)];
-    [m_colors addObject:AWSDDMakeColor(154, 156, 255)];
-    
-    [m_colors addObject:AWSDDMakeColor(152, 193,  40)];
-    [m_colors addObject:AWSDDMakeColor(151, 193, 113)];
-    [m_colors addObject:AWSDDMakeColor(150, 193, 153)];
-    [m_colors addObject:AWSDDMakeColor(150, 192, 193)];
-    [m_colors addObject:AWSDDMakeColor(148, 192, 232)];
-    [m_colors addObject:AWSDDMakeColor(149, 191, 253)];
-    
-    [m_colors addObject:AWSDDMakeColor(146, 227,  28)];
-    [m_colors addObject:AWSDDMakeColor(144, 227, 108)];
-    [m_colors addObject:AWSDDMakeColor(144, 227, 147)];
-    [m_colors addObject:AWSDDMakeColor(144, 227, 187)];
-    [m_colors addObject:AWSDDMakeColor(142, 226, 227)];
-    [m_colors addObject:AWSDDMakeColor(142, 225, 252)];
-    
-    [m_colors addObject:AWSDDMakeColor(138, 253,  36)];
-    [m_colors addObject:AWSDDMakeColor(137, 253, 102)];
-    [m_colors addObject:AWSDDMakeColor(136, 253, 141)];
-    [m_colors addObject:AWSDDMakeColor(138, 254, 181)];
-    [m_colors addObject:AWSDDMakeColor(135, 255, 220)];
-    [m_colors addObject:AWSDDMakeColor(133, 255, 250)];
-    
-    [m_colors addObject:AWSDDMakeColor(214,  57,  30)];
-    [m_colors addObject:AWSDDMakeColor(211,  59, 126)];
-    [m_colors addObject:AWSDDMakeColor(209,  57, 168)];
-    [m_colors addObject:AWSDDMakeColor(208,  55, 208)];
-    [m_colors addObject:AWSDDMakeColor(207,  58, 247)];
-    [m_colors addObject:AWSDDMakeColor(206,  61, 255)];
-    
-    [m_colors addObject:AWSDDMakeColor(204, 121,  32)];
-    [m_colors addObject:AWSDDMakeColor(202, 121, 121)];
-    [m_colors addObject:AWSDDMakeColor(201, 121, 161)];
-    [m_colors addObject:AWSDDMakeColor(200, 120, 202)];
-    [m_colors addObject:AWSDDMakeColor(200, 120, 241)];
-    [m_colors addObject:AWSDDMakeColor(198, 119, 255)];
-    
-    [m_colors addObject:AWSDDMakeColor(198, 157,  37)];
-    [m_colors addObject:AWSDDMakeColor(196, 157, 116)];
-    [m_colors addObject:AWSDDMakeColor(195, 156, 157)];
-    [m_colors addObject:AWSDDMakeColor(195, 156, 197)];
-    [m_colors addObject:AWSDDMakeColor(194, 155, 236)];
-    [m_colors addObject:AWSDDMakeColor(193, 155, 255)];
-    
-    [m_colors addObject:AWSDDMakeColor(191, 192,  36)];
-    [m_colors addObject:AWSDDMakeColor(190, 191, 112)];
-    [m_colors addObject:AWSDDMakeColor(189, 191, 152)];
-    [m_colors addObject:AWSDDMakeColor(189, 191, 191)];
-    [m_colors addObject:AWSDDMakeColor(188, 190, 230)];
-    [m_colors addObject:AWSDDMakeColor(187, 190, 253)];
-    
-    [m_colors addObject:AWSDDMakeColor(185, 226,  28)];
-    [m_colors addObject:AWSDDMakeColor(184, 226, 106)];
-    [m_colors addObject:AWSDDMakeColor(183, 225, 146)];
-    [m_colors addObject:AWSDDMakeColor(183, 225, 186)];
-    [m_colors addObject:AWSDDMakeColor(182, 225, 225)];
-    [m_colors addObject:AWSDDMakeColor(181, 224, 252)];
-    
-    [m_colors addObject:AWSDDMakeColor(178, 255,  35)];
-    [m_colors addObject:AWSDDMakeColor(178, 255, 101)];
-    [m_colors addObject:AWSDDMakeColor(177, 254, 141)];
-    [m_colors addObject:AWSDDMakeColor(176, 254, 180)];
-    [m_colors addObject:AWSDDMakeColor(176, 254, 220)];
-    [m_colors addObject:AWSDDMakeColor(175, 253, 249)];
-    
-    [m_colors addObject:AWSDDMakeColor(247,  56,  30)];
-    [m_colors addObject:AWSDDMakeColor(245,  57, 122)];
-    [m_colors addObject:AWSDDMakeColor(243,  59, 163)];
-    [m_colors addObject:AWSDDMakeColor(244,  60, 204)];
-    [m_colors addObject:AWSDDMakeColor(242,  59, 241)];
-    [m_colors addObject:AWSDDMakeColor(240,  55, 255)];
-    
-    [m_colors addObject:AWSDDMakeColor(241, 119,  36)];
-    [m_colors addObject:AWSDDMakeColor(240, 120, 118)];
-    [m_colors addObject:AWSDDMakeColor(238, 119, 158)];
-    [m_colors addObject:AWSDDMakeColor(237, 119, 199)];
-    [m_colors addObject:AWSDDMakeColor(237, 118, 238)];
-    [m_colors addObject:AWSDDMakeColor(236, 118, 255)];
-    
-    [m_colors addObject:AWSDDMakeColor(235, 154,  36)];
-    [m_colors addObject:AWSDDMakeColor(235, 154, 114)];
-    [m_colors addObject:AWSDDMakeColor(234, 154, 154)];
-    [m_colors addObject:AWSDDMakeColor(232, 154, 194)];
-    [m_colors addObject:AWSDDMakeColor(232, 153, 234)];
-    [m_colors addObject:AWSDDMakeColor(232, 153, 255)];
-    
-    [m_colors addObject:AWSDDMakeColor(230, 190,  30)];
-    [m_colors addObject:AWSDDMakeColor(229, 189, 110)];
-    [m_colors addObject:AWSDDMakeColor(228, 189, 150)];
-    [m_colors addObject:AWSDDMakeColor(227, 189, 190)];
-    [m_colors addObject:AWSDDMakeColor(227, 189, 229)];
-    [m_colors addObject:AWSDDMakeColor(226, 188, 255)];
-    
-    [m_colors addObject:AWSDDMakeColor(224, 224,  35)];
-    [m_colors addObject:AWSDDMakeColor(223, 224, 105)];
-    [m_colors addObject:AWSDDMakeColor(222, 224, 144)];
-    [m_colors addObject:AWSDDMakeColor(222, 223, 184)];
-    [m_colors addObject:AWSDDMakeColor(222, 223, 224)];
-    [m_colors addObject:AWSDDMakeColor(220, 223, 253)];
-    
-    [m_colors addObject:AWSDDMakeColor(217, 253,  28)];
-    [m_colors addObject:AWSDDMakeColor(217, 253,  99)];
-    [m_colors addObject:AWSDDMakeColor(216, 252, 139)];
-    [m_colors addObject:AWSDDMakeColor(216, 252, 179)];
-    [m_colors addObject:AWSDDMakeColor(215, 252, 218)];
-    [m_colors addObject:AWSDDMakeColor(215, 251, 250)];
-    
-    [m_colors addObject:AWSDDMakeColor(255,  61,  30)];
-    [m_colors addObject:AWSDDMakeColor(255,  60, 118)];
-    [m_colors addObject:AWSDDMakeColor(255,  58, 159)];
-    [m_colors addObject:AWSDDMakeColor(255,  56, 199)];
-    [m_colors addObject:AWSDDMakeColor(255,  55, 238)];
-    [m_colors addObject:AWSDDMakeColor(255,  59, 255)];
-    
-    [m_colors addObject:AWSDDMakeColor(255, 117,  29)];
-    [m_colors addObject:AWSDDMakeColor(255, 117, 115)];
-    [m_colors addObject:AWSDDMakeColor(255, 117, 155)];
-    [m_colors addObject:AWSDDMakeColor(255, 117, 195)];
-    [m_colors addObject:AWSDDMakeColor(255, 116, 235)];
-    [m_colors addObject:AWSDDMakeColor(254, 116, 255)];
-    
-    [m_colors addObject:AWSDDMakeColor(255, 152,  27)];
-    [m_colors addObject:AWSDDMakeColor(255, 152, 111)];
-    [m_colors addObject:AWSDDMakeColor(254, 152, 152)];
-    [m_colors addObject:AWSDDMakeColor(255, 152, 192)];
-    [m_colors addObject:AWSDDMakeColor(254, 151, 231)];
-    [m_colors addObject:AWSDDMakeColor(253, 151, 253)];
-    
-    [m_colors addObject:AWSDDMakeColor(255, 187,  33)];
-    [m_colors addObject:AWSDDMakeColor(253, 187, 107)];
-    [m_colors addObject:AWSDDMakeColor(252, 187, 148)];
-    [m_colors addObject:AWSDDMakeColor(253, 187, 187)];
-    [m_colors addObject:AWSDDMakeColor(254, 187, 227)];
-    [m_colors addObject:AWSDDMakeColor(252, 186, 252)];
-    
-    [m_colors addObject:AWSDDMakeColor(252, 222,  34)];
-    [m_colors addObject:AWSDDMakeColor(251, 222, 103)];
-    [m_colors addObject:AWSDDMakeColor(251, 222, 143)];
-    [m_colors addObject:AWSDDMakeColor(250, 222, 182)];
-    [m_colors addObject:AWSDDMakeColor(251, 221, 222)];
-    [m_colors addObject:AWSDDMakeColor(252, 221, 252)];
-    
-    [m_colors addObject:AWSDDMakeColor(251, 252,  15)];
-    [m_colors addObject:AWSDDMakeColor(251, 252,  97)];
-    [m_colors addObject:AWSDDMakeColor(249, 252, 137)];
-    [m_colors addObject:AWSDDMakeColor(247, 252, 177)];
-    [m_colors addObject:AWSDDMakeColor(247, 253, 217)];
-    [m_colors addObject:AWSDDMakeColor(254, 255, 255)];
-    
-    // Grayscale
-    
-    [m_colors addObject:AWSDDMakeColor( 52,  53,  53)];
-    [m_colors addObject:AWSDDMakeColor( 57,  58,  59)];
-    [m_colors addObject:AWSDDMakeColor( 66,  67,  67)];
-    [m_colors addObject:AWSDDMakeColor( 75,  76,  76)];
-    [m_colors addObject:AWSDDMakeColor( 83,  85,  85)];
-    [m_colors addObject:AWSDDMakeColor( 92,  93,  94)];
-    
-    [m_colors addObject:AWSDDMakeColor(101, 102, 102)];
-    [m_colors addObject:AWSDDMakeColor(109, 111, 111)];
-    [m_colors addObject:AWSDDMakeColor(118, 119, 119)];
-    [m_colors addObject:AWSDDMakeColor(126, 127, 128)];
-    [m_colors addObject:AWSDDMakeColor(134, 136, 136)];
-    [m_colors addObject:AWSDDMakeColor(143, 144, 145)];
-    
-    [m_colors addObject:AWSDDMakeColor(151, 152, 153)];
-    [m_colors addObject:AWSDDMakeColor(159, 161, 161)];
-    [m_colors addObject:AWSDDMakeColor(167, 169, 169)];
-    [m_colors addObject:AWSDDMakeColor(176, 177, 177)];
-    [m_colors addObject:AWSDDMakeColor(184, 185, 186)];
-    [m_colors addObject:AWSDDMakeColor(192, 193, 194)];
-    
-    [m_colors addObject:AWSDDMakeColor(200, 201, 202)];
-    [m_colors addObject:AWSDDMakeColor(208, 209, 210)];
-    [m_colors addObject:AWSDDMakeColor(216, 218, 218)];
-    [m_colors addObject:AWSDDMakeColor(224, 226, 226)];
-    [m_colors addObject:AWSDDMakeColor(232, 234, 234)];
-    [m_colors addObject:AWSDDMakeColor(240, 242, 242)];
-    
+        { 42, 128,  37},
+        { 42, 127, 128},
+        { 44, 126, 169},
+        { 56, 125, 209},
+        { 59, 124, 245},
+        { 66, 123, 255},
+
+        { 51, 163,  41},
+        { 39, 162, 121},
+        { 42, 161, 162},
+        { 53, 160, 202},
+        { 45, 159, 240},
+        { 58, 158, 255},
+
+        { 31, 196,  37},
+        { 48, 196, 115},
+        { 39, 195, 155},
+        { 49, 195, 195},
+        { 32, 194, 235},
+        { 53, 193, 255},
+
+        { 50, 229,  35},
+        { 40, 229, 109},
+        { 27, 229, 149},
+        { 49, 228, 189},
+        { 33, 228, 228},
+        { 53, 227, 255},
+
+        { 27, 254,  30},
+        { 30, 254, 103},
+        { 45, 254, 143},
+        { 38, 253, 182},
+        { 38, 253, 222},
+        { 42, 253, 252},
+
+        {140,  48,  40},
+        {136,  51, 136},
+        {135,  52, 177},
+        {134,  52, 217},
+        {135,  56, 248},
+        {134,  53, 255},
+
+        {125, 125,  38},
+        {124, 125, 125},
+        {122, 124, 166},
+        {123, 124, 207},
+        {123, 122, 247},
+        {124, 121, 255},
+
+        {119, 160,  35},
+        {117, 160, 120},
+        {117, 160, 160},
+        {115, 159, 201},
+        {116, 158, 240},
+        {117, 157, 255},
+
+        {113, 195,  39},
+        {110, 194, 114},
+        {111, 194, 154},
+        {108, 194, 194},
+        {109, 193, 234},
+        {108, 192, 255},
+
+        {105, 228,  30},
+        {103, 228, 109},
+        {105, 228, 148},
+        {100, 227, 188},
+        { 99, 227, 227},
+        { 99, 226, 253},
+
+        { 92, 253,  34},
+        { 96, 253, 103},
+        { 97, 253, 142},
+        { 88, 253, 182},
+        { 93, 253, 221},
+        { 88, 254, 251},
+
+        {177,  53,  34},
+        {174,  54, 131},
+        {172,  55, 172},
+        {171,  57, 213},
+        {170,  55, 249},
+        {170,  57, 255},
+
+        {165, 123,  37},
+        {163, 123, 123},
+        {162, 123, 164},
+        {161, 122, 205},
+        {161, 121, 241},
+        {161, 121, 255},
+
+        {158, 159,  33},
+        {157, 158, 118},
+        {157, 158, 159},
+        {155, 157, 199},
+        {155, 157, 239},
+        {154, 156, 255},
+
+        {152, 193,  40},
+        {151, 193, 113},
+        {150, 193, 153},
+        {150, 192, 193},
+        {148, 192, 232},
+        {149, 191, 253},
+
+        {146, 227,  28},
+        {144, 227, 108},
+        {144, 227, 147},
+        {144, 227, 187},
+        {142, 226, 227},
+        {142, 225, 252},
+
+        {138, 253,  36},
+        {137, 253, 102},
+        {136, 253, 141},
+        {138, 254, 181},
+        {135, 255, 220},
+        {133, 255, 250},
+
+        {214,  57,  30},
+        {211,  59, 126},
+        {209,  57, 168},
+        {208,  55, 208},
+        {207,  58, 247},
+        {206,  61, 255},
+
+        {204, 121,  32},
+        {202, 121, 121},
+        {201, 121, 161},
+        {200, 120, 202},
+        {200, 120, 241},
+        {198, 119, 255},
+
+        {198, 157,  37},
+        {196, 157, 116},
+        {195, 156, 157},
+        {195, 156, 197},
+        {194, 155, 236},
+        {193, 155, 255},
+
+        {191, 192,  36},
+        {190, 191, 112},
+        {189, 191, 152},
+        {189, 191, 191},
+        {188, 190, 230},
+        {187, 190, 253},
+
+        {185, 226,  28},
+        {184, 226, 106},
+        {183, 225, 146},
+        {183, 225, 186},
+        {182, 225, 225},
+        {181, 224, 252},
+
+        {178, 255,  35},
+        {178, 255, 101},
+        {177, 254, 141},
+        {176, 254, 180},
+        {176, 254, 220},
+        {175, 253, 249},
+
+        {247,  56,  30},
+        {245,  57, 122},
+        {243,  59, 163},
+        {244,  60, 204},
+        {242,  59, 241},
+        {240,  55, 255},
+
+        {241, 119,  36},
+        {240, 120, 118},
+        {238, 119, 158},
+        {237, 119, 199},
+        {237, 118, 238},
+        {236, 118, 255},
+
+        {235, 154,  36},
+        {235, 154, 114},
+        {234, 154, 154},
+        {232, 154, 194},
+        {232, 153, 234},
+        {232, 153, 255},
+
+        {230, 190,  30},
+        {229, 189, 110},
+        {228, 189, 150},
+        {227, 189, 190},
+        {227, 189, 229},
+        {226, 188, 255},
+
+        {224, 224,  35},
+        {223, 224, 105},
+        {222, 224, 144},
+        {222, 223, 184},
+        {222, 223, 224},
+        {220, 223, 253},
+
+        {217, 253,  28},
+        {217, 253,  99},
+        {216, 252, 139},
+        {216, 252, 179},
+        {215, 252, 218},
+        {215, 251, 250},
+
+        {255,  61,  30},
+        {255,  60, 118},
+        {255,  58, 159},
+        {255,  56, 199},
+        {255,  55, 238},
+        {255,  59, 255},
+
+        {255, 117,  29},
+        {255, 117, 115},
+        {255, 117, 155},
+        {255, 117, 195},
+        {255, 116, 235},
+        {254, 116, 255},
+
+        {255, 152,  27},
+        {255, 152, 111},
+        {254, 152, 152},
+        {255, 152, 192},
+        {254, 151, 231},
+        {253, 151, 253},
+
+        {255, 187,  33},
+        {253, 187, 107},
+        {252, 187, 148},
+        {253, 187, 187},
+        {254, 187, 227},
+        {252, 186, 252},
+
+        {252, 222,  34},
+        {251, 222, 103},
+        {251, 222, 143},
+        {250, 222, 182},
+        {251, 221, 222},
+        {252, 221, 252},
+
+        {251, 252,  15},
+        {251, 252,  97},
+        {249, 252, 137},
+        {247, 252, 177},
+        {247, 253, 217},
+        {254, 255, 255},
+
+        // Grayscale
+
+        { 52,  53,  53},
+        { 57,  58,  59},
+        { 66,  67,  67},
+        { 75,  76,  76},
+        { 83,  85,  85},
+        { 92,  93,  94},
+
+        {101, 102, 102},
+        {109, 111, 111},
+        {118, 119, 119},
+        {126, 127, 128},
+        {134, 136, 136},
+        {143, 144, 145},
+
+        {151, 152, 153},
+        {159, 161, 161},
+        {167, 169, 169},
+        {176, 177, 177},
+        {184, 185, 186},
+        {192, 193, 194},
+
+        {200, 201, 202},
+        {208, 209, 210},
+        {216, 218, 218},
+        {224, 226, 226},
+        {232, 234, 234},
+        {240, 242, 242},
+    };
+
+    for (size_t i = 0; i < sizeof(rgbColors) / sizeof(rgbColors[0]); ++i) {
+        [mColors addObject:AWSDDMakeColor(rgbColors[i].r, rgbColors[i].g, rgbColors[i].b)];
+    }
+
     // Color codes
-
     int index = 16;
-
     while (index < 256) {
-        [m_codes_fg addObject:[NSString stringWithFormat:@"38;5;%dm", index]];
-        [m_codes_bg addObject:[NSString stringWithFormat:@"48;5;%dm", index]];
+        [mCodesFg addObject:[NSString stringWithFormat:@"38;5;%dm", index]];
+        [mCodesBg addObject:[NSString stringWithFormat:@"48;5;%dm", index]];
 
         index++;
     }
 
-    #else /* if MAP_TO_TERMINAL_APP_COLORS */
+#else /* if MAP_TO_TERMINAL_APP_COLORS */
 
     // Standard xterm colors:
     //
@@ -638,9 +640,9 @@ static AWSDDTTYLogger *sharedInstance;
             for (bi = 0; bi < 6; bi++) {
                 b = (bi == 0) ? 0 : 95 + (40 * (bi - 1));
 
-                [m_codes_fg addObject:[NSString stringWithFormat:@"38;5;%dm", index]];
-                [m_codes_bg addObject:[NSString stringWithFormat:@"48;5;%dm", index]];
-                [m_colors addObject:AWSDDMakeColor(r, g, b)];
+                [mCodesFg addObject:[NSString stringWithFormat:@"38;5;%dm", index]];
+                [mCodesBg addObject:[NSString stringWithFormat:@"48;5;%dm", index]];
+                [mColors  addObject:AWSDDMakeColor(r, g, b)];
 
                 index++;
             }
@@ -654,9 +656,9 @@ static AWSDDTTYLogger *sharedInstance;
     b = 8;
 
     while (index < 256) {
-        [m_codes_fg addObject:[NSString stringWithFormat:@"38;5;%dm", index]];
-        [m_codes_bg addObject:[NSString stringWithFormat:@"48;5;%dm", index]];
-        [m_colors addObject:AWSDDMakeColor(r, g, b)];
+        [mCodesFg addObject:[NSString stringWithFormat:@"38;5;%dm", index]];
+        [mCodesBg addObject:[NSString stringWithFormat:@"48;5;%dm", index]];
+        [mColor s addObject:AWSDDMakeColor(r, g, b)];
 
         r += 10;
         g += 10;
@@ -665,22 +667,21 @@ static AWSDDTTYLogger *sharedInstance;
         index++;
     }
 
-    #endif /* if MAP_TO_TERMINAL_APP_COLORS */
+#endif /* if MAP_TO_TERMINAL_APP_COLORS */
 
-    codes_fg = [m_codes_fg copy];
-    codes_bg = [m_codes_bg copy];
-    colors   = [m_colors   copy];
+    codesFg = [mCodesFg copy];
+    codesBg = [mCodesBg copy];
+    colors  = [mColors  copy];
 
-    NSAssert([codes_fg count] == [codes_bg count], @"Invalid colors/codes array(s)");
-    NSAssert([codes_fg count] == [colors count],   @"Invalid colors/codes array(s)");
+    NSAssert([codesFg count] == [codesBg count], @"Invalid colors/codes array(s)");
+    NSAssert([codesFg count] == [colors count],   @"Invalid colors/codes array(s)");
 }
 
 + (void)getRed:(CGFloat *)rPtr green:(CGFloat *)gPtr blue:(CGFloat *)bPtr fromColor:(AWSDDColor *)color {
-    #if TARGET_OS_IPHONE
+#if TARGET_OS_IPHONE
 
     // iOS
-
-    BOOL done = NO;
+    __auto_type done = NO;
 
     if ([color respondsToSelector:@selector(getRed:green:blue:alpha:)]) {
         done = [color getRed:rPtr green:gPtr blue:bPtr alpha:NULL];
@@ -690,44 +691,49 @@ static AWSDDTTYLogger *sharedInstance;
         // The method getRed:green:blue:alpha: was only available starting iOS 5.
         // So in iOS 4 and earlier, we have to jump through hoops.
 
-        CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
+        __auto_type rgbColorSpace = CGColorSpaceCreateDeviceRGB();
 
         unsigned char pixel[4];
-        CGContextRef context = CGBitmapContextCreate(&pixel, 1, 1, 8, 4, rgbColorSpace, (CGBitmapInfo)(kCGBitmapAlphaInfoMask & kCGImageAlphaNoneSkipLast));
+        __auto_type context = CGBitmapContextCreate(&pixel, 1, 1, 8, 4, rgbColorSpace, (CGBitmapInfo)(kCGBitmapAlphaInfoMask & kCGImageAlphaNoneSkipLast));
 
         CGContextSetFillColorWithColor(context, [color CGColor]);
         CGContextFillRect(context, CGRectMake(0, 0, 1, 1));
 
         if (rPtr) {
-            *rPtr = pixel[0] / 255.0f;
+            *rPtr = pixel[0] / 255.0;
         }
-
         if (gPtr) {
-            *gPtr = pixel[1] / 255.0f;
+            *gPtr = pixel[1] / 255.0;
         }
-
         if (bPtr) {
-            *bPtr = pixel[2] / 255.0f;
+            *bPtr = pixel[2] / 255.0;
         }
 
         CGContextRelease(context);
         CGColorSpaceRelease(rgbColorSpace);
     }
 
-    #elif defined(AWSDD_CLI) || !__has_include(<AppKit/NSColor.h>)
+#elif defined(AWSDD_CLI) || !__has_include(<AppKit/NSColor.h>)
 
     // OS X without AppKit
-
     [color getRed:rPtr green:gPtr blue:bPtr alpha:NULL];
 
-    #else /* if TARGET_OS_IPHONE */
+#else /* if TARGET_OS_IPHONE */
 
     // OS X with AppKit
-
-    NSColor *safeColor = [color colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+    NSColor *safeColor;
+    if (@available(macOS 10.14,*)) {
+        safeColor = [color colorUsingColorSpace:NSColorSpace.deviceRGBColorSpace];
+    } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        safeColor = [color colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+#pragma clang diagnostic pop
+    }
 
     [safeColor getRed:rPtr green:gPtr blue:bPtr alpha:NULL];
-    #endif /* if TARGET_OS_IPHONE */
+
+#endif /* if TARGET_OS_IPHONE */
 }
 
 /**
@@ -736,7 +742,7 @@ static AWSDDTTYLogger *sharedInstance;
  *
  * This method loops through the known supported color set, and calculates the closest color.
  * The array index of that color, within the colors array, is then returned.
- * This array index may also be used as the index within the codes_fg and codes_bg arrays.
+ * This array index may also be used as the index within the `codesFg` and `codesBg` arrays.
  **/
 + (NSUInteger)codeIndexForColor:(AWSDDColor *)inColor {
     CGFloat inR, inG, inB;
@@ -744,7 +750,7 @@ static AWSDDTTYLogger *sharedInstance;
     [self getRed:&inR green:&inG blue:&inB fromColor:inColor];
 
     NSUInteger bestIndex = 0;
-    CGFloat lowestDistance = 100.0f;
+    CGFloat lowestDistance = 100.0;
 
     NSUInteger i = 0;
 
@@ -754,14 +760,14 @@ static AWSDDTTYLogger *sharedInstance;
         CGFloat r, g, b;
         [self getRed:&r green:&g blue:&b fromColor:color];
 
-    #if CGFLOAT_IS_DOUBLE
-        CGFloat distance = sqrt(pow(r - inR, 2.0) + pow(g - inG, 2.0) + pow(b - inB, 2.0));
-    #else
-        CGFloat distance = sqrtf(powf(r - inR, 2.0f) + powf(g - inG, 2.0f) + powf(b - inB, 2.0f));
-    #endif
+#if CGFLOAT_IS_DOUBLE
+        __auto_type distance = sqrt(pow(r - inR, 2.0) + pow(g - inG, 2.0) + pow(b - inB, 2.0));
+#else
+        __auto_type distance = sqrtf(powf(r - inR, 2.0f) + powf(g - inG, 2.0f) + powf(b - inB, 2.0f));
+#endif
 
         NSLogVerbose(@"AWSDDTTYLogger: %3lu : %.3f,%.3f,%.3f & %.3f,%.3f,%.3f = %.6f",
-                     (unsigned long)i, inR, inG, inB, r, g, b, distance);
+                     (unsigned long)i, (double)inR, (double)inG, (double)inB, (double)r, (double)g, (double)b, (double)distance);
 
         if (distance < lowestDistance) {
             bestIndex = i;
@@ -785,10 +791,10 @@ static AWSDDTTYLogger *sharedInstance;
         //
         // PS - Please read the header file before diving into the source code.
 
-        char *xcode_colors = getenv("XcodeColors");
-        char *term = getenv("TERM");
+        __auto_type xcodeColors = getenv("XcodeColors");
+        __auto_type term = getenv("TERM");
 
-        if (xcode_colors && (strcmp(xcode_colors, "YES") == 0)) {
+        if (xcodeColors && (strcmp(xcodeColors, "YES") == 0)) {
             isaXcodeColorTTY = YES;
         } else if (term) {
             if (strcasestr(term, "color") != NULL) {
@@ -796,9 +802,9 @@ static AWSDDTTYLogger *sharedInstance;
                 isaColor256TTY = (strcasestr(term, "256") != NULL);
 
                 if (isaColor256TTY) {
-                    [self initialize_colors_256];
+                    [self initializeColors256];
                 } else {
-                    [self initialize_colors_16];
+                    [self initializeColors16];
                 }
             }
         }
@@ -807,7 +813,7 @@ static AWSDDTTYLogger *sharedInstance;
         NSLogInfo(@"AWSDDTTYLogger: isaColor256TTY: %@", (isaColor256TTY ? @"YES" : @"NO"));
         NSLogInfo(@"AWSDDTTYLogger: isaXcodeColorTTY: %@", (isaXcodeColorTTY ? @"YES" : @"NO"));
 
-        sharedInstance = [[[self class] alloc] init];
+        sharedInstance = [[self alloc] init];
     });
 
     return sharedInstance;
@@ -818,11 +824,15 @@ static AWSDDTTYLogger *sharedInstance;
         return nil;
     }
 
+#if !defined(AWSDD_CLI) || __has_include(<AppKit/NSColor.h>)
+    if (@available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *)) {
+        NSLogWarn(@"CocoaLumberjack: Warning: Usage of AWSDDTTYLogger detected when AWSDDOSLogger is available and can be used! Please consider migrating to AWSDDOSLogger.");
+    }
+#endif
+
     if ((self = [super init])) {
-        // Initialze 'app' variable (char *)
-
+        // Initialize 'app' variable (char *)
         _appName = [[NSProcessInfo processInfo] processName];
-
         _appLen = [_appName lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
 
         if (_appLen == 0) {
@@ -830,15 +840,13 @@ static AWSDDTTYLogger *sharedInstance;
             _appLen = [_appName lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
         }
 
-        _app = (char *)malloc(_appLen + 1);
-
+        _app = (char *)calloc(_appLen + 1, sizeof(char));
         if (_app == NULL) {
             return nil;
         }
 
         BOOL processedAppName = [_appName getCString:_app maxLength:(_appLen + 1) encoding:NSUTF8StringEncoding];
-
-        if (NO == processedAppName) {
+        if (!processedAppName) {
             free(_app);
             return nil;
         }
@@ -848,7 +856,7 @@ static AWSDDTTYLogger *sharedInstance;
         _processID = [NSString stringWithFormat:@"%i", (int)getpid()];
 
         _pidLen = [_processID lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
-        _pid = (char *)malloc(_pidLen + 1);
+        _pid = (char *)calloc(_pidLen + 1, sizeof(char));
 
         if (_pid == NULL) {
             free(_app);
@@ -856,8 +864,7 @@ static AWSDDTTYLogger *sharedInstance;
         }
 
         BOOL processedID = [_processID getCString:_pid maxLength:(_pidLen + 1) encoding:NSUTF8StringEncoding];
-
-        if (NO == processedID) {
+        if (!processedID) {
             free(_app);
             free(_pid);
             return nil;
@@ -873,6 +880,10 @@ static AWSDDTTYLogger *sharedInstance;
     }
 
     return self;
+}
+
+- (AWSDDLoggerName)loggerName {
+    return AWSDDLoggerNameTTY;
 }
 
 - (void)loadDefaultColorProfiles {
@@ -891,14 +902,9 @@ static AWSDDTTYLogger *sharedInstance;
     // This is the intended result. Fix it by accessing the ivar directly.
     // Great strides have been take to ensure this is safe to do. Plus it's MUCH faster.
 
-    NSAssert(![self isOnGlobalLoggingQueue], @"Core architecture requirement failure");
-    NSAssert(![self isOnInternalLoggerQueue], @"MUST access ivar directly, NOT via self.* syntax.");
-
-    dispatch_queue_t globalLoggingQueue = [AWSDDLog loggingQueue];
-
+    AWSDDAbstractLoggerAssertLockedPropertyAccess();
     __block BOOL result;
-
-    dispatch_sync(globalLoggingQueue, ^{
+    dispatch_sync(AWSDDLog.loggingQueue, ^{
         dispatch_sync(self.loggerQueue, ^{
             result = self->_colorsEnabled;
         });
@@ -908,7 +914,7 @@ static AWSDDTTYLogger *sharedInstance;
 }
 
 - (void)setColorsEnabled:(BOOL)newColorsEnabled {
-    dispatch_block_t block = ^{
+    __auto_type block = ^{
         @autoreleasepool {
             self->_colorsEnabled = newColorsEnabled;
 
@@ -928,12 +934,8 @@ static AWSDDTTYLogger *sharedInstance;
     // This is the intended result. Fix it by accessing the ivar directly.
     // Great strides have been take to ensure this is safe to do. Plus it's MUCH faster.
 
-    NSAssert(![self isOnGlobalLoggingQueue], @"Core architecture requirement failure");
-    NSAssert(![self isOnInternalLoggerQueue], @"MUST access ivar directly, NOT via self.* syntax.");
-
-    dispatch_queue_t globalLoggingQueue = [AWSDDLog loggingQueue];
-
-    dispatch_async(globalLoggingQueue, ^{
+    AWSDDAbstractLoggerAssertLockedPropertyAccess();
+    dispatch_async(AWSDDLog.loggingQueue, ^{
         dispatch_async(self.loggerQueue, block);
     });
 }
@@ -945,11 +947,11 @@ static AWSDDTTYLogger *sharedInstance;
 - (void)setForegroundColor:(AWSDDColor *)txtColor backgroundColor:(AWSDDColor *)bgColor forFlag:(AWSDDLogFlag)mask context:(NSInteger)ctxt {
     dispatch_block_t block = ^{
         @autoreleasepool {
-            AWSDDTTYLoggerColorProfile *newColorProfile =
-                [[AWSDDTTYLoggerColorProfile alloc] initWithForegroundColor:txtColor
-                                                         backgroundColor:bgColor
-                                                                    flag:mask
-                                                                 context:ctxt];
+            AWSDDTTYLoggerColorProfile *newColorProfile = [[AWSDDTTYLoggerColorProfile alloc] initWithForegroundColor:txtColor
+                                                                                                      backgroundColor:bgColor
+                                                                                                                 flag:mask
+                                                                                                              context:ctxt];
+            if (!newColorProfile) return;
 
             NSLogInfo(@"AWSDDTTYLogger: newColorProfile: %@", newColorProfile);
 
@@ -977,25 +979,22 @@ static AWSDDTTYLogger *sharedInstance;
     if ([self isOnInternalLoggerQueue]) {
         block();
     } else {
-        dispatch_queue_t globalLoggingQueue = [AWSDDLog loggingQueue];
-        NSAssert(![self isOnGlobalLoggingQueue], @"Core architecture requirement failure");
-
-        dispatch_async(globalLoggingQueue, ^{
+        AWSDDAbstractLoggerAssertNotOnGlobalLoggingQueue();
+        dispatch_async(AWSDDLog.loggingQueue, ^{
             dispatch_async(self.loggerQueue, block);
         });
     }
 }
 
 - (void)setForegroundColor:(AWSDDColor *)txtColor backgroundColor:(AWSDDColor *)bgColor forTag:(id <NSCopying>)tag {
-    NSAssert([(id < NSObject >) tag conformsToProtocol: @protocol(NSCopying)], @"Invalid tag");
+    NSAssert([(id <NSObject>)tag conformsToProtocol: @protocol(NSCopying)], @"Invalid tag");
 
-    dispatch_block_t block = ^{
+    __auto_type block = ^{
         @autoreleasepool {
-            AWSDDTTYLoggerColorProfile *newColorProfile =
-                [[AWSDDTTYLoggerColorProfile alloc] initWithForegroundColor:txtColor
-                                                         backgroundColor:bgColor
-                                                                    flag:(AWSDDLogFlag)0
-                                                                 context:0];
+            __auto_type newColorProfile = [[AWSDDTTYLoggerColorProfile alloc] initWithForegroundColor:txtColor
+                                                                                      backgroundColor:bgColor
+                                                                                                 flag:(AWSDDLogFlag)0
+                                                                                              context:0];
 
             NSLogInfo(@"AWSDDTTYLogger: newColorProfile: %@", newColorProfile);
 
@@ -1009,10 +1008,8 @@ static AWSDDTTYLogger *sharedInstance;
     if ([self isOnInternalLoggerQueue]) {
         block();
     } else {
-        dispatch_queue_t globalLoggingQueue = [AWSDDLog loggingQueue];
-        NSAssert(![self isOnGlobalLoggingQueue], @"Core architecture requirement failure");
-
-        dispatch_async(globalLoggingQueue, ^{
+        AWSDDAbstractLoggerAssertNotOnGlobalLoggingQueue();
+        dispatch_async(AWSDDLog.loggingQueue, ^{
             dispatch_async(self.loggerQueue, block);
         });
     }
@@ -1023,7 +1020,7 @@ static AWSDDTTYLogger *sharedInstance;
 }
 
 - (void)clearColorsForFlag:(AWSDDLogFlag)mask context:(NSInteger)context {
-    dispatch_block_t block = ^{
+    __auto_type block = ^{
         @autoreleasepool {
             NSUInteger i = 0;
 
@@ -1047,19 +1044,17 @@ static AWSDDTTYLogger *sharedInstance;
     if ([self isOnInternalLoggerQueue]) {
         block();
     } else {
-        dispatch_queue_t globalLoggingQueue = [AWSDDLog loggingQueue];
-        NSAssert(![self isOnGlobalLoggingQueue], @"Core architecture requirement failure");
-
-        dispatch_async(globalLoggingQueue, ^{
+        AWSDDAbstractLoggerAssertNotOnGlobalLoggingQueue();
+        dispatch_async(AWSDDLog.loggingQueue, ^{
             dispatch_async(self.loggerQueue, block);
         });
     }
 }
 
 - (void)clearColorsForTag:(id <NSCopying>)tag {
-    NSAssert([(id < NSObject >) tag conformsToProtocol: @protocol(NSCopying)], @"Invalid tag");
+    NSAssert([(id <NSObject>) tag conformsToProtocol: @protocol(NSCopying)], @"Invalid tag");
 
-    dispatch_block_t block = ^{
+    __auto_type block = ^{
         @autoreleasepool {
             [self->_colorProfilesDict removeObjectForKey:tag];
         }
@@ -1071,17 +1066,15 @@ static AWSDDTTYLogger *sharedInstance;
     if ([self isOnInternalLoggerQueue]) {
         block();
     } else {
-        dispatch_queue_t globalLoggingQueue = [AWSDDLog loggingQueue];
-        NSAssert(![self isOnGlobalLoggingQueue], @"Core architecture requirement failure");
-
-        dispatch_async(globalLoggingQueue, ^{
+        AWSDDAbstractLoggerAssertNotOnGlobalLoggingQueue();
+        dispatch_async(AWSDDLog.loggingQueue, ^{
             dispatch_async(self.loggerQueue, block);
         });
     }
 }
 
 - (void)clearColorsForAllFlags {
-    dispatch_block_t block = ^{
+    __auto_type block = ^{
         @autoreleasepool {
             [self->_colorProfilesArray removeAllObjects];
         }
@@ -1093,17 +1086,15 @@ static AWSDDTTYLogger *sharedInstance;
     if ([self isOnInternalLoggerQueue]) {
         block();
     } else {
-        dispatch_queue_t globalLoggingQueue = [AWSDDLog loggingQueue];
-        NSAssert(![self isOnGlobalLoggingQueue], @"Core architecture requirement failure");
-
-        dispatch_async(globalLoggingQueue, ^{
+        AWSDDAbstractLoggerAssertNotOnGlobalLoggingQueue();
+        dispatch_async(AWSDDLog.loggingQueue, ^{
             dispatch_async(self.loggerQueue, block);
         });
     }
 }
 
 - (void)clearColorsForAllTags {
-    dispatch_block_t block = ^{
+    __auto_type block = ^{
         @autoreleasepool {
             [self->_colorProfilesDict removeAllObjects];
         }
@@ -1115,17 +1106,15 @@ static AWSDDTTYLogger *sharedInstance;
     if ([self isOnInternalLoggerQueue]) {
         block();
     } else {
-        dispatch_queue_t globalLoggingQueue = [AWSDDLog loggingQueue];
-        NSAssert(![self isOnGlobalLoggingQueue], @"Core architecture requirement failure");
-
-        dispatch_async(globalLoggingQueue, ^{
+        AWSDDAbstractLoggerAssertNotOnGlobalLoggingQueue();
+        dispatch_async(AWSDDLog.loggingQueue, ^{
             dispatch_async(self.loggerQueue, block);
         });
     }
 }
 
 - (void)clearAllColors {
-    dispatch_block_t block = ^{
+    __auto_type block = ^{
         @autoreleasepool {
             [self->_colorProfilesArray removeAllObjects];
             [self->_colorProfilesDict removeAllObjects];
@@ -1138,32 +1127,30 @@ static AWSDDTTYLogger *sharedInstance;
     if ([self isOnInternalLoggerQueue]) {
         block();
     } else {
-        dispatch_queue_t globalLoggingQueue = [AWSDDLog loggingQueue];
-        NSAssert(![self isOnGlobalLoggingQueue], @"Core architecture requirement failure");
-
-        dispatch_async(globalLoggingQueue, ^{
+        AWSDDAbstractLoggerAssertNotOnGlobalLoggingQueue();
+        dispatch_async(AWSDDLog.loggingQueue, ^{
             dispatch_async(self.loggerQueue, block);
         });
     }
 }
 
 - (void)logMessage:(AWSDDLogMessage *)logMessage {
-    NSString *logMsg = logMessage->_message;
-    BOOL isFormatted = NO;
+    __auto_type logMsg = logMessage->_message;
+    __auto_type isFormatted = NO;
 
     if (_logFormatter) {
         logMsg = [_logFormatter formatLogMessage:logMessage];
         isFormatted = logMsg != logMessage->_message;
     }
-    
+
     if (logMsg) {
         // Search for a color profile associated with the log message
 
         AWSDDTTYLoggerColorProfile *colorProfile = nil;
 
         if (_colorsEnabled) {
-            if (logMessage->_tag) {
-                colorProfile = _colorProfilesDict[logMessage->_tag];
+            if (logMessage->_representedObject) {
+                colorProfile = _colorProfilesDict[logMessage->_representedObject];
             }
 
             if (colorProfile == nil) {
@@ -1193,23 +1180,24 @@ static AWSDDTTYLogger *sharedInstance;
         // We use the stack instead of the heap for speed if possible.
         // But we're extra cautious to avoid a stack overflow.
 
-        NSUInteger msgLen = [logMsg lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
-        const BOOL useStack = msgLen < (1024 * 4);
+        __auto_type msgLen = [logMsg lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+        const __auto_type useStack = msgLen < (1024 * 4);
 
-        char msgStack[useStack ? (msgLen + 1) : 1]; // Analyzer doesn't like zero-size array, hence the 1
-        char *msg = useStack ? msgStack : (char *)malloc(msgLen + 1);
-
+        char *msg;
+        if (useStack) {
+            msg = (char *)alloca(msgLen + 1);
+        } else {
+            msg = (char *)calloc(msgLen + 1, sizeof(char));
+        }
         if (msg == NULL) {
             return;
         }
 
         BOOL logMsgEnc = [logMsg getCString:msg maxLength:(msgLen + 1) encoding:NSUTF8StringEncoding];
-
         if (!logMsgEnc) {
-            if (!useStack && msg != NULL) {
+            if (!useStack) {
                 free(msg);
             }
-
             return;
         }
 
@@ -1217,8 +1205,9 @@ static AWSDDTTYLogger *sharedInstance;
 
         if (isFormatted) {
             // The log message has already been formatted.
-            int iovec_len = (_automaticallyAppendNewlineForCustomFormatters) ? 5 : 4;
-            struct iovec v[iovec_len];
+            const size_t maxIovecLen = 5;
+            size_t iovecLen = _automaticallyAppendNewlineForCustomFormatters ? 5 : 4;
+            struct iovec v[maxIovecLen] = { 0 };
 
             if (colorProfile) {
                 v[0].iov_base = colorProfile->fgCode;
@@ -1227,28 +1216,20 @@ static AWSDDTTYLogger *sharedInstance;
                 v[1].iov_base = colorProfile->bgCode;
                 v[1].iov_len = colorProfile->bgCodeLen;
 
-                v[iovec_len - 1].iov_base = colorProfile->resetCode;
-                v[iovec_len - 1].iov_len = colorProfile->resetCodeLen;
-            } else {
-                v[0].iov_base = "";
-                v[0].iov_len = 0;
-
-                v[1].iov_base = "";
-                v[1].iov_len = 0;
-
-                v[iovec_len - 1].iov_base = "";
-                v[iovec_len - 1].iov_len = 0;
+                v[maxIovecLen - 1].iov_base = colorProfile->resetCode;
+                v[maxIovecLen - 1].iov_len = colorProfile->resetCodeLen;
             }
 
-            v[2].iov_base = (char *)msg;
-            v[2].iov_len = msgLen;
+            v[2].iov_base = msg;
+            v[2].iov_len = (msgLen > SIZE_MAX - 1) ? SIZE_MAX - 1 : msgLen;
 
-            if (iovec_len == 5) {
+            if (_automaticallyAppendNewlineForCustomFormatters && (v[2].iov_len == 0 || msg[v[2].iov_len - 1] != '\n')) {
                 v[3].iov_base = "\n";
-                v[3].iov_len = (msg[msgLen] == '\n') ? 0 : 1;
+                v[3].iov_len = 1;
+                iovecLen = 5;
             }
 
-            writev(STDERR_FILENO, v, iovec_len);
+            writev(STDERR_FILENO, v, (int)iovecLen);
         } else {
             // The log message is unformatted, so apply standard NSLog style formatting.
 
@@ -1259,13 +1240,15 @@ static AWSDDTTYLogger *sharedInstance;
             // Calculate timestamp.
             // The technique below is faster than using NSDateFormatter.
             if (logMessage->_timestamp) {
-                NSTimeInterval epoch = [logMessage->_timestamp timeIntervalSince1970];
+                __auto_type epoch = [logMessage->_timestamp timeIntervalSince1970];
+                double integral;
+                __auto_type fract = modf(epoch, &integral);
                 struct tm tm;
-                time_t time = (time_t)epoch;
+                __auto_type time = (time_t)integral;
                 (void)localtime_r(&time, &tm);
-                int milliseconds = (int)((epoch - floor(epoch)) * 1000.0);
+                __auto_type milliseconds = (long)(fract * 1000.0);
 
-                len = snprintf(ts, 24, "%04d-%02d-%02d %02d:%02d:%02d:%03d", // yyyy-MM-dd HH:mm:ss:SSS
+                len = snprintf(ts, 24, "%04d-%02d-%02d %02d:%02d:%02d:%03ld", // yyyy-MM-dd HH:mm:ss:SSS
                                tm.tm_year + 1900,
                                tm.tm_mon + 1,
                                tm.tm_mday,
@@ -1287,7 +1270,7 @@ static AWSDDTTYLogger *sharedInstance;
             char tid[9];
             len = snprintf(tid, 9, "%s", [logMessage->_threadID cStringUsingEncoding:NSUTF8StringEncoding]);
 
-            size_t tidLen = (NSUInteger)MAX(MIN(9 - 1, len), 0);
+            __auto_type tidLen = (NSUInteger)MAX(MIN(9 - 1, len), 0);
 
             // Here is our format: "%s %s[%i:%s] %s", timestamp, appName, processID, threadID, logMsg
 
@@ -1352,13 +1335,9 @@ static AWSDDTTYLogger *sharedInstance;
     }
 }
 
-- (NSString *)loggerName {
-    return @"cocoa.lumberjack.ttyLogger";
-}
-
 @end
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
 
 @implementation AWSDDTTYLoggerColorProfile
 
@@ -1372,31 +1351,31 @@ static AWSDDTTYLogger *sharedInstance;
         if (fgColor) {
             [AWSDDTTYLogger getRed:&r green:&g blue:&b fromColor:fgColor];
 
-            fg_r = (uint8_t)(r * 255.0f);
-            fg_g = (uint8_t)(g * 255.0f);
-            fg_b = (uint8_t)(b * 255.0f);
+            fg.r = (uint8_t)(r * (CGFloat)255.0);
+            fg.g = (uint8_t)(g * (CGFloat)255.0);
+            fg.b = (uint8_t)(b * (CGFloat)255.0);
         }
 
         if (bgColor) {
             [AWSDDTTYLogger getRed:&r green:&g blue:&b fromColor:bgColor];
 
-            bg_r = (uint8_t)(r * 255.0f);
-            bg_g = (uint8_t)(g * 255.0f);
-            bg_b = (uint8_t)(b * 255.0f);
+            bg.r = (uint8_t)(r * (CGFloat)255.0);
+            bg.g = (uint8_t)(g * (CGFloat)255.0);
+            bg.b = (uint8_t)(b * (CGFloat)255.0);
         }
 
         if (fgColor && isaColorTTY) {
             // Map foreground color to closest available shell color
 
             fgCodeIndex = [AWSDDTTYLogger codeIndexForColor:fgColor];
-            fgCodeRaw   = codes_fg[fgCodeIndex];
+            fgCodeRaw   = codesFg[fgCodeIndex];
 
-            NSString *escapeSeq = @"\033[";
+            const __auto_type escapeSeq = @"\033[";
 
-            NSUInteger len1 = [escapeSeq lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
-            NSUInteger len2 = [fgCodeRaw lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+            __auto_type len1 = [escapeSeq lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+            __auto_type len2 = [fgCodeRaw lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
 
-            BOOL escapeSeqEnc = [escapeSeq getCString:(fgCode)      maxLength:(len1 + 1) encoding:NSUTF8StringEncoding];
+            BOOL escapeSeqEnc = [escapeSeq getCString:(fgCode) maxLength:(len1 + 1) encoding:NSUTF8StringEncoding];
             BOOL fgCodeRawEsc = [fgCodeRaw getCString:(fgCode + len1) maxLength:(len2 + 1) encoding:NSUTF8StringEncoding];
 
             if (!escapeSeqEnc || !fgCodeRawEsc) {
@@ -1406,14 +1385,11 @@ static AWSDDTTYLogger *sharedInstance;
             fgCodeLen = len1 + len2;
         } else if (fgColor && isaXcodeColorTTY) {
             // Convert foreground color to color code sequence
-
             const char *escapeSeq = XCODE_COLORS_ESCAPE_SEQ;
-
-            int result = snprintf(fgCode, 24, "%sfg%u,%u,%u;", escapeSeq, fg_r, fg_g, fg_b);
+            __auto_type result = snprintf(fgCode, 24, "%sfg%u,%u,%u;", escapeSeq, fg.r, fg.g, fg.b);
             fgCodeLen = (NSUInteger)MAX(MIN(result, (24 - 1)), 0);
         } else {
             // No foreground color or no color support
-
             fgCode[0] = '\0';
             fgCodeLen = 0;
         }
@@ -1422,14 +1398,14 @@ static AWSDDTTYLogger *sharedInstance;
             // Map background color to closest available shell color
 
             bgCodeIndex = [AWSDDTTYLogger codeIndexForColor:bgColor];
-            bgCodeRaw   = codes_bg[bgCodeIndex];
+            bgCodeRaw   = codesBg[bgCodeIndex];
 
-            NSString *escapeSeq = @"\033[";
+            const __auto_type escapeSeq = @"\033[";
 
-            NSUInteger len1 = [escapeSeq lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
-            NSUInteger len2 = [bgCodeRaw lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+            __auto_type len1 = [escapeSeq lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+            __auto_type len2 = [bgCodeRaw lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
 
-            BOOL escapeSeqEnc = [escapeSeq getCString:(bgCode)      maxLength:(len1 + 1) encoding:NSUTF8StringEncoding];
+            BOOL escapeSeqEnc = [escapeSeq getCString:(bgCode) maxLength:(len1 + 1) encoding:NSUTF8StringEncoding];
             BOOL bgCodeRawEsc = [bgCodeRaw getCString:(bgCode + len1) maxLength:(len2 + 1) encoding:NSUTF8StringEncoding];
 
             if (!escapeSeqEnc || !bgCodeRawEsc) {
@@ -1439,14 +1415,11 @@ static AWSDDTTYLogger *sharedInstance;
             bgCodeLen = len1 + len2;
         } else if (bgColor && isaXcodeColorTTY) {
             // Convert background color to color code sequence
-
             const char *escapeSeq = XCODE_COLORS_ESCAPE_SEQ;
-
-            int result = snprintf(bgCode, 24, "%sbg%u,%u,%u;", escapeSeq, bg_r, bg_g, bg_b);
+            __auto_type result = snprintf(bgCode, 24, "%sbg%u,%u,%u;", escapeSeq, bg.r, bg.g, bg.b);
             bgCodeLen = (NSUInteger)MAX(MIN(result, (24 - 1)), 0);
         } else {
             // No background color or no color support
-
             bgCode[0] = '\0';
             bgCodeLen = 0;
         }
@@ -1466,8 +1439,8 @@ static AWSDDTTYLogger *sharedInstance;
 
 - (NSString *)description {
     return [NSString stringWithFormat:
-            @"<AWSDDTTYLoggerColorProfile: %p mask:%i ctxt:%ld fg:%u,%u,%u bg:%u,%u,%u fgCode:%@ bgCode:%@>",
-            self, (int)mask, (long)context, fg_r, fg_g, fg_b, bg_r, bg_g, bg_b, fgCodeRaw, bgCodeRaw];
+            @"<DDTTYLoggerColorProfile: %p mask:%i ctxt:%ld fg:%u,%u,%u bg:%u,%u,%u fgCode:%@ bgCode:%@>",
+            self, (int)mask, (long)context, fg.r, fg.g, fg.b, bg.r, bg.g, bg.b, fgCodeRaw, bgCodeRaw];
 }
 
 @end

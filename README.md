@@ -413,13 +413,13 @@ To initialize logging to your Xcode console, use the following code:
 **Swift**
 
 ```swift
-AWSDDLog.add(AWSDDTTYLogger.sharedInstance) // TTY = Xcode console
+AWSDDLog.add(AWSDDOSLogger.sharedInstance) // Apple's unified logging
 ```
 
 **Objective-C**
 
 ```objective-c
-[AWSDDLog addLogger:[AWSDDTTYLogger sharedInstance]]; // TTY = Xcode console
+[AWSDDLog addLogger:[AWSDDOSLogger sharedInstance]]; // Apple's unified logging
 ```
 
 ## Open Source Contributions

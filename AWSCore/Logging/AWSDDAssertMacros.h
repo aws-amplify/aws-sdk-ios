@@ -1,6 +1,6 @@
 // Software License Agreement (BSD License)
 //
-// Copyright (c) 2010-2016, Deusty, LLC
+// Copyright (c) 2010-2024, Deusty, LLC
 // All rights reserved.
 //
 // Redistribution and use of this software in source and binary forms,
@@ -14,13 +14,17 @@
 //   prior written permission of Deusty, LLC.
 
 /**
- * NSAsset replacement that will output a log message even when assertions are disabled.
+ * NSAssert replacement that will output a log message even when assertions are disabled.
  **/
 #define AWSDDAssert(condition, frmt, ...)                                                \
         if (!(condition)) {                                                           \
             NSString *description = [NSString stringWithFormat:frmt, ## __VA_ARGS__]; \
             AWSDDLogError(@"%@", description);                                           \
-            NSAssert(NO, description);                                                \
+            NSAssert(NO, @"%@", description);                                         \
         }
-#define AWSDDAssertCondition(condition) AWSDDAssert(condition, @"Condition not satisfied: %s", #condition)
+#define AWSDDAssertCondition(condition) AWSDDAssert(condition, @"Condition not satisfied: %@", @(#condition))
 
+/**
+ * Analog to `AWSDDAssertionFailure` from AWSDDAssert.swift for use in Objective C
+ */
+#define AWSDDAssertionFailure(frmt, ...) AWSDDAssert(NO, frmt, ##__VA_ARGS__)
