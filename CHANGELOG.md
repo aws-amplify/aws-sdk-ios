@@ -7,8 +7,8 @@
 ### Misc. Updates
 
 - Model updates for the following services
-  -AWSAutoScaling
-  -AWSEC2
+  - AWSAutoScaling
+  - AWSEC2
 
 
 -Features for next release
