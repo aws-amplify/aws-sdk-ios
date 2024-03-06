@@ -48,12 +48,12 @@ jobs:
       - name: Bump versions to ${{ env.RELEASE_VERSION }}
         run: |
           pip3 install lxml
-          git checkout -b bump-version/$RELEASE_VERSION main
+          git checkout -b releases/$RELEASE_VERSION main
           python3 ./CircleciScripts/bump_sdk_version.py "$(pwd)" "$RELEASE_VERSION"
           git config user.name aws-amplify-ops
           git config user.email aws-amplify-ops@amazon.com
           git add -A
-          git commit -am "[bump version $RELEASE_VERSION]"
+          git commit -am "chore: bump version and kick off release: $RELEASE_VERSION"
           git push origin HEAD
         shell: bash
 
@@ -62,7 +62,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh pr create \
-          --title "bump iOS SDK version to $RELEASE_VERSION" \
-          --body "bump version to $RELEASE_VERSION" \
-          --head bump-version/$RELEASE_VERSION \
-          --base release
+          --title "chore: bump version and kick off release: $RELEASE_VERSION" \
+          --body "chore: bump version and kick off release: $RELEASE_VERSION" \
+          --head releases/$RELEASE_VERSION \
+          --base main

@@ -1,9 +1,11 @@
 name: Release
 
 on:
-  push:
+  pull_request:
+    types:
+      - closed
     branches:
-      - release
+      - main
 
 permissions:
   id-token: write
@@ -11,8 +13,20 @@ permissions:
   pull-requests: write
 
 jobs:
+  run_release_if:
+    name: Validate release criterion
+    if: |
+      startsWith(github.head_ref, 'releases/') &&
+      github.event.pull_request.merged == true &&
+      contains(github.event.pull_request.title, 'chore: bump version and kick off release:')
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "All the conditions to initialize have been met. Initializing release."
+
   extract-release-version:
     name: Extract Release Version
+    needs:
+      - run_release_if
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.extract-release-version.outputs.result }}
@@ -23,7 +37,7 @@ jobs:
         with:
           result-encoding: string
           script: |
-            const matches = `${{ github.event.head_commit.message }}`.match(/[0-9]+\.[0-9]+\.[0-9]+/) ?? []
+            const matches = `${{ github.event.pull_request.title }}`.match(/[0-9]+\.[0-9]+\.[0-9]+/) ?? []
             return matches.length > 0 ? matches[0] : ""
 
   validate-version-format:
@@ -250,7 +264,7 @@ jobs:
           "aws-sdk-ios/latest/aws-ios-sdk.zip"
 
   release-tag:
-    name: Rlease tag
+    name: Release tag
     runs-on: macos-latest
     needs:
       - extract-release-version
@@ -274,28 +288,6 @@ jobs:
               sha: context.sha,
               force: true
             })
-
-  update-main-branch:
-    name: Update main branch
-    runs-on: ubuntu-latest
-    needs:
-      - extract-release-version
-      - release-tag
-    env:
-      RELEASE_VERSION: ${{ needs.extract-release-version.outputs.version }}
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
-
-      - name: Merge back to main branch
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh pr create \
-          --title "chore: sync release commits back to main [skip ci]" \
-          --body "sync release commits back to main branch, version $RELEASE_VERSION" \
-          --head release \
-          --base main
 
   update-bump-sdk-version-branch:
     name: Update bump_sdk_version branch
@@ -327,7 +319,7 @@ jobs:
     runs-on: macos-latest
     needs:
       - extract-release-version
-      - update-main-branch
+      - release-tag
     env:
       RELEASE_VERSION: ${{ needs.extract-release-version.outputs.version }}
 
