@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.dependency 'AWSCore', '2.34.0'
   s.source_files = 'AWSKinesis/*.{h,m}', 'AWSKinesis/**/*.{h,m}'
   s.private_header_files = 'AWSKinesis/Internal/*.h'
+  s.resource_bundle = { 'AWSKinesis' => ['AWSKinesis/PrivacyInfo.xcprivacy']}
 end

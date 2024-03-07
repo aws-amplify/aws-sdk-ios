@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.dependency 'AWSCore', '2.34.0'
   s.source_files = 'AWSS3/*.{h,m}'
+  s.resource_bundle = { 'AWSS3' => ['AWSS3/PrivacyInfo.xcprivacy']}
 end

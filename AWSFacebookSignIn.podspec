@@ -19,5 +19,5 @@ Pod::Spec.new do |s|
 
    s.source_files = 'AWSAuthSDK/Sources/AWSFacebookSignIn/*.{h,m}'
    s.public_header_files = 'AWSAuthSDK/Sources/AWSFacebookSignIn/*.h'
-   s.resource_bundle = {  'AWSFacebookSignIn' => 'AWSAuthSDK/Sources/AWSFacebookSignIn/Images.xcassets' }
+   s.resource_bundle = {  'AWSFacebookSignIn' => ['AWSAuthSDK/Sources/AWSFacebookSignIn/Images.xcassets', 'AWSAuthSDK/Sources/AWSFacebookSignIn/PrivacyInfo.xcprivacy'] }
  end

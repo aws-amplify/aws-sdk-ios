@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'AWSCore/*.{h,m}', 'AWSCore/**/*.{h,m}'
   s.private_header_files = 'AWSCore/XMLWriter/**/*.h', 'AWSCore/FMDB/AWSFMDatabase+Private.h', 'AWSCore/Fabric/*.h', 'AWSCore/Mantle/extobjc/*.h', 'AWSCore/CognitoIdentity/AWSCognitoIdentity+Fabric.h'
+  s.resource_bundle = { 'AWSCore' => ['AWSCore/PrivacyInfo.xcprivacy']}
 end
