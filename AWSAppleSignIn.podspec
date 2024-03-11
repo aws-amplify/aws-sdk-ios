@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.dependency 'AWSAuthCore', '2.34.0'
   s.source_files = 'AWSAuthSDK/Sources/AWSAppleSignIn/*.{h,m}'
   s.public_header_files = 'AWSAuthSDK/Sources/AWSAppleSignIn/*.h'
+  s.resource_bundle = { 'AWSAppleSignIn' => ['AWSAppleSignIn/PrivacyInfo.xcprivacy']}
 end

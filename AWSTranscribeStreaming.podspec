@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.dependency 'AWSCore', '2.34.0'
   s.source_files = 'AWSTranscribeStreaming/*.{h,m}', 'AWSTranscribeStreaming/**/*.{h,m}', 'AWSIoT/Internal/SocketRocket/*.{h,m}'
   s.private_header_files = 'AWSTranscribeStreaming/Internal/*.h', 'AWSIoT/Internal/SocketRocket/*.h'
+  s.resource_bundle = { 'AWSTranscribeStreaming' => ['AWSTranscribeStreaming/PrivacyInfo.xcprivacy']}
 end

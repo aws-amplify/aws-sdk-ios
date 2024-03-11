@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.dependency 'AWSCore', '2.34.0'
   s.source_files = 'AWSPinpoint/*.{h,m}', 'AWSPinpoint/**/*.{h,m}'
   s.private_header_files = 'AWSPinpoint/Internal/*.h'
+  s.resource_bundle = { 'AWSPinpoint' => ['AWSPinpoint/PrivacyInfo.xcprivacy']}
 end
