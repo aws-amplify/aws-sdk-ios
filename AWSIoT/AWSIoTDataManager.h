@@ -809,6 +809,33 @@ shadowOperationTimeoutSeconds: double, device shadow operation timeout (default 
               eventCallback:(void(^)(NSString *name, AWSIoTShadowOperationType operation, AWSIoTShadowOperationStatusType status, NSString *clientToken, NSData *payload))callback;
 
 /**
+ Register for updates on a device shadow
+
+ @param name The device shadow to register for updates on.
+
+ @param options A dictionary with device shadow registration options.  The options are:
+
+enableDebugging: BOOL, set to YES to enable additional console debugging (default NO)
+enableVersioning: BOOL, set to NO to disable versioning (default YES)
+enableForeignStateUpdateNotifications: BOOL, set to YES to enable foreign state updates (default NO)
+enableStaleDiscards: BOOL, set to NO to disable discarding stale updates (default YES)
+enableIgnoreDeltas: BOOL, set to YES to disable delta updates (default NO)
+QoS: AWSIoTMQTTQoS (default AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce)
+shadowOperationTimeoutSeconds: double, device shadow operation timeout (default 10.0)
+
+ @param callback The function to call when updates are received for the device shadow.
+
+ @param completionCallback The function to call when the operation is completed.
+
+ @return Boolean value indicating success or failure.
+
+ */
+- (BOOL) registerWithShadow:(NSString *)name
+                    options:(NSDictionary<NSString *, NSNumber *> * _Nullable)options
+              eventCallback:(void(^)(NSString *name, AWSIoTShadowOperationType operation, AWSIoTShadowOperationStatusType status, NSString *clientToken, NSData *payload))callback
+         completionCallback:(void(^)(void))completionCallback;
+
+/**
  Unregister from updates on a device shadow
  
  @param name The device shadow to unregister from updates on.
@@ -817,6 +844,19 @@ shadowOperationTimeoutSeconds: double, device shadow operation timeout (default 
  
  */
 - (BOOL) unregisterFromShadow:(NSString *)name;
+
+/**
+ Unregister from updates on a device shadow
+
+ @param name The device shadow to unregister from updates on.
+
+ @param completionCallback The function to call when the operation is completed.
+
+ @return Boolean value indicating success or failure.
+
+ */
+- (BOOL) unregisterFromShadow:(NSString *)name
+           completionCallback:(void(^)(void))completionCallback;
 
 /**
  Update a device shadow

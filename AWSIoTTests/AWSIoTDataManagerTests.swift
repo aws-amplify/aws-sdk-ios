@@ -284,6 +284,41 @@ class AWSIoTDataManagerTests: XCTestCase {
 
     }
 
+    func testRegisterAndUnregisterWithShadow_withCompletionCallbacks_shouldInvokeCallbacks() {
+        let connectExpectation = expectation(description: "connect expectation")
+        let iotDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker1")
+        iotDataManager.connect(
+            withClientId: UUID().uuidString,
+            cleanSession: true,
+            certificateId: UserDefaults.standard.string(forKey: "TestCertBroker1")!,
+            statusCallback: { status in
+                if case .connected = status {
+                    connectExpectation.fulfill()
+                }
+            }
+        )
+        wait(for: [connectExpectation], timeout: 30)
+
+        let registerExpectation = expectation(description: "registerWithShadow expectation")
+        iotDataManager.register(
+            withShadow: "iot-shadow",
+            eventCallback: { _, _, _, _, _ in },
+            completionCallback: {
+                registerExpectation.fulfill()
+            }
+        )
+        wait(for: [registerExpectation], timeout: 5)
+
+        let unregisterExpectation = expectation(description: "unregisterFromShadow expectation")
+        iotDataManager.unregister(
+            fromShadow: "iot-shadow",
+            completionCallback: {
+                unregisterExpectation.fulfill()
+            }
+        )
+        wait(for: [unregisterExpectation], timeout: 5)
+    }
+
     func testPublishWithoutConnect() {
         let iotDataManager:AWSIoTDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker-test-without-connect")
 
