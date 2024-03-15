@@ -1346,6 +1346,9 @@
 - (void) test_AWSEC2LockedSnapshotsInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2MaintenanceDetails API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ManagedPrefixList API_AVAILABLE(ios(11));
+- (void) test_AWSEC2MediaAcceleratorInfo API_AVAILABLE(ios(11));
+- (void) test_AWSEC2MediaDeviceInfo API_AVAILABLE(ios(11));
+- (void) test_AWSEC2MediaDeviceMemoryInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2MemoryGiBPerVCpu API_AVAILABLE(ios(11));
 - (void) test_AWSEC2MemoryGiBPerVCpuRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2MemoryInfo API_AVAILABLE(ios(11));
@@ -1510,6 +1513,10 @@
 - (void) test_AWSEC2NetworkInterfacePermission API_AVAILABLE(ios(11));
 - (void) test_AWSEC2NetworkInterfacePermissionState API_AVAILABLE(ios(11));
 - (void) test_AWSEC2NetworkInterfacePrivateIpAddress API_AVAILABLE(ios(11));
+- (void) test_AWSEC2NeuronDeviceCoreInfo API_AVAILABLE(ios(11));
+- (void) test_AWSEC2NeuronDeviceInfo API_AVAILABLE(ios(11));
+- (void) test_AWSEC2NeuronDeviceMemoryInfo API_AVAILABLE(ios(11));
+- (void) test_AWSEC2NeuronInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2LatestDhcpConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSEC2NitroTpmInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2OidcOptions API_AVAILABLE(ios(11));
@@ -7235,6 +7242,18 @@
     [self validateSecureCodingForClass:[AWSEC2ManagedPrefixList class]];
 }
 
+- (void) test_AWSEC2MediaAcceleratorInfo {
+    [self validateSecureCodingForClass:[AWSEC2MediaAcceleratorInfo class]];
+}
+
+- (void) test_AWSEC2MediaDeviceInfo {
+    [self validateSecureCodingForClass:[AWSEC2MediaDeviceInfo class]];
+}
+
+- (void) test_AWSEC2MediaDeviceMemoryInfo {
+    [self validateSecureCodingForClass:[AWSEC2MediaDeviceMemoryInfo class]];
+}
+
 - (void) test_AWSEC2MemoryGiBPerVCpu {
     [self validateSecureCodingForClass:[AWSEC2MemoryGiBPerVCpu class]];
 }
@@ -7889,6 +7908,22 @@
 
 - (void) test_AWSEC2NetworkInterfacePrivateIpAddress {
     [self validateSecureCodingForClass:[AWSEC2NetworkInterfacePrivateIpAddress class]];
+}
+
+- (void) test_AWSEC2NeuronDeviceCoreInfo {
+    [self validateSecureCodingForClass:[AWSEC2NeuronDeviceCoreInfo class]];
+}
+
+- (void) test_AWSEC2NeuronDeviceInfo {
+    [self validateSecureCodingForClass:[AWSEC2NeuronDeviceInfo class]];
+}
+
+- (void) test_AWSEC2NeuronDeviceMemoryInfo {
+    [self validateSecureCodingForClass:[AWSEC2NeuronDeviceMemoryInfo class]];
+}
+
+- (void) test_AWSEC2NeuronInfo {
+    [self validateSecureCodingForClass:[AWSEC2NeuronInfo class]];
 }
 
 - (void) test_AWSEC2LatestDhcpConfiguration {
