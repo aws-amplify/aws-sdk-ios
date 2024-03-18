@@ -2,7 +2,8 @@
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+- Add privacy manifest (#5214)
 
 ## 2.34.0
 
