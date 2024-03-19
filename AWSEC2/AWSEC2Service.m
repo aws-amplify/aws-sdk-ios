@@ -6960,6 +6960,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DescribeMacHostsResult *> *)describeMacHosts:(AWSEC2DescribeMacHostsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeMacHosts"
+                   outputClass:[AWSEC2DescribeMacHostsResult class]];
+}
+
+- (void)describeMacHosts:(AWSEC2DescribeMacHostsRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeMacHostsResult *response, NSError *error))completionHandler {
+    [[self describeMacHosts:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeMacHostsResult *> * _Nonnull task) {
+        AWSEC2DescribeMacHostsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DescribeManagedPrefixListsResult *> *)describeManagedPrefixLists:(AWSEC2DescribeManagedPrefixListsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
