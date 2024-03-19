@@ -126,12 +126,13 @@
 		17DED2A61F32A4E400397F88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1786CA4D1F2BEDB8003421FF /* Images.xcassets */; };
 		17F4F75121F6B0750068B553 /* AWSCognitoAuth+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */; };
 		214609902B88FA8B002FCE7B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 214609142B88FA8B002FCE7B /* PrivacyInfo.xcprivacy */; };
-		214609922B88FABA002FCE7B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 214609912B88FABA002FCE7B /* PrivacyInfo.xcprivacy */; };
-		214609942B88FAD9002FCE7B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 214609932B88FAD9002FCE7B /* PrivacyInfo.xcprivacy */; };
-		214609962B88FAFF002FCE7B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 214609952B88FAFF002FCE7B /* PrivacyInfo.xcprivacy */; };
-		214609982B88FB0F002FCE7B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 214609972B88FB0F002FCE7B /* PrivacyInfo.xcprivacy */; };
-		2146099A2B88FB2D002FCE7B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 214609992B88FB2D002FCE7B /* PrivacyInfo.xcprivacy */; };
-		2146099C2B88FB46002FCE7B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 2146099B2B88FB46002FCE7B /* PrivacyInfo.xcprivacy */; };
+		21AF5E0A2BAA07A400997C99 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 214609912B88FABA002FCE7B /* PrivacyInfo.xcprivacy */; };
+		21AF5E822BAA07A800997C99 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 214609932B88FAD9002FCE7B /* PrivacyInfo.xcprivacy */; };
+		21AF5E832BAA07AE00997C99 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 214609952B88FAFF002FCE7B /* PrivacyInfo.xcprivacy */; };
+		21AF5E842BAA07B200997C99 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 214609972B88FB0F002FCE7B /* PrivacyInfo.xcprivacy */; };
+		21AF5E852BAA07BA00997C99 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 214609992B88FB2D002FCE7B /* PrivacyInfo.xcprivacy */; };
+		21AF5E862BAA07C100997C99 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 214609992B88FB2D002FCE7B /* PrivacyInfo.xcprivacy */; };
+		21AF5E872BAA07C800997C99 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 2146099B2B88FB46002FCE7B /* PrivacyInfo.xcprivacy */; };
 		5C3324972773F43400F2C47B /* AWSMobileClientDeleteUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3324962773F43400F2C47B /* AWSMobileClientDeleteUserTests.swift */; };
 		68B1317829A95E6400E3B3BC /* WeakHashTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B1317729A95E6400E3B3BC /* WeakHashTable.swift */; };
 		68B1317929A95E6400E3B3BC /* WeakHashTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B1317729A95E6400E3B3BC /* WeakHashTable.swift */; };
@@ -4048,6 +4049,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21AF5E872BAA07C800997C99 /* PrivacyInfo.xcprivacy in Resources */,
 				1711A4EA1F43A49E006105D3 /* AWSUserPools.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4056,6 +4058,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21AF5E832BAA07AE00997C99 /* PrivacyInfo.xcprivacy in Resources */,
 				176375681F328D510086588B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4071,6 +4074,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21AF5E842BAA07B200997C99 /* PrivacyInfo.xcprivacy in Resources */,
 				17DED2A61F32A4E400397F88 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4096,6 +4100,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21AF5E862BAA07C100997C99 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4119,12 +4124,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2146099A2B88FB2D002FCE7B /* PrivacyInfo.xcprivacy in Resources */,
-				2146099C2B88FB46002FCE7B /* PrivacyInfo.xcprivacy in Resources */,
-				214609942B88FAD9002FCE7B /* PrivacyInfo.xcprivacy in Resources */,
-				214609922B88FABA002FCE7B /* PrivacyInfo.xcprivacy in Resources */,
-				214609962B88FAFF002FCE7B /* PrivacyInfo.xcprivacy in Resources */,
-				214609982B88FB0F002FCE7B /* PrivacyInfo.xcprivacy in Resources */,
 				214609902B88FA8B002FCE7B /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4148,6 +4147,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21AF5E0A2BAA07A400997C99 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4155,6 +4155,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21AF5E822BAA07A800997C99 /* PrivacyInfo.xcprivacy in Resources */,
 				B5150B1C1F3CE0E500AC8D08 /* Images.xcassets in Resources */,
 				B58F54C21F382449009ED450 /* SignIn.storyboard in Resources */,
 			);
@@ -4164,6 +4165,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21AF5E852BAA07BA00997C99 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
