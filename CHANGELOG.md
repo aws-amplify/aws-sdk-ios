@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+<!--  VALIDATE THAT THE FOLLOWING IS UNDER THE UNRELELEASED SECTION AND HAS NO DUPLICATES. OTHERWISE UPDATE IT -->
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSCloudWatchLogs
+  - AWSEC2
+
+
 ### Misc. Updates
 - Add privacy manifest (#5214)
 
