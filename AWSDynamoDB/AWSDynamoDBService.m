@@ -59,6 +59,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"ItemCollectionSizeLimitExceededException" : @(AWSDynamoDBErrorItemCollectionSizeLimitExceeded),
                             @"LimitExceededException" : @(AWSDynamoDBErrorLimitExceeded),
                             @"PointInTimeRecoveryUnavailableException" : @(AWSDynamoDBErrorPointInTimeRecoveryUnavailable),
+                            @"PolicyNotFoundException" : @(AWSDynamoDBErrorPolicyNotFound),
                             @"ProvisionedThroughputExceededException" : @(AWSDynamoDBErrorProvisionedThroughputExceeded),
                             @"ReplicaAlreadyExistsException" : @(AWSDynamoDBErrorReplicaAlreadyExists),
                             @"ReplicaNotFoundException" : @(AWSDynamoDBErrorReplicaNotFound),
@@ -472,6 +473,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSDynamoDBDeleteItemOutput *response, NSError *error))completionHandler {
     [[self deleteItem:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBDeleteItemOutput *> * _Nonnull task) {
         AWSDynamoDBDeleteItemOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSDynamoDBDeleteResourcePolicyOutput *> *)deleteResourcePolicy:(AWSDynamoDBDeleteResourcePolicyInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"DynamoDB_20120810"
+                 operationName:@"DeleteResourcePolicy"
+                   outputClass:[AWSDynamoDBDeleteResourcePolicyOutput class]];
+}
+
+- (void)deleteResourcePolicy:(AWSDynamoDBDeleteResourcePolicyInput *)request
+     completionHandler:(void (^)(AWSDynamoDBDeleteResourcePolicyOutput *response, NSError *error))completionHandler {
+    [[self deleteResourcePolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBDeleteResourcePolicyOutput *> * _Nonnull task) {
+        AWSDynamoDBDeleteResourcePolicyOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -942,6 +966,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSDynamoDBGetResourcePolicyOutput *> *)getResourcePolicy:(AWSDynamoDBGetResourcePolicyInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"DynamoDB_20120810"
+                 operationName:@"GetResourcePolicy"
+                   outputClass:[AWSDynamoDBGetResourcePolicyOutput class]];
+}
+
+- (void)getResourcePolicy:(AWSDynamoDBGetResourcePolicyInput *)request
+     completionHandler:(void (^)(AWSDynamoDBGetResourcePolicyOutput *response, NSError *error))completionHandler {
+    [[self getResourcePolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBGetResourcePolicyOutput *> * _Nonnull task) {
+        AWSDynamoDBGetResourcePolicyOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSDynamoDBImportTableOutput *> *)importTable:(AWSDynamoDBImportTableInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1139,6 +1186,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSDynamoDBPutItemOutput *response, NSError *error))completionHandler {
     [[self putItem:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBPutItemOutput *> * _Nonnull task) {
         AWSDynamoDBPutItemOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSDynamoDBPutResourcePolicyOutput *> *)putResourcePolicy:(AWSDynamoDBPutResourcePolicyInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"DynamoDB_20120810"
+                 operationName:@"PutResourcePolicy"
+                   outputClass:[AWSDynamoDBPutResourcePolicyOutput class]];
+}
+
+- (void)putResourcePolicy:(AWSDynamoDBPutResourcePolicyInput *)request
+     completionHandler:(void (^)(AWSDynamoDBPutResourcePolicyOutput *response, NSError *error))completionHandler {
+    [[self putResourcePolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBPutResourcePolicyOutput *> * _Nonnull task) {
+        AWSDynamoDBPutResourcePolicyOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

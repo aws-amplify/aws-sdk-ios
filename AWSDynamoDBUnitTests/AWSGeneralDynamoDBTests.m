@@ -441,6 +441,54 @@ static id mockNetworking = nil;
     [AWSDynamoDB removeDynamoDBForKey:key];
 }
 
+- (void)testDeleteResourcePolicy {
+    NSString *key = @"testDeleteResourcePolicy";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSDynamoDB DynamoDBForKey:key] deleteResourcePolicy:[AWSDynamoDBDeleteResourcePolicyInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testDeleteResourcePolicyCompletionHandler {
+    NSString *key = @"testDeleteResourcePolicy";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSDynamoDB DynamoDBForKey:key] deleteResourcePolicy:[AWSDynamoDBDeleteResourcePolicyInput new] completionHandler:^(AWSDynamoDBDeleteResourcePolicyOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
 - (void)testDeleteTable {
     NSString *key = @"testDeleteTable";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -1401,6 +1449,54 @@ static id mockNetworking = nil;
     [AWSDynamoDB removeDynamoDBForKey:key];
 }
 
+- (void)testGetResourcePolicy {
+    NSString *key = @"testGetResourcePolicy";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSDynamoDB DynamoDBForKey:key] getResourcePolicy:[AWSDynamoDBGetResourcePolicyInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testGetResourcePolicyCompletionHandler {
+    NSString *key = @"testGetResourcePolicy";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSDynamoDB DynamoDBForKey:key] getResourcePolicy:[AWSDynamoDBGetResourcePolicyInput new] completionHandler:^(AWSDynamoDBGetResourcePolicyOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
 - (void)testImportTable {
     NSString *key = @"testImportTable";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -1820,6 +1916,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSDynamoDB DynamoDBForKey:key] putItem:[AWSDynamoDBPutItemInput new] completionHandler:^(AWSDynamoDBPutItemOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testPutResourcePolicy {
+    NSString *key = @"testPutResourcePolicy";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSDynamoDB DynamoDBForKey:key] putResourcePolicy:[AWSDynamoDBPutResourcePolicyInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testPutResourcePolicyCompletionHandler {
+    NSString *key = @"testPutResourcePolicy";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSDynamoDB DynamoDBForKey:key] putResourcePolicy:[AWSDynamoDBPutResourcePolicyInput new] completionHandler:^(AWSDynamoDBPutResourcePolicyOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
