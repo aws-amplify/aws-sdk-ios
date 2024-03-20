@@ -1231,6 +1231,29 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectAttributeAndCondition
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"hierarchyGroupCondition" : @"HierarchyGroupCondition",
+             @"tagConditions" : @"TagConditions",
+             };
+}
+
++ (NSValueTransformer *)hierarchyGroupConditionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectHierarchyGroupCondition class]];
+}
+
++ (NSValueTransformer *)tagConditionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectTagCondition class]];
+}
+
+@end
+
 @implementation AWSConnectAudioFeatures
 
 + (BOOL)supportsSecureCoding {
@@ -4864,6 +4887,39 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectControlPlaneUserAttributeFilter
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"andCondition" : @"AndCondition",
+             @"hierarchyGroupCondition" : @"HierarchyGroupCondition",
+             @"orConditions" : @"OrConditions",
+             @"tagCondition" : @"TagCondition",
+             };
+}
+
++ (NSValueTransformer *)andConditionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectAttributeAndCondition class]];
+}
+
++ (NSValueTransformer *)hierarchyGroupConditionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectHierarchyGroupCondition class]];
+}
+
++ (NSValueTransformer *)orConditionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectAttributeAndCondition class]];
+}
+
++ (NSValueTransformer *)tagConditionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectTagCondition class]];
+}
+
+@end
+
 @implementation AWSConnectCreateAgentStatusRequest
 
 + (BOOL)supportsSecureCoding {
@@ -5680,9 +5736,11 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"allowedAccessControlHierarchyGroupId" : @"AllowedAccessControlHierarchyGroupId",
              @"allowedAccessControlTags" : @"AllowedAccessControlTags",
              @"applications" : @"Applications",
              @"detail" : @"Description",
+             @"hierarchyRestrictedResources" : @"HierarchyRestrictedResources",
              @"instanceId" : @"InstanceId",
              @"permissions" : @"Permissions",
              @"securityProfileName" : @"SecurityProfileName",
@@ -21053,9 +21111,11 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"allowedAccessControlHierarchyGroupId" : @"AllowedAccessControlHierarchyGroupId",
              @"allowedAccessControlTags" : @"AllowedAccessControlTags",
              @"arn" : @"Arn",
              @"detail" : @"Description",
+             @"hierarchyRestrictedResources" : @"HierarchyRestrictedResources",
              @"identifier" : @"Id",
              @"lastModifiedRegion" : @"LastModifiedRegion",
              @"lastModifiedTime" : @"LastModifiedTime",
@@ -23839,9 +23899,11 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"allowedAccessControlHierarchyGroupId" : @"AllowedAccessControlHierarchyGroupId",
              @"allowedAccessControlTags" : @"AllowedAccessControlTags",
              @"applications" : @"Applications",
              @"detail" : @"Description",
+             @"hierarchyRestrictedResources" : @"HierarchyRestrictedResources",
              @"instanceId" : @"InstanceId",
              @"permissions" : @"Permissions",
              @"securityProfileId" : @"SecurityProfileId",
@@ -24580,11 +24642,16 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"tagFilter" : @"TagFilter",
+             @"userAttributeFilter" : @"UserAttributeFilter",
              };
 }
 
 + (NSValueTransformer *)tagFilterJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectControlPlaneTagFilter class]];
+}
+
++ (NSValueTransformer *)userAttributeFilterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectControlPlaneUserAttributeFilter class]];
 }
 
 @end

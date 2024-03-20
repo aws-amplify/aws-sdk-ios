@@ -57,6 +57,7 @@
 - (void) test_AWSConnectAttachmentReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAttendee API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAttribute API_AVAILABLE(ios(11));
+- (void) test_AWSConnectAttributeAndCondition API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAudioFeatures API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAvailableNumberSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectBatchAssociateAnalyticsDataSetRequest API_AVAILABLE(ios(11));
@@ -88,6 +89,7 @@
 - (void) test_AWSConnectContactSearchSummaryAgentInfo API_AVAILABLE(ios(11));
 - (void) test_AWSConnectContactSearchSummaryQueueInfo API_AVAILABLE(ios(11));
 - (void) test_AWSConnectControlPlaneTagFilter API_AVAILABLE(ios(11));
+- (void) test_AWSConnectControlPlaneUserAttributeFilter API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateAgentStatusRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateAgentStatusResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateCaseActionDefinition API_AVAILABLE(ios(11));
@@ -858,6 +860,10 @@
     [self validateSecureCodingForClass:[AWSConnectAttribute class]];
 }
 
+- (void) test_AWSConnectAttributeAndCondition {
+    [self validateSecureCodingForClass:[AWSConnectAttributeAndCondition class]];
+}
+
 - (void) test_AWSConnectAudioFeatures {
     [self validateSecureCodingForClass:[AWSConnectAudioFeatures class]];
 }
@@ -980,6 +986,10 @@
 
 - (void) test_AWSConnectControlPlaneTagFilter {
     [self validateSecureCodingForClass:[AWSConnectControlPlaneTagFilter class]];
+}
+
+- (void) test_AWSConnectControlPlaneUserAttributeFilter {
+    [self validateSecureCodingForClass:[AWSConnectControlPlaneUserAttributeFilter class]];
 }
 
 - (void) test_AWSConnectCreateAgentStatusRequest {

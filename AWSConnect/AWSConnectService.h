@@ -1499,7 +1499,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)deleteQueue:(AWSConnectDeleteQueueRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a quick connect.</p>
+ <p>Deletes a quick connect. </p><important><p>After calling <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteUser.html">DeleteUser</a>, it's important to call <code>DeleteQuickConnect</code> to delete any records related to the deleted users. This will help you:</p><ul><li><p>Avoid dangling resources that impact your service quotas.</p></li><li><p>Remove deleted users so they don't appear to agents as transfer options.</p></li><li><p>Avoid the disruption of other Amazon Connect processes, such as instance replication and syncing if you're using <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html">Amazon Connect Global Resiliency</a>. </p></li></ul></important>
  
  @param request A container for the necessary parameters to execute the DeleteQuickConnect service method.
 
@@ -1510,7 +1510,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)deleteQuickConnect:(AWSConnectDeleteQuickConnectRequest *)request;
 
 /**
- <p>Deletes a quick connect.</p>
+ <p>Deletes a quick connect. </p><important><p>After calling <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteUser.html">DeleteUser</a>, it's important to call <code>DeleteQuickConnect</code> to delete any records related to the deleted users. This will help you:</p><ul><li><p>Avoid dangling resources that impact your service quotas.</p></li><li><p>Remove deleted users so they don't appear to agents as transfer options.</p></li><li><p>Avoid the disruption of other Amazon Connect processes, such as instance replication and syncing if you're using <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html">Amazon Connect Global Resiliency</a>. </p></li></ul></important>
  
  @param request A container for the necessary parameters to execute the DeleteQuickConnect service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1659,7 +1659,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)deleteUseCase:(AWSConnectDeleteUseCaseRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a user account from the specified Amazon Connect instance.</p><p>For information about what happens to a user's data when their account is deleted, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html">Delete Users from Your Amazon Connect Instance</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ <p>Deletes a user account from the specified Amazon Connect instance.</p><p>For information about what happens to a user's data when their account is deleted, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html">Delete Users from Your Amazon Connect Instance</a> in the <i>Amazon Connect Administrator Guide</i>.</p><important><p>After calling DeleteUser, call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteQuickConnect.html">DeleteQuickConnect</a> to delete any records related to the deleted users. This will help you:</p><ul><li><p>Avoid dangling resources that impact your service quotas.</p></li><li><p>Remove deleted users so they don't appear to agents as transfer options.</p></li><li><p>Avoid the disruption of other Amazon Connect processes, such as instance replication and syncing if you're using <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html">Amazon Connect Global Resiliency</a>. </p></li></ul></important>
  
  @param request A container for the necessary parameters to execute the DeleteUser service method.
 
@@ -1670,7 +1670,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)deleteUser:(AWSConnectDeleteUserRequest *)request;
 
 /**
- <p>Deletes a user account from the specified Amazon Connect instance.</p><p>For information about what happens to a user's data when their account is deleted, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html">Delete Users from Your Amazon Connect Instance</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ <p>Deletes a user account from the specified Amazon Connect instance.</p><p>For information about what happens to a user's data when their account is deleted, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html">Delete Users from Your Amazon Connect Instance</a> in the <i>Amazon Connect Administrator Guide</i>.</p><important><p>After calling DeleteUser, call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteQuickConnect.html">DeleteQuickConnect</a> to delete any records related to the deleted users. This will help you:</p><ul><li><p>Avoid dangling resources that impact your service quotas.</p></li><li><p>Remove deleted users so they don't appear to agents as transfer options.</p></li><li><p>Avoid the disruption of other Amazon Connect processes, such as instance replication and syncing if you're using <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html">Amazon Connect Global Resiliency</a>. </p></li></ul></important>
  
  @param request A container for the necessary parameters to execute the DeleteUser service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3145,7 +3145,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listContactFlows:(AWSConnectListContactFlowsRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListContactFlowsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified <code>referenceTypes</code>, returns a list of references associated with the contact. </p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified <code>referenceTypes</code>, returns a list of references associated with the contact. <i>References</i> are links to documents that are related to a contact, such as emails, attachments, or URLs.</p>
  
  @param request A container for the necessary parameters to execute the ListContactReferences service method.
 
@@ -3157,7 +3157,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectListContactReferencesResponse *> *)listContactReferences:(AWSConnectListContactReferencesRequest *)request;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified <code>referenceTypes</code>, returns a list of references associated with the contact. </p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified <code>referenceTypes</code>, returns a list of references associated with the contact. <i>References</i> are links to documents that are related to a contact, such as emails, attachments, or URLs.</p>
  
  @param request A container for the necessary parameters to execute the ListContactReferences service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4742,7 +4742,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)startWebRTCContact:(AWSConnectStartWebRTCContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectStartWebRTCContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Ends the specified contact. This call does not work for voice contacts that use the following initiation methods:</p><ul><li><p>DISCONNECT</p></li><li><p>TRANSFER</p></li><li><p>QUEUE_TRANSFER</p></li></ul><p>Chat and task contacts, however, can be terminated in any state, regardless of initiation method.</p>
+ <p>Ends the specified contact. Use this API to stop queued callbacks. It does not work for voice contacts that use the following initiation methods:</p><ul><li><p>DISCONNECT</p></li><li><p>TRANSFER</p></li><li><p>QUEUE_TRANSFER</p></li></ul><p>Chat and task contacts can be terminated in any state, regardless of initiation method.</p>
  
  @param request A container for the necessary parameters to execute the StopContact service method.
 
@@ -4754,7 +4754,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectStopContactResponse *> *)stopContact:(AWSConnectStopContactRequest *)request;
 
 /**
- <p>Ends the specified contact. This call does not work for voice contacts that use the following initiation methods:</p><ul><li><p>DISCONNECT</p></li><li><p>TRANSFER</p></li><li><p>QUEUE_TRANSFER</p></li></ul><p>Chat and task contacts, however, can be terminated in any state, regardless of initiation method.</p>
+ <p>Ends the specified contact. Use this API to stop queued callbacks. It does not work for voice contacts that use the following initiation methods:</p><ul><li><p>DISCONNECT</p></li><li><p>TRANSFER</p></li><li><p>QUEUE_TRANSFER</p></li></ul><p>Chat and task contacts can be terminated in any state, regardless of initiation method.</p>
  
  @param request A container for the necessary parameters to execute the StopContact service method.
  @param completionHandler The completion handler to call when the load request is complete.
