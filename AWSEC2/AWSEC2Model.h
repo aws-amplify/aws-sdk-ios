@@ -4652,6 +4652,9 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2LockedSnapshotsInfo;
 @class AWSEC2MaintenanceDetails;
 @class AWSEC2ManagedPrefixList;
+@class AWSEC2MediaAcceleratorInfo;
+@class AWSEC2MediaDeviceInfo;
+@class AWSEC2MediaDeviceMemoryInfo;
 @class AWSEC2MemoryGiBPerVCpu;
 @class AWSEC2MemoryGiBPerVCpuRequest;
 @class AWSEC2MemoryInfo;
@@ -4816,6 +4819,10 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2NetworkInterfacePermission;
 @class AWSEC2NetworkInterfacePermissionState;
 @class AWSEC2NetworkInterfacePrivateIpAddress;
+@class AWSEC2NeuronDeviceCoreInfo;
+@class AWSEC2NeuronDeviceInfo;
+@class AWSEC2NeuronDeviceMemoryInfo;
+@class AWSEC2NeuronInfo;
 @class AWSEC2LatestDhcpConfiguration;
 @class AWSEC2NitroTpmInfo;
 @class AWSEC2OidcOptions;
@@ -7966,7 +7973,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Not supported. Use a set of IP permissions to specify the CIDR.</p>
+ <p>Not supported. Use IP permissions instead.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable cidrIp;
 
@@ -7976,7 +7983,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>Not supported. Use a set of IP permissions to specify the port.</p>
+ <p>Not supported. Use IP permissions instead.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable fromPort;
 
@@ -7986,22 +7993,22 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable groupId;
 
 /**
- <p>The sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.</p>
+ <p>The permissions for the security group rules.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2IpPermission *> * _Nullable ipPermissions;
 
 /**
- <p>Not supported. Use a set of IP permissions to specify the protocol name or number.</p>
+ <p>Not supported. Use IP permissions instead.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipProtocol;
 
 /**
- <p>Not supported. Use a set of IP permissions to specify a destination security group.</p>
+ <p>Not supported. Use IP permissions instead.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceSecurityGroupName;
 
 /**
- <p>Not supported. Use a set of IP permissions to specify a destination security group.</p>
+ <p>Not supported. Use IP permissions instead.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceSecurityGroupOwnerId;
 
@@ -8011,7 +8018,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
 
 /**
- <p>Not supported. Use a set of IP permissions to specify the port.</p>
+ <p>Not supported. Use IP permissions instead.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable toPort;
 
@@ -8042,7 +8049,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The IPv4 address range, in CIDR format. You can't specify this parameter when specifying a source security group. To specify an IPv6 address range, use a set of IP permissions.</p><p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
+ <p>The IPv4 address range, in CIDR format.</p><p>To specify an IPv6 address range, use IP permissions instead.</p><p>To specify multiple rules and descriptions for the rules, use IP permissions instead.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable cidrIp;
 
@@ -8052,47 +8059,47 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP, this is the type number. A value of -1 indicates all ICMP types. If you specify all ICMP types, you must specify all ICMP codes.</p><p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
+ <p>If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP, this is the ICMP type or -1 (all ICMP types).</p><p>To specify multiple rules and descriptions for the rules, use IP permissions instead.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable fromPort;
 
 /**
- <p>The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.</p>
+ <p>The ID of the security group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable groupId;
 
 /**
- <p>[Default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.</p>
+ <p>[Default VPC] The name of the security group. For security groups for a default VPC you can specify either the ID or the name of the security group. For security groups for a nondefault VPC, you must specify the ID of the security group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable groupName;
 
 /**
- <p>The sets of IP permissions.</p>
+ <p>The permissions for the security group rules.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2IpPermission *> * _Nullable ipPermissions;
 
 /**
- <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). To specify <code>icmpv6</code>, use a set of IP permissions.</p><p>Use <code>-1</code> to specify all protocols. If you specify <code>-1</code> or a protocol other than <code>tcp</code>, <code>udp</code>, or <code>icmp</code>, traffic on all ports is allowed, regardless of any ports you specify.</p><p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
+ <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). To specify all protocols, use <code>-1</code>.</p><p>To specify <code>icmpv6</code>, use IP permissions instead.</p><p>If you specify a protocol other than one of the supported values, traffic is allowed on all ports, regardless of any ports that you specify.</p><p>To specify multiple rules and descriptions for the rules, use IP permissions instead.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipProtocol;
 
 /**
- <p>[Default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. The source security group must be in the same VPC.</p>
+ <p>[Default VPC] The name of the source security group.</p><p>The rule grants full ICMP, UDP, and TCP access. To create a rule with a specific protocol and port range, specify a set of IP permissions instead.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceSecurityGroupName;
 
 /**
- <p>[Nondefault VPC] The Amazon Web Services account ID for the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.</p>
+ <p>The Amazon Web Services account ID for the source security group, if the source security group is in a different account.</p><p>The rule grants full ICMP, UDP, and TCP access. To create a rule with a specific protocol and port range, use IP permissions instead.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceSecurityGroupOwnerId;
 
 /**
- <p>[VPC Only] The tags applied to the security group rule.</p>
+ <p>The tags applied to the security group rule.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
 
 /**
- <p>If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP, this is the code. A value of -1 indicates all ICMP codes. If you specify all ICMP types, you must specify all ICMP codes.</p><p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
+ <p>If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP, this is the ICMP code or -1 (all ICMP codes). If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).</p><p>To specify multiple rules and descriptions for the rules, use IP permissions instead.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable toPort;
 
@@ -8300,7 +8307,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The ID of the instance to bundle.</p><p>Type: String</p><p>Default: None</p><p>Required: Yes</p>
+ <p>The ID of the instance to bundle.</p><p>Default: None</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -10420,7 +10427,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI. Only specify this parameter when copying an AMI from an Amazon Web Services Region to an Outpost. The AMI must be in the Region of the destination Outpost. You cannot copy an AMI from an Outpost to a Region, from one Outpost to another, or within the same Outpost.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis"> Copy AMIs from an Amazon Web Services Region to an Outpost</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI. Only specify this parameter when copying an AMI from an Amazon Web Services Region to an Outpost. The AMI must be in the Region of the destination Outpost. You cannot copy an AMI from an Outpost to a Region, from one Outpost to another, or within the same Outpost.</p><p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#copy-amis">Copy AMIs from an Amazon Web Services Region to an Outpost</a> in the <i>Amazon EBS User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationOutpostArn;
 
@@ -10430,7 +10437,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>Specifies whether the destination snapshots of the copied image should be encrypted. You can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted copy of an encrypted snapshot. The default KMS key for Amazon EBS is used unless you specify a non-default Key Management Service (KMS) KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Specifies whether the destination snapshots of the copied image should be encrypted. You can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted copy of an encrypted snapshot. The default KMS key for Amazon EBS is used unless you specify a non-default Key Management Service (KMS) KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable encrypted;
 
@@ -10453,6 +10460,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The name of the Region that contains the AMI to copy.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceRegion;
+
+/**
+ <p>The tags to apply to the new AMI and new snapshots. You can tag the AMI, the snapshots, or both.</p><ul><li><p>To tag the new AMI, the value for <code>ResourceType</code> must be <code>image</code>.</p></li><li><p>To tag the new snapshots, the value for <code>ResourceType</code> must be <code>snapshot</code>. The same tag is applied to all the new snapshots.</p></li></ul><p>If you specify other values for <code>ResourceType</code>, the request fails.</p><p>To tag an AMI or snapshot after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
 
 @end
 
@@ -10481,7 +10493,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The Amazon Resource Name (ARN) of the Outpost to which to copy the snapshot. Only specify this parameter when copying a snapshot from an Amazon Web Services Region to an Outpost. The snapshot must be in the Region for the destination Outpost. You cannot copy a snapshot from an Outpost to a Region, from one Outpost to another, or within the same Outpost.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-snapshots"> Copy snapshots from an Amazon Web Services Region to an Outpost</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>The Amazon Resource Name (ARN) of the Outpost to which to copy the snapshot. Only specify this parameter when copying a snapshot from an Amazon Web Services Region to an Outpost. The snapshot must be in the Region for the destination Outpost. You cannot copy a snapshot from an Outpost to a Region, from one Outpost to another, or within the same Outpost.</p><p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#copy-snapshots"> Copy snapshots from an Amazon Web Services Region to an Outpost</a> in the <i>Amazon EBS User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationOutpostArn;
 
@@ -10496,7 +10508,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Otherwise, omit this parameter. Encrypted snapshots are encrypted, even if you omit this parameter and encryption by default is not enabled. You cannot set this parameter to false. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Otherwise, omit this parameter. Encrypted snapshots are encrypted, even if you omit this parameter and encryption by default is not enabled. You cannot set this parameter to false. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable encrypted;
 
@@ -11478,7 +11490,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable deliverCrossAccountRole;
 
 /**
- <p>The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account.</p><p>This parameter is required if the destination type is <code>cloud-watch-logs</code> and unsupported otherwise.</p>
+ <p>The ARN of the IAM role that allows Amazon EC2 to publish flow logs to the log destination.</p><p>This parameter is required if the destination type is <code>cloud-watch-logs</code>, or if the destination type is <code>kinesis-data-firehose</code> and the delivery stream and the resources to monitor are in different accounts.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable deliverLogsPermissionArn;
 
@@ -13403,7 +13415,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.</p><ul><li><p>To create a snapshot of a volume in a Region, omit this parameter. The snapshot is created in the same Region as the volume.</p></li><li><p>To create a snapshot of a volume on an Outpost and store the snapshot in the Region, omit this parameter. The snapshot is created in the Region for the Outpost.</p></li><li><p>To create a snapshot of a volume on an Outpost and store the snapshot on an Outpost, specify the ARN of the destination Outpost. The snapshot must be created on the same Outpost as the volume.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot">Create local snapshots from volumes on an Outpost</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.</p><ul><li><p>To create a snapshot of a volume in a Region, omit this parameter. The snapshot is created in the same Region as the volume.</p></li><li><p>To create a snapshot of a volume on an Outpost and store the snapshot in the Region, omit this parameter. The snapshot is created in the Region for the Outpost.</p></li><li><p>To create a snapshot of a volume on an Outpost and store the snapshot on an Outpost, specify the ARN of the destination Outpost. The snapshot must be created on the same Outpost as the volume.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#create-snapshot">Create local snapshots from volumes on an Outpost</a> in the <i>Amazon EBS User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outpostArn;
 
@@ -13446,7 +13458,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2InstanceSpecification * _Nullable instanceSpecification;
 
 /**
- <p>The Amazon Resource Name (ARN) of the Outpost on which to create the local snapshots.</p><ul><li><p>To create snapshots from an instance in a Region, omit this parameter. The snapshots are created in the same Region as the instance.</p></li><li><p>To create snapshots from an instance on an Outpost and store the snapshots in the Region, omit this parameter. The snapshots are created in the Region for the Outpost.</p></li><li><p>To create snapshots from an instance on an Outpost and store the snapshots on an Outpost, specify the ARN of the destination Outpost. The snapshots must be created on the same Outpost as the instance.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-multivol-snapshot"> Create multi-volume local snapshots from instances on an Outpost</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>The Amazon Resource Name (ARN) of the Outpost on which to create the local snapshots.</p><ul><li><p>To create snapshots from an instance in a Region, omit this parameter. The snapshots are created in the same Region as the instance.</p></li><li><p>To create snapshots from an instance on an Outpost and store the snapshots in the Region, omit this parameter. The snapshots are created in the Region for the Outpost.</p></li><li><p>To create snapshots from an instance on an Outpost and store the snapshots on an Outpost, specify the ARN of the destination Outpost. The snapshots must be created on the same Outpost as the instance.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#create-multivol-snapshot"> Create multi-volume local snapshots from instances on an Outpost</a> in the <i>Amazon EBS User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outpostArn;
 
@@ -14527,7 +14539,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2Ipv6SupportValue ipv6Support;
 
 /**
- <p>Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p><p>If you don't enable or disable SecurityGroupReferencingSupport in the request, the attachment will inherit the security group referencing support setting on the transit gateway.</p><p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#create-vpc-attachment">Create a transit gateway attachment to a VPC</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+ <note><p>This parameter is in preview and may not be available for your account.</p></note><p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p><p>If you don't enable or disable SecurityGroupReferencingSupport in the request, the attachment will inherit the security group referencing support setting on the transit gateway.</p>
  */
 @property (nonatomic, assign) AWSEC2SecurityGroupReferencingSupportValue securityGroupReferencingSupport;
 
@@ -14990,7 +15002,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>Indicates whether the volume should be encrypted. The effect of setting the encryption state to <code>true</code> depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default">Encryption by default</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported instance types</a>.</p>
+ <p>Indicates whether the volume should be encrypted. The effect of setting the encryption state to <code>true</code> depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default">Encryption by default</a> in the <i>Amazon EBS User Guide</i>.</p><p>Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances">Supported instance types</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable encrypted;
 
@@ -15005,7 +15017,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
- <p>Indicates whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances built on the Nitro System</a> in the same Availability Zone. This parameter is supported with <code>io1</code> and <code>io2</code> volumes only. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html"> Amazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Indicates whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances built on the Nitro System</a> in the same Availability Zone. This parameter is supported with <code>io1</code> and <code>io2</code> volumes only. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html"> Amazon EBS Multi-Attach</a> in the <i>Amazon EBS User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable multiAttachEnabled;
 
@@ -15035,7 +15047,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable throughput;
 
 /**
- <p>The volume type. This parameter can be one of the following values:</p><ul><li><p>General Purpose SSD: <code>gp2</code> | <code>gp3</code></p></li><li><p>Provisioned IOPS SSD: <code>io1</code> | <code>io2</code></p></li><li><p>Throughput Optimized HDD: <code>st1</code></p></li><li><p>Cold HDD: <code>sc1</code></p></li><li><p>Magnetic: <code>standard</code></p></li></ul><important><p>Throughput Optimized HDD (<code>st1</code>) and Cold HDD (<code>sc1</code>) volumes can't be used as boot volumes.</p></important><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Default: <code>gp2</code></p>
+ <p>The volume type. This parameter can be one of the following values:</p><ul><li><p>General Purpose SSD: <code>gp2</code> | <code>gp3</code></p></li><li><p>Provisioned IOPS SSD: <code>io1</code> | <code>io2</code></p></li><li><p>Throughput Optimized HDD: <code>st1</code></p></li><li><p>Cold HDD: <code>sc1</code></p></li><li><p>Magnetic: <code>standard</code></p></li></ul><important><p>Throughput Optimized HDD (<code>st1</code>) and Cold HDD (<code>sc1</code>) volumes can't be used as boot volumes.</p></important><p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html">Amazon EBS volume types</a> in the <i>Amazon EBS User Guide</i>.</p><p>Default: <code>gp2</code></p>
  */
 @property (nonatomic, assign) AWSEC2VolumeType volumeType;
 
@@ -18512,7 +18524,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The filters.</p><ul><li><p><code>group-name</code> - For Availability Zones, use the Region name. For Local Zones, use the name of the group associated with the Local Zone (for example, <code>us-west-2-lax-1</code>) For Wavelength Zones, use the name of the group associated with the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p></li><li><p><code>message</code> - The Zone message.</p></li><li><p><code>opt-in-status</code> - The opt-in status (<code>opted-in</code> | <code>not-opted-in</code> | <code>opt-in-not-required</code>).</p></li><li><p><code>parent-zone-id</code> - The ID of the zone that handles some of the Local Zone and Wavelength Zone control plane operations, such as API calls.</p></li><li><p><code>parent-zone-name</code> - The ID of the zone that handles some of the Local Zone and Wavelength Zone control plane operations, such as API calls.</p></li><li><p><code>region-name</code> - The name of the Region for the Zone (for example, <code>us-east-1</code>).</p></li><li><p><code>state</code> - The state of the Availability Zone, the Local Zone, or the Wavelength Zone (<code>available</code>).</p></li><li><p><code>zone-id</code> - The ID of the Availability Zone (for example, <code>use1-az1</code>), the Local Zone (for example, <code>usw2-lax1-az1</code>), or the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p></li><li><p><code>zone-name</code> - The name of the Availability Zone (for example, <code>us-east-1a</code>), the Local Zone (for example, <code>us-west-2-lax-1a</code>), or the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p></li><li><p><code>zone-type</code> - The type of zone (<code>availability-zone</code> | <code>local-zone</code> | <code>wavelength-zone</code>).</p></li></ul>
+ <p>The filters.</p><ul><li><p><code>group-name</code> - For Availability Zones, use the Region name. For Local Zones, use the name of the group associated with the Local Zone (for example, <code>us-west-2-lax-1</code>) For Wavelength Zones, use the name of the group associated with the Wavelength Zone (for example, <code>us-east-1-wl1</code>).</p></li><li><p><code>message</code> - The Zone message.</p></li><li><p><code>opt-in-status</code> - The opt-in status (<code>opted-in</code> | <code>not-opted-in</code> | <code>opt-in-not-required</code>).</p></li><li><p><code>parent-zone-id</code> - The ID of the zone that handles some of the Local Zone and Wavelength Zone control plane operations, such as API calls.</p></li><li><p><code>parent-zone-name</code> - The ID of the zone that handles some of the Local Zone and Wavelength Zone control plane operations, such as API calls.</p></li><li><p><code>region-name</code> - The name of the Region for the Zone (for example, <code>us-east-1</code>).</p></li><li><p><code>state</code> - The state of the Availability Zone, the Local Zone, or the Wavelength Zone (<code>available</code>).</p></li><li><p><code>zone-id</code> - The ID of the Availability Zone (for example, <code>use1-az1</code>), the Local Zone (for example, <code>usw2-lax1-az1</code>), or the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p></li><li><p><code>zone-name</code> - The name of the Availability Zone (for example, <code>us-east-1a</code>), the Local Zone (for example, <code>us-west-2-lax-1a</code>), or the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p></li><li><p><code>zone-type</code> - The type of zone (<code>availability-zone</code> | <code>local-zone</code> | <code>wavelength-zone</code>).</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -23859,7 +23871,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+ <p>The token to include in another request to get the next page of items. This value is an empty string (<code>""</code>) or <code>null</code> when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -27521,7 +27533,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable deleteOnTermination;
 
 /**
- <p>Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to <code>true</code> depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters">Amazon EBS encryption</a> in the <i>Amazon EC2 User Guide</i>.</p><p>In no case can you remove encryption from an encrypted volume.</p><p>Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported instance types</a>.</p><p>This parameter is not returned by <a>DescribeImageAttribute</a>.</p><p>For <a>CreateImage</a> and <a>RegisterImage</a>, whether you can include this parameter, and the allowed values differ depending on the type of block device mapping you are creating.</p><ul><li><p>If you are creating a block device mapping for a <b>new (empty) volume</b>, you can include this parameter, and specify either <code>true</code> for an encrypted volume, or <code>false</code> for an unencrypted volume. If you omit this parameter, it defaults to <code>false</code> (unencrypted).</p></li><li><p>If you are creating a block device mapping from an <b>existing encrypted or unencrypted snapshot</b>, you must omit this parameter. If you include this parameter, the request will fail, regardless of the value that you specify.</p></li><li><p>If you are creating a block device mapping from an <b>existing unencrypted volume</b>, you can include this parameter, but you must specify <code>false</code>. If you specify <code>true</code>, the request will fail. In this case, we recommend that you omit the parameter.</p></li><li><p>If you are creating a block device mapping from an <b>existing encrypted volume</b>, you can include this parameter, and specify either <code>true</code> or <code>false</code>. However, if you specify <code>false</code>, the parameter is ignored and the block device mapping is always encrypted. In this case, we recommend that you omit the parameter.</p></li></ul>
+ <p>Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to <code>true</code> depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html#encryption-parameters">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p><p>In no case can you remove encryption from an encrypted volume.</p><p>Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances">Supported instance types</a>.</p><p>This parameter is not returned by <a>DescribeImageAttribute</a>.</p><p>For <a>CreateImage</a> and <a>RegisterImage</a>, whether you can include this parameter, and the allowed values differ depending on the type of block device mapping you are creating.</p><ul><li><p>If you are creating a block device mapping for a <b>new (empty) volume</b>, you can include this parameter, and specify either <code>true</code> for an encrypted volume, or <code>false</code> for an unencrypted volume. If you omit this parameter, it defaults to <code>false</code> (unencrypted).</p></li><li><p>If you are creating a block device mapping from an <b>existing encrypted or unencrypted snapshot</b>, you must omit this parameter. If you include this parameter, the request will fail, regardless of the value that you specify.</p></li><li><p>If you are creating a block device mapping from an <b>existing unencrypted volume</b>, you can include this parameter, but you must specify <code>false</code>. If you specify <code>true</code>, the request will fail. In this case, we recommend that you omit the parameter.</p></li><li><p>If you are creating a block device mapping from an <b>existing encrypted volume</b>, you can include this parameter, and specify either <code>true</code> or <code>false</code>. However, if you specify <code>false</code>, the parameter is ignored and the block device mapping is always encrypted. In this case, we recommend that you omit the parameter.</p></li></ul>
  */
 @property (nonatomic, strong) NSNumber * _Nullable encrypted;
 
@@ -27556,7 +27568,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable volumeSize;
 
 /**
- <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html">Amazon EBS volume types</a> in the <i>Amazon EBS User Guide</i>.</p>
  */
 @property (nonatomic, assign) AWSEC2VolumeType volumeType;
 
@@ -29988,7 +30000,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable subnetId;
 
 /**
- <p>The number of units provided by the specified instance type.</p>
+ <p>The number of units provided by the specified instance type.</p><note><p>When specifying weights, the price used in the <code>lowest-price</code> and <code>price-capacity-optimized</code> allocation strategies is per <i>unit</i> hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested <code>TargetCapacity</code>, resulting in only 1 instance being launched, the price used is per <i>instance</i> hour.</p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable weightedCapacity;
 
@@ -30041,7 +30053,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable subnetId;
 
 /**
- <p>The number of units provided by the specified instance type.</p>
+ <p>The number of units provided by the specified instance type.</p><note><p>When specifying weights, the price used in the <code>lowest-price</code> and <code>price-capacity-optimized</code> allocation strategies is per <i>unit</i> hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested <code>TargetCapacity</code>, resulting in only 1 instance being launched, the price used is per <i>instance</i> hour.</p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable weightedCapacity;
 
@@ -35251,7 +35263,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2InstanceMetadataEndpointState httpEndpoint;
 
 /**
- <p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>
+ <p>Enables or disables the IPv6 endpoint for the instance metadata service.</p><p>Default: <code>disabled</code></p>
  */
 @property (nonatomic, assign) AWSEC2InstanceMetadataProtocolState httpProtocolIpv6;
 
@@ -35284,12 +35296,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2InstanceMetadataEndpointState httpEndpoint;
 
 /**
- <p>Indicates whether the IPv6 endpoint for the instance metadata service is enabled or disabled.</p>
+ <p>Indicates whether the IPv6 endpoint for the instance metadata service is enabled or disabled.</p><p>Default: <code>disabled</code></p>
  */
 @property (nonatomic, assign) AWSEC2InstanceMetadataProtocolState httpProtocolIpv6;
 
 /**
- <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.</p><p>Default: 1</p><p>Possible values: Integers from 1 to 64</p>
+ <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.</p><p>Default: <code>1</code></p><p>Possible values: Integers from <code>1</code> to <code>64</code></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable httpPutResponseHopLimit;
 
@@ -35519,7 +35531,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable associateCarrierIpAddress;
 
 /**
- <p>Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is <code>true</code>.</p><p>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
+ <p>Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is <code>true</code>.</p><p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable associatePublicIpAddress;
 
@@ -35730,7 +35742,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable localStorageTypes;
 
 /**
- <p>[Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.</p><p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p><p>To indicate no price protection threshold, specify a high value, such as <code>999999</code>.</p><p>If you set <code>DesiredCapacityType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.</p><note><p>Only one of <code>SpotMaxPricePercentageOverLowestPrice</code> or <code>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</code> can be specified. If you don't specify either, then <code>SpotMaxPricePercentageOverLowestPrice</code> is used and the value for that parameter defaults to <code>100</code>.</p></note>
+ <p>[Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.</p><p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p><p>If you set <code>DesiredCapacityType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.</p><note><p>Only one of <code>SpotMaxPricePercentageOverLowestPrice</code> or <code>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</code> can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as <code>999999</code>.</p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
 
@@ -35765,7 +35777,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable requireHibernateSupport;
 
 /**
- <p>[Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.</p><p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p><p>To indicate no price protection threshold, specify a high value, such as <code>999999</code>.</p><p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.</p><p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p><note><p>Only one of <code>SpotMaxPricePercentageOverLowestPrice</code> or <code>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</code> can be specified. If you don't specify either, then <code>SpotMaxPricePercentageOverLowestPrice</code> is used and the value for that parameter defaults to <code>100</code>.</p></note><p>Default: <code>100</code></p>
+ <p>[Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.</p><p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p><p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.</p><p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p><note><p>Only one of <code>SpotMaxPricePercentageOverLowestPrice</code> or <code>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</code> can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as <code>999999</code>.</p></note><p>Default: <code>100</code></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable spotMaxPricePercentageOverLowestPrice;
 
@@ -35859,7 +35871,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable localStorageTypes;
 
 /**
- <p>[Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.</p><p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p><p>To indicate no price protection threshold, specify a high value, such as <code>999999</code>.</p><p>If you set <code>DesiredCapacityType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.</p><note><p>Only one of <code>SpotMaxPricePercentageOverLowestPrice</code> or <code>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</code> can be specified. If you don't specify either, then <code>SpotMaxPricePercentageOverLowestPrice</code> is used and the value for that parameter defaults to <code>100</code>.</p></note>
+ <p>[Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.</p><p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p><p>If you set <code>DesiredCapacityType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.</p><note><p>Only one of <code>SpotMaxPricePercentageOverLowestPrice</code> or <code>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</code> can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as <code>999999</code>.</p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
 
@@ -35894,7 +35906,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable requireHibernateSupport;
 
 /**
- <p>[Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.</p><p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p><p>To indicate no price protection threshold, specify a high value, such as <code>999999</code>.</p><p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.</p><p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p><note><p>Only one of <code>SpotMaxPricePercentageOverLowestPrice</code> or <code>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</code> can be specified. If you don't specify either, then <code>SpotMaxPricePercentageOverLowestPrice</code> is used and the value for that parameter defaults to <code>100</code>.</p></note><p>Default: <code>100</code></p>
+ <p>[Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.</p><p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p><p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.</p><p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p><note><p>Only one of <code>SpotMaxPricePercentageOverLowestPrice</code> or <code>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</code> can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as <code>999999</code>.</p></note><p>Default: <code>100</code></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable spotMaxPricePercentageOverLowestPrice;
 
@@ -36193,7 +36205,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable instanceType;
 
 /**
- <p>The network nodes. The nodes are hashed based on your account. Instances from different accounts running under the same droplet will return a different hashed list of strings.</p>
+ <p>The network nodes. The nodes are hashed based on your account. Instances from different accounts running under the same server will return a different hashed list of strings.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable networkNodes;
 
@@ -36286,6 +36298,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2InstanceType instanceType;
 
 /**
+ <p>Describes the media accelerator settings for the instance type.</p>
+ */
+@property (nonatomic, strong) AWSEC2MediaAcceleratorInfo * _Nullable mediaAcceleratorInfo;
+
+/**
  <p>Describes the memory for the instance type.</p>
  */
 @property (nonatomic, strong) AWSEC2MemoryInfo * _Nullable memoryInfo;
@@ -36294,6 +36311,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Describes the network settings for the instance type.</p>
  */
 @property (nonatomic, strong) AWSEC2NetworkInfo * _Nullable networkInfo;
+
+/**
+ <p>Describes the Neuron accelerator settings for the instance type.</p>
+ */
+@property (nonatomic, strong) AWSEC2NeuronInfo * _Nullable neuronInfo;
 
 /**
  <p>Indicates whether Nitro Enclaves is supported.</p>
@@ -36461,13 +36483,13 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes a set of permissions for a security group rule.</p>
+ <p>Describes the permissions for a security group rule.</p>
  */
 @interface AWSEC2IpPermission : AWSModel
 
 
 /**
- <p>If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
+ <p>If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable fromPort;
 
@@ -36477,12 +36499,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable ipProtocol;
 
 /**
- <p>The IPv4 ranges.</p>
+ <p>The IPv4 address ranges.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2IpRange *> * _Nullable ipRanges;
 
 /**
- <p>The IPv6 ranges.</p>
+ <p>The IPv6 address ranges.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Ipv6Range *> * _Nullable ipv6Ranges;
 
@@ -36492,7 +36514,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2PrefixListId *> * _Nullable prefixListIds;
 
 /**
- <p>If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the code. A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
+ <p>If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes). If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable toPort;
 
@@ -36504,13 +36526,13 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes an IPv4 range.</p>
+ <p>Describes an IPv4 address range.</p>
  */
 @interface AWSEC2IpRange : AWSModel
 
 
 /**
- <p>The IPv4 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv4 address, use the /32 prefix length.</p>
+ <p>The IPv4 address range. You can either specify a CIDR block or a source security group, not both. To specify a single IPv4 address, use the /32 prefix length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable cidrIp;
 
@@ -37660,13 +37682,13 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes an IPv6 range.</p>
+ <p>Describes an IPv6 address range.</p>
  */
 @interface AWSEC2Ipv6Range : AWSModel
 
 
 /**
- <p>The IPv6 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv6 address, use the /128 prefix length.</p>
+ <p>The IPv6 address range. You can either specify a CIDR block or a source security group, not both. To specify a single IPv6 address, use the /128 prefix length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable cidrIpv6;
 
@@ -38207,7 +38229,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable volumeSize;
 
 /**
- <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html">Amazon EBS volume types</a> in the <i>Amazon EBS User Guide</i>.</p>
  */
 @property (nonatomic, assign) AWSEC2VolumeType volumeType;
 
@@ -38514,7 +38536,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable associateCarrierIpAddress;
 
 /**
- <p>Indicates whether to associate a public IPv4 address with eth0 for a new network interface.</p><p>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
+ <p>Indicates whether to associate a public IPv4 address with eth0 for a new network interface.</p><p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable associatePublicIpAddress;
 
@@ -38632,7 +38654,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable associateCarrierIpAddress;
 
 /**
- <p>Associates a public IPv4 address with eth0 for a new network interface.</p><p>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
+ <p>Associates a public IPv4 address with eth0 for a new network interface.</p><p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable associatePublicIpAddress;
 
@@ -38801,7 +38823,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable subnetId;
 
 /**
- <p>The number of units provided by the specified instance type.</p>
+ <p>The number of units provided by the specified instance type.</p><note><p>When specifying weights, the price used in the <code>lowest-price</code> and <code>price-capacity-optimized</code> allocation strategies is per <i>unit</i> hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested <code>TargetCapacity</code>, resulting in only 1 instance being launched, the price used is per <i>instance</i> hour.</p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable weightedCapacity;
 
@@ -39900,6 +39922,65 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Describes the media accelerators for the instance type.</p>
+ */
+@interface AWSEC2MediaAcceleratorInfo : AWSModel
+
+
+/**
+ <p>Describes the media accelerators for the instance type.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2MediaDeviceInfo *> * _Nullable accelerators;
+
+/**
+ <p>The total size of the memory for the media accelerators for the instance type, in MiB.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable totalMediaMemoryInMiB;
+
+@end
+
+/**
+ <p>Describes the media accelerators for the instance type.</p>
+ */
+@interface AWSEC2MediaDeviceInfo : AWSModel
+
+
+/**
+ <p>The number of media accelerators for the instance type.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable count;
+
+/**
+ <p>The manufacturer of the media accelerator.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable manufacturer;
+
+/**
+ <p>Describes the memory available to the media accelerator.</p>
+ */
+@property (nonatomic, strong) AWSEC2MediaDeviceMemoryInfo * _Nullable memoryInfo;
+
+/**
+ <p>The name of the media accelerator.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ <p>Describes the memory available to the media accelerator.</p>
+ */
+@interface AWSEC2MediaDeviceMemoryInfo : AWSModel
+
+
+/**
+ <p>The size of the memory available to each media accelerator, in MiB.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable sizeInMiB;
+
+@end
+
+/**
  <p>The minimum and maximum amount of memory per vCPU, in GiB.</p><p/>
  */
 @interface AWSEC2MemoryGiBPerVCpu : AWSModel
@@ -40973,7 +41054,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>Set to <code>enabled</code> to allow access to instance tags from the instance metadata. Set to <code>disabled</code> to turn off access to instance tags from the instance metadata. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with instance tags using the instance metadata</a>.</p><p>Default: <code>disabled</code></p>
+ <p>Set to <code>enabled</code> to allow access to instance tags from the instance metadata. Set to <code>disabled</code> to turn off access to instance tags from the instance metadata. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with instance tags using the instance metadata</a>.</p>
  */
 @property (nonatomic, assign) AWSEC2InstanceMetadataTagsState instanceMetadataTags;
 
@@ -41004,7 +41085,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The affinity setting for the instance.</p>
+ <p>The affinity setting for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-affinity">Host affinity</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 @property (nonatomic, assign) AWSEC2Affinity affinity;
 
@@ -41827,7 +41908,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2AttributeBooleanValue * _Nullable mapCustomerOwnedIpOnLaunch;
 
 /**
- <p>Specify <code>true</code> to indicate that network interfaces attached to instances created in the specified subnet should be assigned a public IPv4 address.</p><p>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
+ <p>Specify <code>true</code> to indicate that network interfaces attached to instances created in the specified subnet should be assigned a public IPv4 address.</p><p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
  */
 @property (nonatomic, strong) AWSEC2AttributeBooleanValue * _Nullable mapPublicIpOnLaunch;
 
@@ -42083,7 +42164,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable removeTransitGatewayCidrBlocks;
 
 /**
- <p>Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p><p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw">Create a transit gateway</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+ <note><p>This parameter is in preview and may not be available for your account.</p></note><p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
  */
 @property (nonatomic, assign) AWSEC2SecurityGroupReferencingSupportValue securityGroupReferencingSupport;
 
@@ -42236,7 +42317,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2Ipv6SupportValue ipv6Support;
 
 /**
- <p>Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p><p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#create-vpc-attachment">Create a transit gateway attachment to a VPC</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+ <note><p>This parameter is in preview and may not be available for your account.</p></note><p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
  */
 @property (nonatomic, assign) AWSEC2SecurityGroupReferencingSupportValue securityGroupReferencingSupport;
 
@@ -42754,7 +42835,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable iops;
 
 /**
- <p>Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances"> Nitro-based instances</a> in the same Availability Zone. This parameter is supported with <code>io1</code> and <code>io2</code> volumes only. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html"> Amazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances"> Nitro-based instances</a> in the same Availability Zone. This parameter is supported with <code>io1</code> and <code>io2</code> volumes only. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html"> Amazon EBS Multi-Attach</a> in the <i>Amazon EBS User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable multiAttachEnabled;
 
@@ -42774,7 +42855,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable volumeId;
 
 /**
- <p>The target EBS volume type of the volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Default: The existing type is retained.</p>
+ <p>The target EBS volume type of the volume. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html">Amazon EBS volume types</a> in the <i>Amazon EBS User Guide</i>.</p><p>Default: The existing type is retained.</p>
  */
 @property (nonatomic, assign) AWSEC2VolumeType volumeType;
 
@@ -44672,6 +44753,83 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Describes the cores available to the neuron accelerator.</p>
+ */
+@interface AWSEC2NeuronDeviceCoreInfo : AWSModel
+
+
+/**
+ <p>The number of cores available to the neuron accelerator.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable count;
+
+/**
+ <p>The version of the neuron accelerator.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable version;
+
+@end
+
+/**
+ <p>Describes the neuron accelerators for the instance type.</p>
+ */
+@interface AWSEC2NeuronDeviceInfo : AWSModel
+
+
+/**
+ <p>Describes the cores available to each neuron accelerator.</p>
+ */
+@property (nonatomic, strong) AWSEC2NeuronDeviceCoreInfo * _Nullable coreInfo;
+
+/**
+ <p>The number of neuron accelerators for the instance type.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable count;
+
+/**
+ <p>Describes the memory available to each neuron accelerator.</p>
+ */
+@property (nonatomic, strong) AWSEC2NeuronDeviceMemoryInfo * _Nullable memoryInfo;
+
+/**
+ <p>The name of the neuron accelerator.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ <p>Describes the memory available to the neuron accelerator.</p>
+ */
+@interface AWSEC2NeuronDeviceMemoryInfo : AWSModel
+
+
+/**
+ <p>The size of the memory available to the neuron accelerator, in MiB.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable sizeInMiB;
+
+@end
+
+/**
+ <p>Describes the neuron accelerators for the instance type.</p>
+ */
+@interface AWSEC2NeuronInfo : AWSModel
+
+
+/**
+ <p>Describes the neuron accelerators for the instance type.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2NeuronDeviceInfo *> * _Nullable neuronDevices;
+
+/**
+ <p>The total size of the memory for the neuron accelerators for the instance type, in MiB.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable totalNeuronDeviceMemoryInMiB;
+
+@end
+
+/**
  
  */
 @interface AWSEC2LatestDhcpConfiguration : AWSModel
@@ -45899,7 +46057,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix that you can specify is /24. The most specific IPv6 prefix you can specify is /56. The address range cannot overlap with another address range that you've brought to this or another Region.</p>
+ <p>The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix that you can specify is /24. The most specific IPv6 address range that you can bring is /48 for CIDRs that are publicly advertisable and /56 for CIDRs that are not publicly advertisable. The address range cannot overlap with another address range that you've brought to this or another Region.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable cidr;
 
@@ -46591,7 +46749,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable billingProducts;
 
 /**
- <p>The block device mapping entries.</p><p>If you specify an Amazon EBS volume using the ID of an Amazon EBS snapshot, you can't specify the encryption state of the volume.</p><p>If you create an AMI on an Outpost, then all backing snapshots must be on the same Outpost or in the Region of that Outpost. AMIs on an Outpost that include local snapshots can be used to launch instances on the same Outpost only. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">Amazon EBS local snapshots on Outposts</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>The block device mapping entries.</p><p>If you specify an Amazon EBS volume using the ID of an Amazon EBS snapshot, you can't specify the encryption state of the volume.</p><p>If you create an AMI on an Outpost, then all backing snapshots must be on the same Outpost or in the Region of that Outpost. AMIs on an Outpost that include local snapshots can be used to launch instances on the same Outpost only. For more information, <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami">Amazon EBS local snapshots on Outposts</a> in the <i>Amazon EBS User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2BlockDeviceMapping *> * _Nullable blockDeviceMappings;
 
@@ -46649,6 +46807,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI.</p><p>There is no way to disable <code>sriovNetSupport</code> at this time.</p><p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sriovNetSupport;
+
+/**
+ <p>The tags to apply to the AMI.</p><p>To tag the AMI, the value for <code>ResourceType</code> must be <code>image</code>. If you specify another value for <code>ResourceType</code>, the request fails.</p><p>To tag an AMI after it has been registered, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
 
 /**
  <p>Set to <code>v2.0</code> to enable Trusted Platform Module (TPM) support. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -48998,7 +49161,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable encrypted;
 
 /**
- <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the <i>Amazon EBS User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outpostArn;
 
@@ -49239,7 +49402,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP, this is the type number. A value of -1 indicates all ICMP types.</p>
+ <p>If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP, this is the ICMP type or -1 (all ICMP types).</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable fromPort;
 
@@ -49279,7 +49442,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable sourceSecurityGroupOwnerId;
 
 /**
- <p>If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP, this is the code. A value of -1 indicates all ICMP codes.</p>
+ <p>If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP, this is the ICMP code or -1 (all ICMP codes).</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable toPort;
 
@@ -50287,7 +50450,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Indicates whether to assign a public IPv4 address to instances launched in a VPC. The public IPv4 address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is <code>true</code>.</p><p>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
+ <p>Indicates whether to assign a public IPv4 address to instances launched in a VPC. The public IPv4 address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is <code>true</code>.</p><p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable associatePublicIpAddress;
 
@@ -50653,12 +50816,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable referencingVpcId;
 
 /**
- <p>The ID of the transit gateway (if applicable). For more information about security group referencing for transit gateways, see <a href="https://docs.aws.amazon.com/tgw/tgw-vpc-attachments.html#create-vpc-attachment">Create a transit gateway attachment to a VPC</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+ <note><p>This parameter is in preview and may not be available for your account.</p></note><p>The ID of the transit gateway (if applicable).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transitGatewayId;
 
 /**
- <p>The ID of the VPC peering connection (if applicable). For more information about security group referencing for peering connections, see <a href="https://docs.aws.amazon.com/peering/vpc-peering-security-groups.html">Update your security groups to reference peer security groups</a> in the <i>VPC Peering Guide</i>.</p>
+ <p>The ID of the VPC peering connection (if applicable). For more information about security group referencing for peering connections, see <a href="https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html">Update your security groups to reference peer security groups</a> in the <i>VPC Peering Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vpcPeeringConnectionId;
 
@@ -50686,7 +50849,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
+ <p>If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable fromPort;
 
@@ -50731,7 +50894,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
 
 /**
- <p>If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
+ <p>If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes). If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable toPort;
 
@@ -50777,7 +50940,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
+ <p>If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable fromPort;
 
@@ -50797,7 +50960,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable referencedGroupId;
 
 /**
- <p>If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the code. A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
+ <p>If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes). If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable toPort;
 
@@ -51083,7 +51246,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
- <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the <i>Amazon EBS User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outpostArn;
 
@@ -51257,7 +51420,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable encrypted;
 
 /**
- <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the <i>Amazon EBS User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outpostArn;
 
@@ -51725,7 +51888,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable instancePoolsToUseCount;
 
 /**
- <p>The launch specifications for the Spot Fleet request. If you specify <code>LaunchSpecifications</code>, you can't specify <code>LaunchTemplateConfigs</code>. If you include On-Demand capacity in your request, you must use <code>LaunchTemplateConfigs</code>.</p>
+ <p>The launch specifications for the Spot Fleet request. If you specify <code>LaunchSpecifications</code>, you can't specify <code>LaunchTemplateConfigs</code>. If you include On-Demand capacity in your request, you must use <code>LaunchTemplateConfigs</code>.</p><note><p>If an AMI specified in a launch specification is deregistered or disabled, no new instances can be launched from the AMI. For fleets of type <code>maintain</code>, the target capacity will not be maintained.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSEC2SpotFleetLaunchSpecification *> * _Nullable launchSpecifications;
 
@@ -52206,12 +52369,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The start of the port range for the TCP and UDP protocols, or an ICMP type number. A value of -1 indicates all ICMP types. </p>
+ <p>If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable fromPort;
 
 /**
- <p>The IP protocol name (for <code>tcp</code>, <code>udp</code>, and <code>icmp</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers)</a>.</p>
+ <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, <code>icmpv6</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers)</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipProtocol;
 
@@ -52226,7 +52389,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable prefixListIds;
 
 /**
- <p>The end of the port range for the TCP and UDP protocols, or an ICMP type number. A value of <code>-1</code> indicates all ICMP types. </p>
+ <p>If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes).</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable toPort;
 
@@ -52634,7 +52797,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable mapCustomerOwnedIpOnLaunch;
 
 /**
- <p>Indicates whether instances launched in this subnet receive a public IPv4 address.</p><p>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
+ <p>Indicates whether instances launched in this subnet receive a public IPv4 address.</p><p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable mapPublicIpOnLaunch;
 
@@ -54216,7 +54379,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable propagationDefaultRouteTableId;
 
 /**
- <p>Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p><p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw">Create a transit gateway</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+ <note><p>This parameter is in preview and may not be available for your account.</p></note><p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
  */
 @property (nonatomic, assign) AWSEC2SecurityGroupReferencingSupportValue securityGroupReferencingSupport;
 
@@ -54579,7 +54742,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2MulticastSupportValue multicastSupport;
 
 /**
- <p>Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p><p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw">Create a transit gateway</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+ <note><p>This parameter is in preview and may not be available for your account.</p></note><p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
  */
 @property (nonatomic, assign) AWSEC2SecurityGroupReferencingSupportValue securityGroupReferencingSupport;
 
@@ -54941,7 +55104,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2Ipv6SupportValue ipv6Support;
 
 /**
- <p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#create-vpc-attachment">Create a transit gateway attachment to a VPC</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+ <note><p>This parameter is in preview and may not be available for your account.</p></note><p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
  */
 @property (nonatomic, assign) AWSEC2SecurityGroupReferencingSupportValue securityGroupReferencingSupport;
 
