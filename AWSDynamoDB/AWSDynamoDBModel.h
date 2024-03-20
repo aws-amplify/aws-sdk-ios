@@ -42,6 +42,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBErrorType) {
     AWSDynamoDBErrorItemCollectionSizeLimitExceeded,
     AWSDynamoDBErrorLimitExceeded,
     AWSDynamoDBErrorPointInTimeRecoveryUnavailable,
+    AWSDynamoDBErrorPolicyNotFound,
     AWSDynamoDBErrorProvisionedThroughputExceeded,
     AWSDynamoDBErrorReplicaAlreadyExists,
     AWSDynamoDBErrorReplicaNotFound,
@@ -406,6 +407,8 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBDeleteReplicaAction;
 @class AWSDynamoDBDeleteReplicationGroupMemberAction;
 @class AWSDynamoDBDeleteRequest;
+@class AWSDynamoDBDeleteResourcePolicyInput;
+@class AWSDynamoDBDeleteResourcePolicyOutput;
 @class AWSDynamoDBDeleteTableInput;
 @class AWSDynamoDBDeleteTableOutput;
 @class AWSDynamoDBDescribeBackupInput;
@@ -449,6 +452,8 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBGet;
 @class AWSDynamoDBGetItemInput;
 @class AWSDynamoDBGetItemOutput;
+@class AWSDynamoDBGetResourcePolicyInput;
+@class AWSDynamoDBGetResourcePolicyOutput;
 @class AWSDynamoDBGlobalSecondaryIndex;
 @class AWSDynamoDBGlobalSecondaryIndexAutoScalingUpdate;
 @class AWSDynamoDBGlobalSecondaryIndexDescription;
@@ -498,6 +503,8 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBPutItemInput;
 @class AWSDynamoDBPutItemOutput;
 @class AWSDynamoDBPutRequest;
+@class AWSDynamoDBPutResourcePolicyInput;
+@class AWSDynamoDBPutResourcePolicyOutput;
 @class AWSDynamoDBQueryInput;
 @class AWSDynamoDBQueryOutput;
 @class AWSDynamoDBReplica;
@@ -590,7 +597,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
- <p>Represents an attribute for describing the key schema for the table and indexes.</p>
+ <p>Represents an attribute for describing the schema for the table and indexes.</p>
  Required parameters: [AttributeName, AttributeType]
  */
 @interface AWSDynamoDBAttributeDefinition : AWSModel
@@ -1014,7 +1021,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>A map of one or more table names and, for each table, a map that describes one or more items to retrieve from that table. Each table name can be used only once per <code>BatchGetItem</code> request.</p><p>Each element in the map of items to retrieve consists of the following:</p><ul><li><p><code>ConsistentRead</code> - If <code>true</code>, a strongly consistent read is used; if <code>false</code> (the default), an eventually consistent read is used.</p></li><li><p><code>ExpressionAttributeNames</code> - One or more substitution tokens for attribute names in the <code>ProjectionExpression</code> parameter. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note><p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p></note><p>For more information about expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></li><li><p><code>Keys</code> - An array of primary key attribute values that define specific items in the table. For each primary key, you must provide <i>all</i> of the key attributes. For example, with a simple primary key, you only need to provide the partition key value. For a composite key, you must provide <i>both</i> the partition key value and the sort key value.</p></li><li><p><code>ProjectionExpression</code> - A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p><p>If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.</p><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></li><li><p><code>AttributesToGet</code> - This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p></li></ul>
+ <p>A map of one or more table names or table ARNs and, for each table, a map that describes one or more items to retrieve from that table. Each table name or ARN can be used only once per <code>BatchGetItem</code> request.</p><p>Each element in the map of items to retrieve consists of the following:</p><ul><li><p><code>ConsistentRead</code> - If <code>true</code>, a strongly consistent read is used; if <code>false</code> (the default), an eventually consistent read is used.</p></li><li><p><code>ExpressionAttributeNames</code> - One or more substitution tokens for attribute names in the <code>ProjectionExpression</code> parameter. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note><p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p></note><p>For more information about expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></li><li><p><code>Keys</code> - An array of primary key attribute values that define specific items in the table. For each primary key, you must provide <i>all</i> of the key attributes. For example, with a simple primary key, you only need to provide the partition key value. For a composite key, you must provide <i>both</i> the partition key value and the sort key value.</p></li><li><p><code>ProjectionExpression</code> - A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p><p>If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.</p><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></li><li><p><code>AttributesToGet</code> - This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBKeysAndAttributes *> * _Nullable requestItems;
 
@@ -1037,7 +1044,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBConsumedCapacity *> * _Nullable consumedCapacity;
 
 /**
- <p>A map of table name to a list of items. Each object in <code>Responses</code> consists of a table name, along with a map of attribute data consisting of the data type and attribute value.</p>
+ <p>A map of table name or table ARN to a list of items. Each object in <code>Responses</code> consists of a table name or ARN, along with a map of attribute data consisting of the data type and attribute value.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSArray<NSDictionary<NSString *, AWSDynamoDBAttributeValue *> *> *> * _Nullable responses;
 
@@ -1131,7 +1138,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>A map of one or more table names and, for each table, a list of operations to be performed (<code>DeleteRequest</code> or <code>PutRequest</code>). Each element in the map consists of the following:</p><ul><li><p><code>DeleteRequest</code> - Perform a <code>DeleteItem</code> operation on the specified item. The item to be deleted is identified by a <code>Key</code> subelement:</p><ul><li><p><code>Key</code> - A map of primary key attribute values that uniquely identify the item. Each entry in this map consists of an attribute name and an attribute value. For each primary key, you must provide <i>all</i> of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for <i>both</i> the partition key and the sort key.</p></li></ul></li><li><p><code>PutRequest</code> - Perform a <code>PutItem</code> operation on the specified item. The item to be put is identified by an <code>Item</code> subelement:</p><ul><li><p><code>Item</code> - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values are rejected with a <code>ValidationException</code> exception.</p><p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p></li></ul></li></ul>
+ <p>A map of one or more table names or table ARNs and, for each table, a list of operations to be performed (<code>DeleteRequest</code> or <code>PutRequest</code>). Each element in the map consists of the following:</p><ul><li><p><code>DeleteRequest</code> - Perform a <code>DeleteItem</code> operation on the specified item. The item to be deleted is identified by a <code>Key</code> subelement:</p><ul><li><p><code>Key</code> - A map of primary key attribute values that uniquely identify the item. Each entry in this map consists of an attribute name and an attribute value. For each primary key, you must provide <i>all</i> of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for <i>both</i> the partition key and the sort key.</p></li></ul></li><li><p><code>PutRequest</code> - Perform a <code>PutItem</code> operation on the specified item. The item to be put is identified by an <code>Item</code> subelement:</p><ul><li><p><code>Item</code> - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values are rejected with a <code>ValidationException</code> exception.</p><p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p></li></ul></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSArray<AWSDynamoDBWriteRequest *> *> * _Nullable requestItems;
 
@@ -1164,7 +1171,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSArray<AWSDynamoDBItemCollectionMetrics *> *> * _Nullable itemCollectionMetrics;
 
 /**
- <p>A map of tables and requests against those tables that were not processed. The <code>UnprocessedItems</code> value is in the same form as <code>RequestItems</code>, so you can provide this value directly to a subsequent <code>BatchWriteItem</code> operation. For more information, see <code>RequestItems</code> in the Request Parameters section.</p><p>Each <code>UnprocessedItems</code> entry consists of a table name and, for that table, a list of operations to perform (<code>DeleteRequest</code> or <code>PutRequest</code>).</p><ul><li><p><code>DeleteRequest</code> - Perform a <code>DeleteItem</code> operation on the specified item. The item to be deleted is identified by a <code>Key</code> subelement:</p><ul><li><p><code>Key</code> - A map of primary key attribute values that uniquely identify the item. Each entry in this map consists of an attribute name and an attribute value.</p></li></ul></li><li><p><code>PutRequest</code> - Perform a <code>PutItem</code> operation on the specified item. The item to be put is identified by an <code>Item</code> subelement:</p><ul><li><p><code>Item</code> - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values will be rejected with a <code>ValidationException</code> exception.</p><p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p></li></ul></li></ul><p>If there are no unprocessed items remaining, the response contains an empty <code>UnprocessedItems</code> map.</p>
+ <p>A map of tables and requests against those tables that were not processed. The <code>UnprocessedItems</code> value is in the same form as <code>RequestItems</code>, so you can provide this value directly to a subsequent <code>BatchWriteItem</code> operation. For more information, see <code>RequestItems</code> in the Request Parameters section.</p><p>Each <code>UnprocessedItems</code> entry consists of a table name or table ARN and, for that table, a list of operations to perform (<code>DeleteRequest</code> or <code>PutRequest</code>).</p><ul><li><p><code>DeleteRequest</code> - Perform a <code>DeleteItem</code> operation on the specified item. The item to be deleted is identified by a <code>Key</code> subelement:</p><ul><li><p><code>Key</code> - A map of primary key attribute values that uniquely identify the item. Each entry in this map consists of an attribute name and an attribute value.</p></li></ul></li><li><p><code>PutRequest</code> - Perform a <code>PutItem</code> operation on the specified item. The item to be put is identified by an <code>Item</code> subelement:</p><ul><li><p><code>Item</code> - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values will be rejected with a <code>ValidationException</code> exception.</p><p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p></li></ul></li></ul><p>If there are no unprocessed items remaining, the response contains an empty <code>UnprocessedItems</code> map.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSArray<AWSDynamoDBWriteRequest *> *> * _Nullable unprocessedItems;
 
@@ -1286,7 +1293,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBReturnValuesOnConditionCheckFailure returnValuesOnConditionCheckFailure;
 
 /**
- <p>Name of the table for the check item request.</p>
+ <p>Name of the table for the check item request. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -1324,7 +1331,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) AWSDynamoDBCapacity * _Nullable table;
 
 /**
- <p>The name of the table that was affected by the operation.</p>
+ <p>The name of the table that was affected by the operation. If you had specified the Amazon Resource Name (ARN) of a table in the input, you'll see the table ARN in the response.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -1389,7 +1396,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable backupName;
 
 /**
- <p>The name of the table.</p>
+ <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -1559,6 +1566,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) AWSDynamoDBProvisionedThroughput * _Nullable provisionedThroughput;
 
 /**
+ <p>An Amazon Web Services resource-based policy document in JSON format that will be attached to the table.</p><p>When you attach a resource-based policy while creating a table, the policy creation is <i>strongly consistent</i>.</p><p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. You can’t request an increase for this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourcePolicy;
+
+/**
  <p>Represents the settings used to enable server-side encryption.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBSSESpecification * _Nullable SSESpecification;
@@ -1574,7 +1586,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBTableClass tableClass;
 
 /**
- <p>The name of the table to create.</p>
+ <p>The name of the table to create. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -1649,7 +1661,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBReturnValuesOnConditionCheckFailure returnValuesOnConditionCheckFailure;
 
 /**
- <p>Name of the table in which the item to be deleted resides.</p>
+ <p>Name of the table in which the item to be deleted resides. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -1753,7 +1765,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBReturnValuesOnConditionCheckFailure returnValuesOnConditionCheckFailure;
 
 /**
- <p>The name of the table from which to delete the item.</p>
+ <p>The name of the table from which to delete the item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -1825,6 +1837,37 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ 
+ */
+@interface AWSDynamoDBDeleteResourcePolicyInput : AWSRequest
+
+
+/**
+ <p>A string value that you can use to conditionally delete your policy. When you provide an expected revision ID, if the revision ID of the existing policy on the resource doesn't match or if there's no policy attached to the resource, the request will fail and return a <code>PolicyNotFoundException</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable expectedRevisionId;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the DynamoDB resource from which the policy will be removed. The resources you can specify include tables and streams. If you remove the policy of a table, it will also remove the permissions for the table's indexes defined in that policy document. This is because index permissions are defined in the table's policy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBDeleteResourcePolicyOutput : AWSModel
+
+
+/**
+ <p>A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.</p><p>This value will be empty if you make a request against a resource without a policy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable revisionId;
+
+@end
+
+/**
  <p>Represents the input of a <code>DeleteTable</code> operation.</p>
  Required parameters: [TableName]
  */
@@ -1832,7 +1875,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The name of the table to delete.</p>
+ <p>The name of the table to delete. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -1884,7 +1927,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>Name of the table for which the customer wants to check the continuous backups and point in time recovery settings.</p>
+ <p>Name of the table for which the customer wants to check the continuous backups and point in time recovery settings.</p><p>You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -1915,7 +1958,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable indexName;
 
 /**
- <p>The name of the table to describe.</p>
+ <p>The name of the table to describe. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -2096,7 +2139,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The name of the table being described.</p>
+ <p>The name of the table being described. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -2164,7 +2207,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The name of the table to describe.</p>
+ <p>The name of the table to describe. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -2190,7 +2233,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The name of the table.</p>
+ <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -2216,7 +2259,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The name of the table to be described.</p>
+ <p>The name of the table to be described. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -2580,7 +2623,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable s3Bucket;
 
 /**
- <p>The ID of the Amazon Web Services account that owns the bucket the export will be stored in.</p>
+ <p>The ID of the Amazon Web Services account that owns the bucket the export will be stored in.</p><note><p>S3BucketOwner is a required parameter when exporting to a S3 bucket in another account.</p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable s3BucketOwner;
 
@@ -2660,7 +2703,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable projectionExpression;
 
 /**
- <p>The name of the table from which to retrieve the specified item.</p>
+ <p>The name of the table from which to retrieve the specified item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -2704,7 +2747,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
 
 /**
- <p>The name of the table containing the requested item.</p>
+ <p>The name of the table containing the requested item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -2725,6 +2768,37 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>A map of attribute names to <code>AttributeValue</code> objects, as specified by <code>ProjectionExpression</code>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable item;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBGetResourcePolicyInput : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy is attached. The resources you can specify include tables and streams.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBGetResourcePolicyOutput : AWSModel
+
+
+/**
+ <p>The resource-based policy document attached to the resource, which can be a table or stream, in JSON format.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policy;
+
+/**
+ <p>A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable revisionId;
 
 @end
 
@@ -3321,7 +3395,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable streamArn;
 
 /**
- <p>The name of the DynamoDB table.</p>
+ <p>The name of the DynamoDB table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -3377,7 +3451,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable limit;
 
 /**
- <p>The backups from the table specified by <code>TableName</code> are listed. </p>
+ <p>Lists the backups from the table specified in <code>TableName</code>. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -3428,7 +3502,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The name of the table.</p>
+ <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -3805,7 +3879,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable nonKeyAttributes;
 
 /**
- <p>The set of attributes that are projected into the index:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul>
+ <p>The set of attributes that are projected into the index:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul><p>When using the DynamoDB console, <code>ALL</code> is selected by default.</p>
  */
 @property (nonatomic, assign) AWSDynamoDBProjectionType projectionType;
 
@@ -3909,7 +3983,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBReturnValuesOnConditionCheckFailure returnValuesOnConditionCheckFailure;
 
 /**
- <p>Name of the table in which to write the item.</p>
+ <p>Name of the table in which to write the item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -3973,7 +4047,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBReturnValuesOnConditionCheckFailure returnValuesOnConditionCheckFailure;
 
 /**
- <p>The name of the table to contain the item.</p>
+ <p>The name of the table to contain the item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -4017,6 +4091,47 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ 
+ */
+@interface AWSDynamoDBPutResourcePolicyInput : AWSRequest
+
+
+/**
+ <p>Set this parameter to <code>true</code> to confirm that you want to remove your permissions to change the policy of this resource in the future.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confirmRemoveSelfResourceAccess;
+
+/**
+ <p>A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy. When you provide an expected revision ID, if the revision ID of the existing policy on the resource doesn't match or if there's no policy attached to the resource, your request will be rejected with a <code>PolicyNotFoundException</code>.</p><p>To conditionally put a policy when no policy exists for the resource, specify <code>NO_POLICY</code> for the revision ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable expectedRevisionId;
+
+/**
+ <p>An Amazon Web Services resource-based policy document in JSON format.</p><p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policy;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams.</p><p>You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the <code>Resource</code> field of a given <code>Statement</code> in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple <code>Statement</code> fields in your policy document.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBPutResourcePolicyOutput : AWSModel
+
+
+/**
+ <p>A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable revisionId;
+
+@end
+
+/**
  <p>Represents the input of a <code>Query</code> operation.</p>
  Required parameters: [TableName]
  */
@@ -4054,7 +4169,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable expressionAttributeValues;
 
 /**
- <p>A string that contains conditions that DynamoDB applies after the <code>Query</code> operation, but before the data is returned to you. Items that do not satisfy the <code>FilterExpression</code> criteria are not returned.</p><p>A <code>FilterExpression</code> does not allow key attributes. You cannot define a filter expression based on a partition key or a sort key.</p><note><p>A <code>FilterExpression</code> is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.</p></note><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Query.FilterExpression">Filter Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>A string that contains conditions that DynamoDB applies after the <code>Query</code> operation, but before the data is returned to you. Items that do not satisfy the <code>FilterExpression</code> criteria are not returned.</p><p>A <code>FilterExpression</code> does not allow key attributes. You cannot define a filter expression based on a partition key or a sort key.</p><note><p>A <code>FilterExpression</code> is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.</p></note><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.FilterExpression.html">Filter Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable filterExpression;
 
@@ -4104,7 +4219,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBSelect select;
 
 /**
- <p>The name of the table containing the requested items.</p>
+ <p>The name of the table containing the requested items. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -4850,7 +4965,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBSelect select;
 
 /**
- <p>The name of the table containing the requested items; or, if you provide <code>IndexName</code>, the name of the table to which that index belongs.</p>
+ <p>The name of the table containing the requested items or if you provide <code>IndexName</code>, the name of the table to which that index belongs.</p><p>You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -5457,7 +5572,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBReturnValuesOnConditionCheckFailure returnValuesOnConditionCheckFailure;
 
 /**
- <p>Name of the table for the <code>UpdateItem</code> request.</p>
+ <p>Name of the table for the <code>UpdateItem</code> request. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -5480,7 +5595,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) AWSDynamoDBPointInTimeRecoverySpecification * _Nullable pointInTimeRecoverySpecification;
 
 /**
- <p>The name of the table.</p>
+ <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -5516,7 +5631,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable indexName;
 
 /**
- <p>The name of the table.</p>
+ <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -5714,7 +5829,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBReturnValuesOnConditionCheckFailure returnValuesOnConditionCheckFailure;
 
 /**
- <p>The name of the table containing the item to update.</p>
+ <p>The name of the table containing the item to update. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -5768,12 +5883,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The ARN for the Kinesis stream input.</p>
+ <p>The Amazon Resource Name (ARN) for the Kinesis stream input.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable streamArn;
 
 /**
- <p>The table name for the Kinesis streaming destination input.</p>
+ <p>The table name for the Kinesis streaming destination input. You can also provide the ARN of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -5899,7 +6014,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBTableClass tableClass;
 
 /**
- <p>The name of the table to be updated.</p>
+ <p>The name of the table to be updated. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -5940,7 +6055,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBReplicaAutoScalingUpdate *> * _Nullable replicaUpdates;
 
 /**
- <p>The name of the global table to be updated.</p>
+ <p>The name of the global table to be updated. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -5967,7 +6082,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The name of the table to be configured.</p>
+ <p>The name of the table to be configured. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
