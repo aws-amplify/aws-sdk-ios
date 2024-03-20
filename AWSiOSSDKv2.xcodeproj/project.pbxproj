@@ -446,6 +446,7 @@
 		2109EDD025475AD30057043C /* AWSNSSecureCodingTestBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1C57E42539E80C00DBC24C /* AWSNSSecureCodingTestBase.framework */; };
 		2109EDD325475B3D0057043C /* AWSGeneralLocationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2109EDD125475B3C0057043C /* AWSGeneralLocationTests.m */; };
 		2109EDD425475B3D0057043C /* AWSLocationNSSecureCodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2109EDD225475B3D0057043C /* AWSLocationNSSecureCodingTests.m */; };
+		210F43EC2BAB38F40011DB93 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 214608F32B88F3FF002FCE7B /* PrivacyInfo.xcprivacy */; };
 		211166FF2399C24900902FC1 /* AWSKinesisVideoSignaling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 211166F62399C24900902FC1 /* AWSKinesisVideoSignaling.framework */; };
 		211167132399C37300902FC1 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
 		2111671C2399C5BF00902FC1 /* AWSKinesisVideoSignalingResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 211167142399C5BB00902FC1 /* AWSKinesisVideoSignalingResources.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -11662,6 +11663,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				210F43EC2BAB38F40011DB93 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
