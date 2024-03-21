@@ -4,6 +4,11 @@
 
 -Features for next release
 
+## 2.34.1
+
+### Misc. Updates
+- Add privacy manifest (#5214)
+
 ## 2.34.0
 
 ### Misc. Updates
