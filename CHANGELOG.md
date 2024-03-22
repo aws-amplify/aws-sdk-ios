@@ -3,7 +3,7 @@
 ## Unreleased
 
 ### Misc. Updates
-- fix: privacy manifest pod specs (#5259)
+- privacy manifest pod specs (#5259)
 
 ## 2.34.1
 
