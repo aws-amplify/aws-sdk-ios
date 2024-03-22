@@ -4,10 +4,16 @@
 
 -Features for next release
 
+## 2.34.2
+
+### Misc. Updates
+- privacy manifest pod specs (#5259)
+
 ## 2.34.1
 
 ### Misc. Updates
 - Add privacy manifest (#5214)
+- privacy manifest targets for AWSAuthSDK targets (#5248)
 
 ## 2.34.0
 
