@@ -15,6 +15,6 @@ Pod::Spec.new do |s|
    s.dependency 'AWSCore', '2.34.1'
    s.source_files = 'AWSAuthSDK/Sources/AWSAuthCore/*.{h,m}'
    s.public_header_files = 'AWSAuthSDK/Sources/AWSAuthCore/*.h'
-   s.resource_bundle = { 'AWSAuthCore' => ['AWSAuthCore/PrivacyInfo.xcprivacy']}
+   s.resource_bundle = { 'AWSAuthCore' => ['AWSAuthSDK/Sources/AWSAuthCore/PrivacyInfo.xcprivacy']}
  end
  
