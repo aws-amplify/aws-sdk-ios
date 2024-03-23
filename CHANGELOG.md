@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.34.2
+
 ### Misc. Updates
 - privacy manifest pod specs (#5259)
 
