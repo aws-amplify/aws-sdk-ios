@@ -1337,6 +1337,8 @@ static NSString *_defaultService;
     }
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (CFTypeRef)accessibilityObject
 {
     switch (_accessibility) {
@@ -1358,6 +1360,7 @@ static NSString *_defaultService;
             return nil;
     }
 }
+#pragma clang diagnostic pop
 
 + (NSError *)argumentError:(NSString *)message
 {

@@ -24,7 +24,7 @@ To get started with the AWS SDK for iOS, check out the [Developer Guide for iOS]
 To use the AWS SDK for iOS, you will need the following installed on your development machine:
 
 * Xcode 11.0 or later
-* iOS 9 or later
+* iOS 12 or later
 
 ## Include the SDK for iOS in an Existing Application
 

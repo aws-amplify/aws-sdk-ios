@@ -34,7 +34,7 @@
 #import "AWSGZIP.h"
 #import <zlib.h>
 
-void awsgzip_loadGZIP(){
+void awsgzip_loadGZIP(void){
 }
 
 static const NSUInteger ChunkSize = 16384;

@@ -89,7 +89,7 @@ static NSString *const AWSLexSignatureScope = @"lex";
         contentSha256 = @"UNSIGNED-PAYLOAD";
         [request setValue:contentSha256 forHTTPHeaderField:@"x-amz-content-sha256"];
     }else{
-        contentSha256 = [AWSSignatureSignerUtility hexEncode:[[NSString alloc] initWithData:[AWSSignatureSignerUtility hash:request.HTTPBody] encoding:NSASCIIStringEncoding]];
+        contentSha256 = [AWSSignatureSignerUtility hexEncode:[[NSString alloc] initWithData:[AWSSignatureSignerUtility hashData:request.HTTPBody] encoding:NSASCIIStringEncoding]];
     }
     
     NSString *canonicalRequest = [AWSSignatureV4Signer getCanonicalizedRequest:request.HTTPMethod
