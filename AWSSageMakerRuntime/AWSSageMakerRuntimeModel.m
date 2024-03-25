@@ -69,6 +69,7 @@ NSString *const AWSSageMakerRuntimeErrorDomain = @"com.amazonaws.AWSSageMakerRun
              @"customAttributes" : @"CustomAttributes",
              @"enableExplanations" : @"EnableExplanations",
              @"endpointName" : @"EndpointName",
+             @"inferenceComponentName" : @"InferenceComponentName",
              @"inferenceId" : @"InferenceId",
              @"targetContainerHostname" : @"TargetContainerHostname",
              @"targetModel" : @"TargetModel",
@@ -91,6 +92,83 @@ NSString *const AWSSageMakerRuntimeErrorDomain = @"com.amazonaws.AWSSageMakerRun
              @"customAttributes" : @"CustomAttributes",
              @"invokedProductionVariant" : @"InvokedProductionVariant",
              };
+}
+
+@end
+
+@implementation AWSSageMakerRuntimeInvokeEndpointWithResponseStreamInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"accept" : @"Accept",
+             @"body" : @"Body",
+             @"contentType" : @"ContentType",
+             @"customAttributes" : @"CustomAttributes",
+             @"endpointName" : @"EndpointName",
+             @"inferenceComponentName" : @"InferenceComponentName",
+             @"inferenceId" : @"InferenceId",
+             @"targetContainerHostname" : @"TargetContainerHostname",
+             @"targetVariant" : @"TargetVariant",
+             };
+}
+
+@end
+
+@implementation AWSSageMakerRuntimeInvokeEndpointWithResponseStreamOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"body" : @"Body",
+             @"contentType" : @"ContentType",
+             @"customAttributes" : @"CustomAttributes",
+             @"invokedProductionVariant" : @"InvokedProductionVariant",
+             };
+}
+
++ (NSValueTransformer *)bodyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSageMakerRuntimeResponseStream class]];
+}
+
+@end
+
+@implementation AWSSageMakerRuntimePayloadPart
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bytes" : @"Bytes",
+             };
+}
+
+@end
+
+@implementation AWSSageMakerRuntimeResponseStream
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"internalStreamFailure" : @"InternalStreamFailure",
+             @"modelStreamError" : @"ModelStreamError",
+             @"payloadPart" : @"PayloadPart",
+             };
+}
+
++ (NSValueTransformer *)payloadPartJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSageMakerRuntimePayloadPart class]];
 }
 
 @end
