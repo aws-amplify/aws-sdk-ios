@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+<!--  VALIDATE THAT THE FOLLOWING IS UNDER THE UNRELELEASED SECTION AND HAS NO DUPLICATES. OTHERWISE UPDATE IT -->
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSEC2
+
+
 -Features for next release
 
 ## 2.34.2
