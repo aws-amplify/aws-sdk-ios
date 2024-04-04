@@ -68,6 +68,8 @@
 - (void) test_AWSDynamoDBDeleteReplicaAction API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDeleteReplicationGroupMemberAction API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDeleteRequest API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBDeleteResourcePolicyInput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBDeleteResourcePolicyOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDeleteTableInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDeleteTableOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDescribeBackupInput API_AVAILABLE(ios(11));
@@ -111,6 +113,8 @@
 - (void) test_AWSDynamoDBGet API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBGetItemInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBGetItemOutput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBGetResourcePolicyInput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBGetResourcePolicyOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBGlobalSecondaryIndex API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBGlobalSecondaryIndexAutoScalingUpdate API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBGlobalSecondaryIndexDescription API_AVAILABLE(ios(11));
@@ -160,6 +164,8 @@
 - (void) test_AWSDynamoDBPutItemInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBPutItemOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBPutRequest API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBPutResourcePolicyInput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBPutResourcePolicyOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBQueryInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBQueryOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBReplica API_AVAILABLE(ios(11));
@@ -428,6 +434,14 @@
     [self validateSecureCodingForClass:[AWSDynamoDBDeleteRequest class]];
 }
 
+- (void) test_AWSDynamoDBDeleteResourcePolicyInput {
+    [self validateSecureCodingForClass:[AWSDynamoDBDeleteResourcePolicyInput class]];
+}
+
+- (void) test_AWSDynamoDBDeleteResourcePolicyOutput {
+    [self validateSecureCodingForClass:[AWSDynamoDBDeleteResourcePolicyOutput class]];
+}
+
 - (void) test_AWSDynamoDBDeleteTableInput {
     [self validateSecureCodingForClass:[AWSDynamoDBDeleteTableInput class]];
 }
@@ -598,6 +612,14 @@
 
 - (void) test_AWSDynamoDBGetItemOutput {
     [self validateSecureCodingForClass:[AWSDynamoDBGetItemOutput class]];
+}
+
+- (void) test_AWSDynamoDBGetResourcePolicyInput {
+    [self validateSecureCodingForClass:[AWSDynamoDBGetResourcePolicyInput class]];
+}
+
+- (void) test_AWSDynamoDBGetResourcePolicyOutput {
+    [self validateSecureCodingForClass:[AWSDynamoDBGetResourcePolicyOutput class]];
 }
 
 - (void) test_AWSDynamoDBGlobalSecondaryIndex {
@@ -794,6 +816,14 @@
 
 - (void) test_AWSDynamoDBPutRequest {
     [self validateSecureCodingForClass:[AWSDynamoDBPutRequest class]];
+}
+
+- (void) test_AWSDynamoDBPutResourcePolicyInput {
+    [self validateSecureCodingForClass:[AWSDynamoDBPutResourcePolicyInput class]];
+}
+
+- (void) test_AWSDynamoDBPutResourcePolicyOutput {
+    [self validateSecureCodingForClass:[AWSDynamoDBPutResourcePolicyOutput class]];
 }
 
 - (void) test_AWSDynamoDBQueryInput {
