@@ -17,7 +17,7 @@
     <a title="AWSLogsDeliveryDestination Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLogs 2.34.2 Docs</a> (82% documented)</p>
+        <p><a href="../index.html">AWSLogs 2.35.0 Docs</a> (82% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLogs.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -332,6 +332,21 @@
                 <a href="../Classes/AWSLogsListTagsLogGroupResponse.html">AWSLogsListTagsLogGroupResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLogsLiveTailSessionLogEvent.html">AWSLogsLiveTailSessionLogEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsLiveTailSessionMetadata.html">AWSLogsLiveTailSessionMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsLiveTailSessionStart.html">AWSLogsLiveTailSessionStart</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsLiveTailSessionUpdate.html">AWSLogsLiveTailSessionUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsLogEvent.html">AWSLogsLogEvent</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLogsLogGroup.html">AWSLogsLogGroup</a>
               </li>
               <li class="nav-group-task">
@@ -453,6 +468,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsSearchedLogStream.html">AWSLogsSearchedLogStream</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsStartLiveTailRequest.html">AWSLogsStartLiveTailRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsStartLiveTailResponse.html">AWSLogsStartLiveTailResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsStartLiveTailResponseStream.html">AWSLogsStartLiveTailResponseStream</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsStartQueryRequest.html">AWSLogsStartQueryRequest</a>
@@ -595,7 +619,7 @@
 
                 </div>
               </div>
-            <p>This structure contains information about one <i>delivery destination</i> in your account. A delivery destination is an Amazon Web Services resource that represents an Amazon Web Services service that logs can be sent to. CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.</p><p>To configure logs delivery between a supported Amazon Web Services service and a destination, you must do the following:</p><ul><li><p>Create a delivery source, which is a logical object that represents the resource that is actually sending the logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.</p></li><li><p>Create a <i>delivery destination</i>, which is a logical object that represents the actual delivery destination. </p></li><li><p>If you are delivering logs cross-account, you must use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationolicy.html">PutDeliveryDestinationPolicy</a> in the destination account to assign an IAM policy to the destination. This policy allows delivery to that destination. </p></li><li><p>Create a <i>delivery</i> by pairing exactly one delivery source and one delivery destination. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.</p></li></ul><p>You can configure a single delivery source to send logs to multiple destinations by creating multiple deliveries. You can also create multiple deliveries to configure multiple delivery sources to send logs to the same delivery destination.</p>
+            <p>This structure contains information about one <i>delivery destination</i> in your account. A delivery destination is an Amazon Web Services resource that represents an Amazon Web Services service that logs can be sent to. CloudWatch Logs, Amazon S3, are supported as Firehose delivery destinations.</p><p>To configure logs delivery between a supported Amazon Web Services service and a destination, you must do the following:</p><ul><li><p>Create a delivery source, which is a logical object that represents the resource that is actually sending the logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.</p></li><li><p>Create a <i>delivery destination</i>, which is a logical object that represents the actual delivery destination. </p></li><li><p>If you are delivering logs cross-account, you must use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html">PutDeliveryDestinationPolicy</a> in the destination account to assign an IAM policy to the destination. This policy allows delivery to that destination. </p></li><li><p>Create a <i>delivery</i> by pairing exactly one delivery source and one delivery destination. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.</p></li></ul><p>You can configure a single delivery source to send logs to multiple destinations by creating multiple deliveries. You can also create multiple deliveries to configure multiple delivery sources to send logs to the same delivery destination.</p>
 
           </section>
           <section class="section task-group-section">
@@ -678,7 +702,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.</p>
+                        <p>Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.</p>
 
                       </div>
                       <div class="declaration">
@@ -798,7 +822,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-03-22)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-04-04)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
