@@ -55,10 +55,6 @@
     return self;
 }
 
--(void)dealloc {
-    [self cleanUp];
-}
-
 - (void)main {
     AWSDDLogVerbose(@"Started execution of Thread: [%@]", self);
     //This is invoked in a new thread by the webSocketDidOpen method or by the Connect method. Get the runLoop from the thread.
