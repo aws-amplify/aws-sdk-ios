@@ -17,7 +17,7 @@
     <a title="AWSDynamoDBBatchWriteItemOutput Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSDynamoDB 2.34.2 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSDynamoDB 2.35.0 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSDynamoDB.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -188,6 +188,12 @@
                 <a href="../Classes/AWSDynamoDBDeleteRequest.html">AWSDynamoDBDeleteRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBDeleteResourcePolicyInput.html">AWSDynamoDBDeleteResourcePolicyInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBDeleteResourcePolicyOutput.html">AWSDynamoDBDeleteResourcePolicyOutput</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBDeleteTableInput.html">AWSDynamoDBDeleteTableInput</a>
               </li>
               <li class="nav-group-task">
@@ -315,6 +321,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBGetItemOutput.html">AWSDynamoDBGetItemOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBGetResourcePolicyInput.html">AWSDynamoDBGetResourcePolicyInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBGetResourcePolicyOutput.html">AWSDynamoDBGetResourcePolicyOutput</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBGlobalSecondaryIndex.html">AWSDynamoDBGlobalSecondaryIndex</a>
@@ -474,6 +486,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBPutRequest.html">AWSDynamoDBPutRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBPutResourcePolicyInput.html">AWSDynamoDBPutResourcePolicyInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBPutResourcePolicyOutput.html">AWSDynamoDBPutResourcePolicyOutput</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBQueryExpression.html">AWSDynamoDBQueryExpression</a>
@@ -944,7 +962,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A map of tables and requests against those tables that were not processed. The <code>UnprocessedItems</code> value is in the same form as <code>RequestItems</code>, so you can provide this value directly to a subsequent <code>BatchWriteItem</code> operation. For more information, see <code>RequestItems</code> in the Request Parameters section.</p><p>Each <code>UnprocessedItems</code> entry consists of a table name and, for that table, a list of operations to perform (<code>DeleteRequest</code> or <code>PutRequest</code>).</p><ul><li><p><code>DeleteRequest</code> - Perform a <code>DeleteItem</code> operation on the specified item. The item to be deleted is identified by a <code>Key</code> subelement:</p><ul><li><p><code>Key</code> - A map of primary key attribute values that uniquely identify the item. Each entry in this map consists of an attribute name and an attribute value.</p></li></ul></li><li><p><code>PutRequest</code> - Perform a <code>PutItem</code> operation on the specified item. The item to be put is identified by an <code>Item</code> subelement:</p><ul><li><p><code>Item</code> - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values will be rejected with a <code>ValidationException</code> exception.</p><p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table&rsquo;s attribute definition.</p></li></ul></li></ul><p>If there are no unprocessed items remaining, the response contains an empty <code>UnprocessedItems</code> map.</p>
+                        <p>A map of tables and requests against those tables that were not processed. The <code>UnprocessedItems</code> value is in the same form as <code>RequestItems</code>, so you can provide this value directly to a subsequent <code>BatchWriteItem</code> operation. For more information, see <code>RequestItems</code> in the Request Parameters section.</p><p>Each <code>UnprocessedItems</code> entry consists of a table name or table ARN and, for that table, a list of operations to perform (<code>DeleteRequest</code> or <code>PutRequest</code>).</p><ul><li><p><code>DeleteRequest</code> - Perform a <code>DeleteItem</code> operation on the specified item. The item to be deleted is identified by a <code>Key</code> subelement:</p><ul><li><p><code>Key</code> - A map of primary key attribute values that uniquely identify the item. Each entry in this map consists of an attribute name and an attribute value.</p></li></ul></li><li><p><code>PutRequest</code> - Perform a <code>PutItem</code> operation on the specified item. The item to be put is identified by an <code>Item</code> subelement:</p><ul><li><p><code>Item</code> - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values will be rejected with a <code>ValidationException</code> exception.</p><p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table&rsquo;s attribute definition.</p></li></ul></li></ul><p>If there are no unprocessed items remaining, the response contains an empty <code>UnprocessedItems</code> map.</p>
 
                       </div>
                       <div class="declaration">
@@ -968,7 +986,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-03-22)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-04-04)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

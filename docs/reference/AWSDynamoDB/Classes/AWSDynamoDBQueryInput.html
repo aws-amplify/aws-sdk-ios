@@ -17,7 +17,7 @@
     <a title="AWSDynamoDBQueryInput Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSDynamoDB 2.34.2 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSDynamoDB 2.35.0 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSDynamoDB.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -188,6 +188,12 @@
                 <a href="../Classes/AWSDynamoDBDeleteRequest.html">AWSDynamoDBDeleteRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBDeleteResourcePolicyInput.html">AWSDynamoDBDeleteResourcePolicyInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBDeleteResourcePolicyOutput.html">AWSDynamoDBDeleteResourcePolicyOutput</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBDeleteTableInput.html">AWSDynamoDBDeleteTableInput</a>
               </li>
               <li class="nav-group-task">
@@ -315,6 +321,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBGetItemOutput.html">AWSDynamoDBGetItemOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBGetResourcePolicyInput.html">AWSDynamoDBGetResourcePolicyInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBGetResourcePolicyOutput.html">AWSDynamoDBGetResourcePolicyOutput</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBGlobalSecondaryIndex.html">AWSDynamoDBGlobalSecondaryIndex</a>
@@ -474,6 +486,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBPutRequest.html">AWSDynamoDBPutRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBPutResourcePolicyInput.html">AWSDynamoDBPutResourcePolicyInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBPutResourcePolicyOutput.html">AWSDynamoDBPutResourcePolicyOutput</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBQueryExpression.html">AWSDynamoDBQueryExpression</a>
@@ -1074,7 +1092,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A string that contains conditions that DynamoDB applies after the <code>Query</code> operation, but before the data is returned to you. Items that do not satisfy the <code>FilterExpression</code> criteria are not returned.</p><p>A <code>FilterExpression</code> does not allow key attributes. You cannot define a filter expression based on a partition key or a sort key.</p><note><p>A <code>FilterExpression</code> is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.</p></note><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Query.FilterExpression">Filter Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+                        <p>A string that contains conditions that DynamoDB applies after the <code>Query</code> operation, but before the data is returned to you. Items that do not satisfy the <code>FilterExpression</code> criteria are not returned.</p><p>A <code>FilterExpression</code> does not allow key attributes. You cannot define a filter expression based on a partition key or a sort key.</p><note><p>A <code>FilterExpression</code> is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.</p></note><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.FilterExpression.html">Filter Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
 
                       </div>
                       <div class="declaration">
@@ -1394,7 +1412,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The name of the table containing the requested items.</p>
+                        <p>The name of the table containing the requested items. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
 
                       </div>
                       <div class="declaration">
@@ -1418,7 +1436,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-03-22)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-04-04)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
