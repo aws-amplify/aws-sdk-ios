@@ -739,7 +739,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -763,7 +763,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -885,7 +885,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -912,7 +912,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -957,7 +957,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -984,7 +984,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -1016,7 +1016,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -1040,7 +1040,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -1073,7 +1073,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -1259,7 +1259,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -1305,7 +1305,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -1351,7 +1351,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -1392,7 +1392,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -1416,7 +1416,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -1529,7 +1529,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -1565,7 +1565,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -1597,7 +1597,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -1633,7 +1633,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -1670,7 +1670,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -1707,7 +1707,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -1734,7 +1734,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -2139,7 +2139,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType * _Nullable userContextData;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -2196,7 +2196,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType * _Nullable userContextData;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -3422,7 +3422,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType * _Nullable userContextData;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -4420,7 +4420,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable attributesToGet;
 
 /**
- <p>A filter string of the form "<i>AttributeName</i><i>Filter-Type</i> "<i>AttributeValue</i>"". Quotation marks within the filter string must be escaped using the backslash (\) character. For example, "<code>family_name</code> = \"Reddy\"".</p><ul><li><p><i>AttributeName</i>: The name of the attribute to search for. You can only search for one attribute at a time.</p></li><li><p><i>Filter-Type</i>: For an exact match, use =, for example, "<code>given_name</code> = \"Jon\"". For a prefix ("starts with") match, use ^=, for example, "<code>given_name</code> ^= \"Jon\"". </p></li><li><p><i>AttributeValue</i>: The attribute value that must be matched for each user.</p></li></ul><p>If the filter string is empty, <code>ListUsers</code> returns all users in the user pool.</p><p>You can only search for the following standard attributes:</p><ul><li><p><code>username</code> (case-sensitive)</p></li><li><p><code>email</code></p></li><li><p><code>phone_number</code></p></li><li><p><code>name</code></p></li><li><p><code>given_name</code></p></li><li><p><code>family_name</code></p></li><li><p><code>preferred_username</code></p></li><li><p><code>cognito:user_status</code> (called <b>Status</b> in the Console) (case-insensitive)</p></li><li><p><code>status (called <b>Enabled</b> in the Console) (case-sensitive)</code></p></li><li><p><code>sub</code></p></li></ul><p>Custom attributes aren't searchable.</p><note><p>You can also list users with a client-side filter. The server-side filter matches no more than one attribute. For an advanced search, use a client-side filter with the <code>--query</code> parameter of the <code>list-users</code> action in the CLI. When you use a client-side filter, ListUsers returns a paginated list of zero or more users. You can receive multiple pages in a row with zero results. Repeat the query with each pagination token that is returned until you receive a null pagination token value, and then review the combined result. </p><p>For more information about server-side and client-side filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">FilteringCLI output</a> in the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Command Line Interface User Guide</a>. </p></note><p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api">Searching for Users Using the ListUsers API</a> and <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples">Examples of Using the ListUsers API</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+ <p>A filter string of the form "<i>AttributeName</i><i>Filter-Type</i> "<i>AttributeValue</i>"". Quotation marks within the filter string must be escaped using the backslash (<code>\</code>) character. For example, <code>"family_name = \"Reddy\""</code>.</p><ul><li><p><i>AttributeName</i>: The name of the attribute to search for. You can only search for one attribute at a time.</p></li><li><p><i>Filter-Type</i>: For an exact match, use <code>=</code>, for example, "<code>given_name = \"Jon\"</code>". For a prefix ("starts with") match, use <code>^=</code>, for example, "<code>given_name ^= \"Jon\"</code>". </p></li><li><p><i>AttributeValue</i>: The attribute value that must be matched for each user.</p></li></ul><p>If the filter string is empty, <code>ListUsers</code> returns all users in the user pool.</p><p>You can only search for the following standard attributes:</p><ul><li><p><code>username</code> (case-sensitive)</p></li><li><p><code>email</code></p></li><li><p><code>phone_number</code></p></li><li><p><code>name</code></p></li><li><p><code>given_name</code></p></li><li><p><code>family_name</code></p></li><li><p><code>preferred_username</code></p></li><li><p><code>cognito:user_status</code> (called <b>Status</b> in the Console) (case-insensitive)</p></li><li><p><code>status (called <b>Enabled</b> in the Console) (case-sensitive)</code></p></li><li><p><code>sub</code></p></li></ul><p>Custom attributes aren't searchable.</p><note><p>You can also list users with a client-side filter. The server-side filter matches no more than one attribute. For an advanced search, use a client-side filter with the <code>--query</code> parameter of the <code>list-users</code> action in the CLI. When you use a client-side filter, ListUsers returns a paginated list of zero or more users. You can receive multiple pages in a row with zero results. Repeat the query with each pagination token that is returned until you receive a null pagination token value, and then review the combined result. </p><p>For more information about server-side and client-side filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">FilteringCLI output</a> in the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Command Line Interface User Guide</a>. </p></note><p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api">Searching for Users Using the ListUsers API</a> and <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples">Examples of Using the ListUsers API</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable filter;
 
@@ -4631,7 +4631,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>The maximum value of an attribute that is of the number data type.</p>
+ <p>The maximum length of a number attribute value. Must be a number less than or equal to <code>2^1023</code>, represented as a string with a length of 131072 characters or fewer.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable maxValue;
 
@@ -4802,7 +4802,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType * _Nullable userContextData;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -5537,7 +5537,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>The maximum length.</p>
+ <p>The maximum length of a string attribute value. Must be a number less than or equal to <code>2^1023</code>, represented as a string with a length of 131072 characters or fewer.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable maxLength;
 
@@ -5693,7 +5693,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, you can also use their <code>sub</code> in this request.</p>
+ <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
