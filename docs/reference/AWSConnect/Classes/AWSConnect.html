@@ -17,7 +17,7 @@
     <a title="AWSConnect Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSConnect 2.34.2 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSConnect 2.35.0 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSConnect.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -158,6 +158,9 @@
                 <a href="../Classes/AWSConnectAttribute.html">AWSConnectAttribute</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAttributeAndCondition.html">AWSConnectAttributeAndCondition</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSConnectAudioFeatures.html">AWSConnectAudioFeatures</a>
               </li>
               <li class="nav-group-task">
@@ -249,6 +252,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectControlPlaneTagFilter.html">AWSConnectControlPlaneTagFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectControlPlaneUserAttributeFilter.html">AWSConnectControlPlaneUserAttributeFilter</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectCreateAgentStatusRequest.html">AWSConnectCreateAgentStatusRequest</a>
@@ -10454,7 +10460,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Deletes a quick connect.</p>
+                        <p><p>Deletes a quick connect. </p><important><p>After calling <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteUser.html">DeleteUser</a>, it&rsquo;s important to call <code>DeleteQuickConnect</code> to delete any records related to the deleted users. This will help you:</p><ul><li><p>Avoid dangling resources that impact your service quotas.</p></li><li><p>Remove deleted users so they don&rsquo;t appear to agents as transfer options.</p></li><li><p>Avoid the disruption of other Amazon Connect processes, such as instance replication and syncing if you&rsquo;re using <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html">Amazon Connect Global Resiliency</a>. </p></li></ul></important></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectDeleteQuickConnectRequest</p>
@@ -10514,7 +10520,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Deletes a quick connect.</p>
+                        <p><p>Deletes a quick connect. </p><important><p>After calling <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteUser.html">DeleteUser</a>, it&rsquo;s important to call <code>DeleteQuickConnect</code> to delete any records related to the deleted users. This will help you:</p><ul><li><p>Avoid dangling resources that impact your service quotas.</p></li><li><p>Remove deleted users so they don&rsquo;t appear to agents as transfer options.</p></li><li><p>Avoid the disruption of other Amazon Connect processes, such as instance replication and syncing if you&rsquo;re using <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html">Amazon Connect Global Resiliency</a>. </p></li></ul></important></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectDeleteQuickConnectRequest</p>
@@ -11398,7 +11404,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Deletes a user account from the specified Amazon Connect instance.</p><p>For information about what happens to a user&rsquo;s data when their account is deleted, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html">Delete Users from Your Amazon Connect Instance</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+                        <p><p>Deletes a user account from the specified Amazon Connect instance.</p><p>For information about what happens to a user&rsquo;s data when their account is deleted, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html">Delete Users from Your Amazon Connect Instance</a> in the <i>Amazon Connect Administrator Guide</i>.</p><important><p>After calling DeleteUser, call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteQuickConnect.html">DeleteQuickConnect</a> to delete any records related to the deleted users. This will help you:</p><ul><li><p>Avoid dangling resources that impact your service quotas.</p></li><li><p>Remove deleted users so they don&rsquo;t appear to agents as transfer options.</p></li><li><p>Avoid the disruption of other Amazon Connect processes, such as instance replication and syncing if you&rsquo;re using <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html">Amazon Connect Global Resiliency</a>. </p></li></ul></important></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectDeleteUserRequest</p>
@@ -11458,7 +11464,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Deletes a user account from the specified Amazon Connect instance.</p><p>For information about what happens to a user&rsquo;s data when their account is deleted, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html">Delete Users from Your Amazon Connect Instance</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+                        <p><p>Deletes a user account from the specified Amazon Connect instance.</p><p>For information about what happens to a user&rsquo;s data when their account is deleted, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html">Delete Users from Your Amazon Connect Instance</a> in the <i>Amazon Connect Administrator Guide</i>.</p><important><p>After calling DeleteUser, call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteQuickConnect.html">DeleteQuickConnect</a> to delete any records related to the deleted users. This will help you:</p><ul><li><p>Avoid dangling resources that impact your service quotas.</p></li><li><p>Remove deleted users so they don&rsquo;t appear to agents as transfer options.</p></li><li><p>Avoid the disruption of other Amazon Connect processes, such as instance replication and syncing if you&rsquo;re using <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html">Amazon Connect Global Resiliency</a>. </p></li></ul></important></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectDeleteUserRequest</p>
@@ -19973,7 +19979,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified <code>referenceTypes</code>, returns a list of references associated with the contact. </p>
+                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified <code>referenceTypes</code>, returns a list of references associated with the contact. <i>References</i> are links to documents that are related to a contact, such as emails, attachments, or URLs.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectListContactReferencesRequest</p>
@@ -20038,7 +20044,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified <code>referenceTypes</code>, returns a list of references associated with the contact. </p>
+                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified <code>referenceTypes</code>, returns a list of references associated with the contact. <i>References</i> are links to documents that are related to a contact, such as emails, attachments, or URLs.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectListContactReferencesRequest</p>
@@ -29101,7 +29107,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Ends the specified contact. This call does not work for voice contacts that use the following initiation methods:</p><ul><li><p>DISCONNECT</p></li><li><p>TRANSFER</p></li><li><p>QUEUE_TRANSFER</p></li></ul><p>Chat and task contacts, however, can be terminated in any state, regardless of initiation method.</p>
+                        <p>Ends the specified contact. Use this API to stop queued callbacks. It does not work for voice contacts that use the following initiation methods:</p><ul><li><p>DISCONNECT</p></li><li><p>TRANSFER</p></li><li><p>QUEUE_TRANSFER</p></li></ul><p>Chat and task contacts can be terminated in any state, regardless of initiation method.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectStopContactRequest</p>
@@ -29165,7 +29171,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Ends the specified contact. This call does not work for voice contacts that use the following initiation methods:</p><ul><li><p>DISCONNECT</p></li><li><p>TRANSFER</p></li><li><p>QUEUE_TRANSFER</p></li></ul><p>Chat and task contacts, however, can be terminated in any state, regardless of initiation method.</p>
+                        <p>Ends the specified contact. Use this API to stop queued callbacks. It does not work for voice contacts that use the following initiation methods:</p><ul><li><p>DISCONNECT</p></li><li><p>TRANSFER</p></li><li><p>QUEUE_TRANSFER</p></li></ul><p>Chat and task contacts can be terminated in any state, regardless of initiation method.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectStopContactRequest</p>
@@ -36795,7 +36801,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-03-22)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-04-04)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

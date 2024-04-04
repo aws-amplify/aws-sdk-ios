@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSConnect 2.34.2 Docs</a> (78% documented)</p>
+        <p><a href="index.html">AWSConnect 2.35.0 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSConnect.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -158,6 +158,9 @@
                 <a href="Classes/AWSConnectAttribute.html">AWSConnectAttribute</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSConnectAttributeAndCondition.html">AWSConnectAttributeAndCondition</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSConnectAudioFeatures.html">AWSConnectAudioFeatures</a>
               </li>
               <li class="nav-group-task">
@@ -249,6 +252,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSConnectControlPlaneTagFilter.html">AWSConnectControlPlaneTagFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSConnectControlPlaneUserAttributeFilter.html">AWSConnectControlPlaneUserAttributeFilter</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSConnectCreateAgentStatusRequest.html">AWSConnectCreateAgentStatusRequest</a>
@@ -3630,6 +3636,39 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSConnectAttributeAndCondition"></a>
+                    <a name="//apple_ref/objc/Class/AWSConnectAttributeAndCondition" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectAttributeAndCondition">AWSConnectAttributeAndCondition</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
+
+                        <a href="Classes/AWSConnectAttributeAndCondition.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSConnectAttributeAndCondition</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSConnectAttributeAndCondition</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSConnectAudioFeatures"></a>
                     <a name="//apple_ref/objc/Class/AWSConnectAudioFeatures" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSConnectAudioFeatures">AWSConnectAudioFeatures</a>
@@ -4641,6 +4680,39 @@ Required parameters: [Type]</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSConnectControlPlaneTagFilter</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectControlPlaneUserAttributeFilter"></a>
+                    <a name="//apple_ref/objc/Class/AWSConnectControlPlaneUserAttributeFilter" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectControlPlaneUserAttributeFilter">AWSConnectControlPlaneUserAttributeFilter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>An object that can be used to specify Tag conditions or Hierarchy Group conditions inside the <code>SearchFilter</code>.</p><p>This accepts an <code>OR</code> of <code>AND</code> (List of List) input where:</p><ul><li><p>The top level list specifies conditions that need to be applied with <code>OR</code> operator</p></li><li><p>The inner list specifies conditions that need to be applied with <code>AND</code> operator.</p></li></ul><note><p>Only one field can be populated. Maximum number of allowed Tag conditions is 25. Maximum number of allowed Hierarchy Group conditions is 20. </p></note></p>
+
+                        <a href="Classes/AWSConnectControlPlaneUserAttributeFilter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSConnectControlPlaneUserAttributeFilter</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSConnectControlPlaneUserAttributeFilter</span></code></pre>
 
                         </div>
                       </div>
@@ -23953,7 +24025,7 @@ Required parameters: [Label]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Contains information about the identity of a user.</p>
+                        <p><p>Contains information about the identity of a user.</p><note><p>For Amazon Connect instances that are created with the <code>EXISTING_DIRECTORY</code> identity management type, <code>FirstName</code>, <code>LastName</code>, and <code>Email</code> cannot be updated from within Amazon Connect because they are managed by the directory.</p></note></p>
 
                         <a href="Classes/AWSConnectUserIdentityInfo.html" class="slightly-smaller">See more</a>
                       </div>
@@ -24689,7 +24761,7 @@ Required parameters: [Label]</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-03-22)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-04-04)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

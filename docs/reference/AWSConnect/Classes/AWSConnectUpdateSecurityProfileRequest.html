@@ -17,7 +17,7 @@
     <a title="AWSConnectUpdateSecurityProfileRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSConnect 2.34.2 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSConnect 2.35.0 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSConnect.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -158,6 +158,9 @@
                 <a href="../Classes/AWSConnectAttribute.html">AWSConnectAttribute</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAttributeAndCondition.html">AWSConnectAttributeAndCondition</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSConnectAudioFeatures.html">AWSConnectAudioFeatures</a>
               </li>
               <li class="nav-group-task">
@@ -249,6 +252,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectControlPlaneTagFilter.html">AWSConnectControlPlaneTagFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectControlPlaneUserAttributeFilter.html">AWSConnectControlPlaneUserAttributeFilter</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectCreateAgentStatusRequest.html">AWSConnectCreateAgentStatusRequest</a>
@@ -2409,6 +2415,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSConnectUpdateSecurityProfileRequest(py)allowedAccessControlHierarchyGroupId"></a>
+                    <a name="//apple_ref/objc/Property/allowedAccessControlHierarchyGroupId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectUpdateSecurityProfileRequest(py)allowedAccessControlHierarchyGroupId">allowedAccessControlHierarchyGroupId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">allowedAccessControlHierarchyGroupId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">allowedAccessControlHierarchyGroupId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSConnectUpdateSecurityProfileRequest(py)allowedAccessControlTags"></a>
                     <a name="//apple_ref/objc/Property/allowedAccessControlTags" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSConnectUpdateSecurityProfileRequest(py)allowedAccessControlTags">allowedAccessControlTags</a>
@@ -2496,6 +2534,38 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">detail</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectUpdateSecurityProfileRequest(py)hierarchyRestrictedResources"></a>
+                    <a name="//apple_ref/objc/Property/hierarchyRestrictedResources" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectUpdateSecurityProfileRequest(py)hierarchyRestrictedResources">hierarchyRestrictedResources</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect. Following are acceptable ResourceNames: <code>User</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">hierarchyRestrictedResources</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">hierarchyRestrictedResources</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -2635,7 +2705,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-03-22)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-04-04)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
