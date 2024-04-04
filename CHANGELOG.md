@@ -7,6 +7,21 @@
 - **AWSIoT**
   - Fixing an intermittent crash when deallocating AWSIoTStreamThread (See [PR #5269](https://github.com/aws-amplify/aws-sdk-ios/issues/5269))
 
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSLambda
+  - AWSEC2
+  - AWSFirehose
+  - AWSDynamoDB
+  - AWSConnect
+  - AWSCloudWatchLogs (**Breaking Change**)
+  - AWSKMS
+  - AWSElasticLoadBalancingv2
+  - AWSCognitoIdentityProvider
+  - AWSAutoScalling
+  - AWSIoT
+
 ## 2.34.2
 
 ### Misc. Updates
