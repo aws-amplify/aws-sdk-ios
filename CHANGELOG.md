@@ -2,7 +2,9 @@
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+- **AWSIoT**
+  - Updating `AWSIoTMQTTConfiguration.keepAliveTimeInterval`'s default value in its attribute comment.
 
 ## 2.35.0
 
