@@ -75,7 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign, readonly) NSTimeInterval maximumReconnectTimeInterval;
 
 /**
- The MQTT keep-alive time in seconds.  Default value: 60s seconds.
+ The MQTT keep-alive time in seconds.  Default value: 300 seconds.
  */
 @property(nonatomic, assign, readonly) NSTimeInterval keepAliveTimeInterval;
 
