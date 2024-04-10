@@ -4291,7 +4291,8 @@
         \"SEND_NOTIFICATION\",\
         \"CREATE_CASE\",\
         \"UPDATE_CASE\",\
-        \"END_ASSOCIATED_TASKS\"\
+        \"END_ASSOCIATED_TASKS\",\
+        \"SUBMIT_AUTO_EVALUATION\"\
       ]\
     },\
     \"ActivateEvaluationFormRequest\":{\
@@ -7020,7 +7021,7 @@
         },\
         \"Applications\":{\
           \"shape\":\"Applications\",\
-          \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>A list of third-party applications that the security profile will give access to.</p>\"\
+          \"documentation\":\"<p>A list of third-party applications that the security profile will give access to.</p>\"\
         },\
         \"HierarchyRestrictedResources\":{\
           \"shape\":\"HierarchyRestrictedResourceList\",\
@@ -9725,6 +9726,11 @@
       \"type\":\"string\",\
       \"max\":1024,\
       \"min\":0\
+    },\
+    \"EvaluationFormId\":{\
+      \"type\":\"string\",\
+      \"max\":256,\
+      \"min\":1\
     },\
     \"EvaluationFormItem\":{\
       \"type\":\"structure\",\
@@ -13606,7 +13612,7 @@
       \"members\":{\
         \"Applications\":{\
           \"shape\":\"Applications\",\
-          \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>A list of the third-party application's metadata.</p>\"\
+          \"documentation\":\"<p>A list of the third-party application's metadata.</p>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
@@ -16949,6 +16955,10 @@
         \"EndAssociatedTasksAction\":{\
           \"shape\":\"EndAssociatedTasksActionDefinition\",\
           \"documentation\":\"<p>Information about the end associated tasks action.</p> <p>Supported only for <code>TriggerEventSource</code> values: <code>OnCaseUpdate</code>.</p>\"\
+        },\
+        \"SubmitAutoEvaluationAction\":{\
+          \"shape\":\"SubmitAutoEvaluationActionDefinition\",\
+          \"documentation\":\"<p>Information about the submit automated evaluation action.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about the action to be performed when a rule is triggered.</p>\"\
@@ -18729,6 +18739,17 @@
       \"type\":\"string\",\
       \"max\":200,\
       \"min\":1\
+    },\
+    \"SubmitAutoEvaluationActionDefinition\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"EvaluationFormId\"],\
+      \"members\":{\
+        \"EvaluationFormId\":{\
+          \"shape\":\"EvaluationFormId\",\
+          \"documentation\":\"<p>The identifier of the auto-evaluation enabled form.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about the submit automated evaluation action.</p>\"\
     },\
     \"SubmitContactEvaluationRequest\":{\
       \"type\":\"structure\",\
@@ -20725,7 +20746,7 @@
         },\
         \"Applications\":{\
           \"shape\":\"Applications\",\
-          \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>A list of the third-party application's metadata.</p>\"\
+          \"documentation\":\"<p>A list of the third-party application's metadata.</p>\"\
         },\
         \"HierarchyRestrictedResources\":{\
           \"shape\":\"HierarchyRestrictedResourceList\",\

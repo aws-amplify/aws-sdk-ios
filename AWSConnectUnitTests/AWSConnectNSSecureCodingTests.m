@@ -581,6 +581,7 @@
 - (void) test_AWSConnectStopContactStreamingResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectStringCondition API_AVAILABLE(ios(11));
 - (void) test_AWSConnectStringReference API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSubmitAutoEvaluationActionDefinition API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSubmitContactEvaluationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSubmitContactEvaluationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSuccessfulRequest API_AVAILABLE(ios(11));
@@ -2954,6 +2955,10 @@
 
 - (void) test_AWSConnectStringReference {
     [self validateSecureCodingForClass:[AWSConnectStringReference class]];
+}
+
+- (void) test_AWSConnectSubmitAutoEvaluationActionDefinition {
+    [self validateSecureCodingForClass:[AWSConnectSubmitAutoEvaluationActionDefinition class]];
 }
 
 - (void) test_AWSConnectSubmitContactEvaluationRequest {

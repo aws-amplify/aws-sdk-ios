@@ -59,6 +59,7 @@ typedef NS_ENUM(NSInteger, AWSConnectActionType) {
     AWSConnectActionTypeCreateCase,
     AWSConnectActionTypeUpdateCase,
     AWSConnectActionTypeEndAssociatedTasks,
+    AWSConnectActionTypeSubmitAutoEvaluation,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectAgentAvailabilityTimer) {
@@ -1573,6 +1574,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectStopContactStreamingResponse;
 @class AWSConnectStringCondition;
 @class AWSConnectStringReference;
+@class AWSConnectSubmitAutoEvaluationActionDefinition;
 @class AWSConnectSubmitContactEvaluationRequest;
 @class AWSConnectSubmitContactEvaluationResponse;
 @class AWSConnectSuccessfulRequest;
@@ -4298,7 +4300,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable allowedAccessControlTags;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>A list of third-party applications that the security profile will give access to.</p>
+ <p>A list of third-party applications that the security profile will give access to.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectApplication *> * _Nullable applications;
 
@@ -10627,7 +10629,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>A list of the third-party application's metadata.</p>
+ <p>A list of the third-party application's metadata.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectApplication *> * _Nullable applications;
 
@@ -13297,6 +13299,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) AWSConnectSendNotificationActionDefinition * _Nullable sendNotificationAction;
 
 /**
+ <p>Information about the submit automated evaluation action.</p>
+ */
+@property (nonatomic, strong) AWSConnectSubmitAutoEvaluationActionDefinition * _Nullable submitAutoEvaluationAction;
+
+/**
  <p>Information about the task action. This field is required if <code>TriggerEventSource</code> is one of the following values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code></p>
  */
 @property (nonatomic, strong) AWSConnectTaskActionDefinition * _Nullable taskAction;
@@ -15151,6 +15158,20 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Information about the submit automated evaluation action.</p>
+ Required parameters: [EvaluationFormId]
+ */
+@interface AWSConnectSubmitAutoEvaluationActionDefinition : AWSModel
+
+
+/**
+ <p>The identifier of the auto-evaluation enabled form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormId;
+
+@end
+
+/**
  
  */
 @interface AWSConnectSubmitContactEvaluationRequest : AWSRequest
@@ -16943,7 +16964,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable allowedAccessControlTags;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>A list of the third-party application's metadata.</p>
+ <p>A list of the third-party application's metadata.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectApplication *> * _Nullable applications;
 

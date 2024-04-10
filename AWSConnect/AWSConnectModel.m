@@ -53,6 +53,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"END_ASSOCIATED_TASKS"] == NSOrderedSame) {
             return @(AWSConnectActionTypeEndAssociatedTasks);
         }
+        if ([value caseInsensitiveCompare:@"SUBMIT_AUTO_EVALUATION"] == NSOrderedSame) {
+            return @(AWSConnectActionTypeSubmitAutoEvaluation);
+        }
         return @(AWSConnectActionTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -70,6 +73,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"UPDATE_CASE";
             case AWSConnectActionTypeEndAssociatedTasks:
                 return @"END_ASSOCIATED_TASKS";
+            case AWSConnectActionTypeSubmitAutoEvaluation:
+                return @"SUBMIT_AUTO_EVALUATION";
             default:
                 return nil;
         }
@@ -18728,6 +18733,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"endAssociatedTasksAction" : @"EndAssociatedTasksAction",
              @"eventBridgeAction" : @"EventBridgeAction",
              @"sendNotificationAction" : @"SendNotificationAction",
+             @"submitAutoEvaluationAction" : @"SubmitAutoEvaluationAction",
              @"taskAction" : @"TaskAction",
              @"updateCaseAction" : @"UpdateCaseAction",
              };
@@ -18756,6 +18762,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"END_ASSOCIATED_TASKS"] == NSOrderedSame) {
             return @(AWSConnectActionTypeEndAssociatedTasks);
         }
+        if ([value caseInsensitiveCompare:@"SUBMIT_AUTO_EVALUATION"] == NSOrderedSame) {
+            return @(AWSConnectActionTypeSubmitAutoEvaluation);
+        }
         return @(AWSConnectActionTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -18773,6 +18782,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"UPDATE_CASE";
             case AWSConnectActionTypeEndAssociatedTasks:
                 return @"END_ASSOCIATED_TASKS";
+            case AWSConnectActionTypeSubmitAutoEvaluation:
+                return @"SUBMIT_AUTO_EVALUATION";
             default:
                 return nil;
         }
@@ -18797,6 +18808,10 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)sendNotificationActionJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectSendNotificationActionDefinition class]];
+}
+
++ (NSValueTransformer *)submitAutoEvaluationActionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectSubmitAutoEvaluationActionDefinition class]];
 }
 
 + (NSValueTransformer *)taskActionJSONTransformer {
@@ -21996,6 +22011,20 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"name" : @"Name",
              @"value" : @"Value",
+             };
+}
+
+@end
+
+@implementation AWSConnectSubmitAutoEvaluationActionDefinition
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"evaluationFormId" : @"EvaluationFormId",
              };
 }
 
