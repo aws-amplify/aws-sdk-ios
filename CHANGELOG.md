@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+<!--  VALIDATE THAT THE FOLLOWING IS UNDER THE UNRELELEASED SECTION AND HAS NO DUPLICATES. OTHERWISE UPDATE IT -->
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSRekognition
+  - AWSConnect
+
+
 ### Misc. Updates
 - **AWSIoT**
   - Updating `AWSIoTMQTTConfiguration.keepAliveTimeInterval`'s default value in its attribute comment.
