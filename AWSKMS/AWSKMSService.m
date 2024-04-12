@@ -45,6 +45,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"CloudHsmClusterNotActiveException" : @(AWSKMSErrorCloudHsmClusterNotActive),
                             @"CloudHsmClusterNotFoundException" : @(AWSKMSErrorCloudHsmClusterNotFound),
                             @"CloudHsmClusterNotRelatedException" : @(AWSKMSErrorCloudHsmClusterNotRelated),
+                            @"ConflictException" : @(AWSKMSErrorConflict),
                             @"CustomKeyStoreHasCMKsException" : @(AWSKMSErrorCustomKeyStoreHasCMKs),
                             @"CustomKeyStoreInvalidStateException" : @(AWSKMSErrorCustomKeyStoreInvalidState),
                             @"CustomKeyStoreNameInUseException" : @(AWSKMSErrorCustomKeyStoreNameInUse),
@@ -1049,6 +1050,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSKMSListKeyRotationsResponse *> *)listKeyRotations:(AWSKMSListKeyRotationsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"TrentService"
+                 operationName:@"ListKeyRotations"
+                   outputClass:[AWSKMSListKeyRotationsResponse class]];
+}
+
+- (void)listKeyRotations:(AWSKMSListKeyRotationsRequest *)request
+     completionHandler:(void (^)(AWSKMSListKeyRotationsResponse *response, NSError *error))completionHandler {
+    [[self listKeyRotations:request] continueWithBlock:^id _Nullable(AWSTask<AWSKMSListKeyRotationsResponse *> * _Nonnull task) {
+        AWSKMSListKeyRotationsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSKMSListKeysResponse *> *)listKeys:(AWSKMSListKeysRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1224,6 +1248,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKMSRotateKeyOnDemandResponse *> *)rotateKeyOnDemand:(AWSKMSRotateKeyOnDemandRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"TrentService"
+                 operationName:@"RotateKeyOnDemand"
+                   outputClass:[AWSKMSRotateKeyOnDemandResponse class]];
+}
+
+- (void)rotateKeyOnDemand:(AWSKMSRotateKeyOnDemandRequest *)request
+     completionHandler:(void (^)(AWSKMSRotateKeyOnDemandResponse *response, NSError *error))completionHandler {
+    [[self rotateKeyOnDemand:request] continueWithBlock:^id _Nullable(AWSTask<AWSKMSRotateKeyOnDemandResponse *> * _Nonnull task) {
+        AWSKMSRotateKeyOnDemandResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
