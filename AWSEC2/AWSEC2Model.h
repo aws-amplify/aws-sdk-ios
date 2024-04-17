@@ -8811,7 +8811,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The IDs of the Spot Fleet requests.</p>
+ <p>The IDs of the Spot Fleet requests.</p><p>Constraint: You can specify up to 100 IDs in a single request.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable spotFleetRequestIds;
 
@@ -11360,12 +11360,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The error code that indicates why the instance could not be launched. For more information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error codes</a>.</p>
+ <p>The error code that indicates why the instance could not be launched. For more information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error codes</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable errorCode;
 
 /**
- <p>The error message that describes why the instance could not be launched. For more information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error codes</a>.</p>
+ <p>The error message that describes why the instance could not be launched. For more information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error codes</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable errorMessage;
 
@@ -16033,7 +16033,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The IDs of the EC2 Fleets.</p>
+ <p>The IDs of the EC2 Fleets.</p><p>Constraints: In a single request, you can specify up to 25 <code>instant</code> fleet IDs and up to 100 <code>maintain</code> or <code>request</code> fleet IDs. </p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable fleetIds;
 
@@ -20975,12 +20975,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. Filter names and values are case-sensitive.</p><ul><li><p><code>location</code> - This depends on the location type. For example, if the location type is <code>region</code> (default), the location is the Region code (for example, <code>us-east-2</code>.)</p></li><li><p><code>instance-type</code> - The instance type. For example, <code>c5.2xlarge</code>.</p></li></ul>
+ <p>One or more filters. Filter names and values are case-sensitive.</p><ul><li><p><code>instance-type</code> - The instance type. For a list of possible values, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Instance.html">Instance</a>.</p></li><li><p><code>location</code> - The location. For a list of possible identifiers, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions and Zones</a>.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The location type.</p>
+ <p>The location type.</p><ul><li><p><code>availability-zone</code> - The Availability Zone. When you specify a location filter, it must be an Availability Zone for the current Region.</p></li><li><p><code>availability-zone-id</code> - The AZ ID. When you specify a location filter, it must be an AZ ID for the current Region.</p></li><li><p><code>outpost</code> - The Outpost ARN. When you specify a location filter, it must be an Outpost ARN for the current Region.</p></li><li><p><code>region</code> - The current Region. If you specify a location filter, it must match the current Region.</p></li></ul>
  */
 @property (nonatomic, assign) AWSEC2LocationType locationType;
 
@@ -21003,7 +21003,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The instance types offered.</p>
+ <p>The instance types offered in the location.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2InstanceTypeOffering *> * _Nullable instanceTypeOfferings;
 
@@ -21031,7 +21031,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The instance types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>The instance types.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable instanceTypes;
 
@@ -21054,7 +21054,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>The instance type.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2InstanceTypeInfo *> * _Nullable instanceTypes;
 
@@ -41194,7 +41194,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2DefaultInstanceMetadataEndpointState httpEndpoint;
 
 /**
- <p>The maximum number of hops that the metadata token can travel.</p><p>Minimum: <code>1</code></p><p>Maximum: <code>64</code></p>
+ <p>The maximum number of hops that the metadata token can travel. To indicate no preference, specify <code>-1</code>.</p><p>Possible values: Integers from <code>1</code> to <code>64</code>, and <code>-1</code> to indicate no preference</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable httpPutResponseHopLimit;
 
@@ -48077,7 +48077,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2LaunchTemplatesMonitoringRequest * _Nullable monitoring;
 
 /**
- <p>One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.</p>
+ <p>The network interfaces for the instance.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2LaunchTemplateInstanceNetworkInterfaceSpecificationRequest *> * _Nullable networkInterfaces;
 
@@ -48097,12 +48097,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable ramDiskId;
 
 /**
- <p>One or more security group IDs. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p>
+ <p>The IDs of the security groups.</p><p>If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
 
 /**
- <p>One or more security group names. For a nondefault VPC, you must use security group IDs instead.</p>
+ <p>The names of the security groups. For a nondefault VPC, you must use security group IDs instead.</p><p>If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroups;
 
@@ -49984,12 +49984,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable ebsOptimized;
 
 /**
- <p>Deprecated.</p><note><p>Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.</p></note>
+ <p>An elastic GPU to associate with the instance.</p><note><p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSEC2ElasticGpuSpecification *> * _Nullable elasticGpuSpecification;
 
 /**
- <p>An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.</p><p>You cannot specify accelerators from different generations in the same request.</p><note><p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.</p></note>
+ <p>An elastic inference accelerator to associate with the instance.</p><note><p>Amazon Elastic Inference (EI) is no longer available to new customers. For more information, see <a href="http://aws.amazon.com/machine-learning/elastic-inference/faqs/">Amazon Elastic Inference FAQs</a>.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSEC2ElasticInferenceAccelerator *> * _Nullable elasticInferenceAccelerators;
 
@@ -50089,7 +50089,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2RunInstancesMonitoringEnabled * _Nullable monitoring;
 
 /**
- <p>The network interfaces to associate with the instance. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.</p>
+ <p>The network interfaces to associate with the instance.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2InstanceNetworkInterfaceSpecification *> * _Nullable networkInterfaces;
 
@@ -50114,17 +50114,17 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable ramdiskId;
 
 /**
- <p>The IDs of the security groups. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p><p>If you specify a network interface, you must specify any security groups as part of the network interface.</p>
+ <p>The IDs of the security groups. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p><p>If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
 
 /**
- <p>[Default VPC] The names of the security groups.</p><p>If you specify a network interface, you must specify any security groups as part of the network interface.</p><p>Default: Amazon EC2 uses the default security group.</p>
+ <p>[Default VPC] The names of the security groups.</p><p>If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.</p><p>Default: Amazon EC2 uses the default security group.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroups;
 
 /**
- <p>The ID of the subnet to launch the instance into.</p><p>If you specify a network interface, you must specify any subnets as part of the network interface.</p>
+ <p>The ID of the subnet to launch the instance into.</p><p>If you specify a network interface, you must specify any subnets as part of the network interface instead of using this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable subnetId;
 
@@ -50872,7 +50872,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of routes to return.</p>
+ <p>The maximum number of routes to return. If a value is not provided, the default is 1000.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -51949,7 +51949,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2SpotFleetMonitoring * _Nullable monitoring;
 
 /**
- <p>One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.</p><note><p><code>SpotFleetLaunchSpecification</code> currently does not support Elastic Fabric Adapter (EFA). To specify an EFA, you must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a>.</p></note>
+ <p>The network interfaces.</p><note><p><code>SpotFleetLaunchSpecification</code> does not support Elastic Fabric Adapter (EFA). You must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a> instead.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSEC2InstanceNetworkInterfaceSpecification *> * _Nullable networkInterfaces;
 
@@ -51964,7 +51964,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable ramdiskId;
 
 /**
- <p>The security groups.</p>
+ <p>The security groups.</p><p>If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2GroupIdentifier *> * _Nullable securityGroups;
 
@@ -51974,7 +51974,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable spotPrice;
 
 /**
- <p>The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".</p>
+ <p>The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".</p><p>If you specify a network interface, you must specify any subnets as part of the network interface instead of using this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable subnetId;
 
