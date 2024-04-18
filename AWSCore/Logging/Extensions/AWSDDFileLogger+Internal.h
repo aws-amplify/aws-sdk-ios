@@ -13,33 +13,18 @@
 //   to endorse or promote products derived from this software without specific
 //   prior written permission of Deusty, LLC.
 
-#import "AWSDDASLLogger.h"
-
-@protocol AWSDDLogger;
+#import "AWSDDFileLogger.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- *  This class provides the ability to capture the ASL (Apple System Logs)
- */
-API_DEPRECATED("Use AWSDDOSLogger instead", macosx(10.4,10.12), ios(2.0,10.0), watchos(2.0,3.0), tvos(9.0,10.0))
-@interface AWSDDASLLogCapture : NSObject
+@interface AWSDDFileLogger (Internal)
 
-/**
- *  Start capturing logs
- */
-+ (void)start;
+- (void)logData:(NSData *)data;
 
-/**
- *  Stop capturing logs
- */
-+ (void)stop;
+// Will assert if used outside logger's queue.
+- (void)lt_logData:(NSData *)data;
 
-/**
- *  The current capture level.
- *  @note Default log level: AWSDDLogLevelVerbose (i.e. capture all ASL messages).
- */
-@property (class) AWSDDLogLevel captureLevel;
+- (nullable NSData *)lt_dataForMessage:(AWSDDLogMessage *)message;
 
 @end
 

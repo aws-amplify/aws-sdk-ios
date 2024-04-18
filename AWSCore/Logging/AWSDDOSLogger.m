@@ -1,6 +1,6 @@
 // Software License Agreement (BSD License)
 //
-// Copyright (c) 2010-2016, Deusty, LLC
+// Copyright (c) 2010-2024, Deusty, LLC
 // All rights reserved.
 //
 // Redistribution and use of this software in source and binary forms,
@@ -13,12 +13,47 @@
 //   to endorse or promote products derived from this software without specific
 //   prior written permission of Deusty, LLC.
 
-#import "AWSDDOSLogger.h"
 #import <os/log.h>
+
+#import "AWSDDOSLogger.h"
+
+@interface AWSDDOSLogger () {
+    NSString *_subsystem;
+    NSString *_category;
+}
+
+@property (copy, nonatomic, readonly, nullable) NSString *subsystem;
+@property (copy, nonatomic, readonly, nullable) NSString *category;
+@property (strong, nonatomic, readwrite, nonnull) os_log_t logger;
+
+@end
 
 @implementation AWSDDOSLogger
 
+@synthesize subsystem = _subsystem;
+@synthesize category = _category;
+
+#pragma mark - Initialization
+
+/**
+ * Assertion
+ * Swift: (String, String)?
+ */
+- (instancetype)initWithSubsystem:(NSString *)subsystem category:(NSString *)category {
+    NSAssert((subsystem == nil) == (category == nil), @"Either both subsystem and category or neither should be nil.");
+    if (self = [super init]) {
+        _subsystem = [subsystem copy];
+        _category = [category copy];
+    }
+    return self;
+}
+
+API_AVAILABLE(macos(10.12), ios(10.0), watchos(3.0), tvos(10.0))
 static AWSDDOSLogger *sharedInstance;
+
+- (instancetype)init {
+    return [self initWithSubsystem:nil category:nil];
+}
 
 + (instancetype)sharedInstance {
     static dispatch_once_t AWSDDOSLoggerOnceToken;
@@ -30,16 +65,26 @@ static AWSDDOSLogger *sharedInstance;
     return sharedInstance;
 }
 
-- (instancetype)init {
-    if (sharedInstance != nil) {
-        return nil;
-    }
+#pragma mark - os_log
 
-    if (self = [super init]) {
-        return self;
+- (os_log_t)getLogger {
+    if (self.subsystem == nil || self.category == nil) {
+        return OS_LOG_DEFAULT;
     }
+    return os_log_create(self.subsystem.UTF8String, self.category.UTF8String);
+}
 
-    return nil;
+- (os_log_t)logger {
+    if (_logger == nil)  {
+        _logger = [self getLogger];
+    }
+    return _logger;
+}
+
+#pragma mark - AWSDDLogger
+
+- (AWSDDLoggerName)loggerName {
+    return AWSDDLoggerNameOS;
 }
 
 - (void)logMessage:(AWSDDLogMessage *)logMessage {
@@ -47,31 +92,28 @@ static AWSDDOSLogger *sharedInstance;
     if ([logMessage->_fileName isEqualToString:@"AWSDDASLLogCapture"]) {
         return;
     }
-    
-    NSString * message = _logFormatter ? [_logFormatter formatLogMessage:logMessage] : logMessage->_message;
-    
-    if (message) {
-        const char *msg = [message UTF8String];
-        
-        switch (logMessage->_flag) {
-            case AWSDDLogFlagError     :
-                os_log_error(OS_LOG_DEFAULT, "%{public}s", msg);
-                break;
-            case AWSDDLogFlagWarning   :
-            case AWSDDLogFlagInfo      :
-                os_log_info(OS_LOG_DEFAULT, "%{public}s", msg);
-                break;
-            case AWSDDLogFlagDebug     :
-            case AWSDDLogFlagVerbose   :
-            default                 :
-                os_log_debug(OS_LOG_DEFAULT, "%{public}s", msg);
-                break;
+
+    if (@available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *)) {
+        __auto_type message = _logFormatter ? [_logFormatter formatLogMessage:logMessage] : logMessage->_message;
+        if (message != nil) {
+            __auto_type msg = [message UTF8String];
+            __auto_type logger = [self logger];
+            switch (logMessage->_flag) {
+                case AWSDDLogFlagError  :
+                    os_log_error(logger, "%{public}s", msg);
+                    break;
+                case AWSDDLogFlagWarning:
+                case AWSDDLogFlagInfo   :
+                    os_log_info(logger, "%{public}s", msg);
+                    break;
+                case AWSDDLogFlagDebug  :
+                case AWSDDLogFlagVerbose:
+                default              :
+                    os_log_debug(logger, "%{public}s", msg);
+                    break;
+            }
         }
     }
-}
-
-- (NSString *)loggerName {
-    return @"cocoa.lumberjack.osLogger";
 }
 
 @end
