@@ -1,6 +1,6 @@
 // Software License Agreement (BSD License)
 //
-// Copyright (c) 2010-2016, Deusty, LLC
+// Copyright (c) 2010-2024, Deusty, LLC
 // All rights reserved.
 //
 // Redistribution and use of this software in source and binary forms,
@@ -13,16 +13,16 @@
 //   to endorse or promote products derived from this software without specific
 //   prior written permission of Deusty, LLC.
 
-#import "AWSDDFileLogger.h"
-
-#import <unistd.h>
-#import <sys/attr.h>
-#import <sys/xattr.h>
-#import <libkern/OSAtomic.h>
-
 #if !__has_feature(objc_arc)
 #error This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
+
+#import <sys/xattr.h>
+#import <sys/file.h>
+#import <errno.h>
+#import <unistd.h>
+
+#import "AWSDDFileLogger+Internal.h"
 
 // We probably shouldn't be using AWSDDLog() statements within the AWSDDLog implementation.
 // But we still want to leave our log statements for any future debugging,
@@ -43,7 +43,7 @@
 
 
 #if TARGET_OS_IPHONE
-BOOL awsDoesAppRunInBackground(void);
+BOOL doesAppRunInBackground(void);
 #endif
 
 unsigned long long const kAWSDDDefaultLogMaxFileSize      = 1024 * 1024;      // 1 MB
@@ -51,21 +51,39 @@ NSTimeInterval     const kAWSDDDefaultLogRollingFrequency = 60 * 60 * 24;     //
 NSUInteger         const kAWSDDDefaultLogMaxNumLogFiles   = 5;                // 5 Files
 unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; // 20 MB
 
+NSTimeInterval     const kAWSDDRollingLeeway              = 1.0;              // 1s
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+@implementation AWSDDFileLogPlainTextMessageSerializer
+
+- (instancetype)init {
+    return [super init];
+}
+
+- (NSData *)dataForString:(NSString *)string originatingFromMessage:(AWSDDLogMessage *)message {
+    return [string dataUsingEncoding:NSUTF8StringEncoding] ?: [NSData data];
+}
+
+@end
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 @interface AWSDDLogFileManagerDefault () {
+    NSDateFormatter *_fileDateFormatter;
     NSUInteger _maximumNumberOfLogFiles;
     unsigned long long _logFilesDiskQuota;
     NSString *_logsDirectory;
+    BOOL _wasAddedToLogger;
 #if TARGET_OS_IPHONE
-    NSString *_defaultFileProtectionLevel;
+    NSFileProtectionType _defaultFileProtectionLevel;
 #endif
 }
-
-- (void)deleteOldLogFiles;
-- (NSString *)defaultLogsDirectory;
 
 @end
 
@@ -73,27 +91,26 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
 
 @synthesize maximumNumberOfLogFiles = _maximumNumberOfLogFiles;
 @synthesize logFilesDiskQuota = _logFilesDiskQuota;
+@synthesize logMessageSerializer = _logMessageSerializer;
 
-
-- (instancetype)init {
-    return [self initWithLogsDirectory:nil];
-}
-
-- (instancetype)initWithLogsDirectory:(NSString *)aLogsDirectory {
+- (instancetype)initWithLogsDirectory:(nullable NSString *)aLogsDirectory {
     if ((self = [super init])) {
         _maximumNumberOfLogFiles = kAWSDDDefaultLogMaxNumLogFiles;
         _logFilesDiskQuota = kAWSDDDefaultLogFilesDiskQuota;
+        _wasAddedToLogger = NO;
 
-        if (aLogsDirectory) {
+        _fileDateFormatter = [[NSDateFormatter alloc] init];
+        [_fileDateFormatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
+        [_fileDateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+        [_fileDateFormatter setDateFormat: @"yyyy'-'MM'-'dd'--'HH'-'mm'-'ss'-'SSS'"];
+
+        if (aLogsDirectory.length > 0) {
             _logsDirectory = [aLogsDirectory copy];
         } else {
             _logsDirectory = [[self defaultLogsDirectory] copy];
         }
 
-        NSKeyValueObservingOptions kvoOptions = NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew;
-
-        [self addObserver:self forKeyPath:NSStringFromSelector(@selector(maximumNumberOfLogFiles)) options:kvoOptions context:nil];
-        [self addObserver:self forKeyPath:NSStringFromSelector(@selector(logFilesDiskQuota)) options:kvoOptions context:nil];
+        _logMessageSerializer = [[AWSDDFileLogPlainTextMessageSerializer alloc] init];
 
         NSLogVerbose(@"AWSDDFileLogManagerDefault: logsDirectory:\n%@", [self logsDirectory]);
         NSLogVerbose(@"AWSDDFileLogManagerDefault: sortedLogFileNames:\n%@", [self sortedLogFileNames]);
@@ -102,20 +119,10 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
     return self;
 }
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(NSString *)theKey
-{
-    BOOL automatic = NO;
-    if ([theKey isEqualToString:@"maximumNumberOfLogFiles"] || [theKey isEqualToString:@"logFilesDiskQuota"]) {
-        automatic = NO;
-    } else {
-        automatic = [super automaticallyNotifiesObserversForKey:theKey];
-    }
-    
-    return automatic;
-}
-
 #if TARGET_OS_IPHONE
-- (instancetype)initWithLogsDirectory:(NSString *)logsDirectory defaultFileProtectionLevel:(NSString *)fileProtectionLevel {
+- (instancetype)initWithLogsDirectory:(NSString *)logsDirectory
+           defaultFileProtectionLevel:(NSFileProtectionType)fileProtectionLevel {
+
     if ((self = [self initWithLogsDirectory:logsDirectory])) {
         if ([fileProtectionLevel isEqualToString:NSFileProtectionNone] ||
             [fileProtectionLevel isEqualToString:NSFileProtectionComplete] ||
@@ -127,43 +134,53 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
 
     return self;
 }
-
 #endif
 
-- (void)dealloc {
-    // try-catch because the observer might be removed or never added. In this case, removeObserver throws and exception
-    @try {
-        [self removeObserver:self forKeyPath:NSStringFromSelector(@selector(maximumNumberOfLogFiles))];
-        [self removeObserver:self forKeyPath:NSStringFromSelector(@selector(logFilesDiskQuota))];
-    } @catch (NSException *exception) {
+- (instancetype)init {
+    return [self initWithLogsDirectory:nil];
+}
+
+- (void)didAddToFileLogger:(AWSDDFileLogger *)fileLogger {
+    _wasAddedToLogger = YES;
+}
+
+- (void)deleteOldFilesForConfigurationChange {
+    if (!_wasAddedToLogger) return;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        @autoreleasepool {
+            // See method header for queue reasoning.
+            [self deleteOldLogFilesWithError:nil];
+        }
+    });
+}
+
+- (void)setLogFilesDiskQuota:(unsigned long long)logFilesDiskQuota {
+    if (_logFilesDiskQuota != logFilesDiskQuota) {
+        _logFilesDiskQuota = logFilesDiskQuota;
+        NSLogInfo(@"AWSDDFileLogManagerDefault: Responding to configuration change: logFilesDiskQuota");
+        [self deleteOldFilesForConfigurationChange];
     }
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark Configuration
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary *)change
-                       context:(void *)context {
-    NSNumber *old = change[NSKeyValueChangeOldKey];
-    NSNumber *new = change[NSKeyValueChangeNewKey];
-
-    if ([old isEqual:new]) {
-        // No change in value - don't bother with any processing.
-        return;
-    }
-
-    if ([keyPath isEqualToString:NSStringFromSelector(@selector(maximumNumberOfLogFiles))] ||
-        [keyPath isEqualToString:NSStringFromSelector(@selector(logFilesDiskQuota))]) {
-        NSLogInfo(@"AWSDDFileLogManagerDefault: Responding to configuration change: %@", keyPath);
-
-        dispatch_async([AWSDDLog loggingQueue], ^{ @autoreleasepool {
-                                                    [self deleteOldLogFiles];
-                                                } });
+- (void)setMaximumNumberOfLogFiles:(NSUInteger)maximumNumberOfLogFiles {
+    if (_maximumNumberOfLogFiles != maximumNumberOfLogFiles) {
+        _maximumNumberOfLogFiles = maximumNumberOfLogFiles;
+        NSLogInfo(@"AWSDDFileLogManagerDefault: Responding to configuration change: maximumNumberOfLogFiles");
+        [self deleteOldFilesForConfigurationChange];
     }
 }
+
+#if TARGET_OS_IPHONE
+- (NSFileProtectionType)logFileProtection {
+    if (_defaultFileProtectionLevel.length > 0) {
+        return _defaultFileProtectionLevel;
+    } else if (doesAppRunInBackground()) {
+        return NSFileProtectionCompleteUntilFirstUserAuthentication;
+    } else {
+        return NSFileProtectionCompleteUnlessOpen;
+    }
+}
+#endif
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark File Deleting
@@ -171,12 +188,16 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
 
 /**
  * Deletes archived log files that exceed the maximumNumberOfLogFiles or logFilesDiskQuota configuration values.
+ * Method may take a while to execute since we're performing IO. It's not critical that this is synchronized with
+ * log output, since the files we're deleting are all archived and not in use, therefore this method is called on a
+ * background queue.
  **/
-- (void)deleteOldLogFiles {
-    NSLogVerbose(@"AWSDDLogFileManagerDefault: deleteOldLogFiles");
+- (BOOL)deleteOldLogFilesWithError:(NSError *__autoreleasing _Nullable *)error {
+    NSLogVerbose(@"AWSDDLogFileManagerDefault: %@", NSStringFromSelector(_cmd));
 
-    NSArray *sortedLogFileInfos = [self sortedLogFileInfos];
+    if (error) *error = nil;
 
+    __auto_type sortedLogFileInfos = [self sortedLogFileInfos];
     NSUInteger firstIndexToDelete = NSNotFound;
 
     const unsigned long long diskQuota = self.logFilesDiskQuota;
@@ -211,26 +232,37 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
         // So in most cases, we do not want to consider this file for deletion.
 
         if (sortedLogFileInfos.count > 0) {
-            AWSDDLogFileInfo *logFileInfo = sortedLogFileInfos[0];
-
-            if (!logFileInfo.isArchived) {
+            if (!sortedLogFileInfos[0].isArchived) {
                 // Don't delete active file.
-                ++firstIndexToDelete;
+                firstIndexToDelete++;
             }
         }
     }
 
     if (firstIndexToDelete != NSNotFound) {
-        // removing all logfiles starting with firstIndexToDelete
-
+        // removing all log files starting with firstIndexToDelete
         for (NSUInteger i = firstIndexToDelete; i < sortedLogFileInfos.count; i++) {
-            AWSDDLogFileInfo *logFileInfo = sortedLogFileInfos[i];
+            __auto_type logFileInfo = sortedLogFileInfos[i];
 
-            NSLogInfo(@"AWSDDLogFileManagerDefault: Deleting file: %@", logFileInfo.fileName);
-
-            [[NSFileManager defaultManager] removeItemAtPath:logFileInfo.filePath error:nil];
+            __autoreleasing NSError *deletionError = nil;
+            __auto_type success = [[NSFileManager defaultManager] removeItemAtPath:logFileInfo.filePath error:&deletionError];
+            if (success) {
+                NSLogInfo(@"AWSDDLogFileManagerDefault: Deleting file: %@", logFileInfo.fileName);
+            } else {
+                NSLogError(@"AWSDDLogFileManagerDefault: Error deleting file %@", deletionError);
+                if (error) {
+                    *error = deletionError;
+                    return NO; // If we were given an error, stop after the first failure!
+                }
+            }
         }
     }
+
+    return YES;
+}
+
+- (BOOL)cleanupLogFilesWithError:(NSError *__autoreleasing _Nullable *)error {
+    return [self deleteOldLogFilesWithError:error];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -243,133 +275,87 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
  **/
 - (NSString *)defaultLogsDirectory {
 #if TARGET_OS_IPHONE
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *baseDir = paths.firstObject;
-    NSString *logsDirectory = [baseDir stringByAppendingPathComponent:@"Logs"];
-
+    __auto_type paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    __auto_type baseDir = paths.firstObject;
+    __auto_type logsDirectory = [baseDir stringByAppendingPathComponent:@"Logs"];
 #else
-    NSString *appName = [[NSProcessInfo processInfo] processName];
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
-    NSString *basePath = ([paths count] > 0) ? paths[0] : NSTemporaryDirectory();
-    NSString *logsDirectory = [[basePath stringByAppendingPathComponent:@"Logs"] stringByAppendingPathComponent:appName];
-
+    __auto_type appName = [[NSProcessInfo processInfo] processName];
+    __auto_type paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    __auto_type basePath = ([paths count] > 0) ? paths[0] : NSTemporaryDirectory();
+    __auto_type logsDirectory = [[basePath stringByAppendingPathComponent:@"Logs"] stringByAppendingPathComponent:appName];
 #endif
 
     return logsDirectory;
 }
 
 - (NSString *)logsDirectory {
-    // We could do this check once, during initalization, and not bother again.
+    // We could do this check once, during initialization, and not bother again.
     // But this way the code continues to work if the directory gets deleted while the code is running.
 
-    if (![[NSFileManager defaultManager] fileExistsAtPath:_logsDirectory]) {
-        NSError *err = nil;
+    NSAssert(_logsDirectory.length > 0, @"Directory must be set.");
 
-        if (![[NSFileManager defaultManager] createDirectoryAtPath:_logsDirectory
-                                       withIntermediateDirectories:YES
-                                                        attributes:nil
-                                                             error:&err]) {
-            NSLogError(@"AWSDDFileLogManagerDefault: Error creating logsDirectory: %@", err);
-        }
+    __autoreleasing NSError *error = nil;
+    __auto_type success = [[NSFileManager defaultManager] createDirectoryAtPath:_logsDirectory
+                                                    withIntermediateDirectories:YES
+                                                                     attributes:nil
+                                                                          error:&error];
+    if (!success) {
+        NSLogError(@"AWSDDFileLogManagerDefault: Error creating logsDirectory: %@", error);
     }
 
     return _logsDirectory;
 }
 
 - (BOOL)isLogFile:(NSString *)fileName {
-    NSString *appName = [self applicationName];
+    __auto_type appName = [self applicationName];
 
-    BOOL hasProperPrefix = [fileName hasPrefix:appName];
-    BOOL hasProperSuffix = [fileName hasSuffix:@".log"];
-    BOOL hasProperDate = NO;
-
-    if (hasProperPrefix && hasProperSuffix) {
-        NSUInteger lengthOfMiddle = fileName.length - appName.length - @".log".length;
-
-        // Date string should have at least 16 characters - " 2013-12-03 17-14"
-        if (lengthOfMiddle >= 17) {
-            NSRange range = NSMakeRange(appName.length, lengthOfMiddle);
-
-            NSString *middle = [fileName substringWithRange:range];
-            NSArray *components = [middle componentsSeparatedByString:@" "];
-
-            // When creating logfile if there is existing file with the same name, we append attemp number at the end.
-            // Thats why here we can have three or four components. For details see createNewLogFile method.
-            //
-            // Components:
-            //     "", "2013-12-03", "17-14"
-            // or
-            //     "", "2013-12-03", "17-14", "1"
-            if (components.count == 3 || components.count == 4) {
-                NSString *dateString = [NSString stringWithFormat:@"%@ %@", components[1], components[2]];
-                NSDateFormatter *dateFormatter = [self logFileDateFormatter];
-
-                NSDate *date = [dateFormatter dateFromString:dateString];
-
-                if (date) {
-                    hasProperDate = YES;
-                }
-            }
-        }
-    }
-
-    return (hasProperPrefix && hasProperDate && hasProperSuffix);
+    // We need to add a space to the name as otherwise we could match applications that have the name prefix.
+    return [fileName hasPrefix:[appName stringByAppendingString:@" "]] && [fileName hasSuffix:@".log"];
 }
 
+// if you change formatter, then change sortedLogFileInfos method also accordingly
 - (NSDateFormatter *)logFileDateFormatter {
-    NSMutableDictionary *dictionary = [[NSThread currentThread]
-                                       threadDictionary];
-    NSString *dateFormat = @"yyyy'-'MM'-'dd' 'HH'-'mm'";
-    NSString *key = [NSString stringWithFormat:@"logFileDateFormatter.%@", dateFormat];
-    NSDateFormatter *dateFormatter = dictionary[key];
-
-    if (dateFormatter == nil) {
-        dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
-        [dateFormatter setDateFormat:dateFormat];
-        [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-        dictionary[key] = dateFormatter;
-    }
-
-    return dateFormatter;
+    return _fileDateFormatter;
 }
 
 - (NSArray *)unsortedLogFilePaths {
-    NSString *logsDirectory = [self logsDirectory];
-    NSArray *fileNames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:logsDirectory error:nil];
+    __auto_type logsDirectory = [self logsDirectory];
 
-    NSMutableArray *unsortedLogFilePaths = [NSMutableArray arrayWithCapacity:[fileNames count]];
+    __autoreleasing NSError *error = nil;
+    __auto_type fileNames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:logsDirectory error:&error];
+    if (!fileNames && error) {
+        NSLogError(@"AWSDDFileLogManagerDefault: Error listing log file directory: %@", error);
+        return [[NSArray alloc] init];
+    }
+
+    __auto_type unsortedLogFilePaths = [NSMutableArray arrayWithCapacity:[fileNames count]];
 
     for (NSString *fileName in fileNames) {
         // Filter out any files that aren't log files. (Just for extra safety)
-
-    #if TARGET_IPHONE_SIMULATOR
+#if TARGET_IPHONE_SIMULATOR
+        // This is only used on the iPhone simulator for backward compatibility reason.
+        //
         // In case of iPhone simulator there can be 'archived' extension. isLogFile:
         // method knows nothing about it. Thus removing it for this method.
-        //
-        // See full explanation in the header file.
-        NSString *theFileName = [fileName stringByReplacingOccurrencesOfString:@".archived"
-                                                                    withString:@""];
+        __auto_type theFileName = [fileName stringByReplacingOccurrencesOfString:@".archived"
+                                                                      withString:@""];
 
         if ([self isLogFile:theFileName])
-    #else
-
-        if ([self isLogFile:fileName])
-    #endif
-        {
-            NSString *filePath = [logsDirectory stringByAppendingPathComponent:fileName];
-
-            [unsortedLogFilePaths addObject:filePath];
-        }
+#else
+            if ([self isLogFile:fileName])
+#endif
+            {
+                __auto_type filePath = [logsDirectory stringByAppendingPathComponent:fileName];
+                [unsortedLogFilePaths addObject:filePath];
+            }
     }
 
     return unsortedLogFilePaths;
 }
 
 - (NSArray *)unsortedLogFileNames {
-    NSArray *unsortedLogFilePaths = [self unsortedLogFilePaths];
-
-    NSMutableArray *unsortedLogFileNames = [NSMutableArray arrayWithCapacity:[unsortedLogFilePaths count]];
+    __auto_type unsortedLogFilePaths = [self unsortedLogFilePaths];
+    __auto_type unsortedLogFileNames = [NSMutableArray arrayWithCapacity:[unsortedLogFilePaths count]];
 
     for (NSString *filePath in unsortedLogFilePaths) {
         [unsortedLogFileNames addObject:[filePath lastPathComponent]];
@@ -379,13 +365,11 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
 }
 
 - (NSArray *)unsortedLogFileInfos {
-    NSArray *unsortedLogFilePaths = [self unsortedLogFilePaths];
-
-    NSMutableArray *unsortedLogFileInfos = [NSMutableArray arrayWithCapacity:[unsortedLogFilePaths count]];
+    __auto_type unsortedLogFilePaths = [self unsortedLogFilePaths];
+    __auto_type unsortedLogFileInfos = [NSMutableArray arrayWithCapacity:[unsortedLogFilePaths count]];
 
     for (NSString *filePath in unsortedLogFilePaths) {
-        AWSDDLogFileInfo *logFileInfo = [[AWSDDLogFileInfo alloc] initWithFilePath:filePath];
-
+        __auto_type logFileInfo = [[AWSDDLogFileInfo alloc] initWithFilePath:filePath];
         [unsortedLogFileInfos addObject:logFileInfo];
     }
 
@@ -393,9 +377,8 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
 }
 
 - (NSArray *)sortedLogFilePaths {
-    NSArray *sortedLogFileInfos = [self sortedLogFileInfos];
-
-    NSMutableArray *sortedLogFilePaths = [NSMutableArray arrayWithCapacity:[sortedLogFileInfos count]];
+    __auto_type sortedLogFileInfos = [self sortedLogFileInfos];
+    __auto_type sortedLogFilePaths = [NSMutableArray arrayWithCapacity:[sortedLogFileInfos count]];
 
     for (AWSDDLogFileInfo *logFileInfo in sortedLogFileInfos) {
         [sortedLogFilePaths addObject:[logFileInfo filePath]];
@@ -405,9 +388,8 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
 }
 
 - (NSArray *)sortedLogFileNames {
-    NSArray *sortedLogFileInfos = [self sortedLogFileInfos];
-
-    NSMutableArray *sortedLogFileNames = [NSMutableArray arrayWithCapacity:[sortedLogFileInfos count]];
+    __auto_type sortedLogFileInfos = [self sortedLogFileInfos];
+    __auto_type sortedLogFileNames = [NSMutableArray arrayWithCapacity:[sortedLogFileInfos count]];
 
     for (AWSDDLogFileInfo *logFileInfo in sortedLogFileInfos) {
         [sortedLogFileNames addObject:[logFileInfo fileName]];
@@ -417,72 +399,139 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
 }
 
 - (NSArray *)sortedLogFileInfos {
-    return [[self unsortedLogFileInfos] sortedArrayUsingSelector:@selector(reverseCompareByCreationDate:)];
+    return [[self unsortedLogFileInfos] sortedArrayUsingComparator:^NSComparisonResult(AWSDDLogFileInfo *obj1,
+                                                                                       AWSDDLogFileInfo *obj2) {
+        NSDate *date1 = [NSDate date];
+        NSDate *date2 = [NSDate date];
+
+        __auto_type arrayComponent = [[obj1 fileName] componentsSeparatedByString:@" "];
+        if (arrayComponent.count > 0) {
+            NSString *stringDate = arrayComponent.lastObject;
+            stringDate = [stringDate stringByReplacingOccurrencesOfString:@".log" withString:@""];
+#if TARGET_IPHONE_SIMULATOR
+            // This is only used on the iPhone simulator for backward compatibility reason.
+            stringDate = [stringDate stringByReplacingOccurrencesOfString:@".archived" withString:@""];
+#endif
+            date1 = [[self logFileDateFormatter] dateFromString:stringDate] ?: [obj1 creationDate];
+        }
+
+        arrayComponent = [[obj2 fileName] componentsSeparatedByString:@" "];
+        if (arrayComponent.count > 0) {
+            NSString *stringDate = arrayComponent.lastObject;
+            stringDate = [stringDate stringByReplacingOccurrencesOfString:@".log" withString:@""];
+#if TARGET_IPHONE_SIMULATOR
+            // This is only used on the iPhone simulator for backward compatibility reason.
+            stringDate = [stringDate stringByReplacingOccurrencesOfString:@".archived" withString:@""];
+#endif
+            date2 = [[self logFileDateFormatter] dateFromString:stringDate] ?: [obj2 creationDate];
+        }
+
+        return [date2 compare:date1 ?: [NSDate date]];
+    }];
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark Creation
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// If you change newLogFileName, then change `isLogFile:` method also accordingly.
 - (NSString *)newLogFileName {
-    NSString *appName = [self applicationName];
-
-    NSDateFormatter *dateFormatter = [self logFileDateFormatter];
-    NSString *formattedDate = [dateFormatter stringFromDate:[NSDate date]];
+    __auto_type appName = [self applicationName];
+    __auto_type dateFormatter = [self logFileDateFormatter];
+    __auto_type formattedDate = [dateFormatter stringFromDate:[NSDate date]];
 
     return [NSString stringWithFormat:@"%@ %@.log", appName, formattedDate];
 }
 
-- (NSString *)createNewLogFile {
-    NSString *fileName = [self newLogFileName];
-    NSString *logsDirectory = [self logsDirectory];
+- (nullable NSString *)logFileHeader {
+    return nil;
+}
 
+- (NSData *)logFileHeaderData {
+    NSString *fileHeaderStr = [self logFileHeader];
+
+    if (fileHeaderStr.length == 0) {
+        return nil;
+    }
+
+    if (![fileHeaderStr hasSuffix:@"\n"]) {
+        fileHeaderStr = [fileHeaderStr stringByAppendingString:@"\n"];
+    }
+
+    return [_logMessageSerializer dataForString:fileHeaderStr originatingFromMessage:nil];
+}
+
+- (NSString *)createNewLogFileWithError:(NSError *__autoreleasing _Nullable *)error {
+    static NSUInteger MAX_ALLOWED_ERROR = 5;
+
+    __auto_type fileName = [self newLogFileName];
+    __auto_type logsDirectory = [self logsDirectory];
+    __auto_type fileHeader = [self logFileHeaderData] ?: [NSData data];
+
+    NSString *baseName = nil;
+    NSString *extension;
     NSUInteger attempt = 1;
+    NSUInteger criticalErrors = 0;
+    NSError *lastCriticalError;
 
+    if (error) *error = nil;
     do {
-        NSString *actualFileName = fileName;
+        if (criticalErrors >= MAX_ALLOWED_ERROR) {
+            NSLogError(@"AWSDDLogFileManagerDefault: Bailing file creation, encountered %ld errors.",
+                       (unsigned long)criticalErrors);
+            if (error) *error = lastCriticalError;
+            return nil;
+        }
 
+        NSString *actualFileName;
         if (attempt > 1) {
-            NSString *extension = [actualFileName pathExtension];
+            if (baseName == nil) {
+                baseName = [fileName stringByDeletingPathExtension];
+                extension = [fileName pathExtension];
+            }
 
-            actualFileName = [actualFileName stringByDeletingPathExtension];
-            actualFileName = [actualFileName stringByAppendingFormat:@" %lu", (unsigned long)attempt];
-
+            actualFileName = [baseName stringByAppendingFormat:@" %lu", (unsigned long)attempt];
             if (extension.length) {
                 actualFileName = [actualFileName stringByAppendingPathExtension:extension];
             }
+        } else {
+            actualFileName = fileName;
         }
 
-        NSString *filePath = [logsDirectory stringByAppendingPathComponent:actualFileName];
+        __auto_type filePath = [logsDirectory stringByAppendingPathComponent:actualFileName];
 
-        if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-            NSLogVerbose(@"AWSDDLogFileManagerDefault: Creating new log file: %@", actualFileName);
+        __autoreleasing NSError *currentError = nil;
+        __auto_type success = [fileHeader writeToFile:filePath options:NSDataWritingAtomic error:&currentError];
 
-            NSDictionary *attributes = nil;
-
-        #if TARGET_OS_IPHONE
+#if TARGET_OS_IPHONE && !TARGET_OS_MACCATALYST
+        if (success) {
             // When creating log file on iOS we're setting NSFileProtectionKey attribute to NSFileProtectionCompleteUnlessOpen.
             //
             // But in case if app is able to launch from background we need to have an ability to open log file any time we
             // want (even if device is locked). Thats why that attribute have to be changed to
             // NSFileProtectionCompleteUntilFirstUserAuthentication.
+            NSDictionary *attributes = @{NSFileProtectionKey: [self logFileProtection]};
+            success = [[NSFileManager defaultManager] setAttributes:attributes
+                                                       ofItemAtPath:filePath
+                                                              error:&currentError];
+        }
+#endif
 
-            NSString *key = _defaultFileProtectionLevel ? :
-                (awsDoesAppRunInBackground() ? NSFileProtectionCompleteUntilFirstUserAuthentication : NSFileProtectionCompleteUnlessOpen);
-
-            attributes = @{
-                NSFileProtectionKey: key
-            };
-        #endif
-
-            [[NSFileManager defaultManager] createFileAtPath:filePath contents:nil attributes:attributes];
-
-            // Since we just created a new log file, we may need to delete some old log files
-            [self deleteOldLogFiles];
-
+        if (success) {
+            NSLogVerbose(@"AWSDDLogFileManagerDefault: Created new log file: %@", actualFileName);
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                // Since we just created a new log file, we may need to delete some old log files
+                // Note that we don't on errors here! The new log file was created, so this method technically succeeded!
+                [self deleteOldLogFilesWithError:nil];
+            });
             return filePath;
-        } else {
+        } else if (currentError.code == NSFileWriteFileExistsError) {
             attempt++;
+        } else {
+            NSLogError(@"AWSDDLogFileManagerDefault: Critical error while creating log file: %@", currentError);
+            criticalErrors++;
+            lastCriticalError = currentError;
         }
     } while (YES);
 }
@@ -498,11 +547,11 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
     dispatch_once(&onceToken, ^{
         _appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
 
-        if (!_appName) {
+        if (_appName.length == 0) {
             _appName = [[NSProcessInfo processInfo] processName];
         }
 
-        if (!_appName) {
+        if (_appName.length == 0) {
             _appName = @"";
         }
     });
@@ -528,13 +577,15 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
     return [self initWithDateFormatter:nil];
 }
 
-- (instancetype)initWithDateFormatter:(NSDateFormatter *)aDateFormatter {
+- (instancetype)initWithDateFormatter:(nullable NSDateFormatter *)aDateFormatter {
     if ((self = [super init])) {
         if (aDateFormatter) {
             _dateFormatter = aDateFormatter;
         } else {
             _dateFormatter = [[NSDateFormatter alloc] init];
             [_dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4]; // 10.4+ style
+            [_dateFormatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
+            [_dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
             [_dateFormatter setDateFormat:@"yyyy/MM/dd HH:mm:ss:SSS"];
         }
     }
@@ -543,8 +594,8 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
 }
 
 - (NSString *)formatLogMessage:(AWSDDLogMessage *)logMessage {
-    NSString *dateAndTime = [_dateFormatter stringFromDate:(logMessage->_timestamp)];
-
+    __auto_type dateAndTime = [_dateFormatter stringFromDate:logMessage->_timestamp];
+    // Note: There are two spaces between the date and the message.
     return [NSString stringWithFormat:@"%@  %@", dateAndTime, logMessage->_message];
 }
 
@@ -555,48 +606,82 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 @interface AWSDDFileLogger () {
-    __strong id <AWSDDLogFileManager> _logFileManager;
-    
-    NSFileHandle *_currentLogFileHandle;
-    
-    dispatch_source_t _currentLogFileVnode;
-    dispatch_source_t _rollingTimer;
-    
-    unsigned long long _maximumFileSize;
-    NSTimeInterval _rollingFrequency;
-}
+    id <AWSDDLogFileManager> _logFileManager;
 
-- (void)rollLogFileNow;
-- (void)maybeRollLogFileDueToAge;
-- (void)maybeRollLogFileDueToSize;
+    AWSDDLogFileInfo *_currentLogFileInfo;
+    NSFileHandle *_currentLogFileHandle;
+
+    dispatch_source_t _currentLogFileVnode;
+
+    NSTimeInterval _rollingFrequency;
+    dispatch_source_t _rollingTimer;
+
+    unsigned long long _maximumFileSize;
+
+    dispatch_queue_t _completionQueue;
+}
 
 @end
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wincomplete-implementation"
 @implementation AWSDDFileLogger
+#pragma clang diagnostic pop
 
 - (instancetype)init {
-    AWSDDLogFileManagerDefault *defaultLogFileManager = [[AWSDDLogFileManagerDefault alloc] init];
-
-    return [self initWithLogFileManager:defaultLogFileManager];
+    return [self initWithLogFileManager:[[AWSDDLogFileManagerDefault alloc] init]
+                        completionQueue:nil];
 }
 
-- (instancetype)initWithLogFileManager:(id <AWSDDLogFileManager>)aLogFileManager {
+- (instancetype)initWithLogFileManager:(id<AWSDDLogFileManager>)logFileManager {
+    return [self initWithLogFileManager:logFileManager completionQueue:nil];
+}
+
+- (instancetype)initWithLogFileManager:(id <AWSDDLogFileManager>)aLogFileManager
+                       completionQueue:(nullable dispatch_queue_t)dispatchQueue {
     if ((self = [super init])) {
+        _completionQueue = dispatchQueue ?: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+
         _maximumFileSize = kAWSDDDefaultLogMaxFileSize;
         _rollingFrequency = kAWSDDDefaultLogRollingFrequency;
         _automaticallyAppendNewlineForCustomFormatters = YES;
 
-        logFileManager = aLogFileManager;
+        _logFileManager = aLogFileManager;
+        _logFormatter = [AWSDDLogFileFormatterDefault new];
 
-        self.logFormatter = [AWSDDLogFileFormatterDefault new];
+        if ([_logFileManager respondsToSelector:@selector(didAddToFileLogger:)]) {
+            [_logFileManager didAddToFileLogger:self];
+        }
     }
 
     return self;
 }
 
-- (void)dealloc {
-    [_currentLogFileHandle synchronizeFile];
-    [_currentLogFileHandle closeFile];
+- (void)lt_cleanup {
+    AWSDDAbstractLoggerAssertOnInternalLoggerQueue();
+
+    if (_currentLogFileHandle != nil) {
+        if (@available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)) {
+            __autoreleasing NSError *error = nil;
+            __auto_type success = [_currentLogFileHandle synchronizeAndReturnError:&error];
+            if (!success) {
+                NSLogError(@"AWSDDFileLogger: Failed to synchronize file: %@", error);
+            }
+            success = [_currentLogFileHandle closeAndReturnError:&error];
+            if (!success) {
+                NSLogError(@"AWSDDFileLogger: Failed to close file: %@", error);
+            }
+        } else {
+            @try {
+                [_currentLogFileHandle synchronizeFile];
+            }
+            @catch (NSException *exception) {
+                NSLogError(@"AWSDDFileLogger: Failed to synchronize file: %@", exception);
+            }
+            [_currentLogFileHandle closeFile];
+        }
+        _currentLogFileHandle = nil;
+    }
 
     if (_currentLogFileVnode) {
         dispatch_source_cancel(_currentLogFileVnode);
@@ -609,16 +694,24 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
     }
 }
 
+- (void)dealloc {
+    if (self.isOnInternalLoggerQueue) {
+        [self lt_cleanup];
+    } else {
+        dispatch_sync(self.loggerQueue, ^{
+            [self lt_cleanup];
+        });
+    }
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark Properties
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-@synthesize logFileManager;
-
 - (unsigned long long)maximumFileSize {
     __block unsigned long long result;
 
-    dispatch_block_t block = ^{
+    __auto_type block = ^{
         result = self->_maximumFileSize;
     };
 
@@ -632,12 +725,9 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
     // This is the intended result. Fix it by accessing the ivar directly.
     // Great strides have been take to ensure this is safe to do. Plus it's MUCH faster.
 
-    NSAssert(![self isOnGlobalLoggingQueue], @"Core architecture requirement failure");
-    NSAssert(![self isOnInternalLoggerQueue], @"MUST access ivar directly, NOT via self.* syntax.");
+    AWSDDAbstractLoggerAssertLockedPropertyAccess();
 
-    dispatch_queue_t globalLoggingQueue = [AWSDDLog loggingQueue];
-
-    dispatch_sync(globalLoggingQueue, ^{
+    dispatch_sync(AWSDDLog.loggingQueue, ^{
         dispatch_sync(self.loggerQueue, block);
     });
 
@@ -645,10 +735,12 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
 }
 
 - (void)setMaximumFileSize:(unsigned long long)newMaximumFileSize {
-    dispatch_block_t block = ^{
+    __auto_type block = ^{
         @autoreleasepool {
             self->_maximumFileSize = newMaximumFileSize;
-            [self maybeRollLogFileDueToSize];
+            if (self->_currentLogFileHandle != nil) {
+                [self lt_maybeRollLogFileDueToSize];
+            }
         }
     };
 
@@ -662,12 +754,9 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
     // This is the intended result. Fix it by accessing the ivar directly.
     // Great strides have been take to ensure this is safe to do. Plus it's MUCH faster.
 
-    NSAssert(![self isOnGlobalLoggingQueue], @"Core architecture requirement failure");
-    NSAssert(![self isOnInternalLoggerQueue], @"MUST access ivar directly, NOT via self.* syntax.");
+    AWSDDAbstractLoggerAssertLockedPropertyAccess();
 
-    dispatch_queue_t globalLoggingQueue = [AWSDDLog loggingQueue];
-
-    dispatch_async(globalLoggingQueue, ^{
+    dispatch_async(AWSDDLog.loggingQueue, ^{
         dispatch_async(self.loggerQueue, block);
     });
 }
@@ -675,7 +764,7 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
 - (NSTimeInterval)rollingFrequency {
     __block NSTimeInterval result;
 
-    dispatch_block_t block = ^{
+    __auto_type block = ^{
         result = self->_rollingFrequency;
     };
 
@@ -689,12 +778,9 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
     // This is the intended result. Fix it by accessing the ivar directly.
     // Great strides have been take to ensure this is safe to do. Plus it's MUCH faster.
 
-    NSAssert(![self isOnGlobalLoggingQueue], @"Core architecture requirement failure");
-    NSAssert(![self isOnInternalLoggerQueue], @"MUST access ivar directly, NOT via self.* syntax.");
+    AWSDDAbstractLoggerAssertLockedPropertyAccess();
 
-    dispatch_queue_t globalLoggingQueue = [AWSDDLog loggingQueue];
-
-    dispatch_sync(globalLoggingQueue, ^{
+    dispatch_sync(AWSDDLog.loggingQueue, ^{
         dispatch_sync(self.loggerQueue, block);
     });
 
@@ -702,10 +788,12 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
 }
 
 - (void)setRollingFrequency:(NSTimeInterval)newRollingFrequency {
-    dispatch_block_t block = ^{
+    __auto_type block = ^{
         @autoreleasepool {
             self->_rollingFrequency = newRollingFrequency;
-            [self maybeRollLogFileDueToAge];
+            if (self->_currentLogFileHandle != nil) {
+                [self lt_maybeRollLogFileDueToAge];
+            }
         }
     };
 
@@ -719,12 +807,9 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
     // This is the intended result. Fix it by accessing the ivar directly.
     // Great strides have been take to ensure this is safe to do. Plus it's MUCH faster.
 
-    NSAssert(![self isOnGlobalLoggingQueue], @"Core architecture requirement failure");
-    NSAssert(![self isOnInternalLoggerQueue], @"MUST access ivar directly, NOT via self.* syntax.");
+    AWSDDAbstractLoggerAssertLockedPropertyAccess();
 
-    dispatch_queue_t globalLoggingQueue = [AWSDDLog loggingQueue];
-
-    dispatch_async(globalLoggingQueue, ^{
+    dispatch_async(AWSDDLog.loggingQueue, ^{
         dispatch_async(self.loggerQueue, block);
     });
 }
@@ -733,7 +818,9 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
 #pragma mark File Rolling
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-- (void)scheduleTimerToRollLogFileDueToAge {
+- (void)lt_scheduleTimerToRollLogFileDueToAge {
+    AWSDDAbstractLoggerAssertOnInternalLoggerQueue();
+
     if (_rollingTimer) {
         dispatch_source_cancel(_rollingTimer);
         _rollingTimer = NULL;
@@ -743,52 +830,51 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
         return;
     }
 
-    NSDate *logFileCreationDate = [_currentLogFileInfo creationDate];
-
-    NSTimeInterval ti = [logFileCreationDate timeIntervalSinceReferenceDate];
-    ti += _rollingFrequency;
-
-    NSDate *logFileRollingDate = [NSDate dateWithTimeIntervalSinceReferenceDate:ti];
+    __auto_type logFileCreationDate = [_currentLogFileInfo creationDate];
+    __auto_type frequency = MIN(_rollingFrequency, DBL_MAX - [logFileCreationDate timeIntervalSinceReferenceDate]);
+    __auto_type logFileRollingDate = [logFileCreationDate dateByAddingTimeInterval:frequency];
 
     NSLogVerbose(@"AWSDDFileLogger: scheduleTimerToRollLogFileDueToAge");
+    NSLogVerbose(@"AWSDDFileLogger: logFileCreationDate    : %@", logFileCreationDate);
+    NSLogVerbose(@"AWSDDFileLogger: actual rollingFrequency: %f", frequency);
+    NSLogVerbose(@"AWSDDFileLogger: logFileRollingDate     : %@", logFileRollingDate);
 
-    NSLogVerbose(@"AWSDDFileLogger: logFileCreationDate: %@", logFileCreationDate);
-    NSLogVerbose(@"AWSDDFileLogger: logFileRollingDate : %@", logFileRollingDate);
+    _rollingTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, _loggerQueue);
 
-    _rollingTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, self.loggerQueue);
-
+    __weak __auto_type weakSelf = self;
     dispatch_source_set_event_handler(_rollingTimer, ^{ @autoreleasepool {
-                                                           [self maybeRollLogFileDueToAge];
-                                                       } });
+        [weakSelf lt_maybeRollLogFileDueToAge];
+    } });
 
-    #if !OS_OBJECT_USE_OBJC
+#if !OS_OBJECT_USE_OBJC
     dispatch_source_t theRollingTimer = _rollingTimer;
     dispatch_source_set_cancel_handler(_rollingTimer, ^{
         dispatch_release(theRollingTimer);
     });
-    #endif
+#endif
 
-    uint64_t delay = (uint64_t)([logFileRollingDate timeIntervalSinceNow] * (NSTimeInterval) NSEC_PER_SEC);
-    dispatch_time_t fireTime = dispatch_time(DISPATCH_TIME_NOW, delay);
+    static NSTimeInterval const kAWSDDMaxTimerDelay = LLONG_MAX / NSEC_PER_SEC;
+    __auto_type delay = (int64_t)(MIN([logFileRollingDate timeIntervalSinceNow], kAWSDDMaxTimerDelay) * (NSTimeInterval)NSEC_PER_SEC);
+    __auto_type fireTime = dispatch_walltime(NULL, delay); // `NULL` uses `gettimeofday` internally
 
-    dispatch_source_set_timer(_rollingTimer, fireTime, DISPATCH_TIME_FOREVER, 1ull * NSEC_PER_SEC);
-    dispatch_resume(_rollingTimer);
+    dispatch_source_set_timer(_rollingTimer, fireTime, DISPATCH_TIME_FOREVER, (uint64_t)kAWSDDRollingLeeway * NSEC_PER_SEC);
+    dispatch_activate(_rollingTimer);
 }
 
 - (void)rollLogFile {
     [self rollLogFileWithCompletionBlock:nil];
 }
 
-- (void)rollLogFileWithCompletionBlock:(void (^)(void))completionBlock {
+- (void)rollLogFileWithCompletionBlock:(nullable void (^)(void))completionBlock {
     // This method is public.
     // We need to execute the rolling on our logging thread/queue.
 
-    dispatch_block_t block = ^{
+    __auto_type block = ^{
         @autoreleasepool {
-            [self rollLogFileNow];
+            [self lt_rollLogFileNow];
 
             if (completionBlock) {
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                dispatch_async(self->_completionQueue, ^{
                     completionBlock();
                 });
             }
@@ -801,69 +887,115 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
     if ([self isOnInternalLoggerQueue]) {
         block();
     } else {
-        dispatch_queue_t globalLoggingQueue = [AWSDDLog loggingQueue];
-        NSAssert(![self isOnGlobalLoggingQueue], @"Core architecture requirement failure");
-
-        dispatch_async(globalLoggingQueue, ^{
+        AWSDDAbstractLoggerAssertNotOnGlobalLoggingQueue();
+        dispatch_async(AWSDDLog.loggingQueue, ^{
             dispatch_async(self.loggerQueue, block);
         });
     }
 }
 
-- (void)rollLogFileNow {
-    NSLogVerbose(@"AWSDDFileLogger: rollLogFileNow");
+- (void)lt_rollLogFileNow {
+    AWSDDAbstractLoggerAssertOnInternalLoggerQueue();
+    NSLogVerbose(@"AWSDDFileLogger: %@", NSStringFromSelector(_cmd));
 
     if (_currentLogFileHandle == nil) {
         return;
     }
 
-    [_currentLogFileHandle synchronizeFile];
-    [_currentLogFileHandle closeFile];
+    if (@available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)) {
+        __autoreleasing NSError *error = nil;
+        __auto_type success = [_currentLogFileHandle synchronizeAndReturnError:&error];
+        if (!success) {
+            NSLogError(@"AWSDDFileLogger: Failed to synchronize file: %@", error);
+        }
+        success = [_currentLogFileHandle closeAndReturnError:&error];
+        if (!success) {
+            NSLogError(@"AWSDDFileLogger: Failed to close file: %@", error);
+        }
+    } else {
+        @try {
+            [_currentLogFileHandle synchronizeFile];
+        }
+        @catch (NSException *exception) {
+            NSLogError(@"AWSDDFileLogger: Failed to synchronize file: %@", exception);
+        }
+        [_currentLogFileHandle closeFile];
+    }
     _currentLogFileHandle = nil;
 
     _currentLogFileInfo.isArchived = YES;
 
-    if ([logFileManager respondsToSelector:@selector(didRollAndArchiveLogFile:)]) {
-        [logFileManager didRollAndArchiveLogFile:(_currentLogFileInfo.filePath)];
-    }
-
+    const __auto_type logFileManagerRespondsToNewArchiveSelector = [_logFileManager respondsToSelector:@selector(didArchiveLogFile:wasRolled:)];
+    const __auto_type logFileManagerRespondsToSelector = (logFileManagerRespondsToNewArchiveSelector
+                                                          || [_logFileManager respondsToSelector:@selector(didRollAndArchiveLogFile:)]);
+    NSString *archivedFilePath = (logFileManagerRespondsToSelector) ? [_currentLogFileInfo.filePath copy] : nil;
     _currentLogFileInfo = nil;
+
+    if (logFileManagerRespondsToSelector) {
+        dispatch_block_t block;
+        if (logFileManagerRespondsToNewArchiveSelector) {
+            block = ^{
+                [self->_logFileManager didArchiveLogFile:archivedFilePath wasRolled:YES];
+            };
+        } else {
+            block = ^{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+                [self->_logFileManager didRollAndArchiveLogFile:archivedFilePath];
+#pragma clang diagnostic pop
+            };
+        }
+        dispatch_async(_completionQueue, block);
+    }
 
     if (_currentLogFileVnode) {
         dispatch_source_cancel(_currentLogFileVnode);
-        _currentLogFileVnode = NULL;
+        _currentLogFileVnode = nil;
     }
 
     if (_rollingTimer) {
         dispatch_source_cancel(_rollingTimer);
-        _rollingTimer = NULL;
+        _rollingTimer = nil;
     }
 }
 
-- (void)maybeRollLogFileDueToAge {
-    if (_rollingFrequency > 0.0 && _currentLogFileInfo.age >= _rollingFrequency) {
+- (void)lt_maybeRollLogFileDueToAge {
+    AWSDDAbstractLoggerAssertOnInternalLoggerQueue();
+
+    if (_rollingFrequency > 0.0 && (_currentLogFileInfo.age + kAWSDDRollingLeeway) >= _rollingFrequency) {
         NSLogVerbose(@"AWSDDFileLogger: Rolling log file due to age...");
-
-        [self rollLogFileNow];
+        [self lt_rollLogFileNow];
     } else {
-        [self scheduleTimerToRollLogFileDueToAge];
+        [self lt_scheduleTimerToRollLogFileDueToAge];
     }
 }
 
-- (void)maybeRollLogFileDueToSize {
+- (void)lt_maybeRollLogFileDueToSize {
+    AWSDDAbstractLoggerAssertOnInternalLoggerQueue();
+
     // This method is called from logMessage.
     // Keep it FAST.
 
     // Note: Use direct access to maximumFileSize variable.
     // We specifically wrote our own getter/setter method to allow us to do this (for performance reasons).
 
-    if (_maximumFileSize > 0) {
-        unsigned long long fileSize = [_currentLogFileHandle offsetInFile];
+    if (_currentLogFileHandle != nil && _maximumFileSize > 0) {
+        unsigned long long fileSize;
+        if (@available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)) {
+            __autoreleasing NSError *error = nil;
+            __auto_type success = [_currentLogFileHandle getOffset:&fileSize error:&error];
+            if (!success) {
+                NSLogError(@"AWSDDFileLogger: Failed to get offset: %@", error);
+                return;
+            }
+        } else {
+            fileSize = [_currentLogFileHandle offsetInFile];
+        }
 
         if (fileSize >= _maximumFileSize) {
             NSLogVerbose(@"AWSDDFileLogger: Rolling log file due to size (%qu)...", fileSize);
 
-            [self rollLogFileNow];
+            [self lt_rollLogFileNow];
         }
     }
 }
@@ -872,111 +1004,208 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
 #pragma mark File Logging
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+- (BOOL)lt_shouldLogFileBeArchived:(AWSDDLogFileInfo *)mostRecentLogFileInfo {
+    AWSDDAbstractLoggerAssertOnInternalLoggerQueue();
+
+    if ([self shouldArchiveRecentLogFileInfo:mostRecentLogFileInfo]) {
+        return YES;
+    } else if (_maximumFileSize > 0 && mostRecentLogFileInfo.fileSize >= _maximumFileSize) {
+        return YES;
+    } else if (_rollingFrequency > 0.0 && mostRecentLogFileInfo.age >= _rollingFrequency) {
+        return YES;
+    }
+
+#if TARGET_OS_IPHONE
+    // When creating log file on iOS we're setting NSFileProtectionKey attribute to NSFileProtectionCompleteUnlessOpen.
+    //
+    // But in case if app is able to launch from background we need to have an ability to open log file any time we
+    // want (even if device is locked). Thats why that attribute have to be changed to
+    // NSFileProtectionCompleteUntilFirstUserAuthentication.
+    //
+    // If previous log was created when app wasn't running in background, but now it is - we archive it and create
+    // a new one.
+    //
+    // If user has overwritten to NSFileProtectionNone there is no need to create a new one.
+    if (doesAppRunInBackground()) {
+        NSFileProtectionType key = mostRecentLogFileInfo.fileAttributes[NSFileProtectionKey];
+        __auto_type isUntilFirstAuth = [key isEqualToString:NSFileProtectionCompleteUntilFirstUserAuthentication];
+        __auto_type isNone = [key isEqualToString:NSFileProtectionNone];
+
+        if (key != nil && !isUntilFirstAuth && !isNone) {
+            return YES;
+        }
+    }
+#endif
+
+    return NO;
+}
+
 /**
  * Returns the log file that should be used.
- * If there is an existing log file that is suitable,
- * within the constraints of maximumFileSize and rollingFrequency, then it is returned.
+ * If there is an existing log file that is suitable, within the
+ * constraints of maximumFileSize and rollingFrequency, then it is returned.
  *
  * Otherwise a new file is created and returned.
  **/
 - (AWSDDLogFileInfo *)currentLogFileInfo {
-    if (_currentLogFileInfo == nil) {
-        NSArray *sortedLogFileInfos = [logFileManager sortedLogFileInfos];
+    // The design of this method is taken from the AWSDDAbstractLogger implementation.
+    // For extensive documentation please refer to the AWSDDAbstractLogger implementation.
+    // Do not access this method on any Lumberjack queue, will deadlock.
 
-        if ([sortedLogFileInfos count] > 0) {
-            AWSDDLogFileInfo *mostRecentLogFileInfo = sortedLogFileInfos[0];
+    AWSDDAbstractLoggerAssertLockedPropertyAccess();
 
-            BOOL shouldArchiveMostRecent = NO;
+    __block AWSDDLogFileInfo *info = nil;
+    __auto_type block = ^{
+        info = [self lt_currentLogFileInfo];
+    };
 
-            if (mostRecentLogFileInfo.isArchived) {
-                shouldArchiveMostRecent = NO;
-			} else if ([self shouldArchiveRecentLogFileInfo:mostRecentLogFileInfo]) {
-				shouldArchiveMostRecent = YES;
-			} else if (_maximumFileSize > 0 && mostRecentLogFileInfo.fileSize >= _maximumFileSize) {
-                shouldArchiveMostRecent = YES;
-            } else if (_rollingFrequency > 0.0 && mostRecentLogFileInfo.age >= _rollingFrequency) {
-                shouldArchiveMostRecent = YES;
+    dispatch_sync(AWSDDLog.loggingQueue, ^{
+        dispatch_sync(self->_loggerQueue, block);
+    });
+
+    return info;
+}
+
+- (AWSDDLogFileInfo *)lt_currentLogFileInfo {
+    AWSDDAbstractLoggerAssertOnInternalLoggerQueue();
+
+    // Get the current log file info ivar (might be nil).
+    __auto_type newCurrentLogFile = _currentLogFileInfo;
+
+    // Check if we're resuming and if so, get the first of the sorted log file infos.
+    __auto_type isResuming = newCurrentLogFile == nil;
+    if (isResuming) {
+        NSArray *sortedLogFileInfos = [_logFileManager sortedLogFileInfos];
+        newCurrentLogFile = sortedLogFileInfos.firstObject;
+    }
+
+    // Check if the file we've found is still valid. Otherwise create a new one.
+    if (newCurrentLogFile != nil && [self lt_shouldUseLogFile:newCurrentLogFile isResuming:isResuming]) {
+        if (isResuming) {
+            NSLogVerbose(@"AWSDDFileLogger: Resuming logging with file %@", newCurrentLogFile.fileName);
+        }
+        _currentLogFileInfo = newCurrentLogFile;
+    } else {
+        NSString *currentLogFilePath;
+        if ([_logFileManager respondsToSelector:@selector(createNewLogFileWithError:)]) {
+            __autoreleasing NSError *error; // Don't initialize error to nil since it will be done in -createNewLogFileWithError:
+            currentLogFilePath = [_logFileManager createNewLogFileWithError:&error];
+            if (!currentLogFilePath) {
+                NSLogError(@"AWSDDFileLogger: Failed to create new log file: %@", error);
             }
-
-        #if TARGET_OS_IPHONE
-            // When creating log file on iOS we're setting NSFileProtectionKey attribute to NSFileProtectionCompleteUnlessOpen.
-            //
-            // But in case if app is able to launch from background we need to have an ability to open log file any time we
-            // want (even if device is locked). Thats why that attribute have to be changed to
-            // NSFileProtectionCompleteUntilFirstUserAuthentication.
-            //
-            // If previous log was created when app wasn't running in background, but now it is - we archive it and create
-            // a new one.
-            //
-            // If user has overwritten to NSFileProtectionNone there is no neeed to create a new one.
-
-            if (!_doNotReuseLogFiles && awsDoesAppRunInBackground()) {
-                NSString *key = mostRecentLogFileInfo.fileAttributes[NSFileProtectionKey];
-
-                if ([key length] > 0 && !([key isEqualToString:NSFileProtectionCompleteUntilFirstUserAuthentication] || [key isEqualToString:NSFileProtectionNone])) {
-                    shouldArchiveMostRecent = YES;
-                }
-            }
-
-        #endif
-
-            if (!_doNotReuseLogFiles && !mostRecentLogFileInfo.isArchived && !shouldArchiveMostRecent) {
-                NSLogVerbose(@"AWSDDFileLogger: Resuming logging with file %@", mostRecentLogFileInfo.fileName);
-
-                _currentLogFileInfo = mostRecentLogFileInfo;
-            } else {
-                if (shouldArchiveMostRecent) {
-                    mostRecentLogFileInfo.isArchived = YES;
-
-                    if ([logFileManager respondsToSelector:@selector(didArchiveLogFile:)]) {
-                        [logFileManager didArchiveLogFile:(mostRecentLogFileInfo.filePath)];
-                    }
-                }
+        } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+            NSAssert([_logFileManager respondsToSelector:@selector(createNewLogFile)],
+                     @"Invalid log file manager! Responds neither to `-createNewLogFileWithError:` nor `-createNewLogFile`!");
+            currentLogFilePath = [_logFileManager createNewLogFile];
+#pragma clang diagnostic pop
+            if (!currentLogFilePath) {
+                NSLogError(@"AWSDDFileLogger: Failed to create new log file");
             }
         }
-
-        if (_currentLogFileInfo == nil) {
-            NSString *currentLogFilePath = [logFileManager createNewLogFile];
-
-            _currentLogFileInfo = [[AWSDDLogFileInfo alloc] initWithFilePath:currentLogFilePath];
-        }
+        // Use static factory method here, since it checks for nil (and is unavailable to Swift).
+        _currentLogFileInfo = [AWSDDLogFileInfo logFileWithPath:currentLogFilePath];
     }
 
     return _currentLogFileInfo;
 }
 
-- (NSFileHandle *)currentLogFileHandle {
+- (BOOL)lt_shouldUseLogFile:(nonnull AWSDDLogFileInfo *)logFileInfo isResuming:(BOOL)isResuming {
+    NSParameterAssert(logFileInfo);
+    AWSDDAbstractLoggerAssertOnInternalLoggerQueue();
+
+    // Check if the log file is archived. We must not use archived log files.
+    if (logFileInfo.isArchived) {
+        return NO;
+    }
+
+    // Don't follow symlink
+    if (logFileInfo.isSymlink) {
+        return NO;
+    }
+
+    // If we're resuming, we need to check if the log file is allowed for reuse or needs to be archived.
+    if (isResuming && (_doNotReuseLogFiles || [self lt_shouldLogFileBeArchived:logFileInfo])) {
+        logFileInfo.isArchived = YES;
+
+        const __auto_type logFileManagerRespondsToNewArchiveSelector = [_logFileManager respondsToSelector:@selector(didArchiveLogFile:wasRolled:)];
+        if (logFileManagerRespondsToNewArchiveSelector || [_logFileManager respondsToSelector:@selector(didArchiveLogFile:)]) {
+            NSString *archivedFilePath = [logFileInfo.filePath copy];
+            dispatch_block_t block;
+            if (logFileManagerRespondsToNewArchiveSelector) {
+                block = ^{
+                    [self->_logFileManager didArchiveLogFile:archivedFilePath wasRolled:NO];
+                };
+            } else {
+                block = ^{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+                    [self->_logFileManager didArchiveLogFile:archivedFilePath];
+#pragma clang diagnostic pop
+                };
+            }
+            dispatch_async(_completionQueue, block);
+        }
+
+        return NO;
+    }
+
+    // All checks have passed. It's valid.
+    return YES;
+}
+
+- (void)lt_monitorCurrentLogFileForExternalChanges {
+    AWSDDAbstractLoggerAssertOnInternalLoggerQueue();
+    NSAssert(_currentLogFileHandle, @"Can not monitor without handle.");
+
+    // This seems to work around crashes when an active source is replaced / released.
+    // See https://github.com/CocoaLumberjack/CocoaLumberjack/issues/1341
+    // And https://stackoverflow.com/questions/36296528/what-does-this-dispatch-xref-dispose-error-mean
+    if (_currentLogFileVnode) {
+        dispatch_source_cancel(_currentLogFileVnode);
+    }
+
+    _currentLogFileVnode = dispatch_source_create(DISPATCH_SOURCE_TYPE_VNODE,
+                                                  (uintptr_t)[_currentLogFileHandle fileDescriptor],
+                                                  DISPATCH_VNODE_DELETE | DISPATCH_VNODE_RENAME | DISPATCH_VNODE_REVOKE,
+                                                  _loggerQueue);
+
+    __weak __auto_type weakSelf = self;
+    dispatch_source_set_event_handler(_currentLogFileVnode, ^{ @autoreleasepool {
+        NSLogInfo(@"AWSDDFileLogger: Current logfile was moved. Rolling it and creating a new one");
+        [weakSelf lt_rollLogFileNow];
+    } });
+
+#if !OS_OBJECT_USE_OBJC
+    dispatch_source_t vnode = _currentLogFileVnode;
+    dispatch_source_set_cancel_handler(_currentLogFileVnode, ^{
+        dispatch_release(vnode);
+    });
+#endif
+
+    dispatch_activate(_currentLogFileVnode);
+}
+
+- (NSFileHandle *)lt_currentLogFileHandle {
+    AWSDDAbstractLoggerAssertOnInternalLoggerQueue();
+
     if (_currentLogFileHandle == nil) {
-        NSString *logFilePath = [[self currentLogFileInfo] filePath];
-
+        __auto_type logFilePath = [[self lt_currentLogFileInfo] filePath];
         _currentLogFileHandle = [NSFileHandle fileHandleForWritingAtPath:logFilePath];
-        [_currentLogFileHandle seekToEndOfFile];
+        if (_currentLogFileHandle != nil) {
+            if (@available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)) {
+                __autoreleasing NSError *error = nil;
+                __auto_type success = [_currentLogFileHandle seekToEndReturningOffset:nil error:&error];
+                if (!success) {
+                    NSLogError(@"AWSDDFileLogger: Failed to seek to end of file: %@", error);
+                }
+            } else {
+                [_currentLogFileHandle seekToEndOfFile];
+            }
 
-        if (_currentLogFileHandle) {
-            [self scheduleTimerToRollLogFileDueToAge];
-
-            // Here we are monitoring the log file. In case if it would be deleted ormoved
-            // somewhere we want to roll it and use a new one.
-            _currentLogFileVnode = dispatch_source_create(
-                    DISPATCH_SOURCE_TYPE_VNODE,
-                    [_currentLogFileHandle fileDescriptor],
-                    DISPATCH_VNODE_DELETE | DISPATCH_VNODE_RENAME,
-                    self.loggerQueue
-                    );
-
-            dispatch_source_set_event_handler(_currentLogFileVnode, ^{ @autoreleasepool {
-                                                                          NSLogInfo(@"AWSDDFileLogger: Current logfile was moved. Rolling it and creating a new one");
-                                                                          [self rollLogFileNow];
-                                                                      } });
-
-            #if !OS_OBJECT_USE_OBJC
-            dispatch_source_t vnode = _currentLogFileVnode;
-            dispatch_source_set_cancel_handler(_currentLogFileVnode, ^{
-                dispatch_release(vnode);
-            });
-            #endif
-
-            dispatch_resume(_currentLogFileVnode);
+            [self lt_scheduleTimerToRollLogFileDueToAge];
+            [self lt_monitorCurrentLogFileForExternalChanges];
         }
     }
 
@@ -988,63 +1217,225 @@ unsigned long long const kAWSDDDefaultLogFilesDiskQuota   = 20 * 1024 * 1024; //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 static int exception_count = 0;
-- (void)logMessage:(AWSDDLogMessage *)logMessage {
-    NSString *message = logMessage->_message;
-    BOOL isFormatted = NO;
 
-    if (_logFormatter) {
-        message = [_logFormatter formatLogMessage:logMessage];
-        isFormatted = message != logMessage->_message;
+- (void)logMessage:(AWSDDLogMessage *)logMessage {
+    // Don't need to check for isOnInternalLoggerQueue, -lt_dataForMessage: will do it for us.
+    NSData *data = [self lt_dataForMessage:logMessage];
+    if (data.length == 0) {
+        return;
     }
 
-    if (message) {
-        if ((!isFormatted || _automaticallyAppendNewlineForCustomFormatters) &&
-            (![message hasSuffix:@"\n"])) {
-            message = [message stringByAppendingString:@"\n"];
+    [self lt_logData:data];
+}
+
+- (void)willLogMessage:(AWSDDLogFileInfo *)logFileInfo {}
+
+- (void)didLogMessage:(AWSDDLogFileInfo *)logFileInfo {
+    [self lt_maybeRollLogFileDueToSize];
+}
+
+- (BOOL)shouldArchiveRecentLogFileInfo:(__unused AWSDDLogFileInfo *)recentLogFileInfo {
+    return NO;
+}
+
+- (void)willRemoveLogger {
+    [self lt_rollLogFileNow];
+}
+
+- (void)flush {
+    // This method is public.
+    // We need to execute the rolling on our logging thread/queue.
+
+    dispatch_block_t block = ^{
+        @autoreleasepool {
+            [self lt_flush];
         }
+    };
 
-        NSData *logData = [message dataUsingEncoding:NSUTF8StringEncoding];
+    // The design of this method is taken from the AWSDDAbstractLogger implementation.
+    // For extensive documentation please refer to the AWSDDAbstractLogger implementation.
 
-        @try {
-            [self willLogMessage];
-			
-            [[self currentLogFileHandle] writeData:logData];
+    if ([self isOnInternalLoggerQueue]) {
+        block();
+    } else {
+        AWSDDAbstractLoggerAssertNotOnGlobalLoggingQueue();
+        dispatch_sync(AWSDDLog.loggingQueue, ^{
+            dispatch_sync(self.loggerQueue, block);
+        });
+    }
+}
 
-            [self didLogMessage];
-        } @catch (NSException *exception) {
-            exception_count++;
+- (void)lt_flush {
+    AWSDDAbstractLoggerAssertOnInternalLoggerQueue();
 
-            if (exception_count <= 10) {
-                NSLogError(@"AWSDDFileLogger.logMessage: %@", exception);
-
-                if (exception_count == 10) {
-                    NSLogError(@"AWSDDFileLogger.logMessage: Too many exceptions -- will not log any more of them.");
-                }
+    if (_currentLogFileHandle != nil) {
+        if (@available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)) {
+            __autoreleasing NSError *error = nil;
+            __auto_type success = [_currentLogFileHandle synchronizeAndReturnError:&error];
+            if (!success) {
+                NSLogError(@"AWSDDFileLogger: Failed to synchronize file: %@", error);
+            }
+        } else {
+            @try {
+                [_currentLogFileHandle synchronizeFile];
+            } @catch (NSException *exception) {
+                NSLogError(@"AWSDDFileLogger: Failed to synchronize file: %@", exception);
             }
         }
     }
 }
 
-- (void)willLogMessage {
-	
+- (AWSDDLoggerName)loggerName {
+    return AWSDDLoggerNameFile;
 }
 
-- (void)didLogMessage {
-    [self maybeRollLogFileDueToSize];
+@end
+
+@implementation AWSDDFileLogger (Internal)
+
+- (void)logData:(NSData *)data {
+    // This method is public.
+    // We need to execute the rolling on our logging thread/queue.
+
+    __auto_type block = ^{
+        @autoreleasepool {
+            [self lt_logData:data];
+        }
+    };
+
+    // The design of this method is taken from the AWSDDAbstractLogger implementation.
+    // For extensive documentation please refer to the AWSDDAbstractLogger implementation.
+
+    if ([self isOnInternalLoggerQueue]) {
+        block();
+    } else {
+        AWSDDAbstractLoggerAssertNotOnGlobalLoggingQueue();
+        dispatch_sync(AWSDDLog.loggingQueue, ^{
+            dispatch_sync(self.loggerQueue, block);
+        });
+    }
 }
 
-- (BOOL)shouldArchiveRecentLogFileInfo:(AWSDDLogFileInfo *)recentLogFileInfo {
-    return NO;
+- (void)lt_deprecationCatchAll {}
+
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    if (aSelector == @selector(willLogMessage) || aSelector == @selector(didLogMessage)) {
+        // Ignore calls to deprecated methods.
+        return [self methodSignatureForSelector:@selector(lt_deprecationCatchAll)];
+    }
+
+    return [super methodSignatureForSelector:aSelector];
 }
 
-- (void)willRemoveLogger {
-    // If you override me be sure to invoke [super willRemoveLogger];
-
-    [self rollLogFileNow];
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    if (anInvocation.selector != @selector(lt_deprecationCatchAll)) {
+        [super forwardInvocation:anInvocation];
+    }
 }
 
-- (NSString *)loggerName {
-    return @"cocoa.lumberjack.fileLogger";
+- (void)lt_logData:(NSData *)data {
+    static __auto_type implementsDeprecatedWillLog = NO;
+    static __auto_type implementsDeprecatedDidLog = NO;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        implementsDeprecatedWillLog = [self respondsToSelector:@selector(willLogMessage)];
+        implementsDeprecatedDidLog = [self respondsToSelector:@selector(didLogMessage)];
+    });
+
+    AWSDDAbstractLoggerAssertOnInternalLoggerQueue();
+
+    if (data.length == 0) {
+        return;
+    }
+
+    @try {
+        // Make sure that _currentLogFileInfo is initialised before being used.
+        __auto_type handle = [self lt_currentLogFileHandle];
+
+        if (implementsDeprecatedWillLog) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+            [self willLogMessage];
+#pragma clang diagnostic pop
+        } else {
+            [self willLogMessage:_currentLogFileInfo];
+        }
+
+        // use an advisory lock to coordinate write with other processes
+        __auto_type fd = [handle fileDescriptor];
+        while(flock(fd, LOCK_EX) != 0) {
+            NSLogError(@"AWSDDFileLogger: Could not lock logfile, retrying in 1ms: %s (%d)", strerror(errno), errno);
+            usleep(1000);
+        }
+        if (@available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)) {
+            __autoreleasing NSError *error = nil;
+            __auto_type success = [handle seekToEndReturningOffset:nil error:&error];
+            if (!success) {
+                NSLogError(@"AWSDDFileLogger: Failed to seek to end of file: %@", error);
+            }
+            success =  [handle writeData:data error:&error];
+            if (!success) {
+                NSLogError(@"AWSDDFileLogger: Failed to write data: %@", error);
+            }
+        } else {
+            [handle seekToEndOfFile];
+            [handle writeData:data];
+        }
+        flock(fd, LOCK_UN);
+
+        if (implementsDeprecatedDidLog) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+            [self didLogMessage];
+#pragma clang diagnostic pop
+        } else {
+            [self didLogMessage:_currentLogFileInfo];
+        }
+
+    }
+    @catch (NSException *exception) {
+        exception_count++;
+
+        if (exception_count <= 10) {
+            NSLogError(@"AWSDDFileLogger.logMessage: %@", exception);
+
+            if (exception_count == 10) {
+                NSLogError(@"AWSDDFileLogger.logMessage: Too many exceptions -- will not log any more of them.");
+            }
+        }
+    }
+}
+
+- (id <AWSDDFileLogMessageSerializer>)lt_logFileSerializer {
+    if ([_logFileManager respondsToSelector:@selector(logMessageSerializer)]) {
+        return _logFileManager.logMessageSerializer;
+    } else {
+        return [[AWSDDFileLogPlainTextMessageSerializer alloc] init];
+    }
+}
+
+- (NSData *)lt_dataForMessage:(AWSDDLogMessage *)logMessage {
+    AWSDDAbstractLoggerAssertOnInternalLoggerQueue();
+
+    __auto_type messageString = logMessage->_message;
+    __auto_type isFormatted = NO;
+
+    if (_logFormatter != nil) {
+        messageString = [_logFormatter formatLogMessage:logMessage];
+        isFormatted = messageString != logMessage->_message;
+    }
+
+    if (messageString.length == 0) {
+        return nil;
+    }
+
+    __auto_type shouldFormat = !isFormatted || _automaticallyAppendNewlineForCustomFormatters;
+    if (shouldFormat && ![messageString hasSuffix:@"\n"]) {
+        messageString = [messageString stringByAppendingString:@"\n"];
+    }
+
+    return [[self lt_logFileSerializer] dataForString:messageString originatingFromMessage:logMessage];
 }
 
 @end
@@ -1053,23 +1444,25 @@ static int exception_count = 0;
 #pragma mark -
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#if TARGET_IPHONE_SIMULATOR
-    static NSString * const kAWSDDXAttrArchivedName = @"archived";
-#else
-    static NSString * const kAWSDDXAttrArchivedName = @"lumberjack.log.archived";
-#endif
+static NSString * const kDDXAttrArchivedName = @"lumberjack.log.archived";
 
 @interface AWSDDLogFileInfo () {
     __strong NSString *_filePath;
     __strong NSString *_fileName;
-    
+
     __strong NSDictionary *_fileAttributes;
-    
+
     __strong NSDate *_creationDate;
     __strong NSDate *_modificationDate;
-    
+
     unsigned long long _fileSize;
 }
+
+#if TARGET_IPHONE_SIMULATOR
+// Old implementation of extended attributes on the simulator.
+- (BOOL)_hasExtensionAttributeWithName:(NSString *)attrName;
+- (void)_removeExtensionAttributeWithName:(NSString *)attrName;
+#endif
 
 @end
 
@@ -1087,14 +1480,15 @@ static int exception_count = 0;
 
 @dynamic isArchived;
 
-
 #pragma mark Lifecycle
 
 + (instancetype)logFileWithPath:(NSString *)aFilePath {
+    if (!aFilePath) return nil;
     return [[self alloc] initWithFilePath:aFilePath];
 }
 
 - (instancetype)initWithFilePath:(NSString *)aFilePath {
+    NSParameterAssert(aFilePath);
     if ((self = [super init])) {
         filePath = [aFilePath copy];
     }
@@ -1108,10 +1502,14 @@ static int exception_count = 0;
 
 - (NSDictionary *)fileAttributes {
     if (_fileAttributes == nil && filePath != nil) {
-        _fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
+        __autoreleasing NSError *error = nil;
+        _fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:&error];
+        if (!_fileAttributes) {
+            NSLogError(@"AWSDDLogFileInfo: Failed to read file attributes: %@", error);
+        }
     }
 
-    return _fileAttributes;
+    return _fileAttributes ?: @{};
 }
 
 - (NSString *)fileName {
@@ -1147,7 +1545,11 @@ static int exception_count = 0;
 }
 
 - (NSTimeInterval)age {
-    return [[self creationDate] timeIntervalSinceNow] * -1.0;
+    return -[[self creationDate] timeIntervalSinceNow];
+}
+
+- (BOOL)isSymlink {
+    return self.fileAttributes[NSFileType] == NSFileTypeSymbolicLink;
 }
 
 - (NSString *)description {
@@ -1166,43 +1568,15 @@ static int exception_count = 0;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (BOOL)isArchived {
-#if TARGET_IPHONE_SIMULATOR
-
-    // Extended attributes don't work properly on the simulator.
-    // So we have to use a less attractive alternative.
-    // See full explanation in the header file.
-
-    return [self hasExtensionAttributeWithName:kAWSDDXAttrArchivedName];
-
-#else
-
-    return [self hasExtendedAttributeWithName:kAWSDDXAttrArchivedName];
-
-#endif
+    return [self hasExtendedAttributeWithName:kDDXAttrArchivedName];
 }
 
 - (void)setIsArchived:(BOOL)flag {
-#if TARGET_IPHONE_SIMULATOR
-
-    // Extended attributes don't work properly on the simulator.
-    // So we have to use a less attractive alternative.
-    // See full explanation in the header file.
-
     if (flag) {
-        [self addExtensionAttributeWithName:kAWSDDXAttrArchivedName];
+        [self addExtendedAttributeWithName:kDDXAttrArchivedName];
     } else {
-        [self removeExtensionAttributeWithName:kAWSDDXAttrArchivedName];
+        [self removeExtendedAttributeWithName:kDDXAttrArchivedName];
     }
-
-#else
-
-    if (flag) {
-        [self addExtendedAttributeWithName:kAWSDDXAttrArchivedName];
-    } else {
-        [self removeExtendedAttributeWithName:kAWSDDXAttrArchivedName];
-    }
-
-#endif
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1221,20 +1595,36 @@ static int exception_count = 0;
     // See full explanation in the header file.
 
     if (![newFileName isEqualToString:[self fileName]]) {
-        NSString *fileDir = [filePath stringByDeletingLastPathComponent];
+        __auto_type fileManager = [NSFileManager defaultManager];
+        __auto_type fileDir = [filePath stringByDeletingLastPathComponent];
+        __auto_type newFilePath = [fileDir stringByAppendingPathComponent:newFileName];
 
-        NSString *newFilePath = [fileDir stringByAppendingPathComponent:newFileName];
+        // We only want to assert when we're not using the simulator, as we're "archiving" a log file with this method in the sim
+        // (in which case the file might not exist anymore and neither does it parent folder).
+#if defined(DEBUG) && (!defined(TARGET_IPHONE_SIMULATOR) || !TARGET_IPHONE_SIMULATOR)
+        __auto_type directory = NO;
+        [fileManager fileExistsAtPath:fileDir isDirectory:&directory];
+        NSAssert(directory, @"Containing directory must exist.");
+#endif
 
-        NSLogVerbose(@"AWSDDLogFileInfo: Renaming file: '%@' -> '%@'", self.fileName, newFileName);
-
-        NSError *error = nil;
-
-        if ([[NSFileManager defaultManager] fileExistsAtPath:newFilePath] &&
-            ![[NSFileManager defaultManager] removeItemAtPath:newFilePath error:&error]) {
+        __autoreleasing NSError *error = nil;
+        __auto_type success = [fileManager removeItemAtPath:newFilePath error:&error];
+        if (!success && error.code != NSFileNoSuchFileError) {
             NSLogError(@"AWSDDLogFileInfo: Error deleting archive (%@): %@", self.fileName, error);
         }
 
-        if (![[NSFileManager defaultManager] moveItemAtPath:filePath toPath:newFilePath error:&error]) {
+        success = [fileManager moveItemAtPath:filePath toPath:newFilePath error:&error];
+
+        // When a log file is deleted, moved or renamed on the simulator, we attempt to rename it as a
+        // result of "archiving" it, but since the file doesn't exist anymore, needless error logs are printed
+        // We therefore ignore this error, and assert that the directory we are copying into exists (which
+        // is the only other case where this error code can come up).
+#if TARGET_IPHONE_SIMULATOR
+        if (!success && error.code != NSFileNoSuchFileError)
+#else
+        if (!success)
+#endif
+        {
             NSLogError(@"AWSDDLogFileInfo: Error renaming file (%@): %@", self.fileName, error);
         }
 
@@ -1249,13 +1639,26 @@ static int exception_count = 0;
 
 #if TARGET_IPHONE_SIMULATOR
 
-// Extended attributes don't work properly on the simulator.
-// So we have to use a less attractive alternative.
-// See full explanation in the header file.
+// Old implementation of extended attributes on the simulator.
 
-- (BOOL)hasExtensionAttributeWithName:(NSString *)attrName {
-    // This method is only used on the iPhone simulator, where normal extended attributes are broken.
-    // See full explanation in the header file.
+// Extended attributes were not working properly on the simulator
+// due to misuse of setxattr() function.
+// Now that this is fixed in the new implementation, we want to keep
+// backward compatibility with previous simulator installations.
+
+static NSString * const kDDExtensionSeparator = @".";
+
+static NSString *_xattrToExtensionName(NSString *attrName) {
+    static NSDictionary<NSString *, NSString *>* _xattrToExtensionNameMap;
+    static dispatch_once_t _token;
+    dispatch_once(&_token, ^{
+        _xattrToExtensionNameMap = @{ kDDXAttrArchivedName: @"archived" };
+    });
+    return [_xattrToExtensionNameMap objectForKey:attrName];
+}
+
+- (BOOL)_hasExtensionAttributeWithName:(NSString *)attrName {
+    // This method is only used on the iPhone simulator for backward compatibility reason.
 
     // Split the file name into components. File name may have various format, but generally
     // structure is same:
@@ -1266,14 +1669,12 @@ static int exception_count = 0;
     //
     // So we want to search for the attrName in the components (ignoring the first array index).
 
-    NSArray *components = [[self fileName] componentsSeparatedByString:@"."];
+    __auto_type components = [[self fileName] componentsSeparatedByString:kDDExtensionSeparator];
 
     // Watch out for file names without an extension
 
     for (NSUInteger i = 1; i < components.count; i++) {
-        NSString *attr = components[i];
-
-        if ([attrName isEqualToString:attr]) {
+        if ([attrName isEqualToString:components[i]]) {
             return YES;
         }
     }
@@ -1281,66 +1682,8 @@ static int exception_count = 0;
     return NO;
 }
 
-- (void)addExtensionAttributeWithName:(NSString *)attrName {
-    // This method is only used on the iPhone simulator, where normal extended attributes are broken.
-    // See full explanation in the header file.
-
-    if ([attrName length] == 0) {
-        return;
-    }
-
-    // Example:
-    // attrName = "archived"
-    //
-    // "mylog.txt" -> "mylog.archived.txt"
-    // "mylog"     -> "mylog.archived"
-
-    NSArray *components = [[self fileName] componentsSeparatedByString:@"."];
-
-    NSUInteger count = [components count];
-
-    NSUInteger estimatedNewLength = [[self fileName] length] + [attrName length] + 1;
-    NSMutableString *newFileName = [NSMutableString stringWithCapacity:estimatedNewLength];
-
-    if (count > 0) {
-        [newFileName appendString:components.firstObject];
-    }
-
-    NSString *lastExt = @"";
-
-    NSUInteger i;
-
-    for (i = 1; i < count; i++) {
-        NSString *attr = components[i];
-
-        if ([attr length] == 0) {
-            continue;
-        }
-
-        if ([attrName isEqualToString:attr]) {
-            // Extension attribute already exists in file name
-            return;
-        }
-
-        if ([lastExt length] > 0) {
-            [newFileName appendFormat:@".%@", lastExt];
-        }
-
-        lastExt = attr;
-    }
-
-    [newFileName appendFormat:@".%@", attrName];
-
-    if ([lastExt length] > 0) {
-        [newFileName appendFormat:@".%@", lastExt];
-    }
-
-    [self renameFile:newFileName];
-}
-
-- (void)removeExtensionAttributeWithName:(NSString *)attrName {
-    // This method is only used on the iPhone simulator, where normal extended attributes are broken.
-    // See full explanation in the header file.
+- (void)_removeExtensionAttributeWithName:(NSString *)attrName {
+    // This method is only used on the iPhone simulator for backward compatibility reason.
 
     if ([attrName length] == 0) {
         return;
@@ -1352,28 +1695,29 @@ static int exception_count = 0;
     // "mylog.archived.txt" -> "mylog.txt"
     // "mylog.archived"     -> "mylog"
 
-    NSArray *components = [[self fileName] componentsSeparatedByString:@"."];
+    __auto_type components = [[self fileName] componentsSeparatedByString:kDDExtensionSeparator];
 
-    NSUInteger count = [components count];
+    __auto_type count = [components count];
 
-    NSUInteger estimatedNewLength = [[self fileName] length];
-    NSMutableString *newFileName = [NSMutableString stringWithCapacity:estimatedNewLength];
+    __auto_type estimatedNewLength = [[self fileName] length];
+    __auto_type newFileName = [NSMutableString stringWithCapacity:estimatedNewLength];
 
     if (count > 0) {
-        [newFileName appendString:components.firstObject];
+        [newFileName appendString:components[0]];
     }
 
-    BOOL found = NO;
+    __auto_type found = NO;
 
     NSUInteger i;
 
     for (i = 1; i < count; i++) {
-        NSString *attr = components[i];
+        __auto_type attr = components[i];
 
         if ([attrName isEqualToString:attr]) {
             found = YES;
         } else {
-            [newFileName appendFormat:@".%@", attr];
+            [newFileName appendString:kDDExtensionSeparator];
+            [newFileName appendString:attr];
         }
     }
 
@@ -1382,46 +1726,80 @@ static int exception_count = 0;
     }
 }
 
-#else /* if TARGET_IPHONE_SIMULATOR */
+#endif /* if TARGET_IPHONE_SIMULATOR */
 
 - (BOOL)hasExtendedAttributeWithName:(NSString *)attrName {
-    const char *path = [filePath UTF8String];
-    const char *name = [attrName UTF8String];
+    __auto_type path = [filePath fileSystemRepresentation];
+    __auto_type name = [attrName UTF8String];
+    __auto_type hasExtendedAttribute = NO;
+    char buffer[1];
 
-    ssize_t result = getxattr(path, name, NULL, 0, 0, 0);
+    __auto_type result = getxattr(path, name, buffer, 1, 0, 0);
 
-    return (result >= 0);
+    // Fast path
+    if (result > 0 && buffer[0] == '\1') {
+        hasExtendedAttribute = YES;
+    }
+    // Maintain backward compatibility, but fix it for future checks
+    else if (result >= 0) {
+        hasExtendedAttribute = YES;
+
+        [self addExtendedAttributeWithName:attrName];
+    }
+#if TARGET_IPHONE_SIMULATOR
+    else if ([self _hasExtensionAttributeWithName:_xattrToExtensionName(attrName)]) {
+        hasExtendedAttribute = YES;
+
+        [self addExtendedAttributeWithName:attrName];
+    }
+#endif
+
+    return hasExtendedAttribute;
 }
 
 - (void)addExtendedAttributeWithName:(NSString *)attrName {
-    const char *path = [filePath UTF8String];
-    const char *name = [attrName UTF8String];
+    __auto_type path = [filePath fileSystemRepresentation];
+    __auto_type name = [attrName UTF8String];
 
-    int result = setxattr(path, name, NULL, 0, 0, 0);
+    __auto_type result = setxattr(path, name, "\1", 1, 0, 0);
 
     if (result < 0) {
-        NSLogError(@"AWSDDLogFileInfo: setxattr(%@, %@): error = %s",
-                   attrName,
-                   filePath,
-                   strerror(errno));
+        if (errno != ENOENT) {
+            NSLogError(@"AWSDDLogFileInfo: setxattr(%@, %@): error = %@",
+                       attrName,
+                       filePath,
+                       @(strerror(errno)));
+        } else {
+            NSLogDebug(@"AWSDDLogFileInfo: File does not exist in setxattr(%@, %@): error = %@",
+                       attrName,
+                       filePath,
+                       @(strerror(errno)));
+        }
     }
+#if TARGET_IPHONE_SIMULATOR
+    else {
+        [self _removeExtensionAttributeWithName:_xattrToExtensionName(attrName)];
+    }
+#endif
 }
 
 - (void)removeExtendedAttributeWithName:(NSString *)attrName {
-    const char *path = [filePath UTF8String];
-    const char *name = [attrName UTF8String];
+    __auto_type path = [filePath fileSystemRepresentation];
+    __auto_type name = [attrName UTF8String];
 
-    int result = removexattr(path, name, 0);
+    __auto_type result = removexattr(path, name, 0);
 
     if (result < 0 && errno != ENOATTR) {
-        NSLogError(@"AWSDDLogFileInfo: removexattr(%@, %@): error = %s",
+        NSLogError(@"AWSDDLogFileInfo: removexattr(%@, %@): error = %@",
                    attrName,
                    self.fileName,
-                   strerror(errno));
+                   @(strerror(errno)));
     }
-}
 
-#endif /* if TARGET_IPHONE_SIMULATOR */
+#if TARGET_IPHONE_SIMULATOR
+    [self _removeExtensionAttributeWithName:_xattrToExtensionName(attrName)];
+#endif
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark Comparisons
@@ -1429,7 +1807,7 @@ static int exception_count = 0;
 
 - (BOOL)isEqual:(id)object {
     if ([object isKindOfClass:[self class]]) {
-        AWSDDLogFileInfo *another = (AWSDDLogFileInfo *)object;
+        __auto_type another = (AWSDDLogFileInfo *)object;
 
         return [filePath isEqualToString:[another filePath]];
     }
@@ -1437,42 +1815,25 @@ static int exception_count = 0;
     return NO;
 }
 
--(NSUInteger)hash {
+- (NSUInteger)hash {
     return [filePath hash];
 }
 
+- (NSComparisonResult)reverseCompareDatesUs:(NSDate *_Nullable)us them:(NSDate *_Nullable)them {
+    if (us != nil && them != nil) {
+        return [them compare:(NSDate * _Nonnull)us];
+    } else if (us == nil && them == nil) {
+        return NSOrderedSame;
+    }
+    return them == nil ? NSOrderedAscending : NSOrderedDescending;
+}
+
 - (NSComparisonResult)reverseCompareByCreationDate:(AWSDDLogFileInfo *)another {
-    NSDate *us = [self creationDate];
-    NSDate *them = [another creationDate];
-
-    NSComparisonResult result = [us compare:them];
-
-    if (result == NSOrderedAscending) {
-        return NSOrderedDescending;
-    }
-
-    if (result == NSOrderedDescending) {
-        return NSOrderedAscending;
-    }
-
-    return NSOrderedSame;
+    return [self reverseCompareDatesUs:[self creationDate] them:[another creationDate]];
 }
 
 - (NSComparisonResult)reverseCompareByModificationDate:(AWSDDLogFileInfo *)another {
-    NSDate *us = [self modificationDate];
-    NSDate *them = [another modificationDate];
-
-    NSComparisonResult result = [us compare:them];
-
-    if (result == NSOrderedAscending) {
-        return NSOrderedDescending;
-    }
-
-    if (result == NSOrderedDescending) {
-        return NSOrderedAscending;
-    }
-
-    return NSOrderedSame;
+    return [self reverseCompareDatesUs:[self modificationDate] them:[another modificationDate]];
 }
 
 @end
@@ -1485,11 +1846,13 @@ static int exception_count = 0;
  * want (even if device is locked). Thats why that attribute have to be changed to
  * NSFileProtectionCompleteUntilFirstUserAuthentication.
  */
-BOOL awsDoesAppRunInBackground() {
-    BOOL answer = NO;
+BOOL doesAppRunInBackground(void) {
+    if ([[[NSBundle mainBundle] executablePath] containsString:@".appex/"]) {
+        return YES;
+    }
 
+    __auto_type answer = NO;
     NSArray *backgroundModes = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"UIBackgroundModes"];
-
     for (NSString *mode in backgroundModes) {
         if (mode.length > 0) {
             answer = YES;
@@ -1499,5 +1862,4 @@ BOOL awsDoesAppRunInBackground() {
 
     return answer;
 }
-
 #endif

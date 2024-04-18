@@ -41,7 +41,6 @@ static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
                             @"InvalidParameterInput" : @(AWSCloudWatchErrorDashboardInvalidInput),
-                            @"ResourceNotFound" : @(AWSCloudWatchErrorDashboardNotFound),
                             @"InternalServiceError" : @(AWSCloudWatchErrorInternalService),
                             @"InvalidFormat" : @(AWSCloudWatchErrorInvalidFormat),
                             @"InvalidNextToken" : @(AWSCloudWatchErrorInvalidNextToken),

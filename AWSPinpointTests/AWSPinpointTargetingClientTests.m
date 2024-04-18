@@ -33,7 +33,7 @@ static NSString *userId;
 @interface AWSPinpointTargetingClientTests : XCTestCase
 @property (nonatomic, strong) AWSPinpoint *pinpoint;
 @property (nonatomic, strong) AWSPinpointConfiguration *configuration;
-@property (nonatomic, strong) UIApplication *application;
+@property (nonatomic, strong) id mockApplication;
 @property (nonatomic, strong) NSUserDefaults *userDefaults;
 @property (nonatomic, strong) AWSUICKeyChainStore *keychain;
 
@@ -72,6 +72,7 @@ static NSString *userId;
 }
 
 - (void)tearDown {
+    [self.mockApplication stopMocking];
     [super tearDown];
 }
 
@@ -122,6 +123,7 @@ static NSString *userId;
     UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:notificationType categories:nil];
     OCMStub([mockApplication currentUserNotificationSettings]).andReturn(notificationSettings);
     OCMStub([mockApplication isRegisteredForRemoteNotifications]).andReturn(withRemoteNotifications);
+    self.mockApplication = mockApplication;
 }
 
 - (void)testConstructors {

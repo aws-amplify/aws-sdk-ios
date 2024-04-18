@@ -174,7 +174,10 @@ NSString *const AWSPinpointJourneyKey = @"journey";
         NSURL *deepLinkURL = [NSURL URLWithString:amaDict[AWSCampaignDeepLinkKey]];
         if ([[UIApplication sharedApplication] canOpenURL:deepLinkURL]) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [[UIApplication sharedApplication] openURL:deepLinkURL];
+                [[UIApplication sharedApplication] openURL:deepLinkURL
+                                                   options:@{}
+                                         completionHandler:nil
+                ];
             });
         }
     }

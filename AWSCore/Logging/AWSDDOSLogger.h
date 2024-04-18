@@ -1,6 +1,6 @@
 // Software License Agreement (BSD License)
 //
-// Copyright (c) 2010-2016, Deusty, LLC
+// Copyright (c) 2010-2024, Deusty, LLC
 // All rights reserved.
 //
 // Redistribution and use of this software in source and binary forms,
@@ -16,23 +16,41 @@
 #import <Foundation/Foundation.h>
 
 // Disable legacy macros
-#ifndef DD_LEGACY_MACROS
-    #define DD_LEGACY_MACROS 0
+#ifndef AWSDD_LEGACY_MACROS
+    #define AWSDD_LEGACY_MACROS 0
 #endif
 
 #import "AWSDDLog.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * This class provides a logger for the Apple os_log facility.
  **/
-API_AVAILABLE(ios(10.0), macos(10.12), tvos(10.0), watchos(3.0))
+API_AVAILABLE(macos(10.12), ios(10.0), watchos(3.0), tvos(10.0))
+AWSDD_SENDABLE
 @interface AWSDDOSLogger : AWSDDAbstractLogger <AWSDDLogger>
 
 /**
  *  Singleton method
  *
- *  @return the shared instance
+ *  @return the shared instance with OS_LOG_DEFAULT.
  */
-@property (class, readonly, strong) AWSDDOSLogger *sharedInstance;
+@property (nonatomic, class, readonly, strong) AWSDDOSLogger *sharedInstance;
+
+/**
+ Designated initializer
+ 
+ @param subsystem Desired subsystem in log. E.g. "org.example"
+ @param category Desired category in log. E.g. "Point of interests."
+ @return New instance of AWSDDOSLogger.
+ 
+ @discussion This method requires either both or no parameter to be set. Much like `(String, String)?` in Swift.
+ If both parameters are nil, this method will return a logger configured with `OS_LOG_DEFAULT`.
+ If both parameters are non-nil, it will return a logger configured with `os_log_create(subsystem, category)`
+ */
+- (instancetype)initWithSubsystem:(nullable NSString *)subsystem category:(nullable NSString *)category NS_DESIGNATED_INITIALIZER;
 
 @end
+
+NS_ASSUME_NONNULL_END
