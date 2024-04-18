@@ -522,6 +522,9 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     _accessibility = accessibility;
 }
 
+// The following keys are deprecated, but they still need to be supported:
+// - AWSIoTKeyChainAccessibilityAlways, kSecAttrAccessibleAlways,
+// - AWSIoTKeyChainAccessibilityAlwaysThisDeviceOnly, kSecAttrAccessibleAlwaysThisDeviceOnly
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 + (CFTypeRef)accessibilityType {

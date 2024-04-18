@@ -1087,6 +1087,7 @@ static NSString *_defaultService;
 
 #pragma mark -
 
+// These methods are deprecated, but still need to be implemented
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-implementations"
 - (void)synchronize
@@ -1344,6 +1345,9 @@ static NSString *_defaultService;
     }
 }
 
+// The following keys are deprecated, but they still need to be supported:
+// - AWSCognitoAuthUICKeyChainStoreAccessibilityAlways, kSecAttrAccessibleAlways,
+// - AWSCognitoAuthUICKeyChainStoreAccessibilityAlwaysThisDeviceOnly, kSecAttrAccessibleAlwaysThisDeviceOnly
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (CFTypeRef)accessibilityObject
