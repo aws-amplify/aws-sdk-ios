@@ -105,6 +105,25 @@
     [AWSS3TransferUtilityDatabaseHelper deleteTransferRequestFromDB:self.transferID databaseQueue:self.databaseQueue];
 }
 
+// Add by Dart:
+- (void)stop {
+    if (self.status != AWSS3TransferUtilityTransferStatusInProgress ) {
+        // only stop inProgress task
+        return;
+    }
+
+    self.stopped = YES;
+    [self.sessionTask cancel];
+    self.status = AWSS3TransferUtilityTransferStatusPaused;
+    [AWSS3TransferUtilityDatabaseHelper updateTransferRequestInDB:self.transferID
+                                                       partNumber:@0
+                                                   taskIdentifier:self.taskIdentifier
+                                                             eTag:@""
+                                                           status:self.status
+                                                      retry_count:self.retryCount
+                                                    databaseQueue:self.databaseQueue];
+}
+
 -(void) setCompletionHandler:(AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler {
     
     self.expression.completionHandler = completionHandler;
@@ -155,13 +174,45 @@
     [AWSS3TransferUtilityDatabaseHelper deleteTransferRequestFromDB:self.transferID databaseQueue:self.databaseQueue];
 }
 
+// Add by Dart:
+- (void)stop {
+    if (self.status != AWSS3TransferUtilityTransferStatusInProgress) {
+        // only stop inProgress task
+        return;
+    }
+    
+    self.stopped = YES;
+    for (NSNumber *key in [self.inProgressPartsDictionary allKeys]) {
+        AWSS3TransferUtilityUploadSubTask *subTask = [self.inProgressPartsDictionary objectForKey:key];
+        
+        [subTask.sessionTask cancel];
+        subTask.status = AWSS3TransferUtilityTransferStatusPaused;
+        
+        [AWSS3TransferUtilityDatabaseHelper updateTransferRequestInDB:subTask.transferID
+                                                           partNumber:subTask.partNumber
+                                                       taskIdentifier:subTask.taskIdentifier
+                                                                 eTag:subTask.eTag
+                                                               status:subTask.status
+                                                          retry_count:self.retryCount
+                                                        databaseQueue:self.databaseQueue];
+    }
+    self.status = AWSS3TransferUtilityTransferStatusPaused;
+    //Update the Master Record
+    [AWSS3TransferUtilityDatabaseHelper updateTransferRequestInDB:self.transferID
+                                                       partNumber:@0
+                                                   taskIdentifier:0
+                                                             eTag:@""
+                                                           status:self.status
+                                                      retry_count:self.retryCount
+                                                    databaseQueue:self.databaseQueue];}
+
 - (void)resume {
     if (self.status != AWSS3TransferUtilityTransferStatusPaused ) {
         //Resume called on a transfer that hasn't been paused. No op.
         return;
     }
-    
     for (NSNumber *key in [self.inProgressPartsDictionary allKeys]) {
+        AWSDDLogDebug(@"Resume %@ inProgress sub task:%@", self.uploadID, key);
         AWSS3TransferUtilityUploadSubTask *subTask = [self.inProgressPartsDictionary objectForKey:key];
         subTask.status = AWSS3TransferUtilityTransferStatusInProgress;
         [AWSS3TransferUtilityDatabaseHelper updateTransferRequestInDB:subTask.transferID
@@ -189,9 +240,9 @@
         //Pause called on a transfer that is not in progresss. No op.
         return;
     }
-    
     for (NSNumber *key in [self.inProgressPartsDictionary allKeys]) {
         AWSS3TransferUtilityUploadSubTask *subTask = [self.inProgressPartsDictionary objectForKey:key];
+        
         [subTask.sessionTask suspend];
         subTask.status = AWSS3TransferUtilityTransferStatusPaused;
         
