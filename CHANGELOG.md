@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.36.0
+
 ### New features
 
 - Updating the iOS deployment target to 12.0 for the following services:
