@@ -1430,415 +1430,569 @@
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDASLLogger.h",
-      "line": 26,
+      "line": 28,
       "symbol": "kAWSDDASLKeyAWSDDLog",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDASLLogger.h",
-      "line": 29,
+      "line": 31,
       "symbol": "kAWSDDASLAWSDDLogValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDAbstractDatabaseLogger.h",
+      "line": 35,
+      "symbol": "AWSDDAbstractDatabaseLogger._saveThreshold",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDAbstractDatabaseLogger.h",
+      "line": 36,
+      "symbol": "AWSDDAbstractDatabaseLogger._saveInterval",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDAbstractDatabaseLogger.h",
+      "line": 37,
+      "symbol": "AWSDDAbstractDatabaseLogger._maxAge",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDAbstractDatabaseLogger.h",
+      "line": 38,
+      "symbol": "AWSDDAbstractDatabaseLogger._deleteInterval",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDAbstractDatabaseLogger.h",
+      "line": 39,
+      "symbol": "AWSDDAbstractDatabaseLogger._deleteOnEverySave",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDAbstractDatabaseLogger.h",
+      "line": 41,
+      "symbol": "AWSDDAbstractDatabaseLogger._saveTimerSuspended",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDAbstractDatabaseLogger.h",
+      "line": 42,
+      "symbol": "AWSDDAbstractDatabaseLogger._unsavedCount",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDAbstractDatabaseLogger.h",
+      "line": 43,
+      "symbol": "AWSDDAbstractDatabaseLogger._unsavedTime",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDAbstractDatabaseLogger.h",
+      "line": 44,
+      "symbol": "AWSDDAbstractDatabaseLogger._saveTimer",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDAbstractDatabaseLogger.h",
+      "line": 45,
+      "symbol": "AWSDDAbstractDatabaseLogger._lastDeleteTime",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDAbstractDatabaseLogger.h",
+      "line": 46,
+      "symbol": "AWSDDAbstractDatabaseLogger._deleteTimer",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 40,
+      "line": 42,
       "symbol": "kAWSDDDefaultLogRollingFrequency",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 41,
+      "line": 43,
       "symbol": "kAWSDDDefaultLogMaxNumLogFiles",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 42,
+      "line": 44,
       "symbol": "kAWSDDDefaultLogFilesDiskQuota",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 206,
+      "line": 76,
+      "symbol": "AWSDDFileLogPlainTextMessageSerializer.-init",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
+      "line": 262,
       "symbol": "AWSDDLogFileManagerDefault.-initWithLogsDirectory:defaultFileProtectionLevel:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 306,
-      "symbol": "AWSDDFileLogger._currentLogFileInfo",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 444,
+      "line": 537,
       "symbol": "AWSDDLogFileInfo.filePath",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 445,
+      "line": 538,
       "symbol": "AWSDDLogFileInfo.fileName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 448,
+      "line": 540,
       "symbol": "AWSDDLogFileInfo.fileAttributes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 453,
+      "line": 542,
       "symbol": "AWSDDLogFileInfo.creationDate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 454,
+      "line": 543,
       "symbol": "AWSDDLogFileInfo.modificationDate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 456,
+      "line": 545,
       "symbol": "AWSDDLogFileInfo.fileSize",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 458,
+      "line": 547,
       "symbol": "AWSDDLogFileInfo.age",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 460,
+      "line": 549,
+      "symbol": "AWSDDLogFileInfo.isSymlink",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
+      "line": 551,
       "symbol": "AWSDDLogFileInfo.isArchived",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 462,
+      "line": 553,
       "symbol": "AWSDDLogFileInfo.+logFileWithPath:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 464,
+      "line": 555,
       "symbol": "AWSDDLogFileInfo.-init",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 465,
+      "line": 556,
       "symbol": "AWSDDLogFileInfo.-initWithFilePath:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 467,
+      "line": 558,
       "symbol": "AWSDDLogFileInfo.-reset",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 468,
+      "line": 559,
       "symbol": "AWSDDLogFileInfo.-renameFile:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 492,
-      "symbol": "AWSDDLogFileInfo.-hasExtensionAttributeWithName:",
+      "line": 561,
+      "symbol": "AWSDDLogFileInfo.-hasExtendedAttributeWithName:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 494,
-      "symbol": "AWSDDLogFileInfo.-addExtensionAttributeWithName:",
+      "line": 563,
+      "symbol": "AWSDDLogFileInfo.-addExtendedAttributeWithName:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 495,
-      "symbol": "AWSDDLogFileInfo.-removeExtensionAttributeWithName:",
+      "line": 564,
+      "symbol": "AWSDDLogFileInfo.-removeExtendedAttributeWithName:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 509,
+      "line": 566,
       "symbol": "AWSDDLogFileInfo.-reverseCompareByCreationDate:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDFileLogger.h",
-      "line": 510,
+      "line": 567,
       "symbol": "AWSDDLogFileInfo.-reverseCompareByModificationDate:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 775,
+      "line": 798,
       "symbol": "AWSDDLogMessage._message",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 776,
+      "line": 799,
+      "symbol": "AWSDDLogMessage._messageFormat",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
+      "line": 800,
       "symbol": "AWSDDLogMessage._level",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 777,
+      "line": 801,
       "symbol": "AWSDDLogMessage._flag",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 778,
+      "line": 802,
       "symbol": "AWSDDLogMessage._context",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 779,
+      "line": 803,
       "symbol": "AWSDDLogMessage._file",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 780,
+      "line": 804,
       "symbol": "AWSDDLogMessage._fileName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 781,
+      "line": 805,
       "symbol": "AWSDDLogMessage._function",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 782,
+      "line": 806,
       "symbol": "AWSDDLogMessage._line",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 783,
+      "line": 808,
       "symbol": "AWSDDLogMessage._tag",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 784,
+      "line": 810,
+      "symbol": "AWSDDLogMessage._representedObject",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
+      "line": 811,
       "symbol": "AWSDDLogMessage._options",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 785,
+      "line": 812,
       "symbol": "AWSDDLogMessage._timestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 786,
+      "line": 813,
       "symbol": "AWSDDLogMessage._threadID",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 787,
+      "line": 814,
       "symbol": "AWSDDLogMessage._threadName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 788,
+      "line": 815,
       "symbol": "AWSDDLogMessage._queueLabel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 842,
+      "line": 816,
+      "symbol": "AWSDDLogMessage._qos",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
+      "line": 933,
       "symbol": "AWSDDLogMessage.level",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 843,
+      "line": 934,
       "symbol": "AWSDDLogMessage.flag",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 844,
+      "line": 935,
       "symbol": "AWSDDLogMessage.context",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 845,
+      "line": 936,
       "symbol": "AWSDDLogMessage.file",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 846,
+      "line": 937,
       "symbol": "AWSDDLogMessage.fileName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 847,
+      "line": 938,
       "symbol": "AWSDDLogMessage.function",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 848,
+      "line": 939,
       "symbol": "AWSDDLogMessage.line",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 849,
+      "line": 941,
       "symbol": "AWSDDLogMessage.tag",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 850,
+      "line": 943,
+      "symbol": "AWSDDLogMessage.representedObject",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
+      "line": 944,
       "symbol": "AWSDDLogMessage.options",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 851,
+      "line": 945,
       "symbol": "AWSDDLogMessage.timestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 852,
+      "line": 946,
       "symbol": "AWSDDLogMessage.threadID",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 853,
+      "line": 947,
       "symbol": "AWSDDLogMessage.threadName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 854,
+      "line": 948,
       "symbol": "AWSDDLogMessage.queueLabel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 882,
+      "line": 949,
+      "symbol": "AWSDDLogMessage.qos",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
+      "line": 977,
       "symbol": "AWSDDAbstractLogger._logFormatter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 883,
+      "line": 978,
       "symbol": "AWSDDAbstractLogger._loggerQueue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 886,
+      "line": 981,
       "symbol": "AWSDDAbstractLogger.logFormatter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 887,
+      "line": 982,
       "symbol": "AWSDDAbstractLogger.loggerQueue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 909,
+      "line": 1021,
       "symbol": "AWSDDLoggerInformation.logger",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 910,
+      "line": 1022,
       "symbol": "AWSDDLoggerInformation.level",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLog.h",
-      "line": 912,
+      "line": 1024,
       "symbol": "AWSDDLoggerInformation.+informationWithLogger:andLevel:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLoggerNames.h",
+      "line": 20,
+      "symbol": "AWSDDLoggerName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLoggerNames.h",
+      "line": 22,
+      "symbol": "AWSDDLoggerNameOS",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLoggerNames.h",
+      "line": 23,
+      "symbol": "AWSDDLoggerNameFile",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLoggerNames.h",
+      "line": 25,
+      "symbol": "AWSDDLoggerNameTTY",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDLoggerNames.h",
+      "line": 27,
+      "symbol": "AWSDDLoggerNameASL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
@@ -1857,36 +2011,162 @@
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDTTYLogger.h",
-      "line": 172,
+      "line": 178,
       "symbol": "AWSDDTTYLogger.-clearColorsForFlag:context:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDTTYLogger.h",
-      "line": 173,
+      "line": 179,
       "symbol": "AWSDDTTYLogger.-clearColorsForTag:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDTTYLogger.h",
-      "line": 174,
+      "line": 180,
       "symbol": "AWSDDTTYLogger.-clearColorsForAllFlags",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDTTYLogger.h",
-      "line": 175,
+      "line": 181,
       "symbol": "AWSDDTTYLogger.-clearColorsForAllTags",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/AWSDDTTYLogger.h",
-      "line": 176,
+      "line": 182,
       "symbol": "AWSDDTTYLogger.-clearAllColors",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/Extensions/AWSDDContextFilterLogFormatter+Deprecated.h",
+      "line": 43,
+      "symbol": "AWSDDContextAllowlistFilterLogFormatter(Deprecated)",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.category",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/Extensions/AWSDDContextFilterLogFormatter+Deprecated.h",
+      "line": 85,
+      "symbol": "AWSDDContextDenylistFilterLogFormatter(Deprecated)",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.category",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/Extensions/AWSDDContextFilterLogFormatter.h",
+      "line": 87,
+      "symbol": "AWSDDContextDenylistFilterLogFormatter.-init",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/Extensions/AWSDDDispatchQueueLogFormatter.h",
+      "line": 68,
+      "symbol": "AWSDDQualityOfServiceUserInteractive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/Extensions/AWSDDDispatchQueueLogFormatter.h",
+      "line": 69,
+      "symbol": "AWSDDQualityOfServiceUserInitiated",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/Extensions/AWSDDDispatchQueueLogFormatter.h",
+      "line": 70,
+      "symbol": "AWSDDQualityOfServiceDefault",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/Extensions/AWSDDDispatchQueueLogFormatter.h",
+      "line": 71,
+      "symbol": "AWSDDQualityOfServiceUtility",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/Extensions/AWSDDDispatchQueueLogFormatter.h",
+      "line": 72,
+      "symbol": "AWSDDQualityOfServiceBackground",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/Extensions/AWSDDDispatchQueueLogFormatter.h",
+      "line": 73,
+      "symbol": "AWSDDQualityOfServiceUnspecified",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/Extensions/AWSDDDispatchQueueLogFormatter.h",
+      "line": 210,
+      "symbol": "AWSDDAtomicCountable",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/Extensions/AWSDDDispatchQueueLogFormatter.h",
+      "line": 212,
+      "symbol": "AWSDDAtomicCountable.-initWithDefaultValue:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/Extensions/AWSDDDispatchQueueLogFormatter.h",
+      "line": 213,
+      "symbol": "AWSDDAtomicCountable.-increment",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/Extensions/AWSDDDispatchQueueLogFormatter.h",
+      "line": 214,
+      "symbol": "AWSDDAtomicCountable.-decrement",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/Extensions/AWSDDDispatchQueueLogFormatter.h",
+      "line": 215,
+      "symbol": "AWSDDAtomicCountable.-value",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/Extensions/AWSDDDispatchQueueLogFormatter.h",
+      "line": 220,
+      "symbol": "AWSDDAtomicCounter",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/Extensions/AWSDDFileLogger+Buffering.h",
+      "line": 20,
+      "symbol": "AWSDDFileLogger(Buffering)",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.category",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/Extensions/AWSDDFileLogger+Buffering.h",
+      "line": 22,
+      "symbol": "AWSDDFileLogger.-wrapWithBuffer",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/aws-sdk-ios/aws-sdk-ios/AWSCore/Logging/Extensions/AWSDDFileLogger+Buffering.h",
+      "line": 23,
+      "symbol": "AWSDDFileLogger.-unwrapFromBuffer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
