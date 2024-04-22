@@ -1337,6 +1337,11 @@ static NSString *_defaultService;
     }
 }
 
+// The following keys are deprecated, but they still need to be supported:
+// - AWSUICKeyChainStoreAccessibilityAlways, kSecAttrAccessibleAlways,
+// - AWSUICKeyChainStoreAccessibilityAlwaysThisDeviceOnly, kSecAttrAccessibleAlwaysThisDeviceOnly
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (CFTypeRef)accessibilityObject
 {
     switch (_accessibility) {
@@ -1358,6 +1363,7 @@ static NSString *_defaultService;
             return nil;
     }
 }
+#pragma clang diagnostic pop
 
 + (NSError *)argumentError:(NSString *)message
 {

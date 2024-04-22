@@ -283,30 +283,6 @@
 		183BD93E1D8A4076004B2659 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		183BD9471D8B0030004B2659 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		183BD9481D8B0040004B2659 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
-		184F430F1E930A2D004F3FE2 /* AWSCocoaLumberjack.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F42FE1E930A2D004F3FE2 /* AWSCocoaLumberjack.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		184F43101E930A2D004F3FE2 /* AWSDDAbstractDatabaseLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F42FF1E930A2D004F3FE2 /* AWSDDAbstractDatabaseLogger.h */; };
-		184F43111E930A2D004F3FE2 /* AWSDDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F43001E930A2D004F3FE2 /* AWSDDAbstractDatabaseLogger.m */; };
-		184F43121E930A2D004F3FE2 /* AWSDDASLLogCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F43011E930A2D004F3FE2 /* AWSDDASLLogCapture.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		184F43131E930A2D004F3FE2 /* AWSDDASLLogCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F43021E930A2D004F3FE2 /* AWSDDASLLogCapture.m */; };
-		184F43141E930A2D004F3FE2 /* AWSDDASLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F43031E930A2D004F3FE2 /* AWSDDASLLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		184F43151E930A2D004F3FE2 /* AWSDDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F43041E930A2D004F3FE2 /* AWSDDASLLogger.m */; };
-		184F43161E930A2D004F3FE2 /* AWSDDAssertMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F43051E930A2D004F3FE2 /* AWSDDAssertMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		184F43171E930A2D004F3FE2 /* AWSDDFileLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F43061E930A2D004F3FE2 /* AWSDDFileLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		184F43181E930A2D004F3FE2 /* AWSDDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F43071E930A2D004F3FE2 /* AWSDDFileLogger.m */; };
-		184F431A1E930A2D004F3FE2 /* AWSDDLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F43091E930A2D004F3FE2 /* AWSDDLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		184F431B1E930A2D004F3FE2 /* AWSDDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F430A1E930A2D004F3FE2 /* AWSDDLog.m */; };
-		184F431C1E930A2D004F3FE2 /* AWSDDLog+LOGV.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F430B1E930A2D004F3FE2 /* AWSDDLog+LOGV.h */; };
-		184F431D1E930A2D004F3FE2 /* AWSDDLogMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F430C1E930A2D004F3FE2 /* AWSDDLogMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		184F431E1E930A2D004F3FE2 /* AWSDDTTYLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F430D1E930A2D004F3FE2 /* AWSDDTTYLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		184F431F1E930A2D004F3FE2 /* AWSDDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F430E1E930A2D004F3FE2 /* AWSDDTTYLogger.m */; };
-		184F43261E930A34004F3FE2 /* AWSDDContextFilterLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F43201E930A34004F3FE2 /* AWSDDContextFilterLogFormatter.h */; };
-		184F43271E930A34004F3FE2 /* AWSDDContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F43211E930A34004F3FE2 /* AWSDDContextFilterLogFormatter.m */; };
-		184F43281E930A34004F3FE2 /* AWSDDDispatchQueueLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F43221E930A34004F3FE2 /* AWSDDDispatchQueueLogFormatter.h */; };
-		184F43291E930A34004F3FE2 /* AWSDDDispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F43231E930A34004F3FE2 /* AWSDDDispatchQueueLogFormatter.m */; };
-		184F432A1E930A34004F3FE2 /* AWSDDMultiFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F43241E930A34004F3FE2 /* AWSDDMultiFormatter.h */; };
-		184F432E1E930E05004F3FE2 /* AWSDDOSLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F432C1E930E05004F3FE2 /* AWSDDOSLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		184F432F1E930E05004F3FE2 /* AWSDDOSLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F432D1E930E05004F3FE2 /* AWSDDOSLogger.m */; };
-		184F43311E9336BD004F3FE2 /* AWSDDLegacyMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F43301E9336BD004F3FE2 /* AWSDDLegacyMacros.h */; };
 		185251351DED4F9800AF47F6 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
 		1868C0261E207E33001CDA82 /* AWSGeneric.h in Headers */ = {isa = PBXBuildFile; fileRef = 1868C0251E207E33001CDA82 /* AWSGeneric.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		186ABB031D9CADBC00AB8980 /* libBlueAudioSourceiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 186ABB021D9CADBC00AB8980 /* libBlueAudioSourceiOS.a */; };
@@ -622,8 +598,43 @@
 		5C1590172755727C00F88085 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
 		5C1978DD2702364800F9C11E /* AWSLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1978DC2702364800F9C11E /* AWSLocationTests.swift */; };
 		5C71F33F295672B8001183A4 /* guten_tag.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5C71F33E295672B8001183A4 /* guten_tag.wav */; };
+		687952932B8FE2C5001E8990 /* AWSDDLog+Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687952922B8FE2C5001E8990 /* AWSDDLog+Optional.swift */; };
 		6883619E2B72D1C200D74FF4 /* AWSS3PreSignedURLBuilderUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6883619D2B72D1C200D74FF4 /* AWSS3PreSignedURLBuilderUnitTests.swift */; };
 		688361A12B73D25B00D74FF4 /* AWSIoTStreamThreadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 688361A02B73D25B00D74FF4 /* AWSIoTStreamThreadTests.m */; };
+		68A45B792B8D5F7D00A0851E /* AWSCocoaLumberjack.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45B542B8D5F7C00A0851E /* AWSCocoaLumberjack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68A45B7B2B8D5F7D00A0851E /* AWSDDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A45B572B8D5F7C00A0851E /* AWSDDASLLogger.m */; };
+		68A45B7C2B8D5F7D00A0851E /* AWSDDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A45B582B8D5F7C00A0851E /* AWSDDFileLogger.m */; };
+		68A45B7D2B8D5F7D00A0851E /* AWSDDFileLogger+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45B592B8D5F7C00A0851E /* AWSDDFileLogger+Internal.h */; };
+		68A45B7E2B8D5F7D00A0851E /* AWSDDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A45B5A2B8D5F7C00A0851E /* AWSDDTTYLogger.m */; };
+		68A45B7F2B8D5F7D00A0851E /* AWSDDContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A45B5C2B8D5F7C00A0851E /* AWSDDContextFilterLogFormatter.m */; };
+		68A45B802B8D5F7D00A0851E /* AWSDDDispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A45B5D2B8D5F7C00A0851E /* AWSDDDispatchQueueLogFormatter.m */; };
+		68A45B812B8D5F7D00A0851E /* AWSDDFileLogger+Buffering.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A45B5E2B8D5F7C00A0851E /* AWSDDFileLogger+Buffering.m */; };
+		68A45B822B8D5F7D00A0851E /* AWSDDMultiFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A45B5F2B8D5F7C00A0851E /* AWSDDMultiFormatter.m */; };
+		68A45B832B8D5F7D00A0851E /* AWSDDContextFilterLogFormatter+Deprecated.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A45B602B8D5F7C00A0851E /* AWSDDContextFilterLogFormatter+Deprecated.m */; };
+		68A45B842B8D5F7D00A0851E /* AWSDDOSLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A45B612B8D5F7C00A0851E /* AWSDDOSLogger.m */; };
+		68A45B852B8D5F7D00A0851E /* AWSDDLegacyMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45B622B8D5F7C00A0851E /* AWSDDLegacyMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68A45B862B8D5F7D00A0851E /* AWSDDLoggerNames.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A45B632B8D5F7C00A0851E /* AWSDDLoggerNames.m */; };
+		68A45B982B8D5F7D00A0851E /* AWSDDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A45B762B8D5F7D00A0851E /* AWSDDLog.m */; };
+		68A45B992B8D5F7D00A0851E /* AWSDDASLLogCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A45B772B8D5F7D00A0851E /* AWSDDASLLogCapture.m */; };
+		68A45B9A2B8D5F7D00A0851E /* AWSDDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A45B782B8D5F7D00A0851E /* AWSDDAbstractDatabaseLogger.m */; };
+		68A45BAC2B8D6ADE00A0851E /* AWSDDASLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45B9B2B8D6ADD00A0851E /* AWSDDASLLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68A45BAD2B8D6ADE00A0851E /* AWSDDTTYLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45B9C2B8D6ADD00A0851E /* AWSDDTTYLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68A45BAE2B8D6ADE00A0851E /* AWSDDAbstractDatabaseLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45B9D2B8D6ADD00A0851E /* AWSDDAbstractDatabaseLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68A45BAF2B8D6ADE00A0851E /* AWSDDFileLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45B9E2B8D6ADD00A0851E /* AWSDDFileLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68A45BB02B8D6ADE00A0851E /* AWSDDLog+LOGV.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45B9F2B8D6ADD00A0851E /* AWSDDLog+LOGV.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68A45BB12B8D6ADE00A0851E /* AWSDDLogMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45BA02B8D6ADD00A0851E /* AWSDDLogMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68A45BB22B8D6ADE00A0851E /* AWSDDContextFilterLogFormatter+Deprecated.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45BA12B8D6ADD00A0851E /* AWSDDContextFilterLogFormatter+Deprecated.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68A45BB32B8D6ADE00A0851E /* AWSDDASLLogCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45BA22B8D6ADD00A0851E /* AWSDDASLLogCapture.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68A45BB42B8D6ADE00A0851E /* AWSDDDispatchQueueLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45BA32B8D6ADD00A0851E /* AWSDDDispatchQueueLogFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68A45BB62B8D6ADE00A0851E /* AWSDDLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45BA52B8D6ADE00A0851E /* AWSDDLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68A45BB72B8D6ADE00A0851E /* AWSDDLoggerNames.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45BA62B8D6ADE00A0851E /* AWSDDLoggerNames.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68A45BB82B8D6ADE00A0851E /* AWSDDContextFilterLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45BA72B8D6ADE00A0851E /* AWSDDContextFilterLogFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68A45BB92B8D6ADE00A0851E /* AWSDDFileLogger+Buffering.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45BA82B8D6ADE00A0851E /* AWSDDFileLogger+Buffering.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68A45BBA2B8D6ADE00A0851E /* AWSDDOSLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45BA92B8D6ADE00A0851E /* AWSDDOSLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68A45BBB2B8D6ADE00A0851E /* AWSDDAssertMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45BAA2B8D6ADE00A0851E /* AWSDDAssertMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68A45BBC2B8D6ADE00A0851E /* AWSDDMultiFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45BAB2B8D6ADE00A0851E /* AWSDDMultiFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68A45BBF2B8E74F900A0851E /* AWSCLIColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A45BBD2B8E74F800A0851E /* AWSCLIColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68A45BC02B8E74F900A0851E /* AWSCLIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A45BBE2B8E74F900A0851E /* AWSCLIColor.m */; };
 		68EE1A6C2B713D8100B7CF41 /* AWSIoTStreamThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 68EE1A6B2B713D8100B7CF41 /* AWSIoTStreamThread.h */; };
 		68EE1A6E2B713D8900B7CF41 /* AWSIoTStreamThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE1A6D2B713D8900B7CF41 /* AWSIoTStreamThread.m */; };
 		6BE9D6AA25A54EBA00AB5C9A /* AWSIotDataManagerRetainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9D6A925A54EBA00AB5C9A /* AWSIotDataManagerRetainTests.swift */; };
@@ -2925,30 +2936,6 @@
 		181270E31E8EB78900174785 /* AWSLogsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSLogsService.h; sourceTree = "<group>"; };
 		181270E41E8EB78900174785 /* AWSLogsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLogsService.m; sourceTree = "<group>"; };
 		181270EB1E8EB7D300174785 /* AWSGeneralLogsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralLogsTests.m; sourceTree = "<group>"; };
-		184F42FE1E930A2D004F3FE2 /* AWSCocoaLumberjack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCocoaLumberjack.h; sourceTree = "<group>"; };
-		184F42FF1E930A2D004F3FE2 /* AWSDDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
-		184F43001E930A2D004F3FE2 /* AWSDDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
-		184F43011E930A2D004F3FE2 /* AWSDDASLLogCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDASLLogCapture.h; sourceTree = "<group>"; };
-		184F43021E930A2D004F3FE2 /* AWSDDASLLogCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDASLLogCapture.m; sourceTree = "<group>"; };
-		184F43031E930A2D004F3FE2 /* AWSDDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDASLLogger.h; sourceTree = "<group>"; };
-		184F43041E930A2D004F3FE2 /* AWSDDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDASLLogger.m; sourceTree = "<group>"; };
-		184F43051E930A2D004F3FE2 /* AWSDDAssertMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDAssertMacros.h; sourceTree = "<group>"; };
-		184F43061E930A2D004F3FE2 /* AWSDDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDFileLogger.h; sourceTree = "<group>"; };
-		184F43071E930A2D004F3FE2 /* AWSDDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDFileLogger.m; sourceTree = "<group>"; };
-		184F43091E930A2D004F3FE2 /* AWSDDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDLog.h; sourceTree = "<group>"; };
-		184F430A1E930A2D004F3FE2 /* AWSDDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDLog.m; sourceTree = "<group>"; };
-		184F430B1E930A2D004F3FE2 /* AWSDDLog+LOGV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSDDLog+LOGV.h"; sourceTree = "<group>"; };
-		184F430C1E930A2D004F3FE2 /* AWSDDLogMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDLogMacros.h; sourceTree = "<group>"; };
-		184F430D1E930A2D004F3FE2 /* AWSDDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDTTYLogger.h; sourceTree = "<group>"; };
-		184F430E1E930A2D004F3FE2 /* AWSDDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDTTYLogger.m; sourceTree = "<group>"; };
-		184F43201E930A34004F3FE2 /* AWSDDContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDContextFilterLogFormatter.h; sourceTree = "<group>"; };
-		184F43211E930A34004F3FE2 /* AWSDDContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDContextFilterLogFormatter.m; sourceTree = "<group>"; };
-		184F43221E930A34004F3FE2 /* AWSDDDispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDDispatchQueueLogFormatter.h; sourceTree = "<group>"; };
-		184F43231E930A34004F3FE2 /* AWSDDDispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDDispatchQueueLogFormatter.m; sourceTree = "<group>"; };
-		184F43241E930A34004F3FE2 /* AWSDDMultiFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDMultiFormatter.h; sourceTree = "<group>"; };
-		184F432C1E930E05004F3FE2 /* AWSDDOSLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDOSLogger.h; sourceTree = "<group>"; };
-		184F432D1E930E05004F3FE2 /* AWSDDOSLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDOSLogger.m; sourceTree = "<group>"; };
-		184F43301E9336BD004F3FE2 /* AWSDDLegacyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDLegacyMacros.h; sourceTree = "<group>"; };
 		185111CB1D78F03B0009F5C3 /* AWSLex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSLex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		185111CF1D78F03B0009F5C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		185111D41D78F03B0009F5C3 /* AWSLexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSLexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3226,8 +3213,43 @@
 		5C1978DB2702364800F9C11E /* AWSLocationTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSLocationTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5C1978DC2702364800F9C11E /* AWSLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSLocationTests.swift; sourceTree = "<group>"; };
 		5C71F33E295672B8001183A4 /* guten_tag.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = guten_tag.wav; sourceTree = "<group>"; };
+		687952922B8FE2C5001E8990 /* AWSDDLog+Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AWSDDLog+Optional.swift"; sourceTree = "<group>"; };
 		6883619D2B72D1C200D74FF4 /* AWSS3PreSignedURLBuilderUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSS3PreSignedURLBuilderUnitTests.swift; sourceTree = "<group>"; };
 		688361A02B73D25B00D74FF4 /* AWSIoTStreamThreadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSIoTStreamThreadTests.m; sourceTree = "<group>"; };
+		68A45B542B8D5F7C00A0851E /* AWSCocoaLumberjack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCocoaLumberjack.h; sourceTree = "<group>"; };
+		68A45B572B8D5F7C00A0851E /* AWSDDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDASLLogger.m; sourceTree = "<group>"; };
+		68A45B582B8D5F7C00A0851E /* AWSDDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDFileLogger.m; sourceTree = "<group>"; };
+		68A45B592B8D5F7C00A0851E /* AWSDDFileLogger+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSDDFileLogger+Internal.h"; sourceTree = "<group>"; };
+		68A45B5A2B8D5F7C00A0851E /* AWSDDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDTTYLogger.m; sourceTree = "<group>"; };
+		68A45B5C2B8D5F7C00A0851E /* AWSDDContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDContextFilterLogFormatter.m; sourceTree = "<group>"; };
+		68A45B5D2B8D5F7C00A0851E /* AWSDDDispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDDispatchQueueLogFormatter.m; sourceTree = "<group>"; };
+		68A45B5E2B8D5F7C00A0851E /* AWSDDFileLogger+Buffering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AWSDDFileLogger+Buffering.m"; sourceTree = "<group>"; };
+		68A45B5F2B8D5F7C00A0851E /* AWSDDMultiFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDMultiFormatter.m; sourceTree = "<group>"; };
+		68A45B602B8D5F7C00A0851E /* AWSDDContextFilterLogFormatter+Deprecated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AWSDDContextFilterLogFormatter+Deprecated.m"; sourceTree = "<group>"; };
+		68A45B612B8D5F7C00A0851E /* AWSDDOSLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDOSLogger.m; sourceTree = "<group>"; };
+		68A45B622B8D5F7C00A0851E /* AWSDDLegacyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDLegacyMacros.h; sourceTree = "<group>"; };
+		68A45B632B8D5F7C00A0851E /* AWSDDLoggerNames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDLoggerNames.m; sourceTree = "<group>"; };
+		68A45B762B8D5F7D00A0851E /* AWSDDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDLog.m; sourceTree = "<group>"; };
+		68A45B772B8D5F7D00A0851E /* AWSDDASLLogCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDASLLogCapture.m; sourceTree = "<group>"; };
+		68A45B782B8D5F7D00A0851E /* AWSDDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
+		68A45B9B2B8D6ADD00A0851E /* AWSDDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDASLLogger.h; sourceTree = "<group>"; };
+		68A45B9C2B8D6ADD00A0851E /* AWSDDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDTTYLogger.h; sourceTree = "<group>"; };
+		68A45B9D2B8D6ADD00A0851E /* AWSDDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
+		68A45B9E2B8D6ADD00A0851E /* AWSDDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDFileLogger.h; sourceTree = "<group>"; };
+		68A45B9F2B8D6ADD00A0851E /* AWSDDLog+LOGV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSDDLog+LOGV.h"; sourceTree = "<group>"; };
+		68A45BA02B8D6ADD00A0851E /* AWSDDLogMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDLogMacros.h; sourceTree = "<group>"; };
+		68A45BA12B8D6ADD00A0851E /* AWSDDContextFilterLogFormatter+Deprecated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSDDContextFilterLogFormatter+Deprecated.h"; sourceTree = "<group>"; };
+		68A45BA22B8D6ADD00A0851E /* AWSDDASLLogCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDASLLogCapture.h; sourceTree = "<group>"; };
+		68A45BA32B8D6ADD00A0851E /* AWSDDDispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDDispatchQueueLogFormatter.h; sourceTree = "<group>"; };
+		68A45BA52B8D6ADE00A0851E /* AWSDDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDLog.h; sourceTree = "<group>"; };
+		68A45BA62B8D6ADE00A0851E /* AWSDDLoggerNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDLoggerNames.h; sourceTree = "<group>"; };
+		68A45BA72B8D6ADE00A0851E /* AWSDDContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDContextFilterLogFormatter.h; sourceTree = "<group>"; };
+		68A45BA82B8D6ADE00A0851E /* AWSDDFileLogger+Buffering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSDDFileLogger+Buffering.h"; sourceTree = "<group>"; };
+		68A45BA92B8D6ADE00A0851E /* AWSDDOSLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDOSLogger.h; sourceTree = "<group>"; };
+		68A45BAA2B8D6ADE00A0851E /* AWSDDAssertMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDAssertMacros.h; sourceTree = "<group>"; };
+		68A45BAB2B8D6ADE00A0851E /* AWSDDMultiFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDMultiFormatter.h; sourceTree = "<group>"; };
+		68A45BBD2B8E74F800A0851E /* AWSCLIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCLIColor.h; sourceTree = "<group>"; };
+		68A45BBE2B8E74F900A0851E /* AWSCLIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCLIColor.m; sourceTree = "<group>"; };
 		68EE1A6B2B713D8100B7CF41 /* AWSIoTStreamThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSIoTStreamThread.h; sourceTree = "<group>"; };
 		68EE1A6D2B713D8900B7CF41 /* AWSIoTStreamThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSIoTStreamThread.m; sourceTree = "<group>"; };
 		6BE9D6A925A54EBA00AB5C9A /* AWSIotDataManagerRetainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSIotDataManagerRetainTests.swift; sourceTree = "<group>"; };
@@ -5492,40 +5514,33 @@
 		184F42CE1E930839004F3FE2 /* Logging */ = {
 			isa = PBXGroup;
 			children = (
-				184F42FE1E930A2D004F3FE2 /* AWSCocoaLumberjack.h */,
-				184F43301E9336BD004F3FE2 /* AWSDDLegacyMacros.h */,
-				184F432C1E930E05004F3FE2 /* AWSDDOSLogger.h */,
-				184F432D1E930E05004F3FE2 /* AWSDDOSLogger.m */,
-				184F42FF1E930A2D004F3FE2 /* AWSDDAbstractDatabaseLogger.h */,
-				184F43001E930A2D004F3FE2 /* AWSDDAbstractDatabaseLogger.m */,
-				184F43011E930A2D004F3FE2 /* AWSDDASLLogCapture.h */,
-				184F43021E930A2D004F3FE2 /* AWSDDASLLogCapture.m */,
-				184F43031E930A2D004F3FE2 /* AWSDDASLLogger.h */,
-				184F43041E930A2D004F3FE2 /* AWSDDASLLogger.m */,
-				184F43051E930A2D004F3FE2 /* AWSDDAssertMacros.h */,
-				184F43061E930A2D004F3FE2 /* AWSDDFileLogger.h */,
-				184F43071E930A2D004F3FE2 /* AWSDDFileLogger.m */,
-				184F43091E930A2D004F3FE2 /* AWSDDLog.h */,
-				184F430A1E930A2D004F3FE2 /* AWSDDLog.m */,
-				184F430B1E930A2D004F3FE2 /* AWSDDLog+LOGV.h */,
-				184F430C1E930A2D004F3FE2 /* AWSDDLogMacros.h */,
-				184F430D1E930A2D004F3FE2 /* AWSDDTTYLogger.h */,
-				184F430E1E930A2D004F3FE2 /* AWSDDTTYLogger.m */,
-				184F42F11E930925004F3FE2 /* Extensions */,
+				68A45BBD2B8E74F800A0851E /* AWSCLIColor.h */,
+				68A45BBE2B8E74F900A0851E /* AWSCLIColor.m */,
+				68A45B542B8D5F7C00A0851E /* AWSCocoaLumberjack.h */,
+				68A45B9D2B8D6ADD00A0851E /* AWSDDAbstractDatabaseLogger.h */,
+				68A45B782B8D5F7D00A0851E /* AWSDDAbstractDatabaseLogger.m */,
+				68A45BA22B8D6ADD00A0851E /* AWSDDASLLogCapture.h */,
+				68A45B772B8D5F7D00A0851E /* AWSDDASLLogCapture.m */,
+				68A45B9B2B8D6ADD00A0851E /* AWSDDASLLogger.h */,
+				68A45B572B8D5F7C00A0851E /* AWSDDASLLogger.m */,
+				68A45BAA2B8D6ADE00A0851E /* AWSDDAssertMacros.h */,
+				68A45B9E2B8D6ADD00A0851E /* AWSDDFileLogger.h */,
+				68A45B582B8D5F7C00A0851E /* AWSDDFileLogger.m */,
+				68A45B622B8D5F7C00A0851E /* AWSDDLegacyMacros.h */,
+				68A45BA52B8D6ADE00A0851E /* AWSDDLog.h */,
+				68A45B762B8D5F7D00A0851E /* AWSDDLog.m */,
+				68A45B9F2B8D6ADD00A0851E /* AWSDDLog+LOGV.h */,
+				68A45BA62B8D6ADE00A0851E /* AWSDDLoggerNames.h */,
+				68A45B632B8D5F7C00A0851E /* AWSDDLoggerNames.m */,
+				68A45BA02B8D6ADD00A0851E /* AWSDDLogMacros.h */,
+				68A45B5F2B8D5F7C00A0851E /* AWSDDMultiFormatter.m */,
+				68A45BA92B8D6ADE00A0851E /* AWSDDOSLogger.h */,
+				68A45B612B8D5F7C00A0851E /* AWSDDOSLogger.m */,
+				68A45B9C2B8D6ADD00A0851E /* AWSDDTTYLogger.h */,
+				68A45B5A2B8D5F7C00A0851E /* AWSDDTTYLogger.m */,
+				68A45B5B2B8D5F7C00A0851E /* Extensions */,
 			);
 			path = Logging;
-			sourceTree = "<group>";
-		};
-		184F42F11E930925004F3FE2 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				184F43201E930A34004F3FE2 /* AWSDDContextFilterLogFormatter.h */,
-				184F43211E930A34004F3FE2 /* AWSDDContextFilterLogFormatter.m */,
-				184F43221E930A34004F3FE2 /* AWSDDDispatchQueueLogFormatter.h */,
-				184F43231E930A34004F3FE2 /* AWSDDDispatchQueueLogFormatter.m */,
-				184F43241E930A34004F3FE2 /* AWSDDMultiFormatter.h */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		185111CC1D78F03B0009F5C3 /* AWSLex */ = {
@@ -6018,6 +6033,24 @@
 				48885FB62A0C1F170012EEB7 /* AWSKinesisVideoWebRTCStorageResources.h */,
 			);
 			path = AWSKinesisVideoWebRTCStorage;
+			sourceTree = "<group>";
+		};
+		68A45B5B2B8D5F7C00A0851E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				68A45BA72B8D6ADE00A0851E /* AWSDDContextFilterLogFormatter.h */,
+				68A45B5C2B8D5F7C00A0851E /* AWSDDContextFilterLogFormatter.m */,
+				68A45BA12B8D6ADD00A0851E /* AWSDDContextFilterLogFormatter+Deprecated.h */,
+				68A45B602B8D5F7C00A0851E /* AWSDDContextFilterLogFormatter+Deprecated.m */,
+				68A45BA32B8D6ADD00A0851E /* AWSDDDispatchQueueLogFormatter.h */,
+				68A45B5D2B8D5F7C00A0851E /* AWSDDDispatchQueueLogFormatter.m */,
+				68A45BA82B8D6ADE00A0851E /* AWSDDFileLogger+Buffering.h */,
+				68A45B5E2B8D5F7C00A0851E /* AWSDDFileLogger+Buffering.m */,
+				68A45B592B8D5F7C00A0851E /* AWSDDFileLogger+Internal.h */,
+				687952922B8FE2C5001E8990 /* AWSDDLog+Optional.swift */,
+				68A45BAB2B8D6ADE00A0851E /* AWSDDMultiFormatter.h */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		9A7ACC2120B0E85000DDBEC1 /* AWSTranslate */ = {
@@ -8277,14 +8310,17 @@
 				CE0D42A51C6A673E006B91B5 /* AWSModel.h in Headers */,
 				CE0D42251C6A673E006B91B5 /* AWSIdentityProvider.h in Headers */,
 				CE0D422C1C6A673E006B91B5 /* AWSCancellationToken.h in Headers */,
+				68A45BBB2B8D6ADE00A0851E /* AWSDDAssertMacros.h in Headers */,
 				CE0D42A71C6A673E006B91B5 /* AWSSynchronizedMutableDictionary.h in Headers */,
 				CE0D42441C6A673E006B91B5 /* AWSFMDatabase.h in Headers */,
 				CE0D42511C6A673E006B91B5 /* AWSGZIP.h in Headers */,
+				68A45BB12B8D6ADE00A0851E /* AWSDDLogMacros.h in Headers */,
 				CE0D42921C6A673E006B91B5 /* AWSSTSService.h in Headers */,
 				CE0D42801C6A673E006B91B5 /* AWSURLRequestRetryHandler.h in Headers */,
 				CE0D424D1C6A673E006B91B5 /* AWSFMResultSet.h in Headers */,
 				CE0D423B1C6A673E006B91B5 /* AWSCognitoIdentityResources.h in Headers */,
 				CE0D426B1C6A673E006B91B5 /* NSDictionary+AWSMTLManipulationAdditions.h in Headers */,
+				68A45BB22B8D6ADE00A0851E /* AWSDDContextFilterLogFormatter+Deprecated.h in Headers */,
 				CE0D42381C6A673E006B91B5 /* AWSCognitoIdentity.h in Headers */,
 				CE0D426F1C6A673E006B91B5 /* NSObject+AWSMTLComparisonAdditions.h in Headers */,
 				CE0D428D1C6A673E006B91B5 /* AWSSTS.h in Headers */,
@@ -8293,16 +8329,21 @@
 				CE0D42301C6A673E006B91B5 /* AWSCancellationTokenSource.h in Headers */,
 				CE0D428E1C6A673E006B91B5 /* AWSSTSModel.h in Headers */,
 				CE0D424C1C6A673E006B91B5 /* AWSFMDB.h in Headers */,
+				68A45BB42B8D6ADE00A0851E /* AWSDDDispatchQueueLogFormatter.h in Headers */,
 				CE0D42271C6A673E006B91B5 /* AWSSignature.h in Headers */,
 				CE0D428A1C6A673E006B91B5 /* AWSService.h in Headers */,
 				CE0D42A31C6A673E006B91B5 /* AWSLogging.h in Headers */,
+				68A45B852B8D5F7D00A0851E /* AWSDDLegacyMacros.h in Headers */,
 				CE0D422E1C6A673E006B91B5 /* AWSCancellationTokenRegistration.h in Headers */,
+				68A45BAD2B8D6ADE00A0851E /* AWSDDTTYLogger.h in Headers */,
+				68A45BB32B8D6ADE00A0851E /* AWSDDASLLogCapture.h in Headers */,
 				18DF08DB1D34866E004C7D19 /* AWSCognitoIdentity+Fabric.h in Headers */,
 				CE0D423D1C6A673E006B91B5 /* AWSCognitoIdentityService.h in Headers */,
 				CE0D425C1C6A673E006B91B5 /* AWSMTLModel.h in Headers */,
 				CE0D42861C6A673E006B91B5 /* AWSValidation.h in Headers */,
+				68A45BB82B8D6ADE00A0851E /* AWSDDContextFilterLogFormatter.h in Headers */,
+				68A45BB02B8D6ADE00A0851E /* AWSDDLog+LOGV.h in Headers */,
 				FA7A44C62305D09C00F55D7A /* AWSNetworkingHelpers.h in Headers */,
-				184F43261E930A34004F3FE2 /* AWSDDContextFilterLogFormatter.h in Headers */,
 				CEA33FB61C8A37230083D6BC /* Fabric+FABKits.h in Headers */,
 				CE0D42481C6A673E006B91B5 /* AWSFMDatabasePool.h in Headers */,
 				CE0D428C1C6A673E006B91B5 /* AWSServiceEnum.h in Headers */,
@@ -8310,46 +8351,43 @@
 				CE0D42551C6A673E006B91B5 /* AWSMantle.h in Headers */,
 				CE0D42231C6A673E006B91B5 /* AWSCredentialsProvider.h in Headers */,
 				CE0D425A1C6A673E006B91B5 /* AWSMTLModel+NSCoding.h in Headers */,
+				68A45BBF2B8E74F900A0851E /* AWSCLIColor.h in Headers */,
 				CE0D42821C6A673E006B91B5 /* AWSURLRequestSerialization.h in Headers */,
+				68A45BB92B8D6ADE00A0851E /* AWSDDFileLogger+Buffering.h in Headers */,
+				68A45BAF2B8D6ADE00A0851E /* AWSDDFileLogger.h in Headers */,
 				CE0D42881C6A673E006B91B5 /* AWSClientContext.h in Headers */,
 				CE0D429D1C6A673E006B91B5 /* AWSUICKeyChainStore.h in Headers */,
 				CE0D42781C6A673E006B91B5 /* AWSURLSessionManager.h in Headers */,
+				68A45BAC2B8D6ADE00A0851E /* AWSDDASLLogger.h in Headers */,
 				CE0D42761C6A673E006B91B5 /* AWSNetworking.h in Headers */,
 				CE0D42391C6A673E006B91B5 /* AWSCognitoIdentityModel.h in Headers */,
 				CE0D42581C6A673E006B91B5 /* AWSMTLManagedObjectAdapter.h in Headers */,
 				CE0D42601C6A673E006B91B5 /* AWSMTLValueTransformer.h in Headers */,
+				68A45BB62B8D6ADE00A0851E /* AWSDDLog.h in Headers */,
 				CEA33FB41C8A37230083D6BC /* FABAttributes.h in Headers */,
 				CE0D42A11C6A673E006B91B5 /* AWSCategory.h in Headers */,
-				184F431D1E930A2D004F3FE2 /* AWSDDLogMacros.h in Headers */,
-				184F43141E930A2D004F3FE2 /* AWSDDASLLogger.h in Headers */,
+				68A45BBC2B8D6ADE00A0851E /* AWSDDMultiFormatter.h in Headers */,
 				FA5D34FC250C0D77007AA030 /* AWSNSCodingUtilities.h in Headers */,
 				CE0D42291C6A673E006B91B5 /* AWSBolts.h in Headers */,
 				CE0D42561C6A673E006B91B5 /* AWSMTLJSONAdapter.h in Headers */,
-				184F43121E930A2D004F3FE2 /* AWSDDASLLogCapture.h in Headers */,
 				1868C0261E207E33001CDA82 /* AWSGeneric.h in Headers */,
 				EFE40B7C1CC5BDCA0045D710 /* AWSInfo.h in Headers */,
-				184F432E1E930E05004F3FE2 /* AWSDDOSLogger.h in Headers */,
-				184F431E1E930A2D004F3FE2 /* AWSDDTTYLogger.h in Headers */,
-				184F430F1E930A2D004F3FE2 /* AWSCocoaLumberjack.h in Headers */,
 				2171EBE0254C725C00FAB22F /* AWSTimestampSerialization.h in Headers */,
-				184F431A1E930A2D004F3FE2 /* AWSDDLog.h in Headers */,
-				184F43161E930A2D004F3FE2 /* AWSDDAssertMacros.h in Headers */,
 				CE0D42341C6A673E006B91B5 /* AWSTask.h in Headers */,
-				184F43171E930A2D004F3FE2 /* AWSDDFileLogger.h in Headers */,
-				184F43311E9336BD004F3FE2 /* AWSDDLegacyMacros.h in Headers */,
-				184F432A1E930A34004F3FE2 /* AWSDDMultiFormatter.h in Headers */,
-				184F431C1E930A2D004F3FE2 /* AWSDDLog+LOGV.h in Headers */,
-				184F43281E930A34004F3FE2 /* AWSDDDispatchQueueLogFormatter.h in Headers */,
-				184F43101E930A2D004F3FE2 /* AWSDDAbstractDatabaseLogger.h in Headers */,
+				68A45BBA2B8D6ADE00A0851E /* AWSDDOSLogger.h in Headers */,
 				CE0D42731C6A673E006B91B5 /* NSValueTransformer+AWSMTLPredefinedTransformerAdditions.h in Headers */,
 				CE0D42461C6A673E006B91B5 /* AWSFMDatabaseAdditions.h in Headers */,
 				CE0D41701C6A66E5006B91B5 /* AWSCore.h in Headers */,
 				CE0D42901C6A673E006B91B5 /* AWSSTSResources.h in Headers */,
 				CE0D426D1C6A673E006B91B5 /* NSError+AWSMTLModelException.h in Headers */,
+				68A45B7D2B8D5F7D00A0851E /* AWSDDFileLogger+Internal.h in Headers */,
 				CE0D425E1C6A673E006B91B5 /* AWSMTLReflection.h in Headers */,
 				CEA33FB51C8A37230083D6BC /* FABKitProtocol.h in Headers */,
 				CE0D42AD1C6A673E006B91B5 /* AWSXMLWriter.h in Headers */,
+				68A45B792B8D5F7D00A0851E /* AWSCocoaLumberjack.h in Headers */,
 				CE0D42A91C6A673E006B91B5 /* AWSXMLDictionary.h in Headers */,
+				68A45BAE2B8D6ADE00A0851E /* AWSDDAbstractDatabaseLogger.h in Headers */,
+				68A45BB72B8D6ADE00A0851E /* AWSDDLoggerNames.h in Headers */,
 				CE0D42671C6A673E006B91B5 /* AWSmetamacros.h in Headers */,
 				CE3627CE1CEBA92B003E85B9 /* AWSKSReachability.h in Headers */,
 				CE0D42621C6A673E006B91B5 /* AWSEXTKeyPathCoding.h in Headers */,
@@ -12977,65 +13015,71 @@
 				CE0D42351C6A673E006B91B5 /* AWSTask.m in Sources */,
 				CE0D42741C6A673E006B91B5 /* NSValueTransformer+AWSMTLPredefinedTransformerAdditions.m in Sources */,
 				CE0D42911C6A673E006B91B5 /* AWSSTSResources.m in Sources */,
-				184F43181E930A2D004F3FE2 /* AWSDDFileLogger.m in Sources */,
 				CE0D42371C6A673E006B91B5 /* AWSTaskCompletionSource.m in Sources */,
+				68A45B7B2B8D5F7D00A0851E /* AWSDDASLLogger.m in Sources */,
+				68A45B7E2B8D5F7D00A0851E /* AWSDDTTYLogger.m in Sources */,
 				CE0D422D1C6A673E006B91B5 /* AWSCancellationToken.m in Sources */,
 				CE0D42451C6A673E006B91B5 /* AWSFMDatabase.m in Sources */,
 				CE0D42311C6A673E006B91B5 /* AWSCancellationTokenSource.m in Sources */,
+				68A45B9A2B8D5F7D00A0851E /* AWSDDAbstractDatabaseLogger.m in Sources */,
 				CE0D42331C6A673E006B91B5 /* AWSExecutor.m in Sources */,
+				68A45BC02B8E74F900A0851E /* AWSCLIColor.m in Sources */,
 				CE0D42661C6A673E006B91B5 /* AWSEXTScope.m in Sources */,
 				CE0D42831C6A673E006B91B5 /* AWSURLRequestSerialization.m in Sources */,
 				CE0D42811C6A673E006B91B5 /* AWSURLRequestRetryHandler.m in Sources */,
-				184F43111E930A2D004F3FE2 /* AWSDDAbstractDatabaseLogger.m in Sources */,
 				CE0D422A1C6A673E006B91B5 /* AWSBolts.m in Sources */,
 				CE0D42791C6A673E006B91B5 /* AWSURLSessionManager.m in Sources */,
+				68A45B842B8D5F7D00A0851E /* AWSDDOSLogger.m in Sources */,
 				CE0D42A61C6A673E006B91B5 /* AWSModel.m in Sources */,
 				CE0D425F1C6A673E006B91B5 /* AWSMTLReflection.m in Sources */,
-				184F43291E930A34004F3FE2 /* AWSDDDispatchQueueLogFormatter.m in Sources */,
+				687952932B8FE2C5001E8990 /* AWSDDLog+Optional.swift in Sources */,
 				CE0D42A41C6A673E006B91B5 /* AWSLogging.m in Sources */,
+				68A45B822B8D5F7D00A0851E /* AWSDDMultiFormatter.m in Sources */,
 				CE0D42AE1C6A673E006B91B5 /* AWSXMLWriter.m in Sources */,
 				CE0D42261C6A673E006B91B5 /* AWSIdentityProvider.m in Sources */,
+				68A45B802B8D5F7D00A0851E /* AWSDDDispatchQueueLogFormatter.m in Sources */,
 				FAC3E7022208B0D60037813E /* AWSFMDB+AWSHelpers.m in Sources */,
 				CE0D42471C6A673E006B91B5 /* AWSFMDatabaseAdditions.m in Sources */,
 				CE0D423E1C6A673E006B91B5 /* AWSCognitoIdentityService.m in Sources */,
-				184F43131E930A2D004F3FE2 /* AWSDDASLLogCapture.m in Sources */,
 				CE0D425D1C6A673E006B91B5 /* AWSMTLModel.m in Sources */,
 				CE0D42A21C6A673E006B91B5 /* AWSCategory.m in Sources */,
 				CE0D42591C6A673E006B91B5 /* AWSMTLManagedObjectAdapter.m in Sources */,
-				184F432F1E930E05004F3FE2 /* AWSDDOSLogger.m in Sources */,
+				68A45B7F2B8D5F7D00A0851E /* AWSDDContextFilterLogFormatter.m in Sources */,
 				CE0D422F1C6A673E006B91B5 /* AWSCancellationTokenRegistration.m in Sources */,
 				CE0D426A1C6A673E006B91B5 /* NSArray+AWSMTLManipulationAdditions.m in Sources */,
 				18DF08D51D347633004C7D19 /* AWSCognitoIdentity+Fabric.m in Sources */,
-				184F43271E930A34004F3FE2 /* AWSDDContextFilterLogFormatter.m in Sources */,
 				2171EB6A254C721E00FAB22F /* AWSTimestampSerialization.m in Sources */,
 				CE0D42491C6A673E006B91B5 /* AWSFMDatabasePool.m in Sources */,
+				68A45B812B8D5F7D00A0851E /* AWSDDFileLogger+Buffering.m in Sources */,
 				CE0D424E1C6A673E006B91B5 /* AWSFMResultSet.m in Sources */,
 				CE0D426E1C6A673E006B91B5 /* NSError+AWSMTLModelException.m in Sources */,
 				CE0D42851C6A673E006B91B5 /* AWSURLResponseSerialization.m in Sources */,
 				CE0D429E1C6A673E006B91B5 /* AWSUICKeyChainStore.m in Sources */,
-				184F43151E930A2D004F3FE2 /* AWSDDASLLogger.m in Sources */,
 				FA7A44C72305D09C00F55D7A /* AWSNetworkingHelpers.m in Sources */,
 				CE0D42571C6A673E006B91B5 /* AWSMTLJSONAdapter.m in Sources */,
+				68A45B832B8D5F7D00A0851E /* AWSDDContextFilterLogFormatter+Deprecated.m in Sources */,
 				CE0D42281C6A673E006B91B5 /* AWSSignature.m in Sources */,
 				FA5D34FD250C0D77007AA030 /* AWSNSCodingUtilities.m in Sources */,
 				CE0D42701C6A673E006B91B5 /* NSObject+AWSMTLComparisonAdditions.m in Sources */,
 				CE0D42241C6A673E006B91B5 /* AWSCredentialsProvider.m in Sources */,
-				184F431B1E930A2D004F3FE2 /* AWSDDLog.m in Sources */,
+				68A45B862B8D5F7D00A0851E /* AWSDDLoggerNames.m in Sources */,
 				CE0D42721C6A673E006B91B5 /* NSValueTransformer+AWSMTLInversionAdditions.m in Sources */,
 				CE0D424B1C6A673E006B91B5 /* AWSFMDatabaseQueue.m in Sources */,
 				CE0D42611C6A673E006B91B5 /* AWSMTLValueTransformer.m in Sources */,
 				CE3627CF1CEBA92B003E85B9 /* AWSKSReachability.m in Sources */,
+				68A45B7C2B8D5F7D00A0851E /* AWSDDFileLogger.m in Sources */,
 				CE0D428B1C6A673E006B91B5 /* AWSService.m in Sources */,
 				CE0D42521C6A673E006B91B5 /* AWSGZIP.m in Sources */,
 				CE0D428F1C6A673E006B91B5 /* AWSSTSModel.m in Sources */,
 				CE0D423A1C6A673E006B91B5 /* AWSCognitoIdentityModel.m in Sources */,
 				CE0D42771C6A673E006B91B5 /* AWSNetworking.m in Sources */,
 				CE0D42871C6A673E006B91B5 /* AWSValidation.m in Sources */,
+				68A45B992B8D5F7D00A0851E /* AWSDDASLLogCapture.m in Sources */,
+				68A45B982B8D5F7D00A0851E /* AWSDDLog.m in Sources */,
 				CE0D42891C6A673E006B91B5 /* AWSClientContext.m in Sources */,
 				CE0D42931C6A673E006B91B5 /* AWSSTSService.m in Sources */,
 				CE0D42641C6A673E006B91B5 /* AWSEXTRuntimeExtensions.m in Sources */,
 				CE0D423C1C6A673E006B91B5 /* AWSCognitoIdentityResources.m in Sources */,
-				184F431F1E930A2D004F3FE2 /* AWSDDTTYLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -14680,7 +14724,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSKinesisVideo/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSKinesisVideo;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -14704,7 +14748,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSKinesisVideo/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSKinesisVideo;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -14729,7 +14773,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSKinesisVideoArchivedMedia/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSKinesisVideoArchivedMedia;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -14755,7 +14799,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSKinesisVideoArchivedMedia/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSKinesisVideoArchivedMedia;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -14776,7 +14820,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSKinesisVideoArchivedMediaTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSKinesisVideoArchivedMediaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AWSKinesisVideoArchivedMediaTests/AWSKinesisVideoArchivedMediaTests-Bridging-Header.h";
@@ -14799,7 +14843,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSKinesisVideoArchivedMediaTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSKinesisVideoArchivedMediaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AWSKinesisVideoArchivedMediaTests/AWSKinesisVideoArchivedMediaTests-Bridging-Header.h";
@@ -14820,7 +14864,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSKinesisVideoUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -14843,7 +14887,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSKinesisVideoUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -14866,7 +14910,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSKinesisVideoArchivedMediaUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -14889,7 +14933,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSKinesisVideoArchivedMediaUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -14912,7 +14956,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSKinesisVideoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSKinesisVideoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -14934,7 +14978,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSKinesisVideoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSKinesisVideoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AWSKinesisVideoTests/AWSKinesisVideoTests-Bridging-Header.h";
@@ -14960,7 +15004,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTranscribeStreaming/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTranscribeStreaming;
@@ -14987,7 +15031,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTranscribeStreaming/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTranscribeStreaming;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -15010,7 +15054,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTranscribeStreamingTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTranscribeStreamingTests;
@@ -15036,7 +15080,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTranscribeStreamingTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTranscribeStreamingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -15057,7 +15101,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTranscribeTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15084,7 +15128,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTranscribeTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15115,7 +15159,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTranscribe/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTranscribe;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -15140,7 +15184,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTranscribe/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTranscribe;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -15159,7 +15203,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTranscribeUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15182,7 +15226,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTranscribeUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15204,7 +15248,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = AWSAllTestsHost/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSAllTestsHost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -15222,7 +15266,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = AWSAllTestsHost/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSAllTestsHost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -15240,7 +15284,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSLogs/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSLogs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -15258,7 +15302,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSLogs/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSLogs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -15270,7 +15314,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = AWSLogsUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15286,7 +15330,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = AWSLogsUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15310,7 +15354,7 @@
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/AWSLex/Bluefront/include";
 				INFOPLIST_FILE = "$(SRCROOT)/AWSLex/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSLex/Bluefront",
@@ -15336,7 +15380,7 @@
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/AWSLex/Bluefront/include";
 				INFOPLIST_FILE = "$(SRCROOT)/AWSLex/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSLex/Bluefront",
@@ -15354,7 +15398,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = AWSLexTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15369,7 +15413,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = AWSLexTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15390,7 +15434,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSPinpoint/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSPinpoint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -15408,7 +15452,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSPinpoint/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSPinpoint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -15420,7 +15464,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = AWSPinpointTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15437,7 +15481,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = AWSPinpointTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15454,7 +15498,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = AWSPinpointUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15470,7 +15514,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = AWSPinpointUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15492,7 +15536,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSRekognition/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSRekognition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -15510,7 +15554,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSRekognition/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSRekognition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -15522,7 +15566,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = AWSRekognitionUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15538,7 +15582,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = AWSRekognitionUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15562,7 +15606,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSPolly/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSPolly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -15582,7 +15626,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSPolly/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSPolly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -15594,7 +15638,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = AWSPollyTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15610,7 +15654,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = AWSPollyTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15626,7 +15670,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = AWSPollyUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15642,7 +15686,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = AWSPollyUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15657,7 +15701,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSLexUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15672,7 +15716,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSLexUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15703,7 +15747,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSLocation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -15736,7 +15780,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSLocation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSLocation;
@@ -15761,7 +15805,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSLocationTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
@@ -15794,7 +15838,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSLocationTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
@@ -15824,7 +15868,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSLocationUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
@@ -15853,7 +15897,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSLocationUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
@@ -15886,7 +15930,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSKinesisVideoSignaling/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 2.12.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -15914,7 +15958,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSKinesisVideoSignaling/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 2.12.2;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSKinesisVideoSignaling;
@@ -15937,7 +15981,7 @@
 				DEVELOPMENT_TEAM = W3DRXD72QU;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSKinesisVideoSignalingTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15968,7 +16012,7 @@
 				DEVELOPMENT_TEAM = W3DRXD72QU;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSKinesisVideoSignalingTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -15996,7 +16040,7 @@
 				DEVELOPMENT_TEAM = W3DRXD72QU;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSKinesisVideoSignalingUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -16022,7 +16066,7 @@
 				DEVELOPMENT_TEAM = W3DRXD72QU;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSKinesisVideoSignalingUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -16053,7 +16097,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSChimeSDKIdentity/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MARKETING_VERSION = 2.24.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -16084,7 +16128,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSChimeSDKIdentity/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MARKETING_VERSION = 2.24.4;
 				MTL_FAST_MATH = YES;
@@ -16108,7 +16152,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSChimeSDKIdentityTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
@@ -16137,7 +16181,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSChimeSDKIdentityTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
@@ -16171,7 +16215,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSChimeSDKMessaging/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MARKETING_VERSION = 2.24.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -16203,7 +16247,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSChimeSDKMessaging/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MARKETING_VERSION = 2.24.4;
 				MTL_FAST_MATH = YES;
@@ -16228,7 +16272,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSChimeSDKMessagingTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
@@ -16257,7 +16301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSChimeSDKMessagingTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
@@ -16285,7 +16329,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSChimeSDKMessagingUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
@@ -16313,7 +16357,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSChimeSDKMessagingUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
@@ -16340,7 +16384,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSChimeSDKIdentityUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
@@ -16368,7 +16412,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSChimeSDKIdentityUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
@@ -16402,7 +16446,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSLocation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -16435,7 +16479,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSLocation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSLocation;
@@ -16470,7 +16514,7 @@
 				INFOPLIST_FILE = AWSKinesisVideoWebRTCStorage/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Amazon Web Services. All rights reserved.";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -16510,7 +16554,7 @@
 				INFOPLIST_FILE = AWSKinesisVideoWebRTCStorage/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Amazon Web Services. All rights reserved.";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
@@ -16539,7 +16583,7 @@
 				DEVELOPMENT_TEAM = 94KV3E626L;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -16573,7 +16617,7 @@
 				DEVELOPMENT_TEAM = 94KV3E626L;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -16606,7 +16650,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTranslate/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTranslate;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -16630,7 +16674,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTranslate/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTranslate;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -16649,7 +16693,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTranslateUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -16672,7 +16716,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTranslateUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -16700,7 +16744,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSComprehend/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazon.AWSComprehend;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -16724,7 +16768,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSComprehend/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazon.AWSComprehend;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -16743,7 +16787,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSComprehendUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -16766,7 +16810,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSComprehendUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -16789,7 +16833,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSComprehendTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -16816,7 +16860,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSComprehendTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -16841,7 +16885,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTranslateTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -16868,7 +16912,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTranslateTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -16893,7 +16937,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSRekognitionTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/AWSCoreTests/OCMock";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazon.AWSRekognitionTests;
@@ -16917,7 +16961,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSRekognitionTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/AWSCoreTests/OCMock";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazon.AWSRekognitionTests;
@@ -16945,7 +16989,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSSageMakerRuntime/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSSageMakerRuntime;
@@ -16972,7 +17016,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSSageMakerRuntime/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSSageMakerRuntime;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -16993,7 +17037,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSSageMakerRuntimeUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17019,7 +17063,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSSageMakerRuntimeUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17049,7 +17093,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSConnectParticipant/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSConnectParticipant;
@@ -17076,7 +17120,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSConnectParticipant/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSConnectParticipant;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -17097,7 +17141,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSConnectParticipantUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17123,7 +17167,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSConnectParticipantUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17148,7 +17192,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSConnectParticipantTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17179,7 +17223,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSConnectParticipantTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"${inherited}",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17207,7 +17251,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTextractUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17233,7 +17277,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTextractUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17263,7 +17307,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTextract/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTextract;
@@ -17290,7 +17334,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTextract/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTextract;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -17311,7 +17355,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTextractTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTextractTests;
@@ -17334,7 +17378,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTextractTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTextractTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -17361,7 +17405,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSConnect/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = "";
@@ -17389,7 +17433,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSConnect/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSConnect;
@@ -17412,7 +17456,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSConnectTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = "-ObjC";
@@ -17439,7 +17483,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSConnectTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSConnectTests;
@@ -17463,7 +17507,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSConnectUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17489,7 +17533,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSConnectUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17638,10 +17682,11 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				INFOPLIST_FILE = AWSCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -17656,10 +17701,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -17667,7 +17713,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSCoreTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -17684,7 +17730,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSCoreTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -17702,7 +17748,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AWSCoreUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -17722,7 +17768,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AWSCoreUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -17740,7 +17786,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSAPIGatewayUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17755,7 +17801,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSAPIGatewayUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17770,7 +17816,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSAutoScalingUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17785,7 +17831,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSAutoScalingUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17800,7 +17846,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSCloudWatchUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17815,7 +17861,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSCloudWatchUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17830,7 +17876,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSDynamoDBUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17845,7 +17891,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSDynamoDBUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17860,7 +17906,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSEC2UnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17875,7 +17921,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSEC2UnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17890,7 +17936,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSElasticLoadBalancingUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17905,7 +17951,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSElasticLoadBalancingUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17920,7 +17966,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSIoTUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17935,7 +17981,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSIoTUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17950,7 +17996,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSKinesisUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17965,7 +18011,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSKinesisUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17980,7 +18026,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSLambdaUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17995,7 +18041,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSLambdaUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18010,7 +18056,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSMachineLearningUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18025,7 +18071,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSMachineLearningUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18041,7 +18087,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AWSS3UnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -18061,7 +18107,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AWSS3UnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -18079,7 +18125,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSSESUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18094,7 +18140,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSSESUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18109,7 +18155,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSSimpleDBUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18124,7 +18170,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSSimpleDBUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18139,7 +18185,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSSNSUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18154,7 +18200,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSSNSUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18169,7 +18215,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSSQSUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18184,7 +18230,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSSQSUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18206,7 +18252,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSAutoScaling/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSAutoScaling;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18224,7 +18270,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSAutoScaling/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSAutoScaling;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18235,7 +18281,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSAutoScalingTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18250,7 +18296,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSAutoScalingTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18272,7 +18318,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSDynamoDB/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSDynamoDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18290,7 +18336,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSDynamoDB/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSDynamoDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18302,7 +18348,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AWSDynamoDBTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18321,7 +18367,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AWSDynamoDBTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18345,7 +18391,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSEC2/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSEC2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18363,7 +18409,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSEC2/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSEC2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18374,7 +18420,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSEC2Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18389,7 +18435,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSEC2Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18411,7 +18457,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSElasticLoadBalancing/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSElasticLoadBalancing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18429,7 +18475,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSElasticLoadBalancing/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSElasticLoadBalancing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18440,7 +18486,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSElasticLoadBalancingTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18455,7 +18501,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSElasticLoadBalancingTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18477,7 +18523,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSIoT/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSIoT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18495,7 +18541,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSIoT/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSIoT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18507,7 +18553,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AWSIoTTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18527,7 +18573,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AWSIoTTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18552,7 +18598,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSKinesis/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSKinesis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18570,7 +18616,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSKinesis/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSKinesis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18581,7 +18627,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSKinesisTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18596,7 +18642,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSKinesisTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18618,7 +18664,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSLambda/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSLambda;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18636,7 +18682,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSLambda/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSLambda;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18647,7 +18693,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSLambdaTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18662,7 +18708,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSLambdaTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18684,7 +18730,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSMachineLearning/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSMachineLearning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18702,7 +18748,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSMachineLearning/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSMachineLearning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18722,7 +18768,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSS3/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSS3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18741,7 +18787,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSS3/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSS3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18754,7 +18800,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AWSS3Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18775,7 +18821,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AWSS3Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18800,7 +18846,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSSES/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSSES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18818,7 +18864,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSSES/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSSES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18829,7 +18875,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSSESTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18844,7 +18890,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSSESTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18866,7 +18912,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSSimpleDB/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSSimpleDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18884,7 +18930,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSSimpleDB/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSSimpleDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18895,7 +18941,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSSimpleDBTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18910,7 +18956,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSSimpleDBTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18932,7 +18978,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSSNS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSSNS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18950,7 +18996,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSSNS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSSNS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -18961,7 +19007,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSSNSTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18976,7 +19022,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSSNSTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -18998,7 +19044,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSSQS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSSQS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -19016,7 +19062,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSSQS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSSQS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -19027,7 +19073,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSSQSTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -19042,7 +19088,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSSQSTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -19064,7 +19110,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSAPIGateway/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSAPIGateway;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -19082,7 +19128,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSAPIGateway/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSAPIGateway;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -19094,7 +19140,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AWSAPIGatewayTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -19114,7 +19160,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AWSAPIGatewayTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -19139,7 +19185,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSCloudWatch/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSCloudWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -19157,7 +19203,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSCloudWatch/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSCloudWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -19168,7 +19214,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSCloudWatchTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -19183,7 +19229,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSCloudWatchTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -19206,7 +19252,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "$(SRCROOT)/AWSCognitoIdentityProvider/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCognitoIdentityProvider/Internal",
@@ -19230,7 +19276,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "$(SRCROOT)/AWSCognitoIdentityProvider/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCognitoIdentityProvider/Internal",
@@ -19246,7 +19292,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSCognitoIdentityProviderTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -19261,7 +19307,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSCognitoIdentityProviderTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -19277,7 +19323,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AWSCognitoIdentityProviderUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -19296,7 +19342,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AWSCognitoIdentityProviderUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -19313,7 +19359,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -19322,7 +19368,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -19340,7 +19386,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSKMS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSKMS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -19360,7 +19406,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSKMS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSKMS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -19373,7 +19419,7 @@
 				CLANG_ANALYZER_NONNULL = YES_NONAGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				INFOPLIST_FILE = AWSKMSUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -19390,7 +19436,7 @@
 				CLANG_ANALYZER_NONNULL = YES_NONAGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				INFOPLIST_FILE = AWSKMSUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -19407,7 +19453,7 @@
 				CLANG_ANALYZER_NONNULL = YES_NONAGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				INFOPLIST_FILE = AWSKMSTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -19424,7 +19470,7 @@
 				CLANG_ANALYZER_NONNULL = YES_NONAGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				INFOPLIST_FILE = AWSKMSTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -19447,7 +19493,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSCognitoIdentityProviderASF/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCognitoIdentityProviderASF",
@@ -19471,7 +19517,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSCognitoIdentityProviderASF/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCognitoIdentityProviderASF",
@@ -19495,7 +19541,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSCognitoAuth/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCognitoAuth/Internal",
@@ -19519,7 +19565,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AWSCognitoAuth/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCognitoAuth/Internal",
@@ -19535,7 +19581,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSCognitoAuthTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -19549,7 +19595,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSCognitoAuthTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -19563,7 +19609,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSCognitoAuthUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -19578,7 +19624,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = AWSCognitoAuthUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -19659,7 +19705,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTranscribeStreamingUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTranscribeStreamingUnitTests;
@@ -19684,7 +19730,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTranscribeStreamingUnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTranscribeStreamingUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -19697,6 +19743,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -19705,6 +19752,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -19728,7 +19776,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTestResources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTestResources;
@@ -19756,7 +19804,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTestResources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTestResources;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -19874,7 +19922,7 @@
 				DEVELOPMENT_TEAM = W3DRXD72QU;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSCoreServiceConfigurationTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS)";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -19897,7 +19945,7 @@
 				DEVELOPMENT_TEAM = W3DRXD72QU;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSCoreServiceConfigurationTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS)";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSCoreServiceConfigurationTest;

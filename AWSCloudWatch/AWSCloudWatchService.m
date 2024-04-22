@@ -26,7 +26,7 @@
 #import "AWSCloudWatchResources.h"
 
 static NSString *const AWSInfoCloudWatch = @"CloudWatch";
-NSString *const AWSCloudWatchSDKVersion = @"2.35.0";
+NSString *const AWSCloudWatchSDKVersion = @"2.36.0";
 
 
 @interface AWSCloudWatchResponseSerializer : AWSXMLResponseSerializer
@@ -41,7 +41,6 @@ static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
                             @"InvalidParameterInput" : @(AWSCloudWatchErrorDashboardInvalidInput),
-                            @"ResourceNotFound" : @(AWSCloudWatchErrorDashboardNotFound),
                             @"InternalServiceError" : @(AWSCloudWatchErrorInternalService),
                             @"InvalidFormat" : @(AWSCloudWatchErrorInvalidFormat),
                             @"InvalidNextToken" : @(AWSCloudWatchErrorInvalidNextToken),

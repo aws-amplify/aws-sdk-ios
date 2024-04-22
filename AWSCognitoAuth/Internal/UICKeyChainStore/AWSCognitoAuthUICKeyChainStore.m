@@ -527,14 +527,7 @@ static NSString *_defaultService;
     NSMutableDictionary *query = [self query];
     query[(__bridge __strong id)kSecAttrAccount] = key;
 #if TARGET_OS_IOS
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    if (floor(NSFoundationVersionNumber) > floor(1144.17)) { // iOS 9+
-        query[(__bridge __strong id)kSecUseAuthenticationUI] = (__bridge id)kSecUseAuthenticationUIFail;
-    } else if (floor(NSFoundationVersionNumber) > floor(1047.25)) { // iOS 8+
-        query[(__bridge __strong id)kSecUseNoAuthenticationUI] = (__bridge id)kCFBooleanTrue;
-    }
-#pragma clang diagnostic pop
+    query[(__bridge __strong id)kSecUseAuthenticationUI] = (__bridge id)kSecUseAuthenticationUIFail;
 #elif TARGET_OS_WATCH || TARGET_OS_TV
     query[(__bridge __strong id)kSecUseAuthenticationUI] = (__bridge id)kSecUseAuthenticationUIFail;
 #endif
@@ -1094,6 +1087,9 @@ static NSString *_defaultService;
 
 #pragma mark -
 
+// These methods are deprecated, but still need to be implemented
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 - (void)synchronize
 {
     // Deprecated, calling this method is no longer required
@@ -1104,6 +1100,7 @@ static NSString *_defaultService;
     // Deprecated, calling this method is no longer required
     return true;
 }
+#pragma clang diagnostic pop
 
 #pragma mark -
 
@@ -1348,6 +1345,11 @@ static NSString *_defaultService;
     }
 }
 
+// The following keys are deprecated, but they still need to be supported:
+// - AWSCognitoAuthUICKeyChainStoreAccessibilityAlways, kSecAttrAccessibleAlways,
+// - AWSCognitoAuthUICKeyChainStoreAccessibilityAlwaysThisDeviceOnly, kSecAttrAccessibleAlwaysThisDeviceOnly
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (CFTypeRef)accessibilityObject
 {
     switch (_accessibility) {
@@ -1369,6 +1371,7 @@ static NSString *_defaultService;
             return nil;
     }
 }
+#pragma clang diagnostic pop
 
 + (NSError *)argumentError:(NSString *)message
 {

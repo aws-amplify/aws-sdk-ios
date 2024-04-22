@@ -8,7 +8,7 @@
 #import "NSData+AWSCognitoIdentityProvider.h"
 #import "AWSJKBigInteger.h"
 
-void awsbigint_loadBigInt(){
+void awsbigint_loadBigInt(void){
 }
 
 AWSJKBigInteger *unsignedBigIntegerFromNSData(NSData* data) {
