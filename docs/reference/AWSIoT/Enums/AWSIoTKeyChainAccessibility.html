@@ -17,7 +17,7 @@
     <a title="AWSIoTKeyChainAccessibility Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSIoT 2.35.0 Docs</a> (84% documented)</p>
+        <p><a href="../index.html">AWSIoT 2.36.0 Docs</a> (84% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSIoT.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -2502,11 +2502,11 @@
                   <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSIoTKeyChainAccessibility</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">AWSIoTKeyChainAccessibilityWhenUnlocked</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
     <span class="n">AWSIoTKeyChainAccessibilityAfterFirstUnlock</span><span class="p">,</span>
-    <span class="n">AWSIoTKeyChainAccessibilityAlways</span><span class="p">,</span>
+    <span class="n">AWSIoTKeyChainAccessibilityAlways</span> <span class="n">__deprecated_enum_msg</span><span class="p">(</span><span class="s">"Use an accessibility level that provides some user protection, such as AWSIoTKeyChainAccessibilityAfterFirstUnlock"</span><span class="p">),</span>
     <span class="n">AWSIoTKeyChainAccessibilityWhenPasscodeSetThisDeviceOnly</span><span class="p">,</span>
     <span class="n">AWSIoTKeyChainAccessibilityWhenUnlockedThisDeviceOnly</span><span class="p">,</span>
     <span class="n">AWSIoTKeyChainAccessibilityAfterFirstUnlockThisDeviceOnly</span><span class="p">,</span>
-    <span class="n">AWSIoTKeyChainAccessibilityAlwaysThisDeviceOnly</span><span class="p">,</span>
+    <span class="n">AWSIoTKeyChainAccessibilityAlwaysThisDeviceOnly</span> <span class="n">__deprecated_enum_msg</span><span class="p">(</span><span class="s">"Use an accessibility level that provides some user protection, such as AWSIoTKeyChainAccessibilityAfterFirstUnlockThisDeviceOnly"</span><span class="p">),</span>
 <span class="p">}</span></code></pre>
 
                 </div>
@@ -2591,13 +2591,18 @@
                     <code>
                     <a name="/c:@E@AWSIoTKeyChainAccessibility@AWSIoTKeyChainAccessibilityAlways"></a>
                     <a name="//apple_ref/objc/Case/AWSIoTKeyChainAccessibilityAlways" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSIoTKeyChainAccessibility@AWSIoTKeyChainAccessibilityAlways">AWSIoTKeyChainAccessibilityAlways</a>
+                    <a class="token discouraged" href="#/c:@E@AWSIoTKeyChainAccessibility@AWSIoTKeyChainAccessibilityAlways">AWSIoTKeyChainAccessibilityAlways</a>
                     </code>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>Use an accessibility level that provides some user protection, such as AWSIoTKeyChainAccessibilityAfterFirstUnlock</p>
+
+                      </div>
                       <div class="abstract">
                         <p>Undocumented</p>
 
@@ -2719,13 +2724,18 @@
                     <code>
                     <a name="/c:@E@AWSIoTKeyChainAccessibility@AWSIoTKeyChainAccessibilityAlwaysThisDeviceOnly"></a>
                     <a name="//apple_ref/objc/Case/AWSIoTKeyChainAccessibilityAlwaysThisDeviceOnly" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSIoTKeyChainAccessibility@AWSIoTKeyChainAccessibilityAlwaysThisDeviceOnly">AWSIoTKeyChainAccessibilityAlwaysThisDeviceOnly</a>
+                    <a class="token discouraged" href="#/c:@E@AWSIoTKeyChainAccessibility@AWSIoTKeyChainAccessibilityAlwaysThisDeviceOnly">AWSIoTKeyChainAccessibilityAlwaysThisDeviceOnly</a>
                     </code>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>Use an accessibility level that provides some user protection, such as AWSIoTKeyChainAccessibilityAfterFirstUnlockThisDeviceOnly</p>
+
+                      </div>
                       <div class="abstract">
                         <p>Undocumented</p>
 
@@ -2751,7 +2761,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-04-04)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-04-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
