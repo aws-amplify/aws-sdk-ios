@@ -909,6 +909,7 @@ typedef NS_ENUM(NSInteger, AWSEC2ImageAttributeName) {
     AWSEC2ImageAttributeNameUefiData,
     AWSEC2ImageAttributeNameLastLaunchedTime,
     AWSEC2ImageAttributeNameImdsSupport,
+    AWSEC2ImageAttributeNameDeregistrationProtection,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2ImageBlockPublicAccessDisabledState) {
@@ -4231,6 +4232,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DisableImageBlockPublicAccessResult;
 @class AWSEC2DisableImageDeprecationRequest;
 @class AWSEC2DisableImageDeprecationResult;
+@class AWSEC2DisableImageDeregistrationProtectionRequest;
+@class AWSEC2DisableImageDeregistrationProtectionResult;
 @class AWSEC2DisableImageRequest;
 @class AWSEC2DisableImageResult;
 @class AWSEC2DisableIpamOrganizationAdminAccountRequest;
@@ -4320,6 +4323,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2EnableImageBlockPublicAccessResult;
 @class AWSEC2EnableImageDeprecationRequest;
 @class AWSEC2EnableImageDeprecationResult;
+@class AWSEC2EnableImageDeregistrationProtectionRequest;
+@class AWSEC2EnableImageDeregistrationProtectionResult;
 @class AWSEC2EnableImageRequest;
 @class AWSEC2EnableImageResult;
 @class AWSEC2EnableIpamOrganizationAdminAccountRequest;
@@ -7549,12 +7554,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable certificateS3BucketName;
 
 /**
- <p>The key of the Amazon S3 object ey where the certificate, certificate chain, and encrypted private key bundle is stored. The object key is formated as follows: <code>role_arn</code>/<code>certificate_arn</code>. </p>
+ <p>The key of the Amazon S3 object where the certificate, certificate chain, and encrypted private key bundle are stored. The object key is formatted as follows: <code>role_arn</code>/<code>certificate_arn</code>. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable certificateS3ObjectKey;
 
 /**
- <p>The ID of the KMS customer master key (CMK) used to encrypt the private key.</p>
+ <p>The ID of the KMS key used to encrypt the private key.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable encryptionKmsKeyId;
 
@@ -8811,7 +8816,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The IDs of the Spot Fleet requests.</p>
+ <p>The IDs of the Spot Fleet requests.</p><p>Constraint: You can specify up to 100 IDs in a single request.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable spotFleetRequestIds;
 
@@ -11360,12 +11365,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The error code that indicates why the instance could not be launched. For more information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error codes</a>.</p>
+ <p>The error code that indicates why the instance could not be launched. For more information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error codes</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable errorCode;
 
 /**
- <p>The error message that describes why the instance could not be launched. For more information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error codes</a>.</p>
+ <p>The error message that describes why the instance could not be launched. For more information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error codes</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable errorMessage;
 
@@ -12221,7 +12226,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable launchTemplateName;
 
 /**
- <p>The tags to apply to the launch template on creation. To tag the launch template, the resource type must be <code>launch-template</code>.</p><note><p>To specify the tags for the resources that are created when an instance is launched, you must use the <code>TagSpecifications</code> parameter in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html">launch template data</a> structure.</p></note>
+ <p>The tags to apply to the launch template on creation. To tag the launch template, the resource type must be <code>launch-template</code>.</p><p>To specify the tags for the resources that are created when an instance is launched, you must use the <code>TagSpecifications</code> parameter in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html">launch template data</a> structure.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
 
@@ -12272,12 +12277,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2RequestLaunchTemplateData * _Nullable launchTemplateData;
 
 /**
- <p>The ID of the launch template.</p><p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
+ <p>The ID of the launch template.</p><p>You must specify either the launch template ID or the launch template name, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateId;
 
 /**
- <p>The name of the launch template.</p><p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
+ <p>The name of the launch template.</p><p>You must specify either the launch template ID or the launch template name, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateName;
 
@@ -12287,7 +12292,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable resolveAlias;
 
 /**
- <p>The version number of the launch template version on which to base the new version. The new version inherits the same launch parameters as the source version, except for parameters that you specify in <code>LaunchTemplateData</code>. Snapshots applied to the block device mapping are ignored when creating a new version unless they are explicitly included.</p>
+ <p>The version of the launch template on which to base the new version. Snapshots applied to the block device mapping are ignored when creating a new version unless they are explicitly included.</p><p>If you specify this parameter, the new version inherits the launch parameters from the source version. If you specify additional launch parameters for the new version, they overwrite any corresponding launch parameters inherited from the source version.</p><p>If you omit this parameter, the new version contains only the launch parameters that you specify for the new version.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceVersion;
 
@@ -16033,7 +16038,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The IDs of the EC2 Fleets.</p>
+ <p>The IDs of the EC2 Fleets.</p><p>Constraints: In a single request, you can specify up to 25 <code>instant</code> fleet IDs and up to 100 <code>maintain</code> or <code>request</code> fleet IDs. </p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable fleetIds;
 
@@ -16396,12 +16401,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The ID of the launch template.</p><p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
+ <p>The ID of the launch template.</p><p>You must specify either the launch template ID or the launch template name, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateId;
 
 /**
- <p>The name of the launch template.</p><p>You must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
+ <p>The name of the launch template.</p><p>You must specify either the launch template ID or the launch template name, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateName;
 
@@ -16432,12 +16437,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The ID of the launch template.</p><p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
+ <p>The ID of the launch template.</p><p>You must specify either the launch template ID or the launch template name, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateId;
 
 /**
- <p>The name of the launch template.</p><p>You must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
+ <p>The name of the launch template.</p><p>You must specify either the launch template ID or the launch template name, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateName;
 
@@ -20975,12 +20980,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. Filter names and values are case-sensitive.</p><ul><li><p><code>location</code> - This depends on the location type. For example, if the location type is <code>region</code> (default), the location is the Region code (for example, <code>us-east-2</code>.)</p></li><li><p><code>instance-type</code> - The instance type. For example, <code>c5.2xlarge</code>.</p></li></ul>
+ <p>One or more filters. Filter names and values are case-sensitive.</p><ul><li><p><code>instance-type</code> - The instance type. For a list of possible values, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Instance.html">Instance</a>.</p></li><li><p><code>location</code> - The location. For a list of possible identifiers, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions and Zones</a>.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The location type.</p>
+ <p>The location type.</p><ul><li><p><code>availability-zone</code> - The Availability Zone. When you specify a location filter, it must be an Availability Zone for the current Region.</p></li><li><p><code>availability-zone-id</code> - The AZ ID. When you specify a location filter, it must be an AZ ID for the current Region.</p></li><li><p><code>outpost</code> - The Outpost ARN. When you specify a location filter, it must be an Outpost ARN for the current Region.</p></li><li><p><code>region</code> - The current Region. If you specify a location filter, it must match the current Region.</p></li></ul>
  */
 @property (nonatomic, assign) AWSEC2LocationType locationType;
 
@@ -21003,7 +21008,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The instance types offered.</p>
+ <p>The instance types offered in the location.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2InstanceTypeOffering *> * _Nullable instanceTypeOfferings;
 
@@ -21031,7 +21036,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The instance types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>The instance types.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable instanceTypes;
 
@@ -21054,7 +21059,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>The instance type.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2InstanceTypeInfo *> * _Nullable instanceTypes;
 
@@ -21577,12 +21582,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The ID of the launch template.</p><p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p><p>To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>
+ <p>The ID of the launch template.</p><p>To describe one or more versions of a specified launch template, you must specify either the launch template ID or the launch template name, but not both.</p><p>To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateId;
 
 /**
- <p>The name of the launch template.</p><p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p><p>To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>
+ <p>The name of the launch template.</p><p>To describe one or more versions of a specified launch template, you must specify either the launch template name or the launch template ID, but not both.</p><p>To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateName;
 
@@ -22676,7 +22681,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Information about one or more network interfaces.</p>
+ <p>Information about the network interfaces.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2NetworkInterface *> * _Nullable networkInterfaces;
 
@@ -24130,7 +24135,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The filters.</p><ul><li><p><code>key</code> - The tag key.</p></li><li><p><code>resource-id</code> - The ID of the resource.</p></li><li><p><code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dedicated-host</code> | <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> | <code>fpga-image</code> | <code>host-reservation</code> | <code>image</code> | <code>instance</code> | <code>internet-gateway</code> | <code>key-pair</code> | <code>launch-template</code> | <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code> | <code>placement-group</code> | <code>reserved-instances</code> | <code>route-table</code> | <code>security-group</code> | <code>snapshot</code> | <code>spot-instances-request</code> | <code>subnet</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-endpoint</code> | <code>vpc-endpoint-service</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>).</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example, specify "tag:Owner" for the filter name and "TeamA" for the filter value to find resources with the tag "Owner=TeamA".</p></li><li><p><code>value</code> - The tag value.</p></li></ul>
+ <p>The filters.</p><ul><li><p><code>key</code> - The tag key.</p></li><li><p><code>resource-id</code> - The ID of the resource.</p></li><li><p><code>resource-type</code> - The resource type. For a list of possible values, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TagSpecification.html">TagSpecification</a>.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example, specify "tag:Owner" for the filter name and "TeamA" for the filter value to find resources with the tag "Owner=TeamA".</p></li><li><p><code>value</code> - The tag value.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -26674,6 +26679,37 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DisableImageDeregistrationProtectionRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the AMI.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable imageId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DisableImageDeregistrationProtectionResult : AWSModel
+
+
+/**
+ <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable returned;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DisableImageRequest : AWSRequest
 
 
@@ -28544,6 +28580,42 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable returned;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2EnableImageDeregistrationProtectionRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the AMI.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable imageId;
+
+/**
+ <p>If <code>true</code>, enforces deregistration protection for 24 hours after deregistration protection is disabled.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable withCooldown;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2EnableImageDeregistrationProtectionResult : AWSModel
+
+
+/**
+ <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable returned;
 
 @end
 
@@ -33412,6 +33484,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable deprecationTime;
 
 /**
+ <p>Indicates whether deregistration protection is enabled for the AMI.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deregistrationProtection;
+
+/**
  <p>The description of the AMI that was provided during image creation.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
@@ -33455,6 +33532,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The kernel associated with the image, if any. Only applicable for machine images.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable kernelId;
+
+/**
+ <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported.</p><note><p><code>lastLaunchedTime</code> data is available starting April 2017.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastLaunchedTime;
 
 /**
  <p>The name of the AMI that was provided during image creation.</p>
@@ -33558,6 +33640,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The boot mode.</p>
  */
 @property (nonatomic, strong) AWSEC2AttributeValue * _Nullable bootMode;
+
+/**
+ <p>Indicates whether deregistration protection is enabled for the AMI.</p>
+ */
+@property (nonatomic, strong) AWSEC2AttributeValue * _Nullable deregistrationProtection;
 
 /**
  <p>A description for the AMI.</p>
@@ -39124,23 +39211,23 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>The launch template to use. You must specify either the launch template ID or launch template name in the request, but not both.</p>
+ <p>Describes the launch template to use.</p>
  */
 @interface AWSEC2LaunchTemplateSpecification : AWSModel
 
 
 /**
- <p>The ID of the launch template.</p><p>You must specify the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
+ <p>The ID of the launch template.</p><p>You must specify either the launch template ID or the launch template name, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateId;
 
 /**
- <p>The name of the launch template.</p><p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
+ <p>The name of the launch template.</p><p>You must specify either the launch template ID or the launch template name, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateName;
 
 /**
- <p>The launch template version number, <code>$Latest</code>, or <code>$Default</code>.</p><p>If the value is <code>$Latest</code>, Amazon EC2 uses the latest version of the launch template.</p><p>If the value is <code>$Default</code>, Amazon EC2 uses the default version of the launch template.</p><p>Default: The default version of the launch template.</p>
+ <p>The launch template version number, <code>$Latest</code>, or <code>$Default</code>.</p><p>A value of <code>$Latest</code> uses the latest version of the launch template.</p><p>A value of <code>$Default</code> uses the default version of the launch template.</p><p>Default: The default version of the launch template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable version;
 
@@ -41194,7 +41281,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2DefaultInstanceMetadataEndpointState httpEndpoint;
 
 /**
- <p>The maximum number of hops that the metadata token can travel.</p><p>Minimum: <code>1</code></p><p>Maximum: <code>64</code></p>
+ <p>The maximum number of hops that the metadata token can travel. To indicate no preference, specify <code>-1</code>.</p><p>Possible values: Integers from <code>1</code> to <code>64</code>, and <code>-1</code> to indicate no preference</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable httpPutResponseHopLimit;
 
@@ -41627,12 +41714,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The ID of the launch template.</p><p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
+ <p>The ID of the launch template.</p><p>You must specify either the launch template ID or the launch template name, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateId;
 
 /**
- <p>The name of the launch template.</p><p>You must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
+ <p>The name of the launch template.</p><p>You must specify either the launch template ID or the launch template name, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateName;
 
@@ -48077,7 +48164,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2LaunchTemplatesMonitoringRequest * _Nullable monitoring;
 
 /**
- <p>One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.</p>
+ <p>The network interfaces for the instance.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2LaunchTemplateInstanceNetworkInterfaceSpecificationRequest *> * _Nullable networkInterfaces;
 
@@ -48097,12 +48184,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable ramDiskId;
 
 /**
- <p>One or more security group IDs. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p>
+ <p>The IDs of the security groups.</p><p>If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
 
 /**
- <p>One or more security group names. For a nondefault VPC, you must use security group IDs instead.</p>
+ <p>The names of the security groups. For a nondefault VPC, you must use security group IDs instead.</p><p>If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroups;
 
@@ -49984,12 +50071,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable ebsOptimized;
 
 /**
- <p>Deprecated.</p><note><p>Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.</p></note>
+ <p>An elastic GPU to associate with the instance.</p><note><p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSEC2ElasticGpuSpecification *> * _Nullable elasticGpuSpecification;
 
 /**
- <p>An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.</p><p>You cannot specify accelerators from different generations in the same request.</p><note><p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.</p></note>
+ <p>An elastic inference accelerator to associate with the instance.</p><note><p>Amazon Elastic Inference (EI) is no longer available to new customers. For more information, see <a href="http://aws.amazon.com/machine-learning/elastic-inference/faqs/">Amazon Elastic Inference FAQs</a>.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSEC2ElasticInferenceAccelerator *> * _Nullable elasticInferenceAccelerators;
 
@@ -50054,7 +50141,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable keyName;
 
 /**
- <p>The launch template to use to launch the instances. Any parameters that you specify in <a>RunInstances</a> override the same parameters in the launch template. You can specify either the name or ID of a launch template, but not both.</p>
+ <p>The launch template. Any additional parameters that you specify for the new instance overwrite the corresponding parameters included in the launch template.</p>
  */
 @property (nonatomic, strong) AWSEC2LaunchTemplateSpecification * _Nullable launchTemplate;
 
@@ -50089,7 +50176,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2RunInstancesMonitoringEnabled * _Nullable monitoring;
 
 /**
- <p>The network interfaces to associate with the instance. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.</p>
+ <p>The network interfaces to associate with the instance.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2InstanceNetworkInterfaceSpecification *> * _Nullable networkInterfaces;
 
@@ -50114,17 +50201,17 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable ramdiskId;
 
 /**
- <p>The IDs of the security groups. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p><p>If you specify a network interface, you must specify any security groups as part of the network interface.</p>
+ <p>The IDs of the security groups. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p><p>If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
 
 /**
- <p>[Default VPC] The names of the security groups.</p><p>If you specify a network interface, you must specify any security groups as part of the network interface.</p><p>Default: Amazon EC2 uses the default security group.</p>
+ <p>[Default VPC] The names of the security groups.</p><p>If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.</p><p>Default: Amazon EC2 uses the default security group.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroups;
 
 /**
- <p>The ID of the subnet to launch the instance into.</p><p>If you specify a network interface, you must specify any subnets as part of the network interface.</p>
+ <p>The ID of the subnet to launch the instance into.</p><p>If you specify a network interface, you must specify any subnets as part of the network interface instead of using this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable subnetId;
 
@@ -50872,7 +50959,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of routes to return.</p>
+ <p>The maximum number of routes to return. If a value is not provided, the default is 1000.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -51949,7 +52036,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2SpotFleetMonitoring * _Nullable monitoring;
 
 /**
- <p>One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.</p><note><p><code>SpotFleetLaunchSpecification</code> currently does not support Elastic Fabric Adapter (EFA). To specify an EFA, you must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a>.</p></note>
+ <p>The network interfaces.</p><note><p><code>SpotFleetLaunchSpecification</code> does not support Elastic Fabric Adapter (EFA). You must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a> instead.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSEC2InstanceNetworkInterfaceSpecification *> * _Nullable networkInterfaces;
 
@@ -51964,7 +52051,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable ramdiskId;
 
 /**
- <p>The security groups.</p>
+ <p>The security groups.</p><p>If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2GroupIdentifier *> * _Nullable securityGroups;
 
@@ -51974,7 +52061,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable spotPrice;
 
 /**
- <p>The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".</p>
+ <p>The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".</p><p>If you specify a network interface, you must specify any subnets as part of the network interface instead of using this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable subnetId;
 
