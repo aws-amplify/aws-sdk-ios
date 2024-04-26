@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage     = 'http://aws.amazon.com/mobile/sdk'
   s.license      = 'Apache License, Version 2.0'
   s.author       = { 'Amazon Web Services' => 'amazonwebservices' }
-  s.platform     = :ios, '12.0'
+  s.platform     = :ios, '9.0'
   s.source       = { :git => 'https://github.com/aws-amplify/aws-sdk-ios.git',
                      :tag => s.version}
   s.requires_arc = true
@@ -19,5 +19,4 @@ Pod::Spec.new do |s|
   s.source_files = 'AWSCognitoIdentityProvider/**/*.{h,m,c}'
   s.public_header_files = 'AWSCognitoIdentityProvider/*.h'
   s.private_header_files = 'AWSCognitoIdentityProvider/Internal/*.h'
-  s.resource_bundle = { 'AWSCognitoIdentityProvider' => ['AWSCognitoIdentityProvider/PrivacyInfo.xcprivacy']}
 end
