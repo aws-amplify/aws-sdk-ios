@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -43,6 +43,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"callAnalyticsJobDetails" : @"CallAnalyticsJobDetails",
              @"callAnalyticsJobName" : @"CallAnalyticsJobName",
              @"callAnalyticsJobStatus" : @"CallAnalyticsJobStatus",
              @"channelDefinitions" : @"ChannelDefinitions",
@@ -59,6 +60,10 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
              @"startTime" : @"StartTime",
              @"transcript" : @"Transcript",
              };
+}
+
++ (NSValueTransformer *)callAnalyticsJobDetailsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranscribeCallAnalyticsJobDetails class]];
 }
 
 + (NSValueTransformer *)callAnalyticsJobStatusJSONTransformer {
@@ -711,6 +716,24 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 
 @end
 
+@implementation AWSTranscribeCallAnalyticsJobDetails
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"skipped" : @"Skipped",
+             };
+}
+
++ (NSValueTransformer *)skippedJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranscribeCallAnalyticsSkippedFeature class]];
+}
+
+@end
+
 @implementation AWSTranscribeCallAnalyticsJobSettings
 
 + (BOOL)supportsSecureCoding {
@@ -782,6 +805,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"callAnalyticsJobDetails" : @"CallAnalyticsJobDetails",
              @"callAnalyticsJobName" : @"CallAnalyticsJobName",
              @"callAnalyticsJobStatus" : @"CallAnalyticsJobStatus",
              @"completionTime" : @"CompletionTime",
@@ -790,6 +814,10 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
              @"languageCode" : @"LanguageCode",
              @"startTime" : @"StartTime",
              };
+}
+
++ (NSValueTransformer *)callAnalyticsJobDetailsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranscribeCallAnalyticsJobDetails class]];
 }
 
 + (NSValueTransformer *)callAnalyticsJobStatusJSONTransformer {
@@ -1370,6 +1398,59 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSTranscribeCallAnalyticsSkippedFeature
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"feature" : @"Feature",
+             @"message" : @"Message",
+             @"reasonCode" : @"ReasonCode",
+             };
+}
+
++ (NSValueTransformer *)featureJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"GENERATIVE_SUMMARIZATION"] == NSOrderedSame) {
+            return @(AWSTranscribeCallAnalyticsFeatureGenerativeSummarization);
+        }
+        return @(AWSTranscribeCallAnalyticsFeatureUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeCallAnalyticsFeatureGenerativeSummarization:
+                return @"GENERATIVE_SUMMARIZATION";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)reasonCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"INSUFFICIENT_CONVERSATION_CONTENT"] == NSOrderedSame) {
+            return @(AWSTranscribeCallAnalyticsSkippedReasonCodeInsufficientConversationContent);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED_SAFETY_GUIDELINES"] == NSOrderedSame) {
+            return @(AWSTranscribeCallAnalyticsSkippedReasonCodeFailedSafetyGuidelines);
+        }
+        return @(AWSTranscribeCallAnalyticsSkippedReasonCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeCallAnalyticsSkippedReasonCodeInsufficientConversationContent:
+                return @"INSUFFICIENT_CONVERSATION_CONTENT";
+            case AWSTranscribeCallAnalyticsSkippedReasonCodeFailedSafetyGuidelines:
+                return @"FAILED_SAFETY_GUIDELINES";
+            default:
+                return nil;
+        }
     }];
 }
 

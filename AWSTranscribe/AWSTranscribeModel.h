@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -47,12 +47,23 @@ typedef NS_ENUM(NSInteger, AWSTranscribeCLMLanguageCode) {
     AWSTranscribeCLMLanguageCodeJaJP,
 };
 
+typedef NS_ENUM(NSInteger, AWSTranscribeCallAnalyticsFeature) {
+    AWSTranscribeCallAnalyticsFeatureUnknown,
+    AWSTranscribeCallAnalyticsFeatureGenerativeSummarization,
+};
+
 typedef NS_ENUM(NSInteger, AWSTranscribeCallAnalyticsJobStatus) {
     AWSTranscribeCallAnalyticsJobStatusUnknown,
     AWSTranscribeCallAnalyticsJobStatusQueued,
     AWSTranscribeCallAnalyticsJobStatusInProgress,
     AWSTranscribeCallAnalyticsJobStatusFailed,
     AWSTranscribeCallAnalyticsJobStatusCompleted,
+};
+
+typedef NS_ENUM(NSInteger, AWSTranscribeCallAnalyticsSkippedReasonCode) {
+    AWSTranscribeCallAnalyticsSkippedReasonCodeUnknown,
+    AWSTranscribeCallAnalyticsSkippedReasonCodeInsufficientConversationContent,
+    AWSTranscribeCallAnalyticsSkippedReasonCodeFailedSafetyGuidelines,
 };
 
 typedef NS_ENUM(NSInteger, AWSTranscribeInputType) {
@@ -309,8 +320,10 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 @class AWSTranscribeAbsoluteTimeRange;
 @class AWSTranscribeCallAnalyticsJob;
+@class AWSTranscribeCallAnalyticsJobDetails;
 @class AWSTranscribeCallAnalyticsJobSettings;
 @class AWSTranscribeCallAnalyticsJobSummary;
+@class AWSTranscribeCallAnalyticsSkippedFeature;
 @class AWSTranscribeCategoryProperties;
 @class AWSTranscribeChannelDefinition;
 @class AWSTranscribeContentRedaction;
@@ -462,6 +475,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
+ <p>Provides detailed information about a call analytics job, including information about skipped analytics features.</p>
+ */
+@property (nonatomic, strong) AWSTranscribeCallAnalyticsJobDetails * _Nullable callAnalyticsJobDetails;
+
+/**
  <p>The name of the Call Analytics job. Job names are case sensitive and must be unique within an Amazon Web Services account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable callAnalyticsJobName;
@@ -539,6 +557,19 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @end
 
 /**
+ <p>Contains details about a call analytics job, including information about skipped analytics features.</p>
+ */
+@interface AWSTranscribeCallAnalyticsJobDetails : AWSModel
+
+
+/**
+ <p>Contains information about any skipped analytics features during the analysis of a call analytics job.</p><p>This array lists all the analytics features that were skipped, along with their corresponding reason code and message.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTranscribeCallAnalyticsSkippedFeature *> * _Nullable skipped;
+
+@end
+
+/**
  <p>Provides additional optional settings for your request, including content redaction, automatic language identification; allows you to apply custom language models, custom vocabulary filters, and custom vocabularies.</p>
  */
 @interface AWSTranscribeCallAnalyticsJobSettings : AWSModel
@@ -593,6 +624,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
+ <p>Provides detailed information about a call analytics job, including information about skipped analytics features.</p>
+ */
+@property (nonatomic, strong) AWSTranscribeCallAnalyticsJobDetails * _Nullable callAnalyticsJobDetails;
+
+/**
  <p>The name of the Call Analytics job. Job names are case sensitive and must be unique within an Amazon Web Services account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable callAnalyticsJobName;
@@ -626,6 +662,29 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  <p>The date and time your Call Analytics job began processing.</p><p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For example, <code>2022-05-04T12:32:58.789000-07:00</code> represents a transcription job that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable startTime;
+
+@end
+
+/**
+ <p>Represents a skipped analytics feature during the analysis of a call analytics job.</p><p>The <code>Feature</code> field indicates the type of analytics feature that was skipped.</p><p>The <code>Message</code> field contains additional information or a message explaining why the analytics feature was skipped.</p><p>The <code>ReasonCode</code> field provides a code indicating the reason why the analytics feature was skipped.</p>
+ */
+@interface AWSTranscribeCallAnalyticsSkippedFeature : AWSModel
+
+
+/**
+ <p>Indicates the type of analytics feature that was skipped during the analysis of a call analytics job.</p>
+ */
+@property (nonatomic, assign) AWSTranscribeCallAnalyticsFeature feature;
+
+/**
+ <p>Contains additional information or a message explaining why a specific analytics feature was skipped during the analysis of a call analytics job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+/**
+ <p>Provides a code indicating the reason why a specific analytics feature was skipped during the analysis of a call analytics job.</p>
+ */
+@property (nonatomic, assign) AWSTranscribeCallAnalyticsSkippedReasonCode reasonCode;
 
 @end
 
