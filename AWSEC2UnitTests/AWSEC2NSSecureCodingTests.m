@@ -891,6 +891,8 @@
 - (void) test_AWSEC2DisableImageBlockPublicAccessResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableImageDeprecationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableImageDeprecationResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisableImageDeregistrationProtectionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisableImageDeregistrationProtectionResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableImageRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableImageResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableIpamOrganizationAdminAccountRequest API_AVAILABLE(ios(11));
@@ -980,6 +982,8 @@
 - (void) test_AWSEC2EnableImageBlockPublicAccessResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableImageDeprecationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableImageDeprecationResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableImageDeregistrationProtectionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableImageDeregistrationProtectionResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableImageRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableImageResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableIpamOrganizationAdminAccountRequest API_AVAILABLE(ios(11));
@@ -5430,6 +5434,14 @@
     [self validateSecureCodingForClass:[AWSEC2DisableImageDeprecationResult class]];
 }
 
+- (void) test_AWSEC2DisableImageDeregistrationProtectionRequest {
+    [self validateSecureCodingForClass:[AWSEC2DisableImageDeregistrationProtectionRequest class]];
+}
+
+- (void) test_AWSEC2DisableImageDeregistrationProtectionResult {
+    [self validateSecureCodingForClass:[AWSEC2DisableImageDeregistrationProtectionResult class]];
+}
+
 - (void) test_AWSEC2DisableImageRequest {
     [self validateSecureCodingForClass:[AWSEC2DisableImageRequest class]];
 }
@@ -5784,6 +5796,14 @@
 
 - (void) test_AWSEC2EnableImageDeprecationResult {
     [self validateSecureCodingForClass:[AWSEC2EnableImageDeprecationResult class]];
+}
+
+- (void) test_AWSEC2EnableImageDeregistrationProtectionRequest {
+    [self validateSecureCodingForClass:[AWSEC2EnableImageDeregistrationProtectionRequest class]];
+}
+
+- (void) test_AWSEC2EnableImageDeregistrationProtectionResult {
+    [self validateSecureCodingForClass:[AWSEC2EnableImageDeregistrationProtectionResult class]];
 }
 
 - (void) test_AWSEC2EnableImageRequest {
