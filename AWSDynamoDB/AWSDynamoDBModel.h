@@ -492,6 +492,8 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBLocalSecondaryIndex;
 @class AWSDynamoDBLocalSecondaryIndexDescription;
 @class AWSDynamoDBLocalSecondaryIndexInfo;
+@class AWSDynamoDBOnDemandThroughput;
+@class AWSDynamoDBOnDemandThroughputOverride;
 @class AWSDynamoDBParameterizedStatement;
 @class AWSDynamoDBPointInTimeRecoveryDescription;
 @class AWSDynamoDBPointInTimeRecoverySpecification;
@@ -1433,6 +1435,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBKeySchemaElement *> * _Nullable keySchema;
 
 /**
+ <p>The maximum number of read and write units for the global secondary index being created. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBOnDemandThroughput * _Nullable onDemandThroughput;
+
+/**
  <p>Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBProjection * _Nullable projection;
@@ -1507,6 +1514,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable KMSMasterKeyId;
 
 /**
+ <p>The maximum on-demand throughput settings for the specified replica table being created. You can only modify <code>MaxReadRequestUnits</code>, because you can't modify <code>MaxWriteRequestUnits</code> for individual replica tables. </p>
+ */
+@property (nonatomic, strong) AWSDynamoDBOnDemandThroughputOverride * _Nullable onDemandThroughputOverride;
+
+/**
  <p>Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBProvisionedThroughputOverride * _Nullable provisionedThroughputOverride;
@@ -1561,12 +1573,17 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBLocalSecondaryIndex *> * _Nullable localSecondaryIndexes;
 
 /**
+ <p>Sets the maximum number of read and write units for the specified table in on-demand capacity mode. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBOnDemandThroughput * _Nullable onDemandThroughput;
+
+/**
  <p>Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the <code>UpdateTable</code> operation.</p><p> If you set BillingMode as <code>PROVISIONED</code>, you must specify this property. If you set BillingMode as <code>PAY_PER_REQUEST</code>, you cannot specify this property.</p><p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBProvisionedThroughput * _Nullable provisionedThroughput;
 
 /**
- <p>An Amazon Web Services resource-based policy document in JSON format that will be attached to the table.</p><p>When you attach a resource-based policy while creating a table, the policy creation is <i>strongly consistent</i>.</p><p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. You can’t request an increase for this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p>
+ <p>An Amazon Web Services resource-based policy document in JSON format that will be attached to the table.</p><p>When you attach a resource-based policy while creating a table, the policy application is <i>strongly consistent</i>.</p><p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that apply for resource-based policies, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourcePolicy;
 
@@ -1861,7 +1878,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.</p><p>This value will be empty if you make a request against a resource without a policy.</p>
+ <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p><p>This value will be empty if you make a request against a resource without a policy.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable revisionId;
 
@@ -2796,7 +2813,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable policy;
 
 /**
- <p>A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.</p>
+ <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable revisionId;
 
@@ -2818,6 +2835,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBKeySchemaElement *> * _Nullable keySchema;
+
+/**
+ <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBOnDemandThroughput * _Nullable onDemandThroughput;
 
 /**
  <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. </p>
@@ -2891,6 +2913,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBKeySchemaElement *> * _Nullable keySchema;
 
 /**
+ <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBOnDemandThroughput * _Nullable onDemandThroughput;
+
+/**
  <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. </p>
  */
 @property (nonatomic, strong) AWSDynamoDBProjection * _Nullable projection;
@@ -2917,6 +2944,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBKeySchemaElement *> * _Nullable keySchema;
+
+/**
+ <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBOnDemandThroughput * _Nullable onDemandThroughput;
 
 /**
  <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. </p>
@@ -3807,6 +3839,37 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+ */
+@interface AWSDynamoDBOnDemandThroughput : AWSModel
+
+
+/**
+ <p>Maximum number of read request units for the specified table.</p><p>To specify a maximum <code>OnDemandThroughput</code> on your table, set the value of <code>MaxReadRequestUnits</code> as greater than or equal to 1. To remove the maximum <code>OnDemandThroughput</code> that is currently set on your table, set the value of <code>MaxReadRequestUnits</code> to -1.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxReadRequestUnits;
+
+/**
+ <p>Maximum number of write request units for the specified table.</p><p>To specify a maximum <code>OnDemandThroughput</code> on your table, set the value of <code>MaxWriteRequestUnits</code> as greater than or equal to 1. To remove the maximum <code>OnDemandThroughput</code> that is currently set on your table, set the value of <code>MaxWriteRequestUnits</code> to -1.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxWriteRequestUnits;
+
+@end
+
+/**
+ <p>Overrides the on-demand throughput settings for this replica table. If you don't specify a value for this parameter, it uses the source table's on-demand throughput settings.</p>
+ */
+@interface AWSDynamoDBOnDemandThroughputOverride : AWSModel
+
+
+/**
+ <p>Maximum number of read request units for the specified replica table.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxReadRequestUnits;
+
+@end
+
+/**
  <p> Represents a PartiQL statement that uses parameters. </p>
  Required parameters: [Statement]
  */
@@ -4102,12 +4165,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable confirmRemoveSelfResourceAccess;
 
 /**
- <p>A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy. When you provide an expected revision ID, if the revision ID of the existing policy on the resource doesn't match or if there's no policy attached to the resource, your request will be rejected with a <code>PolicyNotFoundException</code>.</p><p>To conditionally put a policy when no policy exists for the resource, specify <code>NO_POLICY</code> for the revision ID.</p>
+ <p>A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy.</p><note><p>When you provide an expected revision ID, if the revision ID of the existing policy on the resource doesn't match or if there's no policy attached to the resource, your request will be rejected with a <code>PolicyNotFoundException</code>.</p></note><p>To conditionally attach a policy when no policy exists for the resource, specify <code>NO_POLICY</code> for the revision ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable expectedRevisionId;
 
 /**
- <p>An Amazon Web Services resource-based policy document in JSON format.</p><p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p>
+ <p>An Amazon Web Services resource-based policy document in JSON format.</p><ul><li><p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.</p></li><li><p>Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.</p></li></ul><p>For a full list of all considerations that apply while attaching a resource-based policy, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable policy;
 
@@ -4125,7 +4188,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.</p>
+ <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable revisionId;
 
@@ -4345,6 +4408,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable KMSMasterKeyId;
 
 /**
+ <p>Overrides the maximum on-demand throughput settings for the specified replica table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBOnDemandThroughputOverride * _Nullable onDemandThroughputOverride;
+
+/**
  <p>Replica-specific provisioned throughput. If not described, uses the source table's provisioned throughput settings.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBProvisionedThroughputOverride * _Nullable provisionedThroughputOverride;
@@ -4392,6 +4460,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>The name of the global secondary index.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>Overrides the maximum on-demand throughput settings for the specified global secondary index in the specified replica table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBOnDemandThroughputOverride * _Nullable onDemandThroughputOverride;
 
 /**
  <p>Replica table GSI-specific provisioned throughput. If not specified, uses the source table GSI's read capacity settings.</p>
@@ -4456,6 +4529,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>The name of the global secondary index.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>Overrides the maximum on-demand throughput for the specified global secondary index in the specified replica table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBOnDemandThroughputOverride * _Nullable onDemandThroughputOverride;
 
 /**
  <p>If not described, uses the source table GSI's read capacity settings.</p>
@@ -4712,6 +4790,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBLocalSecondaryIndex *> * _Nullable localSecondaryIndexOverride;
 
 /**
+ <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBOnDemandThroughput * _Nullable onDemandThroughputOverride;
+
+/**
  <p>Provisioned throughput settings for the restored table.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBProvisionedThroughput * _Nullable provisionedThroughputOverride;
@@ -4761,6 +4844,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBLocalSecondaryIndex *> * _Nullable localSecondaryIndexOverride;
+
+/**
+ <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBOnDemandThroughput * _Nullable onDemandThroughputOverride;
 
 /**
  <p>Provisioned throughput settings for the restored table.</p>
@@ -5032,6 +5120,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBKeySchemaElement *> * _Nullable keySchema;
 
 /**
+ <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBOnDemandThroughput * _Nullable onDemandThroughput;
+
+/**
  <p>Read IOPs and Write IOPS on the table when the backup was created.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBProvisionedThroughput * _Nullable provisionedThroughput;
@@ -5184,6 +5277,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBKeySchemaElement *> * _Nullable keySchema;
 
 /**
+ <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBOnDemandThroughput * _Nullable onDemandThroughput;
+
+/**
  <p>Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the <code>UpdateTable</code> operation.</p><p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBProvisionedThroughput * _Nullable provisionedThroughput;
@@ -5265,6 +5363,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:</p><ul><li><p><code>IndexName</code> - The name of the local secondary index.</p></li><li><p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes is in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</p></li></ul></li><li><p><code>IndexSizeBytes</code> - Represents the total size of the index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>ItemCount</code> - Represents the number of items in the index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li></ul><p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBLocalSecondaryIndexDescription *> * _Nullable localSecondaryIndexes;
+
+/**
+ <p>The maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBOnDemandThroughput * _Nullable onDemandThroughput;
 
 /**
  <p>The provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.</p>
@@ -5662,7 +5765,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 /**
  <p>Represents the new provisioned throughput settings to be applied to a global secondary index.</p>
- Required parameters: [IndexName, ProvisionedThroughput]
+ Required parameters: [IndexName]
  */
 @interface AWSDynamoDBUpdateGlobalSecondaryIndexAction : AWSModel
 
@@ -5671,6 +5774,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>The name of the global secondary index to be updated.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>Updates the maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBOnDemandThroughput * _Nullable onDemandThroughput;
 
 /**
  <p>Represents the provisioned throughput settings for the specified global secondary index.</p><p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -5945,6 +6053,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable KMSMasterKeyId;
 
 /**
+ <p>Overrides the maximum on-demand throughput for the replica table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBOnDemandThroughputOverride * _Nullable onDemandThroughputOverride;
+
+/**
  <p>Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBProvisionedThroughputOverride * _Nullable provisionedThroughputOverride;
@@ -5987,6 +6100,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>An array of one or more global secondary indexes for the table. For each index in the array, you can request one action:</p><ul><li><p><code>Create</code> - add a new global secondary index to the table.</p></li><li><p><code>Update</code> - modify the provisioned throughput settings of an existing global secondary index.</p></li><li><p><code>Delete</code> - remove a global secondary index from the table.</p></li></ul><p>You can create or delete only one global secondary index per <code>UpdateTable</code> operation.</p><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBGlobalSecondaryIndexUpdate *> * _Nullable globalSecondaryIndexUpdates;
+
+/**
+ <p>Updates the maximum number of read and write units for the specified table in on-demand capacity mode. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBOnDemandThroughput * _Nullable onDemandThroughput;
 
 /**
  <p>The new provisioned throughput settings for the specified table or index.</p>

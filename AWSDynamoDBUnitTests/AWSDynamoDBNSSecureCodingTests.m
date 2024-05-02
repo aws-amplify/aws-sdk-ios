@@ -153,6 +153,8 @@
 - (void) test_AWSDynamoDBLocalSecondaryIndex API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBLocalSecondaryIndexDescription API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBLocalSecondaryIndexInfo API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBOnDemandThroughput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBOnDemandThroughputOverride API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBParameterizedStatement API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBPointInTimeRecoveryDescription API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBPointInTimeRecoverySpecification API_AVAILABLE(ios(11));
@@ -772,6 +774,14 @@
 
 - (void) test_AWSDynamoDBLocalSecondaryIndexInfo {
     [self validateSecureCodingForClass:[AWSDynamoDBLocalSecondaryIndexInfo class]];
+}
+
+- (void) test_AWSDynamoDBOnDemandThroughput {
+    [self validateSecureCodingForClass:[AWSDynamoDBOnDemandThroughput class]];
+}
+
+- (void) test_AWSDynamoDBOnDemandThroughputOverride {
+    [self validateSecureCodingForClass:[AWSDynamoDBOnDemandThroughputOverride class]];
 }
 
 - (void) test_AWSDynamoDBParameterizedStatement {
