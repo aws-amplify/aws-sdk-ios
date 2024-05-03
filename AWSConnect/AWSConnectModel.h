@@ -59,6 +59,7 @@ typedef NS_ENUM(NSInteger, AWSConnectActionType) {
     AWSConnectActionTypeCreateCase,
     AWSConnectActionTypeUpdateCase,
     AWSConnectActionTypeEndAssociatedTasks,
+    AWSConnectActionTypeSubmitAutoEvaluation,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectAgentAvailabilityTimer) {
@@ -85,6 +86,13 @@ typedef NS_ENUM(NSInteger, AWSConnectArtifactStatus) {
     AWSConnectArtifactStatusApproved,
     AWSConnectArtifactStatusRejected,
     AWSConnectArtifactStatusInProgress,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectAttachedFileInvalidRequestExceptionReason) {
+    AWSConnectAttachedFileInvalidRequestExceptionReasonUnknown,
+    AWSConnectAttachedFileInvalidRequestExceptionReasonInvalidFileSize,
+    AWSConnectAttachedFileInvalidRequestExceptionReasonInvalidFileType,
+    AWSConnectAttachedFileInvalidRequestExceptionReasonInvalidFileName,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectBehaviorType) {
@@ -269,6 +277,19 @@ typedef NS_ENUM(NSInteger, AWSConnectFailureReasonCode) {
     AWSConnectFailureReasonCodeRequestThrottled,
     AWSConnectFailureReasonCodeIdempotencyException,
     AWSConnectFailureReasonCodeInternalError,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectFileStatusType) {
+    AWSConnectFileStatusTypeUnknown,
+    AWSConnectFileStatusTypeApproved,
+    AWSConnectFileStatusTypeRejected,
+    AWSConnectFileStatusTypeProcessing,
+    AWSConnectFileStatusTypeFailed,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectFileUseCaseType) {
+    AWSConnectFileUseCaseTypeUnknown,
+    AWSConnectFileUseCaseTypeAttachment,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectFlowAssociationResourceType) {
@@ -1046,6 +1067,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectAssociateTrafficDistributionGroupUserRequest;
 @class AWSConnectAssociateTrafficDistributionGroupUserResponse;
 @class AWSConnectAssociateUserProficienciesRequest;
+@class AWSConnectAttachedFile;
+@class AWSConnectAttachedFileError;
 @class AWSConnectAttachmentReference;
 @class AWSConnectAttendee;
 @class AWSConnectAttribute;
@@ -1056,6 +1079,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectBatchAssociateAnalyticsDataSetResponse;
 @class AWSConnectBatchDisassociateAnalyticsDataSetRequest;
 @class AWSConnectBatchDisassociateAnalyticsDataSetResponse;
+@class AWSConnectBatchGetAttachedFileMetadataRequest;
+@class AWSConnectBatchGetAttachedFileMetadataResponse;
 @class AWSConnectBatchGetFlowAssociationRequest;
 @class AWSConnectBatchGetFlowAssociationResponse;
 @class AWSConnectBatchPutContactRequest;
@@ -1068,6 +1093,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectClaimPhoneNumberRequest;
 @class AWSConnectClaimPhoneNumberResponse;
 @class AWSConnectClaimedPhoneNumberSummary;
+@class AWSConnectCompleteAttachedFileUploadRequest;
+@class AWSConnectCompleteAttachedFileUploadResponse;
 @class AWSConnectConnectionData;
 @class AWSConnectContact;
 @class AWSConnectContactAnalysis;
@@ -1130,6 +1157,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectCreateViewVersionResponse;
 @class AWSConnectCreateVocabularyRequest;
 @class AWSConnectCreateVocabularyResponse;
+@class AWSConnectCreatedByInfo;
 @class AWSConnectCredentials;
 @class AWSConnectCrossChannelBehavior;
 @class AWSConnectCurrentMetric;
@@ -1140,6 +1168,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDeactivateEvaluationFormRequest;
 @class AWSConnectDeactivateEvaluationFormResponse;
 @class AWSConnectDefaultVocabulary;
+@class AWSConnectDeleteAttachedFileRequest;
+@class AWSConnectDeleteAttachedFileResponse;
 @class AWSConnectDeleteContactEvaluationRequest;
 @class AWSConnectDeleteContactFlowModuleRequest;
 @class AWSConnectDeleteContactFlowModuleResponse;
@@ -1237,6 +1267,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDismissUserContactRequest;
 @class AWSConnectDismissUserContactResponse;
 @class AWSConnectDistribution;
+@class AWSConnectDownloadUrlMetadata;
 @class AWSConnectEmailReference;
 @class AWSConnectEmptyFieldValue;
 @class AWSConnectEncryptionConfig;
@@ -1274,6 +1305,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectFilterV2;
 @class AWSConnectFilters;
 @class AWSConnectFlowAssociationSummary;
+@class AWSConnectGetAttachedFileRequest;
+@class AWSConnectGetAttachedFileResponse;
 @class AWSConnectGetContactAttributesRequest;
 @class AWSConnectGetContactAttributesResponse;
 @class AWSConnectGetCurrentMetricDataRequest;
@@ -1321,6 +1354,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectInstanceSummary;
 @class AWSConnectIntegrationAssociationSummary;
 @class AWSConnectIntervalDetails;
+@class AWSConnectInvalidRequestExceptionReason;
 @class AWSConnectInvisibleFieldInfo;
 @class AWSConnectKinesisFirehoseConfig;
 @class AWSConnectKinesisStreamConfig;
@@ -1551,6 +1585,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectSignInDistribution;
 @class AWSConnectSingleSelectQuestionRuleCategoryAutomation;
 @class AWSConnectSort;
+@class AWSConnectStartAttachedFileUploadRequest;
+@class AWSConnectStartAttachedFileUploadResponse;
 @class AWSConnectStartChatContactRequest;
 @class AWSConnectStartChatContactResponse;
 @class AWSConnectStartContactEvaluationRequest;
@@ -1573,6 +1609,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectStopContactStreamingResponse;
 @class AWSConnectStringCondition;
 @class AWSConnectStringReference;
+@class AWSConnectSubmitAutoEvaluationActionDefinition;
 @class AWSConnectSubmitContactEvaluationRequest;
 @class AWSConnectSubmitContactEvaluationResponse;
 @class AWSConnectSuccessfulRequest;
@@ -1670,6 +1707,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUpdateViewContentResponse;
 @class AWSConnectUpdateViewMetadataRequest;
 @class AWSConnectUpdateViewMetadataResponse;
+@class AWSConnectUploadUrlMetadata;
 @class AWSConnectUrlReference;
 @class AWSConnectUseCase;
 @class AWSConnectUser;
@@ -2464,6 +2502,88 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Information about the attached file.</p>
+ Required parameters: [CreationTime, FileArn, FileId, FileName, FileSizeInBytes, FileStatus]
+ */
+@interface AWSConnectAttachedFile : AWSModel
+
+
+/**
+ <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only current supported resource.</p><note><p>This value must be a valid ARN.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable associatedResourceArn;
+
+/**
+ <p>Represents the identity that created the file.</p>
+ */
+@property (nonatomic, strong) AWSConnectCreatedByInfo * _Nullable createdBy;
+
+/**
+ <p>The time of Creation of the file resource as an ISO timestamp. It's specified in ISO 8601 format: <code>yyyy-MM-ddThh:mm:ss.SSSZ</code>. For example, <code>2024-05-03T02:41:28.172Z</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable creationTime;
+
+/**
+ <p>The unique identifier of the attached file resource (ARN).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable fileArn;
+
+/**
+ <p>The unique identifier of the attached file resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable fileId;
+
+/**
+ <p>A case-sensitive name of the attached file being uploaded.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable fileName;
+
+/**
+ <p>The size of the attached file in bytes.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable fileSizeInBytes;
+
+/**
+ <p>The current status of the attached file.</p>
+ */
+@property (nonatomic, assign) AWSConnectFileStatusType fileStatus;
+
+/**
+ <p>The use case for the file.</p>
+ */
+@property (nonatomic, assign) AWSConnectFileUseCaseType fileUseCaseType;
+
+/**
+ <p>The tags used to organize, track, or control access for this resource. For example, <code>{ "Tags": {"key1":"value1", "key2":"value2"} }</code>.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ <p>Error describing a failure to retrieve attached file metadata through BatchGetAttachedFileMetadata action.</p>
+ */
+@interface AWSConnectAttachedFileError : AWSModel
+
+
+/**
+ <p> Status code describing the failure. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable errorCode;
+
+/**
+ <p>Why the attached file couldn't be retrieved. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable errorMessage;
+
+/**
+ <p>The unique identifier of the attached file resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable fileId;
+
+@end
+
+/**
  <p>Information about a reference when the <code>referenceType</code> is <code>ATTACHMENT</code>. Otherwise, null.</p>
  */
 @interface AWSConnectAttachmentReference : AWSModel
@@ -2655,6 +2775,47 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>A list of errors for any datasets not successfully removed.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectErrorResult *> * _Nullable errors;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectBatchGetAttachedFileMetadataRequest : AWSRequest
+
+
+/**
+ <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only current supported resource.</p><note><p>This value must be a valid ARN.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable associatedResourceArn;
+
+/**
+ <p>The unique identifiers of the attached file resource.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable fileIds;
+
+/**
+ <p>The unique identifier of the Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectBatchGetAttachedFileMetadataResponse : AWSModel
+
+
+/**
+ <p>List of errors of attached files that could not be retrieved. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectAttachedFileError *> * _Nullable errors;
+
+/**
+ <p>List of attached files that were successfully retrieved. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectAttachedFile *> * _Nullable files;
 
 @end
 
@@ -2935,6 +3096,38 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable targetArn;
+
+@end
+
+/**
+ Request to CompleteAttachedFileUpload API
+ Required parameters: [InstanceId, FileId, AssociatedResourceArn]
+ */
+@interface AWSConnectCompleteAttachedFileUploadRequest : AWSRequest
+
+
+/**
+ <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only current supported resource.</p><note><p>This value must be a valid ARN.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable associatedResourceArn;
+
+/**
+ <p>The unique identifier of the attached file resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable fileId;
+
+/**
+ <p>The unique identifier of the Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ Response from CompleteAttachedFileUpload API
+ */
+@interface AWSConnectCompleteAttachedFileUploadResponse : AWSModel
+
 
 @end
 
@@ -4298,7 +4491,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable allowedAccessControlTags;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>A list of third-party applications that the security profile will give access to.</p>
+ <p>A list of third-party applications that the security profile will give access to.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectApplication *> * _Nullable applications;
 
@@ -4806,6 +4999,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Information on the identity that created the file.</p>
+ */
+@interface AWSConnectCreatedByInfo : AWSModel
+
+
+/**
+ <p>STS or IAM ARN representing the identity of API Caller. SDK users cannot populate this and this value is calculated automatically if <code>ConnectUserArn</code> is not provided.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable AWSIdentityArn;
+
+/**
+ <p>An agent ARN representing a <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html#amazonconnect-resources-for-iam-policies">connect user</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable connectUserArn;
+
+@end
+
+/**
  <p>Contains credentials to use for federation.</p>
  */
 @interface AWSConnectCredentials : AWSModel
@@ -5009,6 +5220,38 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>A unique name of the custom vocabulary.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vocabularyName;
+
+@end
+
+/**
+ Request to DeleteAttachedFile API
+ Required parameters: [InstanceId, FileId, AssociatedResourceArn]
+ */
+@interface AWSConnectDeleteAttachedFileRequest : AWSRequest
+
+
+/**
+ <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only current supported resource.</p><note><p>This value must be a valid ARN.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable associatedResourceArn;
+
+/**
+ <p>The unique identifier of the attached file resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable fileId;
+
+/**
+ <p>The unique identifier of the Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ Response from DeleteAttachedFile API
+ */
+@interface AWSConnectDeleteAttachedFileResponse : AWSModel
+
 
 @end
 
@@ -6610,6 +6853,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Metadata used to download the attached file.</p>
+ */
+@interface AWSConnectDownloadUrlMetadata : AWSModel
+
+
+/**
+ <p>A pre-signed URL that should be used to download the attached file. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable url;
+
+/**
+ <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable urlExpiry;
+
+@end
+
+/**
  <p>Information about a reference when the <code>referenceType</code> is <code>EMAIL</code>. Otherwise, null.</p>
  */
 @interface AWSConnectEmailReference : AWSModel
@@ -7614,6 +7875,99 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ Request to GetAttachedFile API.
+ Required parameters: [InstanceId, FileId, AssociatedResourceArn]
+ */
+@interface AWSConnectGetAttachedFileRequest : AWSRequest
+
+
+/**
+ <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only current supported resource.</p><note><p>This value must be a valid ARN.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable associatedResourceArn;
+
+/**
+ <p>The unique identifier of the attached file resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable fileId;
+
+/**
+ <p>The unique identifier of the Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>Optional override for the expiry of the pre-signed S3 URL in seconds.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable urlExpiryInSeconds;
+
+@end
+
+/**
+ Response from GetAttachedFile API.
+ Required parameters: [FileSizeInBytes]
+ */
+@interface AWSConnectGetAttachedFileResponse : AWSModel
+
+
+/**
+ <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only current supported resource.</p><note><p>This value must be a valid ARN.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable associatedResourceArn;
+
+/**
+ <p>Represents the identity that created the file.</p>
+ */
+@property (nonatomic, strong) AWSConnectCreatedByInfo * _Nullable createdBy;
+
+/**
+ <p>The time of Creation of the file resource as an ISO timestamp. It's specified in ISO 8601 format: <code>yyyy-MM-ddThh:mm:ss.SSSZ</code>. For example, <code>2024-05-03T02:41:28.172Z</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable creationTime;
+
+/**
+ <p>URL and expiry to be used when downloading the attached file. </p>
+ */
+@property (nonatomic, strong) AWSConnectDownloadUrlMetadata * _Nullable downloadUrlMetadata;
+
+/**
+ <p>The unique identifier of the attached file resource (ARN).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable fileArn;
+
+/**
+ <p>The unique identifier of the attached file resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable fileId;
+
+/**
+ <p>A case-sensitive name of the attached file being uploaded.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable fileName;
+
+/**
+ <p>The size of the attached file in bytes.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable fileSizeInBytes;
+
+/**
+ <p>The current status of the attached file.</p>
+ */
+@property (nonatomic, assign) AWSConnectFileStatusType fileStatus;
+
+/**
+ <p>The use case for the file.</p>
+ */
+@property (nonatomic, assign) AWSConnectFileUseCaseType fileUseCaseType;
+
+/**
+ <p>The tags used to organize, track, or control access for this resource. For example, <code>{ "Tags": {"key1":"value1", "key2":"value2"} }</code>.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
  
  */
 @interface AWSConnectGetContactAttributesRequest : AWSRequest
@@ -7951,7 +8305,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The metrics to retrieve. Specify the name, groupings, and filters for each metric. The following historical metrics are available. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.</p><dl><dt>ABANDONMENT_RATE</dt><dd><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#abandonment-rate-historical">Abandonment rate</a></p></dd><dt>AGENT_ADHERENT_TIME</dt><dd><p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#adherent-time-historical">Adherent time</a></p></dd><dt>AGENT_ANSWER_RATE</dt><dd><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#agent-answer-rate-historical">Agent answer rate</a></p></dd><dt>AGENT_NON_ADHERENT_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#non-adherent-time">Non-adherent time</a></p></dd><dt>AGENT_NON_RESPONSE</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#agent-non-response">Agent non-response</a></p></dd><dt>AGENT_NON_RESPONSE_WITHOUT_CUSTOMER_ABANDONS</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>Data for this metric is available starting from October 1, 2023 0:00:00 GMT.</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#agent-nonresponse-no-abandon-historical">Agent non-response without customer abandons</a></p></dd><dt>AGENT_OCCUPANCY</dt><dd><p>Unit: Percentage</p><p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy </p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#occupancy-historical">Occupancy</a></p></dd><dt>AGENT_SCHEDULE_ADHERENCE</dt><dd><p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#adherence-historical">Adherence</a></p></dd><dt>AGENT_SCHEDULED_TIME</dt><dd><p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#scheduled-time-historical">Scheduled time</a></p></dd><dt>AVG_ABANDON_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-queue-abandon-time-historical">Average queue abandon time</a></p></dd><dt>AVG_ACTIVE_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-active-time-historical">Average active time</a></p></dd><dt>AVG_AFTER_CONTACT_WORK_TIME</dt><dd><p>Unit: Seconds</p><p>Valid metric filter key: <code>INITIATION_METHOD</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-acw-time-historical">Average after contact work time</a></p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_AGENT_CONNECTING_TIME</dt><dd><p>Unit: Seconds</p><p>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#htm-avg-agent-api-connecting-time">Average agent API connecting time</a></p><note><p>The <code>Negate</code> key in Metric Level Filters is not applicable for this metric.</p></note></dd><dt>AVG_AGENT_PAUSE_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-agent-pause-time-historical">Average agent pause time</a></p></dd><dt>AVG_CASE_RELATED_CONTACTS</dt><dd><p>Unit: Count</p><p>Required filter key: CASE_TEMPLATE_ARN</p><p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-contacts-case-historical">Average contacts per case</a></p></dd><dt>AVG_CASE_RESOLUTION_TIME</dt><dd><p>Unit: Seconds</p><p>Required filter key: CASE_TEMPLATE_ARN</p><p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-case-resolution-time-historical">Average case resolution time</a></p></dd><dt>AVG_CONTACT_DURATION</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-contact-duration-historical">Average contact duration</a></p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_CONVERSATION_DURATION</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-conversation-duration-historical">Average conversation duration</a></p></dd><dt>AVG_GREETING_TIME_AGENT</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-greeting-time-agent-historical">Average greeting time agent </a></p></dd><dt>AVG_HANDLE_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, RoutingStepExpression</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-handle-time-historical">Average handle time</a></p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_HOLD_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-customer-hold-time-historical">Average customer hold time</a></p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_HOLD_TIME_ALL_CONTACTS</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#avg-customer-hold-time-all-contacts-historical">Average customer hold time all contacts</a></p></dd><dt>AVG_HOLDS</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-holds-historical">Average holds</a></p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_INTERACTION_AND_HOLD_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-agent-interaction-customer-hold-time-historical">Average agent interaction and customer hold time</a></p></dd><dt>AVG_INTERACTION_TIME</dt><dd><p>Unit: Seconds</p><p>Valid metric filter key: <code>INITIATION_METHOD</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-agent-interaction-time-historical">Average agent interaction time</a></p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_INTERRUPTIONS_AGENT</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-interruptions-agent-historical">Average interruptions agent </a></p></dd><dt>AVG_INTERRUPTION_TIME_AGENT</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-interruptions-time-agent-historical">Average interruption time agent</a></p></dd><dt>AVG_NON_TALK_TIME</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html##average-non-talk-time-historical">Average non-talk time</a></p></dd><dt>AVG_QUEUE_ANSWER_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-queue-answer-time-historical">Average queue answer time</a></p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_RESOLUTION_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-resolution-time-historical">Average resolution time</a></p></dd><dt>AVG_TALK_TIME</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-talk-time-historical">Average talk time</a></p></dd><dt>AVG_TALK_TIME_AGENT</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-talk-time-agent-historical">Average talk time agent</a></p></dd><dt>AVG_TALK_TIME_CUSTOMER</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-talk-time-customer-historical">Average talk time customer</a></p></dd><dt>CASES_CREATED</dt><dd><p>Unit: Count</p><p>Required filter key: CASE_TEMPLATE_ARN</p><p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html##cases-created-historical">Cases created</a></p></dd><dt>CONTACTS_ABANDONED</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, RoutingStepExpression</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-abandoned-historical">Contact abandoned</a></p></dd><dt>CONTACTS_CREATED</dt><dd><p>Unit: Count</p><p>Valid metric filter key: <code>INITIATION_METHOD</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-created-historical">Contacts created</a></p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>CONTACTS_HANDLED</dt><dd><p>Unit: Count</p><p>Valid metric filter key: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, RoutingStepExpression</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#api-contacts-handled-historical">API contacts handled</a></p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>CONTACTS_HANDLED_BY_CONNECTED_TO_AGENT</dt><dd><p>Unit: Count</p><p>Valid metric filter key: <code>INITIATION_METHOD</code></p><p>Valid groupings and filters: Queue, Channel, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-handled-by-connected-to-agent-historical">Contacts handled by Connected to agent</a></p></dd><dt>CONTACTS_HOLD_ABANDONS</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-handled-by-connected-to-agent-historical">Contacts hold disconnect</a></p></dd><dt>CONTACTS_ON_HOLD_AGENT_DISCONNECT</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-hold-agent-disconnect-historical">Contacts hold agent disconnect</a></p></dd><dt>CONTACTS_ON_HOLD_CUSTOMER_DISCONNECT</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-hold-customer-disconnect-historical">Contacts hold customer disconnect</a></p></dd><dt>CONTACTS_PUT_ON_HOLD</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-hold-customer-disconnect-historical">Contacts put on hold</a></p></dd><dt>CONTACTS_TRANSFERRED_OUT_EXTERNAL</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-transferred-out-external-historical">Contacts transferred out external</a></p></dd><dt>CONTACTS_TRANSFERRED_OUT_INTERNAL</dt><dd><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-transferred-out-internal-historical">Contacts transferred out internal</a></p></dd><dt>CONTACTS_QUEUED</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-queued-historical">Contacts queued</a></p></dd><dt>CONTACTS_QUEUED_BY_ENQUEUE</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-queued-by-enqueue-historical">Contacts queued by Enqueue</a></p></dd><dt>CONTACTS_RESOLVED_IN_X</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p><p>Threshold: For <code>ThresholdValue</code> enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for "Less than").</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-resolved-historical">Contacts resolved in X</a></p></dd><dt>CONTACTS_TRANSFERRED_OUT</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-transferred-out-historical">Contacts transferred out</a></p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>CONTACTS_TRANSFERRED_OUT_BY_AGENT</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-transferred-out-by-agent-historical">Contacts transferred out by agent</a></p></dd><dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-transferred-out-by-agent-historical">Contacts transferred out queue</a></p></dd><dt>CURRENT_CASES</dt><dd><p>Unit: Count</p><p>Required filter key: CASE_TEMPLATE_ARN</p><p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#current-cases-historical">Current cases</a></p></dd><dt>MAX_QUEUED_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#maximum-queued-time-historical">Maximum queued time</a></p></dd><dt>PERCENT_CASES_FIRST_CONTACT_RESOLVED</dt><dd><p>Unit: Percent</p><p>Required filter key: CASE_TEMPLATE_ARN</p><p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#cases-resolved-first-contact-historical">Cases resolved on first contact</a></p></dd><dt>PERCENT_CONTACTS_STEP_EXPIRED</dt><dd><p>Unit: Percent</p><p>Valid groupings and filters: Queue, RoutingStepExpression</p><p>UI name: Not available </p></dd><dt>PERCENT_CONTACTS_STEP_JOINED</dt><dd><p>Unit: Percent</p><p>Valid groupings and filters: Queue, RoutingStepExpression</p><p>UI name: Not available </p></dd><dt>PERCENT_NON_TALK_TIME</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Percentage</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#ntt-historical">Non-talk time percent</a></p></dd><dt>PERCENT_TALK_TIME</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Percentage</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#tt-historical">Talk time percent</a></p></dd><dt>PERCENT_TALK_TIME_AGENT</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Percentage</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#ttagent-historical">Talk time agent percent</a></p></dd><dt>PERCENT_TALK_TIME_CUSTOMER</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Percentage</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#ttcustomer-historical">Talk time customer percent</a></p></dd><dt>REOPENED_CASE_ACTIONS</dt><dd><p>Unit: Count</p><p>Required filter key: CASE_TEMPLATE_ARN</p><p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#cases-reopened-historical">Cases reopened</a></p></dd><dt>RESOLVED_CASE_ACTIONS</dt><dd><p>Unit: Count</p><p>Required filter key: CASE_TEMPLATE_ARN</p><p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#cases-resolved-historicall">Cases resolved</a></p></dd><dt>SERVICE_LEVEL</dt><dd><p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile</p><p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for "Less than"). </p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#service-level-historical">Service level X</a></p></dd><dt>STEP_CONTACTS_QUEUED</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, RoutingStepExpression</p><p>UI name: Not available</p></dd><dt>SUM_AFTER_CONTACT_WORK_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#acw-historical">After contact work time</a></p></dd><dt>SUM_CONNECTING_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid metric filter key: <code>INITIATION_METHOD</code>. This metric only supports the following filter keys as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#htm-agent-api-connecting-time">Agent API connecting time</a></p><note><p>The <code>Negate</code> key in Metric Level Filters is not applicable for this metric.</p></note></dd><dt>SUM_CONTACT_FLOW_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contact-flow-time-historical">Contact flow time</a></p></dd><dt>SUM_CONTACT_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#agent-on-contact-time-historical">Agent on contact time</a></p></dd><dt>SUM_CONTACTS_ANSWERED_IN_X</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p><p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for "Less than"). </p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-answered-x-historical">Contacts answered in X seconds</a></p></dd><dt>SUM_CONTACTS_ABANDONED_IN_X</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p><p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for "Less than"). </p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-abandoned-x-historical">Contacts abandoned in X seconds</a></p></dd><dt>SUM_CONTACTS_DISCONNECTED </dt><dd><p>Valid metric filter key: <code>DISCONNECT_REASON</code></p><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contact-disconnected-historical">Contact disconnected</a></p></dd><dt>SUM_ERROR_STATUS_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#error-status-time-historical">Error status time</a></p></dd><dt>SUM_HANDLE_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contact-handle-time-historical">Contact handle time</a></p></dd><dt>SUM_HOLD_TIME</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#customer-hold-time-historical">Customer hold time</a></p></dd><dt>SUM_IDLE_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#agent-idle-time-historica">Agent idle time</a></p></dd><dt>SUM_INTERACTION_AND_HOLD_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#agent-interaction-hold-time-historical">Agent interaction and hold time</a></p></dd><dt>SUM_INTERACTION_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#agent-interaction-time-historical">Agent interaction time</a></p></dd><dt>SUM_NON_PRODUCTIVE_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#npt-historical">Non-Productive Time</a></p></dd><dt>SUM_ONLINE_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#online-time-historical">Online time</a></p></dd><dt>SUM_RETRY_CALLBACK_ATTEMPTS</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#callback-attempts-historical">Callback attempts</a></p></dd></dl>
+ <p>The metrics to retrieve. Specify the name, groupings, and filters for each metric. The following historical metrics are available. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical metrics definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.</p><dl><dt>ABANDONMENT_RATE</dt><dd><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#abandonment-rate-historical">Abandonment rate</a></p></dd><dt>AGENT_ADHERENT_TIME</dt><dd><p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#adherent-time-historical">Adherent time</a></p></dd><dt>AGENT_ANSWER_RATE</dt><dd><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#agent-answer-rate-historical">Agent answer rate</a></p></dd><dt>AGENT_NON_ADHERENT_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#non-adherent-time">Non-adherent time</a></p></dd><dt>AGENT_NON_RESPONSE</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#agent-non-response">Agent non-response</a></p></dd><dt>AGENT_NON_RESPONSE_WITHOUT_CUSTOMER_ABANDONS</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>Data for this metric is available starting from October 1, 2023 0:00:00 GMT.</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#agent-nonresponse-no-abandon-historical">Agent non-response without customer abandons</a></p></dd><dt>AGENT_OCCUPANCY</dt><dd><p>Unit: Percentage</p><p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy </p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#occupancy-historical">Occupancy</a></p></dd><dt>AGENT_SCHEDULE_ADHERENCE</dt><dd><p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#adherence-historical">Adherence</a></p></dd><dt>AGENT_SCHEDULED_TIME</dt><dd><p>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting, capacity planning, and scheduling</a> is available.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#scheduled-time-historical">Scheduled time</a></p></dd><dt>AVG_ABANDON_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-queue-abandon-time-historical">Average queue abandon time</a></p></dd><dt>AVG_ACTIVE_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-active-time-historical">Average active time</a></p></dd><dt>AVG_AFTER_CONTACT_WORK_TIME</dt><dd><p>Unit: Seconds</p><p>Valid metric filter key: <code>INITIATION_METHOD</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-acw-time-historical">Average after contact work time</a></p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_AGENT_CONNECTING_TIME</dt><dd><p>Unit: Seconds</p><p>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#htm-avg-agent-api-connecting-time">Average agent API connecting time</a></p><note><p>The <code>Negate</code> key in Metric Level Filters is not applicable for this metric.</p></note></dd><dt>AVG_AGENT_PAUSE_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-agent-pause-time-historical">Average agent pause time</a></p></dd><dt>AVG_CASE_RELATED_CONTACTS</dt><dd><p>Unit: Count</p><p>Required filter key: CASE_TEMPLATE_ARN</p><p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-contacts-case-historical">Average contacts per case</a></p></dd><dt>AVG_CASE_RESOLUTION_TIME</dt><dd><p>Unit: Seconds</p><p>Required filter key: CASE_TEMPLATE_ARN</p><p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-case-resolution-time-historical">Average case resolution time</a></p></dd><dt>AVG_CONTACT_DURATION</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-contact-duration-historical">Average contact duration</a></p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_CONVERSATION_DURATION</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-conversation-duration-historical">Average conversation duration</a></p></dd><dt>AVG_GREETING_TIME_AGENT</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-greeting-time-agent-historical">Average agent greeting time</a></p></dd><dt>AVG_HANDLE_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, RoutingStepExpression</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-handle-time-historical">Average handle time</a></p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_HOLD_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-customer-hold-time-historical">Average customer hold time</a></p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_HOLD_TIME_ALL_CONTACTS</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#avg-customer-hold-time-all-contacts-historical">Average customer hold time all contacts</a></p></dd><dt>AVG_HOLDS</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-holds-historical">Average holds</a></p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_INTERACTION_AND_HOLD_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-agent-interaction-customer-hold-time-historical">Average agent interaction and customer hold time</a></p></dd><dt>AVG_INTERACTION_TIME</dt><dd><p>Unit: Seconds</p><p>Valid metric filter key: <code>INITIATION_METHOD</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-agent-interaction-time-historical">Average agent interaction time</a></p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_INTERRUPTIONS_AGENT</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-interruptions-agent-historical">Average agent interruptions</a></p></dd><dt>AVG_INTERRUPTION_TIME_AGENT</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-interruptions-time-agent-historical">Average agent interruption time</a></p></dd><dt>AVG_NON_TALK_TIME</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html##average-non-talk-time-historical">Average non-talk time</a></p></dd><dt>AVG_QUEUE_ANSWER_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-queue-answer-time-historical">Average queue answer time</a></p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>AVG_RESOLUTION_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-resolution-time-historical">Average resolution time</a></p></dd><dt>AVG_TALK_TIME</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-talk-time-historical">Average talk time</a></p></dd><dt>AVG_TALK_TIME_AGENT</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-talk-time-agent-historical">Average agent talk time</a></p></dd><dt>AVG_TALK_TIME_CUSTOMER</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-talk-time-customer-historical">Average customer talk time</a></p></dd><dt>CASES_CREATED</dt><dd><p>Unit: Count</p><p>Required filter key: CASE_TEMPLATE_ARN</p><p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html##cases-created-historical">Cases created</a></p></dd><dt>CONTACTS_ABANDONED</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, RoutingStepExpression</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-abandoned-historical">Contact abandoned</a></p></dd><dt>CONTACTS_CREATED</dt><dd><p>Unit: Count</p><p>Valid metric filter key: <code>INITIATION_METHOD</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-created-historical">Contacts created</a></p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>CONTACTS_HANDLED</dt><dd><p>Unit: Count</p><p>Valid metric filter key: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, RoutingStepExpression</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#api-contacts-handled-historical">API contacts handled</a></p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>CONTACTS_HANDLED_BY_CONNECTED_TO_AGENT</dt><dd><p>Unit: Count</p><p>Valid metric filter key: <code>INITIATION_METHOD</code></p><p>Valid groupings and filters: Queue, Channel, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-handled-by-connected-to-agent-historical">Contacts handled (connected to agent timestamp)</a></p></dd><dt>CONTACTS_HOLD_ABANDONS</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-handled-by-connected-to-agent-historical">Contacts hold disconnect</a></p></dd><dt>CONTACTS_ON_HOLD_AGENT_DISCONNECT</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-hold-agent-disconnect-historical">Contacts hold agent disconnect</a></p></dd><dt>CONTACTS_ON_HOLD_CUSTOMER_DISCONNECT</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-hold-customer-disconnect-historical">Contacts hold customer disconnect</a></p></dd><dt>CONTACTS_PUT_ON_HOLD</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-hold-customer-disconnect-historical">Contacts put on hold</a></p></dd><dt>CONTACTS_TRANSFERRED_OUT_EXTERNAL</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-transferred-out-external-historical">Contacts transferred out external</a></p></dd><dt>CONTACTS_TRANSFERRED_OUT_INTERNAL</dt><dd><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-transferred-out-internal-historical">Contacts transferred out internal</a></p></dd><dt>CONTACTS_QUEUED</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-queued-historical">Contacts queued</a></p></dd><dt>CONTACTS_QUEUED_BY_ENQUEUE</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-queued-by-enqueue-historical">Contacts queued (enqueue timestamp)</a></p></dd><dt>CONTACTS_RESOLVED_IN_X</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p><p>Threshold: For <code>ThresholdValue</code> enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for "Less than").</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-resolved-historical">Contacts resolved in X</a></p></dd><dt>CONTACTS_TRANSFERRED_OUT</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-transferred-out-historical">Contacts transferred out</a></p><note><p>Feature is a valid filter but not a valid grouping.</p></note></dd><dt>CONTACTS_TRANSFERRED_OUT_BY_AGENT</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-transferred-out-by-agent-historical">Contacts transferred out by agent</a></p></dd><dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-transferred-out-by-agent-historical">Contacts transferred out queue</a></p></dd><dt>CURRENT_CASES</dt><dd><p>Unit: Count</p><p>Required filter key: CASE_TEMPLATE_ARN</p><p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#current-cases-historical">Current cases</a></p></dd><dt>MAX_QUEUED_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#maximum-queued-time-historical">Maximum queued time</a></p></dd><dt>PERCENT_CASES_FIRST_CONTACT_RESOLVED</dt><dd><p>Unit: Percent</p><p>Required filter key: CASE_TEMPLATE_ARN</p><p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#cases-resolved-first-contact-historical">Cases resolved on first contact</a></p></dd><dt>PERCENT_CONTACTS_STEP_EXPIRED</dt><dd><p>Unit: Percent</p><p>Valid groupings and filters: Queue, RoutingStepExpression</p><p>UI name: Not available </p></dd><dt>PERCENT_CONTACTS_STEP_JOINED</dt><dd><p>Unit: Percent</p><p>Valid groupings and filters: Queue, RoutingStepExpression</p><p>UI name: Not available </p></dd><dt>PERCENT_NON_TALK_TIME</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Percentage</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#ntt-historical">Non-talk time percent</a></p></dd><dt>PERCENT_TALK_TIME</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Percentage</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#tt-historical">Talk time percent</a></p></dd><dt>PERCENT_TALK_TIME_AGENT</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Percentage</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#ttagent-historical">Agent talk time percent</a></p></dd><dt>PERCENT_TALK_TIME_CUSTOMER</dt><dd><p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p><p>Unit: Percentage</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#ttcustomer-historical">Customer talk time percent</a></p></dd><dt>REOPENED_CASE_ACTIONS</dt><dd><p>Unit: Count</p><p>Required filter key: CASE_TEMPLATE_ARN</p><p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#cases-reopened-historical">Cases reopened</a></p></dd><dt>RESOLVED_CASE_ACTIONS</dt><dd><p>Unit: Count</p><p>Required filter key: CASE_TEMPLATE_ARN</p><p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#cases-resolved-historicall">Cases resolved</a></p></dd><dt>SERVICE_LEVEL</dt><dd><p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p><p>Unit: Percent</p><p>Valid groupings and filters: Queue, Channel, Routing Profile</p><p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for "Less than"). </p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#service-level-historical">Service level X</a></p></dd><dt>STEP_CONTACTS_QUEUED</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, RoutingStepExpression</p><p>UI name: Not available</p></dd><dt>SUM_AFTER_CONTACT_WORK_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#acw-historical">After contact work time</a></p></dd><dt>SUM_CONNECTING_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid metric filter key: <code>INITIATION_METHOD</code>. This metric only supports the following filter keys as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code></p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#htm-agent-api-connecting-time">Agent API connecting time</a></p><note><p>The <code>Negate</code> key in Metric Level Filters is not applicable for this metric.</p></note></dd><dt>SUM_CONTACT_FLOW_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contact-flow-time-historical">Contact flow time</a></p></dd><dt>SUM_CONTACT_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#agent-on-contact-time-historical">Agent on contact time</a></p></dd><dt>SUM_CONTACTS_ANSWERED_IN_X</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p><p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for "Less than"). </p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-answered-x-historical">Contacts answered in X seconds</a></p></dd><dt>SUM_CONTACTS_ABANDONED_IN_X</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p><p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for "Less than"). </p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-abandoned-x-historical">Contacts abandoned in X seconds</a></p></dd><dt>SUM_CONTACTS_DISCONNECTED </dt><dd><p>Valid metric filter key: <code>DISCONNECT_REASON</code></p><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contact-disconnected-historical">Contact disconnected</a></p></dd><dt>SUM_ERROR_STATUS_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#error-status-time-historical">Error status time</a></p></dd><dt>SUM_HANDLE_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contact-handle-time-historical">Contact handle time</a></p></dd><dt>SUM_HOLD_TIME</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#customer-hold-time-historical">Customer hold time</a></p></dd><dt>SUM_IDLE_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#agent-idle-time-historica">Agent idle time</a></p></dd><dt>SUM_INTERACTION_AND_HOLD_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#agent-interaction-hold-time-historical">Agent interaction and hold time</a></p></dd><dt>SUM_INTERACTION_TIME</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#agent-interaction-time-historical">Agent interaction time</a></p></dd><dt>SUM_NON_PRODUCTIVE_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#npt-historical">Non-Productive Time</a></p></dd><dt>SUM_ONLINE_TIME_AGENT</dt><dd><p>Unit: Seconds</p><p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#online-time-historical">Online time</a></p></dd><dt>SUM_RETRY_CALLBACK_ATTEMPTS</dt><dd><p>Unit: Count</p><p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype</p><p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#callback-attempts-historical">Callback attempts</a></p></dd></dl>
  */
 @property (nonatomic, strong) NSArray<AWSConnectMetricV2 *> * _Nullable metrics;
 
@@ -8990,6 +9344,19 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The timezone applied to requested metrics.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable timeZone;
+
+@end
+
+/**
+ <p>Reason why the request was invalid.</p>
+ */
+@interface AWSConnectInvalidRequestExceptionReason : AWSModel
+
+
+/**
+ <p>Reason why the StartAttachedFiledUpload request was invalid.</p>
+ */
+@property (nonatomic, assign) AWSConnectAttachedFileInvalidRequestExceptionReason attachedFileInvalidRequestExceptionReason;
 
 @end
 
@@ -10627,7 +10994,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>A list of the third-party application's metadata.</p>
+ <p>A list of the third-party application's metadata.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectApplication *> * _Nullable applications;
 
@@ -13297,6 +13664,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) AWSConnectSendNotificationActionDefinition * _Nullable sendNotificationAction;
 
 /**
+ <p>Information about the submit automated evaluation action.</p>
+ */
+@property (nonatomic, strong) AWSConnectSubmitAutoEvaluationActionDefinition * _Nullable submitAutoEvaluationAction;
+
+/**
  <p>Information about the task action. This field is required if <code>TriggerEventSource</code> is one of the following values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code></p>
  */
 @property (nonatomic, strong) AWSConnectTaskActionDefinition * _Nullable taskAction;
@@ -14552,6 +14924,97 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectStartAttachedFileUploadRequest : AWSRequest
+
+
+/**
+ <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only current supported resource.</p><note><p>This value must be a valid ARN.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable associatedResourceArn;
+
+/**
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Represents the identity that created the file.</p>
+ */
+@property (nonatomic, strong) AWSConnectCreatedByInfo * _Nullable createdBy;
+
+/**
+ <p>A case-sensitive name of the attached file being uploaded.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable fileName;
+
+/**
+ <p>The size of the attached file in bytes.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable fileSizeInBytes;
+
+/**
+ <p>The use case for the file.</p>
+ */
+@property (nonatomic, assign) AWSConnectFileUseCaseType fileUseCaseType;
+
+/**
+ <p>The unique identifier of the Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The tags used to organize, track, or control access for this resource. For example, <code>{ "Tags": {"key1":"value1", "key2":"value2"} }</code>.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+/**
+ <p>Optional override for the expiry of the pre-signed S3 URL in seconds.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable urlExpiryInSeconds;
+
+@end
+
+/**
+ Response from StartAttachedFileUpload API.
+ */
+@interface AWSConnectStartAttachedFileUploadResponse : AWSModel
+
+
+/**
+ <p>Represents the identity that created the file.</p>
+ */
+@property (nonatomic, strong) AWSConnectCreatedByInfo * _Nullable createdBy;
+
+/**
+ <p>The time of Creation of the file resource as an ISO timestamp. It's specified in ISO 8601 format: <code>yyyy-MM-ddThh:mm:ss.SSSZ</code>. For example, <code>2024-05-03T02:41:28.172Z</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable creationTime;
+
+/**
+ <p>The unique identifier of the attached file resource (ARN).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable fileArn;
+
+/**
+ <p>The unique identifier of the attached file resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable fileId;
+
+/**
+ <p>The current status of the attached file.</p>
+ */
+@property (nonatomic, assign) AWSConnectFileStatusType fileStatus;
+
+/**
+ <p>Information to be used while uploading the attached file. </p>
+ */
+@property (nonatomic, strong) AWSConnectUploadUrlMetadata * _Nullable uploadUrlMetadata;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectStartChatContactRequest : AWSRequest
 
 
@@ -15147,6 +15610,20 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>A valid string.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable value;
+
+@end
+
+/**
+ <p>Information about the submit automated evaluation action.</p>
+ Required parameters: [EvaluationFormId]
+ */
+@interface AWSConnectSubmitAutoEvaluationActionDefinition : AWSModel
+
+
+/**
+ <p>The identifier of the auto-evaluation enabled form.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable evaluationFormId;
 
 @end
 
@@ -15887,7 +16364,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The Amazon Connect attributes. These attributes can be accessed in flows just like any other contact attributes.</p><p>You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>
+ <p>The Amazon Connect attributes. These attributes can be accessed in flows just like any other contact attributes.</p><p>You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p><p>When the attributes for a contact exceed 32 KB, the contact is routed down the Error branch of the flow. As a mitigation, consider the following options:</p><ul><li><p>Remove unnecessary attributes by setting their values to empty.</p></li><li><p>If the attributes are only used in one flow and don't need to be referred to outside of that flow (for example, by a Lambda or another flow), then use flow attributes. This way you aren't needlessly persisting the 32 KB of information from one flow to another. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-contact-attributes.html">Flow block: Set contact attributes</a> in the <i>Amazon Connect Administrator Guide</i>. </p></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -16943,7 +17420,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable allowedAccessControlTags;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>A list of the third-party application's metadata.</p>
+ <p>A list of the third-party application's metadata.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectApplication *> * _Nullable applications;
 
@@ -17389,6 +17866,29 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  */
 @interface AWSConnectUpdateViewMetadataResponse : AWSModel
 
+
+@end
+
+/**
+ <p>Fields required when uploading an attached file. </p>
+ */
+@interface AWSConnectUploadUrlMetadata : AWSModel
+
+
+/**
+ <p>A map of headers that should be provided when uploading the attached file. </p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable headersToInclude;
+
+/**
+ <p>A pre-signed S3 URL that should be used for uploading the attached file. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable url;
+
+/**
+ <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: <code>yyyy-MM-ddThh:mm:ss.SSSZ</code>. For example, <code>2019-11-08T02:41:28.172Z</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable urlExpiry;
 
 @end
 

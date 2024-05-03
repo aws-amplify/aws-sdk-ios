@@ -576,6 +576,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)batchDisassociateAnalyticsDataSet:(AWSConnectBatchDisassociateAnalyticsDataSetRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectBatchDisassociateAnalyticsDataSetResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Allows you to retrieve metadata about multiple attached files on an associated resource. Each attached file provided in the input list must be associated with the input AssociatedResourceArn.</p>
+ 
+ @param request A container for the necessary parameters to execute the BatchGetAttachedFileMetadata service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectBatchGetAttachedFileMetadataResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorAccessDenied`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectBatchGetAttachedFileMetadataRequest
+ @see AWSConnectBatchGetAttachedFileMetadataResponse
+ */
+- (AWSTask<AWSConnectBatchGetAttachedFileMetadataResponse *> *)batchGetAttachedFileMetadata:(AWSConnectBatchGetAttachedFileMetadataRequest *)request;
+
+/**
+ <p>Allows you to retrieve metadata about multiple attached files on an associated resource. Each attached file provided in the input list must be associated with the input AssociatedResourceArn.</p>
+ 
+ @param request A container for the necessary parameters to execute the BatchGetAttachedFileMetadata service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorAccessDenied`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectBatchGetAttachedFileMetadataRequest
+ @see AWSConnectBatchGetAttachedFileMetadataResponse
+ */
+- (void)batchGetAttachedFileMetadata:(AWSConnectBatchGetAttachedFileMetadataRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectBatchGetAttachedFileMetadataResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Retrieve the flow associations for the given resources.</p>
  
  @param request A container for the necessary parameters to execute the BatchGetFlowAssociation service method.
@@ -649,6 +674,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectClaimPhoneNumberResponse
  */
 - (void)claimPhoneNumber:(AWSConnectClaimPhoneNumberRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectClaimPhoneNumberResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Allows you to confirm that the attached file has been uploaded using the pre-signed URL provided in the StartAttachedFileUpload API.</p>
+ 
+ @param request A container for the necessary parameters to execute the CompleteAttachedFileUpload service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectCompleteAttachedFileUploadResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorAccessDenied`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectCompleteAttachedFileUploadRequest
+ @see AWSConnectCompleteAttachedFileUploadResponse
+ */
+- (AWSTask<AWSConnectCompleteAttachedFileUploadResponse *> *)completeAttachedFileUpload:(AWSConnectCompleteAttachedFileUploadRequest *)request;
+
+/**
+ <p>Allows you to confirm that the attached file has been uploaded using the pre-signed URL provided in the StartAttachedFileUpload API.</p>
+ 
+ @param request A container for the necessary parameters to execute the CompleteAttachedFileUpload service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorAccessDenied`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectCompleteAttachedFileUploadRequest
+ @see AWSConnectCompleteAttachedFileUploadResponse
+ */
+- (void)completeAttachedFileUpload:(AWSConnectCompleteAttachedFileUploadRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCompleteAttachedFileUploadResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates an agent status for the specified Amazon Connect instance.</p>
@@ -1271,6 +1321,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectDeactivateEvaluationFormResponse
  */
 - (void)deactivateEvaluationForm:(AWSConnectDeactivateEvaluationFormRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDeactivateEvaluationFormResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes an attached file along with the underlying S3 Object.</p><important><p>The attached file is <b>permanently deleted</b> if S3 bucket versioning is not enabled.</p></important>
+ 
+ @param request A container for the necessary parameters to execute the DeleteAttachedFile service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectDeleteAttachedFileResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorAccessDenied`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectDeleteAttachedFileRequest
+ @see AWSConnectDeleteAttachedFileResponse
+ */
+- (AWSTask<AWSConnectDeleteAttachedFileResponse *> *)deleteAttachedFile:(AWSConnectDeleteAttachedFileRequest *)request;
+
+/**
+ <p>Deletes an attached file along with the underlying S3 Object.</p><important><p>The attached file is <b>permanently deleted</b> if S3 bucket versioning is not enabled.</p></important>
+ 
+ @param request A container for the necessary parameters to execute the DeleteAttachedFile service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorAccessDenied`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectDeleteAttachedFileRequest
+ @see AWSConnectDeleteAttachedFileResponse
+ */
+- (void)deleteAttachedFile:(AWSConnectDeleteAttachedFileRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDeleteAttachedFileResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes a contact evaluation in the specified Amazon Connect instance.</p>
@@ -2693,6 +2768,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectDismissUserContactResponse
  */
 - (void)dismissUserContact:(AWSConnectDismissUserContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDismissUserContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Provides a pre-signed URL for download of an approved attached file. This API also returns metadata about the attached file. It will only return a downloadURL if the status of the attached file is <code>APPROVED</code>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetAttachedFile service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectGetAttachedFileResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorAccessDenied`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectGetAttachedFileRequest
+ @see AWSConnectGetAttachedFileResponse
+ */
+- (AWSTask<AWSConnectGetAttachedFileResponse *> *)getAttachedFile:(AWSConnectGetAttachedFileRequest *)request;
+
+/**
+ <p>Provides a pre-signed URL for download of an approved attached file. This API also returns metadata about the attached file. It will only return a downloadURL if the status of the attached file is <code>APPROVED</code>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetAttachedFile service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorAccessDenied`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectGetAttachedFileRequest
+ @see AWSConnectGetAttachedFileResponse
+ */
+- (void)getAttachedFile:(AWSConnectGetAttachedFileRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectGetAttachedFileResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Retrieves the contact attributes for the specified contact.</p>
@@ -4565,6 +4665,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectSendChatIntegrationEventResponse
  */
 - (void)sendChatIntegrationEvent:(AWSConnectSendChatIntegrationEventRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectSendChatIntegrationEventResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Provides a pre-signed Amazon S3 URL in response for uploading your content.</p><important><p>You may only use this API to upload attachments to a <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Connect Case</a>.</p></important>
+ 
+ @param request A container for the necessary parameters to execute the StartAttachedFileUpload service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectStartAttachedFileUploadResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorAccessDenied`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`, `AWSConnectErrorResourceConflict`, `AWSConnectErrorServiceQuotaExceeded`.
+ 
+ @see AWSConnectStartAttachedFileUploadRequest
+ @see AWSConnectStartAttachedFileUploadResponse
+ */
+- (AWSTask<AWSConnectStartAttachedFileUploadResponse *> *)startAttachedFileUpload:(AWSConnectStartAttachedFileUploadRequest *)request;
+
+/**
+ <p>Provides a pre-signed Amazon S3 URL in response for uploading your content.</p><important><p>You may only use this API to upload attachments to a <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Connect Case</a>.</p></important>
+ 
+ @param request A container for the necessary parameters to execute the StartAttachedFileUpload service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorAccessDenied`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`, `AWSConnectErrorResourceConflict`, `AWSConnectErrorServiceQuotaExceeded`.
+ 
+ @see AWSConnectStartAttachedFileUploadRequest
+ @see AWSConnectStartAttachedFileUploadResponse
+ */
+- (void)startAttachedFileUpload:(AWSConnectStartAttachedFileUploadRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectStartAttachedFileUploadResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Initiates a flow to start a new chat for the customer. Response of this API provides a token required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p><p>When a new chat contact is successfully created, clients must subscribe to the participant’s connection for the created chat within 5 minutes. This is achieved by invoking <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p><p>A 429 error occurs in the following situations:</p><ul><li><p>API rate limit is exceeded. API TPS throttling returns a <code>TooManyRequests</code> exception.</p></li><li><p>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">quota for concurrent active chats</a> is exceeded. Active chat throttling returns a <code>LimitExceededException</code>.</p></li></ul><p>If you use the <code>ChatDurationInMinutes</code> parameter and receive a 400 error, your account may not support the ability to configure custom chat durations. For more information, contact Amazon Web Services Support. </p><p>For more information about chat, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat.html">Chat</a> in the <i>Amazon Connect Administrator Guide</i>.</p>

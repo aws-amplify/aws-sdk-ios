@@ -683,6 +683,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectBatchGetAttachedFileMetadataResponse *> *)batchGetAttachedFileMetadata:(AWSConnectBatchGetAttachedFileMetadataRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/attached-files/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"BatchGetAttachedFileMetadata"
+                   outputClass:[AWSConnectBatchGetAttachedFileMetadataResponse class]];
+}
+
+- (void)batchGetAttachedFileMetadata:(AWSConnectBatchGetAttachedFileMetadataRequest *)request
+     completionHandler:(void (^)(AWSConnectBatchGetAttachedFileMetadataResponse *response, NSError *error))completionHandler {
+    [[self batchGetAttachedFileMetadata:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectBatchGetAttachedFileMetadataResponse *> * _Nonnull task) {
+        AWSConnectBatchGetAttachedFileMetadataResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectBatchGetFlowAssociationResponse *> *)batchGetFlowAssociation:(AWSConnectBatchGetFlowAssociationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -742,6 +765,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectClaimPhoneNumberResponse *response, NSError *error))completionHandler {
     [[self claimPhoneNumber:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectClaimPhoneNumberResponse *> * _Nonnull task) {
         AWSConnectClaimPhoneNumberResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectCompleteAttachedFileUploadResponse *> *)completeAttachedFileUpload:(AWSConnectCompleteAttachedFileUploadRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/attached-files/{InstanceId}/{FileId}"
+                  targetPrefix:@""
+                 operationName:@"CompleteAttachedFileUpload"
+                   outputClass:[AWSConnectCompleteAttachedFileUploadResponse class]];
+}
+
+- (void)completeAttachedFileUpload:(AWSConnectCompleteAttachedFileUploadRequest *)request
+     completionHandler:(void (^)(AWSConnectCompleteAttachedFileUploadResponse *response, NSError *error))completionHandler {
+    [[self completeAttachedFileUpload:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectCompleteAttachedFileUploadResponse *> * _Nonnull task) {
+        AWSConnectCompleteAttachedFileUploadResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1316,6 +1362,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectDeactivateEvaluationFormResponse *response, NSError *error))completionHandler {
     [[self deactivateEvaluationForm:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDeactivateEvaluationFormResponse *> * _Nonnull task) {
         AWSConnectDeactivateEvaluationFormResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectDeleteAttachedFileResponse *> *)deleteAttachedFile:(AWSConnectDeleteAttachedFileRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/attached-files/{InstanceId}/{FileId}"
+                  targetPrefix:@""
+                 operationName:@"DeleteAttachedFile"
+                   outputClass:[AWSConnectDeleteAttachedFileResponse class]];
+}
+
+- (void)deleteAttachedFile:(AWSConnectDeleteAttachedFileRequest *)request
+     completionHandler:(void (^)(AWSConnectDeleteAttachedFileResponse *response, NSError *error))completionHandler {
+    [[self deleteAttachedFile:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDeleteAttachedFileResponse *> * _Nonnull task) {
+        AWSConnectDeleteAttachedFileResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2670,6 +2739,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectDismissUserContactResponse *response, NSError *error))completionHandler {
     [[self dismissUserContact:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDismissUserContactResponse *> * _Nonnull task) {
         AWSConnectDismissUserContactResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectGetAttachedFileResponse *> *)getAttachedFile:(AWSConnectGetAttachedFileRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/attached-files/{InstanceId}/{FileId}"
+                  targetPrefix:@""
+                 operationName:@"GetAttachedFile"
+                   outputClass:[AWSConnectGetAttachedFileResponse class]];
+}
+
+- (void)getAttachedFile:(AWSConnectGetAttachedFileRequest *)request
+     completionHandler:(void (^)(AWSConnectGetAttachedFileResponse *response, NSError *error))completionHandler {
+    [[self getAttachedFile:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectGetAttachedFileResponse *> * _Nonnull task) {
+        AWSConnectGetAttachedFileResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -4394,6 +4486,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectSendChatIntegrationEventResponse *response, NSError *error))completionHandler {
     [[self sendChatIntegrationEvent:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectSendChatIntegrationEventResponse *> * _Nonnull task) {
         AWSConnectSendChatIntegrationEventResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectStartAttachedFileUploadResponse *> *)startAttachedFileUpload:(AWSConnectStartAttachedFileUploadRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/attached-files/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"StartAttachedFileUpload"
+                   outputClass:[AWSConnectStartAttachedFileUploadResponse class]];
+}
+
+- (void)startAttachedFileUpload:(AWSConnectStartAttachedFileUploadRequest *)request
+     completionHandler:(void (^)(AWSConnectStartAttachedFileUploadResponse *response, NSError *error))completionHandler {
+    [[self startAttachedFileUpload:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectStartAttachedFileUploadResponse *> * _Nonnull task) {
+        AWSConnectStartAttachedFileUploadResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
