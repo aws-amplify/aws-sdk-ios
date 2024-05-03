@@ -80,7 +80,7 @@ API_AVAILABLE(ios(13.0))
 
 @implementation AWSCognitoAuth
 
-NSString *const AWSCognitoAuthSDKVersion = @"2.36.0";
+NSString *const AWSCognitoAuthSDKVersion = @"2.36.1";
 
 
 static NSMutableDictionary *_instanceDictionary = nil;
@@ -356,7 +356,9 @@ withPresentingViewController:(UIViewController *)presentingViewController {
 
 - (void)launchSFWebAuthenticationSession:(NSURL *)hostedUIURL API_AVAILABLE(ios(11.0)) {
     self.sfAuthenticationSessionAvailable = YES;
-    NSString *callbackURLScheme = [[self urlEncode:self.authConfiguration.signInRedirectUri] copy];
+    NSString *callbackURLString = [[self urlEncode:self.authConfiguration.signInRedirectUri] copy];
+    NSURL *callbackURL = [[NSURL alloc] initWithString:callbackURLString];
+    NSString *callbackURLScheme = callbackURL.scheme;
     __weak AWSCognitoAuth *weakSelf = self;
     self.sfAuthSession = [[ASWebAuthenticationSession alloc] initWithURL:hostedUIURL
                                                        callbackURLScheme:callbackURLScheme
@@ -655,7 +657,9 @@ withPresentingViewController:(UIViewController *)presentingViewController {
 
 - (void)launchSFAuthenticationSessionForSignOut:(NSURL *) url API_AVAILABLE(ios(11.0)) {
     self.sfAuthenticationSessionAvailable = YES;
-    NSString *callbackURLScheme = [[self urlEncode:self.authConfiguration.signOutRedirectUri] copy];
+    NSString *callbackURLString = [[self urlEncode:self.authConfiguration.signOutRedirectUri] copy];
+    NSURL *callbackURL = [[NSURL alloc] initWithString:callbackURLString];
+    NSString *callbackURLScheme = callbackURL.scheme;
     __weak AWSCognitoAuth *weakSelf = self;
     self.sfAuthSession = [[ASWebAuthenticationSession alloc] initWithURL:url
                                                        callbackURLScheme:callbackURLScheme
