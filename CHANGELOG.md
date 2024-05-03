@@ -2,7 +2,10 @@
 
 ## Unreleased
 
--Features for next release
+### Bug Fixes
+
+- **AWSMobileClient**
+  - Fixing a crash when attempting to use HostedUI (#5316)
 
 ## 2.36.0
 
