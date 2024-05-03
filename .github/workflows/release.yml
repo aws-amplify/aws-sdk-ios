@@ -55,7 +55,7 @@ jobs:
 
   build-xcframeworks:
     name: Build xcframeworks
-    runs-on: macos-latest
+    runs-on: macos-12
     needs:
       - extract-release-version
       - unit-test
@@ -82,7 +82,7 @@ jobs:
 
   release-xcframeworks:
     name: Release xcframeworks
-    runs-on: macos-latest
+    runs-on: macos-12
     environment: ReleaseArtifacts
     needs:
       - extract-release-version
@@ -135,7 +135,7 @@ jobs:
 
   release-spm:
     name: Release SPM
-    runs-on: macos-latest
+    runs-on: macos-12
     environment: Release
     needs:
       - extract-release-version
@@ -179,7 +179,7 @@ jobs:
 
   release-combined-xcframeworks:
     name: Release combine xcframeworks
-    runs-on: macos-latest
+    runs-on: macos-12
     environment: ReleaseArtifacts
     needs:
       - extract-release-version
@@ -251,7 +251,7 @@ jobs:
 
   release-tag:
     name: Rlease tag
-    runs-on: macos-latest
+    runs-on: macos-12
     needs:
       - extract-release-version
       - release-combined-xcframeworks
@@ -324,7 +324,7 @@ jobs:
 
   release-doc:
     name: Release docs
-    runs-on: macos-latest
+    runs-on: macos-12
     needs:
       - extract-release-version
       - update-main-branch
@@ -372,7 +372,7 @@ jobs:
 
   add-doc-tag:
     name: Add doc tag
-    runs-on: macos-latest
+    runs-on: macos-12
     needs:
       - extract-release-version
       - release-doc
@@ -400,7 +400,7 @@ jobs:
 
   release-cocoapods:
     name: Release Cocoapods
-    runs-on: macos-latest
+    runs-on: macos-12
     needs:
       - add-doc-tag
     environment: Release
@@ -432,7 +432,7 @@ jobs:
 
   release-carthage:
     name: Release Carthage
-    runs-on: macos-latest
+    runs-on: macos-12
     needs:
       - extract-release-version
       - add-doc-tag
@@ -463,7 +463,7 @@ jobs:
 
   bump-ios-sampleapp-version:
     name: 'Bump iOS sample App version'
-    runs-on: macos-latest
+    runs-on: macos-12
     needs:
       - release-xcframeworks
       - release-cocoapods
