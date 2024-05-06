@@ -2,7 +2,8 @@
 
 ## Unreleased
 
--Features for next release
+- **AWSMobileClient**
+  - Fixing HostedUI page not being shown when providing a navigationController (#5324)
 
 ## 2.36.1
 
