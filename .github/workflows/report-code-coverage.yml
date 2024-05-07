@@ -37,6 +37,7 @@ jobs:
           echo "Generating coverage report for AWSMobileClient..."
           xcrun llvm-cov export -format="lcov" -instr-profile $pathCoverage Build/Build/Products/Debug-iphonesimulator/AWSAuthSDKTestApp.app/Frameworks/AWSMobileClient.framework/AWSMobileClient >> aws-sdk-ios-Coverage.lcov
       - name: Upload Coverage Report
-        uses: codecov/codecov-action@eaaf4bedf32dbdc6b720b63067d99c4d77d6047d # v3.1.4
+        uses: codecov/codecov-action@84508663e988701840491b86de86b666e8a86bed # v4.3.0
         with:
           flags: AWS-SDK
+          token: ${{ secrets.CODECOV_TOKEN }}
