@@ -66,6 +66,9 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"long-form"] == NSOrderedSame) {
             return @(AWSPollyEngineLongForm);
         }
+        if ([value caseInsensitiveCompare:@"generative"] == NSOrderedSame) {
+            return @(AWSPollyEngineGenerative);
+        }
         return @(AWSPollyEngineUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -75,6 +78,8 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"neural";
             case AWSPollyEngineLongForm:
                 return @"long-form";
+            case AWSPollyEngineGenerative:
+                return @"generative";
             default:
                 return nil;
         }
@@ -800,6 +805,9 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"long-form"] == NSOrderedSame) {
             return @(AWSPollyEngineLongForm);
         }
+        if ([value caseInsensitiveCompare:@"generative"] == NSOrderedSame) {
+            return @(AWSPollyEngineGenerative);
+        }
         return @(AWSPollyEngineUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -809,6 +817,8 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"neural";
             case AWSPollyEngineLongForm:
                 return @"long-form";
+            case AWSPollyEngineGenerative:
+                return @"generative";
             default:
                 return nil;
         }
@@ -1629,6 +1639,9 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"long-form"] == NSOrderedSame) {
             return @(AWSPollyEngineLongForm);
         }
+        if ([value caseInsensitiveCompare:@"generative"] == NSOrderedSame) {
+            return @(AWSPollyEngineGenerative);
+        }
         return @(AWSPollyEngineUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1638,6 +1651,8 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"neural";
             case AWSPollyEngineLongForm:
                 return @"long-form";
+            case AWSPollyEngineGenerative:
+                return @"generative";
             default:
                 return nil;
         }
@@ -2457,6 +2472,9 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"long-form"] == NSOrderedSame) {
             return @(AWSPollyEngineLongForm);
         }
+        if ([value caseInsensitiveCompare:@"generative"] == NSOrderedSame) {
+            return @(AWSPollyEngineGenerative);
+        }
         return @(AWSPollyEngineUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2466,6 +2484,8 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"neural";
             case AWSPollyEngineLongForm:
                 return @"long-form";
+            case AWSPollyEngineGenerative:
+                return @"generative";
             default:
                 return nil;
         }
