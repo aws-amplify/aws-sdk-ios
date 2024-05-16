@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.dependency 'AWSCore', '2.36.2'
   s.source_files = 'AWSConnect/*.{h,m}'
-  s.resource_bundle = { 'AWSConnect' => ['AWSConnect/PrivacyInfo.xcprivacy']}
+  s.resource_bundle = {  'AWSConnect' => ['AWSConnect/PrivacyInfo.xcprivacy'] }
 end
