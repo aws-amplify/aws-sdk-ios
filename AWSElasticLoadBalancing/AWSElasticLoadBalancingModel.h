@@ -118,6 +118,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingIpAddressType) {
     AWSElasticLoadBalancingIpAddressTypeUnknown,
     AWSElasticLoadBalancingIpAddressTypeIpv4,
     AWSElasticLoadBalancingIpAddressTypeDualstack,
+    AWSElasticLoadBalancingIpAddressTypeDualstackWithoutPublicIpv4,
 };
 
 typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingLoadBalancerSchemeEnum) {
@@ -764,7 +765,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTrustStoreStatus) {
 @property (nonatomic, strong) NSString * _Nullable customerOwnedIpv4Pool;
 
 /**
- <p>The type of IP addresses used by the subnets for your load balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6 addresses). </p>
+ <p>Note: Internal load balancers must use the <code>ipv4</code> IP address type.</p><p>[Application Load Balancers] The IP address type. The possible values are <code>ipv4</code> (for only IPv4 addresses), <code>dualstack</code> (for IPv4 and IPv6 addresses), and <code>dualstack-without-public-ipv4</code> (for IPv6 only public addresses, with private IPv4 and IPv6 addresses).</p><p>[Network Load Balancers] The IP address type. The possible values are <code>ipv4</code> (for only IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6 addresses). You can’t specify <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.</p><p>[Gateway Load Balancers] The IP address type. The possible values are <code>ipv4</code> (for only IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6 addresses).</p>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingIpAddressType ipAddressType;
 
@@ -1985,7 +1986,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTrustStoreStatus) {
 @property (nonatomic, strong) NSString * _Nullable enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
 
 /**
- <p>The type of IP addresses used by the subnets for your load balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6 addresses).</p>
+ <p>[Application Load Balancers] The type of IP addresses used for public or private connections by the subnets attached to your load balancer. The possible values are <code>ipv4</code> (for only IPv4 addresses), <code>dualstack</code> (for IPv4 and IPv6 addresses), and <code>dualstack-without-public-ipv4</code> (for IPv6 only public addresses, with private IPv4 and IPv6 addresses).</p><p>[Network Load Balancers and Gateway Load Balancers] The type of IP addresses used for public or private connections by the subnets attached to your load balancer. The possible values are <code>ipv4</code> (for only IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6 addresses).</p>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingIpAddressType ipAddressType;
 
@@ -2723,7 +2724,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTrustStoreStatus) {
 
 
 /**
- <p>The IP address type. The possible values are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6 addresses). You can’t specify <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.</p>
+ <p>Note: Internal load balancers must use the <code>ipv4</code> IP address type.</p><p>[Application Load Balancers] The IP address type. The possible values are <code>ipv4</code> (for only IPv4 addresses), <code>dualstack</code> (for IPv4 and IPv6 addresses), and <code>dualstack-without-public-ipv4</code> (for IPv6 only public addresses, with private IPv4 and IPv6 addresses).</p><p>[Network Load Balancers] The IP address type. The possible values are <code>ipv4</code> (for only IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6 addresses). You can’t specify <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.</p><p>[Gateway Load Balancers] The IP address type. The possible values are <code>ipv4</code> (for only IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6 addresses).</p>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingIpAddressType ipAddressType;
 
@@ -2821,7 +2822,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTrustStoreStatus) {
 
 
 /**
- <p>[Network Load Balancers] The type of IP addresses used by the subnets for your load balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6 addresses). You can’t specify <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.</p><p>[Gateway Load Balancers] The type of IP addresses used by the subnets for your load balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6 addresses).</p>
+ <p>[Application Load Balancers] The IP address type. The possible values are <code>ipv4</code> (for only IPv4 addresses), <code>dualstack</code> (for IPv4 and IPv6 addresses), and <code>dualstack-without-public-ipv4</code> (for IPv6 only public addresses, with private IPv4 and IPv6 addresses).</p><p>[Network Load Balancers] The type of IP addresses used by the subnets for your load balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6 addresses). You can’t specify <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.</p><p>[Gateway Load Balancers] The type of IP addresses used by the subnets for your load balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6 addresses).</p>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingIpAddressType ipAddressType;
 
@@ -2854,7 +2855,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTrustStoreStatus) {
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingAvailabilityZone *> * _Nullable availabilityZones;
 
 /**
- <p>[Network Load Balancers] The IP address type.</p><p>[Gateway Load Balancers] The IP address type.</p>
+ <p>[Application Load Balancers] The IP address type.</p><p>[Network Load Balancers] The IP address type.</p><p>[Gateway Load Balancers] The IP address type.</p>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingIpAddressType ipAddressType;
 
