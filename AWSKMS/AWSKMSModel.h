@@ -29,6 +29,7 @@ typedef NS_ENUM(NSInteger, AWSKMSErrorType) {
     AWSKMSErrorCloudHsmClusterNotActive,
     AWSKMSErrorCloudHsmClusterNotFound,
     AWSKMSErrorCloudHsmClusterNotRelated,
+    AWSKMSErrorConflict,
     AWSKMSErrorCustomKeyStoreHasCMKs,
     AWSKMSErrorCustomKeyStoreInvalidState,
     AWSKMSErrorCustomKeyStoreNameInUse,
@@ -79,6 +80,7 @@ typedef NS_ENUM(NSInteger, AWSKMSAlgorithmSpec) {
     AWSKMSAlgorithmSpecRsaesOaepSha256,
     AWSKMSAlgorithmSpecRsaAesKeyWrapSha1,
     AWSKMSAlgorithmSpecRsaAesKeyWrapSha256,
+    AWSKMSAlgorithmSpecSm2pke,
 };
 
 typedef NS_ENUM(NSInteger, AWSKMSConnectionErrorCodeType) {
@@ -262,6 +264,12 @@ typedef NS_ENUM(NSInteger, AWSKMSOriginType) {
     AWSKMSOriginTypeExternalKeyStore,
 };
 
+typedef NS_ENUM(NSInteger, AWSKMSRotationType) {
+    AWSKMSRotationTypeUnknown,
+    AWSKMSRotationTypeAutomatic,
+    AWSKMSRotationTypeOnDemand,
+};
+
 typedef NS_ENUM(NSInteger, AWSKMSSigningAlgorithmSpec) {
     AWSKMSSigningAlgorithmSpecUnknown,
     AWSKMSSigningAlgorithmSpecRsassaPssSha256,
@@ -281,6 +289,7 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
     AWSKMSWrappingKeySpecRsa2048,
     AWSKMSWrappingKeySpecRsa3072,
     AWSKMSWrappingKeySpecRsa4096,
+    AWSKMSWrappingKeySpecSm2,
 };
 
 typedef NS_ENUM(NSInteger, AWSKMSXksProxyConnectivityType) {
@@ -352,6 +361,8 @@ typedef NS_ENUM(NSInteger, AWSKMSXksProxyConnectivityType) {
 @class AWSKMSListGrantsResponse;
 @class AWSKMSListKeyPoliciesRequest;
 @class AWSKMSListKeyPoliciesResponse;
+@class AWSKMSListKeyRotationsRequest;
+@class AWSKMSListKeyRotationsResponse;
 @class AWSKMSListKeysRequest;
 @class AWSKMSListKeysResponse;
 @class AWSKMSListResourceTagsRequest;
@@ -367,6 +378,9 @@ typedef NS_ENUM(NSInteger, AWSKMSXksProxyConnectivityType) {
 @class AWSKMSReplicateKeyResponse;
 @class AWSKMSRetireGrantRequest;
 @class AWSKMSRevokeGrantRequest;
+@class AWSKMSRotateKeyOnDemandRequest;
+@class AWSKMSRotateKeyOnDemandResponse;
+@class AWSKMSRotationsListEntry;
 @class AWSKMSScheduleKeyDeletionRequest;
 @class AWSKMSScheduleKeyDeletionResponse;
 @class AWSKMSSignRequest;
@@ -914,7 +928,7 @@ typedef NS_ENUM(NSInteger, AWSKMSXksProxyConnectivityType) {
 @property (nonatomic, strong) NSString * _Nullable nextMarker;
 
 /**
- <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a subsequent request.</p>
+ <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable truncated;
 
@@ -1021,6 +1035,11 @@ typedef NS_ENUM(NSInteger, AWSKMSXksProxyConnectivityType) {
  <p>Identifies a symmetric encryption KMS key. You cannot enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate">multi-Region keys</a>, set the property on the primary key.</p><p>Specify the key ID or key ARN of the KMS key.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyId;
+
+/**
+ <p>Use this parameter to specify a custom period of time between each rotation date. If no value is specified, the default value is 365 days.</p><p>The rotation period defines the number of days after you enable automatic key rotation that KMS will rotate your key material, and the number of days between each automatic rotation thereafter.</p><p>You can use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-rotation-period-in-days"><code>kms:RotationPeriodInDays</code></a> condition key to further constrain the values that principals can specify in the <code>RotationPeriodInDays</code> parameter.</p><p></p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable rotationPeriodInDays;
 
 @end
 
@@ -1502,9 +1521,29 @@ typedef NS_ENUM(NSInteger, AWSKMSXksProxyConnectivityType) {
 
 
 /**
+ <p>Identifies the specified symmetric encryption KMS key.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyId;
+
+/**
  <p>A Boolean value that specifies whether key rotation is enabled.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable keyRotationEnabled;
+
+/**
+ <p>The next date that KMS will automatically rotate the key material.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable nextRotationDate;
+
+/**
+ <p>Identifies the date and time that an in progress on-demand rotation was initiated.</p><p>The KMS API follows an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">eventual consistency</a> model due to the distributed nature of the system. As a result, there might be a slight delay between initiating on-demand key rotation and the rotation's completion. Once the on-demand rotation is complete, use <a>ListKeyRotations</a> to view the details of the on-demand rotation.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable onDemandRotationStartDate;
+
+/**
+ <p>The number of days between each automatic rotation. The default value is 365 days.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable rotationPeriodInDays;
 
 @end
 
@@ -1520,12 +1559,12 @@ typedef NS_ENUM(NSInteger, AWSKMSXksProxyConnectivityType) {
 @property (nonatomic, strong) NSString * _Nullable keyId;
 
 /**
- <p>The algorithm you will use with the RSA public key (<code>PublicKey</code>) in the response to protect your key material during import. For more information, see <a href="kms/latest/developerguide/importing-keys-get-public-key-and-token.html#select-wrapping-algorithm">Select a wrapping algorithm</a> in the <i>Key Management Service Developer Guide</i>.</p><p>For RSA_AES wrapping algorithms, you encrypt your key material with an AES key that you generate, then encrypt your AES key with the RSA public key from KMS. For RSAES wrapping algorithms, you encrypt your key material directly with the RSA public key from KMS.</p><p>The wrapping algorithms that you can use depend on the type of key material that you are importing. To import an RSA private key, you must use an RSA_AES wrapping algorithm.</p><ul><li><p><b>RSA_AES_KEY_WRAP_SHA_256</b> — Supported for wrapping RSA and ECC key material.</p></li><li><p><b>RSA_AES_KEY_WRAP_SHA_1</b> — Supported for wrapping RSA and ECC key material.</p></li><li><p><b>RSAES_OAEP_SHA_256</b> — Supported for all types of key material, except RSA key material (private key).</p><p>You cannot use the RSAES_OAEP_SHA_256 wrapping algorithm with the RSA_2048 wrapping key spec to wrap ECC_NIST_P521 key material.</p></li><li><p><b>RSAES_OAEP_SHA_1</b> — Supported for all types of key material, except RSA key material (private key).</p><p>You cannot use the RSAES_OAEP_SHA_1 wrapping algorithm with the RSA_2048 wrapping key spec to wrap ECC_NIST_P521 key material.</p></li><li><p><b>RSAES_PKCS1_V1_5</b> (Deprecated) — As of October 10, 2023, KMS does not support the RSAES_PKCS1_V1_5 wrapping algorithm.</p></li></ul>
+ <p>The algorithm you will use with the asymmetric public key (<code>PublicKey</code>) in the response to protect your key material during import. For more information, see <a href="kms/latest/developerguide/importing-keys-get-public-key-and-token.html#select-wrapping-algorithm">Select a wrapping algorithm</a> in the <i>Key Management Service Developer Guide</i>.</p><p>For RSA_AES wrapping algorithms, you encrypt your key material with an AES key that you generate, then encrypt your AES key with the RSA public key from KMS. For RSAES wrapping algorithms, you encrypt your key material directly with the RSA public key from KMS. For SM2PKE wrapping algorithms, you encrypt your key material directly with the SM2 public key from KMS.</p><p>The wrapping algorithms that you can use depend on the type of key material that you are importing. To import an RSA private key, you must use an RSA_AES wrapping algorithm, except in China Regions, where you must use the SM2PKE wrapping algorithm to import an RSA private key.</p><p>The SM2PKE wrapping algorithm is available only in China Regions. The <code>RSA_AES_KEY_WRAP_SHA_256</code> and <code>RSA_AES_KEY_WRAP_SHA_1</code> wrapping algorithms are not supported in China Regions.</p><ul><li><p><b>RSA_AES_KEY_WRAP_SHA_256</b> — Supported for wrapping RSA and ECC key material.</p></li><li><p><b>RSA_AES_KEY_WRAP_SHA_1</b> — Supported for wrapping RSA and ECC key material.</p></li><li><p><b>RSAES_OAEP_SHA_256</b> — Supported for all types of key material, except RSA key material (private key).</p><p>You cannot use the RSAES_OAEP_SHA_256 wrapping algorithm with the RSA_2048 wrapping key spec to wrap ECC_NIST_P521 key material.</p></li><li><p><b>RSAES_OAEP_SHA_1</b> — Supported for all types of key material, except RSA key material (private key).</p><p>You cannot use the RSAES_OAEP_SHA_1 wrapping algorithm with the RSA_2048 wrapping key spec to wrap ECC_NIST_P521 key material.</p></li><li><p><b>RSAES_PKCS1_V1_5</b> (Deprecated) — As of October 10, 2023, KMS does not support the RSAES_PKCS1_V1_5 wrapping algorithm.</p></li><li><p><b>SM2PKE</b> (China Regions only) — supported for wrapping RSA, ECC, and SM2 key material.</p></li></ul>
  */
 @property (nonatomic, assign) AWSKMSAlgorithmSpec wrappingAlgorithm;
 
 /**
- <p>The type of RSA public key to return in the response. You will use this wrapping key with the specified wrapping algorithm to protect your key material during import. </p><p>Use the longest RSA wrapping key that is practical. </p><p>You cannot use an RSA_2048 public key to directly wrap an ECC_NIST_P521 private key. Instead, use an RSA_AES wrapping algorithm or choose a longer RSA public key.</p>
+ <p>The type of public key to return in the response. You will use this wrapping key with the specified wrapping algorithm to protect your key material during import. </p><p>Use the longest wrapping key that is practical. </p><p>You cannot use an RSA_2048 public key to directly wrap an ECC_NIST_P521 private key. Instead, use an RSA_AES wrapping algorithm or choose a longer RSA public key.</p><p>The SM2 wrapping key spec is available only in China Regions.</p>
  */
 @property (nonatomic, assign) AWSKMSWrappingKeySpec wrappingKeySpec;
 
@@ -1919,7 +1958,7 @@ typedef NS_ENUM(NSInteger, AWSKMSXksProxyConnectivityType) {
 @property (nonatomic, strong) NSString * _Nullable nextMarker;
 
 /**
- <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a subsequent request.</p>
+ <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable truncated;
 
@@ -1975,7 +2014,7 @@ typedef NS_ENUM(NSInteger, AWSKMSXksProxyConnectivityType) {
 @property (nonatomic, strong) NSString * _Nullable nextMarker;
 
 /**
- <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a subsequent request.</p>
+ <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable truncated;
 
@@ -2021,7 +2060,53 @@ typedef NS_ENUM(NSInteger, AWSKMSXksProxyConnectivityType) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable policyNames;
 
 /**
- <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a subsequent request.</p>
+ <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable truncated;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKMSListKeyRotationsRequest : AWSRequest
+
+
+/**
+ <p>Gets the key rotations for the specified KMS key.</p><p>Specify the key ID or key ARN of the KMS key.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyId;
+
+/**
+ <p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p><p>This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable limit;
+
+/**
+ <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextMarker</code> from the truncated response you just received.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable marker;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKMSListKeyRotationsResponse : AWSModel
+
+
+/**
+ <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextMarker;
+
+/**
+ <p>A list of completed key material rotations.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSKMSRotationsListEntry *> * _Nullable rotations;
+
+/**
+ <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable truncated;
 
@@ -2062,7 +2147,7 @@ typedef NS_ENUM(NSInteger, AWSKMSXksProxyConnectivityType) {
 @property (nonatomic, strong) NSString * _Nullable nextMarker;
 
 /**
- <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a subsequent request.</p>
+ <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable truncated;
 
@@ -2108,7 +2193,7 @@ typedef NS_ENUM(NSInteger, AWSKMSXksProxyConnectivityType) {
 @property (nonatomic, strong) NSArray<AWSKMSTag *> * _Nullable tags;
 
 /**
- <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a subsequent request.</p>
+ <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable truncated;
 
@@ -2419,6 +2504,55 @@ typedef NS_ENUM(NSInteger, AWSKMSXksProxyConnectivityType) {
  <p>A unique identifier for the KMS key associated with the grant. To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p><p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKMSRotateKeyOnDemandRequest : AWSRequest
+
+
+/**
+ <p>Identifies a symmetric encryption KMS key. You cannot perform on-demand rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. To perform on-demand rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate">multi-Region keys</a>, invoke the on-demand rotation on the primary key.</p><p>Specify the key ID or key ARN of the KMS key.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKMSRotateKeyOnDemandResponse : AWSModel
+
+
+/**
+ <p>Identifies the symmetric encryption KMS key that you initiated on-demand rotation on.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyId;
+
+@end
+
+/**
+ <p>Contains information about completed key material rotations.</p>
+ */
+@interface AWSKMSRotationsListEntry : AWSModel
+
+
+/**
+ <p>Unique identifier of the key.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyId;
+
+/**
+ <p>Date and time that the key material rotation completed. Formatted as Unix time.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable rotationDate;
+
+/**
+ <p>Identifies whether the key material rotation was a scheduled <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotating-keys-enable-disable">automatic rotation</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotating-keys-on-demand">on-demand rotation</a>.</p>
+ */
+@property (nonatomic, assign) AWSKMSRotationType rotationType;
 
 @end
 
