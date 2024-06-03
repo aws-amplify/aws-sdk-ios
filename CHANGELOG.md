@@ -2,7 +2,8 @@
 
 ## Unreleased
 
--Features for next release
+- **AWSCore**
+  - Fixing a name collision with CocoaLumberjack (#5361)
 
 ## 2.36.2
 
