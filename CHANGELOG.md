@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+<!--  VALIDATE THAT THE FOLLOWING IS UNDER THE UNRELELEASED SECTION AND HAS NO DUPLICATES. OTHERWISE UPDATE IT -->
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSEC2
+
+
 - **AWSCore**
   - Fixing a name collision with CocoaLumberjack (#5361)
 
