@@ -1316,6 +1316,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 	return @{
              @"indexName" : @"IndexName",
              @"keySchema" : @"KeySchema",
+             @"onDemandThroughput" : @"OnDemandThroughput",
              @"projection" : @"Projection",
              @"provisionedThroughput" : @"ProvisionedThroughput",
              };
@@ -1323,6 +1324,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)keySchemaJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
+}
+
++ (NSValueTransformer *)onDemandThroughputJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBOnDemandThroughput class]];
 }
 
 + (NSValueTransformer *)projectionJSONTransformer {
@@ -1396,6 +1401,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 	return @{
              @"globalSecondaryIndexes" : @"GlobalSecondaryIndexes",
              @"KMSMasterKeyId" : @"KMSMasterKeyId",
+             @"onDemandThroughputOverride" : @"OnDemandThroughputOverride",
              @"provisionedThroughputOverride" : @"ProvisionedThroughputOverride",
              @"regionName" : @"RegionName",
              @"tableClassOverride" : @"TableClassOverride",
@@ -1404,6 +1410,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)globalSecondaryIndexesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBReplicaGlobalSecondaryIndex class]];
+}
+
++ (NSValueTransformer *)onDemandThroughputOverrideJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBOnDemandThroughputOverride class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputOverrideJSONTransformer {
@@ -1447,6 +1457,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"globalSecondaryIndexes" : @"GlobalSecondaryIndexes",
              @"keySchema" : @"KeySchema",
              @"localSecondaryIndexes" : @"LocalSecondaryIndexes",
+             @"onDemandThroughput" : @"OnDemandThroughput",
              @"provisionedThroughput" : @"ProvisionedThroughput",
              @"resourcePolicy" : @"ResourcePolicy",
              @"SSESpecification" : @"SSESpecification",
@@ -1492,6 +1503,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)localSecondaryIndexesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBLocalSecondaryIndex class]];
+}
+
++ (NSValueTransformer *)onDemandThroughputJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBOnDemandThroughput class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
@@ -3258,6 +3273,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 	return @{
              @"indexName" : @"IndexName",
              @"keySchema" : @"KeySchema",
+             @"onDemandThroughput" : @"OnDemandThroughput",
              @"projection" : @"Projection",
              @"provisionedThroughput" : @"ProvisionedThroughput",
              };
@@ -3265,6 +3281,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)keySchemaJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
+}
+
++ (NSValueTransformer *)onDemandThroughputJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBOnDemandThroughput class]];
 }
 
 + (NSValueTransformer *)projectionJSONTransformer {
@@ -3311,6 +3331,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"indexStatus" : @"IndexStatus",
              @"itemCount" : @"ItemCount",
              @"keySchema" : @"KeySchema",
+             @"onDemandThroughput" : @"OnDemandThroughput",
              @"projection" : @"Projection",
              @"provisionedThroughput" : @"ProvisionedThroughput",
              };
@@ -3351,6 +3372,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
 }
 
++ (NSValueTransformer *)onDemandThroughputJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBOnDemandThroughput class]];
+}
+
 + (NSValueTransformer *)projectionJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
 }
@@ -3371,6 +3396,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 	return @{
              @"indexName" : @"IndexName",
              @"keySchema" : @"KeySchema",
+             @"onDemandThroughput" : @"OnDemandThroughput",
              @"projection" : @"Projection",
              @"provisionedThroughput" : @"ProvisionedThroughput",
              };
@@ -3378,6 +3404,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)keySchemaJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
+}
+
++ (NSValueTransformer *)onDemandThroughputJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBOnDemandThroughput class]];
 }
 
 + (NSValueTransformer *)projectionJSONTransformer {
@@ -4573,6 +4603,35 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 @end
 
+@implementation AWSDynamoDBOnDemandThroughput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxReadRequestUnits" : @"MaxReadRequestUnits",
+             @"maxWriteRequestUnits" : @"MaxWriteRequestUnits",
+             };
+}
+
+@end
+
+@implementation AWSDynamoDBOnDemandThroughputOverride
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxReadRequestUnits" : @"MaxReadRequestUnits",
+             };
+}
+
+@end
+
 @implementation AWSDynamoDBParameterizedStatement
 
 + (BOOL)supportsSecureCoding {
@@ -5401,6 +5460,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 	return @{
              @"globalSecondaryIndexes" : @"GlobalSecondaryIndexes",
              @"KMSMasterKeyId" : @"KMSMasterKeyId",
+             @"onDemandThroughputOverride" : @"OnDemandThroughputOverride",
              @"provisionedThroughputOverride" : @"ProvisionedThroughputOverride",
              @"regionName" : @"RegionName",
              @"replicaInaccessibleDateTime" : @"ReplicaInaccessibleDateTime",
@@ -5413,6 +5473,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)globalSecondaryIndexesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBReplicaGlobalSecondaryIndexDescription class]];
+}
+
++ (NSValueTransformer *)onDemandThroughputOverrideJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBOnDemandThroughputOverride class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputOverrideJSONTransformer {
@@ -5488,8 +5552,13 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"indexName" : @"IndexName",
+             @"onDemandThroughputOverride" : @"OnDemandThroughputOverride",
              @"provisionedThroughputOverride" : @"ProvisionedThroughputOverride",
              };
+}
+
++ (NSValueTransformer *)onDemandThroughputOverrideJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBOnDemandThroughputOverride class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputOverrideJSONTransformer {
@@ -5582,8 +5651,13 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"indexName" : @"IndexName",
+             @"onDemandThroughputOverride" : @"OnDemandThroughputOverride",
              @"provisionedThroughputOverride" : @"ProvisionedThroughputOverride",
              };
+}
+
++ (NSValueTransformer *)onDemandThroughputOverrideJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBOnDemandThroughputOverride class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputOverrideJSONTransformer {
@@ -5893,6 +5967,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"billingModeOverride" : @"BillingModeOverride",
              @"globalSecondaryIndexOverride" : @"GlobalSecondaryIndexOverride",
              @"localSecondaryIndexOverride" : @"LocalSecondaryIndexOverride",
+             @"onDemandThroughputOverride" : @"OnDemandThroughputOverride",
              @"provisionedThroughputOverride" : @"ProvisionedThroughputOverride",
              @"SSESpecificationOverride" : @"SSESpecificationOverride",
              @"targetTableName" : @"TargetTableName",
@@ -5926,6 +6001,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)localSecondaryIndexOverrideJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBLocalSecondaryIndex class]];
+}
+
++ (NSValueTransformer *)onDemandThroughputOverrideJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBOnDemandThroughput class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputOverrideJSONTransformer {
@@ -5967,6 +6046,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"billingModeOverride" : @"BillingModeOverride",
              @"globalSecondaryIndexOverride" : @"GlobalSecondaryIndexOverride",
              @"localSecondaryIndexOverride" : @"LocalSecondaryIndexOverride",
+             @"onDemandThroughputOverride" : @"OnDemandThroughputOverride",
              @"provisionedThroughputOverride" : @"ProvisionedThroughputOverride",
              @"restoreDateTime" : @"RestoreDateTime",
              @"SSESpecificationOverride" : @"SSESpecificationOverride",
@@ -6004,6 +6084,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)localSecondaryIndexOverrideJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBLocalSecondaryIndex class]];
+}
+
++ (NSValueTransformer *)onDemandThroughputOverrideJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBOnDemandThroughput class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputOverrideJSONTransformer {
@@ -6357,6 +6441,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"billingMode" : @"BillingMode",
              @"itemCount" : @"ItemCount",
              @"keySchema" : @"KeySchema",
+             @"onDemandThroughput" : @"OnDemandThroughput",
              @"provisionedThroughput" : @"ProvisionedThroughput",
              @"tableArn" : @"TableArn",
              @"tableCreationDateTime" : @"TableCreationDateTime",
@@ -6389,6 +6474,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)keySchemaJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
+}
+
++ (NSValueTransformer *)onDemandThroughputJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBOnDemandThroughput class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
@@ -6611,6 +6700,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"billingMode" : @"BillingMode",
              @"globalSecondaryIndexes" : @"GlobalSecondaryIndexes",
              @"keySchema" : @"KeySchema",
+             @"onDemandThroughput" : @"OnDemandThroughput",
              @"provisionedThroughput" : @"ProvisionedThroughput",
              @"SSESpecification" : @"SSESpecification",
              @"tableName" : @"TableName",
@@ -6650,6 +6740,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
 }
 
++ (NSValueTransformer *)onDemandThroughputJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBOnDemandThroughput class]];
+}
+
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
 }
@@ -6680,6 +6774,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"latestStreamArn" : @"LatestStreamArn",
              @"latestStreamLabel" : @"LatestStreamLabel",
              @"localSecondaryIndexes" : @"LocalSecondaryIndexes",
+             @"onDemandThroughput" : @"OnDemandThroughput",
              @"provisionedThroughput" : @"ProvisionedThroughput",
              @"replicas" : @"Replicas",
              @"restoreSummary" : @"RestoreSummary",
@@ -6724,6 +6819,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)localSecondaryIndexesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBLocalSecondaryIndexDescription class]];
+}
+
++ (NSValueTransformer *)onDemandThroughputJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBOnDemandThroughput class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
@@ -7314,8 +7413,13 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"indexName" : @"IndexName",
+             @"onDemandThroughput" : @"OnDemandThroughput",
              @"provisionedThroughput" : @"ProvisionedThroughput",
              };
+}
+
++ (NSValueTransformer *)onDemandThroughputJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBOnDemandThroughput class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
@@ -7774,6 +7878,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 	return @{
              @"globalSecondaryIndexes" : @"GlobalSecondaryIndexes",
              @"KMSMasterKeyId" : @"KMSMasterKeyId",
+             @"onDemandThroughputOverride" : @"OnDemandThroughputOverride",
              @"provisionedThroughputOverride" : @"ProvisionedThroughputOverride",
              @"regionName" : @"RegionName",
              @"tableClassOverride" : @"TableClassOverride",
@@ -7782,6 +7887,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)globalSecondaryIndexesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBReplicaGlobalSecondaryIndex class]];
+}
+
++ (NSValueTransformer *)onDemandThroughputOverrideJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBOnDemandThroughputOverride class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputOverrideJSONTransformer {
@@ -7823,6 +7932,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"billingMode" : @"BillingMode",
              @"deletionProtectionEnabled" : @"DeletionProtectionEnabled",
              @"globalSecondaryIndexUpdates" : @"GlobalSecondaryIndexUpdates",
+             @"onDemandThroughput" : @"OnDemandThroughput",
              @"provisionedThroughput" : @"ProvisionedThroughput",
              @"replicaUpdates" : @"ReplicaUpdates",
              @"SSESpecification" : @"SSESpecification",
@@ -7859,6 +7969,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)globalSecondaryIndexUpdatesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBGlobalSecondaryIndexUpdate class]];
+}
+
++ (NSValueTransformer *)onDemandThroughputJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBOnDemandThroughput class]];
 }
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {

@@ -532,6 +532,9 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
         if ([value caseInsensitiveCompare:@"dualstack"] == NSOrderedSame) {
             return @(AWSElasticLoadBalancingIpAddressTypeDualstack);
         }
+        if ([value caseInsensitiveCompare:@"dualstack-without-public-ipv4"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingIpAddressTypeDualstackWithoutPublicIpv4);
+        }
         return @(AWSElasticLoadBalancingIpAddressTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -539,6 +542,8 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
                 return @"ipv4";
             case AWSElasticLoadBalancingIpAddressTypeDualstack:
                 return @"dualstack";
+            case AWSElasticLoadBalancingIpAddressTypeDualstackWithoutPublicIpv4:
+                return @"dualstack-without-public-ipv4";
             default:
                 return nil;
         }
@@ -1874,6 +1879,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"dualstack"] == NSOrderedSame) {
             return @(AWSElasticLoadBalancingIpAddressTypeDualstack);
         }
+        if ([value caseInsensitiveCompare:@"dualstack-without-public-ipv4"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingIpAddressTypeDualstackWithoutPublicIpv4);
+        }
         return @(AWSElasticLoadBalancingIpAddressTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1881,6 +1889,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"ipv4";
             case AWSElasticLoadBalancingIpAddressTypeDualstack:
                 return @"dualstack";
+            case AWSElasticLoadBalancingIpAddressTypeDualstackWithoutPublicIpv4:
+                return @"dualstack-without-public-ipv4";
             default:
                 return nil;
         }
@@ -2715,6 +2725,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"dualstack"] == NSOrderedSame) {
             return @(AWSElasticLoadBalancingIpAddressTypeDualstack);
         }
+        if ([value caseInsensitiveCompare:@"dualstack-without-public-ipv4"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingIpAddressTypeDualstackWithoutPublicIpv4);
+        }
         return @(AWSElasticLoadBalancingIpAddressTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2722,6 +2735,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"ipv4";
             case AWSElasticLoadBalancingIpAddressTypeDualstack:
                 return @"dualstack";
+            case AWSElasticLoadBalancingIpAddressTypeDualstackWithoutPublicIpv4:
+                return @"dualstack-without-public-ipv4";
             default:
                 return nil;
         }
@@ -2750,6 +2765,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"dualstack"] == NSOrderedSame) {
             return @(AWSElasticLoadBalancingIpAddressTypeDualstack);
         }
+        if ([value caseInsensitiveCompare:@"dualstack-without-public-ipv4"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingIpAddressTypeDualstackWithoutPublicIpv4);
+        }
         return @(AWSElasticLoadBalancingIpAddressTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2757,6 +2775,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"ipv4";
             case AWSElasticLoadBalancingIpAddressTypeDualstack:
                 return @"dualstack";
+            case AWSElasticLoadBalancingIpAddressTypeDualstackWithoutPublicIpv4:
+                return @"dualstack-without-public-ipv4";
             default:
                 return nil;
         }
@@ -2897,6 +2917,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"dualstack"] == NSOrderedSame) {
             return @(AWSElasticLoadBalancingIpAddressTypeDualstack);
         }
+        if ([value caseInsensitiveCompare:@"dualstack-without-public-ipv4"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingIpAddressTypeDualstackWithoutPublicIpv4);
+        }
         return @(AWSElasticLoadBalancingIpAddressTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2904,6 +2927,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"ipv4";
             case AWSElasticLoadBalancingIpAddressTypeDualstack:
                 return @"dualstack";
+            case AWSElasticLoadBalancingIpAddressTypeDualstackWithoutPublicIpv4:
+                return @"dualstack-without-public-ipv4";
             default:
                 return nil;
         }
@@ -2941,6 +2966,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"dualstack"] == NSOrderedSame) {
             return @(AWSElasticLoadBalancingIpAddressTypeDualstack);
         }
+        if ([value caseInsensitiveCompare:@"dualstack-without-public-ipv4"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingIpAddressTypeDualstackWithoutPublicIpv4);
+        }
         return @(AWSElasticLoadBalancingIpAddressTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2948,6 +2976,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"ipv4";
             case AWSElasticLoadBalancingIpAddressTypeDualstack:
                 return @"dualstack";
+            case AWSElasticLoadBalancingIpAddressTypeDualstackWithoutPublicIpv4:
+                return @"dualstack-without-public-ipv4";
             default:
                 return nil;
         }

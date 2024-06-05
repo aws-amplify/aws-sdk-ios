@@ -1,6 +1,7 @@
 # AWS SDK for iOS
 
 [![Release](https://img.shields.io/github/release/aws/aws-sdk-ios.svg)](../../releases)
+[![Code Coverage](https://codecov.io/gh/aws-amplify/aws-sdk-ios/branch/main/graph/badge.svg)](https://codecov.io/gh/aws-amplify/aws-sdk-ios)
 [![CocoaPods](https://img.shields.io/cocoapods/v/AWSCore.svg)](https://cocoapods.org/pods/AWSCore)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Integration Test](https://github.com/aws-amplify/aws-sdk-ios/actions/workflows/integ-test.yml/badge.svg)](https://github.com/aws-amplify/aws-sdk-ios)
