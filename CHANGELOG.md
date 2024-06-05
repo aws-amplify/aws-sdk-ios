@@ -2,13 +2,16 @@
 
 ## Unreleased
 
-<!--  VALIDATE THAT THE FOLLOWING IS UNDER THE UNRELELEASED SECTION AND HAS NO DUPLICATES. OTHERWISE UPDATE IT -->
-
 ### Misc. Updates
 
 - Model updates for the following services
   - AWSEC2
-
+  - AWSCognitoIdentityProvider
+  - AWSPolly
+  - AWSElasticLoadBalancingv2
+  - AWSDynamoDB
+  - AWSKMS
+  - AWSConnect
 
 - **AWSCore**
   - Fixing a name collision with CocoaLumberjack (#5361)
