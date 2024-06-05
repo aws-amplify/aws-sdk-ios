@@ -17,7 +17,7 @@
     <a title="AWSDynamoDBCreateTableInput Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSDynamoDB 2.36.2 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSDynamoDB 2.36.3 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSDynamoDB.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -450,6 +450,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes.html#/c:objc(cs)AWSDynamoDBObjectModel">AWSDynamoDBObjectModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBOnDemandThroughput.html">AWSDynamoDBOnDemandThroughput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBOnDemandThroughputOverride.html">AWSDynamoDBOnDemandThroughputOverride</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBPaginatedOutput.html">AWSDynamoDBPaginatedOutput</a>
@@ -932,7 +938,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p><ul><li><p><code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned Mode</a>.</p></li><li><p><code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand Mode</a>. </p></li></ul></p>
+                        <p><p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p><ul><li><p><code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p></li><li><p><code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>. </p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -1082,6 +1088,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSDynamoDBCreateTableInput(py)onDemandThroughput"></a>
+                    <a name="//apple_ref/objc/Property/onDemandThroughput" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBCreateTableInput(py)onDemandThroughput">onDemandThroughput</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the maximum number of read and write units for the specified table in on-demand capacity mode. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSDynamoDBOnDemandThroughput.html">AWSDynamoDBOnDemandThroughput</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">onDemandThroughput</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">onDemandThroughput</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBOnDemandThroughput.html">AWSDynamoDBOnDemandThroughput</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSDynamoDBCreateTableInput(py)provisionedThroughput"></a>
                     <a name="//apple_ref/objc/Property/provisionedThroughput" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSDynamoDBCreateTableInput(py)provisionedThroughput">provisionedThroughput</a>
@@ -1124,7 +1162,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An Amazon Web Services resource-based policy document in JSON format that will be attached to the table.</p><p>When you attach a resource-based policy while creating a table, the policy creation is <i>strongly consistent</i>.</p><p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. You can’t request an increase for this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p>
+                        <p><p>An Amazon Web Services resource-based policy document in JSON format that will be attached to the table.</p><p>When you attach a resource-based policy while creating a table, the policy application is <i>strongly consistent</i>.</p><p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that apply for resource-based policies, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p><note><p>You need to specify the <code>CreateTable</code> and <code>PutResourcePolicy</code> IAM actions for authorizing a user to create a table with a resource-based policy.</p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -1308,7 +1346,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-05-13)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-06-05)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

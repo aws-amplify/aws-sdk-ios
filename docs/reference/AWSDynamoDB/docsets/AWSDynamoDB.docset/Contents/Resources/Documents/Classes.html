@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSDynamoDB 2.36.2 Docs</a> (79% documented)</p>
+        <p><a href="index.html">AWSDynamoDB 2.36.3 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSDynamoDB.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -450,6 +450,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes.html#/c:objc(cs)AWSDynamoDBObjectModel">AWSDynamoDBObjectModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBOnDemandThroughput.html">AWSDynamoDBOnDemandThroughput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBOnDemandThroughputOverride.html">AWSDynamoDBOnDemandThroughputOverride</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSDynamoDBPaginatedOutput.html">AWSDynamoDBPaginatedOutput</a>
@@ -1794,7 +1800,7 @@ Required parameters: [ComparisonOperator]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the request asked for it. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+                        <p>The capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the request asked for it. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
 
                         <a href="Classes/AWSDynamoDBConsumedCapacity.html" class="slightly-smaller">See more</a>
                       </div>
@@ -5301,6 +5307,72 @@ Required parameters: [ComparisonOperator]</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSDynamoDBOnDemandThroughput"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBOnDemandThroughput" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBOnDemandThroughput">AWSDynamoDBOnDemandThroughput</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+
+                        <a href="Classes/AWSDynamoDBOnDemandThroughput.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBOnDemandThroughput</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBOnDemandThroughput</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDBOnDemandThroughputOverride"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBOnDemandThroughputOverride" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBOnDemandThroughputOverride">AWSDynamoDBOnDemandThroughputOverride</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Overrides the on-demand throughput settings for this replica table. If you don&rsquo;t specify a value for this parameter, it uses the source table&rsquo;s on-demand throughput settings.</p>
+
+                        <a href="Classes/AWSDynamoDBOnDemandThroughputOverride.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBOnDemandThroughputOverride</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBOnDemandThroughputOverride</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSDynamoDBParameterizedStatement"></a>
                     <a name="//apple_ref/objc/Class/AWSDynamoDBParameterizedStatement" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSDynamoDBParameterizedStatement">AWSDynamoDBParameterizedStatement</a>
@@ -7389,7 +7461,7 @@ Required parameters: [ComparisonOperator]</p>
                       <div class="abstract">
                         <p>Represents the new provisioned throughput settings to be applied to a global secondary index.</p>
 
-<p>Required parameters: [IndexName, ProvisionedThroughput]</p>
+<p>Required parameters: [IndexName]</p>
 
                         <a href="Classes/AWSDynamoDBUpdateGlobalSecondaryIndexAction.html" class="slightly-smaller">See more</a>
                       </div>
@@ -8243,7 +8315,7 @@ Required parameters: [ComparisonOperator]</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-05-13)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-06-05)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
