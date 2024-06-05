@@ -17,7 +17,7 @@
     <a title="AWSKMSGetKeyRotationStatusResponse Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSKMS 2.36.2 Docs</a> (68% documented)</p>
+        <p><a href="../index.html">AWSKMS 2.36.3 Docs</a> (68% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKMS.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -233,6 +233,12 @@
                 <a href="../Classes/AWSKMSListKeyPoliciesResponse.html">AWSKMSListKeyPoliciesResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListKeyRotationsRequest.html">AWSKMSListKeyRotationsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListKeyRotationsResponse.html">AWSKMSListKeyRotationsResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSKMSListKeysRequest.html">AWSKMSListKeysRequest</a>
               </li>
               <li class="nav-group-task">
@@ -279,6 +285,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSRevokeGrantRequest.html">AWSKMSRevokeGrantRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSRotateKeyOnDemandRequest.html">AWSKMSRotateKeyOnDemandRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSRotateKeyOnDemandResponse.html">AWSKMSRotateKeyOnDemandResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSRotationsListEntry.html">AWSKMSRotationsListEntry</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSScheduleKeyDeletionRequest.html">AWSKMSScheduleKeyDeletionRequest</a>
@@ -420,6 +435,9 @@
                 <a href="../Enums/AWSKMSOriginType.html">AWSKMSOriginType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSKMSRotationType.html">AWSKMSRotationType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSKMSSigningAlgorithmSpec.html">AWSKMSSigningAlgorithmSpec</a>
               </li>
               <li class="nav-group-task">
@@ -456,6 +474,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSKMSGetKeyRotationStatusResponse(py)keyId"></a>
+                    <a name="//apple_ref/objc/Property/keyId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSGetKeyRotationStatusResponse(py)keyId">keyId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Identifies the specified symmetric encryption KMS key.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">keyId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">keyId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSKMSGetKeyRotationStatusResponse(py)keyRotationEnabled"></a>
                     <a name="//apple_ref/objc/Property/keyRotationEnabled" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSKMSGetKeyRotationStatusResponse(py)keyRotationEnabled">keyRotationEnabled</a>
@@ -485,12 +535,108 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSGetKeyRotationStatusResponse(py)nextRotationDate"></a>
+                    <a name="//apple_ref/objc/Property/nextRotationDate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSGetKeyRotationStatusResponse(py)nextRotationDate">nextRotationDate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The next date that KMS will automatically rotate the key material.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">nextRotationDate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">nextRotationDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSGetKeyRotationStatusResponse(py)onDemandRotationStartDate"></a>
+                    <a name="//apple_ref/objc/Property/onDemandRotationStartDate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSGetKeyRotationStatusResponse(py)onDemandRotationStartDate">onDemandRotationStartDate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Identifies the date and time that an in progress on-demand rotation was initiated.</p><p>The KMS API follows an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">eventual consistency</a> model due to the distributed nature of the system. As a result, there might be a slight delay between initiating on-demand key rotation and the rotation&rsquo;s completion. Once the on-demand rotation is complete, use <a>ListKeyRotations</a> to view the details of the on-demand rotation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">onDemandRotationStartDate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">onDemandRotationStartDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSGetKeyRotationStatusResponse(py)rotationPeriodInDays"></a>
+                    <a name="//apple_ref/objc/Property/rotationPeriodInDays" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSGetKeyRotationStatusResponse(py)rotationPeriodInDays">rotationPeriodInDays</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of days between each automatic rotation. The default value is 365 days.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">rotationPeriodInDays</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">rotationPeriodInDays</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-05-13)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-06-05)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
