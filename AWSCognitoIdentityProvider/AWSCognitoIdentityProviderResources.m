@@ -63,6 +63,7 @@
     \"endpointPrefix\":\"cognito-idp\",\
     \"jsonVersion\":\"1.1\",\
     \"protocol\":\"json\",\
+    \"protocols\":[\"json\"],\
     \"serviceFullName\":\"Amazon Cognito Identity Provider\",\
     \"serviceId\":\"Cognito Identity Provider\",\
     \"signatureVersion\":\"v4\",\
@@ -1818,6 +1819,7 @@
         {\"shape\":\"UsernameExistsException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"InternalErrorException\"},\
+        {\"shape\":\"LimitExceededException\"},\
         {\"shape\":\"InvalidSmsRoleAccessPolicyException\"},\
         {\"shape\":\"InvalidSmsRoleTrustRelationshipException\"},\
         {\"shape\":\"InvalidEmailRoleAccessPolicyException\"},\
@@ -2584,7 +2586,7 @@
         },\
         \"UserLastModifiedDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date and time, in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format, when the item was modified.</p>\"\
+          \"documentation\":\"<p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>\"\
         },\
         \"Enabled\":{\
           \"shape\":\"BooleanType\",\
@@ -3309,7 +3311,7 @@
         },\
         \"CreationDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date and time, in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format, when the item was created.</p>\"\
+          \"documentation\":\"<p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>\"\
         },\
         \"EventResponse\":{\
           \"shape\":\"EventResponseType\",\
@@ -3904,7 +3906,7 @@
         },\
         \"Identifier\":{\
           \"shape\":\"ResourceServerIdentifierType\",\
-          \"documentation\":\"<p>A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located, such as <code>https://my-weather-api.example.com</code>.</p>\"\
+          \"documentation\":\"<p>A unique resource server identifier for the resource server. The identifier can be an API friendly name like <code>solar-system-data</code>. You can also set an API URL like <code>https://solar-system-data-api.example.com</code> as your identifier.</p> <p>Amazon Cognito represents scopes in the access token in the format <code>$resource-server-identifier/$scope</code>. Longer scope-identifier strings increase the size of your access tokens.</p>\"\
         },\
         \"Name\":{\
           \"shape\":\"ResourceServerNameType\",\
@@ -4020,7 +4022,7 @@
         },\
         \"DefaultRedirectURI\":{\
           \"shape\":\"RedirectUrlType\",\
-          \"documentation\":\"<p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p> <p>A redirect URI must:</p> <ul> <li> <p>Be an absolute URI.</p> </li> <li> <p>Be registered with the authorization server.</p> </li> <li> <p>Not include a fragment component.</p> </li> </ul> <p>See <a href=\\\"https://tools.ietf.org/html/rfc6749#section-3.1.2\\\">OAuth 2.0 - Redirection Endpoint</a>.</p> <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p> <p>App callback URLs such as myapp://example are also supported.</p>\"\
+          \"documentation\":\"<p>The default redirect URI. In app clients with one assigned IdP, replaces <code>redirect_uri</code> in authentication requests. Must be in the <code>CallbackURLs</code> list.</p> <p>A redirect URI must:</p> <ul> <li> <p>Be an absolute URI.</p> </li> <li> <p>Be registered with the authorization server.</p> </li> <li> <p>Not include a fragment component.</p> </li> </ul> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#cognito-user-pools-app-idp-settings-about\\\">Default redirect URI</a>.</p> <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p> <p>App callback URLs such as myapp://example are also supported.</p>\"\
         },\
         \"AllowedOAuthFlows\":{\
           \"shape\":\"OAuthFlowsType\",\
@@ -4476,7 +4478,7 @@
         },\
         \"Identifier\":{\
           \"shape\":\"ResourceServerIdentifierType\",\
-          \"documentation\":\"<p>The identifier for the resource server</p>\"\
+          \"documentation\":\"<p>A unique resource server identifier for the resource server. The identifier can be an API friendly name like <code>solar-system-data</code>. You can also set an API URL like <code>https://solar-system-data-api.example.com</code> as your identifier.</p> <p>Amazon Cognito represents scopes in the access token in the format <code>$resource-server-identifier/$scope</code>. Longer scope-identifier strings increase the size of your access tokens.</p>\"\
         }\
       }\
     },\
@@ -4681,7 +4683,7 @@
         },\
         \"DeviceLastModifiedDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date and time, in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format, when the item was modified.</p>\"\
+          \"documentation\":\"<p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>\"\
         },\
         \"DeviceLastAuthenticatedDate\":{\
           \"shape\":\"DateType\",\
@@ -5379,11 +5381,11 @@
         },\
         \"LastModifiedDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date and time, in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format, when the item was modified.</p>\"\
+          \"documentation\":\"<p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>\"\
         },\
         \"CreationDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date and time, in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format, when the item was created.</p>\"\
+          \"documentation\":\"<p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The group type.</p>\"\
@@ -5444,11 +5446,11 @@
         },\
         \"LastModifiedDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date and time, in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format, when the item was modified.</p>\"\
+          \"documentation\":\"<p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>\"\
         },\
         \"CreationDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date and time, in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format, when the item was created.</p>\"\
+          \"documentation\":\"<p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>\"\
         }\
       },\
       \"documentation\":\"<p>A container for information about an IdP.</p>\"\
@@ -6404,7 +6406,7 @@
         },\
         \"CreationDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date and time, in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format, when the item was created.</p>\"\
+          \"documentation\":\"<p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>\"\
         }\
       },\
       \"documentation\":\"<p>A container for IdP details.</p>\"\
@@ -6618,7 +6620,7 @@
         },\
         \"Identifier\":{\
           \"shape\":\"ResourceServerIdentifierType\",\
-          \"documentation\":\"<p>The identifier for the resource server.</p>\"\
+          \"documentation\":\"<p>A unique resource server identifier for the resource server. The identifier can be an API friendly name like <code>solar-system-data</code>. You can also set an API URL like <code>https://solar-system-data-api.example.com</code> as your identifier.</p> <p>Amazon Cognito represents scopes in the access token in the format <code>$resource-server-identifier/$scope</code>. Longer scope-identifier strings increase the size of your access tokens.</p>\"\
         },\
         \"Name\":{\
           \"shape\":\"ResourceServerNameType\",\
@@ -6746,7 +6748,7 @@
         },\
         \"LastModifiedDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date and time, in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format, when the item was modified.</p>\"\
+          \"documentation\":\"<p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The risk configuration type.</p>\"\
@@ -7431,11 +7433,11 @@
         },\
         \"LastModifiedDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date and time, in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format, when the item was modified.</p>\"\
+          \"documentation\":\"<p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>\"\
         },\
         \"CreationDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date and time, in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format, when the item was created.</p>\"\
+          \"documentation\":\"<p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>\"\
         }\
       },\
       \"documentation\":\"<p>A container for the UI customization information for a user pool's built-in app UI.</p>\"\
@@ -7672,7 +7674,7 @@
         },\
         \"Identifier\":{\
           \"shape\":\"ResourceServerIdentifierType\",\
-          \"documentation\":\"<p>The identifier for the resource server.</p>\"\
+          \"documentation\":\"<p>A unique resource server identifier for the resource server. The identifier can be an API friendly name like <code>solar-system-data</code>. You can also set an API URL like <code>https://solar-system-data-api.example.com</code> as your identifier.</p> <p>Amazon Cognito represents scopes in the access token in the format <code>$resource-server-identifier/$scope</code>. Longer scope-identifier strings increase the size of your access tokens.</p>\"\
         },\
         \"Name\":{\
           \"shape\":\"ResourceServerNameType\",\
@@ -8042,7 +8044,7 @@
         },\
         \"CreationDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date and time, in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format, when the item was created.</p>\"\
+          \"documentation\":\"<p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>\"\
         },\
         \"StartDate\":{\
           \"shape\":\"DateType\",\
@@ -8184,11 +8186,11 @@
         },\
         \"LastModifiedDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date and time, in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format, when the item was modified.</p>\"\
+          \"documentation\":\"<p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>\"\
         },\
         \"CreationDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date and time, in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format, when the item was created.</p>\"\
+          \"documentation\":\"<p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>\"\
         },\
         \"RefreshTokenValidity\":{\
           \"shape\":\"RefreshTokenValidityType\",\
@@ -8293,11 +8295,11 @@
         },\
         \"LastModifiedDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date and time, in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format, when the item was modified.</p>\"\
+          \"documentation\":\"<p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>\"\
         },\
         \"CreationDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date and time, in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format, when the item was created.</p>\"\
+          \"documentation\":\"<p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>\"\
         }\
       },\
       \"documentation\":\"<p>A user pool description.</p>\"\
@@ -8384,11 +8386,11 @@
         },\
         \"LastModifiedDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date and time, in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format, when the item was modified.</p>\"\
+          \"documentation\":\"<p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>\"\
         },\
         \"CreationDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date and time, in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format, when the item was created.</p>\"\
+          \"documentation\":\"<p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>\"\
         },\
         \"SchemaAttributes\":{\
           \"shape\":\"SchemaAttributesListType\",\
@@ -8502,7 +8504,8 @@
         \"COMPROMISED\",\
         \"UNKNOWN\",\
         \"RESET_REQUIRED\",\
-        \"FORCE_CHANGE_PASSWORD\"\
+        \"FORCE_CHANGE_PASSWORD\",\
+        \"EXTERNAL_PROVIDER\"\
       ]\
     },\
     \"UserType\":{\
@@ -8522,7 +8525,7 @@
         },\
         \"UserLastModifiedDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date and time, in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format, when the item was modified.</p>\"\
+          \"documentation\":\"<p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>\"\
         },\
         \"Enabled\":{\
           \"shape\":\"BooleanType\",\
