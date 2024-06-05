@@ -17,7 +17,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSEC2 2.36.2 Docs</a> (77% documented)</p>
+        <p><a href="index.html">AWSEC2 2.36.3 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -2642,6 +2642,12 @@
                 <a href="Classes/AWSEC2DisableImageDeprecationResult.html">AWSEC2DisableImageDeprecationResult</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSEC2DisableImageDeregistrationProtectionRequest.html">AWSEC2DisableImageDeregistrationProtectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSEC2DisableImageDeregistrationProtectionResult.html">AWSEC2DisableImageDeregistrationProtectionResult</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSEC2DisableImageRequest.html">AWSEC2DisableImageRequest</a>
               </li>
               <li class="nav-group-task">
@@ -2907,6 +2913,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSEC2EnableImageDeprecationResult.html">AWSEC2EnableImageDeprecationResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSEC2EnableImageDeregistrationProtectionRequest.html">AWSEC2EnableImageDeregistrationProtectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSEC2EnableImageDeregistrationProtectionResult.html">AWSEC2EnableImageDeregistrationProtectionResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSEC2EnableImageRequest.html">AWSEC2EnableImageRequest</a>
@@ -3198,6 +3210,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSEC2GetInstanceMetadataDefaultsResult.html">AWSEC2GetInstanceMetadataDefaultsResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSEC2GetInstanceTpmEkPubRequest.html">AWSEC2GetInstanceTpmEkPubRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSEC2GetInstanceTpmEkPubResult.html">AWSEC2GetInstanceTpmEkPubResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSEC2GetInstanceTypesFromInstanceRequirementsRequest.html">AWSEC2GetInstanceTypesFromInstanceRequirementsRequest</a>
@@ -6066,6 +6084,12 @@
                 <a href="Enums/AWSEC2Ec2InstanceConnectEndpointState.html">AWSEC2Ec2InstanceConnectEndpointState</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSEC2EkPubKeyFormat.html">AWSEC2EkPubKeyFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSEC2EkPubKeyType.html">AWSEC2EkPubKeyType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSEC2ElasticGpuState.html">AWSEC2ElasticGpuState</a>
               </li>
               <li class="nav-group-task">
@@ -6469,6 +6493,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSEC2PermissionGroup.html">AWSEC2PermissionGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSEC2PhcSupport.html">AWSEC2PhcSupport</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSEC2PlacementGroupState.html">AWSEC2PlacementGroupState</a>
@@ -10020,6 +10047,80 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSEC2EkPubKeyFormat"></a>
+                    <a name="//apple_ref/objc/Enum/AWSEC2EkPubKeyFormat" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2EkPubKeyFormat">AWSEC2EkPubKeyFormat</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSEC2EkPubKeyFormat.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSEC2EkPubKeyFormat</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSEC2EkPubKeyFormatUnknown</span><span class="p">,</span>
+    <span class="n">AWSEC2EkPubKeyFormatDer</span><span class="p">,</span>
+    <span class="n">AWSEC2EkPubKeyFormatTpmt</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSEC2EkPubKeyFormat</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSEC2EkPubKeyType"></a>
+                    <a name="//apple_ref/objc/Enum/AWSEC2EkPubKeyType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2EkPubKeyType">AWSEC2EkPubKeyType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSEC2EkPubKeyType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSEC2EkPubKeyType</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSEC2EkPubKeyTypeUnknown</span><span class="p">,</span>
+    <span class="n">AWSEC2EkPubKeyTypeRsa2048</span><span class="p">,</span>
+    <span class="n">AWSEC2EkPubKeyTypeEccSecP384</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSEC2EkPubKeyType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSEC2ElasticGpuState"></a>
                     <a name="//apple_ref/objc/Enum/AWSEC2ElasticGpuState" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSEC2ElasticGpuState">AWSEC2ElasticGpuState</a>
@@ -11452,6 +11553,7 @@
     <span class="n">AWSEC2ImageAttributeNameUefiData</span><span class="p">,</span>
     <span class="n">AWSEC2ImageAttributeNameLastLaunchedTime</span><span class="p">,</span>
     <span class="n">AWSEC2ImageAttributeNameImdsSupport</span><span class="p">,</span>
+    <span class="n">AWSEC2ImageAttributeNameDeregistrationProtection</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                         </div>
@@ -13086,6 +13188,15 @@
     <span class="n">AWSEC2InstanceTypeG6_48xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeGR6_4xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeGR6_8xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC7I_flex_large</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC7I_flex_xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC7I_flex_2xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC7I_flex_4xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC7I_flex_8xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeU7I_12tb_224xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeU7In_16tb_224xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeU7In_24tb_224xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeU7In_32tb_224xlarge</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                         </div>
@@ -15374,6 +15485,7 @@
     <span class="n">AWSEC2NetworkInterfaceAttributeGroupSet</span><span class="p">,</span>
     <span class="n">AWSEC2NetworkInterfaceAttributeSourceDestCheck</span><span class="p">,</span>
     <span class="n">AWSEC2NetworkInterfaceAttributeAttachment</span><span class="p">,</span>
+    <span class="n">AWSEC2NetworkInterfaceAttributeAssociatePublicIpAddress</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                         </div>
@@ -15965,6 +16077,43 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSEC2PermissionGroup</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSEC2PhcSupport"></a>
+                    <a name="//apple_ref/objc/Enum/AWSEC2PhcSupport" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2PhcSupport">AWSEC2PhcSupport</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSEC2PhcSupport.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSEC2PhcSupport</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSEC2PhcSupportUnknown</span><span class="p">,</span>
+    <span class="n">AWSEC2PhcSupportUnsupported</span><span class="p">,</span>
+    <span class="n">AWSEC2PhcSupportSupported</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSEC2PhcSupport</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -20365,7 +20514,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-05-13)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-06-05)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

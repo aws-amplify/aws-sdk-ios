@@ -17,7 +17,7 @@
     <a title="AWSEC2RunInstancesRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSEC2 2.36.2 Docs</a> (77% documented)</p>
+        <p><a href="../index.html">AWSEC2 2.36.3 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -2642,6 +2642,12 @@
                 <a href="../Classes/AWSEC2DisableImageDeprecationResult.html">AWSEC2DisableImageDeprecationResult</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2DisableImageDeregistrationProtectionRequest.html">AWSEC2DisableImageDeregistrationProtectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2DisableImageDeregistrationProtectionResult.html">AWSEC2DisableImageDeregistrationProtectionResult</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2DisableImageRequest.html">AWSEC2DisableImageRequest</a>
               </li>
               <li class="nav-group-task">
@@ -2907,6 +2913,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2EnableImageDeprecationResult.html">AWSEC2EnableImageDeprecationResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2EnableImageDeregistrationProtectionRequest.html">AWSEC2EnableImageDeregistrationProtectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2EnableImageDeregistrationProtectionResult.html">AWSEC2EnableImageDeregistrationProtectionResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2EnableImageRequest.html">AWSEC2EnableImageRequest</a>
@@ -3198,6 +3210,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2GetInstanceMetadataDefaultsResult.html">AWSEC2GetInstanceMetadataDefaultsResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetInstanceTpmEkPubRequest.html">AWSEC2GetInstanceTpmEkPubRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetInstanceTpmEkPubResult.html">AWSEC2GetInstanceTpmEkPubResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2GetInstanceTypesFromInstanceRequirementsRequest.html">AWSEC2GetInstanceTypesFromInstanceRequirementsRequest</a>
@@ -6066,6 +6084,12 @@
                 <a href="../Enums/AWSEC2Ec2InstanceConnectEndpointState.html">AWSEC2Ec2InstanceConnectEndpointState</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSEC2EkPubKeyFormat.html">AWSEC2EkPubKeyFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSEC2EkPubKeyType.html">AWSEC2EkPubKeyType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSEC2ElasticGpuState.html">AWSEC2ElasticGpuState</a>
               </li>
               <li class="nav-group-task">
@@ -6469,6 +6493,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSEC2PermissionGroup.html">AWSEC2PermissionGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSEC2PhcSupport.html">AWSEC2PhcSupport</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSEC2PlacementGroupState.html">AWSEC2PlacementGroupState</a>
@@ -7167,7 +7194,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Deprecated.</p><note><p>Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.</p></note></p>
+                        <p><p>An elastic GPU to associate with the instance.</p><note><p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -7199,7 +7226,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.</p><p>You cannot specify accelerators from different generations in the same request.</p><note><p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.</p></note></p>
+                        <p><p>An elastic inference accelerator to associate with the instance.</p><note><p>Amazon Elastic Inference (EI) is no longer available to new customers. For more information, see <a href="http://aws.amazon.com/machine-learning/elastic-inference/faqs/">Amazon Elastic Inference FAQs</a>.</p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -7615,7 +7642,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The launch template to use to launch the instances. Any parameters that you specify in <a>RunInstances</a> override the same parameters in the launch template. You can specify either the name or ID of a launch template, but not both.</p>
+                        <p>The launch template. Any additional parameters that you specify for the new instance overwrite the corresponding parameters included in the launch template.</p>
 
                       </div>
                       <div class="declaration">
@@ -7839,7 +7866,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The network interfaces to associate with the instance. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.</p>
+                        <p>The network interfaces to associate with the instance.</p>
 
                       </div>
                       <div class="declaration">
@@ -7999,7 +8026,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The IDs of the security groups. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p><p>If you specify a network interface, you must specify any security groups as part of the network interface.</p>
+                        <p>The IDs of the security groups. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p><p>If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.</p>
 
                       </div>
                       <div class="declaration">
@@ -8031,7 +8058,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>[Default VPC] The names of the security groups.</p><p>If you specify a network interface, you must specify any security groups as part of the network interface.</p><p>Default: Amazon EC2 uses the default security group.</p>
+                        <p>[Default VPC] The names of the security groups.</p><p>If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.</p><p>Default: Amazon EC2 uses the default security group.</p>
 
                       </div>
                       <div class="declaration">
@@ -8063,7 +8090,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ID of the subnet to launch the instance into.</p><p>If you specify a network interface, you must specify any subnets as part of the network interface.</p>
+                        <p>The ID of the subnet to launch the instance into.</p><p>If you specify a network interface, you must specify any subnets as part of the network interface instead of using this parameter.</p>
 
                       </div>
                       <div class="declaration">
@@ -8151,7 +8178,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-05-13)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-06-05)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
