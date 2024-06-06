@@ -242,7 +242,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.retryHandler = [[AWSLocationRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
-        _configuration.headers = @{@"Content-Type" : @"application/x-amz-json-1.1"}; 
+        _configuration.headers = @{@"Content-Type" : @"application/x-amz-json-1.0"}; 
 		
         _networking = [[AWSNetworking alloc] initWithConfiguration:_configuration];
     }
@@ -916,6 +916,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLocationDisassociateTrackerConsumerResponse *response, NSError *error))completionHandler {
     [[self disassociateTrackerConsumer:request] continueWithBlock:^id _Nullable(AWSTask<AWSLocationDisassociateTrackerConsumerResponse *> * _Nonnull task) {
         AWSLocationDisassociateTrackerConsumerResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLocationForecastGeofenceEventsResponse *> *)forecastGeofenceEvents:(AWSLocationForecastGeofenceEventsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/geofencing/v0/collections/{CollectionName}/forecast-geofence-events"
+                  targetPrefix:@""
+                 operationName:@"ForecastGeofenceEvents"
+                   outputClass:[AWSLocationForecastGeofenceEventsResponse class]];
+}
+
+- (void)forecastGeofenceEvents:(AWSLocationForecastGeofenceEventsRequest *)request
+     completionHandler:(void (^)(AWSLocationForecastGeofenceEventsResponse *response, NSError *error))completionHandler {
+    [[self forecastGeofenceEvents:request] continueWithBlock:^id _Nullable(AWSTask<AWSLocationForecastGeofenceEventsResponse *> * _Nonnull task) {
+        AWSLocationForecastGeofenceEventsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1606,6 +1629,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLocationUpdateTrackerResponse *response, NSError *error))completionHandler {
     [[self updateTracker:request] continueWithBlock:^id _Nullable(AWSTask<AWSLocationUpdateTrackerResponse *> * _Nonnull task) {
         AWSLocationUpdateTrackerResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLocationVerifyDevicePositionResponse *> *)verifyDevicePosition:(AWSLocationVerifyDevicePositionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/tracking/v0/trackers/{TrackerName}/positions/verify"
+                  targetPrefix:@""
+                 operationName:@"VerifyDevicePosition"
+                   outputClass:[AWSLocationVerifyDevicePositionResponse class]];
+}
+
+- (void)verifyDevicePosition:(AWSLocationVerifyDevicePositionRequest *)request
+     completionHandler:(void (^)(AWSLocationVerifyDevicePositionResponse *response, NSError *error))completionHandler {
+    [[self verifyDevicePosition:request] continueWithBlock:^id _Nullable(AWSTask<AWSLocationVerifyDevicePositionResponse *> * _Nonnull task) {
+        AWSLocationVerifyDevicePositionResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

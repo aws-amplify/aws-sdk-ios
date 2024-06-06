@@ -52,6 +52,7 @@
 - (void) test_AWSLocationCalculateRouteResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCalculateRouteSummary API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCalculateRouteTruckModeOptions API_AVAILABLE(ios(11));
+- (void) test_AWSLocationCellSignals API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCircle API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCreateGeofenceCollectionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCreateGeofenceCollectionResponse API_AVAILABLE(ios(11));
@@ -92,8 +93,13 @@
 - (void) test_AWSLocationDescribeTrackerResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDevicePosition API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDevicePositionUpdate API_AVAILABLE(ios(11));
+- (void) test_AWSLocationDeviceState API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDisassociateTrackerConsumerRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDisassociateTrackerConsumerResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationForecastGeofenceEventsDeviceState API_AVAILABLE(ios(11));
+- (void) test_AWSLocationForecastGeofenceEventsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLocationForecastGeofenceEventsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationForecastedEvent API_AVAILABLE(ios(11));
 - (void) test_AWSLocationGeofenceGeometry API_AVAILABLE(ios(11));
 - (void) test_AWSLocationGetDevicePositionHistoryRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationGetDevicePositionHistoryResponse API_AVAILABLE(ios(11));
@@ -111,6 +117,7 @@
 - (void) test_AWSLocationGetMapTileResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationGetPlaceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationGetPlaceResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationInferredState API_AVAILABLE(ios(11));
 - (void) test_AWSLocationLeg API_AVAILABLE(ios(11));
 - (void) test_AWSLocationLegGeometry API_AVAILABLE(ios(11));
 - (void) test_AWSLocationListDevicePositionsRequest API_AVAILABLE(ios(11));
@@ -141,6 +148,9 @@
 - (void) test_AWSLocationListTrackersRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationListTrackersResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationListTrackersResponseEntry API_AVAILABLE(ios(11));
+- (void) test_AWSLocationLteCellDetails API_AVAILABLE(ios(11));
+- (void) test_AWSLocationLteLocalId API_AVAILABLE(ios(11));
+- (void) test_AWSLocationLteNetworkMeasurements API_AVAILABLE(ios(11));
 - (void) test_AWSLocationMapConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSLocationMapConfigurationUpdate API_AVAILABLE(ios(11));
 - (void) test_AWSLocationPlace API_AVAILABLE(ios(11));
@@ -184,6 +194,9 @@
 - (void) test_AWSLocationUpdateTrackerRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationUpdateTrackerResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationValidationExceptionField API_AVAILABLE(ios(11));
+- (void) test_AWSLocationVerifyDevicePositionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLocationVerifyDevicePositionResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationWiFiAccessPoint API_AVAILABLE(ios(11));
 
 @end
 
@@ -319,6 +332,10 @@
 
 - (void) test_AWSLocationCalculateRouteTruckModeOptions {
     [self validateSecureCodingForClass:[AWSLocationCalculateRouteTruckModeOptions class]];
+}
+
+- (void) test_AWSLocationCellSignals {
+    [self validateSecureCodingForClass:[AWSLocationCellSignals class]];
 }
 
 - (void) test_AWSLocationCircle {
@@ -481,12 +498,32 @@
     [self validateSecureCodingForClass:[AWSLocationDevicePositionUpdate class]];
 }
 
+- (void) test_AWSLocationDeviceState {
+    [self validateSecureCodingForClass:[AWSLocationDeviceState class]];
+}
+
 - (void) test_AWSLocationDisassociateTrackerConsumerRequest {
     [self validateSecureCodingForClass:[AWSLocationDisassociateTrackerConsumerRequest class]];
 }
 
 - (void) test_AWSLocationDisassociateTrackerConsumerResponse {
     [self validateSecureCodingForClass:[AWSLocationDisassociateTrackerConsumerResponse class]];
+}
+
+- (void) test_AWSLocationForecastGeofenceEventsDeviceState {
+    [self validateSecureCodingForClass:[AWSLocationForecastGeofenceEventsDeviceState class]];
+}
+
+- (void) test_AWSLocationForecastGeofenceEventsRequest {
+    [self validateSecureCodingForClass:[AWSLocationForecastGeofenceEventsRequest class]];
+}
+
+- (void) test_AWSLocationForecastGeofenceEventsResponse {
+    [self validateSecureCodingForClass:[AWSLocationForecastGeofenceEventsResponse class]];
+}
+
+- (void) test_AWSLocationForecastedEvent {
+    [self validateSecureCodingForClass:[AWSLocationForecastedEvent class]];
 }
 
 - (void) test_AWSLocationGeofenceGeometry {
@@ -555,6 +592,10 @@
 
 - (void) test_AWSLocationGetPlaceResponse {
     [self validateSecureCodingForClass:[AWSLocationGetPlaceResponse class]];
+}
+
+- (void) test_AWSLocationInferredState {
+    [self validateSecureCodingForClass:[AWSLocationInferredState class]];
 }
 
 - (void) test_AWSLocationLeg {
@@ -675,6 +716,18 @@
 
 - (void) test_AWSLocationListTrackersResponseEntry {
     [self validateSecureCodingForClass:[AWSLocationListTrackersResponseEntry class]];
+}
+
+- (void) test_AWSLocationLteCellDetails {
+    [self validateSecureCodingForClass:[AWSLocationLteCellDetails class]];
+}
+
+- (void) test_AWSLocationLteLocalId {
+    [self validateSecureCodingForClass:[AWSLocationLteLocalId class]];
+}
+
+- (void) test_AWSLocationLteNetworkMeasurements {
+    [self validateSecureCodingForClass:[AWSLocationLteNetworkMeasurements class]];
 }
 
 - (void) test_AWSLocationMapConfiguration {
@@ -847,6 +900,18 @@
 
 - (void) test_AWSLocationValidationExceptionField {
     [self validateSecureCodingForClass:[AWSLocationValidationExceptionField class]];
+}
+
+- (void) test_AWSLocationVerifyDevicePositionRequest {
+    [self validateSecureCodingForClass:[AWSLocationVerifyDevicePositionRequest class]];
+}
+
+- (void) test_AWSLocationVerifyDevicePositionResponse {
+    [self validateSecureCodingForClass:[AWSLocationVerifyDevicePositionResponse class]];
+}
+
+- (void) test_AWSLocationWiFiAccessPoint {
+    [self validateSecureCodingForClass:[AWSLocationWiFiAccessPoint class]];
 }
 
 @end
