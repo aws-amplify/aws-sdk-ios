@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@ static NSString *const AWSInfoSQS = @"SQS";
 NSString *const AWSSQSSDKVersion = @"2.36.3";
 
 
-@interface AWSSQSResponseSerializer : AWSXMLResponseSerializer
+@interface AWSSQSResponseSerializer : AWSJSONResponseSerializer
 
 @end
 
@@ -39,23 +39,34 @@ NSString *const AWSSQSSDKVersion = @"2.36.3";
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
-                            @"AWS.SimpleQueueService.BatchEntryIdsNotDistinct" : @(AWSSQSErrorBatchEntryIdsNotDistinct),
-                            @"AWS.SimpleQueueService.BatchRequestTooLong" : @(AWSSQSErrorBatchRequestTooLong),
-                            @"AWS.SimpleQueueService.EmptyBatchRequest" : @(AWSSQSErrorEmptyBatchRequest),
+                            @"BatchEntryIdsNotDistinct" : @(AWSSQSErrorBatchEntryIdsNotDistinct),
+                            @"BatchRequestTooLong" : @(AWSSQSErrorBatchRequestTooLong),
+                            @"EmptyBatchRequest" : @(AWSSQSErrorEmptyBatchRequest),
+                            @"InvalidAddress" : @(AWSSQSErrorInvalidAddress),
                             @"InvalidAttributeName" : @(AWSSQSErrorInvalidAttributeName),
-                            @"AWS.SimpleQueueService.InvalidBatchEntryId" : @(AWSSQSErrorInvalidBatchEntryId),
+                            @"InvalidAttributeValue" : @(AWSSQSErrorInvalidAttributeValue),
+                            @"InvalidBatchEntryId" : @(AWSSQSErrorInvalidBatchEntryId),
                             @"InvalidIdFormat" : @(AWSSQSErrorInvalidIdFormat),
                             @"InvalidMessageContents" : @(AWSSQSErrorInvalidMessageContents),
-                            @"AWS.SimpleQueueService.MessageNotInflight" : @(AWSSQSErrorMessageNotInflight),
+                            @"InvalidSecurity" : @(AWSSQSErrorInvalidSecurity),
+                            @"KmsAccessDenied" : @(AWSSQSErrorKmsAccessDenied),
+                            @"KmsDisabled" : @(AWSSQSErrorKmsDisabled),
+                            @"KmsInvalidKeyUsage" : @(AWSSQSErrorKmsInvalidKeyUsage),
+                            @"KmsInvalidState" : @(AWSSQSErrorKmsInvalidState),
+                            @"KmsNotFound" : @(AWSSQSErrorKmsNotFound),
+                            @"KmsOptInRequired" : @(AWSSQSErrorKmsOptInRequired),
+                            @"KmsThrottled" : @(AWSSQSErrorKmsThrottled),
+                            @"MessageNotInflight" : @(AWSSQSErrorMessageNotInflight),
                             @"OverLimit" : @(AWSSQSErrorOverLimit),
-                            @"AWS.SimpleQueueService.PurgeQueueInProgress" : @(AWSSQSErrorPurgeQueueInProgress),
-                            @"AWS.SimpleQueueService.QueueDeletedRecently" : @(AWSSQSErrorQueueDeletedRecently),
-                            @"AWS.SimpleQueueService.NonExistentQueue" : @(AWSSQSErrorQueueDoesNotExist),
-                            @"QueueAlreadyExists" : @(AWSSQSErrorQueueNameExists),
+                            @"PurgeQueueInProgress" : @(AWSSQSErrorPurgeQueueInProgress),
+                            @"QueueDeletedRecently" : @(AWSSQSErrorQueueDeletedRecently),
+                            @"QueueDoesNotExist" : @(AWSSQSErrorQueueDoesNotExist),
+                            @"QueueNameExists" : @(AWSSQSErrorQueueNameExists),
                             @"ReceiptHandleIsInvalid" : @(AWSSQSErrorReceiptHandleIsInvalid),
+                            @"RequestThrottled" : @(AWSSQSErrorRequestThrottled),
                             @"ResourceNotFoundException" : @(AWSSQSErrorResourceNotFound),
-                            @"AWS.SimpleQueueService.TooManyEntriesInBatchRequest" : @(AWSSQSErrorTooManyEntriesInBatchRequest),
-                            @"AWS.SimpleQueueService.UnsupportedOperation" : @(AWSSQSErrorUnsupportedOperation),
+                            @"TooManyEntriesInBatchRequest" : @(AWSSQSErrorTooManyEntriesInBatchRequest),
+                            @"UnsupportedOperation" : @(AWSSQSErrorUnsupportedOperation),
                             };
 }
 
@@ -72,24 +83,23 @@ static NSDictionary *errorCodeDictionary = nil;
                                                     data:data
                                                    error:error];
     if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
-
-        NSDictionary *errorInfo = responseObject[@"Error"];
-        if (errorInfo[@"Code"] && errorCodeDictionary[errorInfo[@"Code"]]) {
-            if (error) {
-                *error = [NSError errorWithDomain:AWSSQSErrorDomain
-                                             code:[errorCodeDictionary[errorInfo[@"Code"]] integerValue]
-                                         userInfo:errorInfo
-                         ];
-                return responseObject;
-            }
-        } else if (errorInfo) {
-            if (error) {
-                *error = [NSError errorWithDomain:AWSSQSErrorDomain
-                                             code:AWSSQSErrorUnknown
-                                         userInfo:errorInfo];
-                return responseObject;
-            }
-        }
+    	if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
+	        if ([errorCodeDictionary objectForKey:[[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]]) {
+	            if (error) {
+	                *error = [NSError errorWithDomain:AWSSQSErrorDomain
+	                                             code:[[errorCodeDictionary objectForKey:[[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]] integerValue]
+	                                         userInfo:responseObject];
+	            }
+	            return responseObject;
+	        } else if ([[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]) {
+	            if (error) {
+	                *error = [NSError errorWithDomain:AWSCognitoIdentityErrorDomain
+	                                             code:AWSCognitoIdentityErrorUnknown
+	                                         userInfo:responseObject];
+	            }
+	            return responseObject;
+	        }
+    	}
     }
 
     if (!*error && response.statusCode/100 != 2) {
@@ -105,7 +115,7 @@ static NSDictionary *errorCodeDictionary = nil;
                                                        error:error];
         }
     }
-
+	
     return responseObject;
 }
 
@@ -248,7 +258,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.retryHandler = [[AWSSQSRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
-         
+        _configuration.headers = @{@"Content-Type" : @"application/x-amz-json-1.0"}; 
 		
         _networking = [[AWSNetworking alloc] initWithConfiguration:_configuration];
     }
@@ -275,8 +285,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             networkingRequest.parameters = @{};
         }
 
+		NSMutableDictionary *headers = [NSMutableDictionary new];
+        headers[@"X-Amz-Target"] = [NSString stringWithFormat:@"%@.%@", targetPrefix, operationName];
+        networkingRequest.headers = headers;
         networkingRequest.HTTPMethod = HTTPMethod;
-        networkingRequest.requestSerializer = [[AWSQueryStringRequestSerializer alloc] initWithJSONDefinition:[[AWSSQSResources sharedInstance] JSONObject]
+        networkingRequest.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithJSONDefinition:[[AWSSQSResources sharedInstance] JSONObject]
                                                                                                    actionName:operationName];
         networkingRequest.responseSerializer = [[AWSSQSResponseSerializer alloc] initWithJSONDefinition:[[AWSSQSResources sharedInstance] JSONObject]
                                                                                              actionName:operationName
@@ -292,7 +305,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"AddPermission"
                    outputClass:nil];
 }
@@ -314,7 +327,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"CancelMessageMoveTask"
                    outputClass:[AWSSQSCancelMessageMoveTaskResult class]];
 }
@@ -337,7 +350,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"ChangeMessageVisibility"
                    outputClass:nil];
 }
@@ -359,7 +372,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"ChangeMessageVisibilityBatch"
                    outputClass:[AWSSQSChangeMessageVisibilityBatchResult class]];
 }
@@ -382,7 +395,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"CreateQueue"
                    outputClass:[AWSSQSCreateQueueResult class]];
 }
@@ -405,7 +418,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"DeleteMessage"
                    outputClass:nil];
 }
@@ -427,7 +440,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"DeleteMessageBatch"
                    outputClass:[AWSSQSDeleteMessageBatchResult class]];
 }
@@ -450,7 +463,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"DeleteQueue"
                    outputClass:nil];
 }
@@ -472,7 +485,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"GetQueueAttributes"
                    outputClass:[AWSSQSGetQueueAttributesResult class]];
 }
@@ -495,7 +508,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"GetQueueUrl"
                    outputClass:[AWSSQSGetQueueUrlResult class]];
 }
@@ -518,7 +531,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"ListDeadLetterSourceQueues"
                    outputClass:[AWSSQSListDeadLetterSourceQueuesResult class]];
 }
@@ -541,7 +554,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"ListMessageMoveTasks"
                    outputClass:[AWSSQSListMessageMoveTasksResult class]];
 }
@@ -564,7 +577,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"ListQueueTags"
                    outputClass:[AWSSQSListQueueTagsResult class]];
 }
@@ -587,7 +600,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"ListQueues"
                    outputClass:[AWSSQSListQueuesResult class]];
 }
@@ -610,7 +623,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"PurgeQueue"
                    outputClass:nil];
 }
@@ -632,7 +645,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"ReceiveMessage"
                    outputClass:[AWSSQSReceiveMessageResult class]];
 }
@@ -655,7 +668,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"RemovePermission"
                    outputClass:nil];
 }
@@ -677,7 +690,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"SendMessage"
                    outputClass:[AWSSQSSendMessageResult class]];
 }
@@ -700,7 +713,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"SendMessageBatch"
                    outputClass:[AWSSQSSendMessageBatchResult class]];
 }
@@ -723,7 +736,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"SetQueueAttributes"
                    outputClass:nil];
 }
@@ -745,7 +758,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"StartMessageMoveTask"
                    outputClass:[AWSSQSStartMessageMoveTaskResult class]];
 }
@@ -768,7 +781,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"TagQueue"
                    outputClass:nil];
 }
@@ -790,7 +803,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
-                  targetPrefix:@""
+                  targetPrefix:@"AmazonSQS"
                  operationName:@"UntagQueue"
                    outputClass:nil];
 }
