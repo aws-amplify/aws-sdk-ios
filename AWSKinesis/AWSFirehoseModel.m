@@ -2130,6 +2130,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"roleARN" : @"RoleARN",
              @"s3BackupMode" : @"S3BackupMode",
              @"s3Configuration" : @"S3Configuration",
+             @"secretsManagerConfiguration" : @"SecretsManagerConfiguration",
              };
 }
 
@@ -2182,6 +2183,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseS3DestinationConfiguration class]];
 }
 
++ (NSValueTransformer *)secretsManagerConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseSecretsManagerConfiguration class]];
+}
+
 @end
 
 @implementation AWSFirehoseHttpEndpointDestinationDescription
@@ -2201,6 +2206,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"roleARN" : @"RoleARN",
              @"s3BackupMode" : @"S3BackupMode",
              @"s3DestinationDescription" : @"S3DestinationDescription",
+             @"secretsManagerConfiguration" : @"SecretsManagerConfiguration",
              };
 }
 
@@ -2253,6 +2259,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseS3DestinationDescription class]];
 }
 
++ (NSValueTransformer *)secretsManagerConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseSecretsManagerConfiguration class]];
+}
+
 @end
 
 @implementation AWSFirehoseHttpEndpointDestinationUpdate
@@ -2272,6 +2282,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"roleARN" : @"RoleARN",
              @"s3BackupMode" : @"S3BackupMode",
              @"s3Update" : @"S3Update",
+             @"secretsManagerConfiguration" : @"SecretsManagerConfiguration",
              };
 }
 
@@ -2322,6 +2333,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)s3UpdateJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseS3DestinationUpdate class]];
+}
+
++ (NSValueTransformer *)secretsManagerConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseSecretsManagerConfiguration class]];
 }
 
 @end
@@ -3043,6 +3058,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"s3BackupConfiguration" : @"S3BackupConfiguration",
              @"s3BackupMode" : @"S3BackupMode",
              @"s3Configuration" : @"S3Configuration",
+             @"secretsManagerConfiguration" : @"SecretsManagerConfiguration",
              @"username" : @"Username",
              };
 }
@@ -3092,6 +3108,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseS3DestinationConfiguration class]];
 }
 
++ (NSValueTransformer *)secretsManagerConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseSecretsManagerConfiguration class]];
+}
+
 @end
 
 @implementation AWSFirehoseRedshiftDestinationDescription
@@ -3111,6 +3131,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"s3BackupDescription" : @"S3BackupDescription",
              @"s3BackupMode" : @"S3BackupMode",
              @"s3DestinationDescription" : @"S3DestinationDescription",
+             @"secretsManagerConfiguration" : @"SecretsManagerConfiguration",
              @"username" : @"Username",
              };
 }
@@ -3160,6 +3181,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseS3DestinationDescription class]];
 }
 
++ (NSValueTransformer *)secretsManagerConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseSecretsManagerConfiguration class]];
+}
+
 @end
 
 @implementation AWSFirehoseRedshiftDestinationUpdate
@@ -3180,6 +3205,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"s3BackupMode" : @"S3BackupMode",
              @"s3BackupUpdate" : @"S3BackupUpdate",
              @"s3Update" : @"S3Update",
+             @"secretsManagerConfiguration" : @"SecretsManagerConfiguration",
              @"username" : @"Username",
              };
 }
@@ -3227,6 +3253,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)s3UpdateJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseS3DestinationUpdate class]];
+}
+
++ (NSValueTransformer *)secretsManagerConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseSecretsManagerConfiguration class]];
 }
 
 @end
@@ -3485,6 +3515,22 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 @end
 
+@implementation AWSFirehoseSecretsManagerConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"enabled" : @"Enabled",
+             @"roleARN" : @"RoleARN",
+             @"secretARN" : @"SecretARN",
+             };
+}
+
+@end
+
 @implementation AWSFirehoseSerializer
 
 + (BOOL)supportsSecureCoding {
@@ -3530,6 +3576,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"s3BackupMode" : @"S3BackupMode",
              @"s3Configuration" : @"S3Configuration",
              @"schema" : @"Schema",
+             @"secretsManagerConfiguration" : @"SecretsManagerConfiguration",
              @"snowflakeRoleConfiguration" : @"SnowflakeRoleConfiguration",
              @"snowflakeVpcConfiguration" : @"SnowflakeVpcConfiguration",
              @"table" : @"Table",
@@ -3600,6 +3647,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseS3DestinationConfiguration class]];
 }
 
++ (NSValueTransformer *)secretsManagerConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseSecretsManagerConfiguration class]];
+}
+
 + (NSValueTransformer *)snowflakeRoleConfigurationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseSnowflakeRoleConfiguration class]];
 }
@@ -3630,6 +3681,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"s3BackupMode" : @"S3BackupMode",
              @"s3DestinationDescription" : @"S3DestinationDescription",
              @"schema" : @"Schema",
+             @"secretsManagerConfiguration" : @"SecretsManagerConfiguration",
              @"snowflakeRoleConfiguration" : @"SnowflakeRoleConfiguration",
              @"snowflakeVpcConfiguration" : @"SnowflakeVpcConfiguration",
              @"table" : @"Table",
@@ -3700,6 +3752,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseS3DestinationDescription class]];
 }
 
++ (NSValueTransformer *)secretsManagerConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseSecretsManagerConfiguration class]];
+}
+
 + (NSValueTransformer *)snowflakeRoleConfigurationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseSnowflakeRoleConfiguration class]];
 }
@@ -3732,6 +3788,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"s3BackupMode" : @"S3BackupMode",
              @"s3Update" : @"S3Update",
              @"schema" : @"Schema",
+             @"secretsManagerConfiguration" : @"SecretsManagerConfiguration",
              @"snowflakeRoleConfiguration" : @"SnowflakeRoleConfiguration",
              @"table" : @"Table",
              @"user" : @"User",
@@ -3799,6 +3856,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)s3UpdateJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseS3DestinationUpdate class]];
+}
+
++ (NSValueTransformer *)secretsManagerConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseSecretsManagerConfiguration class]];
 }
 
 + (NSValueTransformer *)snowflakeRoleConfigurationJSONTransformer {
@@ -3906,6 +3967,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"retryOptions" : @"RetryOptions",
              @"s3BackupMode" : @"S3BackupMode",
              @"s3Configuration" : @"S3Configuration",
+             @"secretsManagerConfiguration" : @"SecretsManagerConfiguration",
              };
 }
 
@@ -3971,6 +4033,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseS3DestinationConfiguration class]];
 }
 
++ (NSValueTransformer *)secretsManagerConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseSecretsManagerConfiguration class]];
+}
+
 @end
 
 @implementation AWSFirehoseSplunkDestinationDescription
@@ -3991,6 +4057,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"retryOptions" : @"RetryOptions",
              @"s3BackupMode" : @"S3BackupMode",
              @"s3DestinationDescription" : @"S3DestinationDescription",
+             @"secretsManagerConfiguration" : @"SecretsManagerConfiguration",
              };
 }
 
@@ -4056,6 +4123,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseS3DestinationDescription class]];
 }
 
++ (NSValueTransformer *)secretsManagerConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseSecretsManagerConfiguration class]];
+}
+
 @end
 
 @implementation AWSFirehoseSplunkDestinationUpdate
@@ -4076,6 +4147,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"retryOptions" : @"RetryOptions",
              @"s3BackupMode" : @"S3BackupMode",
              @"s3Update" : @"S3Update",
+             @"secretsManagerConfiguration" : @"SecretsManagerConfiguration",
              };
 }
 
@@ -4139,6 +4211,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)s3UpdateJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseS3DestinationUpdate class]];
+}
+
++ (NSValueTransformer *)secretsManagerConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseSecretsManagerConfiguration class]];
 }
 
 @end
