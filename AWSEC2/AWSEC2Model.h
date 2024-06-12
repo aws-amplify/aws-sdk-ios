@@ -2702,6 +2702,7 @@ typedef NS_ENUM(NSInteger, AWSEC2ResourceType) {
     AWSEC2ResourceTypeVerifiedAccessTrustProvider,
     AWSEC2ResourceTypeVpnConnectionDeviceType,
     AWSEC2ResourceTypeVpcBlockPublicAccessExclusion,
+    AWSEC2ResourceTypeVpcEncryptionControl,
     AWSEC2ResourceTypeIpamResourceDiscovery,
     AWSEC2ResourceTypeIpamResourceDiscoveryAssociation,
     AWSEC2ResourceTypeInstanceConnectEndpoint,
@@ -4155,6 +4156,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DescribeSubnetsResult;
 @class AWSEC2DescribeTagsRequest;
 @class AWSEC2DescribeTagsResult;
+@class AWSEC2DescribeTrafficMirrorFilterRulesRequest;
+@class AWSEC2DescribeTrafficMirrorFilterRulesResult;
 @class AWSEC2DescribeTrafficMirrorFiltersRequest;
 @class AWSEC2DescribeTrafficMirrorFiltersResult;
 @class AWSEC2DescribeTrafficMirrorSessionsRequest;
@@ -13809,7 +13812,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -13837,7 +13840,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -13855,7 +13858,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -13905,6 +13908,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2TrafficMirrorPortRangeRequest * _Nullable sourcePortRange;
 
 /**
+ <p>Traffic Mirroring tags specifications.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+/**
  <p>The type of traffic.</p>
  */
 @property (nonatomic, assign) AWSEC2TrafficDirection trafficDirection;
@@ -13923,7 +13931,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -13941,7 +13949,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -13986,7 +13994,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable trafficMirrorTargetId;
 
 /**
- <p>The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see <a href="https://tools.ietf.org/html/rfc7348">RFC 7348</a>. If you do not specify a <code>VirtualNetworkId</code>, an account-wide unique id is chosen at random.</p>
+ <p>The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see <a href="https://datatracker.ietf.org/doc/html/rfc7348">RFC 7348</a>. If you do not specify a <code>VirtualNetworkId</code>, an account-wide unique ID is chosen at random.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable virtualNetworkId;
 
@@ -13999,7 +14007,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -14017,7 +14025,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -14060,7 +14068,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -24211,6 +24219,62 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The tags.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2TagDescription *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeTrafficMirrorFilterRulesRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>Traffic mirror filters.</p><ul><li><p><code>traffic-mirror-filter-rule-id</code>: The ID of the Traffic Mirror rule.</p></li><li><p><code>traffic-mirror-filter-id</code>: The ID of the filter that this rule is associated with.</p></li><li><p><code>rule-number</code>: The number of the Traffic Mirror rule.</p></li><li><p><code>rule-action</code>: The action taken on the filtered traffic. Possible actions are <code>accept</code> and <code>reject</code>.</p></li><li><p><code>traffic-direction</code>: The traffic direction. Possible directions are <code>ingress</code> and <code>egress</code>.</p></li><li><p><code>protocol</code>: The protocol, for example UDP, assigned to the Traffic Mirror rule.</p></li><li><p><code>source-cidr-block</code>: The source CIDR block assigned to the Traffic Mirror rule.</p></li><li><p><code>destination-cidr-block</code>: The destination CIDR block assigned to the Traffic Mirror rule.</p></li><li><p><code>description</code>: The description of the Traffic Mirror rule.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Traffic filter ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorFilterId;
+
+/**
+ <p>Traffic filter rule IDs.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable trafficMirrorFilterRuleIds;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeTrafficMirrorFilterRulesResult : AWSModel
+
+
+/**
+ <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Traffic mirror rules.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TrafficMirrorFilterRule *> * _Nullable trafficMirrorFilterRules;
 
 @end
 
@@ -42444,7 +42508,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Modifies a Traffic Mirror rule.</p>
+ <note><p>Tags are not returned for ModifyTrafficMirrorFilterRule.</p></note><p>A Traffic Mirror rule.</p>
  */
 @property (nonatomic, strong) AWSEC2TrafficMirrorFilterRule * _Nullable trafficMirrorFilterRule;
 
@@ -53931,6 +53995,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The source port range assigned to the Traffic Mirror rule.</p>
  */
 @property (nonatomic, strong) AWSEC2TrafficMirrorPortRange * _Nullable sourcePortRange;
+
+/**
+ <p>Tags on Traffic Mirroring filter rules.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
 
 /**
  <p>The traffic direction assigned to the Traffic Mirror rule.</p>

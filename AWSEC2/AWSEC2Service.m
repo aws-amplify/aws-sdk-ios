@@ -7903,6 +7903,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DescribeTrafficMirrorFilterRulesResult *> *)describeTrafficMirrorFilterRules:(AWSEC2DescribeTrafficMirrorFilterRulesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeTrafficMirrorFilterRules"
+                   outputClass:[AWSEC2DescribeTrafficMirrorFilterRulesResult class]];
+}
+
+- (void)describeTrafficMirrorFilterRules:(AWSEC2DescribeTrafficMirrorFilterRulesRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeTrafficMirrorFilterRulesResult *response, NSError *error))completionHandler {
+    [[self describeTrafficMirrorFilterRules:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeTrafficMirrorFilterRulesResult *> * _Nonnull task) {
+        AWSEC2DescribeTrafficMirrorFilterRulesResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DescribeTrafficMirrorFiltersResult *> *)describeTrafficMirrorFilters:(AWSEC2DescribeTrafficMirrorFiltersRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST

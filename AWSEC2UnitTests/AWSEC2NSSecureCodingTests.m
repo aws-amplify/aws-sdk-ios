@@ -786,6 +786,8 @@
 - (void) test_AWSEC2DescribeSubnetsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeTagsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeTagsResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DescribeTrafficMirrorFilterRulesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DescribeTrafficMirrorFilterRulesResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeTrafficMirrorFiltersRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeTrafficMirrorFiltersResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeTrafficMirrorSessionsRequest API_AVAILABLE(ios(11));
@@ -5014,6 +5016,14 @@
 
 - (void) test_AWSEC2DescribeTagsResult {
     [self validateSecureCodingForClass:[AWSEC2DescribeTagsResult class]];
+}
+
+- (void) test_AWSEC2DescribeTrafficMirrorFilterRulesRequest {
+    [self validateSecureCodingForClass:[AWSEC2DescribeTrafficMirrorFilterRulesRequest class]];
+}
+
+- (void) test_AWSEC2DescribeTrafficMirrorFilterRulesResult {
+    [self validateSecureCodingForClass:[AWSEC2DescribeTrafficMirrorFilterRulesResult class]];
 }
 
 - (void) test_AWSEC2DescribeTrafficMirrorFiltersRequest {
