@@ -38,6 +38,8 @@
 - (void) test_AWSKMSDeleteCustomKeyStoreRequest API_AVAILABLE(ios(11));
 - (void) test_AWSKMSDeleteCustomKeyStoreResponse API_AVAILABLE(ios(11));
 - (void) test_AWSKMSDeleteImportedKeyMaterialRequest API_AVAILABLE(ios(11));
+- (void) test_AWSKMSDeriveSharedSecretRequest API_AVAILABLE(ios(11));
+- (void) test_AWSKMSDeriveSharedSecretResponse API_AVAILABLE(ios(11));
 - (void) test_AWSKMSDescribeCustomKeyStoresRequest API_AVAILABLE(ios(11));
 - (void) test_AWSKMSDescribeCustomKeyStoresResponse API_AVAILABLE(ios(11));
 - (void) test_AWSKMSDescribeKeyRequest API_AVAILABLE(ios(11));
@@ -200,6 +202,14 @@
 
 - (void) test_AWSKMSDeleteImportedKeyMaterialRequest {
     [self validateSecureCodingForClass:[AWSKMSDeleteImportedKeyMaterialRequest class]];
+}
+
+- (void) test_AWSKMSDeriveSharedSecretRequest {
+    [self validateSecureCodingForClass:[AWSKMSDeriveSharedSecretRequest class]];
+}
+
+- (void) test_AWSKMSDeriveSharedSecretResponse {
+    [self validateSecureCodingForClass:[AWSKMSDeriveSharedSecretResponse class]];
 }
 
 - (void) test_AWSKMSDescribeCustomKeyStoresRequest {

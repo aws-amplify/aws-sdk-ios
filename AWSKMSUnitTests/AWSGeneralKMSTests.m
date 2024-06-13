@@ -534,6 +534,54 @@ static id mockNetworking = nil;
     [AWSKMS removeKMSForKey:key];
 }
 
+- (void)testDeriveSharedSecret {
+    NSString *key = @"testDeriveSharedSecret";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKMS registerKMSWithConfiguration:configuration forKey:key];
+
+    AWSKMS *awsClient = [AWSKMS KMSForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSKMS KMSForKey:key] deriveSharedSecret:[AWSKMSDeriveSharedSecretRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKMS removeKMSForKey:key];
+}
+
+- (void)testDeriveSharedSecretCompletionHandler {
+    NSString *key = @"testDeriveSharedSecret";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKMS registerKMSWithConfiguration:configuration forKey:key];
+
+    AWSKMS *awsClient = [AWSKMS KMSForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSKMS KMSForKey:key] deriveSharedSecret:[AWSKMSDeriveSharedSecretRequest new] completionHandler:^(AWSKMSDeriveSharedSecretResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKMS removeKMSForKey:key];
+}
+
 - (void)testDescribeCustomKeyStores {
     NSString *key = @"testDescribeCustomKeyStores";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
