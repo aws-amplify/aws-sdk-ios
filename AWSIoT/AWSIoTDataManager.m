@@ -19,7 +19,7 @@
 #import "AWSSynchronizedMutableDictionary.h"
 #import "AWSIoTModel.h"
 #import "AWSCocoaLumberjack.h"
-
+#import <stdatomic.h>
 
 @interface AWSIoTDataShadowModel : AWSMTLModel <AWSMTLJSONSerializing>
 
@@ -915,6 +915,17 @@ static NSString * const AWSIoTShadowOperationStatusTypeStrings[] = {
     return [self handleSubscriptionsForShadow:name callback:callback completionHandler:nil];
 }
 
+/**
+ Subscribes or unsubscribes from all topics associated with a given shadow, depending on whether a callback is provided or not.
+
+ @param name The name of the shadow
+
+ @param callback The callback to be triggered when messages are sent to the topics associated with the shadow. Set it to `nil` to unsubscribe from all topics.
+
+ @param completionHandler The callback called when the corresponding operation (subscribe or unsuscribe) is completed
+
+ @return Boolean value indicating whether there's a shadow with the given name.
+ **/
 - (BOOL)handleSubscriptionsForShadow:(NSString *)name
                             callback:(AWSIoTMQTTExtendedNewMessageBlock)callback
                   completionHandler:(void(^)(void))completionHandler {
@@ -922,11 +933,11 @@ static NSString * const AWSIoTShadowOperationStatusTypeStrings[] = {
     AWSIoTDataShadow *shadow = (AWSIoTDataShadow *)[self.shadows objectForKey:name];
     
     if (shadow != nil) {
-        __block NSUInteger remainingTopics = [shadow.topics count];
+        __block _Atomic(NSUInteger) remainingTopics = [shadow.topics count];
         AWSIoTMQTTAckBlock ackCallback = NULL;
         if (completionHandler) {
             ackCallback = ^void {
-                remainingTopics--;
+                atomic_fetch_sub(&remainingTopics, 1);
                 if (remainingTopics == 0) {
                     completionHandler();
                 }
