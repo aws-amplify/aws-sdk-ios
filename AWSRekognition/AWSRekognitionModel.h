@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionErrorType) {
     AWSRekognitionErrorImageTooLarge,
     AWSRekognitionErrorInternalServer,
     AWSRekognitionErrorInvalidImageFormat,
+    AWSRekognitionErrorInvalidManifest,
     AWSRekognitionErrorInvalidPaginationToken,
     AWSRekognitionErrorInvalidParameter,
     AWSRekognitionErrorInvalidPolicyRevisionId,
@@ -231,6 +232,28 @@ typedef NS_ENUM(NSInteger, AWSRekognitionLivenessSessionStatus) {
     AWSRekognitionLivenessSessionStatusExpired,
 };
 
+typedef NS_ENUM(NSInteger, AWSRekognitionMediaAnalysisJobFailureCode) {
+    AWSRekognitionMediaAnalysisJobFailureCodeUnknown,
+    AWSRekognitionMediaAnalysisJobFailureCodeInternalError,
+    AWSRekognitionMediaAnalysisJobFailureCodeInvalidS3Object,
+    AWSRekognitionMediaAnalysisJobFailureCodeInvalidManifest,
+    AWSRekognitionMediaAnalysisJobFailureCodeInvalidOutputConfig,
+    AWSRekognitionMediaAnalysisJobFailureCodeInvalidKmsKey,
+    AWSRekognitionMediaAnalysisJobFailureCodeAccessDenied,
+    AWSRekognitionMediaAnalysisJobFailureCodeResourceNotFound,
+    AWSRekognitionMediaAnalysisJobFailureCodeResourceNotReady,
+    AWSRekognitionMediaAnalysisJobFailureCodeThrottled,
+};
+
+typedef NS_ENUM(NSInteger, AWSRekognitionMediaAnalysisJobStatus) {
+    AWSRekognitionMediaAnalysisJobStatusUnknown,
+    AWSRekognitionMediaAnalysisJobStatusCreated,
+    AWSRekognitionMediaAnalysisJobStatusQueued,
+    AWSRekognitionMediaAnalysisJobStatusInProgress,
+    AWSRekognitionMediaAnalysisJobStatusSucceeded,
+    AWSRekognitionMediaAnalysisJobStatusFailed,
+};
+
 typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
     AWSRekognitionOrientationCorrectionUnknown,
     AWSRekognitionOrientationCorrectionRotate0,
@@ -415,6 +438,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionConnectedHomeSettings;
 @class AWSRekognitionConnectedHomeSettingsForUpdate;
 @class AWSRekognitionContentModerationDetection;
+@class AWSRekognitionContentType;
 @class AWSRekognitionReplicateProjectVersionRequest;
 @class AWSRekognitionReplicateProjectVersionResponse;
 @class AWSRekognitionCoversBodyPart;
@@ -528,6 +552,8 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionGetLabelDetectionRequest;
 @class AWSRekognitionGetLabelDetectionRequestMetadata;
 @class AWSRekognitionGetLabelDetectionResponse;
+@class AWSRekognitionGetMediaAnalysisJobRequest;
+@class AWSRekognitionGetMediaAnalysisJobResponse;
 @class AWSRekognitionGetPersonTrackingRequest;
 @class AWSRekognitionGetPersonTrackingResponse;
 @class AWSRekognitionGetSegmentDetectionRequest;
@@ -561,6 +587,8 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionListDatasetLabelsResponse;
 @class AWSRekognitionListFacesRequest;
 @class AWSRekognitionListFacesResponse;
+@class AWSRekognitionListMediaAnalysisJobsRequest;
+@class AWSRekognitionListMediaAnalysisJobsResponse;
 @class AWSRekognitionListProjectPoliciesRequest;
 @class AWSRekognitionListProjectPoliciesResponse;
 @class AWSRekognitionListStreamProcessorsRequest;
@@ -571,6 +599,15 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionListUsersResponse;
 @class AWSRekognitionLivenessOutputConfig;
 @class AWSRekognitionMatchedUser;
+@class AWSRekognitionMediaAnalysisDetectModerationLabelsConfig;
+@class AWSRekognitionMediaAnalysisInput;
+@class AWSRekognitionMediaAnalysisJobDescription;
+@class AWSRekognitionMediaAnalysisJobFailureDetails;
+@class AWSRekognitionMediaAnalysisManifestSummary;
+@class AWSRekognitionMediaAnalysisModelVersions;
+@class AWSRekognitionMediaAnalysisOperationsConfig;
+@class AWSRekognitionMediaAnalysisOutputConfig;
+@class AWSRekognitionMediaAnalysisResults;
 @class AWSRekognitionModerationLabel;
 @class AWSRekognitionMouthOpen;
 @class AWSRekognitionMustache;
@@ -621,6 +658,8 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionStartFaceSearchResponse;
 @class AWSRekognitionStartLabelDetectionRequest;
 @class AWSRekognitionStartLabelDetectionResponse;
+@class AWSRekognitionStartMediaAnalysisJobRequest;
+@class AWSRekognitionStartMediaAnalysisJobResponse;
 @class AWSRekognitionStartPersonTrackingRequest;
 @class AWSRekognitionStartPersonTrackingResponse;
 @class AWSRekognitionStartProjectVersionRequest;
@@ -747,7 +786,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>An array of AssociatedFace objects containing FaceIDs that are successfully associated with the UserID is returned. Returned if the AssociateFaces action is successful.</p>
+ <p>An array of AssociatedFace objects containing FaceIDs that have been successfully associated with the UserID. Returned if the AssociateFaces action is successful.</p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionAssociatedFace *> * _Nullable associatedFaces;
 
@@ -1174,6 +1213,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ <p>A list of predicted results for the type of content an image contains. For example, the image content might be from animation, sports, or a video game.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionContentType *> * _Nullable contentTypes;
+
+/**
  <p> The time duration of a segment in milliseconds, I.e. time elapsed from StartTimestampMillis to EndTimestampMillis. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable durationMillis;
@@ -1197,6 +1241,24 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Time, in milliseconds from the beginning of the video, that the content moderation label was detected. Note that <code>Timestamp</code> is not guaranteed to be accurate to the individual frame where the moderated content first appears.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable timestamp;
+
+@end
+
+/**
+ <p>Contains information regarding the confidence and name of a detected content type.</p>
+ */
+@interface AWSRekognitionContentType : AWSModel
+
+
+/**
+ <p>The confidence level of the label given</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
+
+/**
+ <p>The name of the label</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
 
 @end
 
@@ -1336,6 +1398,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  */
 @property (nonatomic, strong) NSString * _Nullable projectArn;
 
+/**
+ <p>A set of tags (key-value pairs) that you want to attach to the dataset.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
 @end
 
 /**
@@ -1399,7 +1466,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>A unique 128-bit UUID identifying a Face Liveness session.</p>
+ <p>A unique 128-bit UUID identifying a Face Liveness session. A new sessionID must be used for every Face Liveness check. If a given sessionID is used for subsequent Face Liveness checks, the checks will fail. Additionally, a SessionId expires 3 minutes after it's sent, making all Liveness data associated with the session (e.g., sessionID, reference image, audit images, etc.) unavailable. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable sessionId;
 
@@ -1425,6 +1492,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>The name of the project to create.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable projectName;
+
+/**
+ <p>A set of tags (key-value pairs) that you want to attach to the project.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 @end
 
@@ -2594,12 +2666,17 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ <p>A list of predicted results for the type of content an image contains. For example, the image content might be from animation, sports, or a video game.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionContentType *> * _Nullable contentTypes;
+
+/**
  <p>Shows the results of the human in the loop evaluation.</p>
  */
 @property (nonatomic, strong) AWSRekognitionHumanLoopActivationOutput * _Nullable humanLoopActivationOutput;
 
 /**
- <p>Array of detected Moderation labels and the time, in milliseconds from the start of the video, they were detected.</p>
+ <p>Array of detected Moderation labels. For video operations, this includes the time, in milliseconds from the start of the video, they were detected.</p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionModerationLabel *> * _Nullable moderationLabels;
 
@@ -3814,6 +3891,87 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 /**
  
  */
+@interface AWSRekognitionGetMediaAnalysisJobRequest : AWSRequest
+
+
+/**
+ <p>Unique identifier for the media analysis job for which you want to retrieve results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionGetMediaAnalysisJobResponse : AWSModel
+
+
+/**
+ <p>The Unix date and time when the job finished.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable completionTimestamp;
+
+/**
+ <p>The Unix date and time when the job was started.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTimestamp;
+
+/**
+ <p>Details about the error that resulted in failure of the job.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionMediaAnalysisJobFailureDetails * _Nullable failureDetails;
+
+/**
+ <p>Reference to the input manifest that was provided in the job creation request.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionMediaAnalysisInput * _Nullable input;
+
+/**
+ <p>The identifier for the media analysis job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>The name of the media analysis job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobName;
+
+/**
+ <p>KMS Key that was provided in the creation request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kmsKeyId;
+
+/**
+ <p>The summary manifest provides statistics on input manifest and errors identified in the input manifest.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionMediaAnalysisManifestSummary * _Nullable manifestSummary;
+
+/**
+ <p>Operation configurations that were provided during job creation.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionMediaAnalysisOperationsConfig * _Nullable operationsConfig;
+
+/**
+ <p>Output configuration that was provided in the creation request.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionMediaAnalysisOutputConfig * _Nullable outputConfig;
+
+/**
+ <p>Output manifest that contains prediction results.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionMediaAnalysisResults * _Nullable results;
+
+/**
+ <p>The current status of the media analysis job.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionMediaAnalysisJobStatus status;
+
+@end
+
+/**
+ 
+ */
 @interface AWSRekognitionGetPersonTrackingRequest : AWSRequest
 
 
@@ -4634,6 +4792,42 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 /**
  
  */
+@interface AWSRekognitionListMediaAnalysisJobsRequest : AWSRequest
+
+
+/**
+ <p>The maximum number of results to return per paginated call. The largest value user can specify is 100. If user specifies a value greater than 100, an <code>InvalidParameterException</code> error occurs. The default value is 100.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>Pagination token, if the previous response was incomplete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionListMediaAnalysisJobsResponse : AWSModel
+
+
+/**
+ <p>Contains a list of all media analysis jobs.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionMediaAnalysisJobDescription *> * _Nullable mediaAnalysisJobs;
+
+/**
+ <p>Pagination token, if the previous response was incomplete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
 @interface AWSRekognitionListProjectPoliciesRequest : AWSRequest
 
 
@@ -4813,6 +5007,201 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ <p>Configuration for Moderation Labels Detection.</p>
+ */
+@interface AWSRekognitionMediaAnalysisDetectModerationLabelsConfig : AWSModel
+
+
+/**
+ <p>Specifies the minimum confidence level for the moderation labels to return. Amazon Rekognition doesn't return any labels with a confidence level lower than this specified value. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable minConfidence;
+
+/**
+ <p>Specifies the custom moderation model to be used during the label detection job. If not provided the pre-trained model is used.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable projectVersion;
+
+@end
+
+/**
+ <p>Contains input information for a media analysis job.</p>
+ Required parameters: [S3Object]
+ */
+@interface AWSRekognitionMediaAnalysisInput : AWSModel
+
+
+/**
+ <p>Provides the S3 bucket name and object name.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see How Amazon Rekognition works with IAM in the Amazon Rekognition Developer Guide. </p>
+ */
+@property (nonatomic, strong) AWSRekognitionS3Object * _Nullable s3Object;
+
+@end
+
+/**
+ <p>Description for a media analysis job.</p>
+ Required parameters: [JobId, OperationsConfig, Status, CreationTimestamp, Input, OutputConfig]
+ */
+@interface AWSRekognitionMediaAnalysisJobDescription : AWSModel
+
+
+/**
+ <p>The Unix date and time when the job finished.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable completionTimestamp;
+
+/**
+ <p>The Unix date and time when the job was started.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTimestamp;
+
+/**
+ <p>Details about the error that resulted in failure of the job.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionMediaAnalysisJobFailureDetails * _Nullable failureDetails;
+
+/**
+ <p>Reference to the input manifest that was provided in the job creation request.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionMediaAnalysisInput * _Nullable input;
+
+/**
+ <p>The identifier for a media analysis job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>The name of a media analysis job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobName;
+
+/**
+ <p>KMS Key that was provided in the creation request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kmsKeyId;
+
+/**
+ <p>Provides statistics on input manifest and errors identified in the input manifest.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionMediaAnalysisManifestSummary * _Nullable manifestSummary;
+
+/**
+ <p>Operation configurations that were provided during job creation.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionMediaAnalysisOperationsConfig * _Nullable operationsConfig;
+
+/**
+ <p>Output configuration that was provided in the creation request.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionMediaAnalysisOutputConfig * _Nullable outputConfig;
+
+/**
+ <p>Output manifest that contains prediction results.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionMediaAnalysisResults * _Nullable results;
+
+/**
+ <p>The status of the media analysis job being retrieved.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionMediaAnalysisJobStatus status;
+
+@end
+
+/**
+ <p>Details about the error that resulted in failure of the job.</p>
+ */
+@interface AWSRekognitionMediaAnalysisJobFailureDetails : AWSModel
+
+
+/**
+ <p>Error code for the failed job.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionMediaAnalysisJobFailureCode code;
+
+/**
+ <p>Human readable error message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+@end
+
+/**
+ <p>Summary that provides statistics on input manifest and errors identified in the input manifest.</p>
+ */
+@interface AWSRekognitionMediaAnalysisManifestSummary : AWSModel
+
+
+/**
+ <p>Provides the S3 bucket name and object name.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see How Amazon Rekognition works with IAM in the Amazon Rekognition Developer Guide. </p>
+ */
+@property (nonatomic, strong) AWSRekognitionS3Object * _Nullable s3Object;
+
+@end
+
+/**
+ <p>Object containing information about the model versions of selected features in a given job.</p>
+ */
+@interface AWSRekognitionMediaAnalysisModelVersions : AWSModel
+
+
+/**
+ <p>The Moderation base model version.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable moderation;
+
+@end
+
+/**
+ <p>Configuration options for a media analysis job. Configuration is operation-specific.</p>
+ */
+@interface AWSRekognitionMediaAnalysisOperationsConfig : AWSModel
+
+
+/**
+ <p>Contains configuration options for a DetectModerationLabels job.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionMediaAnalysisDetectModerationLabelsConfig * _Nullable detectModerationLabels;
+
+@end
+
+/**
+ <p>Output configuration provided in the job creation request.</p>
+ Required parameters: [S3Bucket]
+ */
+@interface AWSRekognitionMediaAnalysisOutputConfig : AWSModel
+
+
+/**
+ <p>Specifies the Amazon S3 bucket to contain the output of the media analysis job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Bucket;
+
+/**
+ <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for storage.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3KeyPrefix;
+
+@end
+
+/**
+ <p>Contains the results for a media analysis job created with StartMediaAnalysisJob.</p>
+ */
+@interface AWSRekognitionMediaAnalysisResults : AWSModel
+
+
+/**
+ <p>Information about the model versions for the features selected in a given job.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionMediaAnalysisModelVersions * _Nullable modelVersions;
+
+/**
+ <p>Provides the S3 bucket name and object name.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see How Amazon Rekognition works with IAM in the Amazon Rekognition Developer Guide. </p>
+ */
+@property (nonatomic, strong) AWSRekognitionS3Object * _Nullable s3Object;
+
+@end
+
+/**
  <p>Provides information about a single type of inappropriate, unwanted, or offensive content found in an image or video. Each type of moderated content has a label within a hierarchical taxonomy. For more information, see Content moderation in the Amazon Rekognition Developer Guide.</p>
  */
 @interface AWSRekognitionModerationLabel : AWSModel
@@ -4832,6 +5221,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>The name for the parent label. Labels at the top level of the hierarchy have the parent label <code>""</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable parentName;
+
+/**
+ <p>The level of the moderation label with regard to its taxonomy, from 1 to 3.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable taxonomyLevel;
 
 @end
 
@@ -6064,6 +6458,57 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 /**
  <p>The identifier for the label detection job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetLabelDetection</code>. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionStartMediaAnalysisJobRequest : AWSRequest
+
+
+/**
+ <p>Idempotency token used to prevent the accidental creation of duplicate versions. If you use the same token with multiple <code>StartMediaAnalysisJobRequest</code> requests, the same response is returned. Use <code>ClientRequestToken</code> to prevent the same request from being processed more than once.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientRequestToken;
+
+/**
+ <p>Input data to be analyzed by the job.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionMediaAnalysisInput * _Nullable input;
+
+/**
+ <p>The name of the job. Does not have to be unique.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobName;
+
+/**
+ <p>The identifier of customer managed AWS KMS key (name or ARN). The key is used to encrypt images copied into the service. The key is also used to encrypt results and manifest files written to the output Amazon S3 bucket.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kmsKeyId;
+
+/**
+ <p>Configuration options for the media analysis job to be created.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionMediaAnalysisOperationsConfig * _Nullable operationsConfig;
+
+/**
+ <p>The Amazon S3 bucket location to store the results.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionMediaAnalysisOutputConfig * _Nullable outputConfig;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionStartMediaAnalysisJobResponse : AWSModel
+
+
+/**
+ <p>Identifier for the created job.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobId;
 
