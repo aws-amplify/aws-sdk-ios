@@ -19,7 +19,7 @@
 #import "AWSSynchronizedMutableDictionary.h"
 #import "AWSIoTModel.h"
 #import "AWSCocoaLumberjack.h"
-
+#import <stdatomic.h>
 
 @interface AWSIoTDataShadowModel : AWSMTLModel <AWSMTLJSONSerializing>
 
@@ -912,22 +912,50 @@ static NSString * const AWSIoTShadowOperationStatusTypeStrings[] = {
  */
 - (BOOL)handleSubscriptionsForShadow:(NSString *)name
                             callback:(AWSIoTMQTTExtendedNewMessageBlock)callback {
+    return [self handleSubscriptionsForShadow:name callback:callback completionHandler:nil];
+}
+
+/**
+ Subscribes or unsubscribes from all topics associated with a given shadow, depending on whether a callback is provided or not.
+
+ @param name The name of the shadow
+
+ @param callback The callback to be triggered when messages are sent to the topics associated with the shadow. Set it to `nil` to unsubscribe from all topics.
+
+ @param completionHandler The callback called when the corresponding operation (subscribe or unsuscribe) is completed
+
+ @return Boolean value indicating whether there's a shadow with the given name.
+ **/
+- (BOOL)handleSubscriptionsForShadow:(NSString *)name
+                            callback:(AWSIoTMQTTExtendedNewMessageBlock)callback
+                  completionHandler:(void(^)(void))completionHandler {
     BOOL rc = NO;
     AWSIoTDataShadow *shadow = (AWSIoTDataShadow *)[self.shadows objectForKey:name];
     
     if (shadow != nil) {
+        __block _Atomic(NSUInteger) remainingTopics = [shadow.topics count];
+        AWSIoTMQTTAckBlock ackCallback = NULL;
+        if (completionHandler) {
+            ackCallback = ^void {
+                atomic_fetch_sub(&remainingTopics, 1);
+                if (remainingTopics == 0) {
+                    completionHandler();
+                }
+            };
+        }
+
         for (int i = 0; i < [shadow.topics count]; i++) {
             if (callback != nil) {
                 if (shadow.enableDebugging == YES) {
                     AWSDDLogInfo(@"subscribing on %@", (NSString *)shadow.topics[i]);
                 }
-                [self subscribeToTopic:shadow.topics[i] QoS:shadow.qos extendedCallback:callback];
+                [self subscribeToTopic:shadow.topics[i] QoS:shadow.qos extendedCallback:callback ackCallback:ackCallback];
             }
             else {
                 if (shadow.enableDebugging == YES) {
                     AWSDDLogInfo(@"unsubscribing from %@", (NSString *)shadow.topics[i]);
                 }
-                [self unsubscribeTopic:shadow.topics[i]];
+                [self unsubscribeTopic:shadow.topics[i] ackCallback:ackCallback];
             }
         }
         rc = YES;
@@ -1208,6 +1236,20 @@ static void (^shadowMqttMessageHandler)(NSObject *mqttClient, NSString *topic, N
 - (BOOL) registerWithShadow:(NSString *)name
                     options:(NSDictionary *)options
               eventCallback:(void(^)(NSString *name, AWSIoTShadowOperationType operation, AWSIoTShadowOperationStatusType status, NSString *clientToken, NSData *payload))callback {
+    return [self registerWithShadow:name options:options eventCallback:callback completionHandler:nil];
+}
+
+- (BOOL) registerWithShadow:(NSString *)name
+                    options:(NSDictionary *)options
+              eventCallback:(void(^)(NSString *name, AWSIoTShadowOperationType operation, AWSIoTShadowOperationStatusType status, NSString *clientToken, NSData *payload))callback
+         completionCallback:(void(^)(void))completionCallback {
+    return [self registerWithShadow:name options:options eventCallback:callback completionHandler:completionCallback];
+}
+
+- (BOOL) registerWithShadow:(NSString *)name
+                    options:(NSDictionary *)options
+              eventCallback:(void(^)(NSString *name, AWSIoTShadowOperationType operation, AWSIoTShadowOperationStatusType status, NSString *clientToken, NSData *payload))callback
+          completionHandler:(nullable void(^)(void))completionHandler {
     BOOL rc = YES;
     
     AWSIoTDataShadow *shadow = [self.shadows objectForKey:name];
@@ -1291,7 +1333,8 @@ static void (^shadowMqttMessageHandler)(NSObject *mqttClient, NSString *topic, N
             // Persistently subscribe to the special topics for this shadow.
             //
             rc = [self handleSubscriptionsForShadow:shadow.name
-                                           callback:shadowMqttMessageHandler];
+                                           callback:shadowMqttMessageHandler
+                                  completionHandler:completionHandler];
 
             if( rc == NO ){
                 AWSDDLogError(@"unable to subscribe to shadow topics for (%@)", name);
@@ -1308,13 +1351,23 @@ static void (^shadowMqttMessageHandler)(NSObject *mqttClient, NSString *topic, N
 }
 
 - (BOOL) unregisterFromShadow:(NSString *)name {
+    return [self unregisterFromShadow:name completionHandler:nil];
+}
+
+- (BOOL) unregisterFromShadow:(NSString *)name
+           completionCallback:(void (^)(void))completionCallback {
+    return [self unregisterFromShadow:name completionHandler:completionCallback];
+}
+
+- (BOOL) unregisterFromShadow:(NSString *)name
+            completionHandler:(nullable void (^)(void))completionHandler {
     BOOL rc = NO;
     
     AWSIoTDataShadow *shadow = [self.shadows objectForKey:name];
     
     if (shadow != nil) {
         // Unsubscribe from all topics associated with this shadow.
-        rc = [self handleSubscriptionsForShadow:shadow.name callback:nil];
+        rc = [self handleSubscriptionsForShadow:shadow.name callback:nil completionHandler:completionHandler];
 
         //invalidate the timer as the shadow is being unregistered.
         [shadow.timer invalidate];
