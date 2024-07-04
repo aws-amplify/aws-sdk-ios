@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -46,6 +46,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"ImageTooLargeException" : @(AWSRekognitionErrorImageTooLarge),
                             @"InternalServerError" : @(AWSRekognitionErrorInternalServer),
                             @"InvalidImageFormatException" : @(AWSRekognitionErrorInvalidImageFormat),
+                            @"InvalidManifestException" : @(AWSRekognitionErrorInvalidManifest),
                             @"InvalidPaginationTokenException" : @(AWSRekognitionErrorInvalidPaginationToken),
                             @"InvalidParameterException" : @(AWSRekognitionErrorInvalidParameter),
                             @"InvalidPolicyRevisionIdException" : @(AWSRekognitionErrorInvalidPolicyRevisionId),
@@ -1169,6 +1170,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSRekognitionGetMediaAnalysisJobResponse *> *)getMediaAnalysisJob:(AWSRekognitionGetMediaAnalysisJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"GetMediaAnalysisJob"
+                   outputClass:[AWSRekognitionGetMediaAnalysisJobResponse class]];
+}
+
+- (void)getMediaAnalysisJob:(AWSRekognitionGetMediaAnalysisJobRequest *)request
+     completionHandler:(void (^)(AWSRekognitionGetMediaAnalysisJobResponse *response, NSError *error))completionHandler {
+    [[self getMediaAnalysisJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionGetMediaAnalysisJobResponse *> * _Nonnull task) {
+        AWSRekognitionGetMediaAnalysisJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSRekognitionGetPersonTrackingResponse *> *)getPersonTracking:(AWSRekognitionGetPersonTrackingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1343,6 +1367,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSRekognitionListFacesResponse *response, NSError *error))completionHandler {
     [[self listFaces:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionListFacesResponse *> * _Nonnull task) {
         AWSRekognitionListFacesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionListMediaAnalysisJobsResponse *> *)listMediaAnalysisJobs:(AWSRekognitionListMediaAnalysisJobsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"ListMediaAnalysisJobs"
+                   outputClass:[AWSRekognitionListMediaAnalysisJobsResponse class]];
+}
+
+- (void)listMediaAnalysisJobs:(AWSRekognitionListMediaAnalysisJobsRequest *)request
+     completionHandler:(void (^)(AWSRekognitionListMediaAnalysisJobsResponse *response, NSError *error))completionHandler {
+    [[self listMediaAnalysisJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionListMediaAnalysisJobsResponse *> * _Nonnull task) {
+        AWSRekognitionListMediaAnalysisJobsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1688,6 +1735,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSRekognitionStartLabelDetectionResponse *response, NSError *error))completionHandler {
     [[self startLabelDetection:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionStartLabelDetectionResponse *> * _Nonnull task) {
         AWSRekognitionStartLabelDetectionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionStartMediaAnalysisJobResponse *> *)startMediaAnalysisJob:(AWSRekognitionStartMediaAnalysisJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"StartMediaAnalysisJob"
+                   outputClass:[AWSRekognitionStartMediaAnalysisJobResponse class]];
+}
+
+- (void)startMediaAnalysisJob:(AWSRekognitionStartMediaAnalysisJobRequest *)request
+     completionHandler:(void (^)(AWSRekognitionStartMediaAnalysisJobResponse *response, NSError *error))completionHandler {
+    [[self startMediaAnalysisJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionStartMediaAnalysisJobResponse *> * _Nonnull task) {
+        AWSRekognitionStartMediaAnalysisJobResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
