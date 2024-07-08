@@ -1,16 +1,21 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## Unreleased
-
-<!--  VALIDATE THAT THE FOLLOWING IS UNDER THE UNRELELEASED SECTION AND HAS NO DUPLICATES. OTHERWISE UPDATE IT -->
-
 ### Misc. Updates
 
 - Model updates for the following services
   - AWSRekognition
-
-
--Features for next release
+  - AWSConnect
+  - AWSAutoScaling
+  - AWSEC2
+  - AWSDynamoDB
+  - AWSPolly
+  - AWSCognitoIdentityProvider
+  - AWSKMS
+  - AWSSNS
+  - AWSLocation
+  - AWSFirehose
+  - AWSPinpoint
+  - AWSTranscribe
 
 ## 2.36.3
 
