@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSLocationVerifyDevicePositionRequest Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSLocationVerifyDevicePositionRequest" class="dashAnchor"></a>
+    <a title="AWSLocationVerifyDevicePositionRequest Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSLocation 2.36.4 Docs</a> (89% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
+        <div class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSLocation Reference</a>
+        <img id="carat" src="../img/carat.png" alt=""/>
+        AWSLocationVerifyDevicePositionRequest Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocation.html">AWSLocation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationApiKeyFilter.html">AWSLocationApiKeyFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationApiKeyRestrictions.html">AWSLocationApiKeyRestrictions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationAssociateTrackerConsumerRequest.html">AWSLocationAssociateTrackerConsumerRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSLocationAssociateTrackerConsumerResponse">AWSLocationAssociateTrackerConsumerResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationBatchDeleteDevicePositionHistoryError.html">AWSLocationBatchDeleteDevicePositionHistoryError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationBatchDeleteDevicePositionHistoryRequest.html">AWSLocationBatchDeleteDevicePositionHistoryRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationBatchDeleteDevicePositionHistoryResponse.html">AWSLocationBatchDeleteDevicePositionHistoryResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationBatchDeleteGeofenceError.html">AWSLocationBatchDeleteGeofenceError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationBatchDeleteGeofenceRequest.html">AWSLocationBatchDeleteGeofenceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationBatchDeleteGeofenceResponse.html">AWSLocationBatchDeleteGeofenceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationBatchEvaluateGeofencesError.html">AWSLocationBatchEvaluateGeofencesError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationBatchEvaluateGeofencesRequest.html">AWSLocationBatchEvaluateGeofencesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationBatchEvaluateGeofencesResponse.html">AWSLocationBatchEvaluateGeofencesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationBatchGetDevicePositionError.html">AWSLocationBatchGetDevicePositionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationBatchGetDevicePositionRequest.html">AWSLocationBatchGetDevicePositionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationBatchGetDevicePositionResponse.html">AWSLocationBatchGetDevicePositionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationBatchItemError.html">AWSLocationBatchItemError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationBatchPutGeofenceError.html">AWSLocationBatchPutGeofenceError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationBatchPutGeofenceRequest.html">AWSLocationBatchPutGeofenceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationBatchPutGeofenceRequestEntry.html">AWSLocationBatchPutGeofenceRequestEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationBatchPutGeofenceResponse.html">AWSLocationBatchPutGeofenceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationBatchPutGeofenceSuccess.html">AWSLocationBatchPutGeofenceSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationBatchUpdateDevicePositionError.html">AWSLocationBatchUpdateDevicePositionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationBatchUpdateDevicePositionRequest.html">AWSLocationBatchUpdateDevicePositionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationBatchUpdateDevicePositionResponse.html">AWSLocationBatchUpdateDevicePositionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCalculateRouteCarModeOptions.html">AWSLocationCalculateRouteCarModeOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCalculateRouteMatrixRequest.html">AWSLocationCalculateRouteMatrixRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCalculateRouteMatrixResponse.html">AWSLocationCalculateRouteMatrixResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCalculateRouteMatrixSummary.html">AWSLocationCalculateRouteMatrixSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCalculateRouteRequest.html">AWSLocationCalculateRouteRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCalculateRouteResponse.html">AWSLocationCalculateRouteResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCalculateRouteSummary.html">AWSLocationCalculateRouteSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCalculateRouteTruckModeOptions.html">AWSLocationCalculateRouteTruckModeOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCellSignals.html">AWSLocationCellSignals</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCircle.html">AWSLocationCircle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCreateGeofenceCollectionRequest.html">AWSLocationCreateGeofenceCollectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCreateGeofenceCollectionResponse.html">AWSLocationCreateGeofenceCollectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCreateKeyRequest.html">AWSLocationCreateKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCreateKeyResponse.html">AWSLocationCreateKeyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCreateMapRequest.html">AWSLocationCreateMapRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCreateMapResponse.html">AWSLocationCreateMapResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCreatePlaceIndexRequest.html">AWSLocationCreatePlaceIndexRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCreatePlaceIndexResponse.html">AWSLocationCreatePlaceIndexResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCreateRouteCalculatorRequest.html">AWSLocationCreateRouteCalculatorRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCreateRouteCalculatorResponse.html">AWSLocationCreateRouteCalculatorResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCreateTrackerRequest.html">AWSLocationCreateTrackerRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCreateTrackerResponse.html">AWSLocationCreateTrackerResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDataSourceConfiguration.html">AWSLocationDataSourceConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDeleteGeofenceCollectionRequest.html">AWSLocationDeleteGeofenceCollectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSLocationDeleteGeofenceCollectionResponse">AWSLocationDeleteGeofenceCollectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDeleteKeyRequest.html">AWSLocationDeleteKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSLocationDeleteKeyResponse">AWSLocationDeleteKeyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDeleteMapRequest.html">AWSLocationDeleteMapRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSLocationDeleteMapResponse">AWSLocationDeleteMapResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDeletePlaceIndexRequest.html">AWSLocationDeletePlaceIndexRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSLocationDeletePlaceIndexResponse">AWSLocationDeletePlaceIndexResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDeleteRouteCalculatorRequest.html">AWSLocationDeleteRouteCalculatorRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSLocationDeleteRouteCalculatorResponse">AWSLocationDeleteRouteCalculatorResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDeleteTrackerRequest.html">AWSLocationDeleteTrackerRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSLocationDeleteTrackerResponse">AWSLocationDeleteTrackerResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDescribeGeofenceCollectionRequest.html">AWSLocationDescribeGeofenceCollectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDescribeGeofenceCollectionResponse.html">AWSLocationDescribeGeofenceCollectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDescribeKeyRequest.html">AWSLocationDescribeKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDescribeKeyResponse.html">AWSLocationDescribeKeyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDescribeMapRequest.html">AWSLocationDescribeMapRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDescribeMapResponse.html">AWSLocationDescribeMapResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDescribePlaceIndexRequest.html">AWSLocationDescribePlaceIndexRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDescribePlaceIndexResponse.html">AWSLocationDescribePlaceIndexResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDescribeRouteCalculatorRequest.html">AWSLocationDescribeRouteCalculatorRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDescribeRouteCalculatorResponse.html">AWSLocationDescribeRouteCalculatorResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDescribeTrackerRequest.html">AWSLocationDescribeTrackerRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDescribeTrackerResponse.html">AWSLocationDescribeTrackerResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDevicePosition.html">AWSLocationDevicePosition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDevicePositionUpdate.html">AWSLocationDevicePositionUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDeviceState.html">AWSLocationDeviceState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationDisassociateTrackerConsumerRequest.html">AWSLocationDisassociateTrackerConsumerRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSLocationDisassociateTrackerConsumerResponse">AWSLocationDisassociateTrackerConsumerResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationForecastGeofenceEventsDeviceState.html">AWSLocationForecastGeofenceEventsDeviceState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationForecastGeofenceEventsRequest.html">AWSLocationForecastGeofenceEventsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationForecastGeofenceEventsResponse.html">AWSLocationForecastGeofenceEventsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationForecastedEvent.html">AWSLocationForecastedEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationGeofenceGeometry.html">AWSLocationGeofenceGeometry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationGetDevicePositionHistoryRequest.html">AWSLocationGetDevicePositionHistoryRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationGetDevicePositionHistoryResponse.html">AWSLocationGetDevicePositionHistoryResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationGetDevicePositionRequest.html">AWSLocationGetDevicePositionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationGetDevicePositionResponse.html">AWSLocationGetDevicePositionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationGetGeofenceRequest.html">AWSLocationGetGeofenceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationGetGeofenceResponse.html">AWSLocationGetGeofenceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationGetMapGlyphsRequest.html">AWSLocationGetMapGlyphsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationGetMapGlyphsResponse.html">AWSLocationGetMapGlyphsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationGetMapSpritesRequest.html">AWSLocationGetMapSpritesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationGetMapSpritesResponse.html">AWSLocationGetMapSpritesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationGetMapStyleDescriptorRequest.html">AWSLocationGetMapStyleDescriptorRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationGetMapStyleDescriptorResponse.html">AWSLocationGetMapStyleDescriptorResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationGetMapTileRequest.html">AWSLocationGetMapTileRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationGetMapTileResponse.html">AWSLocationGetMapTileResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationGetPlaceRequest.html">AWSLocationGetPlaceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationGetPlaceResponse.html">AWSLocationGetPlaceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationInferredState.html">AWSLocationInferredState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationLeg.html">AWSLocationLeg</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationLegGeometry.html">AWSLocationLegGeometry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListDevicePositionsRequest.html">AWSLocationListDevicePositionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListDevicePositionsResponse.html">AWSLocationListDevicePositionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListDevicePositionsResponseEntry.html">AWSLocationListDevicePositionsResponseEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListGeofenceCollectionsRequest.html">AWSLocationListGeofenceCollectionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListGeofenceCollectionsResponse.html">AWSLocationListGeofenceCollectionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListGeofenceCollectionsResponseEntry.html">AWSLocationListGeofenceCollectionsResponseEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListGeofenceResponseEntry.html">AWSLocationListGeofenceResponseEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListGeofencesRequest.html">AWSLocationListGeofencesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListGeofencesResponse.html">AWSLocationListGeofencesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListKeysRequest.html">AWSLocationListKeysRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListKeysResponse.html">AWSLocationListKeysResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListKeysResponseEntry.html">AWSLocationListKeysResponseEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListMapsRequest.html">AWSLocationListMapsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListMapsResponse.html">AWSLocationListMapsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListMapsResponseEntry.html">AWSLocationListMapsResponseEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListPlaceIndexesRequest.html">AWSLocationListPlaceIndexesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListPlaceIndexesResponse.html">AWSLocationListPlaceIndexesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListPlaceIndexesResponseEntry.html">AWSLocationListPlaceIndexesResponseEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListRouteCalculatorsRequest.html">AWSLocationListRouteCalculatorsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListRouteCalculatorsResponse.html">AWSLocationListRouteCalculatorsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListRouteCalculatorsResponseEntry.html">AWSLocationListRouteCalculatorsResponseEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListTagsForResourceRequest.html">AWSLocationListTagsForResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListTagsForResourceResponse.html">AWSLocationListTagsForResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListTrackerConsumersRequest.html">AWSLocationListTrackerConsumersRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListTrackerConsumersResponse.html">AWSLocationListTrackerConsumersResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListTrackersRequest.html">AWSLocationListTrackersRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListTrackersResponse.html">AWSLocationListTrackersResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationListTrackersResponseEntry.html">AWSLocationListTrackersResponseEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationLteCellDetails.html">AWSLocationLteCellDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationLteLocalId.html">AWSLocationLteLocalId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationLteNetworkMeasurements.html">AWSLocationLteNetworkMeasurements</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationMapConfiguration.html">AWSLocationMapConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationMapConfigurationUpdate.html">AWSLocationMapConfigurationUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationPlace.html">AWSLocationPlace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationPlaceGeometry.html">AWSLocationPlaceGeometry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationPositionalAccuracy.html">AWSLocationPositionalAccuracy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationPutGeofenceRequest.html">AWSLocationPutGeofenceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationPutGeofenceResponse.html">AWSLocationPutGeofenceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationResources.html">AWSLocationResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationRouteMatrixEntry.html">AWSLocationRouteMatrixEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationRouteMatrixEntryError.html">AWSLocationRouteMatrixEntryError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationSearchForPositionResult.html">AWSLocationSearchForPositionResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationSearchForSuggestionsResult.html">AWSLocationSearchForSuggestionsResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationSearchForTextResult.html">AWSLocationSearchForTextResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationSearchPlaceIndexForPositionRequest.html">AWSLocationSearchPlaceIndexForPositionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationSearchPlaceIndexForPositionResponse.html">AWSLocationSearchPlaceIndexForPositionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationSearchPlaceIndexForPositionSummary.html">AWSLocationSearchPlaceIndexForPositionSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationSearchPlaceIndexForSuggestionsRequest.html">AWSLocationSearchPlaceIndexForSuggestionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationSearchPlaceIndexForSuggestionsResponse.html">AWSLocationSearchPlaceIndexForSuggestionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationSearchPlaceIndexForSuggestionsSummary.html">AWSLocationSearchPlaceIndexForSuggestionsSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationSearchPlaceIndexForTextRequest.html">AWSLocationSearchPlaceIndexForTextRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationSearchPlaceIndexForTextResponse.html">AWSLocationSearchPlaceIndexForTextResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationSearchPlaceIndexForTextSummary.html">AWSLocationSearchPlaceIndexForTextSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationStep.html">AWSLocationStep</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationTagResourceRequest.html">AWSLocationTagResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSLocationTagResourceResponse">AWSLocationTagResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationTimeZone.html">AWSLocationTimeZone</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationTrackingFilterGeometry.html">AWSLocationTrackingFilterGeometry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationTruckDimensions.html">AWSLocationTruckDimensions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationTruckWeight.html">AWSLocationTruckWeight</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUntagResourceRequest.html">AWSLocationUntagResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSLocationUntagResourceResponse">AWSLocationUntagResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateGeofenceCollectionRequest.html">AWSLocationUpdateGeofenceCollectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateGeofenceCollectionResponse.html">AWSLocationUpdateGeofenceCollectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateKeyRequest.html">AWSLocationUpdateKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateKeyResponse.html">AWSLocationUpdateKeyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateMapRequest.html">AWSLocationUpdateMapRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateMapResponse.html">AWSLocationUpdateMapResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdatePlaceIndexRequest.html">AWSLocationUpdatePlaceIndexRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdatePlaceIndexResponse.html">AWSLocationUpdatePlaceIndexResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateRouteCalculatorRequest.html">AWSLocationUpdateRouteCalculatorRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateRouteCalculatorResponse.html">AWSLocationUpdateRouteCalculatorResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateTrackerRequest.html">AWSLocationUpdateTrackerRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateTrackerResponse.html">AWSLocationUpdateTrackerResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationValidationExceptionField.html">AWSLocationValidationExceptionField</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationVerifyDevicePositionRequest.html">AWSLocationVerifyDevicePositionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationVerifyDevicePositionResponse.html">AWSLocationVerifyDevicePositionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationWiFiAccessPoint.html">AWSLocationWiFiAccessPoint</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLocationSDKVersion">AWSLocationSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLocationVersionNumber">AWSLocationVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLocationVersionString">AWSLocationVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLocationBatchItemErrorCode.html">AWSLocationBatchItemErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLocationDimensionUnit.html">AWSLocationDimensionUnit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLocationDistanceUnit.html">AWSLocationDistanceUnit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLocationErrorType.html">AWSLocationErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLocationForecastedGeofenceEventType.html">AWSLocationForecastedGeofenceEventType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLocationIntendedUse.html">AWSLocationIntendedUse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLocationOptimizationMode.html">AWSLocationOptimizationMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLocationPositionFiltering.html">AWSLocationPositionFiltering</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLocationPricingPlan.html">AWSLocationPricingPlan</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLocationRouteMatrixErrorCode.html">AWSLocationRouteMatrixErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLocationSpeedUnit.html">AWSLocationSpeedUnit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLocationStatus.html">AWSLocationStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLocationTravelMode.html">AWSLocationTravelMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLocationValidationExceptionReason.html">AWSLocationValidationExceptionReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLocationVehicleWeightUnit.html">AWSLocationVehicleWeightUnit</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSLocationVerifyDevicePositionRequest</h1>
+              <div class="declaration">
+                <div class="language">
+                  <p class="aside-title">Objective-C</p>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationVerifyDevicePositionRequest</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationVerifyDevicePositionRequest</span></code></pre>
+
+                </div>
+              </div>
+            
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationVerifyDevicePositionRequest(py)deviceState"></a>
+                    <a name="//apple_ref/objc/Property/deviceState" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationVerifyDevicePositionRequest(py)deviceState">deviceState</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The device&rsquo;s state, including position, IP address, cell signals and Wi-Fi access points.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSLocationDeviceState.html">AWSLocationDeviceState</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">deviceState</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">deviceState</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDeviceState.html">AWSLocationDeviceState</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationVerifyDevicePositionRequest(py)distanceUnit"></a>
+                    <a name="//apple_ref/objc/Property/distanceUnit" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationVerifyDevicePositionRequest(py)distanceUnit">distanceUnit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The distance unit for the verification request.</p><p>Default Value: <code>Kilometers</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSLocationDistanceUnit.html">AWSLocationDistanceUnit</a></span> <span class="n">distanceUnit</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">distanceUnit</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSLocationDistanceUnit.html">AWSLocationDistanceUnit</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationVerifyDevicePositionRequest(py)trackerName"></a>
+                    <a name="//apple_ref/objc/Property/trackerName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationVerifyDevicePositionRequest(py)trackerName">trackerName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The name of the tracker resource to be associated with verification request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">trackerName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">trackerName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-07-09)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>

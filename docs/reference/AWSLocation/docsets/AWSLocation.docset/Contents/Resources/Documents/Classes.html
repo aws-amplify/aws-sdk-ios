@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSLocation 2.36.3 Docs</a> (90% documented)</p>
+        <p><a href="index.html">AWSLocation 2.36.4 Docs</a> (89% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -143,6 +143,9 @@
                 <a href="Classes/AWSLocationCalculateRouteTruckModeOptions.html">AWSLocationCalculateRouteTruckModeOptions</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSLocationCellSignals.html">AWSLocationCellSignals</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSLocationCircle.html">AWSLocationCircle</a>
               </li>
               <li class="nav-group-task">
@@ -263,10 +266,25 @@
                 <a href="Classes/AWSLocationDevicePositionUpdate.html">AWSLocationDevicePositionUpdate</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSLocationDeviceState.html">AWSLocationDeviceState</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSLocationDisassociateTrackerConsumerRequest.html">AWSLocationDisassociateTrackerConsumerRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes.html#/c:objc(cs)AWSLocationDisassociateTrackerConsumerResponse">AWSLocationDisassociateTrackerConsumerResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationForecastGeofenceEventsDeviceState.html">AWSLocationForecastGeofenceEventsDeviceState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationForecastGeofenceEventsRequest.html">AWSLocationForecastGeofenceEventsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationForecastGeofenceEventsResponse.html">AWSLocationForecastGeofenceEventsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationForecastedEvent.html">AWSLocationForecastedEvent</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSLocationGeofenceGeometry.html">AWSLocationGeofenceGeometry</a>
@@ -318,6 +336,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSLocationGetPlaceResponse.html">AWSLocationGetPlaceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationInferredState.html">AWSLocationInferredState</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSLocationLeg.html">AWSLocationLeg</a>
@@ -408,6 +429,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSLocationListTrackersResponseEntry.html">AWSLocationListTrackersResponseEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationLteCellDetails.html">AWSLocationLteCellDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationLteLocalId.html">AWSLocationLteLocalId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationLteNetworkMeasurements.html">AWSLocationLteNetworkMeasurements</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSLocationMapConfiguration.html">AWSLocationMapConfiguration</a>
@@ -541,6 +571,15 @@
               <li class="nav-group-task">
                 <a href="Classes/AWSLocationValidationExceptionField.html">AWSLocationValidationExceptionField</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationVerifyDevicePositionRequest.html">AWSLocationVerifyDevicePositionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationVerifyDevicePositionResponse.html">AWSLocationVerifyDevicePositionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationWiFiAccessPoint.html">AWSLocationWiFiAccessPoint</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -576,6 +615,9 @@
                 <a href="Enums/AWSLocationErrorType.html">AWSLocationErrorType</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSLocationForecastedGeofenceEventType.html">AWSLocationForecastedGeofenceEventType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSLocationIntendedUse.html">AWSLocationIntendedUse</a>
               </li>
               <li class="nav-group-task">
@@ -589,6 +631,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSLocationRouteMatrixErrorCode.html">AWSLocationRouteMatrixErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSLocationSpeedUnit.html">AWSLocationSpeedUnit</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSLocationStatus.html">AWSLocationStatus</a>
@@ -861,7 +906,7 @@
                       <div class="abstract">
                         <p>Contains error details for each geofence that failed to delete from the geofence collection.</p>
 
-<p>Required parameters: [Error, GeofenceId]</p>
+<p>Required parameters: [GeofenceId, Error]</p>
 
                         <a href="Classes/AWSLocationBatchDeleteGeofenceError.html" class="slightly-smaller">See more</a>
                       </div>
@@ -960,7 +1005,7 @@
                       <div class="abstract">
                         <p>Contains error details for each device that failed to evaluate its position against the geofences in a given geofence collection.</p>
 
-<p>Required parameters: [DeviceId, Error, SampleTime]</p>
+<p>Required parameters: [DeviceId, SampleTime, Error]</p>
 
                         <a href="Classes/AWSLocationBatchEvaluateGeofencesError.html" class="slightly-smaller">See more</a>
                       </div>
@@ -1191,7 +1236,7 @@
                       <div class="abstract">
                         <p>Contains error details for each geofence that failed to be stored in a given geofence collection.</p>
 
-<p>Required parameters: [Error, GeofenceId]</p>
+<p>Required parameters: [GeofenceId, Error]</p>
 
                         <a href="Classes/AWSLocationBatchPutGeofenceError.html" class="slightly-smaller">See more</a>
                       </div>
@@ -1325,7 +1370,7 @@
                       <div class="abstract">
                         <p>Contains a summary of each geofence that was successfully stored in a given geofence collection.</p>
 
-<p>Required parameters: [CreateTime, GeofenceId, UpdateTime]</p>
+<p>Required parameters: [GeofenceId, CreateTime, UpdateTime]</p>
 
                         <a href="Classes/AWSLocationBatchPutGeofenceSuccess.html" class="slightly-smaller">See more</a>
                       </div>
@@ -1360,7 +1405,7 @@
                       <div class="abstract">
                         <p>Contains error details for each device that failed to update its position.</p>
 
-<p>Required parameters: [DeviceId, Error, SampleTime]</p>
+<p>Required parameters: [DeviceId, SampleTime, Error]</p>
 
                         <a href="Classes/AWSLocationBatchUpdateDevicePositionError.html" class="slightly-smaller">See more</a>
                       </div>
@@ -1559,7 +1604,7 @@
                       <div class="abstract">
                         <p>A summary of the calculated route matrix.</p>
 
-<p>Required parameters: [DataSource, DistanceUnit, ErrorCount, RouteCount]</p>
+<p>Required parameters: [DataSource, RouteCount, ErrorCount, DistanceUnit]</p>
 
                         <a href="Classes/AWSLocationCalculateRouteMatrixSummary.html" class="slightly-smaller">See more</a>
                       </div>
@@ -1661,7 +1706,7 @@
                       <div class="abstract">
                         <p>A summary of the calculated route.</p>
 
-<p>Required parameters: [DataSource, Distance, DistanceUnit, DurationSeconds, RouteBBox]</p>
+<p>Required parameters: [RouteBBox, DataSource, Distance, DurationSeconds, DistanceUnit]</p>
 
                         <a href="Classes/AWSLocationCalculateRouteSummary.html" class="slightly-smaller">See more</a>
                       </div>
@@ -1708,6 +1753,41 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationCalculateRouteTruckModeOptions</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationCellSignals"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationCellSignals" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationCellSignals">AWSLocationCellSignals</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The cellular network communication infrastructure that the device uses.</p>
+
+<p>Required parameters: [LteCellDetails]</p>
+
+                        <a href="Classes/AWSLocationCellSignals.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationCellSignals</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationCellSignals</span></code></pre>
 
                         </div>
                       </div>
@@ -2943,7 +3023,7 @@
                       <div class="abstract">
                         <p>Contains the device position details.</p>
 
-<p>Required parameters: [Position, ReceivedTime, SampleTime]</p>
+<p>Required parameters: [SampleTime, ReceivedTime, Position]</p>
 
                         <a href="Classes/AWSLocationDevicePosition.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2978,7 +3058,7 @@
                       <div class="abstract">
                         <p>Contains the position update details for a device.</p>
 
-<p>Required parameters: [DeviceId, Position, SampleTime]</p>
+<p>Required parameters: [DeviceId, SampleTime, Position]</p>
 
                         <a href="Classes/AWSLocationDevicePositionUpdate.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2992,6 +3072,41 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationDevicePositionUpdate</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationDeviceState"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationDeviceState" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationDeviceState">AWSLocationDeviceState</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The device&rsquo;s position, IP address, and Wi-Fi access points.</p>
+
+<p>Required parameters: [DeviceId, SampleTime, Position]</p>
+
+                        <a href="Classes/AWSLocationDeviceState.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationDeviceState</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationDeviceState</span></code></pre>
 
                         </div>
                       </div>
@@ -3064,6 +3179,140 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSLocationForecastGeofenceEventsDeviceState"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationForecastGeofenceEventsDeviceState" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationForecastGeofenceEventsDeviceState">AWSLocationForecastGeofenceEventsDeviceState</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The device&rsquo;s position, IP address, and WiFi access points.</p>
+
+<p>Required parameters: [Position]</p>
+
+                        <a href="Classes/AWSLocationForecastGeofenceEventsDeviceState.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationForecastGeofenceEventsDeviceState</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationForecastGeofenceEventsDeviceState</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationForecastGeofenceEventsRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationForecastGeofenceEventsRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationForecastGeofenceEventsRequest">AWSLocationForecastGeofenceEventsRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSLocationForecastGeofenceEventsRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationForecastGeofenceEventsRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationForecastGeofenceEventsRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationForecastGeofenceEventsResponse"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationForecastGeofenceEventsResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationForecastGeofenceEventsResponse">AWSLocationForecastGeofenceEventsResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSLocationForecastGeofenceEventsResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationForecastGeofenceEventsResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationForecastGeofenceEventsResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationForecastedEvent"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationForecastedEvent" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationForecastedEvent">AWSLocationForecastedEvent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A forecasted event represents a geofence event in relation to the requested device state, that may occur given the provided device state and time horizon.</p>
+
+<p>Required parameters: [EventId, GeofenceId, IsDeviceInGeofence, NearestDistance, EventType]</p>
+
+                        <a href="Classes/AWSLocationForecastedEvent.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationForecastedEvent</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationForecastedEvent</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSLocationGeofenceGeometry"></a>
                     <a name="//apple_ref/objc/Class/AWSLocationGeofenceGeometry" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSLocationGeofenceGeometry">AWSLocationGeofenceGeometry</a>
@@ -3074,7 +3323,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Contains the geofence geometry details.</p><p>A geofence geometry is made up of either a polygon or a circle. Can be either a polygon or a circle. Including both will return a validation error.</p><note><p>Amazon Location doesn&rsquo;t currently support polygons with holes, multipolygons, polygons that are wound clockwise, or that cross the antimeridian. </p></note></p>
+                        <p><p>Contains the geofence geometry details.</p><p>A geofence geometry is made up of either a polygon or a circle. Can be a polygon, a circle or a polygon encoded in Geobuf format. Including multiple selections will return a validation error.</p><note><p>Amazon Location doesn&rsquo;t currently support polygons with holes, multipolygons, polygons that are wound clockwise, or that cross the antimeridian. </p></note></p>
 
                         <a href="Classes/AWSLocationGeofenceGeometry.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3609,6 +3858,41 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSLocationInferredState"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationInferredState" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationInferredState">AWSLocationInferredState</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The inferred state of the device, given the provided position, IP address, cellular signals, and Wi-Fi- access points.</p>
+
+<p>Required parameters: [ProxyDetected]</p>
+
+                        <a href="Classes/AWSLocationInferredState.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationInferredState</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationInferredState</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSLocationLeg"></a>
                     <a name="//apple_ref/objc/Class/AWSLocationLeg" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSLocationLeg">AWSLocationLeg</a>
@@ -3620,7 +3904,7 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p><p>Contains the calculated route&rsquo;s details for each path between a pair of positions. The number of legs returned corresponds to one fewer than the total number of positions in the request. </p><p>For example, a route with a departure position and destination position returns one leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">snapped to a nearby road</a>:</p><ul><li><p>The <code>StartPosition</code> is the departure position.</p></li><li><p>The <code>EndPosition</code> is the destination position.</p></li></ul><p>A route with a waypoint between the departure and destination position returns two legs with the positions snapped to a nearby road:</p><ul><li><p>Leg 1: The <code>StartPosition</code> is the departure position . The <code>EndPosition</code> is the waypoint positon.</p></li><li><p>Leg 2: The <code>StartPosition</code> is the waypoint position. The <code>EndPosition</code> is the destination position.</p></li></ul>
-Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Steps]</p>
+Required parameters: [StartPosition, EndPosition, Distance, DurationSeconds, Steps]</p>
 
                         <a href="Classes/AWSLocationLeg.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3752,7 +4036,7 @@ Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Ste
                       <div class="abstract">
                         <p>Contains the tracker resource details.</p>
 
-<p>Required parameters: [DeviceId, Position, SampleTime]</p>
+<p>Required parameters: [DeviceId, SampleTime, Position]</p>
 
                         <a href="Classes/AWSLocationListDevicePositionsResponseEntry.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3849,9 +4133,8 @@ Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Ste
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Contains the geofence collection details.</p>
-
-<p>Required parameters: [CollectionName, CreateTime, Description, UpdateTime]</p>
+                        <p><p>Contains the geofence collection details.</p><note><p>The returned geometry will always match the geometry format used when the geofence was created.</p></note>
+Required parameters: [CollectionName, Description, CreateTime, UpdateTime]</p>
 
                         <a href="Classes/AWSLocationListGeofenceCollectionsResponseEntry.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3884,9 +4167,8 @@ Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Ste
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Contains a list of geofences stored in a given geofence collection.</p>
-
-<p>Required parameters: [CreateTime, GeofenceId, Geometry, Status, UpdateTime]</p>
+                        <p><p>Contains a list of geofences stored in a given geofence collection.</p><note><p>The returned geometry will always match the geometry format used when the geofence was created.</p></note>
+Required parameters: [GeofenceId, Geometry, Status, CreateTime, UpdateTime]</p>
 
                         <a href="Classes/AWSLocationListGeofenceResponseEntry.html" class="slightly-smaller">See more</a>
                       </div>
@@ -4049,7 +4331,7 @@ Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Ste
                       <div class="abstract">
                         <p>An API key resource listed in your Amazon Web Services account.</p>
 
-<p>Required parameters: [CreateTime, ExpireTime, KeyName, Restrictions, UpdateTime]</p>
+<p>Required parameters: [KeyName, ExpireTime, Restrictions, CreateTime, UpdateTime]</p>
 
                         <a href="Classes/AWSLocationListKeysResponseEntry.html" class="slightly-smaller">See more</a>
                       </div>
@@ -4148,7 +4430,7 @@ Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Ste
                       <div class="abstract">
                         <p>Contains details of an existing map resource in your Amazon Web Services account.</p>
 
-<p>Required parameters: [CreateTime, DataSource, Description, MapName, UpdateTime]</p>
+<p>Required parameters: [MapName, Description, DataSource, CreateTime, UpdateTime]</p>
 
                         <a href="Classes/AWSLocationListMapsResponseEntry.html" class="slightly-smaller">See more</a>
                       </div>
@@ -4247,7 +4529,7 @@ Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Ste
                       <div class="abstract">
                         <p>A place index resource listed in your Amazon Web Services account.</p>
 
-<p>Required parameters: [CreateTime, DataSource, Description, IndexName, UpdateTime]</p>
+<p>Required parameters: [IndexName, Description, DataSource, CreateTime, UpdateTime]</p>
 
                         <a href="Classes/AWSLocationListPlaceIndexesResponseEntry.html" class="slightly-smaller">See more</a>
                       </div>
@@ -4346,7 +4628,7 @@ Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Ste
                       <div class="abstract">
                         <p>A route calculator resource listed in your Amazon Web Services account.</p>
 
-<p>Required parameters: [CalculatorName, CreateTime, DataSource, Description, UpdateTime]</p>
+<p>Required parameters: [CalculatorName, Description, DataSource, CreateTime, UpdateTime]</p>
 
                         <a href="Classes/AWSLocationListRouteCalculatorsResponseEntry.html" class="slightly-smaller">See more</a>
                       </div>
@@ -4573,7 +4855,7 @@ Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Ste
                       <div class="abstract">
                         <p>Contains the tracker resource details.</p>
 
-<p>Required parameters: [CreateTime, Description, TrackerName, UpdateTime]</p>
+<p>Required parameters: [TrackerName, Description, CreateTime, UpdateTime]</p>
 
                         <a href="Classes/AWSLocationListTrackersResponseEntry.html" class="slightly-smaller">See more</a>
                       </div>
@@ -4587,6 +4869,111 @@ Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Ste
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationListTrackersResponseEntry</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationLteCellDetails"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationLteCellDetails" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationLteCellDetails">AWSLocationLteCellDetails</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Details about the Long-Term Evolution (LTE) network.</p>
+
+<p>Required parameters: [CellId, Mcc, Mnc]</p>
+
+                        <a href="Classes/AWSLocationLteCellDetails.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationLteCellDetails</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationLteCellDetails</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationLteLocalId"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationLteLocalId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationLteLocalId">AWSLocationLteLocalId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>LTE local identification information (local ID).</p>
+
+<p>Required parameters: [Earfcn, Pci]</p>
+
+                        <a href="Classes/AWSLocationLteLocalId.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationLteLocalId</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationLteLocalId</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationLteNetworkMeasurements"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationLteNetworkMeasurements" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationLteNetworkMeasurements">AWSLocationLteNetworkMeasurements</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>LTE network measurements.</p>
+
+<p>Required parameters: [Earfcn, CellId, Pci]</p>
+
+                        <a href="Classes/AWSLocationLteNetworkMeasurements.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationLteNetworkMeasurements</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationLteNetworkMeasurements</span></code></pre>
 
                         </div>
                       </div>
@@ -4910,7 +5297,7 @@ Required parameters: [Code]</p>
                       <div class="abstract">
                         <p>Contains a search result from a position search query that is run on a place index resource.</p>
 
-<p>Required parameters: [Distance, Place]</p>
+<p>Required parameters: [Place, Distance]</p>
 
                         <a href="Classes/AWSLocationSearchForPositionResult.html" class="slightly-smaller">See more</a>
                       </div>
@@ -5079,7 +5466,7 @@ Required parameters: [Code]</p>
                       <div class="abstract">
                         <p>A summary of the request sent by using <code>SearchPlaceIndexForPosition</code>.</p>
 
-<p>Required parameters: [DataSource, Position]</p>
+<p>Required parameters: [Position, DataSource]</p>
 
                         <a href="Classes/AWSLocationSearchPlaceIndexForPositionSummary.html" class="slightly-smaller">See more</a>
                       </div>
@@ -5178,7 +5565,7 @@ Required parameters: [Code]</p>
                       <div class="abstract">
                         <p>A summary of the request sent by using <code>SearchPlaceIndexForSuggestions</code>.</p>
 
-<p>Required parameters: [DataSource, Text]</p>
+<p>Required parameters: [Text, DataSource]</p>
 
                         <a href="Classes/AWSLocationSearchPlaceIndexForSuggestionsSummary.html" class="slightly-smaller">See more</a>
                       </div>
@@ -5277,7 +5664,7 @@ Required parameters: [Code]</p>
                       <div class="abstract">
                         <p>A summary of the request sent by using <code>SearchPlaceIndexForText</code>.</p>
 
-<p>Required parameters: [DataSource, Text]</p>
+<p>Required parameters: [Text, DataSource]</p>
 
                         <a href="Classes/AWSLocationSearchPlaceIndexForTextSummary.html" class="slightly-smaller">See more</a>
                       </div>
@@ -5312,7 +5699,7 @@ Required parameters: [Code]</p>
                       <div class="abstract">
                         <p> Represents an element of a leg within a route. A step contains instructions for how to move to the next step in the leg. </p>
 
-<p>Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition]</p>
+<p>Required parameters: [StartPosition, EndPosition, Distance, DurationSeconds]</p>
 
                         <a href="Classes/AWSLocationStep.html" class="slightly-smaller">See more</a>
                       </div>
@@ -5991,7 +6378,7 @@ Required parameters: [Code]</p>
                       <div class="abstract">
                         <p>The input failed to meet the constraints specified by the AWS service in a specified field. </p>
 
-<p>Required parameters: [Message, Name]</p>
+<p>Required parameters: [Name, Message]</p>
 
                         <a href="Classes/AWSLocationValidationExceptionField.html" class="slightly-smaller">See more</a>
                       </div>
@@ -6005,6 +6392,105 @@ Required parameters: [Code]</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationValidationExceptionField</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationVerifyDevicePositionRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationVerifyDevicePositionRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationVerifyDevicePositionRequest">AWSLocationVerifyDevicePositionRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSLocationVerifyDevicePositionRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationVerifyDevicePositionRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationVerifyDevicePositionRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationVerifyDevicePositionResponse"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationVerifyDevicePositionResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationVerifyDevicePositionResponse">AWSLocationVerifyDevicePositionResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSLocationVerifyDevicePositionResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationVerifyDevicePositionResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationVerifyDevicePositionResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationWiFiAccessPoint"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationWiFiAccessPoint" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationWiFiAccessPoint">AWSLocationWiFiAccessPoint</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Wi-Fi access point.</p>
+
+<p>Required parameters: [MacAddress, Rss]</p>
+
+                        <a href="Classes/AWSLocationWiFiAccessPoint.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationWiFiAccessPoint</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationWiFiAccessPoint</span></code></pre>
 
                         </div>
                       </div>
@@ -6088,7 +6574,7 @@ Required parameters: [Code]</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-06-05)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-07-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
