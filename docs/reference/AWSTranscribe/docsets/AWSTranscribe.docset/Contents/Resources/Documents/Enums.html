@@ -17,7 +17,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSTranscribe 2.36.3 Docs</a> (71% documented)</p>
+        <p><a href="index.html">AWSTranscribe 2.36.4 Docs</a> (70% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -50,10 +50,16 @@
                 <a href="Classes/AWSTranscribeCallAnalyticsJob.html">AWSTranscribeCallAnalyticsJob</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSTranscribeCallAnalyticsJobDetails.html">AWSTranscribeCallAnalyticsJobDetails</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSTranscribeCallAnalyticsJobSettings.html">AWSTranscribeCallAnalyticsJobSettings</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSTranscribeCallAnalyticsJobSummary.html">AWSTranscribeCallAnalyticsJobSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSTranscribeCallAnalyticsSkippedFeature.html">AWSTranscribeCallAnalyticsSkippedFeature</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSTranscribeCategoryProperties.html">AWSTranscribeCategoryProperties</a>
@@ -432,7 +438,13 @@
                 <a href="Enums/AWSTranscribeCLMLanguageCode.html">AWSTranscribeCLMLanguageCode</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSTranscribeCallAnalyticsFeature.html">AWSTranscribeCallAnalyticsFeature</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSTranscribeCallAnalyticsJobStatus.html">AWSTranscribeCallAnalyticsJobStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSTranscribeCallAnalyticsSkippedReasonCode.html">AWSTranscribeCallAnalyticsSkippedReasonCode</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSTranscribeErrorType.html">AWSTranscribeErrorType</a>
@@ -639,6 +651,42 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSTranscribeCallAnalyticsFeature"></a>
+                    <a name="//apple_ref/objc/Enum/AWSTranscribeCallAnalyticsFeature" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribeCallAnalyticsFeature">AWSTranscribeCallAnalyticsFeature</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSTranscribeCallAnalyticsFeature.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSTranscribeCallAnalyticsFeature</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSTranscribeCallAnalyticsFeatureUnknown</span><span class="p">,</span>
+    <span class="n">AWSTranscribeCallAnalyticsFeatureGenerativeSummarization</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTranscribeCallAnalyticsFeature</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSTranscribeCallAnalyticsJobStatus"></a>
                     <a name="//apple_ref/objc/Enum/AWSTranscribeCallAnalyticsJobStatus" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSTranscribeCallAnalyticsJobStatus">AWSTranscribeCallAnalyticsJobStatus</a>
@@ -669,6 +717,43 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTranscribeCallAnalyticsJobStatus</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSTranscribeCallAnalyticsSkippedReasonCode"></a>
+                    <a name="//apple_ref/objc/Enum/AWSTranscribeCallAnalyticsSkippedReasonCode" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribeCallAnalyticsSkippedReasonCode">AWSTranscribeCallAnalyticsSkippedReasonCode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSTranscribeCallAnalyticsSkippedReasonCode.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSTranscribeCallAnalyticsSkippedReasonCode</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSTranscribeCallAnalyticsSkippedReasonCodeUnknown</span><span class="p">,</span>
+    <span class="n">AWSTranscribeCallAnalyticsSkippedReasonCodeInsufficientConversationContent</span><span class="p">,</span>
+    <span class="n">AWSTranscribeCallAnalyticsSkippedReasonCodeFailedSafetyGuidelines</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTranscribeCallAnalyticsSkippedReasonCode</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1614,7 +1699,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-06-05)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-07-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

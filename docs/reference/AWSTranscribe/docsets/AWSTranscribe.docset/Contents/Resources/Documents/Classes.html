@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSTranscribe 2.36.3 Docs</a> (71% documented)</p>
+        <p><a href="index.html">AWSTranscribe 2.36.4 Docs</a> (70% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -50,10 +50,16 @@
                 <a href="Classes/AWSTranscribeCallAnalyticsJob.html">AWSTranscribeCallAnalyticsJob</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSTranscribeCallAnalyticsJobDetails.html">AWSTranscribeCallAnalyticsJobDetails</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSTranscribeCallAnalyticsJobSettings.html">AWSTranscribeCallAnalyticsJobSettings</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSTranscribeCallAnalyticsJobSummary.html">AWSTranscribeCallAnalyticsJobSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSTranscribeCallAnalyticsSkippedFeature.html">AWSTranscribeCallAnalyticsSkippedFeature</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSTranscribeCategoryProperties.html">AWSTranscribeCategoryProperties</a>
@@ -432,7 +438,13 @@
                 <a href="Enums/AWSTranscribeCLMLanguageCode.html">AWSTranscribeCLMLanguageCode</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSTranscribeCallAnalyticsFeature.html">AWSTranscribeCallAnalyticsFeature</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSTranscribeCallAnalyticsJobStatus.html">AWSTranscribeCallAnalyticsJobStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSTranscribeCallAnalyticsSkippedReasonCode.html">AWSTranscribeCallAnalyticsSkippedReasonCode</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSTranscribeErrorType.html">AWSTranscribeErrorType</a>
@@ -586,6 +598,39 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSTranscribeCallAnalyticsJobDetails"></a>
+                    <a name="//apple_ref/objc/Class/AWSTranscribeCallAnalyticsJobDetails" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeCallAnalyticsJobDetails">AWSTranscribeCallAnalyticsJobDetails</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains details about a call analytics job, including information about skipped analytics features.</p>
+
+                        <a href="Classes/AWSTranscribeCallAnalyticsJobDetails.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranscribeCallAnalyticsJobDetails</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranscribeCallAnalyticsJobDetails</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSTranscribeCallAnalyticsJobSettings"></a>
                     <a name="//apple_ref/objc/Class/AWSTranscribeCallAnalyticsJobSettings" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSTranscribeCallAnalyticsJobSettings">AWSTranscribeCallAnalyticsJobSettings</a>
@@ -643,6 +688,39 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranscribeCallAnalyticsJobSummary</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeCallAnalyticsSkippedFeature"></a>
+                    <a name="//apple_ref/objc/Class/AWSTranscribeCallAnalyticsSkippedFeature" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeCallAnalyticsSkippedFeature">AWSTranscribeCallAnalyticsSkippedFeature</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents a skipped analytics feature during the analysis of a call analytics job.</p><p>The <code>Feature</code> field indicates the type of analytics feature that was skipped.</p><p>The <code>Message</code> field contains additional information or a message explaining why the analytics feature was skipped.</p><p>The <code>ReasonCode</code> field provides a code indicating the reason why the analytics feature was skipped.</p>
+
+                        <a href="Classes/AWSTranscribeCallAnalyticsSkippedFeature.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranscribeCallAnalyticsSkippedFeature</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranscribeCallAnalyticsSkippedFeature</span></code></pre>
 
                         </div>
                       </div>
@@ -4456,7 +4534,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-06-05)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-07-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
