@@ -99,6 +99,7 @@
 - (void) test_AWSFirehoseS3DestinationDescription API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseS3DestinationUpdate API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseSchemaConfiguration API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseSecretsManagerConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseSerializer API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseSnowflakeDestinationConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseSnowflakeDestinationDescription API_AVAILABLE(ios(11));
@@ -448,6 +449,10 @@
 
 - (void) test_AWSFirehoseSchemaConfiguration {
     [self validateSecureCodingForClass:[AWSFirehoseSchemaConfiguration class]];
+}
+
+- (void) test_AWSFirehoseSecretsManagerConfiguration {
+    [self validateSecureCodingForClass:[AWSFirehoseSecretsManagerConfiguration class]];
 }
 
 - (void) test_AWSFirehoseSerializer {

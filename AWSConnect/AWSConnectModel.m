@@ -555,6 +555,20 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectAgentsCriteria
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"agentIds" : @"AgentIds",
+             };
+}
+
+@end
+
 @implementation AWSConnectAllowedCapabilities
 
 + (BOOL)supportsSecureCoding {
@@ -1415,10 +1429,15 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"comparisonOperator" : @"ComparisonOperator",
+             @"matchCriteria" : @"MatchCriteria",
              @"name" : @"Name",
              @"proficiencyLevel" : @"ProficiencyLevel",
              @"value" : @"Value",
              };
+}
+
++ (NSValueTransformer *)matchCriteriaJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectMatchCriteria class]];
 }
 
 @end
@@ -15956,6 +15975,24 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)viewsSummaryListJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectViewSummary class]];
+}
+
+@end
+
+@implementation AWSConnectMatchCriteria
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"agentsCriteria" : @"AgentsCriteria",
+             };
+}
+
++ (NSValueTransformer *)agentsCriteriaJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectAgentsCriteria class]];
 }
 
 @end

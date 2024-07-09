@@ -26,7 +26,7 @@
 #import "AWSEC2Serializer.h"
 
 static NSString *const AWSInfoEC2 = @"EC2";
-NSString *const AWSEC2SDKVersion = @"2.36.3";
+NSString *const AWSEC2SDKVersion = @"2.36.4";
 
 
 @interface AWSEC2ResponseSerializer : AWSXMLResponseSerializer
@@ -7893,6 +7893,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2DescribeTagsResult *response, NSError *error))completionHandler {
     [[self describeTags:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeTagsResult *> * _Nonnull task) {
         AWSEC2DescribeTagsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DescribeTrafficMirrorFilterRulesResult *> *)describeTrafficMirrorFilterRules:(AWSEC2DescribeTrafficMirrorFilterRulesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeTrafficMirrorFilterRules"
+                   outputClass:[AWSEC2DescribeTrafficMirrorFilterRulesResult class]];
+}
+
+- (void)describeTrafficMirrorFilterRules:(AWSEC2DescribeTrafficMirrorFilterRulesRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeTrafficMirrorFilterRulesResult *response, NSError *error))completionHandler {
+    [[self describeTrafficMirrorFilterRules:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeTrafficMirrorFilterRulesResult *> * _Nonnull task) {
+        AWSEC2DescribeTrafficMirrorFilterRulesResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

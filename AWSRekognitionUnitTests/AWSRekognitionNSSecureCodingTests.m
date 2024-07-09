@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -40,6 +40,7 @@
 - (void) test_AWSRekognitionConnectedHomeSettings API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionConnectedHomeSettingsForUpdate API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionContentModerationDetection API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionContentType API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionReplicateProjectVersionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionReplicateProjectVersionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionCoversBodyPart API_AVAILABLE(ios(11));
@@ -153,6 +154,8 @@
 - (void) test_AWSRekognitionGetLabelDetectionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetLabelDetectionRequestMetadata API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetLabelDetectionResponse API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionGetMediaAnalysisJobRequest API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionGetMediaAnalysisJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetPersonTrackingRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetPersonTrackingResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetSegmentDetectionRequest API_AVAILABLE(ios(11));
@@ -186,6 +189,8 @@
 - (void) test_AWSRekognitionListDatasetLabelsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionListFacesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionListFacesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionListMediaAnalysisJobsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionListMediaAnalysisJobsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionListProjectPoliciesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionListProjectPoliciesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionListStreamProcessorsRequest API_AVAILABLE(ios(11));
@@ -196,6 +201,15 @@
 - (void) test_AWSRekognitionListUsersResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionLivenessOutputConfig API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionMatchedUser API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionMediaAnalysisDetectModerationLabelsConfig API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionMediaAnalysisInput API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionMediaAnalysisJobDescription API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionMediaAnalysisJobFailureDetails API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionMediaAnalysisManifestSummary API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionMediaAnalysisModelVersions API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionMediaAnalysisOperationsConfig API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionMediaAnalysisOutputConfig API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionMediaAnalysisResults API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionModerationLabel API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionMouthOpen API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionMustache API_AVAILABLE(ios(11));
@@ -246,6 +260,8 @@
 - (void) test_AWSRekognitionStartFaceSearchResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionStartLabelDetectionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionStartLabelDetectionResponse API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionStartMediaAnalysisJobRequest API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionStartMediaAnalysisJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionStartPersonTrackingRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionStartPersonTrackingResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionStartProjectVersionRequest API_AVAILABLE(ios(11));
@@ -387,6 +403,10 @@
 
 - (void) test_AWSRekognitionContentModerationDetection {
     [self validateSecureCodingForClass:[AWSRekognitionContentModerationDetection class]];
+}
+
+- (void) test_AWSRekognitionContentType {
+    [self validateSecureCodingForClass:[AWSRekognitionContentType class]];
 }
 
 - (void) test_AWSRekognitionReplicateProjectVersionRequest {
@@ -841,6 +861,14 @@
     [self validateSecureCodingForClass:[AWSRekognitionGetLabelDetectionResponse class]];
 }
 
+- (void) test_AWSRekognitionGetMediaAnalysisJobRequest {
+    [self validateSecureCodingForClass:[AWSRekognitionGetMediaAnalysisJobRequest class]];
+}
+
+- (void) test_AWSRekognitionGetMediaAnalysisJobResponse {
+    [self validateSecureCodingForClass:[AWSRekognitionGetMediaAnalysisJobResponse class]];
+}
+
 - (void) test_AWSRekognitionGetPersonTrackingRequest {
     [self validateSecureCodingForClass:[AWSRekognitionGetPersonTrackingRequest class]];
 }
@@ -973,6 +1001,14 @@
     [self validateSecureCodingForClass:[AWSRekognitionListFacesResponse class]];
 }
 
+- (void) test_AWSRekognitionListMediaAnalysisJobsRequest {
+    [self validateSecureCodingForClass:[AWSRekognitionListMediaAnalysisJobsRequest class]];
+}
+
+- (void) test_AWSRekognitionListMediaAnalysisJobsResponse {
+    [self validateSecureCodingForClass:[AWSRekognitionListMediaAnalysisJobsResponse class]];
+}
+
 - (void) test_AWSRekognitionListProjectPoliciesRequest {
     [self validateSecureCodingForClass:[AWSRekognitionListProjectPoliciesRequest class]];
 }
@@ -1011,6 +1047,42 @@
 
 - (void) test_AWSRekognitionMatchedUser {
     [self validateSecureCodingForClass:[AWSRekognitionMatchedUser class]];
+}
+
+- (void) test_AWSRekognitionMediaAnalysisDetectModerationLabelsConfig {
+    [self validateSecureCodingForClass:[AWSRekognitionMediaAnalysisDetectModerationLabelsConfig class]];
+}
+
+- (void) test_AWSRekognitionMediaAnalysisInput {
+    [self validateSecureCodingForClass:[AWSRekognitionMediaAnalysisInput class]];
+}
+
+- (void) test_AWSRekognitionMediaAnalysisJobDescription {
+    [self validateSecureCodingForClass:[AWSRekognitionMediaAnalysisJobDescription class]];
+}
+
+- (void) test_AWSRekognitionMediaAnalysisJobFailureDetails {
+    [self validateSecureCodingForClass:[AWSRekognitionMediaAnalysisJobFailureDetails class]];
+}
+
+- (void) test_AWSRekognitionMediaAnalysisManifestSummary {
+    [self validateSecureCodingForClass:[AWSRekognitionMediaAnalysisManifestSummary class]];
+}
+
+- (void) test_AWSRekognitionMediaAnalysisModelVersions {
+    [self validateSecureCodingForClass:[AWSRekognitionMediaAnalysisModelVersions class]];
+}
+
+- (void) test_AWSRekognitionMediaAnalysisOperationsConfig {
+    [self validateSecureCodingForClass:[AWSRekognitionMediaAnalysisOperationsConfig class]];
+}
+
+- (void) test_AWSRekognitionMediaAnalysisOutputConfig {
+    [self validateSecureCodingForClass:[AWSRekognitionMediaAnalysisOutputConfig class]];
+}
+
+- (void) test_AWSRekognitionMediaAnalysisResults {
+    [self validateSecureCodingForClass:[AWSRekognitionMediaAnalysisResults class]];
 }
 
 - (void) test_AWSRekognitionModerationLabel {
@@ -1211,6 +1283,14 @@
 
 - (void) test_AWSRekognitionStartLabelDetectionResponse {
     [self validateSecureCodingForClass:[AWSRekognitionStartLabelDetectionResponse class]];
+}
+
+- (void) test_AWSRekognitionStartMediaAnalysisJobRequest {
+    [self validateSecureCodingForClass:[AWSRekognitionStartMediaAnalysisJobRequest class]];
+}
+
+- (void) test_AWSRekognitionStartMediaAnalysisJobResponse {
+    [self validateSecureCodingForClass:[AWSRekognitionStartMediaAnalysisJobResponse class]];
 }
 
 - (void) test_AWSRekognitionStartPersonTrackingRequest {

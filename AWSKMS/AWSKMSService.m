@@ -25,7 +25,7 @@
 #import "AWSKMSResources.h"
 
 static NSString *const AWSInfoKMS = @"KMS";
-NSString *const AWSKMSSDKVersion = @"2.36.3";
+NSString *const AWSKMSSDKVersion = @"2.36.4";
 
 
 @interface AWSKMSResponseSerializer : AWSJSONResponseSerializer
@@ -542,6 +542,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKMSDeriveSharedSecretResponse *> *)deriveSharedSecret:(AWSKMSDeriveSharedSecretRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"TrentService"
+                 operationName:@"DeriveSharedSecret"
+                   outputClass:[AWSKMSDeriveSharedSecretResponse class]];
+}
+
+- (void)deriveSharedSecret:(AWSKMSDeriveSharedSecretRequest *)request
+     completionHandler:(void (^)(AWSKMSDeriveSharedSecretResponse *response, NSError *error))completionHandler {
+    [[self deriveSharedSecret:request] continueWithBlock:^id _Nullable(AWSTask<AWSKMSDeriveSharedSecretResponse *> * _Nonnull task) {
+        AWSKMSDeriveSharedSecretResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;

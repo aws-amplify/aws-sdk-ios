@@ -425,6 +425,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"GENERATE_VERIFY_MAC"] == NSOrderedSame) {
             return @(AWSKMSKeyUsageTypeGenerateVerifyMac);
         }
+        if ([value caseInsensitiveCompare:@"KEY_AGREEMENT"] == NSOrderedSame) {
+            return @(AWSKMSKeyUsageTypeKeyAgreement);
+        }
         return @(AWSKMSKeyUsageTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -434,6 +437,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"ENCRYPT_DECRYPT";
             case AWSKMSKeyUsageTypeGenerateVerifyMac:
                 return @"GENERATE_VERIFY_MAC";
+            case AWSKMSKeyUsageTypeKeyAgreement:
+                return @"KEY_AGREEMENT";
             default:
                 return nil;
         }
@@ -836,6 +841,110 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 	return @{
              @"keyId" : @"KeyId",
              };
+}
+
+@end
+
+@implementation AWSKMSDeriveSharedSecretRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"grantTokens" : @"GrantTokens",
+             @"keyAgreementAlgorithm" : @"KeyAgreementAlgorithm",
+             @"keyId" : @"KeyId",
+             @"publicKey" : @"PublicKey",
+             @"recipient" : @"Recipient",
+             };
+}
+
++ (NSValueTransformer *)keyAgreementAlgorithmJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ECDH"] == NSOrderedSame) {
+            return @(AWSKMSKeyAgreementAlgorithmSpecEcdh);
+        }
+        return @(AWSKMSKeyAgreementAlgorithmSpecUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSKMSKeyAgreementAlgorithmSpecEcdh:
+                return @"ECDH";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)recipientJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSKMSRecipientInfo class]];
+}
+
+@end
+
+@implementation AWSKMSDeriveSharedSecretResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ciphertextForRecipient" : @"CiphertextForRecipient",
+             @"keyAgreementAlgorithm" : @"KeyAgreementAlgorithm",
+             @"keyId" : @"KeyId",
+             @"keyOrigin" : @"KeyOrigin",
+             @"sharedSecret" : @"SharedSecret",
+             };
+}
+
++ (NSValueTransformer *)keyAgreementAlgorithmJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ECDH"] == NSOrderedSame) {
+            return @(AWSKMSKeyAgreementAlgorithmSpecEcdh);
+        }
+        return @(AWSKMSKeyAgreementAlgorithmSpecUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSKMSKeyAgreementAlgorithmSpecEcdh:
+                return @"ECDH";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)keyOriginJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"AWS_KMS"] == NSOrderedSame) {
+            return @(AWSKMSOriginTypeAwsKms);
+        }
+        if ([value caseInsensitiveCompare:@"EXTERNAL"] == NSOrderedSame) {
+            return @(AWSKMSOriginTypeExternal);
+        }
+        if ([value caseInsensitiveCompare:@"AWS_CLOUDHSM"] == NSOrderedSame) {
+            return @(AWSKMSOriginTypeAwsCloudhsm);
+        }
+        if ([value caseInsensitiveCompare:@"EXTERNAL_KEY_STORE"] == NSOrderedSame) {
+            return @(AWSKMSOriginTypeExternalKeyStore);
+        }
+        return @(AWSKMSOriginTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSKMSOriginTypeAwsKms:
+                return @"AWS_KMS";
+            case AWSKMSOriginTypeExternal:
+                return @"EXTERNAL";
+            case AWSKMSOriginTypeAwsCloudhsm:
+                return @"AWS_CLOUDHSM";
+            case AWSKMSOriginTypeExternalKeyStore:
+                return @"EXTERNAL_KEY_STORE";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -1831,6 +1940,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 	return @{
              @"customerMasterKeySpec" : @"CustomerMasterKeySpec",
              @"encryptionAlgorithms" : @"EncryptionAlgorithms",
+             @"keyAgreementAlgorithms" : @"KeyAgreementAlgorithms",
              @"keyId" : @"KeyId",
              @"keySpec" : @"KeySpec",
              @"keyUsage" : @"KeyUsage",
@@ -2002,6 +2112,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"GENERATE_VERIFY_MAC"] == NSOrderedSame) {
             return @(AWSKMSKeyUsageTypeGenerateVerifyMac);
         }
+        if ([value caseInsensitiveCompare:@"KEY_AGREEMENT"] == NSOrderedSame) {
+            return @(AWSKMSKeyUsageTypeKeyAgreement);
+        }
         return @(AWSKMSKeyUsageTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2011,6 +2124,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"ENCRYPT_DECRYPT";
             case AWSKMSKeyUsageTypeGenerateVerifyMac:
                 return @"GENERATE_VERIFY_MAC";
+            case AWSKMSKeyUsageTypeKeyAgreement:
+                return @"KEY_AGREEMENT";
             default:
                 return nil;
         }
@@ -2157,6 +2272,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
              @"enabled" : @"Enabled",
              @"encryptionAlgorithms" : @"EncryptionAlgorithms",
              @"expirationModel" : @"ExpirationModel",
+             @"keyAgreementAlgorithms" : @"KeyAgreementAlgorithms",
              @"keyId" : @"KeyId",
              @"keyManager" : @"KeyManager",
              @"keySpec" : @"KeySpec",
@@ -2445,6 +2561,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"GENERATE_VERIFY_MAC"] == NSOrderedSame) {
             return @(AWSKMSKeyUsageTypeGenerateVerifyMac);
         }
+        if ([value caseInsensitiveCompare:@"KEY_AGREEMENT"] == NSOrderedSame) {
+            return @(AWSKMSKeyUsageTypeKeyAgreement);
+        }
         return @(AWSKMSKeyUsageTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2454,6 +2573,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"ENCRYPT_DECRYPT";
             case AWSKMSKeyUsageTypeGenerateVerifyMac:
                 return @"GENERATE_VERIFY_MAC";
+            case AWSKMSKeyUsageTypeKeyAgreement:
+                return @"KEY_AGREEMENT";
             default:
                 return nil;
         }

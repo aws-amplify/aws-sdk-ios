@@ -326,6 +326,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @class AWSFirehoseS3DestinationDescription;
 @class AWSFirehoseS3DestinationUpdate;
 @class AWSFirehoseSchemaConfiguration;
+@class AWSFirehoseSecretsManagerConfiguration;
 @class AWSFirehoseSerializer;
 @class AWSFirehoseSnowflakeDestinationConfiguration;
 @class AWSFirehoseSnowflakeDestinationDescription;
@@ -1964,7 +1965,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) AWSFirehoseProcessingConfiguration * _Nullable processingConfiguration;
 
 /**
- <p>The configuration of the requeste sent to the HTTP endpoint specified as the destination.</p>
+ <p>The configuration of the request sent to the HTTP endpoint that is specified as the destination.</p>
  */
 @property (nonatomic, strong) AWSFirehoseHttpEndpointRequestConfiguration * _Nullable requestConfiguration;
 
@@ -1987,6 +1988,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>Describes the configuration of a destination in Amazon S3.</p>
  */
 @property (nonatomic, strong) AWSFirehoseS3DestinationConfiguration * _Nullable s3Configuration;
+
+/**
+ <p> The configuration that defines how you access secrets for HTTP Endpoint destination. </p>
+ */
+@property (nonatomic, strong) AWSFirehoseSecretsManagerConfiguration * _Nullable secretsManagerConfiguration;
 
 @end
 
@@ -2041,6 +2047,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  */
 @property (nonatomic, strong) AWSFirehoseS3DestinationDescription * _Nullable s3DestinationDescription;
 
+/**
+ <p> The configuration that defines how you access secrets for HTTP Endpoint destination. </p>
+ */
+@property (nonatomic, strong) AWSFirehoseSecretsManagerConfiguration * _Nullable secretsManagerConfiguration;
+
 @end
 
 /**
@@ -2093,6 +2104,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>Describes an update for a destination in Amazon S3.</p>
  */
 @property (nonatomic, strong) AWSFirehoseS3DestinationUpdate * _Nullable s3Update;
+
+/**
+ <p> The configuration that defines how you access secrets for HTTP Endpoint destination. </p>
+ */
+@property (nonatomic, strong) AWSFirehoseSecretsManagerConfiguration * _Nullable secretsManagerConfiguration;
 
 @end
 
@@ -2425,7 +2441,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @end
 
 /**
- <p>A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see <a href="https://parquet.apache.org/documentation/latest/">Apache Parquet</a>.</p>
+ <p>A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see <a href="https://parquet.apache.org/docs/">Apache Parquet</a>.</p>
  */
 @interface AWSFirehoseParquetSerDe : AWSModel
 
@@ -2634,7 +2650,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 
 /**
  <p>Describes the configuration of a destination in Amazon Redshift.</p>
- Required parameters: [RoleARN, ClusterJDBCURL, CopyCommand, Username, Password, S3Configuration]
+ Required parameters: [RoleARN, ClusterJDBCURL, CopyCommand, S3Configuration]
  */
 @interface AWSFirehoseRedshiftDestinationConfiguration : AWSModel
 
@@ -2690,6 +2706,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) AWSFirehoseS3DestinationConfiguration * _Nullable s3Configuration;
 
 /**
+ <p> The configuration that defines how you access secrets for Amazon Redshift. </p>
+ */
+@property (nonatomic, strong) AWSFirehoseSecretsManagerConfiguration * _Nullable secretsManagerConfiguration;
+
+/**
  <p>The name of the user.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
@@ -2698,7 +2719,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 
 /**
  <p>Describes a destination in Amazon Redshift.</p>
- Required parameters: [RoleARN, ClusterJDBCURL, CopyCommand, Username, S3DestinationDescription]
+ Required parameters: [RoleARN, ClusterJDBCURL, CopyCommand, S3DestinationDescription]
  */
 @interface AWSFirehoseRedshiftDestinationDescription : AWSModel
 
@@ -2747,6 +2768,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>The Amazon S3 destination.</p>
  */
 @property (nonatomic, strong) AWSFirehoseS3DestinationDescription * _Nullable s3DestinationDescription;
+
+/**
+ <p> The configuration that defines how you access secrets for Amazon Redshift. </p>
+ */
+@property (nonatomic, strong) AWSFirehoseSecretsManagerConfiguration * _Nullable secretsManagerConfiguration;
 
 /**
  <p>The name of the user.</p>
@@ -2810,6 +2836,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>The Amazon S3 destination.</p><p>The compression formats <code>SNAPPY</code> or <code>ZIP</code> cannot be specified in <code>RedshiftDestinationUpdate.S3Update</code> because the Amazon Redshift <code>COPY</code> operation that reads from the S3 bucket doesn't support these compression formats.</p>
  */
 @property (nonatomic, strong) AWSFirehoseS3DestinationUpdate * _Nullable s3Update;
+
+/**
+ <p> The configuration that defines how you access secrets for Amazon Redshift. </p>
+ */
+@property (nonatomic, strong) AWSFirehoseSecretsManagerConfiguration * _Nullable secretsManagerConfiguration;
 
 /**
  <p>The name of the user.</p>
@@ -3029,6 +3060,30 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @end
 
 /**
+ <p>The structure that defines how Firehose accesses the secret.</p>
+ Required parameters: [Enabled]
+ */
+@interface AWSFirehoseSecretsManagerConfiguration : AWSModel
+
+
+/**
+ <p>Specifies whether you want to use the the secrets manager feature. When set as <code>True</code> the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to <code>False</code> Firehose falls back to the credentials in the destination configuration.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ <p> Specifies the role that Firehose assumes when calling the Secrets Manager API operation. When you provide the role, it overrides any destination specific role defined in the destination configuration. If you do not provide the then we use the destination specific role. This parameter is required for Splunk. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleARN;
+
+/**
+ <p>The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the delivery stream and role as Firehose supports cross-account secret access. This parameter is required when <b>Enabled</b> is set to <code>True</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable secretARN;
+
+@end
+
+/**
  <p>The serializer that you want Firehose to use to convert data to the target format before writing it to Amazon S3. Firehose supports two types of serializers: the <a href="https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/orc/OrcSerde.html">ORC SerDe</a> and the <a href="https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/parquet/serde/ParquetHiveSerDe.html">Parquet SerDe</a>.</p>
  */
 @interface AWSFirehoseSerializer : AWSModel
@@ -3048,7 +3103,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 
 /**
  <p>Configure Snowflake destination</p>
- Required parameters: [AccountUrl, PrivateKey, User, Database, Schema, Table, RoleARN, S3Configuration]
+ Required parameters: [AccountUrl, Database, Schema, Table, RoleARN, S3Configuration]
  */
 @interface AWSFirehoseSnowflakeDestinationConfiguration : AWSModel
 
@@ -3122,6 +3177,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views</p>
  */
 @property (nonatomic, strong) NSString * _Nullable schema;
+
+/**
+ <p> The configuration that defines how you access secrets for Snowflake. </p>
+ */
+@property (nonatomic, strong) AWSFirehoseSecretsManagerConfiguration * _Nullable secretsManagerConfiguration;
 
 /**
  <p>Optionally configure a Snowflake role. Otherwise the default user role will be used.</p>
@@ -3210,6 +3270,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views</p>
  */
 @property (nonatomic, strong) NSString * _Nullable schema;
+
+/**
+ <p> The configuration that defines how you access secrets for Snowflake. </p>
+ */
+@property (nonatomic, strong) AWSFirehoseSecretsManagerConfiguration * _Nullable secretsManagerConfiguration;
 
 /**
  <p>Optionally configure a Snowflake role. Otherwise the default user role will be used.</p>
@@ -3308,6 +3373,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views</p>
  */
 @property (nonatomic, strong) NSString * _Nullable schema;
+
+/**
+ <p> Describes the Secrets Manager configuration in Snowflake. </p>
+ */
+@property (nonatomic, strong) AWSFirehoseSecretsManagerConfiguration * _Nullable secretsManagerConfiguration;
 
 /**
  <p>Optionally configure a Snowflake role. Otherwise the default user role will be used.</p>
@@ -3409,7 +3479,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 
 /**
  <p>Describes the configuration of a destination in Splunk.</p>
- Required parameters: [HECEndpoint, HECEndpointType, HECToken, S3Configuration]
+ Required parameters: [HECEndpoint, HECEndpointType, S3Configuration]
  */
 @interface AWSFirehoseSplunkDestinationConfiguration : AWSModel
 
@@ -3463,6 +3533,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>The configuration for the backup Amazon S3 location.</p>
  */
 @property (nonatomic, strong) AWSFirehoseS3DestinationConfiguration * _Nullable s3Configuration;
+
+/**
+ <p> The configuration that defines how you access secrets for Splunk. </p>
+ */
+@property (nonatomic, strong) AWSFirehoseSecretsManagerConfiguration * _Nullable secretsManagerConfiguration;
 
 @end
 
@@ -3522,6 +3597,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  */
 @property (nonatomic, strong) AWSFirehoseS3DestinationDescription * _Nullable s3DestinationDescription;
 
+/**
+ <p> The configuration that defines how you access secrets for Splunk. </p>
+ */
+@property (nonatomic, strong) AWSFirehoseSecretsManagerConfiguration * _Nullable secretsManagerConfiguration;
+
 @end
 
 /**
@@ -3579,6 +3659,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>Your update to the configuration of the backup Amazon S3 location.</p>
  */
 @property (nonatomic, strong) AWSFirehoseS3DestinationUpdate * _Nullable s3Update;
+
+/**
+ <p> The configuration that defines how you access secrets for Splunk. </p>
+ */
+@property (nonatomic, strong) AWSFirehoseSecretsManagerConfiguration * _Nullable secretsManagerConfiguration;
 
 @end
 
@@ -3770,7 +3855,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) AWSFirehoseS3DestinationUpdate * _Nullable s3DestinationUpdate;
 
 /**
- <p>Update to the Snowflake destination condiguration settings</p>
+ <p>Update to the Snowflake destination configuration settings.</p>
  */
 @property (nonatomic, strong) AWSFirehoseSnowflakeDestinationUpdate * _Nullable snowflakeDestinationUpdate;
 
