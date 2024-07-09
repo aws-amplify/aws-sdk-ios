@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSIoT 2.36.3 Docs</a> (84% documented)</p>
+        <p><a href="index.html">AWSIoT 2.36.4 Docs</a> (84% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSIoT.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -3404,6 +3404,33 @@ shadowOperationTimeoutSeconds: double, device shadow operation timeout (default 
               <span class="nf">eventCallback</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="n"><a href="Enums/AWSIoTShadowOperationType.html">AWSIoTShadowOperationType</a></span> <span class="n">operation</span><span class="p">,</span> <span class="n"><a href="Enums/AWSIoTShadowOperationStatusType.html">AWSIoTShadowOperationStatusType</a></span> <span class="n">status</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">clientToken</span><span class="p">,</span> <span class="n">NSData</span> <span class="o">*</span><span class="n">payload</span><span class="p">))</span><span class="nv">callback</span><span class="p">;</span>
 
 <span class="cm">/**
+ Register for updates on a device shadow
+
+ @param name The device shadow to register for updates on.
+
+ @param options A dictionary with device shadow registration options.  The options are:
+
+enableDebugging: BOOL, set to YES to enable additional console debugging (default NO)
+enableVersioning: BOOL, set to NO to disable versioning (default YES)
+enableForeignStateUpdateNotifications: BOOL, set to YES to enable foreign state updates (default NO)
+enableStaleDiscards: BOOL, set to NO to disable discarding stale updates (default YES)
+enableIgnoreDeltas: BOOL, set to YES to disable delta updates (default NO)
+QoS: AWSIoTMQTTQoS (default AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce)
+shadowOperationTimeoutSeconds: double, device shadow operation timeout (default 10.0)
+
+ @param callback The function to call when updates are received for the device shadow.
+
+ @param completionCallback The function to call when the operation is completed.
+
+ @return Boolean value indicating success or failure.
+
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span> <span class="nf">registerWithShadow</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span>
+                    <span class="nf">options</span><span class="p">:(</span><span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSNumber</span> <span class="o">*&gt;</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">options</span>
+              <span class="nf">eventCallback</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="n"><a href="Enums/AWSIoTShadowOperationType.html">AWSIoTShadowOperationType</a></span> <span class="n">operation</span><span class="p">,</span> <span class="n"><a href="Enums/AWSIoTShadowOperationStatusType.html">AWSIoTShadowOperationStatusType</a></span> <span class="n">status</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">clientToken</span><span class="p">,</span> <span class="n">NSData</span> <span class="o">*</span><span class="n">payload</span><span class="p">))</span><span class="nv">callback</span>
+         <span class="nf">completionCallback</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span><span class="nv">completionCallback</span><span class="p">;</span>
+
+<span class="cm">/**
  Unregister from updates on a device shadow
  
  @param name The device shadow to unregister from updates on.
@@ -3412,6 +3439,19 @@ shadowOperationTimeoutSeconds: double, device shadow operation timeout (default 
  
  */</span>
 <span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span> <span class="nf">unregisterFromShadow</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span><span class="p">;</span>
+
+<span class="cm">/**
+ Unregister from updates on a device shadow
+
+ @param name The device shadow to unregister from updates on.
+
+ @param completionCallback The function to call when the operation is completed.
+
+ @return Boolean value indicating success or failure.
+
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span> <span class="nf">unregisterFromShadow</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span>
+           <span class="nf">completionCallback</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span><span class="nv">completionCallback</span><span class="p">;</span>
 
 <span class="cm">/**
  Update a device shadow
@@ -27126,7 +27166,7 @@ Required parameters: [roleArn, endpoint, index, type, id]</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-06-05)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-07-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
