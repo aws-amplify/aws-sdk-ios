@@ -43,6 +43,11 @@ typedef NS_ENUM(NSInteger, AWSS3BucketAccelerateStatus) {
     AWSS3BucketAccelerateStatusSuspended,
 };
 
+typedef NS_ENUM(NSInteger, AWSS3BucketAccessStyle) {
+    AWSS3BucketAccessStyleVirtualHosted,
+    AWSS3BucketAccessStylePath
+};
+
 typedef NS_ENUM(NSInteger, AWSS3BucketCannedACL) {
     AWSS3BucketCannedACLUnknown,
     AWSS3BucketCannedACLPrivate,
@@ -66,6 +71,7 @@ typedef NS_ENUM(NSInteger, AWSS3BucketLocationConstraint) {
     AWSS3BucketLocationConstraintAPSoutheast3,
     AWSS3BucketLocationConstraintAPSoutheast4,
     AWSS3BucketLocationConstraintCACentral1,
+    AWSS3BucketLocationConstraintCAWest1,
     AWSS3BucketLocationConstraintCNNorth1,
     AWSS3BucketLocationConstraintCNNorthwest1,
     AWSS3BucketLocationConstraintEU,

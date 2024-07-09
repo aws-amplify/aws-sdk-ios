@@ -1,6 +1,6 @@
 // Software License Agreement (BSD License)
 //
-// Copyright (c) 2010-2016, Deusty, LLC
+// Copyright (c) 2010-2024, Deusty, LLC
 // All rights reserved.
 //
 // Redistribution and use of this software in source and binary forms,
@@ -76,12 +76,24 @@
 #import "AWSDDASLLogCapture.h"
 
 // Loggers
+#import "AWSDDLoggerNames.h"
+
 #import "AWSDDTTYLogger.h"
 #import "AWSDDASLLogger.h"
 #import "AWSDDFileLogger.h"
 #import "AWSDDOSLogger.h"
 
+// Extensions
+#import "AWSDDContextFilterLogFormatter.h"
+#import "AWSDDContextFilterLogFormatter+Deprecated.h"
+#import "AWSDDDispatchQueueLogFormatter.h"
+#import "AWSDDMultiFormatter.h"
+#import "AWSDDFileLogger+Buffering.h"
+
 // CLI
-#if __has_include("CLIColor.h") && TARGET_OS_OSX
-#import "CLIColor.h"
-#endif
+#import "AWSCLIColor.h"
+
+// etc
+#import "AWSDDAbstractDatabaseLogger.h"
+#import "AWSDDLog+LOGV.h"
+#import "AWSDDLegacyMacros.h"

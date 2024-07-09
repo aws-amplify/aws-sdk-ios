@@ -20,7 +20,7 @@
 @interface AWSS3TransferUtilityTask()
 
 @property (strong, nonatomic) NSURLSessionTask *sessionTask;
-@property (readwrite) NSUInteger taskIdentifier;
+@property (nonatomic, readwrite) NSUInteger taskIdentifier;
 @property (strong, nonatomic) NSString *transferID;
 @property (strong, nonatomic) NSString *bucket;
 @property (strong, nonatomic) NSString *key;

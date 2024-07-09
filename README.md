@@ -1,6 +1,7 @@
 # AWS SDK for iOS
 
 [![Release](https://img.shields.io/github/release/aws/aws-sdk-ios.svg)](../../releases)
+[![Code Coverage](https://codecov.io/gh/aws-amplify/aws-sdk-ios/branch/main/graph/badge.svg)](https://codecov.io/gh/aws-amplify/aws-sdk-ios)
 [![CocoaPods](https://img.shields.io/cocoapods/v/AWSCore.svg)](https://cocoapods.org/pods/AWSCore)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Integration Test](https://github.com/aws-amplify/aws-sdk-ios/actions/workflows/integ-test.yml/badge.svg)](https://github.com/aws-amplify/aws-sdk-ios)
@@ -24,7 +25,7 @@ To get started with the AWS SDK for iOS, check out the [Developer Guide for iOS]
 To use the AWS SDK for iOS, you will need the following installed on your development machine:
 
 * Xcode 11.0 or later
-* iOS 9 or later
+* iOS 12 or later
 
 ## Include the SDK for iOS in an Existing Application
 
@@ -413,13 +414,13 @@ To initialize logging to your Xcode console, use the following code:
 **Swift**
 
 ```swift
-AWSDDLog.add(AWSDDTTYLogger.sharedInstance) // TTY = Xcode console
+AWSDDLog.add(AWSDDOSLogger.sharedInstance) // Apple's unified logging
 ```
 
 **Objective-C**
 
 ```objective-c
-[AWSDDLog addLogger:[AWSDDTTYLogger sharedInstance]]; // TTY = Xcode console
+[AWSDDLog addLogger:[AWSDDOSLogger sharedInstance]]; // Apple's unified logging
 ```
 
 ## Open Source Contributions

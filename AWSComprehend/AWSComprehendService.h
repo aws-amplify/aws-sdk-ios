@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -300,7 +300,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)batchDetectSyntax:(AWSComprehendBatchDetectSyntaxRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendBatchDetectSyntaxResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Inspects a batch of documents and returns a sentiment analysis for each entity identified in the documents.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ <p>Inspects a batch of documents and returns a sentiment analysis for each entity identified in the documents.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the BatchDetectTargetedSentiment service method.
 
@@ -312,7 +312,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (AWSTask<AWSComprehendBatchDetectTargetedSentimentResponse *> *)batchDetectTargetedSentiment:(AWSComprehendBatchDetectTargetedSentimentRequest *)request;
 
 /**
- <p>Inspects a batch of documents and returns a sentiment analysis for each entity identified in the documents.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ <p>Inspects a batch of documents and returns a sentiment analysis for each entity identified in the documents.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the BatchDetectTargetedSentiment service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -325,7 +325,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)batchDetectTargetedSentiment:(AWSComprehendBatchDetectTargetedSentimentRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendBatchDetectTargetedSentimentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a new document classification request to analyze a single document in real-time, using a previously created and trained custom model and an endpoint.</p><p>You can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p><p>If the system detects errors while processing a page in the input document, the API response includes an entry in <code>Errors</code> that describes the errors.</p><p>If the system detects a document-level error in your input document, the API returns an <code>InvalidRequestException</code> error response. For details about this exception, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html"> Errors in semi-structured documents</a> in the Comprehend Developer Guide. </p>
+ <p>Creates a classification request to analyze a single document in real-time. <code>ClassifyDocument</code> supports the following model types:</p><ul><li><p>Custom classifier - a custom model that you have created and trained. For input, you can provide plain text, a single-page document (PDF, Word, or image), or Amazon Textract API output. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html">Custom classification</a> in the <i>Amazon Comprehend Developer Guide</i>.</p></li><li><p>Prompt safety classifier - Amazon Comprehend provides a pre-trained model for classifying input prompts for generative AI applications. For input, you provide English plain text input. For prompt safety classification, the response includes only the <code>Classes</code> field. For more information about prompt safety classifiers, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/trust-safety.html#prompt-classification">Prompt safety classification</a> in the <i>Amazon Comprehend Developer Guide</i>.</p></li></ul><p>If the system detects errors while processing a page in the input document, the API response includes an <code>Errors</code> field that describes the errors.</p><p>If the system detects a document-level error in your input document, the API returns an <code>InvalidRequestException</code> error response. For details about this exception, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html"> Errors in semi-structured documents</a> in the Comprehend Developer Guide. </p>
  
  @param request A container for the necessary parameters to execute the ClassifyDocument service method.
 
@@ -337,7 +337,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (AWSTask<AWSComprehendClassifyDocumentResponse *> *)classifyDocument:(AWSComprehendClassifyDocumentRequest *)request;
 
 /**
- <p>Creates a new document classification request to analyze a single document in real-time, using a previously created and trained custom model and an endpoint.</p><p>You can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p><p>If the system detects errors while processing a page in the input document, the API response includes an entry in <code>Errors</code> that describes the errors.</p><p>If the system detects a document-level error in your input document, the API returns an <code>InvalidRequestException</code> error response. For details about this exception, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html"> Errors in semi-structured documents</a> in the Comprehend Developer Guide. </p>
+ <p>Creates a classification request to analyze a single document in real-time. <code>ClassifyDocument</code> supports the following model types:</p><ul><li><p>Custom classifier - a custom model that you have created and trained. For input, you can provide plain text, a single-page document (PDF, Word, or image), or Amazon Textract API output. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html">Custom classification</a> in the <i>Amazon Comprehend Developer Guide</i>.</p></li><li><p>Prompt safety classifier - Amazon Comprehend provides a pre-trained model for classifying input prompts for generative AI applications. For input, you provide English plain text input. For prompt safety classification, the response includes only the <code>Classes</code> field. For more information about prompt safety classifiers, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/trust-safety.html#prompt-classification">Prompt safety classification</a> in the <i>Amazon Comprehend Developer Guide</i>.</p></li></ul><p>If the system detects errors while processing a page in the input document, the API response includes an <code>Errors</code> field that describes the errors.</p><p>If the system detects a document-level error in your input document, the API returns an <code>InvalidRequestException</code> error response. For details about this exception, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html"> Errors in semi-structured documents</a> in the Comprehend Developer Guide. </p>
  
  @param request A container for the necessary parameters to execute the ClassifyDocument service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1175,7 +1175,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)detectSyntax:(AWSComprehendDetectSyntaxRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendDetectSyntaxResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Inspects the input text and returns a sentiment analysis for each entity identified in the text.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ <p>Inspects the input text and returns a sentiment analysis for each entity identified in the text.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DetectTargetedSentiment service method.
 
@@ -1187,7 +1187,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (AWSTask<AWSComprehendDetectTargetedSentimentResponse *> *)detectTargetedSentiment:(AWSComprehendDetectTargetedSentimentRequest *)request;
 
 /**
- <p>Inspects the input text and returns a sentiment analysis for each entity identified in the text.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ <p>Inspects the input text and returns a sentiment analysis for each entity identified in the text.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DetectTargetedSentiment service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1198,6 +1198,31 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @see AWSComprehendDetectTargetedSentimentResponse
  */
 - (void)detectTargetedSentiment:(AWSComprehendDetectTargetedSentimentRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendDetectTargetedSentimentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Performs toxicity analysis on the list of text strings that you provide as input. The API response contains a results list that matches the size of the input list. For more information about toxicity detection, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/toxicity-detection.html">Toxicity detection</a> in the <i>Amazon Comprehend Developer Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the DetectToxicContent service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendDetectToxicContentResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTextSizeLimitExceeded`, `AWSComprehendErrorUnsupportedLanguage`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendDetectToxicContentRequest
+ @see AWSComprehendDetectToxicContentResponse
+ */
+- (AWSTask<AWSComprehendDetectToxicContentResponse *> *)detectToxicContent:(AWSComprehendDetectToxicContentRequest *)request;
+
+/**
+ <p>Performs toxicity analysis on the list of text strings that you provide as input. The API response contains a results list that matches the size of the input list. For more information about toxicity detection, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/toxicity-detection.html">Toxicity detection</a> in the <i>Amazon Comprehend Developer Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the DetectToxicContent service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTextSizeLimitExceeded`, `AWSComprehendErrorUnsupportedLanguage`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendDetectToxicContentRequest
+ @see AWSComprehendDetectToxicContentResponse
+ */
+- (void)detectToxicContent:(AWSComprehendDetectToxicContentRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendDetectToxicContentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Creates a new custom model that replicates a source custom model that you import. The source model can be in your Amazon Web Services account or another one.</p><p>If the source model is in another Amazon Web Services account, then it must have a resource-based policy that authorizes you to import it.</p><p>The source model must be in the same Amazon Web Services Region that you're using when you import. You can't import a model that's in a different Region.</p>
@@ -1700,7 +1725,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)putResourcePolicy:(AWSComprehendPutResourcePolicyRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendPutResourcePolicyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Starts an asynchronous document classification job. Use the <code>DescribeDocumentClassificationJob</code> operation to track the progress of the job.</p>
+ <p>Starts an asynchronous document classification job using a custom classification model. Use the <code>DescribeDocumentClassificationJob</code> operation to track the progress of the job.</p>
  
  @param request A container for the necessary parameters to execute the StartDocumentClassificationJob service method.
 
@@ -1712,7 +1737,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (AWSTask<AWSComprehendStartDocumentClassificationJobResponse *> *)startDocumentClassificationJob:(AWSComprehendStartDocumentClassificationJobRequest *)request;
 
 /**
- <p>Starts an asynchronous document classification job. Use the <code>DescribeDocumentClassificationJob</code> operation to track the progress of the job.</p>
+ <p>Starts an asynchronous document classification job using a custom classification model. Use the <code>DescribeDocumentClassificationJob</code> operation to track the progress of the job.</p>
  
  @param request A container for the necessary parameters to execute the StartDocumentClassificationJob service method.
  @param completionHandler The completion handler to call when the load request is complete.

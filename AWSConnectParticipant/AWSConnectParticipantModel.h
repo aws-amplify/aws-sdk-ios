@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -67,6 +67,7 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantParticipantRole) {
     AWSConnectParticipantParticipantRoleCustomer,
     AWSConnectParticipantParticipantRoleSystem,
     AWSConnectParticipantParticipantRoleCustomBot,
+    AWSConnectParticipantParticipantRoleSupervisor,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectParticipantResourceType) {
@@ -78,6 +79,7 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantResourceType) {
     AWSConnectParticipantResourceTypeHierarchyLevel,
     AWSConnectParticipantResourceTypeHierarchyGroup,
     AWSConnectParticipantResourceTypeUser,
+    AWSConnectParticipantResourceTypePhoneNumber,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectParticipantScanDirection) {
@@ -529,7 +531,7 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 @property (nonatomic, strong) NSString * _Nullable content;
 
 /**
- <p>The content type of the request. Supported types are:</p><ul><li><p>application/vnd.amazonaws.connect.event.typing</p></li><li><p>application/vnd.amazonaws.connect.event.connection.acknowledged</p></li><li><p>application/vnd.amazonaws.connect.event.message.delivered</p></li><li><p>application/vnd.amazonaws.connect.event.message.read</p></li></ul>
+ <p>The content type of the request. Supported types are:</p><ul><li><p>application/vnd.amazonaws.connect.event.typing</p></li><li><p>application/vnd.amazonaws.connect.event.connection.acknowledged (will be deprecated on December 31, 2024) </p></li><li><p>application/vnd.amazonaws.connect.event.message.delivered</p></li><li><p>application/vnd.amazonaws.connect.event.message.read</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
 

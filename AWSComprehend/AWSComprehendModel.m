@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -3249,6 +3249,114 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSValueTransformer *)entitiesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTargetedSentimentEntity class]];
+}
+
+@end
+
+@implementation AWSComprehendDetectToxicContentRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"languageCode" : @"LanguageCode",
+             @"textSegments" : @"TextSegments",
+             };
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"en"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeEn);
+        }
+        if ([value caseInsensitiveCompare:@"es"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeEs);
+        }
+        if ([value caseInsensitiveCompare:@"fr"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeFr);
+        }
+        if ([value caseInsensitiveCompare:@"de"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeDe);
+        }
+        if ([value caseInsensitiveCompare:@"it"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeIt);
+        }
+        if ([value caseInsensitiveCompare:@"pt"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodePt);
+        }
+        if ([value caseInsensitiveCompare:@"ar"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeAr);
+        }
+        if ([value caseInsensitiveCompare:@"hi"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeHi);
+        }
+        if ([value caseInsensitiveCompare:@"ja"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeJa);
+        }
+        if ([value caseInsensitiveCompare:@"ko"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeKo);
+        }
+        if ([value caseInsensitiveCompare:@"zh"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeZh);
+        }
+        if ([value caseInsensitiveCompare:@"zh-TW"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeZhTW);
+        }
+        return @(AWSComprehendLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendLanguageCodeEn:
+                return @"en";
+            case AWSComprehendLanguageCodeEs:
+                return @"es";
+            case AWSComprehendLanguageCodeFr:
+                return @"fr";
+            case AWSComprehendLanguageCodeDe:
+                return @"de";
+            case AWSComprehendLanguageCodeIt:
+                return @"it";
+            case AWSComprehendLanguageCodePt:
+                return @"pt";
+            case AWSComprehendLanguageCodeAr:
+                return @"ar";
+            case AWSComprehendLanguageCodeHi:
+                return @"hi";
+            case AWSComprehendLanguageCodeJa:
+                return @"ja";
+            case AWSComprehendLanguageCodeKo:
+                return @"ko";
+            case AWSComprehendLanguageCodeZh:
+                return @"zh";
+            case AWSComprehendLanguageCodeZhTW:
+                return @"zh-TW";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)textSegmentsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTextSegment class]];
+}
+
+@end
+
+@implementation AWSComprehendDetectToxicContentResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resultList" : @"ResultList",
+             };
+}
+
++ (NSValueTransformer *)resultListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendToxicLabels class]];
 }
 
 @end
@@ -10833,6 +10941,20 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 @end
 
+@implementation AWSComprehendTextSegment
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"text" : @"Text",
+             };
+}
+
+@end
+
 @implementation AWSComprehendTopicsDetectionJobFilter
 
 + (BOOL)supportsSecureCoding {
@@ -10998,6 +11120,86 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSValueTransformer *)vpcConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
+}
+
+@end
+
+@implementation AWSComprehendToxicContent
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"Name",
+             @"score" : @"Score",
+             };
+}
+
++ (NSValueTransformer *)nameJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"GRAPHIC"] == NSOrderedSame) {
+            return @(AWSComprehendToxicContentTypeGraphic);
+        }
+        if ([value caseInsensitiveCompare:@"HARASSMENT_OR_ABUSE"] == NSOrderedSame) {
+            return @(AWSComprehendToxicContentTypeHarassmentOrAbuse);
+        }
+        if ([value caseInsensitiveCompare:@"HATE_SPEECH"] == NSOrderedSame) {
+            return @(AWSComprehendToxicContentTypeHateSpeech);
+        }
+        if ([value caseInsensitiveCompare:@"INSULT"] == NSOrderedSame) {
+            return @(AWSComprehendToxicContentTypeInsult);
+        }
+        if ([value caseInsensitiveCompare:@"PROFANITY"] == NSOrderedSame) {
+            return @(AWSComprehendToxicContentTypeProfanity);
+        }
+        if ([value caseInsensitiveCompare:@"SEXUAL"] == NSOrderedSame) {
+            return @(AWSComprehendToxicContentTypeSexual);
+        }
+        if ([value caseInsensitiveCompare:@"VIOLENCE_OR_THREAT"] == NSOrderedSame) {
+            return @(AWSComprehendToxicContentTypeViolenceOrThreat);
+        }
+        return @(AWSComprehendToxicContentTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendToxicContentTypeGraphic:
+                return @"GRAPHIC";
+            case AWSComprehendToxicContentTypeHarassmentOrAbuse:
+                return @"HARASSMENT_OR_ABUSE";
+            case AWSComprehendToxicContentTypeHateSpeech:
+                return @"HATE_SPEECH";
+            case AWSComprehendToxicContentTypeInsult:
+                return @"INSULT";
+            case AWSComprehendToxicContentTypeProfanity:
+                return @"PROFANITY";
+            case AWSComprehendToxicContentTypeSexual:
+                return @"SEXUAL";
+            case AWSComprehendToxicContentTypeViolenceOrThreat:
+                return @"VIOLENCE_OR_THREAT";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSComprehendToxicLabels
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"labels" : @"Labels",
+             @"toxicity" : @"Toxicity",
+             };
+}
+
++ (NSValueTransformer *)labelsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendToxicContent class]];
 }
 
 @end

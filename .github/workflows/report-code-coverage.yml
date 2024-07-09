@@ -1,0 +1,43 @@
+name: Report Code Coverage
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  unit-tests:
+    name: All SDK Unit Tests
+    runs-on: macos-12
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
+      - name: Run AWS SDK Unit Tests
+        run: xcodebuild test -project AWSiOSSDKv2.xcodeproj -scheme AWSAllUnitTests -sdk 'iphonesimulator' -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' -derivedDataPath Build/ -enableCodeCoverage YES | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
+      - name: Generate SDK Coverage Report
+        run: |
+          cd Build/Build/ProfileData
+          cd $(ls -d */|head -n 1)
+          pathCoverage=${{ github.workspace }}/Build/Build/ProfileData/${PWD##*/}/Coverage.profdata
+          devicePath=${{ github.workspace }}/Build/Build/Products/Debug-iphonesimulator
+          cd $devicePath
+          for FRAMEWORK in $(basename -a -s .framework -- *.framework) 
+          do
+            echo "Generating coverage report for $FRAMEWORK..."
+            xcrun llvm-cov export -format="lcov" -instr-profile $pathCoverage $devicePath/$FRAMEWORK.framework/$FRAMEWORK >> aws-sdk-ios-Coverage.lcov
+          done
+          mv aws-sdk-ios-Coverage.lcov ${{ github.workspace }}
+      - name: Run AWS Auth SDK Unit Tests
+        run: xcodebuild test -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSMobileClient -sdk 'iphonesimulator' -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' -derivedDataPath Build/ -enableCodeCoverage YES -only-testing:"AWSMobileClientUnitTests" | xcpretty --simple --color --report junit && exit ${PIPESTATUS[0]}
+      - name: Generate Auth SDK Coverage Report
+        run: |
+          cd Build/Build/ProfileData
+          cd $(ls -d */|head -n 1)
+          pathCoverage=Build/Build/ProfileData/${PWD##*/}/Coverage.profdata
+          cd ${{ github.workspace }}
+          echo "Generating coverage report for AWSMobileClient..."
+          xcrun llvm-cov export -format="lcov" -instr-profile $pathCoverage Build/Build/Products/Debug-iphonesimulator/AWSAuthSDKTestApp.app/Frameworks/AWSMobileClient.framework/AWSMobileClient >> aws-sdk-ios-Coverage.lcov
+      - name: Upload Coverage Report
+        uses: codecov/codecov-action@84508663e988701840491b86de86b666e8a86bed # v4.3.0
+        with:
+          flags: AWS-SDK
+          token: ${{ secrets.CODECOV_TOKEN }}

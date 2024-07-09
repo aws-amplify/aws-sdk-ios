@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -983,6 +983,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"keyId" : @"KeyId",
+             @"rotationPeriodInDays" : @"RotationPeriodInDays",
              };
 }
 
@@ -1638,6 +1639,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"policy" : @"Policy",
+             @"policyName" : @"PolicyName",
              };
 }
 
@@ -1665,8 +1667,28 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"keyId" : @"KeyId",
              @"keyRotationEnabled" : @"KeyRotationEnabled",
+             @"nextRotationDate" : @"NextRotationDate",
+             @"onDemandRotationStartDate" : @"OnDemandRotationStartDate",
+             @"rotationPeriodInDays" : @"RotationPeriodInDays",
              };
+}
+
++ (NSValueTransformer *)nextRotationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)onDemandRotationStartDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -1702,6 +1724,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"RSA_AES_KEY_WRAP_SHA_256"] == NSOrderedSame) {
             return @(AWSKMSAlgorithmSpecRsaAesKeyWrapSha256);
         }
+        if ([value caseInsensitiveCompare:@"SM2PKE"] == NSOrderedSame) {
+            return @(AWSKMSAlgorithmSpecSm2pke);
+        }
         return @(AWSKMSAlgorithmSpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1715,6 +1740,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"RSA_AES_KEY_WRAP_SHA_1";
             case AWSKMSAlgorithmSpecRsaAesKeyWrapSha256:
                 return @"RSA_AES_KEY_WRAP_SHA_256";
+            case AWSKMSAlgorithmSpecSm2pke:
+                return @"SM2PKE";
             default:
                 return nil;
         }
@@ -1732,6 +1759,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"RSA_4096"] == NSOrderedSame) {
             return @(AWSKMSWrappingKeySpecRsa4096);
         }
+        if ([value caseInsensitiveCompare:@"SM2"] == NSOrderedSame) {
+            return @(AWSKMSWrappingKeySpecSm2);
+        }
         return @(AWSKMSWrappingKeySpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1741,6 +1771,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"RSA_3072";
             case AWSKMSWrappingKeySpecRsa4096:
                 return @"RSA_4096";
+            case AWSKMSWrappingKeySpecSm2:
+                return @"SM2";
             default:
                 return nil;
         }
@@ -2583,6 +2615,42 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 @end
 
+@implementation AWSKMSListKeyRotationsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"keyId" : @"KeyId",
+             @"limit" : @"Limit",
+             @"marker" : @"Marker",
+             };
+}
+
+@end
+
+@implementation AWSKMSListKeyRotationsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextMarker" : @"NextMarker",
+             @"rotations" : @"Rotations",
+             @"truncated" : @"Truncated",
+             };
+}
+
++ (NSValueTransformer *)rotationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSKMSRotationsListEntry class]];
+}
+
+@end
+
 @implementation AWSKMSListKeysRequest
 
 + (BOOL)supportsSecureCoding {
@@ -3018,6 +3086,79 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
              @"grantId" : @"GrantId",
              @"keyId" : @"KeyId",
              };
+}
+
+@end
+
+@implementation AWSKMSRotateKeyOnDemandRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"keyId" : @"KeyId",
+             };
+}
+
+@end
+
+@implementation AWSKMSRotateKeyOnDemandResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"keyId" : @"KeyId",
+             };
+}
+
+@end
+
+@implementation AWSKMSRotationsListEntry
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"keyId" : @"KeyId",
+             @"rotationDate" : @"RotationDate",
+             @"rotationType" : @"RotationType",
+             };
+}
+
++ (NSValueTransformer *)rotationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)rotationTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"AUTOMATIC"] == NSOrderedSame) {
+            return @(AWSKMSRotationTypeAutomatic);
+        }
+        if ([value caseInsensitiveCompare:@"ON_DEMAND"] == NSOrderedSame) {
+            return @(AWSKMSRotationTypeOnDemand);
+        }
+        return @(AWSKMSRotationTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSKMSRotationTypeAutomatic:
+                return @"AUTOMATIC";
+            case AWSKMSRotationTypeOnDemand:
+                return @"ON_DEMAND";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end

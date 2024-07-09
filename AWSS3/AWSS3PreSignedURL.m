@@ -26,7 +26,7 @@ NSString *const AWSS3PresignedURLErrorDomain = @"com.amazonaws.AWSS3PresignedURL
 static NSString *const AWSS3PreSignedURLBuilderAcceleratedEndpoint = @"s3-accelerate.amazonaws.com";
 
 static NSString *const AWSInfoS3PreSignedURLBuilder = @"S3PreSignedURLBuilder";
-static NSString *const AWSS3PreSignedURLBuilderSDKVersion = @"2.33.5";
+static NSString *const AWSS3PreSignedURLBuilderSDKVersion = @"2.36.3";
 
 @interface AWSS3PreSignedURLBuilder()
 
@@ -206,12 +206,23 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                           userInfo:@{NSLocalizedDescriptionKey: @"S3 bucket can not be nil or empty"}]];
         }
 
-        // Validates the buket name for transfer acceleration.
-        if (isAccelerateModeEnabled && ![bucketName aws_isVirtualHostedStyleCompliant]) {
-            return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
-                                                              code:AWSS3PresignedURLErrorInvalidBucketNameForAccelerateModeEnabled
-                                                          userInfo:@{
-                                                                     NSLocalizedDescriptionKey: @"For your bucket to work with transfer acceleration, the bucket name must conform to DNS naming requirements and must not contain periods."}]];
+        // validate values for transfer acceleration.
+        if (isAccelerateModeEnabled) {
+            // validate the bucket name
+            if (![bucketName aws_isVirtualHostedStyleCompliant]) {
+                return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
+                                                                  code:AWSS3PresignedURLErrorInvalidBucketNameForAccelerateModeEnabled
+                                                              userInfo:@{
+                                                                         NSLocalizedDescriptionKey: @"For your bucket to work with transfer acceleration, the bucket name must conform to DNS naming requirements and must not contain periods."}]];
+            }
+            
+            // validate the preferred access style
+            if (getPreSignedURLRequest.preferredAccessStyle == AWSS3BucketAccessStylePath) {
+                return [AWSTask taskWithError:[NSError errorWithDomain:AWSS3PresignedURLErrorDomain
+                                                                  code:AWSS3PresignedURLErrorInvalidAccessStyleForAccelerateModeEnabled
+                                                              userInfo:@{
+                                                                         NSLocalizedDescriptionKey: @"Transfer Acceleration is only supported on virtual-hosted style requests."}]];
+            }
         }
 
         //validate keyName
@@ -262,7 +273,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         //generate baseURL String (use virtualHostStyle if possible)
         //base url is not url encoded.
         NSString *keyPath = nil;
-        if (bucketName == nil || [bucketName aws_isVirtualHostedStyleCompliant]) {
+        if (bucketName == nil || [self shouldUseVirtualHostStyleForRequest:getPreSignedURLRequest]) {
             keyPath = (keyName == nil ? @"" : [NSString stringWithFormat:@"%@", [keyName aws_stringWithURLEncodingPath]]);
         } else {
             keyPath = (keyName == nil ? [NSString stringWithFormat:@"%@", bucketName] : [NSString stringWithFormat:@"%@/%@", bucketName, [keyName aws_stringWithURLEncodingPath]]);
@@ -272,7 +283,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         NSString *host = nil;
         if (!self.configuration.localTestingEnabled &&
             bucketName &&
-            [bucketName aws_isVirtualHostedStyleCompliant]) {
+            [self shouldUseVirtualHostStyleForRequest:getPreSignedURLRequest]) {
             if (isAccelerateModeEnabled) {
                 host = [NSString stringWithFormat:@"%@.%@", bucketName, AWSS3PreSignedURLBuilderAcceleratedEndpoint];
             } else {
@@ -315,6 +326,21 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (BOOL)shouldUseVirtualHostStyleForRequest:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest  {
+    if (getPreSignedURLRequest.preferredAccessStyle == AWSS3BucketAccessStylePath) {
+        AWSDDLogVerbose(@"Using path-style access because it is set as preferred access style");
+        return NO;
+    }
+
+    if ([getPreSignedURLRequest.bucket aws_isVirtualHostedStyleCompliant]) {
+        AWSDDLogVerbose(@"Using virtual-hosted-style access because bucket is compliant");
+        return YES;
+    }
+
+    AWSDDLogVerbose(@"Using path-style access because bucket is not virtual-hosted-style compliant");
+    return NO;
+}
+
 @end
 
 @implementation AWSS3GetPreSignedURLRequest
@@ -322,6 +348,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (instancetype)init {
     if ( self = [super init] ) {
         _accelerateModeEnabled = NO;
+        _preferredAccessStyle = AWSS3BucketAccessStyleVirtualHosted;
         _minimumCredentialsExpirationInterval = 50 * 60;
         _internalRequestParameters = [NSMutableDictionary<NSString *, NSString *> new];
         _internalRequestHeaders = [NSMutableDictionary<NSString *, NSString *> new];

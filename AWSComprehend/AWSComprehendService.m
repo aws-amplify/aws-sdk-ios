@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
 #import "AWSComprehendResources.h"
 
 static NSString *const AWSInfoComprehend = @"Comprehend";
-NSString *const AWSComprehendSDKVersion = @"2.33.5";
+NSString *const AWSComprehendSDKVersion = @"2.36.3";
 
 
 @interface AWSComprehendResponseSerializer : AWSJSONResponseSerializer
@@ -1222,6 +1222,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendDetectTargetedSentimentResponse *response, NSError *error))completionHandler {
     [[self detectTargetedSentiment:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDetectTargetedSentimentResponse *> * _Nonnull task) {
         AWSComprehendDetectTargetedSentimentResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendDetectToxicContentResponse *> *)detectToxicContent:(AWSComprehendDetectToxicContentRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DetectToxicContent"
+                   outputClass:[AWSComprehendDetectToxicContentResponse class]];
+}
+
+- (void)detectToxicContent:(AWSComprehendDetectToxicContentRequest *)request
+     completionHandler:(void (^)(AWSComprehendDetectToxicContentResponse *response, NSError *error))completionHandler {
+    [[self detectToxicContent:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDetectToxicContentResponse *> * _Nonnull task) {
+        AWSComprehendDetectToxicContentResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

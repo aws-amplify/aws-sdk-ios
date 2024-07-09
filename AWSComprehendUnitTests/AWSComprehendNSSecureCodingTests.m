@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -125,6 +125,8 @@
 - (void) test_AWSComprehendDetectSyntaxResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDetectTargetedSentimentRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDetectTargetedSentimentResponse API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendDetectToxicContentRequest API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendDetectToxicContentResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDocumentClass API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDocumentClassificationConfig API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDocumentClassificationJobFilter API_AVAILABLE(ios(11));
@@ -278,8 +280,11 @@
 - (void) test_AWSComprehendTargetedSentimentEntity API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendTargetedSentimentMention API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendTaskConfig API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendTextSegment API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendTopicsDetectionJobFilter API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendTopicsDetectionJobProperties API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendToxicContent API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendToxicLabels API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendUntagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendUntagResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendUpdateDataSecurityConfig API_AVAILABLE(ios(11));
@@ -716,6 +721,14 @@
 
 - (void) test_AWSComprehendDetectTargetedSentimentResponse {
     [self validateSecureCodingForClass:[AWSComprehendDetectTargetedSentimentResponse class]];
+}
+
+- (void) test_AWSComprehendDetectToxicContentRequest {
+    [self validateSecureCodingForClass:[AWSComprehendDetectToxicContentRequest class]];
+}
+
+- (void) test_AWSComprehendDetectToxicContentResponse {
+    [self validateSecureCodingForClass:[AWSComprehendDetectToxicContentResponse class]];
 }
 
 - (void) test_AWSComprehendDocumentClass {
@@ -1330,12 +1343,24 @@
     [self validateSecureCodingForClass:[AWSComprehendTaskConfig class]];
 }
 
+- (void) test_AWSComprehendTextSegment {
+    [self validateSecureCodingForClass:[AWSComprehendTextSegment class]];
+}
+
 - (void) test_AWSComprehendTopicsDetectionJobFilter {
     [self validateSecureCodingForClass:[AWSComprehendTopicsDetectionJobFilter class]];
 }
 
 - (void) test_AWSComprehendTopicsDetectionJobProperties {
     [self validateSecureCodingForClass:[AWSComprehendTopicsDetectionJobProperties class]];
+}
+
+- (void) test_AWSComprehendToxicContent {
+    [self validateSecureCodingForClass:[AWSComprehendToxicContent class]];
+}
+
+- (void) test_AWSComprehendToxicLabels {
+    [self validateSecureCodingForClass:[AWSComprehendToxicLabels class]];
 }
 
 - (void) test_AWSComprehendUntagResourceRequest {

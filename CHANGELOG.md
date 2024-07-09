@@ -1,8 +1,224 @@
----
-
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
+
+-Features for next release
+
+## 2.36.3
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSEC2
+  - AWSCognitoIdentityProvider
+  - AWSPolly
+  - AWSElasticLoadBalancingv2
+  - AWSDynamoDB
+  - AWSKMS
+  - AWSConnect
+
+- **AWSCore**
+  - Fixing a name collision with CocoaLumberjack (#5361)
+
+## 2.36.2
+
+- **AWSMobileClient**
+  - Fixing HostedUI page not being shown when providing a navigationController (#5324)
+
+## 2.36.1
+
+### Bug Fixes
+
+- **AWSMobileClient**
+  - Fixing a crash when attempting to use HostedUI (#5316)
+
+## 2.36.0
+
+### New features
+
+- Updating the iOS deployment target to 12.0 for the following services:
+  - AWSAPIGateway
+  - AWSAuth
+  - AWSAuthCore
+  - AWSAuthUI
+  - AWSAutoScaling
+  - AWSChimeSDKIdentity
+  - AWSChimeSDKMessaging
+  - AWSCloudWatch
+  - AWSCognitoAuth
+  - AWSCognitoIdentityProvider
+  - AWSCognitoIdentityProviderASF
+  - AWSComprehend
+  - AWSConnect
+  - AWSConnectParticipant
+  - AWSCore
+  - AWSDynamoDB
+  - AWSEC2
+  - AWSElasticLoadBalancing
+  - AWSFacebookSignIn
+  - AWSGoogleSignIn
+  - AWSiOSSDKv2
+  - AWSIoT
+  - AWSKinesis
+  - AWSKinesisVideo
+  - AWSKinesisVideoArchivedMedia
+  - AWSKinesisVideoSignaling
+  - AWSKinesisVideoWebRTCStorage
+  - AWSKMS
+  - AWSLambda
+  - AWSLex
+  - AWSLocation
+  - AWSLogs
+  - AWSMachineLearning
+  - AWSMobileClient
+  - AWSPinpoint
+  - AWSPolly
+  - AWSRekognition
+  - AWSS3
+  - AWSSageMakerRuntime
+  - AWSSES
+  - AWSSimpleDB
+  - AWSSNS
+  - AWSSQS
+  - AWSTextract
+  - AWSTranscribe
+  - AWSTranscribeStreaming
+  - AWSTranslate
+  - AWSUserPoolsSignIn
+
+- **AWSCore**
+  - Updating CocoaLumberjack to version 3.4.8
+
+### Misc. Updates
+- **AWSIoT**
+  - Updating `AWSIoTMQTTConfiguration.keepAliveTimeInterval`'s default value in its attribute comment.
+
+## 2.35.0
+
+### Bug Fixes
+
+- **AWSIoT**
+  - Fixing an intermittent crash when deallocating AWSIoTStreamThread (See [PR #5269](https://github.com/aws-amplify/aws-sdk-ios/issues/5269))
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSLambda
+  - AWSEC2
+  - AWSFirehose
+  - AWSDynamoDB
+  - AWSConnect
+  - AWSCloudWatchLogs (**Breaking Change**)
+  - AWSKMS
+  - AWSElasticLoadBalancingv2
+  - AWSCognitoIdentityProvider
+  - AWSAutoScalling
+  - AWSIoT
+
+## 2.34.2
+
+### Misc. Updates
+- privacy manifest pod specs (#5259)
+
+## 2.34.1
+
+### Misc. Updates
+- Add privacy manifest (#5214)
+- privacy manifest targets for AWSAuthSDK targets (#5248)
+
+## 2.34.0
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSKinesisVideo
+  - AWSFirehose
+  - AWSLambda
+  - AWSDynamoDB
+  - AWSConnectParticipant
+  - AWSSNS
+  - AWSPolly
+  - AWSCognitoIdentityProvider
+  - AWSElasticLoadBalancingv2
+  - AWSEC2
+  - AWSComprehend
+  - AWSAutoScaling
+  - AWSConnect
+  - AWSIoT (**Breaking Change**)
+
+## 2.33.10
+
+### New features
+
+- **AWSS3TransferUtility**
+  - Adding support for path-style access requests
+
+### Bug Fixes
+
+- **AWSIoT**
+  - Fixing auto reconnection not working properly
+
+## 2.33.9
+
+### Bug Fixes
+
+- **AWSIoT**
+  - Fixing crash in AWSIoTMQTTClient (See [PR #5185](https://github.com/aws-amplify/aws-sdk-ios/pull/5185))
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSDynamoDB
+  - AWSLocation
+  - AWSConnectParticipant
+  - AWSConnect
+  - AWSEC2
+
+## 2.33.8
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSKinesisVideoArchivedMedia
+  - AWSLocation
+  - AWSComprehend
+  - AWSIoT
+  - AWSKMS
+  - AWSPinpoint
+  - AWSFirehose
+  - AWSCognitoIdentityProvider
+  - AWSEC2
+  - AWSConnect
+
+## 2.33.7
+
+### New features
+- **AWSCore**
+  - Support for `ca-west-1` - Canada West (Calgary) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
+
+## 2.33.6
+
+### New features
+
+- **AWSCognito**
+  - add UIAdaptivePresentationControllerDelegate to handle user swipe down to dismiss the SafariViewController
+
+- **AWSS3TransferUtility**
+  - added MD5 content verification for multi-part uploads
+
+### Bug Fixes
+
+- **CognitoIdentity**
+  - Don't overwrite AWSServiceConfiguration provided headers.
+
+- **AWS Mobile Client**
+  - make AWSMobileClientError message getter public
+
+- **AWS Mobile Client**
+  - add missing userSub property to SignUpResult
+
+- **AWSS3**
+  - set taskIdentifier attribute to nonatomic in transferutilitytask_private
 
 ### Misc. Updates
 

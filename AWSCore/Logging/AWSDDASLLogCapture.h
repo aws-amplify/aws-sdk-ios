@@ -1,6 +1,6 @@
 // Software License Agreement (BSD License)
 //
-// Copyright (c) 2010-2016, Deusty, LLC
+// Copyright (c) 2010-2024, Deusty, LLC
 // All rights reserved.
 //
 // Redistribution and use of this software in source and binary forms,
@@ -17,9 +17,12 @@
 
 @protocol AWSDDLogger;
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  This class provides the ability to capture the ASL (Apple System Logs)
  */
+API_DEPRECATED("Use AWSDDOSLogger instead", macosx(10.4,10.12), ios(2.0,10.0), watchos(2.0,3.0), tvos(9.0,10.0))
 @interface AWSDDASLLogCapture : NSObject
 
 /**
@@ -39,3 +42,5 @@
 @property (class) AWSDDLogLevel captureLevel;
 
 @end
+
+NS_ASSUME_NONNULL_END

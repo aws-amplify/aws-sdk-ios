@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -704,6 +704,8 @@
 - (void) test_AWSEC2DescribeLocalGatewaysResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeLockedSnapshotsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeLockedSnapshotsResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DescribeMacHostsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DescribeMacHostsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeManagedPrefixListsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeManagedPrefixListsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeMovingAddressesRequest API_AVAILABLE(ios(11));
@@ -889,6 +891,8 @@
 - (void) test_AWSEC2DisableImageBlockPublicAccessResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableImageDeprecationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableImageDeprecationResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisableImageDeregistrationProtectionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisableImageDeregistrationProtectionResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableImageRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableImageResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableIpamOrganizationAdminAccountRequest API_AVAILABLE(ios(11));
@@ -978,6 +982,8 @@
 - (void) test_AWSEC2EnableImageBlockPublicAccessResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableImageDeprecationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableImageDeprecationResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableImageDeregistrationProtectionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableImageDeregistrationProtectionResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableImageRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableImageResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableIpamOrganizationAdminAccountRequest API_AVAILABLE(ios(11));
@@ -1073,6 +1079,10 @@
 - (void) test_AWSEC2GetHostReservationPurchasePreviewResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetImageBlockPublicAccessStateRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetImageBlockPublicAccessStateResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetInstanceMetadataDefaultsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetInstanceMetadataDefaultsResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetInstanceTpmEkPubRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetInstanceTpmEkPubResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetInstanceTypesFromInstanceRequirementsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetInstanceTypesFromInstanceRequirementsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetInstanceUefiDataRequest API_AVAILABLE(ios(11));
@@ -1212,6 +1222,7 @@
 - (void) test_AWSEC2InstanceMaintenanceOptions API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InstanceMaintenanceOptionsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InstanceMarketOptionsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2InstanceMetadataDefaultsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InstanceMetadataOptionsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InstanceMetadataOptionsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InstanceMonitoring API_AVAILABLE(ios(11));
@@ -1344,8 +1355,12 @@
 - (void) test_AWSEC2LockSnapshotRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2LockSnapshotResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2LockedSnapshotsInfo API_AVAILABLE(ios(11));
+- (void) test_AWSEC2MacHost API_AVAILABLE(ios(11));
 - (void) test_AWSEC2MaintenanceDetails API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ManagedPrefixList API_AVAILABLE(ios(11));
+- (void) test_AWSEC2MediaAcceleratorInfo API_AVAILABLE(ios(11));
+- (void) test_AWSEC2MediaDeviceInfo API_AVAILABLE(ios(11));
+- (void) test_AWSEC2MediaDeviceMemoryInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2MemoryGiBPerVCpu API_AVAILABLE(ios(11));
 - (void) test_AWSEC2MemoryGiBPerVCpuRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2MemoryInfo API_AVAILABLE(ios(11));
@@ -1386,6 +1401,8 @@
 - (void) test_AWSEC2ModifyInstanceEventWindowResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyInstanceMaintenanceOptionsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyInstanceMaintenanceOptionsResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2ModifyInstanceMetadataDefaultsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2ModifyInstanceMetadataDefaultsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyInstanceMetadataOptionsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyInstanceMetadataOptionsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyInstancePlacementRequest API_AVAILABLE(ios(11));
@@ -1510,6 +1527,10 @@
 - (void) test_AWSEC2NetworkInterfacePermission API_AVAILABLE(ios(11));
 - (void) test_AWSEC2NetworkInterfacePermissionState API_AVAILABLE(ios(11));
 - (void) test_AWSEC2NetworkInterfacePrivateIpAddress API_AVAILABLE(ios(11));
+- (void) test_AWSEC2NeuronDeviceCoreInfo API_AVAILABLE(ios(11));
+- (void) test_AWSEC2NeuronDeviceInfo API_AVAILABLE(ios(11));
+- (void) test_AWSEC2NeuronDeviceMemoryInfo API_AVAILABLE(ios(11));
+- (void) test_AWSEC2NeuronInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2LatestDhcpConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSEC2NitroTpmInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2OidcOptions API_AVAILABLE(ios(11));
@@ -4667,6 +4688,14 @@
     [self validateSecureCodingForClass:[AWSEC2DescribeLockedSnapshotsResult class]];
 }
 
+- (void) test_AWSEC2DescribeMacHostsRequest {
+    [self validateSecureCodingForClass:[AWSEC2DescribeMacHostsRequest class]];
+}
+
+- (void) test_AWSEC2DescribeMacHostsResult {
+    [self validateSecureCodingForClass:[AWSEC2DescribeMacHostsResult class]];
+}
+
 - (void) test_AWSEC2DescribeManagedPrefixListsRequest {
     [self validateSecureCodingForClass:[AWSEC2DescribeManagedPrefixListsRequest class]];
 }
@@ -5407,6 +5436,14 @@
     [self validateSecureCodingForClass:[AWSEC2DisableImageDeprecationResult class]];
 }
 
+- (void) test_AWSEC2DisableImageDeregistrationProtectionRequest {
+    [self validateSecureCodingForClass:[AWSEC2DisableImageDeregistrationProtectionRequest class]];
+}
+
+- (void) test_AWSEC2DisableImageDeregistrationProtectionResult {
+    [self validateSecureCodingForClass:[AWSEC2DisableImageDeregistrationProtectionResult class]];
+}
+
 - (void) test_AWSEC2DisableImageRequest {
     [self validateSecureCodingForClass:[AWSEC2DisableImageRequest class]];
 }
@@ -5761,6 +5798,14 @@
 
 - (void) test_AWSEC2EnableImageDeprecationResult {
     [self validateSecureCodingForClass:[AWSEC2EnableImageDeprecationResult class]];
+}
+
+- (void) test_AWSEC2EnableImageDeregistrationProtectionRequest {
+    [self validateSecureCodingForClass:[AWSEC2EnableImageDeregistrationProtectionRequest class]];
+}
+
+- (void) test_AWSEC2EnableImageDeregistrationProtectionResult {
+    [self validateSecureCodingForClass:[AWSEC2EnableImageDeregistrationProtectionResult class]];
 }
 
 - (void) test_AWSEC2EnableImageRequest {
@@ -6141,6 +6186,22 @@
 
 - (void) test_AWSEC2GetImageBlockPublicAccessStateResult {
     [self validateSecureCodingForClass:[AWSEC2GetImageBlockPublicAccessStateResult class]];
+}
+
+- (void) test_AWSEC2GetInstanceMetadataDefaultsRequest {
+    [self validateSecureCodingForClass:[AWSEC2GetInstanceMetadataDefaultsRequest class]];
+}
+
+- (void) test_AWSEC2GetInstanceMetadataDefaultsResult {
+    [self validateSecureCodingForClass:[AWSEC2GetInstanceMetadataDefaultsResult class]];
+}
+
+- (void) test_AWSEC2GetInstanceTpmEkPubRequest {
+    [self validateSecureCodingForClass:[AWSEC2GetInstanceTpmEkPubRequest class]];
+}
+
+- (void) test_AWSEC2GetInstanceTpmEkPubResult {
+    [self validateSecureCodingForClass:[AWSEC2GetInstanceTpmEkPubResult class]];
 }
 
 - (void) test_AWSEC2GetInstanceTypesFromInstanceRequirementsRequest {
@@ -6699,6 +6760,10 @@
     [self validateSecureCodingForClass:[AWSEC2InstanceMarketOptionsRequest class]];
 }
 
+- (void) test_AWSEC2InstanceMetadataDefaultsResponse {
+    [self validateSecureCodingForClass:[AWSEC2InstanceMetadataDefaultsResponse class]];
+}
+
 - (void) test_AWSEC2InstanceMetadataOptionsRequest {
     [self validateSecureCodingForClass:[AWSEC2InstanceMetadataOptionsRequest class]];
 }
@@ -7227,12 +7292,28 @@
     [self validateSecureCodingForClass:[AWSEC2LockedSnapshotsInfo class]];
 }
 
+- (void) test_AWSEC2MacHost {
+    [self validateSecureCodingForClass:[AWSEC2MacHost class]];
+}
+
 - (void) test_AWSEC2MaintenanceDetails {
     [self validateSecureCodingForClass:[AWSEC2MaintenanceDetails class]];
 }
 
 - (void) test_AWSEC2ManagedPrefixList {
     [self validateSecureCodingForClass:[AWSEC2ManagedPrefixList class]];
+}
+
+- (void) test_AWSEC2MediaAcceleratorInfo {
+    [self validateSecureCodingForClass:[AWSEC2MediaAcceleratorInfo class]];
+}
+
+- (void) test_AWSEC2MediaDeviceInfo {
+    [self validateSecureCodingForClass:[AWSEC2MediaDeviceInfo class]];
+}
+
+- (void) test_AWSEC2MediaDeviceMemoryInfo {
+    [self validateSecureCodingForClass:[AWSEC2MediaDeviceMemoryInfo class]];
 }
 
 - (void) test_AWSEC2MemoryGiBPerVCpu {
@@ -7393,6 +7474,14 @@
 
 - (void) test_AWSEC2ModifyInstanceMaintenanceOptionsResult {
     [self validateSecureCodingForClass:[AWSEC2ModifyInstanceMaintenanceOptionsResult class]];
+}
+
+- (void) test_AWSEC2ModifyInstanceMetadataDefaultsRequest {
+    [self validateSecureCodingForClass:[AWSEC2ModifyInstanceMetadataDefaultsRequest class]];
+}
+
+- (void) test_AWSEC2ModifyInstanceMetadataDefaultsResult {
+    [self validateSecureCodingForClass:[AWSEC2ModifyInstanceMetadataDefaultsResult class]];
 }
 
 - (void) test_AWSEC2ModifyInstanceMetadataOptionsRequest {
@@ -7889,6 +7978,22 @@
 
 - (void) test_AWSEC2NetworkInterfacePrivateIpAddress {
     [self validateSecureCodingForClass:[AWSEC2NetworkInterfacePrivateIpAddress class]];
+}
+
+- (void) test_AWSEC2NeuronDeviceCoreInfo {
+    [self validateSecureCodingForClass:[AWSEC2NeuronDeviceCoreInfo class]];
+}
+
+- (void) test_AWSEC2NeuronDeviceInfo {
+    [self validateSecureCodingForClass:[AWSEC2NeuronDeviceInfo class]];
+}
+
+- (void) test_AWSEC2NeuronDeviceMemoryInfo {
+    [self validateSecureCodingForClass:[AWSEC2NeuronDeviceMemoryInfo class]];
+}
+
+- (void) test_AWSEC2NeuronInfo {
+    [self validateSecureCodingForClass:[AWSEC2NeuronInfo class]];
 }
 
 - (void) test_AWSEC2LatestDhcpConfiguration {

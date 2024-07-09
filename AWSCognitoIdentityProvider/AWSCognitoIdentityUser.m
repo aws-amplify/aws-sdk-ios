@@ -1169,6 +1169,9 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
     [self addDeviceKey:authParameters];
 }
 
+// getMultiFactorAuthenticationCode is deprecated
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 /**
  * Invoke developer's ui to prompt user for mfa code and call enhanceAuth
  */
@@ -1208,6 +1211,7 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
                 }];
     }
 }
+#pragma clang diagnostic pop
 
 -(AWSTask<AWSCognitoIdentityUserSession *>*) mfaAuthInternal: (NSString *) deliveryMedium
                                                  destination: (NSString *) destination

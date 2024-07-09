@@ -64,7 +64,7 @@ public enum AWSMobileClientError: Error {
 
 extension AWSMobileClientError {
     /// Underlying error message of `AWSMobileClientError`
-    var message: String {
+    public var message: String {
         switch self {
         case .aliasExists(let message),
              .badRequest(let message),

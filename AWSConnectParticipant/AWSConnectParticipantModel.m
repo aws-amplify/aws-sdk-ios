@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -356,6 +356,9 @@ NSString *const AWSConnectParticipantErrorDomain = @"com.amazonaws.AWSConnectPar
         if ([value caseInsensitiveCompare:@"CUSTOM_BOT"] == NSOrderedSame) {
             return @(AWSConnectParticipantParticipantRoleCustomBot);
         }
+        if ([value caseInsensitiveCompare:@"SUPERVISOR"] == NSOrderedSame) {
+            return @(AWSConnectParticipantParticipantRoleSupervisor);
+        }
         return @(AWSConnectParticipantParticipantRoleUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -367,6 +370,8 @@ NSString *const AWSConnectParticipantErrorDomain = @"com.amazonaws.AWSConnectPar
                 return @"SYSTEM";
             case AWSConnectParticipantParticipantRoleCustomBot:
                 return @"CUSTOM_BOT";
+            case AWSConnectParticipantParticipantRoleSupervisor:
+                return @"SUPERVISOR";
             default:
                 return nil;
         }

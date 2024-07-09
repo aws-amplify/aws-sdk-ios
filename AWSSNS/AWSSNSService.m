@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
 #import "AWSSNSResources.h"
 
 static NSString *const AWSInfoSNS = @"SNS";
-NSString *const AWSSNSSDKVersion = @"2.33.5";
+NSString *const AWSSNSSDKVersion = @"2.36.3";
 
 
 @interface AWSSNSResponseSerializer : AWSXMLResponseSerializer
@@ -51,6 +51,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidParameter" : @(AWSSNSErrorInvalidParameter),
                             @"ParameterValueInvalid" : @(AWSSNSErrorInvalidParameterValue),
                             @"InvalidSecurity" : @(AWSSNSErrorInvalidSecurity),
+                            @"InvalidState" : @(AWSSNSErrorInvalidState),
                             @"KMSAccessDenied" : @(AWSSNSErrorKMSAccessDenied),
                             @"KMSDisabled" : @(AWSSNSErrorKMSDisabled),
                             @"KMSInvalidState" : @(AWSSNSErrorKMSInvalidState),
@@ -60,6 +61,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"NotFound" : @(AWSSNSErrorNotFound),
                             @"OptedOut" : @(AWSSNSErrorOptedOut),
                             @"PlatformApplicationDisabled" : @(AWSSNSErrorPlatformApplicationDisabled),
+                            @"ReplayLimitExceeded" : @(AWSSNSErrorReplayLimitExceeded),
                             @"ResourceNotFound" : @(AWSSNSErrorResourceNotFound),
                             @"StaleTag" : @(AWSSNSErrorStaleTag),
                             @"SubscriptionLimitExceeded" : @(AWSSNSErrorSubscriptionLimitExceeded),

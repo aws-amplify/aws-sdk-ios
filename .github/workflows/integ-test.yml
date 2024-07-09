@@ -19,7 +19,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  validation:
+    runs-on: ubuntu-latest
+    if: ${{ !github.event.pull_request || (github.event.pull_request.user.login == 'awsmobilesdk' || contains(fromJSON('["OWNER", "MEMBER"]'), github.event.pull_request.author_association)) }}
+    steps:
+      - run: echo "Integration Tests can be run"
   integration-test:
+    needs: [validation]
     name: Integration Test
     environment: IntegrationTest
     strategy:
@@ -56,11 +62,12 @@ jobs:
           - project: AWSAuthSDK/AWSAuthSDK.xcodeproj
             scheme: AWSMobileClient
 
-    runs-on: macos-latest
+    runs-on: macos-12
     steps:
       - name: Checkout code
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
         with:
+          ref: ${{ github.event.pull_request.head.sha || github.ref_name }}
           persist-credentials: false
 
       - name: Configure AWS Credentials

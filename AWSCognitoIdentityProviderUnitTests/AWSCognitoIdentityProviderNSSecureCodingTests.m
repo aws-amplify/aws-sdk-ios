@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -204,6 +204,7 @@
 - (void) test_AWSCognitoIdentityProviderNotifyEmailType API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderNumberAttributeConstraintsType API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderPasswordPolicyType API_AVAILABLE(ios(11));
+- (void) test_AWSCognitoIdentityProviderPreTokenGenerationVersionConfigType API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderProviderDescription API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderProviderUserIdentifierType API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderRecoveryOptionType API_AVAILABLE(ios(11));
@@ -1025,6 +1026,10 @@
 
 - (void) test_AWSCognitoIdentityProviderPasswordPolicyType {
     [self validateSecureCodingForClass:[AWSCognitoIdentityProviderPasswordPolicyType class]];
+}
+
+- (void) test_AWSCognitoIdentityProviderPreTokenGenerationVersionConfigType {
+    [self validateSecureCodingForClass:[AWSCognitoIdentityProviderPreTokenGenerationVersionConfigType class]];
 }
 
 - (void) test_AWSCognitoIdentityProviderProviderDescription {

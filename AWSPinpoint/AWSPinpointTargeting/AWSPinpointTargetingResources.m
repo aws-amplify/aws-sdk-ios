@@ -6907,7 +6907,7 @@
         },\
         \"MessagesPerSecond\": {\
           \"shape\": \"__integer\",\
-          \"documentation\": \"<p>The maximum number of messages that a campaign can send each second. For an application, this value specifies the default limit for the number of messages that campaigns can send each second. The minimum value is 50. The maximum value is 20,000.</p>\"\
+          \"documentation\": \"<p>The maximum number of messages that a campaign can send each second. For an application, this value specifies the default limit for the number of messages that campaigns can send each second. The minimum value is 1. The maximum value is 20,000.</p>\"\
         },\
         \"Total\": {\
           \"shape\": \"__integer\",\
@@ -8122,7 +8122,7 @@
           \"shape\": \"__string\",\
           \"location\": \"uri\",\
           \"locationName\": \"endpoint-id\",\
-          \"documentation\": \"<p>The unique identifier for the endpoint.</p>\"\
+          \"documentation\": \"<p>The case insensitive unique identifier for the endpoint. The identifier can't contain <code>$</code>, <code>{</code> or <code>}</code>.</p>\"\
         }\
       },\
       \"required\": [\
@@ -10409,7 +10409,7 @@
           \"shape\": \"__string\",\
           \"location\": \"uri\",\
           \"locationName\": \"endpoint-id\",\
-          \"documentation\": \"<p>The unique identifier for the endpoint.</p>\"\
+          \"documentation\": \"<p>The case insensitive unique identifier for the endpoint. The identifier can't contain <code>$</code>, <code>{</code> or <code>}</code>.</p>\"\
         }\
       },\
       \"required\": [\
@@ -15166,7 +15166,7 @@
           \"shape\": \"__string\",\
           \"location\": \"uri\",\
           \"locationName\": \"endpoint-id\",\
-          \"documentation\": \"<p>The unique identifier for the endpoint.</p>\"\
+          \"documentation\": \"<p>The case insensitive unique identifier for the endpoint. The identifier can't contain <code>$</code>, <code>{</code> or <code>}</code>.</p>\"\
         },\
         \"EndpointRequest\": {\
           \"shape\": \"EndpointRequest\"\

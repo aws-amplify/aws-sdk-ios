@@ -2307,7 +2307,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSNumber * _Nullable maximumDuration;
 
 /**
- <p>The maximum number of messages that a campaign can send each second. For an application, this value specifies the default limit for the number of messages that campaigns can send each second. The minimum value is 50. The maximum value is 20,000.</p>
+ <p>The maximum number of messages that a campaign can send each second. For an application, this value specifies the default limit for the number of messages that campaigns can send each second. The minimum value is 1. The maximum value is 20,000.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable messagesPerSecond;
 
@@ -3583,7 +3583,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The unique identifier for the endpoint.</p>
+ <p>The case insensitive unique identifier for the endpoint. The identifier can't contain <code>$</code>, <code>{</code> or <code>}</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable endpointId;
 
@@ -5999,7 +5999,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The unique identifier for the endpoint.</p>
+ <p>The case insensitive unique identifier for the endpoint. The identifier can't contain <code>$</code>, <code>{</code> or <code>}</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable endpointId;
 
@@ -10939,7 +10939,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The unique identifier for the endpoint.</p>
+ <p>The case insensitive unique identifier for the endpoint. The identifier can't contain <code>$</code>, <code>{</code> or <code>}</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable endpointId;
 

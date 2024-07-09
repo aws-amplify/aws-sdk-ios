@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -730,6 +730,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"arrivalTime" : @"ArrivalTime",
              @"calculatorName" : @"CalculatorName",
              @"carModeOptions" : @"CarModeOptions",
              @"departNow" : @"DepartNow",
@@ -739,10 +740,19 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
              @"distanceUnit" : @"DistanceUnit",
              @"includeLegGeometry" : @"IncludeLegGeometry",
              @"key" : @"Key",
+             @"optimizeFor" : @"OptimizeFor",
              @"travelMode" : @"TravelMode",
              @"truckModeOptions" : @"TruckModeOptions",
              @"waypointPositions" : @"WaypointPositions",
              };
+}
+
++ (NSValueTransformer *)arrivalTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 + (NSValueTransformer *)carModeOptionsJSONTransformer {
@@ -772,6 +782,27 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
                 return @"Kilometers";
             case AWSLocationDistanceUnitMiles:
                 return @"Miles";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)optimizeForJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"FastestRoute"] == NSOrderedSame) {
+            return @(AWSLocationOptimizationModeFastestRoute);
+        }
+        if ([value caseInsensitiveCompare:@"ShortestRoute"] == NSOrderedSame) {
+            return @(AWSLocationOptimizationModeShortestRoute);
+        }
+        return @(AWSLocationOptimizationModeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLocationOptimizationModeFastestRoute:
+                return @"FastestRoute";
+            case AWSLocationOptimizationModeShortestRoute:
+                return @"ShortestRoute";
             default:
                 return nil;
         }
@@ -1423,6 +1454,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"forceDelete" : @"ForceDelete",
              @"keyName" : @"KeyName",
              };
 }
@@ -3267,6 +3299,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"customLayers" : @"CustomLayers",
              @"politicalView" : @"PoliticalView",
              @"style" : @"Style",
              };
@@ -3282,6 +3315,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"customLayers" : @"CustomLayers",
              @"politicalView" : @"PoliticalView",
              };
 }
@@ -3307,6 +3341,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
              @"postalCode" : @"PostalCode",
              @"region" : @"Region",
              @"street" : @"Street",
+             @"subMunicipality" : @"SubMunicipality",
              @"subRegion" : @"SubRegion",
              @"supplementalCategories" : @"SupplementalCategories",
              @"timeZone" : @"TimeZone",
