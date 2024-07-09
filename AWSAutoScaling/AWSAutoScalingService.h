@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 
 /**
- <fullname>Amazon EC2 Auto Scaling</fullname><p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p><p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
+ <fullname>Amazon EC2 Auto Scaling</fullname><p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances based on user-defined scaling policies, scheduled actions, and health checks.</p><p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
  */
 @interface AWSAutoScaling : AWSService
 
@@ -175,7 +175,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 + (void)removeAutoScalingForKey:(NSString *)key;
 
 /**
- <p>Attaches one or more EC2 instances to the specified Auto Scaling group.</p><p>When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity of the group by the number of instances being attached. If the number of instances being attached plus the desired capacity of the group exceeds the maximum size of the group, the operation fails.</p><p>If there is a Classic Load Balancer attached to your Auto Scaling group, the instances are also registered with the load balancer. If there are target groups attached to your Auto Scaling group, the instances are also registered with the target groups.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-instance-asg.html">Attach EC2 instances to your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Attaches one or more EC2 instances to the specified Auto Scaling group.</p><p>When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity of the group by the number of instances being attached. If the number of instances being attached plus the desired capacity of the group exceeds the maximum size of the group, the operation fails.</p><p>If there is a Classic Load Balancer attached to your Auto Scaling group, the instances are also registered with the load balancer. If there are target groups attached to your Auto Scaling group, the instances are also registered with the target groups.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.html">Detach or attach instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the AttachInstances service method.
 
@@ -186,7 +186,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask *)attachInstances:(AWSAutoScalingAttachInstancesQuery *)request;
 
 /**
- <p>Attaches one or more EC2 instances to the specified Auto Scaling group.</p><p>When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity of the group by the number of instances being attached. If the number of instances being attached plus the desired capacity of the group exceeds the maximum size of the group, the operation fails.</p><p>If there is a Classic Load Balancer attached to your Auto Scaling group, the instances are also registered with the load balancer. If there are target groups attached to your Auto Scaling group, the instances are also registered with the target groups.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-instance-asg.html">Attach EC2 instances to your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Attaches one or more EC2 instances to the specified Auto Scaling group.</p><p>When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity of the group by the number of instances being attached. If the number of instances being attached plus the desired capacity of the group exceeds the maximum size of the group, the operation fails.</p><p>If there is a Classic Load Balancer attached to your Auto Scaling group, the instances are also registered with the load balancer. If there are target groups attached to your Auto Scaling group, the instances are also registered with the target groups.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.html">Detach or attach instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the AttachInstances service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -394,7 +394,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)createAutoScalingGroup:(AWSAutoScalingCreateAutoScalingGroupType *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a launch configuration.</p><p>If you exceed your maximum limit of launch configurations, the call fails. To query this limit, call the <a>DescribeAccountLimits</a> API. For information about updating this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html">Quotas for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html">Launch configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><note><p>Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a launch template or a launch configuration. We strongly recommend that you do not use launch configurations. They do not provide full functionality for Amazon EC2 Auto Scaling or Amazon EC2. For information about using launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p></note>
+ <p>Creates a launch configuration.</p><p>If you exceed your maximum limit of launch configurations, the call fails. To query this limit, call the <a>DescribeAccountLimits</a> API. For information about updating this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html">Quotas for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html">Launch configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><note><p>Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a launch template or a launch configuration. We strongly recommend that you do not use launch configurations. They do not provide full functionality for Amazon EC2 Auto Scaling or Amazon EC2. For information about using launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateLaunchConfiguration service method.
 
@@ -405,7 +405,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask *)createLaunchConfiguration:(AWSAutoScalingCreateLaunchConfigurationType *)request;
 
 /**
- <p>Creates a launch configuration.</p><p>If you exceed your maximum limit of launch configurations, the call fails. To query this limit, call the <a>DescribeAccountLimits</a> API. For information about updating this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html">Quotas for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html">Launch configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><note><p>Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a launch template or a launch configuration. We strongly recommend that you do not use launch configurations. They do not provide full functionality for Amazon EC2 Auto Scaling or Amazon EC2. For information about using launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p></note>
+ <p>Creates a launch configuration.</p><p>If you exceed your maximum limit of launch configurations, the call fails. To query this limit, call the <a>DescribeAccountLimits</a> API. For information about updating this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html">Quotas for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html">Launch configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><note><p>Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a launch template or a launch configuration. We strongly recommend that you do not use launch configurations. They do not provide full functionality for Amazon EC2 Auto Scaling or Amazon EC2. For information about using launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateLaunchConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -529,7 +529,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)deleteNotificationConfiguration:(AWSAutoScalingDeleteNotificationConfigurationType *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the specified scaling policy.</p><p>Deleting either a step scaling policy or a simple scaling policy deletes the underlying alarm action, but does not delete the alarm, even if it no longer has an associated action.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/deleting-scaling-policy.html">Deleting a scaling policy</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Deletes the specified scaling policy.</p><p>Deleting either a step scaling policy or a simple scaling policy deletes the underlying alarm action, but does not delete the alarm, even if it no longer has an associated action.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/deleting-scaling-policy.html">Delete a scaling policy</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DeletePolicy service method.
 
@@ -540,7 +540,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask *)deletePolicy:(AWSAutoScalingDeletePolicyType *)request;
 
 /**
- <p>Deletes the specified scaling policy.</p><p>Deleting either a step scaling policy or a simple scaling policy deletes the underlying alarm action, but does not delete the alarm, even if it no longer has an associated action.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/deleting-scaling-policy.html">Deleting a scaling policy</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Deletes the specified scaling policy.</p><p>Deleting either a step scaling policy or a simple scaling policy deletes the underlying alarm action, but does not delete the alarm, even if it no longer has an associated action.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/deleting-scaling-policy.html">Delete a scaling policy</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DeletePolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -970,7 +970,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)describePolicies:(AWSAutoScalingDescribePoliciesType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingPoliciesType * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets information about the scaling activities in the account and Region.</p><p>When scaling events occur, you see a record of the scaling activity in the scaling activities. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying a scaling activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>If the scaling event succeeds, the value of the <code>StatusCode</code> element in the response is <code>Successful</code>. If an attempt to launch instances failed, the <code>StatusCode</code> value is <code>Failed</code> or <code>Cancelled</code> and the <code>StatusMessage</code> element in the response indicates the cause of the failure. For help interpreting the <code>StatusMessage</code>, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/CHAP_Troubleshooting.html">Troubleshooting Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+ <p>Gets information about the scaling activities in the account and Region.</p><p>When scaling events occur, you see a record of the scaling activity in the scaling activities. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verify a scaling activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>If the scaling event succeeds, the value of the <code>StatusCode</code> element in the response is <code>Successful</code>. If an attempt to launch instances failed, the <code>StatusCode</code> value is <code>Failed</code> or <code>Cancelled</code> and the <code>StatusMessage</code> element in the response indicates the cause of the failure. For help interpreting the <code>StatusMessage</code>, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/CHAP_Troubleshooting.html">Troubleshooting Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the DescribeScalingActivities service method.
 
@@ -982,7 +982,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingActivitiesType *> *)describeScalingActivities:(AWSAutoScalingDescribeScalingActivitiesType *)request;
 
 /**
- <p>Gets information about the scaling activities in the account and Region.</p><p>When scaling events occur, you see a record of the scaling activity in the scaling activities. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying a scaling activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>If the scaling event succeeds, the value of the <code>StatusCode</code> element in the response is <code>Successful</code>. If an attempt to launch instances failed, the <code>StatusCode</code> value is <code>Failed</code> or <code>Cancelled</code> and the <code>StatusMessage</code> element in the response indicates the cause of the failure. For help interpreting the <code>StatusMessage</code>, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/CHAP_Troubleshooting.html">Troubleshooting Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+ <p>Gets information about the scaling activities in the account and Region.</p><p>When scaling events occur, you see a record of the scaling activity in the scaling activities. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verify a scaling activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>If the scaling event succeeds, the value of the <code>StatusCode</code> element in the response is <code>Successful</code>. If an attempt to launch instances failed, the <code>StatusCode</code> value is <code>Failed</code> or <code>Cancelled</code> and the <code>StatusMessage</code> element in the response indicates the cause of the failure. For help interpreting the <code>StatusMessage</code>, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/CHAP_Troubleshooting.html">Troubleshooting Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the DescribeScalingActivities service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1070,7 +1070,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)describeTags:(AWSAutoScalingDescribeTagsType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingTagsType * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html">Work with Amazon EC2 Auto Scaling termination policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html">Configure termination policies for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeTerminationPolicyTypes service method.
 
@@ -1082,7 +1082,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingDescribeTerminationPolicyTypesAnswer *> *)describeTerminationPolicyTypes:(AWSRequest *)request;
 
 /**
- <p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html">Work with Amazon EC2 Auto Scaling termination policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html">Configure termination policies for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeTerminationPolicyTypes service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1145,7 +1145,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)describeWarmPool:(AWSAutoScalingDescribeWarmPoolType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDescribeWarmPoolAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes one or more instances from the specified Auto Scaling group.</p><p>After the instances are detached, you can manage them independent of the Auto Scaling group.</p><p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are detached.</p><p>If there is a Classic Load Balancer attached to the Auto Scaling group, the instances are deregistered from the load balancer. If there are target groups attached to the Auto Scaling group, the instances are deregistered from the target groups.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/detach-instance-asg.html">Detach EC2 instances from your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Removes one or more instances from the specified Auto Scaling group.</p><p>After the instances are detached, you can manage them independent of the Auto Scaling group.</p><p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are detached.</p><p>If there is a Classic Load Balancer attached to the Auto Scaling group, the instances are deregistered from the load balancer. If there are target groups attached to the Auto Scaling group, the instances are deregistered from the target groups.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.html">Detach or attach instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DetachInstances service method.
 
@@ -1157,7 +1157,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingDetachInstancesAnswer *> *)detachInstances:(AWSAutoScalingDetachInstancesQuery *)request;
 
 /**
- <p>Removes one or more instances from the specified Auto Scaling group.</p><p>After the instances are detached, you can manage them independent of the Auto Scaling group.</p><p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are detached.</p><p>If there is a Classic Load Balancer attached to the Auto Scaling group, the instances are deregistered from the load balancer. If there are target groups attached to the Auto Scaling group, the instances are deregistered from the target groups.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/detach-instance-asg.html">Detach EC2 instances from your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Removes one or more instances from the specified Auto Scaling group.</p><p>After the instances are detached, you can manage them independent of the Auto Scaling group.</p><p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are detached.</p><p>If there is a Classic Load Balancer attached to the Auto Scaling group, the instances are deregistered from the load balancer. If there are target groups attached to the Auto Scaling group, the instances are deregistered from the target groups.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.html">Detach or attach instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DetachInstances service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1411,7 +1411,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)putLifecycleHook:(AWSAutoScalingPutLifecycleHookType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingPutLifecycleHookAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Configures an Auto Scaling group to send notifications when specified events take place. Subscribers to the specified topic can have messages delivered to an endpoint such as a web server or an email address.</p><p>This configuration overwrites any existing configuration.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html">Getting Amazon SNS notifications when your Auto Scaling group scales</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>If you exceed your maximum limit of SNS topics, which is 10 per Auto Scaling group, the call fails.</p>
+ <p>Configures an Auto Scaling group to send notifications when specified events take place. Subscribers to the specified topic can have messages delivered to an endpoint such as a web server or an email address.</p><p>This configuration overwrites any existing configuration.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-sns-notifications.html">Amazon SNS notification options for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>If you exceed your maximum limit of SNS topics, which is 10 per Auto Scaling group, the call fails.</p>
  
  @param request A container for the necessary parameters to execute the PutNotificationConfiguration service method.
 
@@ -1422,7 +1422,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask *)putNotificationConfiguration:(AWSAutoScalingPutNotificationConfigurationType *)request;
 
 /**
- <p>Configures an Auto Scaling group to send notifications when specified events take place. Subscribers to the specified topic can have messages delivered to an endpoint such as a web server or an email address.</p><p>This configuration overwrites any existing configuration.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html">Getting Amazon SNS notifications when your Auto Scaling group scales</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>If you exceed your maximum limit of SNS topics, which is 10 per Auto Scaling group, the call fails.</p>
+ <p>Configures an Auto Scaling group to send notifications when specified events take place. Subscribers to the specified topic can have messages delivered to an endpoint such as a web server or an email address.</p><p>This configuration overwrites any existing configuration.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-sns-notifications.html">Amazon SNS notification options for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>If you exceed your maximum limit of SNS topics, which is 10 per Auto Scaling group, the call fails.</p>
  
  @param request A container for the necessary parameters to execute the PutNotificationConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1458,7 +1458,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)putScalingPolicy:(AWSAutoScalingPutScalingPolicyType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingPolicyARNType * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates or updates a scheduled scaling action for an Auto Scaling group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>You can view the scheduled actions for an Auto Scaling group using the <a>DescribeScheduledActions</a> API call. If you are no longer using a scheduled action, you can delete it by calling the <a>DeleteScheduledAction</a> API.</p><p>If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an error message.</p>
+ <p>Creates or updates a scheduled scaling action for an Auto Scaling group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scheduled-scaling.html">Scheduled scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>You can view the scheduled actions for an Auto Scaling group using the <a>DescribeScheduledActions</a> API call. If you are no longer using a scheduled action, you can delete it by calling the <a>DeleteScheduledAction</a> API.</p><p>If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an error message.</p>
  
  @param request A container for the necessary parameters to execute the PutScheduledUpdateGroupAction service method.
 
@@ -1469,7 +1469,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask *)putScheduledUpdateGroupAction:(AWSAutoScalingPutScheduledUpdateGroupActionType *)request;
 
 /**
- <p>Creates or updates a scheduled scaling action for an Auto Scaling group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>You can view the scheduled actions for an Auto Scaling group using the <a>DescribeScheduledActions</a> API call. If you are no longer using a scheduled action, you can delete it by calling the <a>DeleteScheduledAction</a> API.</p><p>If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an error message.</p>
+ <p>Creates or updates a scheduled scaling action for an Auto Scaling group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scheduled-scaling.html">Scheduled scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>You can view the scheduled actions for an Auto Scaling group using the <a>DescribeScheduledActions</a> API call. If you are no longer using a scheduled action, you can delete it by calling the <a>DeleteScheduledAction</a> API.</p><p>If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an error message.</p>
  
  @param request A container for the necessary parameters to execute the PutScheduledUpdateGroupAction service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1480,7 +1480,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)putScheduledUpdateGroupAction:(AWSAutoScalingPutScheduledUpdateGroupActionType *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates or updates a warm pool for the specified Auto Scaling group. A warm pool is a pool of pre-initialized EC2 instances that sits alongside the Auto Scaling group. Whenever your application needs to scale out, the Auto Scaling group can draw on the warm pool to meet its new desired capacity. For more information and example configurations, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>This operation must be called from the Region in which the Auto Scaling group was created. This operation cannot be called on an Auto Scaling group that has a mixed instances policy or a launch template or launch configuration that requests Spot Instances.</p><p>You can view the instances in the warm pool using the <a>DescribeWarmPool</a> API call. If you are no longer using a warm pool, you can delete it by calling the <a>DeleteWarmPool</a> API.</p>
+ <p>Creates or updates a warm pool for the specified Auto Scaling group. A warm pool is a pool of pre-initialized EC2 instances that sits alongside the Auto Scaling group. Whenever your application needs to scale out, the Auto Scaling group can draw on the warm pool to meet its new desired capacity.</p><p>This operation must be called from the Region in which the Auto Scaling group was created.</p><p>You can view the instances in the warm pool using the <a>DescribeWarmPool</a> API call. If you are no longer using a warm pool, you can delete it by calling the <a>DeleteWarmPool</a> API.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the PutWarmPool service method.
 
@@ -1492,7 +1492,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingPutWarmPoolAnswer *> *)putWarmPool:(AWSAutoScalingPutWarmPoolType *)request;
 
 /**
- <p>Creates or updates a warm pool for the specified Auto Scaling group. A warm pool is a pool of pre-initialized EC2 instances that sits alongside the Auto Scaling group. Whenever your application needs to scale out, the Auto Scaling group can draw on the warm pool to meet its new desired capacity. For more information and example configurations, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>This operation must be called from the Region in which the Auto Scaling group was created. This operation cannot be called on an Auto Scaling group that has a mixed instances policy or a launch template or launch configuration that requests Spot Instances.</p><p>You can view the instances in the warm pool using the <a>DescribeWarmPool</a> API call. If you are no longer using a warm pool, you can delete it by calling the <a>DeleteWarmPool</a> API.</p>
+ <p>Creates or updates a warm pool for the specified Auto Scaling group. A warm pool is a pool of pre-initialized EC2 instances that sits alongside the Auto Scaling group. Whenever your application needs to scale out, the Auto Scaling group can draw on the warm pool to meet its new desired capacity.</p><p>This operation must be called from the Region in which the Auto Scaling group was created.</p><p>You can view the instances in the warm pool using the <a>DescribeWarmPool</a> API call. If you are no longer using a warm pool, you can delete it by calling the <a>DeleteWarmPool</a> API.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the PutWarmPool service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1530,7 +1530,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)recordLifecycleActionHeartbeat:(AWSAutoScalingRecordLifecycleActionHeartbeatType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingRecordLifecycleActionHeartbeatAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Resumes the specified suspended auto scaling processes, or all suspended process, for the specified Auto Scaling group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending and resuming scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Resumes the specified suspended auto scaling processes, or all suspended process, for the specified Auto Scaling group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspend and resume Amazon EC2 Auto Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ResumeProcesses service method.
 
@@ -1541,7 +1541,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask *)resumeProcesses:(AWSAutoScalingScalingProcessQuery *)request;
 
 /**
- <p>Resumes the specified suspended auto scaling processes, or all suspended process, for the specified Auto Scaling group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending and resuming scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Resumes the specified suspended auto scaling processes, or all suspended process, for the specified Auto Scaling group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspend and resume Amazon EC2 Auto Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ResumeProcesses service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1577,7 +1577,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)rollbackInstanceRefresh:(AWSAutoScalingRollbackInstanceRefreshType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingRollbackInstanceRefreshAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sets the size of the specified Auto Scaling group.</p><p>If a scale-in activity occurs as a result of a new <code>DesiredCapacity</code> value that is lower than the current size of the group, the Auto Scaling group uses its termination policy to determine which instances to terminate. </p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-manual-scaling.html">Manual scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Sets the size of the specified Auto Scaling group.</p><p>If a scale-in activity occurs as a result of a new <code>DesiredCapacity</code> value that is lower than the current size of the group, the Auto Scaling group uses its termination policy to determine which instances to terminate. </p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-manually.html">Manual scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the SetDesiredCapacity service method.
 
@@ -1588,7 +1588,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask *)setDesiredCapacity:(AWSAutoScalingSetDesiredCapacityType *)request;
 
 /**
- <p>Sets the size of the specified Auto Scaling group.</p><p>If a scale-in activity occurs as a result of a new <code>DesiredCapacity</code> value that is lower than the current size of the group, the Auto Scaling group uses its termination policy to determine which instances to terminate. </p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-manual-scaling.html">Manual scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Sets the size of the specified Auto Scaling group.</p><p>If a scale-in activity occurs as a result of a new <code>DesiredCapacity</code> value that is lower than the current size of the group, the Auto Scaling group uses its termination policy to determine which instances to terminate. </p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-manually.html">Manual scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the SetDesiredCapacity service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1599,7 +1599,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)setDesiredCapacity:(AWSAutoScalingSetDesiredCapacityType *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sets the health status of the specified instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Sets the health status of the specified instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html">Health checks for instances in an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the SetInstanceHealth service method.
 
@@ -1610,7 +1610,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask *)setInstanceHealth:(AWSAutoScalingSetInstanceHealthQuery *)request;
 
 /**
- <p>Sets the health status of the specified instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Sets the health status of the specified instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html">Health checks for instances in an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the SetInstanceHealth service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1621,7 +1621,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)setInstanceHealth:(AWSAutoScalingSetInstanceHealthQuery *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the instance protection settings of the specified instances. This operation cannot be called on instances in a warm pool.</p><p>For more information about preventing instances that are part of an Auto Scaling group from terminating on scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Using instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>If you exceed your maximum limit of instance IDs, which is 50 per Auto Scaling group, the call fails.</p>
+ <p>Updates the instance protection settings of the specified instances. This operation cannot be called on instances in a warm pool.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Use instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>If you exceed your maximum limit of instance IDs, which is 50 per Auto Scaling group, the call fails.</p>
  
  @param request A container for the necessary parameters to execute the SetInstanceProtection service method.
 
@@ -1633,7 +1633,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingSetInstanceProtectionAnswer *> *)setInstanceProtection:(AWSAutoScalingSetInstanceProtectionQuery *)request;
 
 /**
- <p>Updates the instance protection settings of the specified instances. This operation cannot be called on instances in a warm pool.</p><p>For more information about preventing instances that are part of an Auto Scaling group from terminating on scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Using instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>If you exceed your maximum limit of instance IDs, which is 50 per Auto Scaling group, the call fails.</p>
+ <p>Updates the instance protection settings of the specified instances. This operation cannot be called on instances in a warm pool.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Use instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>If you exceed your maximum limit of instance IDs, which is 50 per Auto Scaling group, the call fails.</p>
  
  @param request A container for the necessary parameters to execute the SetInstanceProtection service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1671,7 +1671,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)startInstanceRefresh:(AWSAutoScalingStartInstanceRefreshType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingStartInstanceRefreshAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Suspends the specified auto scaling processes, or all processes, for the specified Auto Scaling group.</p><p>If you suspend either the <code>Launch</code> or <code>Terminate</code> process types, it can prevent other process types from functioning properly. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending and resuming scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>To resume processes that have been suspended, call the <a>ResumeProcesses</a> API.</p>
+ <p>Suspends the specified auto scaling processes, or all processes, for the specified Auto Scaling group.</p><p>If you suspend either the <code>Launch</code> or <code>Terminate</code> process types, it can prevent other process types from functioning properly. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspend and resume Amazon EC2 Auto Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>To resume processes that have been suspended, call the <a>ResumeProcesses</a> API.</p>
  
  @param request A container for the necessary parameters to execute the SuspendProcesses service method.
 
@@ -1682,7 +1682,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask *)suspendProcesses:(AWSAutoScalingScalingProcessQuery *)request;
 
 /**
- <p>Suspends the specified auto scaling processes, or all processes, for the specified Auto Scaling group.</p><p>If you suspend either the <code>Launch</code> or <code>Terminate</code> process types, it can prevent other process types from functioning properly. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending and resuming scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>To resume processes that have been suspended, call the <a>ResumeProcesses</a> API.</p>
+ <p>Suspends the specified auto scaling processes, or all processes, for the specified Auto Scaling group.</p><p>If you suspend either the <code>Launch</code> or <code>Terminate</code> process types, it can prevent other process types from functioning properly. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspend and resume Amazon EC2 Auto Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>To resume processes that have been suspended, call the <a>ResumeProcesses</a> API.</p>
  
  @param request A container for the necessary parameters to execute the SuspendProcesses service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1693,7 +1693,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)suspendProcesses:(AWSAutoScalingScalingProcessQuery *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Terminates the specified instance and optionally adjusts the desired group size. This operation cannot be called on instances in a warm pool.</p><p>This call simply makes a termination request. The instance is not terminated immediately. When an instance is terminated, the instance status changes to <code>terminated</code>. You can't connect to or start an instance after you've terminated it.</p><p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are terminated. </p><p>By default, Amazon EC2 Auto Scaling balances instances across all Availability Zones. If you decrement the desired capacity, your Auto Scaling group can become unbalanced between Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group, and rebalancing might terminate instances in other zones. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-benefits.html#AutoScalingBehavior.InstanceUsage">Rebalancing activities</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Terminates the specified instance and optionally adjusts the desired group size. This operation cannot be called on instances in a warm pool.</p><p>This call simply makes a termination request. The instance is not terminated immediately. When an instance is terminated, the instance status changes to <code>terminated</code>. You can't connect to or start an instance after you've terminated it.</p><p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are terminated. </p><p>By default, Amazon EC2 Auto Scaling balances instances across all Availability Zones. If you decrement the desired capacity, your Auto Scaling group can become unbalanced between Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group, and rebalancing might terminate instances in other zones. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-manually.html">Manual scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the TerminateInstanceInAutoScalingGroup service method.
 
@@ -1705,7 +1705,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingActivityType *> *)terminateInstanceInAutoScalingGroup:(AWSAutoScalingTerminateInstanceInAutoScalingGroupType *)request;
 
 /**
- <p>Terminates the specified instance and optionally adjusts the desired group size. This operation cannot be called on instances in a warm pool.</p><p>This call simply makes a termination request. The instance is not terminated immediately. When an instance is terminated, the instance status changes to <code>terminated</code>. You can't connect to or start an instance after you've terminated it.</p><p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are terminated. </p><p>By default, Amazon EC2 Auto Scaling balances instances across all Availability Zones. If you decrement the desired capacity, your Auto Scaling group can become unbalanced between Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group, and rebalancing might terminate instances in other zones. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-benefits.html#AutoScalingBehavior.InstanceUsage">Rebalancing activities</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Terminates the specified instance and optionally adjusts the desired group size. This operation cannot be called on instances in a warm pool.</p><p>This call simply makes a termination request. The instance is not terminated immediately. When an instance is terminated, the instance status changes to <code>terminated</code>. You can't connect to or start an instance after you've terminated it.</p><p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are terminated. </p><p>By default, Amazon EC2 Auto Scaling balances instances across all Availability Zones. If you decrement the desired capacity, your Auto Scaling group can become unbalanced between Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group, and rebalancing might terminate instances in other zones. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-manually.html">Manual scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the TerminateInstanceInAutoScalingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.

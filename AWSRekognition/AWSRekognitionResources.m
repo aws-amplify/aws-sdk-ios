@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -63,11 +63,13 @@
     \"endpointPrefix\":\"rekognition\",\
     \"jsonVersion\":\"1.1\",\
     \"protocol\":\"json\",\
+    \"protocols\":[\"json\"],\
     \"serviceFullName\":\"Amazon Rekognition\",\
     \"serviceId\":\"Rekognition\",\
     \"signatureVersion\":\"v4\",\
     \"targetPrefix\":\"RekognitionService\",\
-    \"uid\":\"rekognition-2016-06-27\"\
+    \"uid\":\"rekognition-2016-06-27\",\
+    \"auth\":[\"aws.auth#sigv4\"]\
   },\
   \"operations\":{\
     \"AssociateFaces\":{\
@@ -535,7 +537,7 @@
         {\"shape\":\"ProvisionedThroughputExceededException\"},\
         {\"shape\":\"InvalidImageFormatException\"}\
       ],\
-      \"documentation\":\"<note> <p>This operation applies only to Amazon Rekognition Custom Labels.</p> </note> <p>Detects custom labels in a supplied image by using an Amazon Rekognition Custom Labels model. </p> <p>You specify which version of a model version to use by using the <code>ProjectVersionArn</code> input parameter. </p> <p>You pass the input image as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file. </p> <p> For each object that the model version detects on an image, the API returns a (<code>CustomLabel</code>) object in an array (<code>CustomLabels</code>). Each <code>CustomLabel</code> object provides the label name (<code>Name</code>), the level of confidence that the image contains the object (<code>Confidence</code>), and object location information, if it exists, for the label on the image (<code>Geometry</code>). </p> <p>To filter labels that are returned, specify a value for <code>MinConfidence</code>. <code>DetectCustomLabelsLabels</code> only returns labels with a confidence that's higher than the specified value. The value of <code>MinConfidence</code> maps to the assumed threshold values created during training. For more information, see <i>Assumed threshold</i> in the Amazon Rekognition Custom Labels Developer Guide. Amazon Rekognition Custom Labels metrics expresses an assumed threshold as a floating point value between 0-1. The range of <code>MinConfidence</code> normalizes the threshold value to a percentage value (0-100). Confidence responses from <code>DetectCustomLabels</code> are also returned as a percentage. You can use <code>MinConfidence</code> to change the precision and recall or your model. For more information, see <i>Analyzing an image</i> in the Amazon Rekognition Custom Labels Developer Guide. </p> <p>If you don't specify a value for <code>MinConfidence</code>, <code>DetectCustomLabels</code> returns labels based on the assumed threshold of each label.</p> <p>This is a stateless API operation. That is, the operation does not persist any data.</p> <p>This operation requires permissions to perform the <code>rekognition:DetectCustomLabels</code> action. </p> <p>For more information, see <i>Analyzing an image</i> in the Amazon Rekognition Custom Labels Developer Guide. </p>\"\
+      \"documentation\":\"<note> <p>This operation applies only to Amazon Rekognition Custom Labels.</p> </note> <p>Detects custom labels in a supplied image by using an Amazon Rekognition Custom Labels model. </p> <p>You specify which version of a model version to use by using the <code>ProjectVersionArn</code> input parameter. </p> <p>You pass the input image as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file. </p> <p> For each object that the model version detects on an image, the API returns a (<code>CustomLabel</code>) object in an array (<code>CustomLabels</code>). Each <code>CustomLabel</code> object provides the label name (<code>Name</code>), the level of confidence that the image contains the object (<code>Confidence</code>), and object location information, if it exists, for the label on the image (<code>Geometry</code>). Note that for the <code>DetectCustomLabelsLabels</code> operation, <code>Polygons</code> are not returned in the <code>Geometry</code> section of the response.</p> <p>To filter labels that are returned, specify a value for <code>MinConfidence</code>. <code>DetectCustomLabelsLabels</code> only returns labels with a confidence that's higher than the specified value. The value of <code>MinConfidence</code> maps to the assumed threshold values created during training. For more information, see <i>Assumed threshold</i> in the Amazon Rekognition Custom Labels Developer Guide. Amazon Rekognition Custom Labels metrics expresses an assumed threshold as a floating point value between 0-1. The range of <code>MinConfidence</code> normalizes the threshold value to a percentage value (0-100). Confidence responses from <code>DetectCustomLabels</code> are also returned as a percentage. You can use <code>MinConfidence</code> to change the precision and recall or your model. For more information, see <i>Analyzing an image</i> in the Amazon Rekognition Custom Labels Developer Guide. </p> <p>If you don't specify a value for <code>MinConfidence</code>, <code>DetectCustomLabels</code> returns labels based on the assumed threshold of each label.</p> <p>This is a stateless API operation. That is, the operation does not persist any data.</p> <p>This operation requires permissions to perform the <code>rekognition:DetectCustomLabels</code> action. </p> <p>For more information, see <i>Analyzing an image</i> in the Amazon Rekognition Custom Labels Developer Guide. </p>\"\
     },\
     \"DetectFaces\":{\
       \"name\":\"DetectFaces\",\
@@ -808,7 +810,43 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Gets the label detection results of a Amazon Rekognition Video analysis started by <a>StartLabelDetection</a>. </p> <p>The label detection operation is started by a call to <a>StartLabelDetection</a> which returns a job identifier (<code>JobId</code>). When the label detection operation finishes, Amazon Rekognition publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to <code>StartlabelDetection</code>. </p> <p>To get the results of the label detection operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetLabelDetection</a> and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartLabelDetection</code>.</p> <p> <code>GetLabelDetection</code> returns an array of detected labels (<code>Labels</code>) sorted by the time the labels were detected. You can also sort by the label name by specifying <code>NAME</code> for the <code>SortBy</code> input parameter. If there is no <code>NAME</code> specified, the default sort is by timestamp.</p> <p>You can select how results are aggregated by using the <code>AggregateBy</code> input parameter. The default aggregation method is <code>TIMESTAMPS</code>. You can also aggregate by <code>SEGMENTS</code>, which aggregates all instances of labels detected in a given segment. </p> <p>The returned Labels array may include the following attributes:</p> <ul> <li> <p>Name - The name of the detected label.</p> </li> <li> <p>Confidence - The level of confidence in the label assigned to a detected object. </p> </li> <li> <p>Parents - The ancestor labels for a detected label. GetLabelDetection returns a hierarchical taxonomy of detected labels. For example, a detected car might be assigned the label car. The label car has two parent labels: Vehicle (its parent) and Transportation (its grandparent). The response includes the all ancestors for a label, where every ancestor is a unique label. In the previous example, Car, Vehicle, and Transportation are returned as unique labels in the response. </p> </li> <li> <p> Aliases - Possible Aliases for the label. </p> </li> <li> <p>Categories - The label categories that the detected label belongs to.</p> </li> <li> <p>BoundingBox â Bounding boxes are described for all instances of detected common object labels, returned in an array of Instance objects. An Instance object contains a BoundingBox object, describing the location of the label on the input image. It also includes the confidence for the accuracy of the detected bounding box.</p> </li> <li> <p>Timestamp - Time, in milliseconds from the start of the video, that the label was detected. For aggregation by <code>SEGMENTS</code>, the <code>StartTimestampMillis</code>, <code>EndTimestampMillis</code>, and <code>DurationMillis</code> structures are what define a segment. Although the âTimestampâ structure is still returned with each label, its value is set to be the same as <code>StartTimestampMillis</code>.</p> </li> </ul> <p>Timestamp and Bounding box information are returned for detected Instances, only if aggregation is done by <code>TIMESTAMPS</code>. If aggregating by <code>SEGMENTS</code>, information about detected instances isnât returned. </p> <p>The version of the label model used for the detection is also returned.</p> <p> <b>Note <code>DominantColors</code> isn't returned for <code>Instances</code>, although it is shown as part of the response in the sample seen below.</b> </p> <p>Use <code>MaxResults</code> parameter to limit the number of labels returned. If there are more results than specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains a pagination token for getting the next set of results. To get the next page of results, call <code>GetlabelDetection</code> and populate the <code>NextToken</code> request parameter with the token value returned from the previous call to <code>GetLabelDetection</code>.</p>\"\
+      \"documentation\":\"<p>Gets the label detection results of a Amazon Rekognition Video analysis started by <a>StartLabelDetection</a>. </p> <p>The label detection operation is started by a call to <a>StartLabelDetection</a> which returns a job identifier (<code>JobId</code>). When the label detection operation finishes, Amazon Rekognition publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to <code>StartlabelDetection</code>. </p> <p>To get the results of the label detection operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetLabelDetection</a> and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartLabelDetection</code>.</p> <p> <code>GetLabelDetection</code> returns an array of detected labels (<code>Labels</code>) sorted by the time the labels were detected. You can also sort by the label name by specifying <code>NAME</code> for the <code>SortBy</code> input parameter. If there is no <code>NAME</code> specified, the default sort is by timestamp.</p> <p>You can select how results are aggregated by using the <code>AggregateBy</code> input parameter. The default aggregation method is <code>TIMESTAMPS</code>. You can also aggregate by <code>SEGMENTS</code>, which aggregates all instances of labels detected in a given segment. </p> <p>The returned Labels array may include the following attributes:</p> <ul> <li> <p>Name - The name of the detected label.</p> </li> <li> <p>Confidence - The level of confidence in the label assigned to a detected object. </p> </li> <li> <p>Parents - The ancestor labels for a detected label. GetLabelDetection returns a hierarchical taxonomy of detected labels. For example, a detected car might be assigned the label car. The label car has two parent labels: Vehicle (its parent) and Transportation (its grandparent). The response includes the all ancestors for a label, where every ancestor is a unique label. In the previous example, Car, Vehicle, and Transportation are returned as unique labels in the response. </p> </li> <li> <p> Aliases - Possible Aliases for the label. </p> </li> <li> <p>Categories - The label categories that the detected label belongs to.</p> </li> <li> <p>BoundingBox â Bounding boxes are described for all instances of detected common object labels, returned in an array of Instance objects. An Instance object contains a BoundingBox object, describing the location of the label on the input image. It also includes the confidence for the accuracy of the detected bounding box.</p> </li> <li> <p>Timestamp - Time, in milliseconds from the start of the video, that the label was detected. For aggregation by <code>SEGMENTS</code>, the <code>StartTimestampMillis</code>, <code>EndTimestampMillis</code>, and <code>DurationMillis</code> structures are what define a segment. Although the âTimestampâ structure is still returned with each label, its value is set to be the same as <code>StartTimestampMillis</code>.</p> </li> </ul> <p>Timestamp and Bounding box information are returned for detected Instances, only if aggregation is done by <code>TIMESTAMPS</code>. If aggregating by <code>SEGMENTS</code>, information about detected instances isnât returned. </p> <p>The version of the label model used for the detection is also returned.</p> <p> <b>Note <code>DominantColors</code> isn't returned for <code>Instances</code>, although it is shown as part of the response in the sample seen below.</b> </p> <p>Use <code>MaxResults</code> parameter to limit the number of labels returned. If there are more results than specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains a pagination token for getting the next set of results. To get the next page of results, call <code>GetlabelDetection</code> and populate the <code>NextToken</code> request parameter with the token value returned from the previous call to <code>GetLabelDetection</code>.</p> <p>If you are retrieving results while using the Amazon Simple Notification Service, note that you will receive an \\\"ERROR\\\" notification if the job encounters an issue.</p>\"\
+    },\
+    \"GetMediaAnalysisJob\":{\
+      \"name\":\"GetMediaAnalysisJob\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"GetMediaAnalysisJobRequest\"},\
+      \"output\":{\"shape\":\"GetMediaAnalysisJobResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServerError\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ProvisionedThroughputExceededException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>Retrieves the results for a given media analysis job. Takes a <code>JobId</code> returned by StartMediaAnalysisJob.</p>\"\
+    },\
+    \"GetMediaAnalysisJob\":{\
+      \"name\":\"GetMediaAnalysisJob\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"GetMediaAnalysisJobRequest\"},\
+      \"output\":{\"shape\":\"GetMediaAnalysisJobResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServerError\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ProvisionedThroughputExceededException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>Retrieves the results for a given media analysis job. Takes a <code>JobId</code> returned by StartMediaAnalysisJob.</p>\"\
     },\
     \"GetPersonTracking\":{\
       \"name\":\"GetPersonTracking\",\
@@ -968,6 +1006,24 @@
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
       \"documentation\":\"<p>Returns metadata for faces in the specified collection. This metadata includes information such as the bounding box coordinates, the confidence (that the bounding box contains a face), and face ID. For an example, see Listing Faces in a Collection in the Amazon Rekognition Developer Guide.</p> <p>This operation requires permissions to perform the <code>rekognition:ListFaces</code> action.</p>\"\
+    },\
+    \"ListMediaAnalysisJobs\":{\
+      \"name\":\"ListMediaAnalysisJobs\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ListMediaAnalysisJobsRequest\"},\
+      \"output\":{\"shape\":\"ListMediaAnalysisJobsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"InternalServerError\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"InvalidPaginationTokenException\"},\
+        {\"shape\":\"ProvisionedThroughputExceededException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>Returns a list of media analysis jobs. Results are sorted by <code>CreationTimestamp</code> in descending order.</p>\"\
     },\
     \"ListProjectPolicies\":{\
       \"name\":\"ListProjectPolicies\",\
@@ -1276,6 +1332,30 @@
       \"documentation\":\"<p>Starts asynchronous detection of labels in a stored video.</p> <p>Amazon Rekognition Video can detect labels in a video. Labels are instances of real-world entities. This includes objects like flower, tree, and table; events like wedding, graduation, and birthday party; concepts like landscape, evening, and nature; and activities like a person getting out of a car or a person skiing.</p> <p>The video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartLabelDetection</code> returns a job identifier (<code>JobId</code>) which you use to get the results of the operation. When label detection is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>.</p> <p>To get the results of the label detection operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetLabelDetection</a> and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartLabelDetection</code>.</p> <p> <i>Optional Parameters</i> </p> <p> <code>StartLabelDetection</code> has the <code>GENERAL_LABELS</code> Feature applied by default. This feature allows you to provide filtering criteria to the <code>Settings</code> parameter. You can filter with sets of individual labels or with label categories. You can specify inclusive filters, exclusive filters, or a combination of inclusive and exclusive filters. For more information on filtering, see <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/dg/labels-detecting-labels-video.html\\\">Detecting labels in a video</a>.</p> <p>You can specify <code>MinConfidence</code> to control the confidence threshold for the labels returned. The default is 50.</p>\",\
       \"idempotent\":true\
     },\
+    \"StartMediaAnalysisJob\":{\
+      \"name\":\"StartMediaAnalysisJob\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"StartMediaAnalysisJobRequest\"},\
+      \"output\":{\"shape\":\"StartMediaAnalysisJobResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalServerError\"},\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"InvalidManifestException\"},\
+        {\"shape\":\"InvalidS3ObjectException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ResourceNotReadyException\"},\
+        {\"shape\":\"ProvisionedThroughputExceededException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"IdempotentParameterMismatchException\"}\
+      ],\
+      \"documentation\":\"<p>Initiates a new media analysis job. Accepts a manifest file in an Amazon S3 bucket. The output is a manifest file and a summary of the manifest stored in the Amazon S3 bucket.</p>\",\
+      \"idempotent\":true\
+    },\
     \"StartPersonTracking\":{\
       \"name\":\"StartPersonTracking\",\
       \"http\":{\
@@ -1565,7 +1645,7 @@
       \"members\":{\
         \"AssociatedFaces\":{\
           \"shape\":\"AssociatedFacesList\",\
-          \"documentation\":\"<p>An array of AssociatedFace objects containing FaceIDs that are successfully associated with the UserID is returned. Returned if the AssociateFaces action is successful.</p>\"\
+          \"documentation\":\"<p>An array of AssociatedFace objects containing FaceIDs that have been successfully associated with the UserID. Returned if the AssociateFaces action is successful.</p>\"\
         },\
         \"UnsuccessfulFaceAssociations\":{\
           \"shape\":\"UnsuccessfulFaceAssociationList\",\
@@ -2051,6 +2131,10 @@
         \"DurationMillis\":{\
           \"shape\":\"ULong\",\
           \"documentation\":\"<p> The time duration of a segment in milliseconds, I.e. time elapsed from StartTimestampMillis to EndTimestampMillis. </p>\"\
+        },\
+        \"ContentTypes\":{\
+          \"shape\":\"ContentTypes\",\
+          \"documentation\":\"<p>A list of predicted results for the type of content an image contains. For example, the image content might be from animation, sports, or a video game.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about an inappropriate, unwanted, or offensive content label detection in a stored video.</p>\"\
@@ -2065,6 +2149,26 @@
         \"NAME\",\
         \"TIMESTAMP\"\
       ]\
+    },\
+    \"ContentType\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Confidence\":{\
+          \"shape\":\"Percent\",\
+          \"documentation\":\"<p>The confidence level of the label given</p>\"\
+        },\
+        \"Name\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The name of the label</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Contains information regarding the confidence and name of a detected content type.</p>\"\
+    },\
+    \"ContentTypes\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ContentType\"},\
+      \"max\":50,\
+      \"min\":0\
     },\
     \"CopyProjectVersionRequest\":{\
       \"type\":\"structure\",\
@@ -2178,6 +2282,10 @@
         \"ProjectArn\":{\
           \"shape\":\"ProjectArn\",\
           \"documentation\":\"<p> The ARN of the Amazon Rekognition Custom Labels project to which you want to asssign the dataset. </p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagMap\",\
+          \"documentation\":\"<p>A set of tags (key-value pairs) that you want to attach to the dataset.</p>\"\
         }\
       }\
     },\
@@ -2227,7 +2335,7 @@
       \"members\":{\
         \"SessionId\":{\
           \"shape\":\"LivenessSessionId\",\
-          \"documentation\":\"<p>A unique 128-bit UUID identifying a Face Liveness session.</p>\"\
+          \"documentation\":\"<p>A unique 128-bit UUID identifying a Face Liveness session. A new sessionID must be used for every Face Liveness check. If a given sessionID is used for subsequent Face Liveness checks, the checks will fail. Additionally, a SessionId expires 3 minutes after it's sent, making all Liveness data associated with the session (e.g., sessionID, reference image, audit images, etc.) unavailable. </p>\"\
         }\
       }\
     },\
@@ -2246,6 +2354,10 @@
         \"AutoUpdate\":{\
           \"shape\":\"ProjectAutoUpdate\",\
           \"documentation\":\"<p>Specifies whether automatic retraining should be attempted for the versions of the project. Automatic retraining is done as a best effort. Required argument for Content Moderation. Applicable only to adapters.</p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagMap\",\
+          \"documentation\":\"<p>A set of tags (key-value pairs) that you want to attach to the project.</p>\"\
         }\
       }\
     },\
@@ -3257,7 +3369,7 @@
       \"members\":{\
         \"ModerationLabels\":{\
           \"shape\":\"ModerationLabels\",\
-          \"documentation\":\"<p>Array of detected Moderation labels and the time, in milliseconds from the start of the video, they were detected.</p>\"\
+          \"documentation\":\"<p>Array of detected Moderation labels. For video operations, this includes the time, in milliseconds from the start of the video, they were detected.</p>\"\
         },\
         \"ModerationModelVersion\":{\
           \"shape\":\"String\",\
@@ -3270,6 +3382,10 @@
         \"ProjectVersion\":{\
           \"shape\":\"ProjectVersionId\",\
           \"documentation\":\"<p>Identifier of the custom adapter that was used during inference. If during inference the adapter was EXPIRED, then the parameter will not be returned, indicating that a base moderation detection project version was used.</p>\"\
+        },\
+        \"ContentTypes\":{\
+          \"shape\":\"ContentTypes\",\
+          \"documentation\":\"<p>A list of predicted results for the type of content an image contains. For example, the image content might be from animation, sports, or a video game.</p>\"\
         }\
       }\
     },\
@@ -4312,6 +4428,77 @@
         }\
       }\
     },\
+    \"GetMediaAnalysisJobRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"JobId\"],\
+      \"members\":{\
+        \"JobId\":{\
+          \"shape\":\"MediaAnalysisJobId\",\
+          \"documentation\":\"<p>Unique identifier for the media analysis job for which you want to retrieve results.</p>\"\
+        }\
+      }\
+    },\
+    \"GetMediaAnalysisJobResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"JobId\",\
+        \"OperationsConfig\",\
+        \"Status\",\
+        \"CreationTimestamp\",\
+        \"Input\",\
+        \"OutputConfig\"\
+      ],\
+      \"members\":{\
+        \"JobId\":{\
+          \"shape\":\"MediaAnalysisJobId\",\
+          \"documentation\":\"<p>The identifier for the media analysis job.</p>\"\
+        },\
+        \"JobName\":{\
+          \"shape\":\"MediaAnalysisJobName\",\
+          \"documentation\":\"<p>The name of the media analysis job.</p>\"\
+        },\
+        \"OperationsConfig\":{\
+          \"shape\":\"MediaAnalysisOperationsConfig\",\
+          \"documentation\":\"<p>Operation configurations that were provided during job creation.</p>\"\
+        },\
+        \"Status\":{\
+          \"shape\":\"MediaAnalysisJobStatus\",\
+          \"documentation\":\"<p>The current status of the media analysis job.</p>\"\
+        },\
+        \"FailureDetails\":{\
+          \"shape\":\"MediaAnalysisJobFailureDetails\",\
+          \"documentation\":\"<p>Details about the error that resulted in failure of the job.</p>\"\
+        },\
+        \"CreationTimestamp\":{\
+          \"shape\":\"DateTime\",\
+          \"documentation\":\"<p>The Unix date and time when the job was started.</p>\"\
+        },\
+        \"CompletionTimestamp\":{\
+          \"shape\":\"DateTime\",\
+          \"documentation\":\"<p>The Unix date and time when the job finished.</p>\"\
+        },\
+        \"Input\":{\
+          \"shape\":\"MediaAnalysisInput\",\
+          \"documentation\":\"<p>Reference to the input manifest that was provided in the job creation request.</p>\"\
+        },\
+        \"OutputConfig\":{\
+          \"shape\":\"MediaAnalysisOutputConfig\",\
+          \"documentation\":\"<p>Output configuration that was provided in the creation request.</p>\"\
+        },\
+        \"KmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>KMS Key that was provided in the creation request.</p>\"\
+        },\
+        \"Results\":{\
+          \"shape\":\"MediaAnalysisResults\",\
+          \"documentation\":\"<p>Output manifest that contains prediction results.</p>\"\
+        },\
+        \"ManifestSummary\":{\
+          \"shape\":\"MediaAnalysisManifestSummary\",\
+          \"documentation\":\"<p>The summary manifest provides statistics on input manifest and errors identified in the input manifest.</p>\"\
+        }\
+      }\
+    },\
     \"GetPersonTrackingRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"JobId\"],\
@@ -4732,6 +4919,13 @@
       \"members\":{\
       },\
       \"documentation\":\"<p>The provided image format is not supported. </p>\",\
+      \"exception\":true\
+    },\
+    \"InvalidManifestException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      },\
+      \"documentation\":\"<p>Indicates that a provided manifest file is empty or larger than the allowed limit.</p>\",\
       \"exception\":true\
     },\
     \"InvalidPaginationTokenException\":{\
@@ -5197,6 +5391,38 @@
         }\
       }\
     },\
+    \"ListMediaAnalysisJobsPageSize\":{\
+      \"type\":\"integer\",\
+      \"max\":100,\
+      \"min\":1\
+    },\
+    \"ListMediaAnalysisJobsRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"NextToken\":{\
+          \"shape\":\"ExtendedPaginationToken\",\
+          \"documentation\":\"<p>Pagination token, if the previous response was incomplete.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"ListMediaAnalysisJobsPageSize\",\
+          \"documentation\":\"<p>The maximum number of results to return per paginated call. The largest value user can specify is 100. If user specifies a value greater than 100, an <code>InvalidParameterException</code> error occurs. The default value is 100.</p>\"\
+        }\
+      }\
+    },\
+    \"ListMediaAnalysisJobsResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"MediaAnalysisJobs\"],\
+      \"members\":{\
+        \"NextToken\":{\
+          \"shape\":\"ExtendedPaginationToken\",\
+          \"documentation\":\"<p>Pagination token, if the previous response was incomplete.</p>\"\
+        },\
+        \"MediaAnalysisJobs\":{\
+          \"shape\":\"MediaAnalysisJobDescriptions\",\
+          \"documentation\":\"<p>Contains a list of all media analysis jobs.</p>\"\
+        }\
+      }\
+    },\
     \"ListProjectPoliciesPageSize\":{\
       \"type\":\"integer\",\
       \"max\":5,\
@@ -5400,6 +5626,202 @@
       \"max\":500,\
       \"min\":1\
     },\
+    \"MediaAnalysisDetectModerationLabelsConfig\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"MinConfidence\":{\
+          \"shape\":\"Percent\",\
+          \"documentation\":\"<p>Specifies the minimum confidence level for the moderation labels to return. Amazon Rekognition doesn't return any labels with a confidence level lower than this specified value. </p>\"\
+        },\
+        \"ProjectVersion\":{\
+          \"shape\":\"ProjectVersionId\",\
+          \"documentation\":\"<p>Specifies the custom moderation model to be used during the label detection job. If not provided the pre-trained model is used.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Configuration for Moderation Labels Detection.</p>\"\
+    },\
+    \"MediaAnalysisInput\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"S3Object\"],\
+      \"members\":{\
+        \"S3Object\":{\"shape\":\"S3Object\"}\
+      },\
+      \"documentation\":\"<p>Contains input information for a media analysis job.</p>\"\
+    },\
+    \"MediaAnalysisJobDescription\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"JobId\",\
+        \"OperationsConfig\",\
+        \"Status\",\
+        \"CreationTimestamp\",\
+        \"Input\",\
+        \"OutputConfig\"\
+      ],\
+      \"members\":{\
+        \"JobId\":{\
+          \"shape\":\"MediaAnalysisJobId\",\
+          \"documentation\":\"<p>The identifier for a media analysis job.</p>\"\
+        },\
+        \"JobName\":{\
+          \"shape\":\"MediaAnalysisJobName\",\
+          \"documentation\":\"<p>The name of a media analysis job.</p>\"\
+        },\
+        \"OperationsConfig\":{\
+          \"shape\":\"MediaAnalysisOperationsConfig\",\
+          \"documentation\":\"<p>Operation configurations that were provided during job creation.</p>\"\
+        },\
+        \"Status\":{\
+          \"shape\":\"MediaAnalysisJobStatus\",\
+          \"documentation\":\"<p>The status of the media analysis job being retrieved.</p>\"\
+        },\
+        \"FailureDetails\":{\
+          \"shape\":\"MediaAnalysisJobFailureDetails\",\
+          \"documentation\":\"<p>Details about the error that resulted in failure of the job.</p>\"\
+        },\
+        \"CreationTimestamp\":{\
+          \"shape\":\"DateTime\",\
+          \"documentation\":\"<p>The Unix date and time when the job was started.</p>\"\
+        },\
+        \"CompletionTimestamp\":{\
+          \"shape\":\"DateTime\",\
+          \"documentation\":\"<p>The Unix date and time when the job finished.</p>\"\
+        },\
+        \"Input\":{\
+          \"shape\":\"MediaAnalysisInput\",\
+          \"documentation\":\"<p>Reference to the input manifest that was provided in the job creation request.</p>\"\
+        },\
+        \"OutputConfig\":{\
+          \"shape\":\"MediaAnalysisOutputConfig\",\
+          \"documentation\":\"<p>Output configuration that was provided in the creation request.</p>\"\
+        },\
+        \"KmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>KMS Key that was provided in the creation request.</p>\"\
+        },\
+        \"Results\":{\
+          \"shape\":\"MediaAnalysisResults\",\
+          \"documentation\":\"<p>Output manifest that contains prediction results.</p>\"\
+        },\
+        \"ManifestSummary\":{\
+          \"shape\":\"MediaAnalysisManifestSummary\",\
+          \"documentation\":\"<p>Provides statistics on input manifest and errors identified in the input manifest.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Description for a media analysis job.</p>\"\
+    },\
+    \"MediaAnalysisJobDescriptions\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"MediaAnalysisJobDescription\"}\
+    },\
+    \"MediaAnalysisJobFailureCode\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"INTERNAL_ERROR\",\
+        \"INVALID_S3_OBJECT\",\
+        \"INVALID_MANIFEST\",\
+        \"INVALID_OUTPUT_CONFIG\",\
+        \"INVALID_KMS_KEY\",\
+        \"ACCESS_DENIED\",\
+        \"RESOURCE_NOT_FOUND\",\
+        \"RESOURCE_NOT_READY\",\
+        \"THROTTLED\"\
+      ]\
+    },\
+    \"MediaAnalysisJobFailureDetails\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Code\":{\
+          \"shape\":\"MediaAnalysisJobFailureCode\",\
+          \"documentation\":\"<p>Error code for the failed job.</p>\"\
+        },\
+        \"Message\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Human readable error message.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Details about the error that resulted in failure of the job.</p>\"\
+    },\
+    \"MediaAnalysisJobId\":{\
+      \"type\":\"string\",\
+      \"max\":64,\
+      \"min\":1,\
+      \"pattern\":\"^[a-zA-Z0-9-_]+$\"\
+    },\
+    \"MediaAnalysisJobName\":{\
+      \"type\":\"string\",\
+      \"max\":64,\
+      \"min\":1,\
+      \"pattern\":\"[a-zA-Z0-9_.\\\\-]+\"\
+    },\
+    \"MediaAnalysisJobStatus\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"CREATED\",\
+        \"QUEUED\",\
+        \"IN_PROGRESS\",\
+        \"SUCCEEDED\",\
+        \"FAILED\"\
+      ]\
+    },\
+    \"MediaAnalysisManifestSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"S3Object\":{\"shape\":\"S3Object\"}\
+      },\
+      \"documentation\":\"<p>Summary that provides statistics on input manifest and errors identified in the input manifest.</p>\"\
+    },\
+    \"MediaAnalysisModelVersions\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Moderation\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The Moderation base model version.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Object containing information about the model versions of selected features in a given job.</p>\"\
+    },\
+    \"MediaAnalysisOperationsConfig\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DetectModerationLabels\":{\
+          \"shape\":\"MediaAnalysisDetectModerationLabelsConfig\",\
+          \"documentation\":\"<p>Contains configuration options for a DetectModerationLabels job.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Configuration options for a media analysis job. Configuration is operation-specific.</p>\"\
+    },\
+    \"MediaAnalysisOutputConfig\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"S3Bucket\"],\
+      \"members\":{\
+        \"S3Bucket\":{\
+          \"shape\":\"S3Bucket\",\
+          \"documentation\":\"<p>Specifies the Amazon S3 bucket to contain the output of the media analysis job.</p>\"\
+        },\
+        \"S3KeyPrefix\":{\
+          \"shape\":\"MediaAnalysisS3KeyPrefix\",\
+          \"documentation\":\"<p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for storage.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Output configuration provided in the job creation request.</p>\"\
+    },\
+    \"MediaAnalysisResults\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"S3Object\":{\"shape\":\"S3Object\"},\
+        \"ModelVersions\":{\
+          \"shape\":\"MediaAnalysisModelVersions\",\
+          \"documentation\":\"<p>Information about the model versions for the features selected in a given job.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Contains the results for a media analysis job created with StartMediaAnalysisJob.</p>\"\
+    },\
+    \"MediaAnalysisS3KeyPrefix\":{\
+      \"type\":\"string\",\
+      \"max\":800,\
+      \"pattern\":\"\\\\S*\"\
+    },\
     \"MinCoveragePercentage\":{\
       \"type\":\"float\",\
       \"max\":100,\
@@ -5419,6 +5841,10 @@
         \"ParentName\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>The name for the parent label. Labels at the top level of the hierarchy have the parent label <code>\\\"\\\"</code>.</p>\"\
+        },\
+        \"TaxonomyLevel\":{\
+          \"shape\":\"UInteger\",\
+          \"documentation\":\"<p>The level of the moderation label with regard to its taxonomy, from 1 to 3.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Provides information about a single type of inappropriate, unwanted, or offensive content found in an image or video. Each type of moderated content has a label within a hierarchical taxonomy. For more information, see Content moderation in the Amazon Rekognition Developer Guide.</p>\"\
@@ -6719,6 +7145,51 @@
         }\
       }\
     },\
+    \"StartMediaAnalysisJobRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"OperationsConfig\",\
+        \"Input\",\
+        \"OutputConfig\"\
+      ],\
+      \"members\":{\
+        \"ClientRequestToken\":{\
+          \"shape\":\"ClientRequestToken\",\
+          \"documentation\":\"<p>Idempotency token used to prevent the accidental creation of duplicate versions. If you use the same token with multiple <code>StartMediaAnalysisJobRequest</code> requests, the same response is returned. Use <code>ClientRequestToken</code> to prevent the same request from being processed more than once.</p>\",\
+          \"idempotencyToken\":true\
+        },\
+        \"JobName\":{\
+          \"shape\":\"MediaAnalysisJobName\",\
+          \"documentation\":\"<p>The name of the job. Does not have to be unique.</p>\"\
+        },\
+        \"OperationsConfig\":{\
+          \"shape\":\"MediaAnalysisOperationsConfig\",\
+          \"documentation\":\"<p>Configuration options for the media analysis job to be created.</p>\"\
+        },\
+        \"Input\":{\
+          \"shape\":\"MediaAnalysisInput\",\
+          \"documentation\":\"<p>Input data to be analyzed by the job.</p>\"\
+        },\
+        \"OutputConfig\":{\
+          \"shape\":\"MediaAnalysisOutputConfig\",\
+          \"documentation\":\"<p>The Amazon S3 bucket location to store the results.</p>\"\
+        },\
+        \"KmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>The identifier of customer managed AWS KMS key (name or ARN). The key is used to encrypt images copied into the service. The key is also used to encrypt results and manifest files written to the output Amazon S3 bucket.</p>\"\
+        }\
+      }\
+    },\
+    \"StartMediaAnalysisJobResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"JobId\"],\
+      \"members\":{\
+        \"JobId\":{\
+          \"shape\":\"MediaAnalysisJobId\",\
+          \"documentation\":\"<p>Identifier for the created job.</p>\"\
+        }\
+      }\
+    },\
     \"StartPersonTrackingRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"Video\"],\
@@ -7732,7 +8203,7 @@
       \"exception\":true\
     }\
   },\
-  \"documentation\":\"<p>This is the API Reference for <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/dg/images.html\\\">Amazon Rekognition Image</a>, <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/what-is.html\\\">Amazon Rekognition Custom Labels</a>, <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/dg/video.html\\\">Amazon Rekognition Stored Video</a>, <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/dg/streaming-video.html\\\">Amazon Rekognition Streaming Video</a>. It provides descriptions of actions, data types, common parameters, and common errors.</p> <p> <b>Amazon Rekognition Image</b> </p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_AssociateFaces.html\\\">AssociateFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CompareFaces.html\\\">CompareFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateCollection.html\\\">CreateCollection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateUser.html\\\">CreateUser</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteCollection.html\\\">DeleteCollection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteFaces.html\\\">DeleteFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteUser.html\\\">DeleteUser</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeCollection.html\\\">DescribeCollection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectFaces.html\\\">DetectFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectLabels.html\\\">DetectLabels</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectModerationLabels.html\\\">DetectModerationLabels</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectProtectiveEquipment.html\\\">DetectProtectiveEquipment</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectText.html\\\">DetectText</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DisassociateFaces.html\\\">DisassociateFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetCelebrityInfo.html\\\">GetCelebrityInfo</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_IndexFaces.html\\\">IndexFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListCollections.html\\\">ListCollections</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListFaces.html\\\">ListFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListFaces.html\\\">ListUsers</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_RecognizeCelebrities.html\\\">RecognizeCelebrities</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFaces.html\\\">SearchFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFacesByImage.html\\\">SearchFacesByImage</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchUsers.html\\\">SearchUsers</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchUsersByImage.html\\\">SearchUsersByImage</a> </p> </li> </ul> <p> <b>Amazon Rekognition Custom Labels</b> </p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CopyProjectVersion.html\\\">CopyProjectVersion</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateDataset.html\\\">CreateDataset</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateProject.html\\\">CreateProject</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateProjectVersion.html\\\">CreateProjectVersion</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteDataset.html\\\">DeleteDataset</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProject.html\\\">DeleteProject</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProjectPolicy.html\\\">DeleteProjectPolicy</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProjectVersion.html\\\">DeleteProjectVersion</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeDataset.html\\\">DescribeDataset</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeProjects.html\\\">DescribeProjects</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeProjectVersions.html\\\">DescribeProjectVersions</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectCustomLabels.html\\\">DetectCustomLabels</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DistributeDatasetEntries.html\\\">DistributeDatasetEntries</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListDatasetEntries.html\\\">ListDatasetEntries</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListDatasetLabels.html\\\">ListDatasetLabels</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListProjectPolicies.html\\\">ListProjectPolicies</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_PutProjectPolicy.html\\\">PutProjectPolicy</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartProjectVersion.html\\\">StartProjectVersion</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StopProjectVersion.html\\\">StopProjectVersion</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_UpdateDatasetEntries.html\\\">UpdateDatasetEntries</a> </p> </li> </ul> <p> <b>Amazon Rekognition Video Stored Video</b> </p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetCelebrityRecognition.html\\\">GetCelebrityRecognition</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetContentModeration.html\\\">GetContentModeration</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetFaceDetection.html\\\">GetFaceDetection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetFaceSearch.html\\\">GetFaceSearch</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetLabelDetection.html\\\">GetLabelDetection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetPersonTracking.html\\\">GetPersonTracking</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetSegmentDetection.html\\\">GetSegmentDetection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetTextDetection.html\\\">GetTextDetection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartCelebrityRecognition.html\\\">StartCelebrityRecognition</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartContentModeration.html\\\">StartContentModeration</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartFaceDetection.html\\\">StartFaceDetection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartFaceSearch.html\\\">StartFaceSearch</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartLabelDetection.html\\\">StartLabelDetection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartPersonTracking.html\\\">StartPersonTracking</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartSegmentDetection.html\\\">StartSegmentDetection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartTextDetection.html\\\">StartTextDetection</a> </p> </li> </ul> <p> <b>Amazon Rekognition Video Streaming Video</b> </p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor.html\\\">CreateStreamProcessor</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteStreamProcessor.html\\\">DeleteStreamProcessor</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeStreamProcessor.html\\\">DescribeStreamProcessor</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListStreamProcessors.html\\\">ListStreamProcessors</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartStreamProcessor.html\\\">StartStreamProcessor</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StopStreamProcessor.html\\\">StopStreamProcessor</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_UpdateStreamProcessor.html\\\">UpdateStreamProcessor</a> </p> </li> </ul>\"\
+  \"documentation\":\"<p>This is the API Reference for <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/dg/images.html\\\">Amazon Rekognition Image</a>, <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/what-is.html\\\">Amazon Rekognition Custom Labels</a>, <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/dg/video.html\\\">Amazon Rekognition Stored Video</a>, <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/dg/streaming-video.html\\\">Amazon Rekognition Streaming Video</a>. It provides descriptions of actions, data types, common parameters, and common errors.</p> <p> <b>Amazon Rekognition Image</b> </p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_AssociateFaces.html\\\">AssociateFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CompareFaces.html\\\">CompareFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateCollection.html\\\">CreateCollection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateUser.html\\\">CreateUser</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteCollection.html\\\">DeleteCollection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteFaces.html\\\">DeleteFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteUser.html\\\">DeleteUser</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeCollection.html\\\">DescribeCollection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectFaces.html\\\">DetectFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectLabels.html\\\">DetectLabels</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectModerationLabels.html\\\">DetectModerationLabels</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectProtectiveEquipment.html\\\">DetectProtectiveEquipment</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectText.html\\\">DetectText</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DisassociateFaces.html\\\">DisassociateFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetCelebrityInfo.html\\\">GetCelebrityInfo</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetMediaAnalysisJob.html\\\">GetMediaAnalysisJob</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_IndexFaces.html\\\">IndexFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListCollections.html\\\">ListCollections</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListMediaAnalysisJob.html\\\">ListMediaAnalysisJob</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListFaces.html\\\">ListFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListFaces.html\\\">ListUsers</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_RecognizeCelebrities.html\\\">RecognizeCelebrities</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFaces.html\\\">SearchFaces</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFacesByImage.html\\\">SearchFacesByImage</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchUsers.html\\\">SearchUsers</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchUsersByImage.html\\\">SearchUsersByImage</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartMediaAnalysisJob.html\\\">StartMediaAnalysisJob</a> </p> </li> </ul> <p> <b>Amazon Rekognition Custom Labels</b> </p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CopyProjectVersion.html\\\">CopyProjectVersion</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateDataset.html\\\">CreateDataset</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateProject.html\\\">CreateProject</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateProjectVersion.html\\\">CreateProjectVersion</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteDataset.html\\\">DeleteDataset</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProject.html\\\">DeleteProject</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProjectPolicy.html\\\">DeleteProjectPolicy</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProjectVersion.html\\\">DeleteProjectVersion</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeDataset.html\\\">DescribeDataset</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeProjects.html\\\">DescribeProjects</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeProjectVersions.html\\\">DescribeProjectVersions</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectCustomLabels.html\\\">DetectCustomLabels</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DistributeDatasetEntries.html\\\">DistributeDatasetEntries</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListDatasetEntries.html\\\">ListDatasetEntries</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListDatasetLabels.html\\\">ListDatasetLabels</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListProjectPolicies.html\\\">ListProjectPolicies</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_PutProjectPolicy.html\\\">PutProjectPolicy</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartProjectVersion.html\\\">StartProjectVersion</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StopProjectVersion.html\\\">StopProjectVersion</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_UpdateDatasetEntries.html\\\">UpdateDatasetEntries</a> </p> </li> </ul> <p> <b>Amazon Rekognition Video Stored Video</b> </p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetCelebrityRecognition.html\\\">GetCelebrityRecognition</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetContentModeration.html\\\">GetContentModeration</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetFaceDetection.html\\\">GetFaceDetection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetFaceSearch.html\\\">GetFaceSearch</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetLabelDetection.html\\\">GetLabelDetection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetPersonTracking.html\\\">GetPersonTracking</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetSegmentDetection.html\\\">GetSegmentDetection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetTextDetection.html\\\">GetTextDetection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartCelebrityRecognition.html\\\">StartCelebrityRecognition</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartContentModeration.html\\\">StartContentModeration</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartFaceDetection.html\\\">StartFaceDetection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartFaceSearch.html\\\">StartFaceSearch</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartLabelDetection.html\\\">StartLabelDetection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartPersonTracking.html\\\">StartPersonTracking</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartSegmentDetection.html\\\">StartSegmentDetection</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartTextDetection.html\\\">StartTextDetection</a> </p> </li> </ul> <p> <b>Amazon Rekognition Video Streaming Video</b> </p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor.html\\\">CreateStreamProcessor</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteStreamProcessor.html\\\">DeleteStreamProcessor</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeStreamProcessor.html\\\">DescribeStreamProcessor</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListStreamProcessors.html\\\">ListStreamProcessors</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartStreamProcessor.html\\\">StartStreamProcessor</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StopStreamProcessor.html\\\">StopStreamProcessor</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_UpdateStreamProcessor.html\\\">UpdateStreamProcessor</a> </p> </li> </ul>\"\
 }\
 ";
 }

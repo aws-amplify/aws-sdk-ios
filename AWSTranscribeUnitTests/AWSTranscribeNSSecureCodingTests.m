@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -21,8 +21,10 @@
 
 - (void) test_AWSTranscribeAbsoluteTimeRange API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeCallAnalyticsJob API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeCallAnalyticsJobDetails API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeCallAnalyticsJobSettings API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeCallAnalyticsJobSummary API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeCallAnalyticsSkippedFeature API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeCategoryProperties API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeChannelDefinition API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeContentRedaction API_AVAILABLE(ios(11));
@@ -151,12 +153,20 @@
     [self validateSecureCodingForClass:[AWSTranscribeCallAnalyticsJob class]];
 }
 
+- (void) test_AWSTranscribeCallAnalyticsJobDetails {
+    [self validateSecureCodingForClass:[AWSTranscribeCallAnalyticsJobDetails class]];
+}
+
 - (void) test_AWSTranscribeCallAnalyticsJobSettings {
     [self validateSecureCodingForClass:[AWSTranscribeCallAnalyticsJobSettings class]];
 }
 
 - (void) test_AWSTranscribeCallAnalyticsJobSummary {
     [self validateSecureCodingForClass:[AWSTranscribeCallAnalyticsJobSummary class]];
+}
+
+- (void) test_AWSTranscribeCallAnalyticsSkippedFeature {
+    [self validateSecureCodingForClass:[AWSTranscribeCallAnalyticsSkippedFeature class]];
 }
 
 - (void) test_AWSTranscribeCategoryProperties {

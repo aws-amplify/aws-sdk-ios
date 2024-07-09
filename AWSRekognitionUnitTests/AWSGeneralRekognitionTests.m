@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -1881,6 +1881,54 @@ static id mockNetworking = nil;
     [AWSRekognition removeRekognitionForKey:key];
 }
 
+- (void)testGetMediaAnalysisJob {
+    NSString *key = @"testGetMediaAnalysisJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSRekognition registerRekognitionWithConfiguration:configuration forKey:key];
+
+    AWSRekognition *awsClient = [AWSRekognition RekognitionForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSRekognition RekognitionForKey:key] getMediaAnalysisJob:[AWSRekognitionGetMediaAnalysisJobRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSRekognition removeRekognitionForKey:key];
+}
+
+- (void)testGetMediaAnalysisJobCompletionHandler {
+    NSString *key = @"testGetMediaAnalysisJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSRekognition registerRekognitionWithConfiguration:configuration forKey:key];
+
+    AWSRekognition *awsClient = [AWSRekognition RekognitionForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSRekognition RekognitionForKey:key] getMediaAnalysisJob:[AWSRekognitionGetMediaAnalysisJobRequest new] completionHandler:^(AWSRekognitionGetMediaAnalysisJobResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSRekognition removeRekognitionForKey:key];
+}
+
 - (void)testGetPersonTracking {
     NSString *key = @"testGetPersonTracking";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -2252,6 +2300,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSRekognition RekognitionForKey:key] listFaces:[AWSRekognitionListFacesRequest new] completionHandler:^(AWSRekognitionListFacesResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSRekognition removeRekognitionForKey:key];
+}
+
+- (void)testListMediaAnalysisJobs {
+    NSString *key = @"testListMediaAnalysisJobs";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSRekognition registerRekognitionWithConfiguration:configuration forKey:key];
+
+    AWSRekognition *awsClient = [AWSRekognition RekognitionForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSRekognition RekognitionForKey:key] listMediaAnalysisJobs:[AWSRekognitionListMediaAnalysisJobsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSRekognition removeRekognitionForKey:key];
+}
+
+- (void)testListMediaAnalysisJobsCompletionHandler {
+    NSString *key = @"testListMediaAnalysisJobs";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSRekognition registerRekognitionWithConfiguration:configuration forKey:key];
+
+    AWSRekognition *awsClient = [AWSRekognition RekognitionForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSRekognition RekognitionForKey:key] listMediaAnalysisJobs:[AWSRekognitionListMediaAnalysisJobsRequest new] completionHandler:^(AWSRekognitionListMediaAnalysisJobsResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -2972,6 +3068,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSRekognition RekognitionForKey:key] startLabelDetection:[AWSRekognitionStartLabelDetectionRequest new] completionHandler:^(AWSRekognitionStartLabelDetectionResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSRekognition removeRekognitionForKey:key];
+}
+
+- (void)testStartMediaAnalysisJob {
+    NSString *key = @"testStartMediaAnalysisJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSRekognition registerRekognitionWithConfiguration:configuration forKey:key];
+
+    AWSRekognition *awsClient = [AWSRekognition RekognitionForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSRekognition RekognitionForKey:key] startMediaAnalysisJob:[AWSRekognitionStartMediaAnalysisJobRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSRekognition removeRekognitionForKey:key];
+}
+
+- (void)testStartMediaAnalysisJobCompletionHandler {
+    NSString *key = @"testStartMediaAnalysisJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSRekognition registerRekognitionWithConfiguration:configuration forKey:key];
+
+    AWSRekognition *awsClient = [AWSRekognition RekognitionForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSRekognition RekognitionForKey:key] startMediaAnalysisJob:[AWSRekognitionStartMediaAnalysisJobRequest new] completionHandler:^(AWSRekognitionStartMediaAnalysisJobResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);

@@ -153,6 +153,15 @@
     }
 
     [AWSS3TransferUtilityDatabaseHelper deleteTransferRequestFromDB:self.transferID databaseQueue:self.databaseQueue];
+
+    NSString *path = self.cachedFileURL.path;
+    if (path && [[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        NSError *error = nil;
+        [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
+        if (error) {
+            AWSDDLogError(@"Error deleting file[%@]: [%@]", path, error);
+        }
+    }
 }
 
 - (void)resume {

@@ -187,6 +187,12 @@ typedef NS_ENUM(NSInteger, AWSKMSGrantOperation) {
     AWSKMSGrantOperationGenerateDataKeyPairWithoutPlaintext,
     AWSKMSGrantOperationGenerateMac,
     AWSKMSGrantOperationVerifyMac,
+    AWSKMSGrantOperationDeriveSharedSecret,
+};
+
+typedef NS_ENUM(NSInteger, AWSKMSKeyAgreementAlgorithmSpec) {
+    AWSKMSKeyAgreementAlgorithmSpecUnknown,
+    AWSKMSKeyAgreementAlgorithmSpecEcdh,
 };
 
 typedef NS_ENUM(NSInteger, AWSKMSKeyEncryptionMechanism) {
@@ -234,6 +240,7 @@ typedef NS_ENUM(NSInteger, AWSKMSKeyUsageType) {
     AWSKMSKeyUsageTypeSignVerify,
     AWSKMSKeyUsageTypeEncryptDecrypt,
     AWSKMSKeyUsageTypeGenerateVerifyMac,
+    AWSKMSKeyUsageTypeKeyAgreement,
 };
 
 typedef NS_ENUM(NSInteger, AWSKMSMacAlgorithmSpec) {
@@ -317,6 +324,8 @@ typedef NS_ENUM(NSInteger, AWSKMSXksProxyConnectivityType) {
 @class AWSKMSDeleteCustomKeyStoreRequest;
 @class AWSKMSDeleteCustomKeyStoreResponse;
 @class AWSKMSDeleteImportedKeyMaterialRequest;
+@class AWSKMSDeriveSharedSecretRequest;
+@class AWSKMSDeriveSharedSecretResponse;
 @class AWSKMSDescribeCustomKeyStoresRequest;
 @class AWSKMSDescribeCustomKeyStoresResponse;
 @class AWSKMSDescribeKeyRequest;
@@ -663,12 +672,12 @@ typedef NS_ENUM(NSInteger, AWSKMSXksProxyConnectivityType) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>Specifies the type of KMS key to create. The default value, <code>SYMMETRIC_DEFAULT</code>, creates a KMS key with a 256-bit AES-GCM key that is used for encryption and decryption, except in China Regions, where it creates a 128-bit symmetric key that uses SM4 encryption. For help choosing a key spec for your KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-types.html#symm-asymm-choose">Choosing a KMS key type</a> in the <i><i>Key Management Service Developer Guide</i></i>.</p><p>The <code>KeySpec</code> determines whether the KMS key contains a symmetric key or an asymmetric key pair. It also determines the algorithms that the KMS key supports. You can't change the <code>KeySpec</code> after the KMS key is created. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm">kms:EncryptionAlgorithm</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-mac-algorithm">kms:MacAlgorithm</a> or <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm">kms:Signing Algorithm</a> in the <i><i>Key Management Service Developer Guide</i></i>.</p><important><p><a href="http://aws.amazon.com/kms/features/#AWS_Service_Integration">Amazon Web Services services that are integrated with KMS</a> use symmetric encryption KMS keys to protect your data. These services do not support asymmetric KMS keys or HMAC KMS keys.</p></important><p>KMS supports the following key specs for KMS keys:</p><ul><li><p>Symmetric encryption key (default)</p><ul><li><p><code>SYMMETRIC_DEFAULT</code></p></li></ul></li><li><p>HMAC keys (symmetric)</p><ul><li><p><code>HMAC_224</code></p></li><li><p><code>HMAC_256</code></p></li><li><p><code>HMAC_384</code></p></li><li><p><code>HMAC_512</code></p></li></ul></li><li><p>Asymmetric RSA key pairs</p><ul><li><p><code>RSA_2048</code></p></li><li><p><code>RSA_3072</code></p></li><li><p><code>RSA_4096</code></p></li></ul></li><li><p>Asymmetric NIST-recommended elliptic curve key pairs</p><ul><li><p><code>ECC_NIST_P256</code> (secp256r1)</p></li><li><p><code>ECC_NIST_P384</code> (secp384r1)</p></li><li><p><code>ECC_NIST_P521</code> (secp521r1)</p></li></ul></li><li><p>Other asymmetric elliptic curve key pairs</p><ul><li><p><code>ECC_SECG_P256K1</code> (secp256k1), commonly used for cryptocurrencies.</p></li></ul></li><li><p>SM2 key pairs (China Regions only)</p><ul><li><p><code>SM2</code></p></li></ul></li></ul>
+ <p>Specifies the type of KMS key to create. The default value, <code>SYMMETRIC_DEFAULT</code>, creates a KMS key with a 256-bit AES-GCM key that is used for encryption and decryption, except in China Regions, where it creates a 128-bit symmetric key that uses SM4 encryption. For help choosing a key spec for your KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-types.html#symm-asymm-choose">Choosing a KMS key type</a> in the <i><i>Key Management Service Developer Guide</i></i>.</p><p>The <code>KeySpec</code> determines whether the KMS key contains a symmetric key or an asymmetric key pair. It also determines the algorithms that the KMS key supports. You can't change the <code>KeySpec</code> after the KMS key is created. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm">kms:EncryptionAlgorithm</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-mac-algorithm">kms:MacAlgorithm</a> or <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm">kms:Signing Algorithm</a> in the <i><i>Key Management Service Developer Guide</i></i>.</p><important><p><a href="http://aws.amazon.com/kms/features/#AWS_Service_Integration">Amazon Web Services services that are integrated with KMS</a> use symmetric encryption KMS keys to protect your data. These services do not support asymmetric KMS keys or HMAC KMS keys.</p></important><p>KMS supports the following key specs for KMS keys:</p><ul><li><p>Symmetric encryption key (default)</p><ul><li><p><code>SYMMETRIC_DEFAULT</code></p></li></ul></li><li><p>HMAC keys (symmetric)</p><ul><li><p><code>HMAC_224</code></p></li><li><p><code>HMAC_256</code></p></li><li><p><code>HMAC_384</code></p></li><li><p><code>HMAC_512</code></p></li></ul></li><li><p>Asymmetric RSA key pairs (encryption and decryption -or- signing and verification)</p><ul><li><p><code>RSA_2048</code></p></li><li><p><code>RSA_3072</code></p></li><li><p><code>RSA_4096</code></p></li></ul></li><li><p>Asymmetric NIST-recommended elliptic curve key pairs (signing and verification -or- deriving shared secrets)</p><ul><li><p><code>ECC_NIST_P256</code> (secp256r1)</p></li><li><p><code>ECC_NIST_P384</code> (secp384r1)</p></li><li><p><code>ECC_NIST_P521</code> (secp521r1)</p></li></ul></li><li><p>Other asymmetric elliptic curve key pairs (signing and verification)</p><ul><li><p><code>ECC_SECG_P256K1</code> (secp256k1), commonly used for cryptocurrencies.</p></li></ul></li><li><p>SM2 key pairs (encryption and decryption -or- signing and verification -or- deriving shared secrets)</p><ul><li><p><code>SM2</code> (China Regions only)</p></li></ul></li></ul>
  */
 @property (nonatomic, assign) AWSKMSKeySpec keySpec;
 
 /**
- <p>Determines the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> for which you can use the KMS key. The default value is <code>ENCRYPT_DECRYPT</code>. This parameter is optional when you are creating a symmetric encryption KMS key; otherwise, it is required. You can't change the <code>KeyUsage</code> value after the KMS key is created.</p><p>Select only one valid value.</p><ul><li><p>For symmetric encryption KMS keys, omit the parameter or specify <code>ENCRYPT_DECRYPT</code>.</p></li><li><p>For HMAC KMS keys (symmetric), specify <code>GENERATE_VERIFY_MAC</code>.</p></li><li><p>For asymmetric KMS keys with RSA key material, specify <code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>.</p></li><li><p>For asymmetric KMS keys with ECC key material, specify <code>SIGN_VERIFY</code>.</p></li><li><p>For asymmetric KMS keys with SM2 key material (China Regions only), specify <code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>.</p></li></ul>
+ <p>Determines the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> for which you can use the KMS key. The default value is <code>ENCRYPT_DECRYPT</code>. This parameter is optional when you are creating a symmetric encryption KMS key; otherwise, it is required. You can't change the <code>KeyUsage</code> value after the KMS key is created.</p><p>Select only one valid value.</p><ul><li><p>For symmetric encryption KMS keys, omit the parameter or specify <code>ENCRYPT_DECRYPT</code>.</p></li><li><p>For HMAC KMS keys (symmetric), specify <code>GENERATE_VERIFY_MAC</code>.</p></li><li><p>For asymmetric KMS keys with RSA key pairs, specify <code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>.</p></li><li><p>For asymmetric KMS keys with NIST-recommended elliptic curve key pairs, specify <code>SIGN_VERIFY</code> or <code>KEY_AGREEMENT</code>.</p></li><li><p>For asymmetric KMS keys with <code>ECC_SECG_P256K1</code> key pairs specify <code>SIGN_VERIFY</code>.</p></li><li><p>For asymmetric KMS keys with SM2 key pairs (China Regions only), specify <code>ENCRYPT_DECRYPT</code>, <code>SIGN_VERIFY</code>, or <code>KEY_AGREEMENT</code>.</p></li></ul>
  */
 @property (nonatomic, assign) AWSKMSKeyUsageType keyUsage;
 
@@ -880,6 +889,77 @@ typedef NS_ENUM(NSInteger, AWSKMSXksProxyConnectivityType) {
  <p>Identifies the KMS key from which you are deleting imported key material. The <code>Origin</code> of the KMS key must be <code>EXTERNAL</code>.</p><p>Specify the key ID or key ARN of the KMS key.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKMSDeriveSharedSecretRequest : AWSRequest
+
+
+/**
+ <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p><p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>A list of grant tokens.</p><p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable grantTokens;
+
+/**
+ <p>Specifies the key agreement algorithm used to derive the shared secret. The only valid value is <code>ECDH</code>.</p>
+ */
+@property (nonatomic, assign) AWSKMSKeyAgreementAlgorithmSpec keyAgreementAlgorithm;
+
+/**
+ <p>Identifies an asymmetric NIST-recommended ECC or SM2 (China Regions only) KMS key. KMS uses the private key in the specified key pair to derive the shared secret. The key usage of the KMS key must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code> of a KMS key, use the <a>DescribeKey</a> operation.</p><p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyId;
+
+/**
+ <p>Specifies the public key in your peer's NIST-recommended elliptic curve (ECC) or SM2 (China Regions only) key pair.</p><p>The public key must be a DER-encoded X.509 public key, also known as <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>.</p><p><a>GetPublicKey</a> returns the public key of an asymmetric KMS key pair in the required DER-encoded format.</p><note><p>If you use <a href="https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-welcome.html">Amazon Web Services CLI version 1</a>, you must provide the DER-encoded X.509 public key in a file. Otherwise, the Amazon Web Services CLI Base64-encodes the public key a second time, resulting in a <code>ValidationException</code>.</p></note><p>You can specify the public key as binary data in a file using fileb (<code>fileb://&lt;path-to-file&gt;</code>) or in-line using a Base64 encoded string.</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable publicKey;
+
+/**
+ <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key. The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p><p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To call DeriveSharedSecret for an Amazon Web Services Nitro Enclaves, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> to generate the attestation document and then use the Recipient parameter from any Amazon Web Services SDK to provide the attestation document for the enclave.</p><p>When you use this parameter, instead of returning a plaintext copy of the shared secret, KMS encrypts the plaintext shared secret under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the enclave. The <code>CiphertextBlob</code> field in the response contains the encrypted shared secret derived from the KMS key specified by the <code>KeyId</code> parameter and public key specified by the <code>PublicKey</code> parameter. The <code>SharedSecret</code> field in the response is null or empty.</p><p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) AWSKMSRecipientInfo * _Nullable recipient;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKMSDeriveSharedSecretResponse : AWSModel
+
+
+/**
+ <p>The plaintext shared secret encrypted with the public key in the attestation document.</p><p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable ciphertextForRecipient;
+
+/**
+ <p>Identifies the key agreement algorithm used to derive the shared secret.</p>
+ */
+@property (nonatomic, assign) AWSKMSKeyAgreementAlgorithmSpec keyAgreementAlgorithm;
+
+/**
+ <p>Identifies the KMS key used to derive the shared secret.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyId;
+
+/**
+ <p>The source of the key material for the specified KMS key.</p><p>When this value is <code>AWS_KMS</code>, KMS created the key material. When this value is <code>EXTERNAL</code>, the key material was imported or the KMS key doesn't have any key material.</p><p>The only valid values for DeriveSharedSecret are <code>AWS_KMS</code> and <code>EXTERNAL</code>. DeriveSharedSecret does not support KMS keys with a <code>KeyOrigin</code> value of <code>AWS_CLOUDHSM</code> or <code>EXTERNAL_KEY_STORE</code>.</p>
+ */
+@property (nonatomic, assign) AWSKMSOriginType keyOrigin;
+
+/**
+ <p>The raw secret derived from the specified key agreement algorithm, private key in the asymmetric KMS key, and your peer's public key.</p><p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>SharedSecret</code> field is null or empty.</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable sharedSecret;
 
 @end
 
@@ -1136,7 +1216,7 @@ typedef NS_ENUM(NSInteger, AWSKMSXksProxyConnectivityType) {
 @property (nonatomic, assign) AWSKMSDataKeyPairSpec keyPairSpec;
 
 /**
- <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key. The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p><p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To include this parameter, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK.</p><p>When you use this parameter, instead of returning a plaintext copy of the private data key, KMS encrypts the plaintext private data key under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the enclave. The <code>CiphertextBlob</code> field in the response contains a copy of the private data key encrypted under the KMS key specified by the <code>KeyId</code> parameter. The <code>PrivateKeyPlaintext</code> field in the response is null or empty.</p><p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key. The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p><p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To call DeriveSharedSecret for an Amazon Web Services Nitro Enclaves, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> to generate the attestation document and then use the Recipient parameter from any Amazon Web Services SDK to provide the attestation document for the enclave.</p><p>When you use this parameter, instead of returning a plaintext copy of the private data key, KMS encrypts the plaintext private data key under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the enclave. The <code>CiphertextBlob</code> field in the response contains a copy of the private data key encrypted under the KMS key specified by the <code>KeyId</code> parameter. The <code>PrivateKeyPlaintext</code> field in the response is null or empty.</p><p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSKMSRecipientInfo * _Nullable recipient;
 
@@ -1559,12 +1639,12 @@ typedef NS_ENUM(NSInteger, AWSKMSXksProxyConnectivityType) {
 @property (nonatomic, strong) NSString * _Nullable keyId;
 
 /**
- <p>The algorithm you will use with the asymmetric public key (<code>PublicKey</code>) in the response to protect your key material during import. For more information, see <a href="kms/latest/developerguide/importing-keys-get-public-key-and-token.html#select-wrapping-algorithm">Select a wrapping algorithm</a> in the <i>Key Management Service Developer Guide</i>.</p><p>For RSA_AES wrapping algorithms, you encrypt your key material with an AES key that you generate, then encrypt your AES key with the RSA public key from KMS. For RSAES wrapping algorithms, you encrypt your key material directly with the RSA public key from KMS. For SM2PKE wrapping algorithms, you encrypt your key material directly with the SM2 public key from KMS.</p><p>The wrapping algorithms that you can use depend on the type of key material that you are importing. To import an RSA private key, you must use an RSA_AES wrapping algorithm, except in China Regions, where you must use the SM2PKE wrapping algorithm to import an RSA private key.</p><p>The SM2PKE wrapping algorithm is available only in China Regions. The <code>RSA_AES_KEY_WRAP_SHA_256</code> and <code>RSA_AES_KEY_WRAP_SHA_1</code> wrapping algorithms are not supported in China Regions.</p><ul><li><p><b>RSA_AES_KEY_WRAP_SHA_256</b> — Supported for wrapping RSA and ECC key material.</p></li><li><p><b>RSA_AES_KEY_WRAP_SHA_1</b> — Supported for wrapping RSA and ECC key material.</p></li><li><p><b>RSAES_OAEP_SHA_256</b> — Supported for all types of key material, except RSA key material (private key).</p><p>You cannot use the RSAES_OAEP_SHA_256 wrapping algorithm with the RSA_2048 wrapping key spec to wrap ECC_NIST_P521 key material.</p></li><li><p><b>RSAES_OAEP_SHA_1</b> — Supported for all types of key material, except RSA key material (private key).</p><p>You cannot use the RSAES_OAEP_SHA_1 wrapping algorithm with the RSA_2048 wrapping key spec to wrap ECC_NIST_P521 key material.</p></li><li><p><b>RSAES_PKCS1_V1_5</b> (Deprecated) — As of October 10, 2023, KMS does not support the RSAES_PKCS1_V1_5 wrapping algorithm.</p></li><li><p><b>SM2PKE</b> (China Regions only) — supported for wrapping RSA, ECC, and SM2 key material.</p></li></ul>
+ <p>The algorithm you will use with the RSA public key (<code>PublicKey</code>) in the response to protect your key material during import. For more information, see <a href="kms/latest/developerguide/importing-keys-get-public-key-and-token.html#select-wrapping-algorithm">Select a wrapping algorithm</a> in the <i>Key Management Service Developer Guide</i>.</p><p>For RSA_AES wrapping algorithms, you encrypt your key material with an AES key that you generate, then encrypt your AES key with the RSA public key from KMS. For RSAES wrapping algorithms, you encrypt your key material directly with the RSA public key from KMS.</p><p>The wrapping algorithms that you can use depend on the type of key material that you are importing. To import an RSA private key, you must use an RSA_AES wrapping algorithm.</p><ul><li><p><b>RSA_AES_KEY_WRAP_SHA_256</b> — Supported for wrapping RSA and ECC key material.</p></li><li><p><b>RSA_AES_KEY_WRAP_SHA_1</b> — Supported for wrapping RSA and ECC key material.</p></li><li><p><b>RSAES_OAEP_SHA_256</b> — Supported for all types of key material, except RSA key material (private key).</p><p>You cannot use the RSAES_OAEP_SHA_256 wrapping algorithm with the RSA_2048 wrapping key spec to wrap ECC_NIST_P521 key material.</p></li><li><p><b>RSAES_OAEP_SHA_1</b> — Supported for all types of key material, except RSA key material (private key).</p><p>You cannot use the RSAES_OAEP_SHA_1 wrapping algorithm with the RSA_2048 wrapping key spec to wrap ECC_NIST_P521 key material.</p></li><li><p><b>RSAES_PKCS1_V1_5</b> (Deprecated) — As of October 10, 2023, KMS does not support the RSAES_PKCS1_V1_5 wrapping algorithm.</p></li></ul>
  */
 @property (nonatomic, assign) AWSKMSAlgorithmSpec wrappingAlgorithm;
 
 /**
- <p>The type of public key to return in the response. You will use this wrapping key with the specified wrapping algorithm to protect your key material during import. </p><p>Use the longest wrapping key that is practical. </p><p>You cannot use an RSA_2048 public key to directly wrap an ECC_NIST_P521 private key. Instead, use an RSA_AES wrapping algorithm or choose a longer RSA public key.</p><p>The SM2 wrapping key spec is available only in China Regions.</p>
+ <p>The type of RSA public key to return in the response. You will use this wrapping key with the specified wrapping algorithm to protect your key material during import. </p><p>Use the longest RSA wrapping key that is practical. </p><p>You cannot use an RSA_2048 public key to directly wrap an ECC_NIST_P521 private key. Instead, use an RSA_AES wrapping algorithm or choose a longer RSA public key.</p>
  */
 @property (nonatomic, assign) AWSKMSWrappingKeySpec wrappingKeySpec;
 
@@ -1633,6 +1713,11 @@ typedef NS_ENUM(NSInteger, AWSKMSXksProxyConnectivityType) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable encryptionAlgorithms;
 
 /**
+ <p>The key agreement algorithm used to derive a shared secret. This field is present only when the KMS key has a <code>KeyUsage</code> value of <code>KEY_AGREEMENT</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable keyAgreementAlgorithms;
+
+/**
  <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key from which the public key was downloaded.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyId;
@@ -1643,7 +1728,7 @@ typedef NS_ENUM(NSInteger, AWSKMSXksProxyConnectivityType) {
 @property (nonatomic, assign) AWSKMSKeySpec keySpec;
 
 /**
- <p>The permitted use of the public key. Valid values are <code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>. </p><p>This information is critical. If a public key with <code>SIGN_VERIFY</code> key usage encrypts data outside of KMS, the ciphertext cannot be decrypted. </p>
+ <p>The permitted use of the public key. Valid values for asymmetric key pairs are <code>ENCRYPT_DECRYPT</code>, <code>SIGN_VERIFY</code>, and <code>KEY_AGREEMENT</code>. </p><p>This information is critical. For example, if a public key with <code>SIGN_VERIFY</code> key usage encrypts data outside of KMS, the ciphertext cannot be decrypted. </p>
  */
 @property (nonatomic, assign) AWSKMSKeyUsageType keyUsage;
 
@@ -1850,6 +1935,11 @@ typedef NS_ENUM(NSInteger, AWSKMSXksProxyConnectivityType) {
  <p>Specifies whether the KMS key's key material expires. This value is present only when <code>Origin</code> is <code>EXTERNAL</code>, otherwise this value is omitted.</p>
  */
 @property (nonatomic, assign) AWSKMSExpirationModelType expirationModel;
+
+/**
+ <p>The key agreement algorithm used to derive a shared secret.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable keyAgreementAlgorithms;
 
 /**
  <p>The globally unique identifier for the KMS key.</p>

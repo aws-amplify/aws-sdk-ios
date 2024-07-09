@@ -31,6 +31,7 @@
 - (void) test_AWSConnectAgentStatus API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAgentStatusReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAgentStatusSummary API_AVAILABLE(ios(11));
+- (void) test_AWSConnectAgentsCriteria API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAllowedCapabilities API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAnalyticsDataAssociationResult API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAnswerMachineDetectionConfig API_AVAILABLE(ios(11));
@@ -454,6 +455,7 @@
 - (void) test_AWSConnectListViewVersionsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListViewsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListViewsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectMatchCriteria API_AVAILABLE(ios(11));
 - (void) test_AWSConnectMediaConcurrency API_AVAILABLE(ios(11));
 - (void) test_AWSConnectMediaPlacement API_AVAILABLE(ios(11));
 - (void) test_AWSConnectMeeting API_AVAILABLE(ios(11));
@@ -794,6 +796,10 @@
 
 - (void) test_AWSConnectAgentStatusSummary {
     [self validateSecureCodingForClass:[AWSConnectAgentStatusSummary class]];
+}
+
+- (void) test_AWSConnectAgentsCriteria {
+    [self validateSecureCodingForClass:[AWSConnectAgentsCriteria class]];
 }
 
 - (void) test_AWSConnectAllowedCapabilities {
@@ -2486,6 +2492,10 @@
 
 - (void) test_AWSConnectListViewsResponse {
     [self validateSecureCodingForClass:[AWSConnectListViewsResponse class]];
+}
+
+- (void) test_AWSConnectMatchCriteria {
+    [self validateSecureCodingForClass:[AWSConnectMatchCriteria class]];
 }
 
 - (void) test_AWSConnectMediaConcurrency {
