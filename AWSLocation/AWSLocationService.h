@@ -875,6 +875,31 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)disassociateTrackerConsumer:(AWSLocationDisassociateTrackerConsumerRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationDisassociateTrackerConsumerResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Evaluates device positions against geofence geometries from a given geofence collection. The event forecasts three states for which a device can be in relative to a geofence:</p><p><code>ENTER</code>: If a device is outside of a geofence, but would breach the fence if the device is moving at its current speed within time horizon window.</p><p><code>EXIT</code>: If a device is inside of a geofence, but would breach the fence if the device is moving at its current speed within time horizon window.</p><p><code>IDLE</code>: If a device is inside of a geofence, and the device is not moving.</p>
+ 
+ @param request A container for the necessary parameters to execute the ForecastGeofenceEvents service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLocationForecastGeofenceEventsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorResourceNotFound`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+ 
+ @see AWSLocationForecastGeofenceEventsRequest
+ @see AWSLocationForecastGeofenceEventsResponse
+ */
+- (AWSTask<AWSLocationForecastGeofenceEventsResponse *> *)forecastGeofenceEvents:(AWSLocationForecastGeofenceEventsRequest *)request;
+
+/**
+ <p>Evaluates device positions against geofence geometries from a given geofence collection. The event forecasts three states for which a device can be in relative to a geofence:</p><p><code>ENTER</code>: If a device is outside of a geofence, but would breach the fence if the device is moving at its current speed within time horizon window.</p><p><code>EXIT</code>: If a device is inside of a geofence, but would breach the fence if the device is moving at its current speed within time horizon window.</p><p><code>IDLE</code>: If a device is inside of a geofence, and the device is not moving.</p>
+ 
+ @param request A container for the necessary parameters to execute the ForecastGeofenceEvents service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorResourceNotFound`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+ 
+ @see AWSLocationForecastGeofenceEventsRequest
+ @see AWSLocationForecastGeofenceEventsResponse
+ */
+- (void)forecastGeofenceEvents:(AWSLocationForecastGeofenceEventsRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationForecastGeofenceEventsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Retrieves a device's most recent position according to its sample time.</p><note><p>Device positions are deleted after 30 days.</p></note>
  
  @param request A container for the necessary parameters to execute the GetDevicePosition service method.
@@ -925,7 +950,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)getDevicePositionHistory:(AWSLocationGetDevicePositionHistoryRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationGetDevicePositionHistoryResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Retrieves the geofence details from a geofence collection.</p>
+ <p>Retrieves the geofence details from a geofence collection.</p><note><p>The returned geometry will always match the geometry format used when the geofence was created.</p></note>
  
  @param request A container for the necessary parameters to execute the GetGeofence service method.
 
@@ -937,7 +962,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationGetGeofenceResponse *> *)getGeofence:(AWSLocationGetGeofenceRequest *)request;
 
 /**
- <p>Retrieves the geofence details from a geofence collection.</p>
+ <p>Retrieves the geofence details from a geofence collection.</p><note><p>The returned geometry will always match the geometry format used when the geofence was created.</p></note>
  
  @param request A container for the necessary parameters to execute the GetGeofence service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1623,6 +1648,31 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
  @see AWSLocationUpdateTrackerResponse
  */
 - (void)updateTracker:(AWSLocationUpdateTrackerRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationUpdateTrackerResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Verifies the integrity of the device's position by determining if it was reported behind a proxy, and by comparing it to an inferred position estimated based on the device's state.</p>
+ 
+ @param request A container for the necessary parameters to execute the VerifyDevicePosition service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLocationVerifyDevicePositionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorResourceNotFound`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+ 
+ @see AWSLocationVerifyDevicePositionRequest
+ @see AWSLocationVerifyDevicePositionResponse
+ */
+- (AWSTask<AWSLocationVerifyDevicePositionResponse *> *)verifyDevicePosition:(AWSLocationVerifyDevicePositionRequest *)request;
+
+/**
+ <p>Verifies the integrity of the device's position by determining if it was reported behind a proxy, and by comparing it to an inferred position estimated based on the device's state.</p>
+ 
+ @param request A container for the necessary parameters to execute the VerifyDevicePosition service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorResourceNotFound`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+ 
+ @see AWSLocationVerifyDevicePositionRequest
+ @see AWSLocationVerifyDevicePositionResponse
+ */
+- (void)verifyDevicePosition:(AWSLocationVerifyDevicePositionRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationVerifyDevicePositionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 @end
 
