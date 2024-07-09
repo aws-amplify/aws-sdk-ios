@@ -1,8 +1,26 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## Unreleased
+### Misc. Updates
 
--Features for next release
+- Model updates for the following services
+  - AWSRekognition
+  - AWSConnect
+  - AWSAutoScaling
+  - AWSEC2
+  - AWSDynamoDB
+  - AWSPolly
+  - AWSCognitoIdentityProvider
+  - AWSKMS
+  - AWSSNS
+  - AWSLocation
+  - AWSFirehose
+  - AWSTranscribe
+
+- **AWSS3** 
+  - fix(s3): cleanup file cache after mpu task is cancelled (#5128)
+ 
+- **AWSIOT** 
+  - feat(IoT): Adding completion callbacks for registerWithShadow and unregisterFromShadow methods (#5192)
 
 ## 2.36.3
 
