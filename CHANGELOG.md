@@ -14,8 +14,13 @@
   - AWSSNS
   - AWSLocation
   - AWSFirehose
-  - AWSPinpoint
   - AWSTranscribe
+
+- **AWSS3** 
+  - fix(s3): cleanup file cache after mpu task is cancelled (#5128)
+ 
+- **AWSIOT** 
+  - feat(IoT): Adding completion callbacks for registerWithShadow and unregisterFromShadow methods (#5192)
 
 ## 2.36.3
 
