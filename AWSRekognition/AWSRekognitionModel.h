@@ -1398,6 +1398,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  */
 @property (nonatomic, strong) NSString * _Nullable projectArn;
 
+/**
+ <p>A set of tags (key-value pairs) that you want to attach to the dataset.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
 @end
 
 /**
@@ -1487,6 +1492,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>The name of the project to create.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable projectName;
+
+/**
+ <p>A set of tags (key-value pairs) that you want to attach to the project.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 @end
 
@@ -2666,7 +2676,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) AWSRekognitionHumanLoopActivationOutput * _Nullable humanLoopActivationOutput;
 
 /**
- <p>Array of detected Moderation labels and the time, in milliseconds from the start of the video, they were detected.</p>
+ <p>Array of detected Moderation labels. For video operations, this includes the time, in milliseconds from the start of the video, they were detected.</p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionModerationLabel *> * _Nullable moderationLabels;
 

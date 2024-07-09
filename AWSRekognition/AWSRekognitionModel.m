@@ -706,6 +706,7 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
              @"datasetSource" : @"DatasetSource",
              @"datasetType" : @"DatasetType",
              @"projectArn" : @"ProjectArn",
+             @"tags" : @"Tags",
              };
 }
 
@@ -814,6 +815,7 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
              @"autoUpdate" : @"AutoUpdate",
              @"feature" : @"Feature",
              @"projectName" : @"ProjectName",
+             @"tags" : @"Tags",
              };
 }
 
