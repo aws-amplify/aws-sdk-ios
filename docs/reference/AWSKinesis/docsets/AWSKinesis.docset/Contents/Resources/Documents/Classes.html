@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSKinesis 2.36.3 Docs</a> (76% documented)</p>
+        <p><a href="index.html">AWSKinesis 2.36.4 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKinesis.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -291,6 +291,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSFirehoseSchemaConfiguration.html">AWSFirehoseSchemaConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseSecretsManagerConfiguration.html">AWSFirehoseSecretsManagerConfiguration</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSFirehoseSerializer.html">AWSFirehoseSerializer</a>
@@ -2774,7 +2777,7 @@ Required parameters: [DefaultDocumentIdFormat]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see <a href="https://parquet.apache.org/documentation/latest/">Apache Parquet</a>.</p>
+                        <p>A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see <a href="https://parquet.apache.org/docs/">Apache Parquet</a>.</p>
 
                         <a href="Classes/AWSFirehoseParquetSerDe.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3107,7 +3110,7 @@ Required parameters: [Type]</p>
                       <div class="abstract">
                         <p>Describes the configuration of a destination in Amazon Redshift.</p>
 
-<p>Required parameters: [RoleARN, ClusterJDBCURL, CopyCommand, Username, Password, S3Configuration]</p>
+<p>Required parameters: [RoleARN, ClusterJDBCURL, CopyCommand, S3Configuration]</p>
 
                         <a href="Classes/AWSFirehoseRedshiftDestinationConfiguration.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3142,7 +3145,7 @@ Required parameters: [Type]</p>
                       <div class="abstract">
                         <p>Describes a destination in Amazon Redshift.</p>
 
-<p>Required parameters: [RoleARN, ClusterJDBCURL, CopyCommand, Username, S3DestinationDescription]</p>
+<p>Required parameters: [RoleARN, ClusterJDBCURL, CopyCommand, S3DestinationDescription]</p>
 
                         <a href="Classes/AWSFirehoseRedshiftDestinationDescription.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3400,6 +3403,41 @@ Required parameters: [Type]</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSFirehoseSecretsManagerConfiguration"></a>
+                    <a name="//apple_ref/objc/Class/AWSFirehoseSecretsManagerConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseSecretsManagerConfiguration">AWSFirehoseSecretsManagerConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The structure that defines how Firehose accesses the secret.</p>
+
+<p>Required parameters: [Enabled]</p>
+
+                        <a href="Classes/AWSFirehoseSecretsManagerConfiguration.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSFirehoseSecretsManagerConfiguration</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSFirehoseSecretsManagerConfiguration</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSFirehoseSerializer"></a>
                     <a name="//apple_ref/objc/Class/AWSFirehoseSerializer" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSFirehoseSerializer">AWSFirehoseSerializer</a>
@@ -3445,7 +3483,7 @@ Required parameters: [Type]</p>
                       <div class="abstract">
                         <p>Configure Snowflake destination</p>
 
-<p>Required parameters: [AccountUrl, PrivateKey, User, Database, Schema, Table, RoleARN, S3Configuration]</p>
+<p>Required parameters: [AccountUrl, Database, Schema, Table, RoleARN, S3Configuration]</p>
 
                         <a href="Classes/AWSFirehoseSnowflakeDestinationConfiguration.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3713,7 +3751,7 @@ Required parameters: [Type]</p>
                       <div class="abstract">
                         <p>Describes the configuration of a destination in Splunk.</p>
 
-<p>Required parameters: [HECEndpoint, HECEndpointType, HECToken, S3Configuration]</p>
+<p>Required parameters: [HECEndpoint, HECEndpointType, S3Configuration]</p>
 
                         <a href="Classes/AWSFirehoseSplunkDestinationConfiguration.html" class="slightly-smaller">See more</a>
                       </div>
@@ -4338,7 +4376,7 @@ Required parameters: [Type]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><fullname>Amazon Data Firehose</fullname><note><p>Amazon Data Firehose was previously known as Amazon Kinesis Data Firehose.</p></note><p>Amazon Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.</p></p>
+                        <p><fullname>Amazon Data Firehose</fullname><note><p>Amazon Data Firehose was previously known as Amazon Kinesis Data Firehose.</p></note><p>Amazon Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supported destinations.</p></p>
 
                         <a href="Classes/AWSFirehose.html" class="slightly-smaller">See more</a>
                       </div>
@@ -6003,7 +6041,7 @@ Required parameters: [Type]</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-06-05)</p>
+          <p>&copy; 2024 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2024-07-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
